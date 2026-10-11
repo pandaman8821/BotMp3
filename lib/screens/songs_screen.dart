@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../core/formatters.dart';
+import '../core/text_utils.dart';
 import '../models/song.dart';
 import '../providers/library_provider.dart';
 import '../providers/player_provider.dart';
@@ -25,23 +26,56 @@ class _SongsScreenState extends State<SongsScreen> {
   bool _selectionMode = false;
   final Set<String> _selected = <String>{};
 
+  /// Opción del menú de orden, marcada si está activa.
+  PopupMenuItem<_SortMode> _ordenItem(String texto, _SortMode modo) {
+    final bool activo = _sort == modo;
+    return CheckedPopupMenuItem<_SortMode>(
+      value: modo,
+      checked: activo,
+      child: Text(
+        texto,
+        style: TextStyle(fontWeight: activo ? FontWeight.w700 : FontWeight.w400),
+      ),
+    );
+  }
+
   List<Song> _sorted(List<Song> input) {
     final List<Song> songs = List<Song>.from(input);
     switch (_sort) {
       case _SortMode.recientes:
-        songs.sort((Song a, Song b) => b.addedAt.compareTo(a.addedAt));
+        songs.sort((Song a, Song b) {
+          final int porFecha = b.addedAt.compareTo(a.addedAt);
+          return porFecha != 0 ? porFecha : compararTextos(a.title, b.title);
+        });
       case _SortMode.titulo:
-        songs.sort((Song a, Song b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()));
+        songs.sort((Song a, Song b) => compararTextos(a.title, b.title));
       case _SortMode.artista:
-        songs.sort((Song a, Song b) => a.artist.toLowerCase().compareTo(b.artist.toLowerCase()));
+        songs.sort((Song a, Song b) {
+          final int porArtista = compararTextos(a.artist, b.artist);
+          return porArtista != 0 ? porArtista : compararTextos(a.title, b.title);
+        });
       case _SortMode.album:
-        songs.sort((Song a, Song b) => a.album.toLowerCase().compareTo(b.album.toLowerCase()));
+        songs.sort((Song a, Song b) {
+          final int porAlbum = compararTextos(a.album, b.album);
+          return porAlbum != 0 ? porAlbum : compararTextos(a.title, b.title);
+        });
       case _SortMode.anio:
-        songs.sort((Song a, Song b) => b.year.compareTo(a.year));
+        songs.sort((Song a, Song b) {
+          // Los años desconocidos (0) van al final, no al principio.
+          final int ya = a.year <= 0 ? -1 : a.year;
+          final int yb = b.year <= 0 ? -1 : b.year;
+          if (ya != yb) return yb.compareTo(ya);
+          return compararTextos(a.title, b.title);
+        });
       case _SortMode.duracion:
         songs.sort((Song a, Song b) => b.durationMs.compareTo(a.durationMs));
       case _SortMode.reproducciones:
-        songs.sort((Song a, Song b) => b.playCount.compareTo(a.playCount));
+        songs.sort((Song a, Song b) {
+          final int porReproducciones = b.playCount.compareTo(a.playCount);
+          return porReproducciones != 0
+              ? porReproducciones
+              : compararTextos(a.title, b.title);
+        });
     }
     return songs;
   }
@@ -113,13 +147,13 @@ class _SongsScreenState extends State<SongsScreen> {
                   icon: const Icon(Icons.sort),
                   onSelected: (_SortMode value) => setState(() => _sort = value),
                   itemBuilder: (BuildContext context) => <PopupMenuEntry<_SortMode>>[
-                    const PopupMenuItem<_SortMode>(value: _SortMode.recientes, child: Text('Añadidas recientemente')),
-                    const PopupMenuItem<_SortMode>(value: _SortMode.titulo, child: Text('Título (A-Z)')),
-                    const PopupMenuItem<_SortMode>(value: _SortMode.artista, child: Text('Artista (A-Z)')),
-                    const PopupMenuItem<_SortMode>(value: _SortMode.album, child: Text('Álbum (A-Z)')),
-                    const PopupMenuItem<_SortMode>(value: _SortMode.anio, child: Text('Año (nuevo primero)')),
-                    const PopupMenuItem<_SortMode>(value: _SortMode.duracion, child: Text('Duración')),
-                    const PopupMenuItem<_SortMode>(value: _SortMode.reproducciones, child: Text('Más escuchadas')),
+                    _ordenItem('Añadidas recientemente', _SortMode.recientes),
+                    _ordenItem('Título (A-Z)', _SortMode.titulo),
+                    _ordenItem('Artista (A-Z)', _SortMode.artista),
+                    _ordenItem('Álbum (A-Z)', _SortMode.album),
+                    _ordenItem('Año (nuevo primero)', _SortMode.anio),
+                    _ordenItem('Duración (larga primero)', _SortMode.duracion),
+                    _ordenItem('Más escuchadas', _SortMode.reproducciones),
                   ],
                 ),
                 IconButton(

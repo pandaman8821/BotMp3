@@ -36,7 +36,9 @@ class MainActivity : AudioServiceActivity() {
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, channelName)
             .setMethodCallHandler { call, result ->
                 when (call.method) {
-                    "queryAudio" -> runCatching { queryAudio() }
+                    "queryAudio" -> runCatching {
+                        queryAudio(call.argument<Boolean>("includeNonMusic") ?: false)
+                    }
                         .onSuccess { result.success(it) }
                         .onFailure { result.error("query_failed", it.message, null) }
 
@@ -142,7 +144,9 @@ class MainActivity : AudioServiceActivity() {
     }
 
     /** Devuelve todas las pistas musicales que MediaStore conoce. */
-    private fun queryAudio(): List<Map<String, Any?>> {
+    private fun queryAudio(
+        incluirAudiosDeApps: Boolean = false,
+    ): List<Map<String, Any?>> {
         val tracks = mutableListOf<Map<String, Any?>>()
         val collection: Uri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
@@ -162,7 +166,15 @@ class MainActivity : AudioServiceActivity() {
             MediaStore.Audio.Media.MIME_TYPE,
             MediaStore.Audio.Media.DATA,
         )
-        val selection = "${MediaStore.Audio.Media.IS_MUSIC} != 0"
+        // Solo música por defecto. Si el usuario activa «importar audios de
+        // apps», se incluyen también las pistas que Android no marca como
+        // música (notas de voz de WhatsApp, Telegram…), pero no los sonidos
+        // cortos del sistema (menos de 15 s).
+        val selection = if (incluirAudiosDeApps) {
+            "(${MediaStore.Audio.Media.IS_MUSIC} != 0 OR ${MediaStore.Audio.Media.DURATION} >= 15000)"
+        } else {
+            "${MediaStore.Audio.Media.IS_MUSIC} != 0"
+        }
         val sortOrder = "${MediaStore.Audio.Media.ARTIST} COLLATE NOCASE ASC, " +
             "${MediaStore.Audio.Media.TITLE} COLLATE NOCASE ASC"
 

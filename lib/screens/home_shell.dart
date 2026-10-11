@@ -28,7 +28,7 @@ class HomeShell extends StatefulWidget {
 }
 
 class _HomeShellState extends State<HomeShell>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   int _index = 0;
 
   /// Animación de entrada del contenido al cambiar de pestaña.
@@ -40,6 +40,7 @@ class _HomeShellState extends State<HomeShell>
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _tabTransition.dispose();
     super.dispose();
   }
@@ -62,23 +63,45 @@ class _HomeShellState extends State<HomeShell>
   ];
 
   bool _autoImportStarted = false;
+  DateTime _ultimoEscaneo = DateTime.fromMillisecondsSinceEpoch(0);
 
   @override
   void initState() {
     super.initState();
-    // Importación automática de la música del dispositivo al abrir la app.
+    // Importación automática al abrir la app y cada vez que vuelves a ella
+    // (así aparecen las canciones nuevas sin reiniciar).
+    WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) => _runAutoImport());
   }
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _runAutoImport(silencioso: true);
+    }
+  }
+
   /// Escanea MediaStore (si está activado) y avisa de las canciones nuevas.
-  Future<void> _runAutoImport() async {
-    if (_autoImportStarted || !mounted) return;
-    _autoImportStarted = true;
+  Future<void> _runAutoImport({bool silencioso = false}) async {
+    if (!mounted) return;
     final SettingsProvider settings = context.read<SettingsProvider>();
     if (!settings.autoImport) return;
+    if (silencioso) {
+      // Margen mínimo entre escaneos automáticos (evita repetirlos si
+      // vuelves a la app varias veces seguidas).
+      if (DateTime.now().difference(_ultimoEscaneo) <
+          const Duration(seconds: 20)) {
+        return;
+      }
+    } else if (_autoImportStarted) {
+      return;
+    }
+    _autoImportStarted = true;
+    _ultimoEscaneo = DateTime.now();
     await MediaImporter.ensureAudioPermission();
     // Android 13+: sin este permiso no hay notificación ni controles.
     await MediaImporter.ensureNotificationPermission();
+    if (!mounted) return;
     final LibraryProvider library = context.read<LibraryProvider>();
     final int added = await library.autoScan();
     // Si la caché crece demasiado, se limpia sola (nunca borra audio en uso).

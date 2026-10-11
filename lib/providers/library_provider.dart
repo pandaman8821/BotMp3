@@ -8,7 +8,9 @@ import '../models/playlist.dart';
 import '../models/song.dart';
 import '../services/ai/ai_bridge.dart';
 import '../core/formatters.dart';
+import '../core/text_utils.dart';
 import '../services/library_service.dart';
+import '../services/settings_service.dart';
 import '../services/storage_service.dart';
 import '../services/media_scanner.dart';
 
@@ -227,7 +229,10 @@ class LibraryProvider extends ChangeNotifier {
     notifyListeners();
     try {
       await init();
-      final List<ScannedTrack> tracks = await MediaScanner.queryAudio();
+      final bool incluirAudios =
+          SettingsService.actual?.importMediaAudio ?? false;
+      final List<ScannedTrack> tracks =
+          await MediaScanner.queryAudio(includeNonMusic: incluirAudios);
       if (tracks.isEmpty) {
         _scanMessage = 'No se encontró música en el dispositivo';
         return 0;
@@ -291,15 +296,23 @@ class LibraryProvider extends ChangeNotifier {
   // ------------------------------------------------------------ consultas
 
   /// Resultado de aplicar la consulta y los filtros activos.
-  List<Song> get visibleSongs => _service.search(
-        _query,
-        genre: _genreFilter,
-        artist: _artistFilter,
-        yearFrom: _yearFrom,
-        yearTo: _yearTo,
-        tags: _tagFilters.toList(),
-        favoritesOnly: _favoritesOnly,
-      );
+  List<Song> get visibleSongs {
+    final List<Song> lista = _service.search(
+      _query,
+      genre: _genreFilter,
+      artist: _artistFilter,
+      yearFrom: _yearFrom,
+      yearTo: _yearTo,
+      tags: _tagFilters.toList(),
+      favoritesOnly: _favoritesOnly,
+    );
+    // Los audios de apps y las notas de voz solo se muestran si el usuario
+    // activa la opción (así también desaparecen los ya importados antes).
+    if (SettingsService.actual?.importMediaAudio ?? false) return lista;
+    return lista
+        .where((Song song) => !pareceAudioDeApp(song))
+        .toList(growable: false);
+  }
 
   List<Song> songsOf(Playlist playlist) => _service.songsOf(playlist);
 

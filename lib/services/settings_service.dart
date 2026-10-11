@@ -12,6 +12,10 @@ class SettingsService {
 
   static SettingsService? _instance;
 
+  /// Instancia ya creada (consulta síncrona). La usan servicios que no
+  /// pueden esperar a `instance()`.
+  static SettingsService? get actual => _instance;
+
   static Future<SettingsService> instance() async {
     final SettingsService? cached = _instance;
     if (cached != null) return cached;
@@ -64,6 +68,14 @@ class SettingsService {
 
   Future<void> setAutoImport(bool value) async {
     await _prefs.setBool('auto_import', value);
+  }
+
+  /// Importar también audios de apps (WhatsApp, Telegram…) y notas de voz.
+  /// Desactivado (por defecto) solo se importa música.
+  bool get importMediaAudio => _prefs.getBool('import_media_audio') ?? false;
+
+  Future<void> setImportMediaAudio(bool value) async {
+    await _prefs.setBool('import_media_audio', value);
   }
 
   ThemeMode get themeMode {

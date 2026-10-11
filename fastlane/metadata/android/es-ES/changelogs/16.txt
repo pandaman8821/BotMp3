@@ -1,0 +1,7 @@
+1.5.0
+• El orden alfabético ya no falla con acentos («Ámbar» va donde debe) y las canciones sin artista o álbum no encabezan la lista.
+• Las canciones nuevas aparecen al volver a la app, sin necesidad de reiniciarla.
+• Nuevo ajuste en Ajustes: incluir o no los audios de apps (WhatsApp, Telegram…) y las notas de voz.
+
+1.4.4
+• El ranking ya no cuenta reproducciones falsas (aleatorio) y se puede reiniciar.

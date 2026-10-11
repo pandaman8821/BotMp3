@@ -98,9 +98,14 @@ class MediaScanner {
 
   /// Devuelve todas las pistas musicales del dispositivo.
   /// Nunca lanza: si el canal no está disponible devuelve una lista vacía.
-  static Future<List<ScannedTrack>> queryAudio() async {
+  static Future<List<ScannedTrack>> queryAudio({bool includeNonMusic = false}) async {
     try {
-      final List<dynamic>? raw = await _channel.invokeMethod<List<dynamic>>('queryAudio');
+      // `includeNonMusic` decide si se incluyen los audios que Android no
+      // marca como música (notas de voz de WhatsApp, Telegram…).
+      final List<dynamic>? raw = await _channel.invokeMethod<List<dynamic>>(
+        'queryAudio',
+        <String, dynamic>{'includeNonMusic': includeNonMusic},
+      );
       if (raw == null) return <ScannedTrack>[];
       final List<ScannedTrack> tracks = <ScannedTrack>[];
       for (final dynamic item in raw) {

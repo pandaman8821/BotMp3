@@ -1,0 +1,7 @@
+1.5.0
+• Alphabetical sorting now ignores accents and songs without artist/album no longer head the list.
+• New songs appear when you return to the app, no restart needed.
+• New setting: include or exclude audio from messaging apps (WhatsApp, Telegram…) and voice notes.
+
+1.4.4
+• The ranking no longer counts fake plays (shuffle) and can be reset.

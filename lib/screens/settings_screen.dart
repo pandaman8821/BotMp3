@@ -311,6 +311,31 @@ class SettingsScreen extends StatelessWidget {
               'Escanea la música del dispositivo al abrir la app y añade lo nuevo.',
             ),
           ),
+          SwitchListTile(
+            value: settings.importMediaAudio,
+            onChanged: (bool value) async {
+              await settings.setImportMediaAudio(value);
+              if (!context.mounted) return;
+              // Se vuelve a escanear para importar (o dejar de mostrar)
+              // estos audios sin reiniciar la app.
+              await library.autoScan(force: true);
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    value
+                        ? 'Se incluirán los audios de apps y notas de voz'
+                        : 'Solo se mostrará música',
+                  ),
+                ),
+              );
+            },
+            title: const Text('Importar audios de apps y notas de voz'),
+            subtitle: const Text(
+              'Incluye los audios de WhatsApp, Telegram… y las grabaciones de '
+              'voz. Desactivado (recomendado) solo se importa música.',
+            ),
+          ),
           ListTile(
             leading: library.isScanning
                 ? const SizedBox(

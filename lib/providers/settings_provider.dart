@@ -17,6 +17,14 @@ class SettingsProvider extends ChangeNotifier {
 
   ThemeMode get themeMode => _service.themeMode;
   bool get autoImport => _service.autoImport;
+
+  /// Incluir audios de apps de mensajería y notas de voz.
+  bool get importMediaAudio => _service.importMediaAudio;
+
+  Future<void> setImportMediaAudio(bool value) async {
+    await _service.setImportMediaAudio(value);
+    notifyListeners();
+  }
   bool get glassEnabled => _service.glassEnabled;
   String get trendsCountry => _service.trendsCountry;
   bool get trendsNotify => _service.trendsNotify;

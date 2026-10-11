@@ -15,7 +15,7 @@ Versión **1.1.0**, tema oscuro estilo Spotify, modo offline total y optimizada 
 
 | Elemento | Estado |
 |---|---|
-| **APK firmada lista para instalar** | ✅ **`BotMp3-1.4.4-release.apk` · 28,9 MB · arm64-v8a** |
+| **APK firmada lista para instalar** | ✅ **`BotMp3-1.5.0-release.apk` · 28,9 MB · arm64-v8a** |
 | Código completo del proyecto Flutter | ✅ 40 archivos `.dart` · ~8.500 líneas |
 | `pubspec.yaml` con dependencias reales de pub.dev | ✅ 141 dependencias resueltas |
 | Configuración Android (manifest, Gradle, permisos, firma) | ✅ verificada en el build real |
@@ -46,6 +46,30 @@ Contenido: classes.dex + lib/arm64-v8a/{libapp.so, libflutter.so}
 
 > Los **puntos de extensión** para volver a activar etiquetas ID3 y dictado están marcados en
 > `lib/services/metadata_service.dart` y `lib/services/voice_service.dart`.
+
+---
+
+## 🧭 Novedades de la versión 1.5.0 — orden, importación en vivo y audios de apps
+
+Tres cosas que fallaban en el uso real:
+
+### 1. El orden alfabético «no funcionaba del todo»
+`String.compareTo` comparaba por código de carácter, así que **«Ámbar» iba después de la «Z»** y
+las canciones **sin artista o sin álbum encabezaban la lista** (cadena vacía ordena primero).
+Ahora se compara con `claveAlfabetica()` (sin acentos, en minúsculas), los valores vacíos van
+**al final**, hay orden secundario por título y el menú marca con ✓ la opción activa.
+
+### 2. La importación automática solo corría al abrir la app
+Había que **reiniciar** para ver la música nueva. `_HomeShellState` es ahora
+`WidgetsBindingObserver`: al volver a la app (`resumed`) se reescanea MediaStore (con un margen
+mínimo de 20 s entre escaneos para no repetirlos) y las canciones nuevas aparecen solas.
+
+### 3. Nuevo ajuste: audios de apps y notas de voz
+**Ajustes ▸ Importar audios de apps y notas de voz** (desactivado por defecto).
+- Desactivado: solo se importa música (`IS_MUSIC != 0`) y además se **ocultan** los audios de
+  WhatsApp, Telegram, Instagram, grabadoras… ya presentes en la biblioteca.
+- Activado: se incluyen también esos audios (y las pistas de más de 15 s que Android no marca
+  como música), y se vuelve a escanear al momento para verlos sin reiniciar.
 
 ---
 
