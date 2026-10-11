@@ -1,5 +1,17 @@
 # 🚀 Publicar BotMp3 — lo que ya está hecho y lo que falta
 
+## ⚡ Opción rápida: un solo doble clic
+
+Si usas **GitLab** y no quieres teclear comandos:
+
+1. Crea un **token** en GitLab: *tu avatar ▸ Edit profile ▸ Access tokens ▸ Add new token*, con el permiso **`api`** y caducidad corta (1 día).
+2. Haz **doble clic en `publicar.cmd`** (está en esta carpeta).
+3. Pega el token cuando lo pida (no se ve mientras escribes).
+
+El script lo hace todo: **crea el repositorio**, **sube el código y la etiqueta**, elimina el token del remoto (no se guarda), **copia el texto de la petición al portapapeles** y **abre la página de F-Droid**. Solo tienes que pegar (Ctrl+V) y pulsar *Enviar*. Después, **revoca el token**.
+
+> También se puede ejecutar con parámetros: `.\publicar.ps1 -Usuario pandamanlab -Proyecto BotMp3`
+
 ## ✅ Hecho por mí (no tienes que tocar nada)
 
 | Elemento | Estado |
