@@ -76,7 +76,17 @@ try {
     $existe = $true
     Ok "El repositorio ya existe; se subirá el codigo en él."
 } catch {
-    Info "No existe todavía: se crea ahora."
+    $codigo = 0
+    try { $codigo = [int]$_.Exception.Response.StatusCode } catch { $codigo = 0 }
+    if ($codigo -eq 403) {
+        # El token no tiene permiso 'api' (por ejemplo, un token de proyecto con
+        # solo 'write_repository'). Se asume que el repositorio ya existe.
+        $existe = $true
+        Aviso "El token no puede consultar la API: se asume que el repositorio ya existe."
+        Aviso "Si no existiera, créalo vacío en https://gitlab.com/projects/new y repite."
+    } else {
+        Info "No existe todavía: se crea ahora."
+    }
 }
 
 if (-not $existe) {
