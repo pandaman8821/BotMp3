@@ -1,0 +1,29 @@
+1.4.3
+• «Acerca de» muestra la versión real del APK instalado y sus novedades.
+
+1.4.2
+• Controles de la pantalla de bloqueo corregidos (servicio en primer plano y un
+  único reproductor).
+• Nueva pantalla de Diagnóstico de reproducción.
+
+1.4.0
+• Ranking de lo más escuchado (canciones, artistas, álbumes y géneros, por periodo).
+• Tendencias de internet con aviso diario y fuente pública sin clave.
+
+1.3.5
+• Siguiente y anterior funcionan en la pantalla de bloqueo.
+• Modelos de IA al día (deepseek-flash / deepseek-v4-pro).
+
+1.3.0
+• Efecto cristal (Liquid Glass) en barras y paneles, con tinte tomado de la carátula.
+
+1.2.0
+• Importación automática de la música del dispositivo con carátulas de álbum.
+• «Liberar espacio»: recupera el espacio duplicado por las importaciones antiguas.
+
+1.1.0
+• Edición simplificada: autocompletar con IA y carátula del álbum en un toque.
+• La IA ejecuta órdenes escritas (reproducir, crear listas, editar metadatos…).
+
+1.0.0
+• Primera versión: reproductor, listas, editor de carátulas e IA multimodelo.

@@ -1,0 +1,32 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+
+# Android
+android/.gradle/
+android/local.properties
+android/key.properties
+android/app/botmp3-release.jks
+*.jks
+*.keystore
+.cxx/
+
+# iOS / macOS
+ios/Pods/
+ios/.symlinks/
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Temporales
+_wrapper_tmp/
+**/build/

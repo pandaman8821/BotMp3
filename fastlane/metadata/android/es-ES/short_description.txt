@@ -1,0 +1,1 @@
+Reproductor offline con IA, listas, carátulas, ranking y tendencias.

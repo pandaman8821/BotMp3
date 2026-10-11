@@ -1,0 +1,80 @@
+BotMp3 is a local music player for Android with automatic library scanning,
+unlimited playlists, a cover-art editor, play-count charts, online trends and an
+AI DJ you can command in writing.
+
+PRIVACY FIRST
+• Works 100 % offline: your music and your data never leave the device.
+• No ads, no trackers, no accounts.
+• AI keys are stored encrypted in the Android Keystore.
+• Text is only sent to the AI when you ask for it, and it is fully optional.
+
+AUTOMATIC LIBRARY
+• On launch it finds the music on your device (MediaStore) and adds new tracks with
+  title, artist, album, year, genre and duration.
+• Album art is extracted and applied automatically.
+• Plays MP3, M4A, M4B, AAC, OGG, OGA, OPUS, FLAC, WAV, AIF and AIFF.
+• Global search by text, genre, artist, year and tags, with filters and favourites.
+• Unlimited playlists with JSON export/import for backups.
+• "Free up space": clears the cache and replaces copies with the original files.
+
+SIMPLE EDITING
+• Full metadata: title, artist, album, year, genre and tags.
+• AI auto-fill: fixes typos and completes missing data.
+• Original album art with a single tap.
+• Cover editor: brightness, contrast, saturation, rotation, crop, filters, text or
+  logo, and export.
+• Full-screen cover art during playback.
+
+MUSIC AI THAT RUNS COMMANDS (optional, bring your own key)
+Works with OpenAI, DeepSeek, Google Gemini and Anthropic Claude.
+• Runs what you type: "play cumbia", "play the Fiesta playlist",
+  "create a 20-song workout playlist", "add this song to Fiesta",
+  "change the genre to Rock", "set volume to 80 %", "speed 1.5x"…
+• Explained recommendations based on your library and your mood.
+• Automatic playlists, natural-language search and AI DJ mode.
+• Song and lyric idea generation.
+• Many commands work offline and without a key thanks to the local interpreter.
+• Always up-to-date models: pick a recommended one or type any new model id.
+
+PERSONAL CHARTS
+• Built-in play history with per-period rankings (all time, last month, last week).
+• Four charts: songs, artists, albums and genres, with podium medals and a button
+  to play the top 10.
+
+ONLINE TRENDS
+• The most played songs right now in ten countries, from a public source that
+  needs no key and no account.
+• If a trending song is already in your library it is flagged and plays on tap;
+  otherwise it opens a web search.
+• Configurable daily notification (you choose the hour) with the top 3, plus an
+  instant notification button and a copy-list action.
+
+PLAYBACK
+• Notification with cover art and controls: pause, next and previous also on the
+  lock screen, headset buttons, watch and Android Auto.
+• Shuffle, repeat, 0.5x–2x speed, volume and keep-screen-on.
+• Resumes where you left off and plays nicely with system audio.
+
+LOOK
+• "Liquid Glass" effect on bars and panels, with real backdrop blur that picks up
+  the colours of the album art currently playing.
+• Adjustable glass intensity, automatically disabled in battery-saver mode.
+• Modern dark theme and light theme.
+
+SETTINGS & DIAGNOSTICS
+• Permissions, notifications and background behaviour, plus a diagnostics screen
+  that checks why lock-screen controls may not respond.
+
+REQUIREMENTS
+• Android 7.0 or newer (arm64-v8a).
+• Tuned for POCO X7 Pro (1220×2712, 120 Hz): light animations, low battery usage.
+
+OPEN SOURCE
+• GPL-3.0-or-later. Source code, issues and build instructions are in the project
+  repository.
+
+ANTI-FEATURES
+• NonFreeNet: the AI features are optional and connect to non-free services
+  (OpenAI, DeepSeek, Google Gemini, Anthropic Claude) using the user's own key.
+  The trends list uses a free public service with no key. The app is fully
+  functional without enabling any of these connections.

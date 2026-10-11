@@ -1,0 +1,83 @@
+BotMp3 es un reproductor de música local para Android con biblioteca automática,
+listas ilimitadas, editor de carátulas, ranking de lo que más escuchas, tendencias
+de internet y un DJ con inteligencia artificial al que le puedes pedir las cosas
+por escrito.
+
+PRIVACIDAD PRIMERO
+• Funciona 100 % sin conexión: tu música y tus datos no salen del dispositivo.
+• Sin anuncios, sin rastreadores y sin cuentas.
+• Las claves de IA se guardan cifradas en el almacén de claves de Android.
+• Solo se envía texto a la IA cuando tú lo pides, y es totalmente opcional.
+
+BIBLIOTECA AUTOMÁTICA
+• Al abrir la app detecta la música del dispositivo (MediaStore) y añade lo nuevo
+  con título, artista, álbum, año, género y duración.
+• Extrae y aplica sola las carátulas de los álbumes.
+• Reproduce MP3, M4A, M4B, AAC, OGG, OGA, OPUS, FLAC, WAV, AIF y AIFF.
+• Búsqueda global por texto, género, artista, año y etiquetas, con filtros y favoritos.
+• Listas ilimitadas con exportación e importación en JSON para copias de seguridad.
+• «Liberar espacio»: limpia la caché y sustituye copias por los archivos originales.
+
+EDICIÓN SENCILLA
+• Metadatos completos: título, artista, álbum, año, género y etiquetas.
+• Autocompletar con IA: corrige erratas y rellena los datos que falten.
+• Carátula original del álbum con un solo toque.
+• Editor de carátulas: brillo, contraste, saturación, rotación, recorte, filtros,
+  texto o logo, y exportación.
+• Carátula a pantalla completa durante la reproducción.
+
+IA MUSICAL QUE EJECUTA ÓRDENES (opcional, con tu propia clave)
+Compatible con OpenAI, DeepSeek, Google Gemini y Anthropic Claude.
+• Ejecuta lo que escribes: «pon cumbia», «reproduce la lista Fiesta»,
+  «crea una lista de 20 canciones para entrenar», «añade esta canción a Fiesta»,
+  «cambia el género a Rock», «sube el volumen al 80 %», «velocidad 1.5x»…
+• Recomendaciones explicadas según tu biblioteca y tu estado de ánimo.
+• Listas automáticas, búsqueda en lenguaje natural y Modo DJ IA.
+• Creación de canciones e ideas de letra.
+• Muchas órdenes funcionan sin conexión y sin clave gracias al intérprete local.
+• Modelos siempre al día: puedes elegir entre los recomendados o escribir
+  cualquier identificador de modelo nuevo.
+
+RANKING PERSONAL
+• Historial de reproducciones propio con rankings por periodo
+  (todo, último mes, última semana).
+• Cuatro clasificaciones: canciones, artistas, álbumes y géneros, con medallas
+  para el podio y botón para reproducir el top 10.
+
+TENDENCIAS DE INTERNET
+• Canciones más escuchadas del momento en diez países, con una fuente pública
+  que no necesita clave ni cuenta.
+• Si una canción en tendencia ya está en tu biblioteca, se marca y se reproduce
+  al tocarla; si no, abre la búsqueda en internet.
+• Aviso diario configurable (hora a elegir) con el resumen del top 3, además de
+  notificación instantánea y opción de copiar la lista.
+
+REPRODUCCIÓN
+• Notificación con carátula y controles: pausa, siguiente y anterior también en
+  la pantalla de bloqueo, auriculares, reloj y Android Auto.
+• Aleatorio, repetición, velocidad de 0.5x a 2x, volumen y pantalla siempre activa.
+• Reanuda donde lo dejaste y se integra bien con el audio del sistema.
+
+ASPECTO
+• Efecto cristal («Liquid Glass») en barras y paneles, con desenfoque real del
+  fondo que toma los colores de la carátula que suena.
+• Intensidad del cristal ajustable y se desactiva solo con el ahorro de batería.
+• Tema oscuro moderno y tema claro.
+
+AJUSTES Y DIAGNÓSTICO
+• Permisos, avisos y comportamiento en segundo plano, con una pantalla de
+  diagnóstico que comprueba por qué no responden los controles del bloqueo.
+
+REQUISITOS
+• Android 7.0 o superior (arm64-v8a).
+• Optimizada para POCO X7 Pro (1220×2712, 120 Hz): animaciones ligeras y bajo consumo.
+
+CÓDIGO ABIERTO
+• Licencia GPL-3.0-or-later. El código fuente, las incidencias y las instrucciones
+  de compilación están en el repositorio del proyecto.
+
+ANTIFUNCIONES
+• NonFreeNet: las funciones de IA son opcionales y se conectan a servicios no libres
+  (OpenAI, DeepSeek, Google Gemini, Anthropic Claude) usando la clave del usuario.
+  La lista de tendencias usa un servicio público gratuito sin clave. La aplicación
+  es totalmente funcional sin activar ninguna de estas conexiones.

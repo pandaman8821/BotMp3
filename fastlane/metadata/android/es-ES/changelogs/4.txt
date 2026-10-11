@@ -1,0 +1,16 @@
+1.2.1
+• Nuevo icono de la aplicación (auriculares y robot con nota musical) en todas las
+  densidades, incluido el icono adaptativo y el monocromo para los temas de Android 13.
+• Ajustes ▸ Liberar espacio: recupera el espacio duplicado por las importaciones
+  antiguas, reapuntando cada canción a su archivo original del dispositivo.
+• Las importaciones ya no se guardan en la caché y esta se limpia sola si crece.
+• Las carátulas se reemplazan en lugar de acumularse.
+• El escaneo automático ya no duplica canciones que ya están en la biblioteca.
+
+1.1.0
+• Importación automática de la música del dispositivo con carátulas de álbum.
+• Edición simplificada: autocompletar con IA y carátula del álbum en un toque.
+• La IA ejecuta órdenes escritas (reproducir, crear listas, editar metadatos…).
+
+1.0.0
+• Primera versión: reproductor, listas, editor de carátulas e IA multimodelo.

@@ -1,0 +1,16 @@
+1.2.1
+• New app icon (headphones and robot with a music note) in every density, including
+  the adaptive icon and the monochrome layer for Android 13 themed icons.
+• Settings ▸ Free up space: recovers space duplicated by old imports by re-pointing
+  each song to its original file on the device.
+• Imports no longer live in the cache, and the cache cleans itself when it grows.
+• Cover art files are replaced instead of piling up.
+• Automatic scanning no longer duplicates songs already in the library.
+
+1.1.0
+• Automatic import of device music with album art.
+• Simpler editing: AI auto-fill and one-tap album art.
+• The AI runs written commands (play, create playlists, edit metadata…).
+
+1.0.0
+• First release: player, playlists, cover editor and multi-model AI.

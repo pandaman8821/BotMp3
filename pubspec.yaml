@@ -1,0 +1,73 @@
+name: botmp3
+description: "BotMp3: reproductor de música con biblioteca, listas, editor de carátulas y agente IA multimodelo (OpenAI, DeepSeek, Gemini, Claude)."
+publish_to: 'none'
+
+# Versión 1.0 lista para probar (versionName 1.0.0 / versionCode 1)
+version: 1.4.3+14
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+  flutter: ">=3.24.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # ---------------- Estado ----------------
+  provider: ">=6.1.2 <7.0.0"
+
+  # ---------------- Motor de audio ----------------
+  just_audio: ">=0.9.36 <0.11.0"
+  # Notificaciones de reproducción + controles en pantalla de bloqueo
+  just_audio_background: ">=0.0.1-beta.13 <0.0.1-beta.18"
+  audio_session: ">=0.1.18 <0.3.0"
+
+  # ---------------- Archivos y persistencia ----------------
+  file_picker: ">=8.1.2 <11.0.0"
+  path_provider: ">=2.1.4 <3.0.0"
+  shared_preferences: ">=2.3.2 <3.0.0"
+  # API keys cifradas (Keystore en Android / Keychain en iOS)
+  flutter_secure_storage: ">=9.2.2 <11.0.0"
+
+  # ---------------- Metadatos y carátulas ----------------
+  # Los metadatos (título, artista, álbum, año, género, duración y tags) se
+  # guardan en la biblioteca JSON propia de BotMp3 (sin dependencias nativas).
+  # Para leer/escribir etiquetas ID3/MP4/FLAC dentro del archivo, añade
+  # `audiotags: ^1.4.5` y activa los puntos de extensión en
+  # lib/services/metadata_service.dart (requiere NDK y Rust).
+  image: ">=4.2.0 <5.0.0"          # edición de carátulas 100% Dart
+  image_picker: ">=1.1.2 <2.0.0"   # elegir imagen de carátula desde la galería
+
+  # ---------------- IA multimodelo ----------------
+  http: ">=1.2.2 <2.0.0"
+  url_launcher: ">=6.2.6 <7.0.0"    # abrir búsquedas de canciones sugeridas
+
+  # ---------------- Integración con el sistema ----------------
+  permission_handler: ">=11.3.1 <13.0.0"
+  wakelock_plus: ">=1.2.8 <2.0.0"   # pantalla siempre visible
+  # Respuestas habladas en español (TTS nativo, sin NDK).
+  flutter_tts: ">=4.0.2 <6.0.0"
+  # DICTADO (speech_to_text) queda desactivado en esta versión porque su
+  # dependencia `jni` compila código nativo y exige el NDK (~1 GB) + CMake.
+  # Para activarlo: añade `speech_to_text: ^7.5.0`, instala el NDK con
+  # `sdkmanager "ndk;27.0.12077973" "cmake;3.22.1"` y restaura el bloque
+  # marcado como PUNTO DE EXTENSIÓN en lib/services/voice_service.dart.
+  intl: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ">=4.0.0 <7.0.0"
+
+# path_provider_android 2.3+ implementa el plugin con JNI, lo que obliga a
+# compilar código nativo y por tanto a instalar el NDK (~1 GB) + CMake.
+# La rama 2.2.x usa MethodChannel, funciona igual y no necesita NDK.
+dependency_overrides:
+  path_provider_android: ">=2.2.0 <2.3.0"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/

@@ -1,0 +1,79 @@
+// build.gradle del mÃ³dulo Android de BotMp3 (estilo moderno con plugins DSL).
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader -> localProperties.load(reader) }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode') ?: '1'
+def flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0.0'
+
+android {
+    namespace = "com.botmp3.app"
+    // Se usan las versiones del SDK ya instaladas en el equipo (platform 36 y
+    // build-tools 36) para no descargar paquetes adicionales.
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    defaultConfig {
+        applicationId = "com.botmp3.app"
+        // Android 13+ (API 33) es el objetivo recomendado; se admite desde API 24.
+        minSdk = 24
+        targetSdk = 36
+        versionCode = flutterVersionCode.toInteger()
+        versionName = flutterVersionName
+        // POCO X7 Pro = arm64; se aÃ±aden 32 bits y x86_64 para emulador/otros equipos.
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64'
+        }
+    }
+
+    signingConfigs {
+        // Firma de ejemplo para poder instalar la APK de release directamente.
+        // Genera la tuya con: keytool -genkeypair -v -keystore app/botmp3-release.jks ...
+        release {
+            storeFile = file("botmp3-release.jks")
+            storePassword = "botmp3"
+            keyAlias = "botmp3"
+            keyPassword = "botmp3"
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix = ".debug"
+            signingConfig = signingConfigs.debug
+        }
+        release {
+            signingConfig = file("botmp3-release.jks").exists()
+                ? signingConfigs.release
+                : signingConfigs.debug
+            minifyEnabled = false
+            shrinkResources = false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.13.1'
+}

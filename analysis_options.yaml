@@ -1,0 +1,21 @@
+# Reglas de análisis de BotMp3
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    # El proyecto guarda datos heterogéneos en JSON: permitimos casts dinámicos
+    # explícitos pero seguimos vigilando errores reales.
+    avoid_print: warning
+  exclude:
+    - "**/*.g.dart"
+    - build/**
+    - android/**
+
+linter:
+  rules:
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    avoid_unnecessary_containers: true
+    sized_box_for_whitespace: true
+    use_key_in_widget_constructors: true
+    require_trailing_commas: false
