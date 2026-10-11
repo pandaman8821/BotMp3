@@ -245,6 +245,17 @@ class LibraryService {
     return conteo;
   }
 
+  /// Borra el historial y reinicia los contadores de reproducciones.
+  Future<void> resetPlayStats() async {
+    for (int i = 0; i < _songs.length; i++) {
+      _songs[i] = _songs[i].copyWith(playCount: 0, lastPlayedAt: null);
+    }
+    _playLog.clear();
+    _historialCargado = true;
+    await _persist();
+    await _persistirHistorial();
+  }
+
   /// Canciones ordenadas por número de reproducciones.
   List<Song> topCanciones({DateTime? from, int limit = 100}) {
     final Map<String, int> conteo = playsSince(from);

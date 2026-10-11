@@ -25,6 +25,8 @@ class PlayerService {
 
     _player.playerStateStream.listen((PlayerState state) {
       _syncWakelock(state.playing);
+      // Se cuenta la reproducción cuando el audio suena de verdad.
+      if (state.playing) _registrarInicioDeReproduccion();
     });
 
     // La sesión multimedia (bloqueo, auriculares, reloj…) puede cambiar de
@@ -52,6 +54,29 @@ class PlayerService {
 
   /// Últimos errores de reproducción (se muestran en el diagnóstico).
   final List<String> ultimosErrores = <String>[];
+
+  /// Última canción cuya reproducción ya se contó para el ranking
+  /// (evita duplicados al preparar colas o al cambiar de pista).
+  String? _ultimaReproduccionRegistrada;
+
+  /// Cuenta una reproducción **solo si el audio está sonando**, una vez por
+  /// canción. Así, cargar una cola o pulsar «aleatorio» sin arrancar no
+  /// infla el ranking.
+  void _registrarInicioDeReproduccion() {
+    if (!_player.playing) return;
+    final int indice = _player.currentIndex ?? _currentIndex;
+    if (indice < 0 || indice >= _queue.length) return;
+    final Song cancion = _queue[indice];
+    if (_ultimaReproduccionRegistrada == cancion.id) return;
+    _ultimaReproduccionRegistrada = cancion.id;
+    if (_currentIndex != indice) {
+      _currentIndex = indice;
+      _playOrderIndex = _playOrder.indexOf(indice);
+      if (_playOrderIndex < 0) _playOrderIndex = 0;
+      currentSong.value = cancion;
+    }
+    onSongStarted?.call(cancion);
+  }
 
   void _registrarError(String mensaje) {
     ultimosErrores.insert(0, mensaje);
@@ -377,8 +402,8 @@ class PlayerService {
         initialPosition: Duration.zero,
       );
       await _applyPlayerSettings();
+      // No se cuenta aquí: lo hará el estado del reproductor cuando suene.
       if (autoPlay) unawaited(_player.play());
-      onSongStarted?.call(_queue[start]);
     } catch (error) {
       debugPrint('No se pudo cargar la cola: $error');
       _registrarError('Cola: $error');
@@ -405,7 +430,7 @@ class PlayerService {
     _playOrderIndex = _playOrder.indexOf(sequenceIndex);
     if (_playOrderIndex < 0) _playOrderIndex = 0;
     currentSong.value = _queue[sequenceIndex];
-    onSongStarted?.call(_queue[sequenceIndex]);
+    _registrarInicioDeReproduccion();
   }
 
   Future<void> _loadIndex(int queueIndex, {bool autoPlay = true}) async {
@@ -421,8 +446,13 @@ class PlayerService {
       if (_player.audioSource is ConcatenatingAudioSource &&
           _player.sequence.length == _queue.length) {
         await _player.seek(Duration.zero, index: queueIndex);
-        if (autoPlay && !_player.playing) unawaited(_player.play());
-        onSongStarted?.call(song);
+        if (autoPlay && !_player.playing) {
+          unawaited(_player.play());
+        } else {
+          // Si ya estaba sonando, el cambio de pista no emite un nuevo
+          // «reproduciendo»: se cuenta aquí, una vez por canción.
+          _registrarInicioDeReproduccion();
+        }
         return;
       }
       await _loadQueueIntoPlayer(queueIndex, autoPlay: autoPlay);

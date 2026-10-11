@@ -410,6 +410,12 @@ class LibraryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Reinicia el ranking (contadores e historial).
+  Future<void> resetPlayStats() async {
+    await _service.resetPlayStats();
+    notifyListeners();
+  }
+
   Future<void> registerPlay(String id) async {
     await _service.registerPlay(id);
     notifyListeners();

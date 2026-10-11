@@ -60,6 +60,39 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
       appBar: AppBar(
         title: const Text('Ranking'),
         actions: <Widget>[
+          IconButton(
+            tooltip: 'Reiniciar estadísticas',
+            icon: const Icon(Icons.restart_alt),
+            onPressed: () async {
+              final bool? confirmar = await showDialog<bool>(
+                context: context,
+                builder: (BuildContext dialogContext) => AlertDialog(
+                  title: const Text('Reiniciar el ranking'),
+                  content: const Text(
+                    'Se pondrán a cero las reproducciones de todas las canciones '
+                    'y el historial. Útil si el contador se infló en versiones '
+                    'anteriores.\n\nEsta acción no se puede deshacer.',
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.of(dialogContext).pop(false),
+                      child: const Text('Cancelar'),
+                    ),
+                    FilledButton(
+                      onPressed: () => Navigator.of(dialogContext).pop(true),
+                      child: const Text('Reiniciar'),
+                    ),
+                  ],
+                ),
+              );
+              if (confirmar != true || !context.mounted) return;
+              await context.read<LibraryProvider>().resetPlayStats();
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Ranking reiniciado')),
+              );
+            },
+          ),
           if (canciones.isNotEmpty)
             IconButton(
               tooltip: 'Reproducir el top 10',

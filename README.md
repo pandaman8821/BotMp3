@@ -15,7 +15,7 @@ Versión **1.1.0**, tema oscuro estilo Spotify, modo offline total y optimizada 
 
 | Elemento | Estado |
 |---|---|
-| **APK firmada lista para instalar** | ✅ **`BotMp3-1.4.3-release.apk` · 28,9 MB · arm64-v8a** |
+| **APK firmada lista para instalar** | ✅ **`BotMp3-1.4.4-release.apk` · 28,9 MB · arm64-v8a** |
 | Código completo del proyecto Flutter | ✅ 40 archivos `.dart` · ~8.500 líneas |
 | `pubspec.yaml` con dependencias reales de pub.dev | ✅ 141 dependencias resueltas |
 | Configuración Android (manifest, Gradle, permisos, firma) | ✅ verificada en el build real |
@@ -28,7 +28,7 @@ Versión **1.1.0**, tema oscuro estilo Spotify, modo offline total y optimizada 
 ```
 Flutter 3.47.7 (stable) · Dart 3.13.5 · Gradle 8.14.3 · AGP 8.11.1 · Kotlin 2.2.20
 compileSdk 36 · minSdk 24 · targetSdk 36 · NDK 27.0.12077973
-package: com.botmp3.app · versionName 1.4.3 · versionCode 14 · label: BotMp3
+package: com.botmp3.app · versionName 1.4.4 · versionCode 15 · label: BotMp3
 Firmante: CN=BotMp3, O=BotMp3, C=BO
 SHA-256: edc834ce6219b4fe991650cb6e65122285447add545fed57f13d72daf99d62c6
 Contenido: classes.dex + lib/arm64-v8a/{libapp.so, libflutter.so}
@@ -46,6 +46,26 @@ Contenido: classes.dex + lib/arm64-v8a/{libapp.so, libflutter.so}
 
 > Los **puntos de extensión** para volver a activar etiquetas ID3 y dictado están marcados en
 > `lib/services/metadata_service.dart` y `lib/services/voice_service.dart`.
+
+---
+
+## 🐛 Novedades de la versión 1.4.4 — el ranking ya no cuenta reproducciones falsas
+
+Al pulsar **«Reproducción aleatoria de todo»** en la lista de canciones, la app preparaba la
+cola **sin arrancar la reproducción**, pero aun así sumaba una reproducción a la **primera
+canción de la cola** (y en ocasiones dos, porque también la contaba el cambio de índice de la
+sesión multimedia). Resultado: el ranking se inflaba, sobre todo arriba.
+
+**Arreglo:**
+- La reproducción se cuenta **solo cuando el audio suena de verdad**, y **una sola vez por
+  canción** (`playerStateStream` + deduplicación por id).
+- Aleatorio, preparar colas, saltos con el reproductor en pausa y rebobinar **ya no suman**.
+- Nuevo botón **⟲ en el Ranking** para **reiniciar las estadísticas** (los números ya inflados
+  no se pueden reconstruir, así que puedes empezar de cero).
+
+> Nota de mantenimiento: el bloque `ndk { abiFilters … }` de `android/app/build.gradle` sigue
+> activo (lo necesita el empaquetado normal). Si el SDK se queda sin el NDK r27c, AGP intentará
+> instalarlo y necesitará ~3 GB libres; el SDK existe en `%LOCALAPPDATA%\Android\Sdk`.
 
 ---
 

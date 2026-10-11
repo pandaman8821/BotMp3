@@ -32,9 +32,9 @@ RepoType: git
 Repo: https://gitlab.com/pandamanlab/BotMp3.git
 
 Builds:
-  - versionName: 1.4.3
-    versionCode: 14
-    commit: v1.4.3
+  - versionName: 1.4.4
+    versionCode: 15
+    commit: v1.4.4
     # Flutter se obtiene con la receta srclib "flutter" de F-Droid.
     srclibs:
       - flutter@stable
@@ -53,5 +53,5 @@ Builds:
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.3
-CurrentVersionCode: 14
+CurrentVersion: 1.4.4
+CurrentVersionCode: 15
