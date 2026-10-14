@@ -401,6 +401,28 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.auto_fix_high_outlined),
+            title: const Text('Completar géneros que falten'),
+            subtitle: const Text(
+              'Rellena el género de las canciones que no lo tengan, usando el '
+              'título y el álbum. Sin conexión y sin claves de IA.',
+            ),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () async {
+              final int cambiadas = await library.completarGeneros();
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    cambiadas == 0
+                        ? 'No había géneros que completar'
+                        : '$cambiadas canciones etiquetadas 🏷️',
+                  ),
+                ),
+              );
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.backup_outlined),
             title: const Text('Copia de seguridad'),
             subtitle: const Text(

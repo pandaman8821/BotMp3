@@ -408,6 +408,28 @@ class LibraryProvider extends ChangeNotifier {
     return added.length;
   }
 
+  /// Rellena el género de las canciones que no lo tengan usando una heurística
+  /// LOCAL (nombre del género en el título o el álbum). Sin IA, sin claves y sin
+  /// conexión: funciona siempre. Devuelve cuántas se etiquetaron.
+  Future<int> completarGeneros() async {
+    int cambiadas = 0;
+    for (final Song song in List<Song>.from(_service.songs)) {
+      if (song.genre.trim().isNotEmpty) continue;
+      final String pista = '${song.album} ${song.title}'.toLowerCase();
+      String? genero;
+      for (final String g in GenreCatalog.all) {
+        if (pista.contains(g.toLowerCase())) {
+          genero = g;
+          break;
+        }
+      }
+      if (genero == null) continue;
+      await _service.upsertSong(song.copyWith(genre: genero));
+      cambiadas++;
+    }
+    if (cambiadas > 0) notifyListeners();
+    return cambiadas;
+  }
   Future<void> saveSong(Song song) async {
     await _service.upsertSong(song);
     notifyListeners();
