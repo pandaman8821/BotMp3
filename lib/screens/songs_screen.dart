@@ -94,7 +94,13 @@ class _SongsScreenState extends State<SongsScreen> {
       appBar: AppBar(
         // Iconos mas pequenos para que el titulo BotMp3 tenga sitio.
         actionsIconTheme: const IconThemeData(size: 18),
-        title: _selectionMode ? Text('${_selected.length} seleccionadas') : const Text('BotMp3'),
+        titleSpacing: 4,
+        title: _selectionMode ? Text('${_selected.length} seleccionadas') : Text(
+              'BotMp3',
+              style: DefaultTextStyle.of(context)
+                  .style
+                  .copyWith(fontSize: 18, fontWeight: FontWeight.w700),
+            ),
         leading: _selectionMode
             ? IconButton(
                 icon: const Icon(Icons.close),

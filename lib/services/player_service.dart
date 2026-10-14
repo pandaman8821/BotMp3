@@ -120,16 +120,15 @@ class PlayerService {
       if (_ultimaReproduccionRegistrada == idContado) return;
       _ultimaReproduccionRegistrada = idContado;
       onSongStarted?.call(cancion);
-    // Refresca el widget de inicio con lo que suena.
-    unawaited(WidgetService.actualizar(cancion, suena: true));
     });
+    // Refresca el widget de inicio con lo que suena (sin esperar a los 20 s).
+    unawaited(WidgetService.actualizar(cancion, suena: true));
     if (_currentIndex != indice) {
       _currentIndex = indice;
       _playOrderIndex = _playOrder.indexOf(indice);
       if (_playOrderIndex < 0) _playOrderIndex = 0;
       currentSong.value = cancion;
     }
-    onSongStarted?.call(cancion);
     // Refresca el widget de inicio con lo que suena.
     unawaited(WidgetService.actualizar(cancion, suena: true));
   }

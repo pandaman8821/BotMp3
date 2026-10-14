@@ -580,15 +580,7 @@ class _AiScreenState extends State<AiScreen> {
             );
             if (mounted) setState(() => _lastResult = result);
           }),
-          _action('Playlist de 30', Icons.queue_music, () async {
-            final AiActionResult? result = await ai.generatePlaylist(
-              _controller.text.trim().isEmpty
-                  ? 'Rock latino 2020-2025 con artistas latinos'
-                  : _controller.text.trim(),
-              count: 30,
-            );
-            if (mounted) setState(() => _lastResult = result);
-          }),
+
           _action('Modo DJ', Icons.graphic_eq, () async {
             final Song? current = player.current ?? (library.songs.isNotEmpty ? library.songs.first : null);
             if (current == null) return;
