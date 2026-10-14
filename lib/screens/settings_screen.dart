@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../core/constants.dart';
 import '../core/formatters.dart';
 import '../core/theme.dart';
+import '../models/song.dart';
 import '../providers/ai_provider.dart';
 import '../providers/library_provider.dart';
 import '../providers/player_provider.dart';
@@ -436,6 +437,50 @@ class SettingsScreen extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.auto_awesome),
+            title: const Text('Etiquetar con IA (necesita clave)'),
+            subtitle: const Text(
+              'Usa el modelo de IA para poner género a las canciones que aún no lo '
+              'tienen. Revisa hasta 10 cada vez.',
+            ),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () async {
+              final AiAssistantProvider ai = context.read<AiAssistantProvider>();
+              final List<Song> pendientes = library.songs
+                  .where((Song s) => s.genre.trim().isEmpty)
+                  .take(10)
+                  .toList();
+              if (!context.mounted) return;
+              if (pendientes.isEmpty) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('No hay canciones sin género')),
+                );
+                return;
+              }
+              int hechas = 0;
+              for (final Song cancion in pendientes) {
+                final Map<String, String>? datos =
+                    await ai.suggestMetadata(cancion);
+                if (datos == null) continue;
+                final String genero =
+                    (datos['genero'] ?? datos['genre'] ?? '').trim();
+                if (genero.isEmpty) continue;
+                await library.saveSong(cancion.copyWith(genre: genero));
+                hechas++;
+              }
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    hechas == 0
+                        ? 'La IA no devolvió géneros (¿tienes clave configurada?)'
+                        : '$hechas canciones etiquetadas con IA ✨',
+                  ),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: const Icon(Icons.auto_fix_high_outlined),
