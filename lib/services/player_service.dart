@@ -8,6 +8,7 @@ import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../models/song.dart';
 import 'settings_service.dart';
+import 'widget_service.dart';
 
 /// Motor de reproducción: cola personalizable, orden aleatorio, repetición,
 /// notificación de reproducción y control del wakelock (pantalla encendida).
@@ -119,6 +120,8 @@ class PlayerService {
       if (_ultimaReproduccionRegistrada == idContado) return;
       _ultimaReproduccionRegistrada = idContado;
       onSongStarted?.call(cancion);
+    // Refresca el widget de inicio con lo que suena.
+    unawaited(WidgetService.actualizar(cancion, suena: true));
     });
     if (_currentIndex != indice) {
       _currentIndex = indice;
@@ -127,6 +130,8 @@ class PlayerService {
       currentSong.value = cancion;
     }
     onSongStarted?.call(cancion);
+    // Refresca el widget de inicio con lo que suena.
+    unawaited(WidgetService.actualizar(cancion, suena: true));
   }
 
   void _registrarError(String mensaje) {
