@@ -462,6 +462,25 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.queue_music),
+            title: const Text('Canciones por tanda del Modo DJ'),
+            subtitle: Text('Ahora pide ' + settings.djCanciones.toString() + ' cada vez'),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                for (final int cantidad in <int>[10, 15, 25])
+                  Padding(
+                    padding: const EdgeInsets.only(left: 6),
+                    child: ChoiceChip(
+                      label: Text(cantidad.toString()),
+                      selected: settings.djCanciones == cantidad,
+                      onSelected: (bool _) => settings.setDjCanciones(cantidad),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+          ListTile(
             leading: const Icon(Icons.volume_up_outlined),
             title: const Text('Volumen de la canción que suena'),
             subtitle: const Text(
