@@ -367,6 +367,66 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.settings_backup_restore),
+            title: const Text('Restaurar copia de seguridad'),
+            subtitle: const Text(
+              'Vuelve al estado de la última copia (biblioteca, listas, historial '
+              'y chat). Se pierde lo hecho desde entonces.',
+            ),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () async {
+              final Map<String, dynamic>? copia = await StorageService.instance
+                  .readJsonMap(StorageKeys.backupFile);
+              if (!context.mounted) return;
+              if (copia == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('No hay ninguna copia guardada')),
+                );
+                return;
+              }
+              final bool? confirmar = await showDialog<bool>(
+                context: context,
+                builder: (BuildContext dialogo) => AlertDialog(
+                  title: const Text('Restaurar la copia'),
+                  content: const Text(
+                    'Se sustituirán tu biblioteca, listas, historial y chat por los '
+                    'de la copia. No se puede deshacer.',
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.of(dialogo).pop(false),
+                      child: const Text('Cancelar'),
+                    ),
+                    FilledButton(
+                      onPressed: () => Navigator.of(dialogo).pop(true),
+                      child: const Text('Restaurar'),
+                    ),
+                  ],
+                ),
+              );
+              if (confirmar != true || !context.mounted) return;
+              final Map<String, dynamic>? biblioteca =
+                  (copia['biblioteca'] as Map?)?.cast<String, dynamic>();
+              if (biblioteca != null) {
+                await StorageService.instance
+                    .writeJson(StorageKeys.library, biblioteca);
+              }
+              final List<dynamic>? historial =
+                  (copia['historial'] as List?)?.cast<dynamic>();
+              if (historial != null) {
+                await StorageService.instance
+                    .writeJson(StorageKeys.playLogFile, historial);
+              }
+              await library.init();
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Copia restaurada. Reinicia la app si ves algo raro ✅'),
+                ),
+              );
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.file_download_outlined),
             title: const Text('Exportar copia de seguridad'),
             subtitle: const Text(
