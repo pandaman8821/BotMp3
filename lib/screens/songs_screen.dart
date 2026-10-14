@@ -12,6 +12,7 @@ import 'ranking_screen.dart';
 import '../widgets/dialogs.dart';
 import '../widgets/mini_player.dart';
 import '../widgets/song_tile.dart';
+import 'car_mode_screen.dart';
 import 'lyrics_screen.dart';
 
 /// Pantalla principal: biblioteca local con orden, selección múltiple y filtros.
@@ -158,6 +159,15 @@ class _SongsScreenState extends State<SongsScreen> {
                     _ordenItem('Duración (larga primero)', _SortMode.duracion),
                     _ordenItem('Más escuchadas', _SortMode.reproducciones),
                   ],
+                ),
+                IconButton(
+                  tooltip: 'Modo coche',
+                  icon: const Icon(Icons.directions_car_outlined),
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => const CarModeScreen(),
+                    ),
+                  ),
                 ),
                 IconButton(
                   tooltip: 'Letra de la canción',
