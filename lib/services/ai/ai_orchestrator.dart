@@ -6,6 +6,7 @@ import '../../core/constants.dart';
 import '../../core/formatters.dart';
 import '../../models/ai_models.dart';
 import '../../models/song.dart';
+import '../../services/settings_service.dart';
 import 'ai_client.dart';
 
 /// Agente musical de BotMp3.
@@ -250,7 +251,7 @@ Ordena de más a menos relevante. Máximo 25 canciones, solo de la biblioteca lo
 Actúas como DJ en vivo. Ahora suena: ${sesion.isEmpty ? '' : '(sesión: ) '}${current.artist} - ${current.title} (${current.genre}).
 Historial reciente: ${_recentContext(recentlyPlayed)}
 
-Elige las SIGUIENTES 15 canciones de ESTA biblioteca (usa títulos y artistas EXACTOS de la lista),
+Elige las SIGUIENTES ${SettingsService.actual?.djCanciones ?? 15} canciones de ESTA biblioteca (usa títulos y artistas EXACTOS de la lista),
 buscando continuidad de energía y mood. Biblioteca disponible:
 ${_catalogContext()}
 Devuelve EXACTAMENTE este JSON:
@@ -279,7 +280,7 @@ Devuelve EXACTAMENTE este JSON:
 
     // Respaldo local: si la IA no devolvió nada utilizable (sin clave,
     // sin conexión o títulos inventados), el DJ elige desde la biblioteca.
-    if (result.suggestions.length < 15) {
+    if (result.suggestions.length < (SettingsService.actual?.djCanciones ?? 15)) {
       final List<Song> cola = _colaLocal(current, recentlyPlayed);
       if (cola.isNotEmpty) {
             result = AiActionResult(
@@ -302,7 +303,7 @@ Devuelve EXACTAMENTE este JSON:
               localSongId: s.id,
               localSongTitle: s.title,
             ),
-      ].take(15).toList(),
+      ].take(SettingsService.actual?.djCanciones ?? 15).toList(),
           playlistName: 'Modo DJ',
           playlistDescription: _razonLocal(current, cola.first),
         );

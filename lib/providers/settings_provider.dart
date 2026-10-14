@@ -26,6 +26,14 @@ class SettingsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Cuántas canciones pide el Modo DJ a la vez.
+  int get djCanciones => _service.djCanciones;
+
+  Future<void> setDjCanciones(int value) async {
+    await _service.setDjCanciones(value);
+    notifyListeners();
+  }
+
   /// Sesión de escucha activa (Fiesta, Relax, Gym, Estudio, Dormir).
   String get sesion => _service.sesion;
 

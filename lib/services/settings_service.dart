@@ -109,6 +109,13 @@ class SettingsService {
       return <String, dynamic>{};
     }
   }
+  /// Cuántas canciones pide el Modo DJ a la vez (10, 15 o 25).
+  int get djCanciones => _prefs.getInt('dj_canciones') ?? 15;
+
+  Future<void> setDjCanciones(int value) async {
+    await _prefs.setInt('dj_canciones', value);
+  }
+
   /// Sesión de escucha activa (Fiesta, Relax, Gym, Estudio, Dormir).
   /// Cadena vacía = sin sesión.
   String get sesion => _prefs.getString('sesion_escucha') ?? '';
