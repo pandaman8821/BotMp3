@@ -55,6 +55,7 @@ dependencies:
   # `sdkmanager "ndk;27.0.12077973" "cmake;3.22.1"` y restaura el bloque
   # marcado como PUNTO DE EXTENSIÓN en lib/services/voice_service.dart.
   intl: any
+  home_widget: ^0.10.0
 
 dev_dependencies:
   flutter_test:
