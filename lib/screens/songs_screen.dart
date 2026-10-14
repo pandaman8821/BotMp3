@@ -92,6 +92,8 @@ class _SongsScreenState extends State<SongsScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        // Iconos mas pequenos para que el titulo BotMp3 tenga sitio.
+        actionsIconTheme: const IconThemeData(size: 18),
         title: _selectionMode ? Text('${_selected.length} seleccionadas') : const Text('BotMp3'),
         leading: _selectionMode
             ? IconButton(
