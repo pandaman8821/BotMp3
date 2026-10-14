@@ -401,6 +401,43 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.volume_up_outlined),
+            title: const Text('Volumen de la canción que suena'),
+            subtitle: const Text(
+              'Iguala las pistas más flojas o más fuertes (±6 dB). Se guarda por '
+              'canción y se aplica cada vez que suena.',
+            ),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                IconButton(
+                  tooltip: 'Bajar',
+                  icon: const Icon(Icons.remove),
+                  onPressed: () => context
+                      .read<PlayerProvider>()
+                      .service
+                      .ajustarVolumenCancion(-0.1),
+                ),
+                IconButton(
+                  tooltip: 'Subir',
+                  icon: const Icon(Icons.add),
+                  onPressed: () => context
+                      .read<PlayerProvider>()
+                      .service
+                      .ajustarVolumenCancion(0.1),
+                ),
+                IconButton(
+                  tooltip: 'Restablecer',
+                  icon: const Icon(Icons.restart_alt),
+                  onPressed: () => context
+                      .read<PlayerProvider>()
+                      .service
+                      .ajustarVolumenCancion(0, reset: true),
+                ),
+              ],
+            ),
+          ),
+          ListTile(
             leading: const Icon(Icons.auto_fix_high_outlined),
             title: const Text('Completar géneros que falten'),
             subtitle: const Text(

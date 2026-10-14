@@ -62,6 +62,24 @@ class PlayerService {
   /// Última canción cuya reproducción ya se contó para el ranking
   /// (evita duplicados al preparar colas o al cambiar de pista).
   String? _ultimaReproduccionRegistrada;
+  /// Factor de volumen propio de la canción que suena (1.0 = normal).
+  double factorVolumenActual() {
+    final Song? cancion = currentSong.value;
+    if (cancion == null) return 1.0;
+    return SettingsService.actual?.factorVolumen(cancion.id) ?? 1.0;
+  }
+
+  /// Sube o baja el volumen de la canción actual y lo aplica al momento.
+  Future<void> ajustarVolumenCancion(double delta, {bool reset = false}) async {
+    final Song? cancion = currentSong.value;
+    final SettingsService? ajustes = SettingsService.actual;
+    if (cancion == null || ajustes == null) return;
+    final double nuevo = reset
+        ? 1.0
+        : (ajustes.factorVolumen(cancion.id) + delta).clamp(0.5, 2.0);
+    await ajustes.setFactorVolumen(cancion.id, nuevo);
+    await _player.setVolume((_lastVolume * nuevo).clamp(0.0, 1.0));
+  }
 
   /// Canciones ya reproducidas en la pasada actual de aleatorio.
   final Set<String> _sonadasEnPasada = <String>{};
@@ -84,6 +102,11 @@ class PlayerService {
     if (indice < 0 || indice >= _queue.length) return;
     final Song cancion = _queue[indice];
     _sonadasEnPasada.add(cancion.id);
+    // Volumen propio de la cancion (normalizacion) al arrancar.
+    unawaited(_player.setVolume(
+      (_lastVolume * (SettingsService.actual?.factorVolumen(cancion.id) ?? 1.0))
+          .clamp(0.0, 1.0),
+    ));
     if (_ultimaReproduccionRegistrada == cancion.id) return;
     // Se cuenta a los 20 s de reproduccion real: un salto rapido no infla el
     // ranking. Si la cancion cambia antes, el temporizador se cancela.

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -78,6 +80,35 @@ class SettingsService {
     await _prefs.setBool('import_media_audio', value);
   }
 
+  /// Ajuste de volumen por canción (id -> factor 0.5..2.0): iguala las pistas
+  /// que suenan mucho más flojas o más fuertes que el resto.
+  double factorVolumen(String songId) {
+    final num? v = _mapaVolumen()[songId] as num?;
+    return v == null ? 1.0 : v.toDouble().clamp(0.5, 2.0);
+  }
+
+  Future<void> setFactorVolumen(String songId, double factor) async {
+    final Map<String, dynamic> mapa = _mapaVolumen();
+    if ((factor - 1.0).abs() < 0.01) {
+      mapa.remove(songId);
+    } else {
+      mapa[songId] = double.parse(factor.clamp(0.5, 2.0).toStringAsFixed(2));
+    }
+    await _prefs.setString('volumen_canciones', jsonEncode(mapa));
+  }
+
+  Map<String, dynamic> _mapaVolumen() {
+    try {
+      final String? raw = _prefs.getString('volumen_canciones');
+      if (raw == null || raw.isEmpty) return <String, dynamic>{};
+      final dynamic decoded = jsonDecode(raw);
+      return decoded is Map
+          ? Map<String, dynamic>.from(decoded)
+          : <String, dynamic>{};
+    } catch (_) {
+      return <String, dynamic>{};
+    }
+  }
   /// Sesión de escucha activa (Fiesta, Relax, Gym, Estudio, Dormir).
   /// Cadena vacía = sin sesión.
   String get sesion => _prefs.getString('sesion_escucha') ?? '';
