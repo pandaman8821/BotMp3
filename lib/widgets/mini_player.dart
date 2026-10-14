@@ -26,6 +26,11 @@ class MiniPlayer extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
+        // Gestos rapidos sin abrir la pantalla (utiles conduciendo o con el
+        // movil guardado): doble toque pausa o reanuda, pulsacion larga pasa a
+        // la siguiente cancion.
+        onDoubleTap: player.togglePlayPause,
+        onLongPress: player.next,
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute<void>(builder: (_) => const PlayerScreen()),
         ),
