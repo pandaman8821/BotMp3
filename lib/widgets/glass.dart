@@ -33,7 +33,11 @@ enum GlassQuality {
   /// Todo lo anterior con más profundidad y brillo de borde.
   high;
 
-  bool get usesBlur => this != GlassQuality.off;
+bool get usesBlur => this != GlassQuality.off;
+
+    /// Intensidad global (0..1) que fija Ajustes. Hace el efecto CONTINUO: el
+    /// deslizador cambia el desenfoque de verdad, no solo entre tres niveles.
+    static double intensidadGlobal = 0.75;
 
   double get blurSigma => switch (this) {
         GlassQuality.off => 0,
@@ -225,8 +229,8 @@ class GlassSurface extends StatelessWidget {
         borderRadius: radius,
         child: BackdropFilter(
           filter: ui.ImageFilter.blur(
-            sigmaX: quality.blurSigma,
-            sigmaY: quality.blurSigma,
+            sigmaX: quality.blurSigma * (0.3 + GlassQuality.intensidadGlobal),
+            sigmaY: quality.blurSigma * (0.3 + GlassQuality.intensidadGlobal),
             tileMode: TileMode.clamp,
           ),
           child: content,
@@ -329,7 +333,7 @@ GlassQuality glassQualityFor({
   required double intensity,
   bool batterySaver = false,
 }) {
-  if (!enabled || batterySaver) return GlassQuality.off;
+  if (!enabled) return GlassQuality.off; // El ahorro de bateria ya no lo apaga: mandaba el interruptor en silencio
   if (intensity < 0.4) return GlassQuality.light;
   if (intensity < 0.85) return GlassQuality.standard;
   return GlassQuality.high;

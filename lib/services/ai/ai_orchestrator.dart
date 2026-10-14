@@ -32,6 +32,11 @@ Reglas:
 - No inventes datos técnicos; si no estás seguro de un año, omítelo.
 - Nunca inventes que has escuchado audio: trabajas con metadatos.
 - Si el usuario pide una acción sobre la biblioteca, indícalo claramente.
+- Escribe como una persona: frases naturales y directas, SIN markdown. No uses
+  asteriscos, almohadillas, guiones de lista, negritas ni comillas invertidas
+  (tampoco para enumerar: usa frases seguidas o empieza la línea con «•»).
+- No vuelques datos en crudo ni fichas técnicas: cuenta lo importante como se
+  lo dirías a un amigo, con una recomendación clara y el porqué.
 ''';
 
   /// Protocolo de órdenes ejecutables que el modelo añade a su respuesta.
@@ -221,7 +226,7 @@ Interpreta la intención (mood, época, energía, idioma, actividad) y elige las
 de la biblioteca que mejor encajan. Devuelve EXACTAMENTE este JSON:
 {
   "mensaje": "explicación en lenguaje natural de lo que entendiste y por qué esas canciones",
-  "canciones": [{"titulo": "...", "artista": "...", "razon": "..."}]
+  "canciones": [ 15 elementos {"titulo": "...", "artista": "...", "razon": "..."} ]
 }
 Ordena de más a menos relevante. Máximo 25 canciones, solo de la biblioteca local.
 ''';
@@ -239,12 +244,15 @@ Ordena de más a menos relevante. Máximo 25 canciones, solo de la biblioteca lo
   Future<AiActionResult> djNext({
     required Song current,
     required List<Song> recentlyPlayed,
+      String sesion = '',
   }) async {
     final String prompt = '''
-Actúas como DJ en vivo. Ahora suena: ${current.artist} - ${current.title} (${current.genre}).
+Actúas como DJ en vivo. Ahora suena: ${sesion.isEmpty ? '' : '(sesión: ) '}${current.artist} - ${current.title} (${current.genre}).
 Historial reciente: ${_recentContext(recentlyPlayed)}
 
-Elige la SIGUIENTE canción de la biblioteca local, buscando continuidad de energía y mood.
+Elige las SIGUIENTES 15 canciones de ESTA biblioteca (usa títulos y artistas EXACTOS de la lista),
+buscando continuidad de energía y mood. Biblioteca disponible:
+${_catalogContext()}
 Devuelve EXACTAMENTE este JSON:
 {
   "mensaje": "por qué esta canción ahora (1-2 frases, estilo DJ)",
@@ -268,7 +276,94 @@ Devuelve EXACTAMENTE este JSON:
               !recentlyPlayed.any((Song recent) => recent.id == s.localSongId))
           .toList(),
     );
+
+    // Respaldo local: si la IA no devolvió nada utilizable (sin clave,
+    // sin conexión o títulos inventados), el DJ elige desde la biblioteca.
+    if (result.suggestions.length < 15) {
+      final List<Song> cola = _colaLocal(current, recentlyPlayed);
+      if (cola.isNotEmpty) {
+            result = AiActionResult(
+          text: result.text.isEmpty
+              ? 'Sigo con algo en la misma línea: ${cola.first.title}.'
+              : result.text,
+          suggestions: <AiSongSuggestion>[
+        // Primero lo que propuso la IA y después el relleno local.
+        ...result.suggestions,
+        for (final Song s in cola)
+          if (!result.suggestions.any(
+              (AiSongSuggestion ya) => ya.localSongId == s.id))
+            AiSongSuggestion(
+              title: s.title,
+              artist: s.artist,
+              album: s.album,
+              year: s.year == 0 ? null : s.year,
+              genre: s.genre,
+              reason: _razonLocal(current, s),
+              localSongId: s.id,
+              localSongTitle: s.title,
+            ),
+      ].take(15).toList(),
+          playlistName: 'Modo DJ',
+          playlistDescription: _razonLocal(current, cola.first),
+        );
+      }
+    }
     return result;
+  }
+
+  /// Cola de respaldo sin depender de la nube: mismo género, luego mismo
+  /// artista y, por último, el resto de la biblioteca (sin repetir nada).
+  List<Song> _colaLocal(Song actual, List<Song> recientes, {int cantidad = 15}) {
+    final Set<String> vistas = <String>{
+      actual.id,
+      ...recientes.map((Song s) => s.id),
+    };
+    final List<Song> cola = <Song>[];
+    void anadir(Iterable<Song> candidatas) {
+      for (final Song s in candidatas) {
+        if (cola.length >= cantidad) return;
+        if (!vistas.add(s.id)) continue;
+        cola.add(s);
+      }
+    }
+    final List<Song> libres =
+        librarySongs.where((Song s) => !vistas.contains(s.id)).toList();
+    anadir(libres.where(
+        (Song s) => actual.genre.isNotEmpty && s.genre == actual.genre));
+    anadir(libres.where((Song s) => s.artist == actual.artist));
+    anadir(libres);
+    return cola;
+  }
+
+  /// Elige la siguiente canción sin depender de la nube (Modo DJ de respaldo).
+  Song? _siguienteLocal(Song actual, List<Song> recientes) {
+    final Set<String> vistas = <String>{
+      actual.id,
+      ...recientes.map((Song s) => s.id),
+    };
+    final List<Song> libres =
+        librarySongs.where((Song s) => !vistas.contains(s.id)).toList();
+    if (libres.isEmpty) return null;
+    // Primero mismo género, después mismo artista y, si no, cualquiera.
+    final List<Song> mismoGenero = libres
+        .where((Song s) => actual.genre.isNotEmpty && s.genre == actual.genre)
+        .toList();
+    if (mismoGenero.isNotEmpty) return mismoGenero.first;
+    final List<Song> mismoArtista =
+        libres.where((Song s) => s.artist == actual.artist).toList();
+    if (mismoArtista.isNotEmpty) return mismoArtista.first;
+    return libres.first;
+  }
+
+  /// Explicación del DJ cuando elige sin IA.
+  String _razonLocal(Song actual, Song siguiente) {
+    if (actual.genre.isNotEmpty && siguiente.genre == actual.genre) {
+      return 'Mismo género (${siguiente.genre}) para no cortar el ambiente.';
+    }
+    if (siguiente.artist == actual.artist) {
+      return 'Sigue el mismo artista, sin repetir la canción.';
+    }
+    return 'Cambio de aire sin salir de tu biblioteca.';
   }
 
   /// Crea una idea de canción (letra/estructura) y enlaces de búsqueda.

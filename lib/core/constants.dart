@@ -256,6 +256,10 @@ class StorageKeys {
   const StorageKeys._();
 
   static const String library = 'botmp3_library_v1.json';
+
+    /// Copia de seguridad interna (semanal) y su marca de fecha.
+    static const String backupFile = 'botmp3_backup_v1.json';
+    static const String backupFecha = 'botmp3_backup_fecha_v1.json';
   static const String settings = 'botmp3_settings_v1.json';
   static const String aiChat = 'botmp3_ai_chat_v1.json';
   static const String trendsFile = 'botmp3_trends_v1.json';

@@ -369,11 +369,11 @@ class AiAssistantProvider extends ChangeNotifier {
   }
 
   /// Modo DJ IA: elige la siguiente canción y la explica.
-  Future<AiActionResult?> djNext(Song current, List<Song> recent) async {
+  Future<AiActionResult?> djNext(Song current, List<Song> recent, {String sesion = ''}) async {
     return _runAction(
       loadingLabel: 'El DJ está eligiendo…',
       action: (AiOrchestrator orchestrator) =>
-          orchestrator.djNext(current: current, recentlyPlayed: recent),
+          orchestrator.djNext(current: current, recentlyPlayed: recent, sesion: sesion),
       registerInChat: false,
     );
   }

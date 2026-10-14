@@ -429,6 +429,15 @@ class LibraryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Copia de seguridad interna (semanal, o forzada desde Ajustes).
+  Future<bool> autoBackup({bool forzar = false}) async {
+    final bool hecha = await _service.copiaAutomatica(forzar: forzar);
+    notifyListeners();
+    return hecha;
+  }
+
+  Future<DateTime?> ultimaCopia() => _service.ultimaCopia();
+
   Future<void> registerPlay(String id) async {
     await _service.registerPlay(id);
     notifyListeners();

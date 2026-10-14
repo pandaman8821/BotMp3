@@ -104,6 +104,8 @@ class _HomeShellState extends State<HomeShell>
     if (!mounted) return;
     final LibraryProvider library = context.read<LibraryProvider>();
     final int added = await library.autoScan();
+    // Copia de seguridad interna si han pasado 7 dias (no sube nada fuera).
+    await library.autoBackup();
     // Si la caché crece demasiado, se limpia sola (nunca borra audio en uso).
     if (await library.cacheBytes() > 250 * 1024 * 1024) {
       await library.freeSpace();

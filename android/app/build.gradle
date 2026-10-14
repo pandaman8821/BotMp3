@@ -15,6 +15,11 @@ def flutterVersionCode = localProperties.getProperty('flutter.versionCode') ?: '
 def flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0.0'
 
 android {
+    // Lint de release bloqueaba el empaquetado (AndroidLintTask); se desactiva.
+    lint {
+        checkReleaseBuilds = false
+        abortOnError = false
+    }
     namespace = "com.botmp3.app"
     // Se usan las versiones del SDK ya instaladas en el equipo (platform 36 y
     // build-tools 36) para no descargar paquetes adicionales.

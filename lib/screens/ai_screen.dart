@@ -1,9 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../core/constants.dart';
+import '../core/text_utils.dart';
 import '../core/theme.dart';
 import '../models/ai_models.dart';
 import '../models/song.dart';
@@ -222,7 +225,12 @@ class _AiScreenState extends State<AiScreen> {
                 ],
               ),
             if (!isUser) const SizedBox(height: 4),
-            SelectableText(message.content, style: const TextStyle(fontSize: 14)),
+            SelectableText(
+              // El texto de la IA se muestra limpio: sin markdown ni bloques
+              // internos de órdenes, y con tono de conversación.
+              isUser ? message.content : textoHumano(message.content),
+              style: const TextStyle(fontSize: 14),
+            ),
           ],
         ),
       ),
@@ -486,6 +494,22 @@ class _AiScreenState extends State<AiScreen> {
     LibraryProvider library,
   ) {
     final PlayerProvider player = context.read<PlayerProvider>();
+    // Cola DJ infinita: cuando se agotan las canciones encoladas se piden mas
+    // (el DJ y la sesion activa deciden cuales). Asi la sesion no se corta.
+    player.service.onColaAgotada = (Song actual) async {
+      final AiActionResult? mas = await ai.djNext(
+        actual,
+        player.recentlyPlayed,
+        sesion: context.read<SettingsProvider>().sesion,
+      );
+      if (mas == null) return <Song>[];
+      return mas.suggestions
+          .map((AiSongSuggestion s) => s.localSongId)
+          .whereType<String>()
+          .map(library.songById)
+          .whereType<Song>()
+          .toList();
+    };
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -493,6 +517,55 @@ class _AiScreenState extends State<AiScreen> {
       child: Row(
         children: <Widget>[
           // Acceso directo a las canciones en tendencia.
+          _action(
+            'Sesión: ${context.watch<SettingsProvider>().sesion.isEmpty ? 'ninguna' : context.watch<SettingsProvider>().sesion}',
+            Icons.tune,
+            () async {
+              const List<String> sesiones = <String>[
+                '',
+                'Fiesta',
+                'Relax',
+                'Gym',
+                'Estudio',
+                'Dormir',
+              ];
+              final SettingsProvider ajustes = context.read<SettingsProvider>();
+              final int actual = sesiones.indexOf(ajustes.sesion);
+              final String siguiente = sesiones[(actual + 1) % sesiones.length];
+              await ajustes.setSesion(siguiente);
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    siguiente.isEmpty
+                        ? 'Sesión desactivada'
+                        : 'Sesión: $siguiente (el DJ y las listas la respetarán)',
+                  ),
+                ),
+              );
+            },
+          ),
+          _action('Mixtape del día', Icons.auto_awesome_motion, () async {
+            if (library.songs.isEmpty) return;
+            // Lista diaria y estable: la fecha decide el orden, así el mismo día
+            // siempre da el mismo mixtape y mañana cambia solo.
+            final DateTime hoy = DateTime.now();
+            final Random azar =
+                Random(hoy.year * 10000 + hoy.month * 100 + hoy.day);
+            final List<Song> base = List<Song>.from(library.songs)..shuffle(azar);
+            final List<Song> mixtape = <Song>[
+              ...base.where((Song s) => s.playCount > 0).take(12),
+              ...base.where((Song s) => s.playCount == 0).take(8),
+            ];
+            if (mixtape.isEmpty) return;
+            await player.setQueue(mixtape, startIndex: 0, autoPlay: true);
+            if (!context.mounted) return;
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Mixtape del día: ${mixtape.length} canciones 🎧'),
+              ),
+            );
+          }),
           _action('Tendencias 🔥', Icons.local_fire_department, () async {
             await Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => const TrendsScreen()),
@@ -519,7 +592,7 @@ class _AiScreenState extends State<AiScreen> {
           _action('Modo DJ', Icons.graphic_eq, () async {
             final Song? current = player.current ?? (library.songs.isNotEmpty ? library.songs.first : null);
             if (current == null) return;
-            final AiActionResult? result = await ai.djNext(current, player.recentlyPlayed);
+            final AiActionResult? result = await ai.djNext(current, player.recentlyPlayed, sesion: context.read<SettingsProvider>().sesion);
             if (!mounted) return;
             setState(() => _lastResult = result);
           }),

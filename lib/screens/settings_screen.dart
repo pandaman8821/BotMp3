@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +12,10 @@ import '../providers/library_provider.dart';
 import '../providers/player_provider.dart';
 import '../providers/settings_provider.dart';
 import '../services/media_importer.dart';
+import '../core/constants.dart';
 import '../services/app_info_service.dart';
+import '../services/media_importer.dart';
+import '../services/storage_service.dart';
 import '../services/secure_keys_service.dart';
 import '../services/settings_service.dart';
 import '../services/notification_service.dart';
@@ -359,6 +364,65 @@ class SettingsScreen extends StatelessWidget {
                 ),
               );
             },
+          ),
+          ListTile(
+            leading: const Icon(Icons.file_download_outlined),
+            title: const Text('Exportar copia de seguridad'),
+            subtitle: const Text(
+              'Guarda la última copia en un archivo JSON que tú eliges, para '
+              'llevarla a otro teléfono o guardarla aparte.',
+            ),
+            onTap: () async {
+              final Map<String, dynamic>? copia =
+                  await StorageService.instance.readJsonMap(StorageKeys.backupFile);
+              if (!context.mounted) return;
+              if (copia == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Todavía no hay copia: pulsa «Copiar» primero'),
+                  ),
+                );
+                return;
+              }
+              final String sello =
+                  DateTime.now().toIso8601String().substring(0, 10);
+              final String? ruta = await MediaImporter.exportText(
+                'botmp3-copia-$sello.json',
+                const JsonEncoder.withIndent('  ').convert(copia),
+              );
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    ruta == null ? 'Exportación cancelada' : 'Copia exportada ✅',
+                  ),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.backup_outlined),
+            title: const Text('Copia de seguridad'),
+            subtitle: const Text(
+              'Automática cada 7 días dentro de la app (biblioteca, listas, '
+              'historial y chat). Se guarda en el teléfono, nunca en la nube.',
+            ),
+            trailing: TextButton(
+              onPressed: () async {
+                final bool hecha = await library.autoBackup(forzar: true);
+                if (!context.mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      hecha
+                          ? 'Copia hecha en el teléfono ✅'
+                          : 'No se pudo hacer la copia',
+                    ),
+                  ),
+                );
+              },
+              child: const Text('Copiar'),
+            ),
           ),
           ListTile(
             leading: const Icon(Icons.cleaning_services_outlined),

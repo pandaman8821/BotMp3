@@ -256,6 +256,49 @@ class LibraryService {
     await _persistirHistorial();
   }
 
+  /// Copia de seguridad interna (por defecto cada 7 días): guarda una copia del
+  /// JSON de la biblioteca, las listas, el historial y el chat de IA dentro de
+  /// la propia app. No sube nada a ningún servidor.
+  Future<bool> copiaAutomatica({
+    Duration intervalo = const Duration(days: 7),
+    bool forzar = false,
+  }) async {
+    final Map<String, dynamic>? marca =
+        await _storage.readJsonMap(StorageKeys.backupFecha);
+    final int ultima = (marca?['ultima'] as num?)?.toInt() ?? 0;
+    final DateTime ahora = DateTime.now();
+    if (!forzar &&
+        ultima > 0 &&
+        ahora.difference(DateTime.fromMillisecondsSinceEpoch(ultima)) <
+            intervalo) {
+      return false;
+    }
+    final Map<String, dynamic>? biblioteca =
+        await _storage.readJsonMap(StorageKeys.library);
+    final List<dynamic>? historial =
+        await _storage.readJsonList(StorageKeys.playLogFile);
+    final Map<String, dynamic>? chat =
+        await _storage.readJsonMap(StorageKeys.aiChat);
+    await _storage.writeJson(StorageKeys.backupFile, <String, dynamic>{
+      'fecha': ahora.toIso8601String(),
+      'biblioteca': biblioteca,
+      'historial': historial,
+      'chat': chat,
+    });
+    await _storage.writeJson(
+      StorageKeys.backupFecha,
+      <String, dynamic>{'ultima': ahora.millisecondsSinceEpoch},
+    );
+    return true;
+  }
+
+  /// Fecha de la última copia de seguridad (null si nunca se hizo).
+  Future<DateTime?> ultimaCopia() async {
+    final Map<String, dynamic>? marca =
+        await _storage.readJsonMap(StorageKeys.backupFecha);
+    final int ms = (marca?['ultima'] as num?)?.toInt() ?? 0;
+    return ms > 0 ? DateTime.fromMillisecondsSinceEpoch(ms) : null;
+  }
   /// Canciones ordenadas por número de reproducciones.
   List<Song> topCanciones({DateTime? from, int limit = 100}) {
     final Map<String, int> conteo = playsSince(from);

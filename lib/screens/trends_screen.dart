@@ -61,12 +61,12 @@ class _TrendsScreenState extends State<TrendsScreen> {
   }
 
   Future<void> _abrirEnlace(TrendSong trend) async {
-    final Uri url = trend.url.isNotEmpty
-        ? Uri.parse(trend.url)
-        : Uri.parse(
-            'https://www.youtube.com/results?search_query='
-            '${Uri.encodeComponent('${trend.title} ${trend.artist}')}',
-          );
+    // Siempre YouTube: es la biblioteca más grande y no obliga a tener
+    // instalado otro servicio (el enlace original apuntaba a una tienda).
+    final Uri url = Uri.parse(
+      'https://www.youtube.com/results?search_query='
+      '${Uri.encodeComponent('${trend.title} ${trend.artist}')}',
+    );
     if (!await launchUrl(url, mode: LaunchMode.externalApplication) && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('No se pudo abrir el enlace')),

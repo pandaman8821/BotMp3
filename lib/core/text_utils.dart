@@ -69,3 +69,35 @@ bool pareceAudioDeApp(Song song) {
   }
   return false;
 }
+
+/// Deja el texto de la IA listo para leer: quita los bloques internos de órdenes
+/// (`<CMD>…</CMD>`) y el marcado markdown (`**negrita**`, `*cursiva*`, títulos con
+/// `#`, `código`, viñetas con guiones), y conserva el texto en frases naturales.
+///
+/// El texto original se sigue usando para ejecutar las órdenes: esto solo afecta
+/// a lo que se muestra.
+String textoHumano(String texto) {
+  String salida = texto;
+  // Bloques de órdenes internos (no deben verse nunca).
+  salida = salida.replaceAll(RegExp(r'<CMD>[\s\S]*?</CMD>', caseSensitive: false), ' ');
+  salida = salida.replaceAll(RegExp(r'</?CMD>', caseSensitive: false), '');
+  // Bloques y restos de código.
+  salida = salida.replaceAll(RegExp(r'```[a-zA-Z]*'), '');
+  salida = salida.replaceAll('`', '');
+  // Títulos markdown.
+  salida = salida.replaceAll(RegExp(r'^\s{0,3}#{1,6}\s*', multiLine: true), '');
+  // Negrita y cursiva: se queda el texto, se van los asteriscos.
+  salida = salida.replaceAll(RegExp(r'\*\*\*(.+?)\*\*\*'), r'$1');
+  salida = salida.replaceAll(RegExp(r'\*\*(.+?)\*\*'), r'$1');
+  salida = salida.replaceAll(RegExp(r'(?<!\*)\*(?!\s)([^*\n]+?)(?<!\s)\*(?!\*)'), r'$1');
+  salida = salida.replaceAll(RegExp(r'__(.+?)__'), r'$1');
+  salida = salida.replaceAll(RegExp(r'(?<![A-Za-z0-9_])_([^_\n]+)_(?![A-Za-z0-9_])'), r'$1');
+  // Viñetas y citas.
+  salida = salida.replaceAll(RegExp(r'^\s*[-*+]\s+', multiLine: true), '\u2022 ');
+  salida = salida.replaceAll(RegExp(r'^\s*>\s?', multiLine: true), '');
+  // Asteriscos sueltos y líneas en blanco de más.
+  salida = salida.replaceAll('*', '');
+  salida = salida.replaceAll(RegExp(r'[ \t]+\n'), '\n');
+  salida = salida.replaceAll(RegExp(r'\n{3,}'), '\n\n');
+  return salida.trim();
+}

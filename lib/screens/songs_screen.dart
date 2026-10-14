@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +12,7 @@ import 'ranking_screen.dart';
 import '../widgets/dialogs.dart';
 import '../widgets/mini_player.dart';
 import '../widgets/song_tile.dart';
+import 'lyrics_screen.dart';
 
 /// Pantalla principal: biblioteca local con orden, selección múltiple y filtros.
 class SongsScreen extends StatefulWidget {
@@ -157,13 +160,36 @@ class _SongsScreenState extends State<SongsScreen> {
                   ],
                 ),
                 IconButton(
+                  tooltip: 'Letra de la canción',
+                  icon: const Icon(Icons.lyrics_outlined),
+                  onPressed: () {
+                    final Song? actual = player.current;
+                    if (actual == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Primero pon algo a sonar')),
+                      );
+                      return;
+                    }
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => LyricsScreen(song: actual),
+                      ),
+                    );
+                  },
+                ),
+                IconButton(
                   tooltip: 'Reproducción aleatoria de todo',
                   icon: const Icon(Icons.shuffle),
                   onPressed: () async {
                     if (songs.isEmpty) return;
-                    await player.setQueue(songs, autoPlay: false);
+                    // Aleatorio de verdad: se elige una canción al azar y se
+                    // reproduce directamente. Antes se cargaba la cola desde
+                    // la primera canción con `autoPlay: false`, pero si ya
+                    // había música sonando esa primera canción arrancaba
+                    // igual y sumaba una reproducción al ranking.
+                    final int azar = Random().nextInt(songs.length);
                     if (!player.isShuffleEnabled) player.toggleShuffle();
-                    await player.next();
+                    await player.setQueue(songs, startIndex: azar, autoPlay: true);
                   },
                 ),
               ],

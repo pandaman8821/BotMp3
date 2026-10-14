@@ -1,0 +1,57 @@
+# Receta de compilación para el repositorio principal de F-Droid.
+# Copia este archivo como `metadata/com.botmp3.app.yml` dentro de un clon de
+# https://gitlab.com/fdroid/fdroiddata y ajusta los marcadores <...>.
+#
+# Antes de enviarlo, valida en local con:
+#     fdroid lint com.botmp3.app
+#     fdroid build --server com.botmp3.app
+
+Categories:
+  - Multimedia
+  - Music
+
+License: GPL-3.0-or-later
+
+AuthorName: <Tu nombre o alias>
+AuthorEmail: <tu-correo@ejemplo.com>
+WebSite: https://github.com/<usuario>/BotMp3
+SourceCode: https://github.com/<usuario>/BotMp3
+IssueTracker: https://github.com/<usuario>/BotMp3/issues
+Changelog: https://github.com/<usuario>/BotMp3/releases
+
+AutoName: BotMp3
+
+Summary: Reproductor offline con IA, listas, carátulas, ranking y tendencias
+
+# Antifunciones: las funciones de IA son opcionales y usan servicios no libres;
+# las tendencias usan un servicio público gratuito sin clave.
+AntiFeatures:
+  - NonFreeNet
+
+RepoType: git
+Repo: https://github.com/<usuario>/BotMp3.git
+
+Builds:
+  - versionName: 1.4.3
+    versionCode: 14
+    commit: v1.4.3
+    # Flutter se obtiene con la receta srclib "flutter" de F-Droid.
+    srclibs:
+      - flutter@stable
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless unzip xz-utils
+    ndk: r27c
+    prebuild:
+      - export FLUTTER_ROOT=$$flutter$$
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter precache --android --universal --no-web --no-ios --no-linux --no-macos --no-windows
+      - $$flutter$$/bin/flutter pub get
+    build:
+      - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64
+    output: build/app/outputs/flutter-apk/app-release.apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.4.3
+CurrentVersionCode: 14

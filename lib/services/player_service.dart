@@ -52,6 +52,10 @@ class PlayerService {
   /// La biblioteca registra aquí la reproducción para las estadísticas.
   void Function(Song song)? onSongStarted;
 
+  /// Cola DJ infinita: si se define, se llama al llegar a la ultima cancion
+  /// de la cola para pedir mas (el proveedor de IA encola otras 15).
+  Future<List<Song>> Function(Song actual)? onColaAgotada;
+
   /// Últimos errores de reproducción (se muestran en el diagnóstico).
   final List<String> ultimosErrores = <String>[];
 
@@ -59,16 +63,40 @@ class PlayerService {
   /// (evita duplicados al preparar colas o al cambiar de pista).
   String? _ultimaReproduccionRegistrada;
 
+  /// Canciones ya reproducidas en la pasada actual de aleatorio.
+  final Set<String> _sonadasEnPasada = <String>{};
+
+  /// Cuenta la reproduccion solo si la cancion sigue sonando a los 20 s.
+  Timer? _temporizadorRecuento;
+
   /// Cuenta una reproducción **solo si el audio está sonando**, una vez por
   /// canción. Así, cargar una cola o pulsar «aleatorio» sin arrancar no
   /// infla el ranking.
   void _registrarInicioDeReproduccion() {
     if (!_player.playing) return;
-    final int indice = _player.currentIndex ?? _currentIndex;
+    // Se usa el índice PROPIO (el que se acaba de cargar), no el del
+    // reproductor: al arrancar el audio, `currentIndex` puede llegar aún con
+    // el valor anterior y la reproducción se sumaba a la canción equivocada
+    // (normalmente la primera de la lista).
+    final int indice = (_currentIndex >= 0 && _currentIndex < _queue.length)
+        ? _currentIndex
+        : (_player.currentIndex ?? -1);
     if (indice < 0 || indice >= _queue.length) return;
     final Song cancion = _queue[indice];
+    _sonadasEnPasada.add(cancion.id);
     if (_ultimaReproduccionRegistrada == cancion.id) return;
-    _ultimaReproduccionRegistrada = cancion.id;
+    // Se cuenta a los 20 s de reproduccion real: un salto rapido no infla el
+    // ranking. Si la cancion cambia antes, el temporizador se cancela.
+    _temporizadorRecuento?.cancel();
+    final int indiceContado = indice;
+    final String idContado = cancion.id;
+    _temporizadorRecuento = Timer(const Duration(seconds: 20), () {
+      if (!_player.playing) return;
+      if ((_player.currentIndex ?? _currentIndex) != indiceContado) return;
+      if (_ultimaReproduccionRegistrada == idContado) return;
+      _ultimaReproduccionRegistrada = idContado;
+      onSongStarted?.call(cancion);
+    });
     if (_currentIndex != indice) {
       _currentIndex = indice;
       _playOrderIndex = _playOrder.indexOf(indice);
@@ -431,6 +459,13 @@ class PlayerService {
     if (_playOrderIndex < 0) _playOrderIndex = 0;
     currentSong.value = _queue[sequenceIndex];
     _registrarInicioDeReproduccion();
+    // Cola DJ infinita: si suena la ultima y hay gancho, se piden mas canciones.
+    if (sequenceIndex == _queue.length - 1 && onColaAgotada != null) {
+      final Future<List<Song>> Function(Song) gancho = onColaAgotada!;
+      unawaited(gancho(_queue[sequenceIndex]).then((List<Song> mas) {
+        if (mas.isNotEmpty) enqueue(mas, playIfEmpty: false);
+      }));
+    }
   }
 
   Future<void> _loadIndex(int queueIndex, {bool autoPlay = true}) async {
@@ -506,7 +541,20 @@ class PlayerService {
     final int anchor = anchorIndex ?? _currentIndex;
     final List<int> indices = List<int>.generate(_queue.length, (int i) => i);
     if (_shuffle) {
-      indices.shuffle(_random);
+      // Aleatorio sin repeticiones: suenan primero las que no han sonado en la
+      // pasada actual; cuando se agotan, empieza una pasada nueva.
+      final List<int> nuevas = indices
+          .where((int i) => !_sonadasEnPasada.contains(_queue[i].id))
+          .toList();
+      final List<int> repetidas = indices
+          .where((int i) => _sonadasEnPasada.contains(_queue[i].id))
+          .toList();
+      if (nuevas.isEmpty) _sonadasEnPasada.clear();
+      nuevas.shuffle(_random);
+      repetidas.shuffle(_random);
+      indices
+        ..clear()
+        ..addAll(nuevas.isEmpty ? repetidas : <int>[...nuevas, ...repetidas]);
       if (anchor >= 0 && anchor < _queue.length) {
         indices.remove(anchor);
         indices.insert(0, anchor);

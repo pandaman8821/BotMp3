@@ -58,22 +58,131 @@ class TrendsService {
 
   static const String _base = 'https://rss.applemarketingtools.com/api/v2';
 
-  /// Países ofrecidos en Ajustes (código ISO de la tienda).
+  /// Países ofrecidos en Ajustes (código de tienda de Apple Music).
+  ///
+  /// Son las principales tiendas del mundo con lista de éxitos propia; si
+  /// alguna no publica la suya, se muestra la global (ver `usandoListaGlobal`).
   static const Map<String, String> paises = <String, String>{
-    'es': 'España',
-    'mx': 'México',
-    'us': 'Estados Unidos',
-    'ar': 'Argentina',
-    'co': 'Colombia',
-    'cl': 'Chile',
-    'pe': 'Perú',
-    've': 'Venezuela',
-    'ec': 'Ecuador',
-    'do': 'República Dominicana',
+    'es': '🇪🇸 España',
+    'mx': '🇲🇽 México',
+    'us': '🇺🇸 Estados Unidos',
+    'ar': '🇦🇷 Argentina',
+    'co': '🇨🇴 Colombia',
+    'cl': '🇨🇱 Chile',
+    'pe': '🇵🇪 Perú',
+    've': '🇻🇪 Venezuela',
+    'ec': '🇪🇨 Ecuador',
+    'do': '🇩🇴 República Dominicana',
+    'uy': '🇺🇾 Uruguay',
+    'py': '🇵🇾 Paraguay',
+    'bo': '🇧🇴 Bolivia',
+    'cr': '🇨🇷 Costa Rica',
+    'pa': '🇵🇦 Panamá',
+    'gt': '🇬🇹 Guatemala',
+    'sv': '🇸🇻 El Salvador',
+    'hn': '🇭🇳 Honduras',
+    'ni': '🇳🇮 Nicaragua',
+    'cu': '🇨🇺 Cuba',
+    'pr': '🇵🇷 Puerto Rico',
+    'br': '🇧🇷 Brasil',
+    'pt': '🇵🇹 Portugal',
+    'fr': '🇫🇷 Francia',
+    'de': '🇩🇪 Alemania',
+    'it': '🇮🇹 Italia',
+    'gb': '🇬🇧 Reino Unido',
+    'ie': '🇮🇪 Irlanda',
+    'nl': '🇳🇱 Países Bajos',
+    'be': '🇧🇪 Bélgica',
+    'lu': '🇱🇺 Luxemburgo',
+    'ch': '🇨🇭 Suiza',
+    'at': '🇦🇹 Austria',
+    'se': '🇸🇪 Suecia',
+    'no': '🇳🇴 Noruega',
+    'dk': '🇩🇰 Dinamarca',
+    'fi': '🇫🇮 Finlandia',
+    'is': '🇮🇸 Islandia',
+    'pl': '🇵🇱 Polonia',
+    'cz': '🇨🇿 Chequia',
+    'sk': '🇸🇰 Eslovaquia',
+    'hu': '🇭🇺 Hungría',
+    'ro': '🇷🇴 Rumanía',
+    'bg': '🇧🇬 Bulgaria',
+    'gr': '🇬🇷 Grecia',
+    'hr': '🇭🇷 Croacia',
+    'si': '🇸🇮 Eslovenia',
+    'rs': '🇷🇸 Serbia',
+    'ba': '🇧🇦 Bosnia y Herzegovina',
+    'mk': '🇲🇰 Macedonia del Norte',
+    'al': '🇦🇱 Albania',
+    'lt': '🇱🇹 Lituania',
+    'lv': '🇱🇻 Letonia',
+    'ee': '🇪🇪 Estonia',
+    'ua': '🇺🇦 Ucrania',
+    'md': '🇲🇩 Moldavia',
+    'by': '🇧🇾 Bielorrusia',
+    'ru': '🇷🇺 Rusia',
+    'tr': '🇹🇷 Turquía',
+    'cy': '🇨🇾 Chipre',
+    'mt': '🇲🇹 Malta',
+    'il': '🇮🇱 Israel',
+    'sa': '🇸🇦 Arabia Saudí',
+    'ae': '🇦🇪 Emiratos Árabes Unidos',
+    'qa': '🇶🇦 Catar',
+    'kw': '🇰🇼 Kuwait',
+    'bh': '🇧🇭 Baréin',
+    'om': '🇴🇲 Omán',
+    'jo': '🇯🇴 Jordania',
+    'lb': '🇱🇧 Líbano',
+    'eg': '🇪🇬 Egipto',
+    'ma': '🇲🇦 Marruecos',
+    'dz': '🇩🇿 Argelia',
+    'tn': '🇹🇳 Túnez',
+    'ly': '🇱🇾 Libia',
+    'ng': '🇳🇬 Nigeria',
+    'gh': '🇬🇭 Ghana',
+    'ke': '🇰🇪 Kenia',
+    'tz': '🇹🇿 Tanzania',
+    'ug': '🇺🇬 Uganda',
+    'za': '🇿🇦 Sudáfrica',
+    'zm': '🇿🇲 Zambia',
+    'zw': '🇿🇼 Zimbabue',
+    'mz': '🇲🇿 Mozambique',
+    'ao': '🇦🇴 Angola',
+    'cm': '🇨🇲 Camerún',
+    'ci': '🇨🇮 Costa de Marfil',
+    'sn': '🇸🇳 Senegal',
+    'in': '🇮🇳 India',
+    'pk': '🇵🇰 Pakistán',
+    'bd': '🇧🇩 Bangladés',
+    'lk': '🇱🇰 Sri Lanka',
+    'np': '🇳🇵 Nepal',
+    'cn': '🇨🇳 China',
+    'hk': '🇭🇰 Hong Kong',
+    'tw': '🇹🇼 Taiwán',
+    'jp': '🇯🇵 Japón',
+    'kr': '🇰🇷 Corea del Sur',
+    'th': '🇹🇭 Tailandia',
+    'vn': '🇻🇳 Vietnam',
+    'my': '🇲🇾 Malasia',
+    'sg': '🇸🇬 Singapur',
+    'id': '🇮🇩 Indonesia',
+    'ph': '🇵🇭 Filipinas',
+    'au': '🇦🇺 Australia',
+    'nz': '🇳🇿 Nueva Zelanda',
+    'kz': '🇰🇿 Kazajistán',
+    'uz': '🇺🇿 Uzbekistán',
+    'am': '🇦🇲 Armenia',
+    'az': '🇦🇿 Azerbaiyán',
+    'ge': '🇬🇪 Georgia',
   };
 
   final List<TrendSong> _ultimas = <TrendSong>[];
   DateTime? _actualizado;
+  bool _usandoGlobal = false;
+
+  /// Verdadero cuando el país elegido no publica lista propia y se está
+  /// mostrando la global (Estados Unidos).
+  bool get usandoListaGlobal => _usandoGlobal;
 
   List<TrendSong> get ultimas => List<TrendSong>.unmodifiable(_ultimas);
   DateTime? get actualizado => _actualizado;
@@ -92,7 +201,17 @@ class TrendsService {
         return _ultimas;
       }
       final dynamic decoded = jsonDecode(utf8.decode(response.bodyBytes));
-      final List<TrendSong> lista = _parse(decoded);
+      List<TrendSong> lista = _parse(decoded);
+      _usandoGlobal = false;
+      // Algunas tiendas no publican lista de éxitos: se usa la global para no
+      // dejar la pantalla vacía, avisando con `usandoListaGlobal`.
+      if (lista.isEmpty && country != 'us') {
+        final List<TrendSong> global = await _fetchPais('us', limit);
+        if (global.isNotEmpty) {
+          lista = global;
+          _usandoGlobal = true;
+        }
+      }
       if (lista.isNotEmpty) {
         _ultimas
           ..clear()
@@ -104,6 +223,20 @@ class TrendsService {
     } catch (error) {
       debugPrint('No se pudieron obtener las tendencias: $error');
       return _ultimas;
+    }
+  }
+
+  /// Petición simple de un país concreto (sin caché ni respaldos).
+  Future<List<TrendSong>> _fetchPais(String country, int limit) async {
+    try {
+      final Uri url = Uri.parse('$_base/$country/music/most-played/$limit/songs.json');
+      final http.Response response = await http
+          .get(url, headers: <String, String>{'Accept': 'application/json'})
+          .timeout(const Duration(seconds: 15));
+      if (response.statusCode != 200) return <TrendSong>[];
+      return _parse(jsonDecode(utf8.decode(response.bodyBytes)));
+    } catch (_) {
+      return <TrendSong>[];
     }
   }
 

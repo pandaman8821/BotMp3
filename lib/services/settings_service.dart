@@ -78,6 +78,14 @@ class SettingsService {
     await _prefs.setBool('import_media_audio', value);
   }
 
+  /// Sesión de escucha activa (Fiesta, Relax, Gym, Estudio, Dormir).
+  /// Cadena vacía = sin sesión.
+  String get sesion => _prefs.getString('sesion_escucha') ?? '';
+
+  Future<void> setSesion(String value) async {
+    await _prefs.setString('sesion_escucha', value);
+  }
+
   ThemeMode get themeMode {
     switch (_prefs.getString('theme_mode') ?? 'system') {
       case 'dark':

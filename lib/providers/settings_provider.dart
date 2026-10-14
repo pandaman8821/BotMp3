@@ -25,6 +25,14 @@ class SettingsProvider extends ChangeNotifier {
     await _service.setImportMediaAudio(value);
     notifyListeners();
   }
+
+  /// Sesión de escucha activa (Fiesta, Relax, Gym, Estudio, Dormir).
+  String get sesion => _service.sesion;
+
+  Future<void> setSesion(String value) async {
+    await _service.setSesion(value);
+    notifyListeners();
+  }
   bool get glassEnabled => _service.glassEnabled;
   String get trendsCountry => _service.trendsCountry;
   bool get trendsNotify => _service.trendsNotify;

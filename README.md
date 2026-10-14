@@ -631,3 +631,5 @@ Proyecto de ejemplo listo para personalizar. Dependencias: `just_audio`,
 `flutter_secure_storage`, `speech_to_text`, `flutter_tts`, `url_launcher`, `permission_handler`,
 `wakelock_plus`, `http` — todas con licencias permisivas (MIT/BSD/Apache 2.0).
 El uso de cada API de IA se rige por los términos de su proveedor.
+
+---
