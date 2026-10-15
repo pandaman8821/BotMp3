@@ -1,3 +1,4 @@
+import '../core/play_invariants.dart';
 import 'dart:async';
 import 'dart:math';
 
@@ -178,8 +179,7 @@ class PlayerService {
     // Se descartan las canciones sin fuente utilizable ANTES de montar la cola:
     // asi el indice de cada fuente coincide con el de la cola y no se descuadra
     // el resaltado (era lo que marcaba la cancion equivocada).
-    final List<Song> limpias =
-        songs.where((Song s) => s.path.trim().isNotEmpty).toList();
+    final List<Song> limpias = PlayInvariants.conFuenteUtilizable(songs);
     if (limpias.isEmpty) {
       _queue.clear();
       queueRevision.value++;
