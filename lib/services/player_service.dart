@@ -180,17 +180,24 @@ class PlayerService {
     // el resaltado (era lo que marcaba la cancion equivocada).
     final List<Song> limpias =
         songs.where((Song s) => s.path.trim().isNotEmpty).toList();
-    _queue
-      ..clear()
-      ..addAll(limpias);
-    queueRevision.value++;
-    if (_queue.isEmpty) {
+    if (limpias.isEmpty) {
+      _queue.clear();
+      queueRevision.value++;
       _currentIndex = -1;
       currentSong.value = null;
       await _player.stop();
       return;
     }
-    final int start = startIndex.clamp(0, _queue.length - 1);
+    // El indice se fija ANTES de avisar a la interfaz: si no, durante un
+    // fotograma la lista se pintaba con el indice anterior (0) y la primera
+    // cancion parpadeaba en verde al pulsar aleatorio.
+    final int start = startIndex.clamp(0, limpias.length - 1);
+    _currentIndex = start;
+    currentSong.value = limpias[start];
+    _queue
+      ..clear()
+      ..addAll(limpias);
+    queueRevision.value++;
     _rebuildPlayOrder(anchorIndex: start);
     // Se carga TODA la cola en el reproductor (no solo una canción): es lo que
     // permite que la pantalla de bloqueo ofrezca siguiente/anterior.
