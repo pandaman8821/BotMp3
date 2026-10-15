@@ -1,8 +1,6 @@
-# Receta de compilación para el repositorio principal de F-Droid.
-# Copia este archivo como `metadata/com.botmp3.app.yml` dentro de un clon de
-# https://gitlab.com/fdroid/fdroiddata y ajusta los marcadores <...>.
-#
-# Antes de enviarlo, valida en local con:
+# Receta de compilacion para fdroiddata (repositorio oficial de F-Droid).
+# Copiar como metadata/com.botmp3.app.yml dentro de un clon de
+# https://gitlab.com/fdroid/fdroiddata y validar con:
 #     fdroid lint com.botmp3.app
 #     fdroid build --server com.botmp3.app
 
@@ -10,48 +8,47 @@ Categories:
   - Multimedia
   - Music
 
-License: GPL-3.0-or-later
-
-AuthorName: pandamanlab
+License: GPL-3.0-only
+AuthorName: pandaman8821
 AuthorEmail: pandamanrd@gmail.com
-WebSite: https://gitlab.com/pandamanlab/BotMp3
-SourceCode: https://gitlab.com/pandamanlab/BotMp3
-IssueTracker: https://gitlab.com/pandamanlab/BotMp3/issues
-Changelog: https://gitlab.com/pandamanlab/BotMp3/releases
+WebSite: https://github.com/pandaman8821/BotMp3
+SourceCode: https://github.com/pandaman8821/BotMp3
+IssueTracker: https://github.com/pandaman8821/BotMp3/issues
+Changelog: https://github.com/pandaman8821/BotMp3/releases
 
 AutoName: BotMp3
 
-Summary: Reproductor offline con IA, listas, carátulas, ranking y tendencias
+Summary: Reproductor de musica offline con DJ de IA
+Description: |-
+  Reproductor de musica 100% offline con tema oscuro Liquid Glass.
 
-# Antifunciones: las funciones de IA son opcionales y usan servicios no libres;
-# las tendencias usan un servicio público gratuito sin clave.
-AntiFeatures:
-  - NonFreeNet
+  Incluye listas propias, cola de reproduccion, aleatorio sin repeticiones,
+  ranking de canciones y generos, letras (.lrc), volumen por cancion, modo
+  coche, gestos, widget de pantalla de inicio, copias de seguridad automaticas
+  y un DJ con IA opcional (con la clave del propio usuario).
+
+  No pide cuenta, no incluye anuncios ni rastreadores: la musica nunca sale del
+  telefono. Solo usa internet si el usuario lo pide (IA o abrir una lista de
+  tendencias en el navegador).
 
 RepoType: git
-Repo: https://gitlab.com/pandamanlab/BotMp3.git
+Repo: https://github.com/pandaman8821/BotMp3.git
 
 Builds:
-  - versionName: 1.5.7
-    versionCode: 23
-    commit: v1.5.7
-    # Flutter se obtiene con la receta srclib "flutter" de F-Droid.
+  - versionName: 1.8.0
+    versionCode: 46
+    commit: v1.8.0
+    output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
-      - flutter@stable
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless unzip xz-utils
-    ndk: r27c
+      - flutter@3.47.7
     prebuild:
-      - export FLUTTER_ROOT=$$flutter$$
       - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter precache --android --universal --no-web --no-ios --no-linux --no-macos --no-windows
       - $$flutter$$/bin/flutter pub get
     build:
       - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64
-    output: build/app/outputs/flutter-apk/app-release.apk
+    ndk: r27c
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.5.7
-CurrentVersionCode: 23
+CurrentVersion: 1.8.0
+CurrentVersionCode: 46
