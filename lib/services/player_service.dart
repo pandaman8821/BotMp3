@@ -175,9 +175,14 @@ class PlayerService {
     int startIndex = 0,
     bool autoPlay = true,
   }) async {
+    // Se descartan las canciones sin fuente utilizable ANTES de montar la cola:
+    // asi el indice de cada fuente coincide con el de la cola y no se descuadra
+    // el resaltado (era lo que marcaba la cancion equivocada).
+    final List<Song> limpias =
+        songs.where((Song s) => s.path.trim().isNotEmpty).toList();
     _queue
       ..clear()
-      ..addAll(songs);
+      ..addAll(limpias);
     queueRevision.value++;
     if (_queue.isEmpty) {
       _currentIndex = -1;
@@ -431,13 +436,10 @@ class PlayerService {
 
   /// Fuentes de toda la cola, **en orden de cola**: el índice de secuencia del
   /// reproductor coincide siempre con el índice de la cola (sin desajustes).
-  List<AudioSource> _buildSources() => _queue
-      // Se descartan entradas sin fuente utilizable: una sola mala evitaba
-      // que se cargase la cola entera.
-      .map((Song song) => song.path.trim())
-      .where((String path) => path.isNotEmpty)
-      .map((String path) => _sourceFor(_queue.firstWhere((Song song) => song.path == path)))
-      .toList();
+  List<AudioSource> _buildSources() =>
+      // La cola ya viene saneada: el indice de cada fuente coincide con el de la
+      // cola (imprescindible para el resaltado y los controles del bloqueo).
+      _queue.map((Song song) => _sourceFor(song)).toList();
 
   Future<void> _applyPlayerSettings() async {
     await _player.setVolume(_lastVolume);
