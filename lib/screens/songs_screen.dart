@@ -274,7 +274,11 @@ class _SongsScreenState extends State<SongsScreen> {
                         return SongTile(
                           song: song,
                           queueContext: songs,
-                          selected: _selected.contains(song.id),
+                          // Solo se pinta la seleccion si de verdad se esta
+                          // seleccionando: si no, una marca antigua dejaba una fila
+                          // resaltada como si estuviera elegida.
+                          selected:
+                              _selectionMode && _selected.contains(song.id),
                           // Solo en modo selección el toque marca/desmarca.
                           onTap: _selectionMode
                               ? () => setState(() {
