@@ -66,7 +66,7 @@ class PlayerService {
 
   /// Evita pintar el indice 0 que el reproductor emite al cargar la cola
   /// antes de aplicar el indice real (p. ej. la cancion aleatoria).
-  bool _ignorarProximoIndice = false;
+  int? _indiceEsperado;
   /// Factor de volumen propio de la canción que suena (1.0 = normal).
   double factorVolumenActual() {
     final Song? cancion = currentSong.value;
@@ -464,9 +464,9 @@ class PlayerService {
     if (_playOrderIndex < 0) _playOrderIndex = 0;
     currentSong.value = _queue[start];
     try {
-      _ignorarProximoIndice = true;
+      _indiceEsperado = start;
       // Se limpia solo por si el reproductor no emite nada (no dejarlo armado).
-      Timer(const Duration(milliseconds: 900), () => _ignorarProximoIndice = false);
+      Timer(const Duration(seconds: 2), () => _indiceEsperado = null);
       await _player.setAudioSource(
         ConcatenatingAudioSource(children: _buildSources()),
         initialIndex: start,
@@ -493,9 +493,9 @@ class PlayerService {
   void _onPlayerIndexChanged(int? sequenceIndex) {
     // La primera emision tras cargar la cola suele ser 0 (la primera de la
     // lista) aunque el indice real sea otro: se ignora y se limpia la marca.
-    if (_ignorarProximoIndice) {
-      _ignorarProximoIndice = false;
-      return;
+    if (_indiceEsperado != null) {
+      if (sequenceIndex != _indiceEsperado) return;
+      _indiceEsperado = null;
     }
     if (sequenceIndex == null ||
         sequenceIndex < 0 ||
