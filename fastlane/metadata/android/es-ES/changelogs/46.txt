@@ -1,0 +1,6 @@
+Arreglado el parpadeo al pulsar Aleatorio: ahora se resalta siempre la canción que está sonando.
+Arreglado el ranking: cada canción suma una reproducción solo después de 20 segundos reales.
+El resaltado, el mini reproductor y los controles del bloqueo apuntan ya a la misma canción.
+El título BotMp3 se ve completo en la barra superior.
+Eliminada la opción «Playlist de 30» del asistente de IA.
+Reglas de reproducción con tests automáticos para que estos fallos no vuelvan.

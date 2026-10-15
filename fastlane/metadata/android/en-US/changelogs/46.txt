@@ -1,0 +1,6 @@
+Fixed the flicker when pressing Shuffle: the song that is playing is now always the one highlighted.
+Fixed the ranking: a song counts one play only after 20 seconds of real playback.
+The highlight, the mini player and the lock screen controls now point to the same song.
+The BotMp3 title is fully visible in the top bar.
+Removed the "Playlist of 30" option from the AI assistant.
+Playback rules with automated tests so these bugs cannot come back.
