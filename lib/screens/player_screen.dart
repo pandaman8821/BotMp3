@@ -1,3 +1,4 @@
+import '../core/text_utils.dart';
 import 'package:flutter/material.dart' hide RepeatMode;
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
@@ -538,7 +539,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
     if (!mounted) return;
     setState(() {
       _djBusy = false;
-      _djMessage = result?.text;
+      _djMessage = result == null ? null : mensajeDelDJ(result.text);
     });
 
     final AiSongSuggestion? suggestion = result?.suggestions.isNotEmpty == true

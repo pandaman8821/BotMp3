@@ -1,3 +1,4 @@
+import 'dart:convert';
 import '../models/song.dart';
 
 /// Utilidades de texto compartidas por la lista, la búsqueda y el escaneo.
@@ -100,4 +101,26 @@ String textoHumano(String texto) {
   salida = salida.replaceAll(RegExp(r'[ \t]+\n'), '\n');
   salida = salida.replaceAll(RegExp(r'\n{3,}'), '\n\n');
   return salida.trim();
+}
+
+/// Mensaje legible del DJ: si el modelo devolvio JSON (con "mensaje" o
+/// "message"), se saca ese campo; si no, se limpia el texto. Evita volcar el
+/// JSON crudo en la pantalla del reproductor.
+String mensajeDelDJ(String raw) {
+  final String limpio = raw.trim();
+  if (limpio.startsWith('{')) {
+    try {
+      final dynamic json = jsonDecode(limpio);
+      if (json is Map) {
+        final Object? mensaje =
+            json['mensaje'] ?? json['message'] ?? json['texto'];
+        if (mensaje is String && mensaje.trim().isNotEmpty) {
+          return textoHumano(mensaje.trim());
+        }
+      }
+    } catch (_) {
+      // No era JSON valido: se limpia como texto normal.
+    }
+  }
+  return textoHumano(raw);
 }
