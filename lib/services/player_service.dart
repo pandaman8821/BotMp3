@@ -580,6 +580,16 @@ class PlayerService {
     if (_advancing) return;
     _advancing = true;
     try {
+      // Repetir UNA sola cancion: se vuelve a empezar la misma pista. Antes se
+      // llamaba siempre a next(), asi que en modo "repetir una" se repetia la
+      // cola entera en lugar de la cancion.
+      if (_repeat == RepeatMode.one &&
+          _currentIndex >= 0 &&
+          _currentIndex < _queue.length) {
+        await _player.seek(Duration.zero, index: _currentIndex);
+        await _player.play();
+        return;
+      }
       await next(auto: true);
     } finally {
       _advancing = false;
