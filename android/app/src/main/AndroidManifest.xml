@@ -119,5 +119,8 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_botmp3_info" />
         </receiver>
+        <receiver
+            android:name=".WidgetActionReceiver"
+            android:exported="false" />
     </application>
 </manifest>

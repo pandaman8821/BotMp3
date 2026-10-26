@@ -402,6 +402,16 @@ class PlayerService {
 
   void setRepeatMode(RepeatMode mode) {
     _repeat = mode;
+    _aplicarLoopMode();
+  }
+
+  /// Con "repetir una" se lo decimos AL MOTOR (LoopMode.one): asi repite la
+  /// misma pista por si solo y no depende de que reaccionemos al terminar, que
+  /// era lo que hacia que avanzara y acabara repitiendo la cola entera.
+  void _aplicarLoopMode() {
+    unawaited(_player.setLoopMode(
+      _repeat == RepeatMode.one ? LoopMode.one : LoopMode.off,
+    ));
   }
 
   /// Alterna aleatorio y devuelve el estado nuevo.
@@ -418,6 +428,7 @@ class PlayerService {
       RepeatMode.one => RepeatMode.off,
     };
     _repeat = next;
+    _aplicarLoopMode();
     return next;
   }
 
@@ -449,6 +460,7 @@ class PlayerService {
       _queue.map((Song song) => _sourceFor(song)).toList();
 
   Future<void> _applyPlayerSettings() async {
+    _aplicarLoopMode();
     await _player.setVolume(_lastVolume);
     await _player.setSpeed(_speed / 100);
   }
