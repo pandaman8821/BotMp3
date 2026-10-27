@@ -107,20 +107,28 @@ String textoHumano(String texto) {
 /// "message"), se saca ese campo; si no, se limpia el texto. Evita volcar el
 /// JSON crudo en la pantalla del reproductor.
 String mensajeDelDJ(String raw) {
-  final String limpio = raw.trim();
-  if (limpio.startsWith('{')) {
-    try {
-      final dynamic json = jsonDecode(limpio);
-      if (json is Map) {
-        final Object? mensaje =
-            json['mensaje'] ?? json['message'] ?? json['texto'];
-        if (mensaje is String && mensaje.trim().isNotEmpty) {
-          return textoHumano(mensaje.trim());
+  // 1) Si viene un JSON (aunque haya texto delante), se lee su campo de mensaje.
+  final int inicio = raw.indexOf('{');
+  if (inicio >= 0) {
+    final int fin = raw.lastIndexOf('}');
+    if (fin > inicio) {
+      try {
+        final dynamic json = jsonDecode(raw.substring(inicio, fin + 1));
+        if (json is Map) {
+          final Object? mensaje =
+              json['mensaje'] ?? json['message'] ?? json['texto'];
+          if (mensaje is String && mensaje.trim().isNotEmpty) {
+            return textoHumano(mensaje.trim());
+          }
         }
+      } catch (_) {
+        // JSON mal formado: se intenta rescatar el campo mas abajo.
       }
-    } catch (_) {
-      // No era JSON valido: se limpia como texto normal.
     }
   }
+  // 2) Rescate del campo aunque el JSON venga roto.
+  final RegExpMatch? m =
+      RegExp(r'"mensaje"\s*:\s*"([^"]+)"').firstMatch(raw);
+  if (m != null) return textoHumano(m.group(1)!);
   return textoHumano(raw);
 }
