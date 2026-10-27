@@ -1,19 +1,29 @@
+import 'dart:async';
+
 import 'package:home_widget/home_widget.dart';
 
 import '../models/song.dart';
 
-/// Publica en el widget de inicio lo que está sonando.
-///
-/// El widget es de solo lectura (título, artista y estado) y al tocarlo abre la
-/// app; los controles completos están en el modo coche y en la notificación.
+/// Publica en el widget de inicio lo que esta sonando.
 class WidgetService {
   const WidgetService._();
 
   static const String _nombreAndroid = 'BotMp3Widget';
 
-  static Future<void> actualizar(Song cancion, {required bool suena}) async {
+  static Future<void> actualizar(
+    Song cancion, {
+    required bool suena,
+    Duration posicion = Duration.zero,
+    Duration total = Duration.zero,
+  }) async {
     try {
+      final int progreso = total.inMilliseconds <= 0
+          ? 0
+          : ((posicion.inMilliseconds / total.inMilliseconds) * 100)
+              .clamp(0.0, 100.0)
+              .round();
       await HomeWidget.saveWidgetData<bool>('sonando', suena);
+      await HomeWidget.saveWidgetData<int>('progreso', progreso);
       await HomeWidget.saveWidgetData<String>('titulo', cancion.title);
       await HomeWidget.saveWidgetData<String>('artista', cancion.artist);
       await HomeWidget.saveWidgetData<String>(
@@ -22,7 +32,7 @@ class WidgetService {
       );
       await HomeWidget.updateWidget(androidName: _nombreAndroid);
     } catch (_) {
-      // El widget es un extra: si falla, nunca debe afectar a la reproducción.
+      // El widget es un extra: si falla, nunca debe afectar a la reproduccion.
     }
   }
 }

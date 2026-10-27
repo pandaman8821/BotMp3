@@ -97,6 +97,7 @@ class PlayerService {
 
   /// Cuenta la reproduccion solo si la cancion sigue sonando a los 20 s.
   Timer? _temporizadorRecuento;
+  Timer? _temporizadorWidget;
 
   /// Cuenta una reproducción **solo si el audio está sonando**, una vez por
   /// canción. Así, cargar una cola o pulsar «aleatorio» sin arrancar no

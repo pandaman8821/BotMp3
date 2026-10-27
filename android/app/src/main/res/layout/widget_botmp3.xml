@@ -3,10 +3,10 @@
     android:id="@+id/widget_raiz"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#141C2E"
+    android:background="@drawable/widget_fondo"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="14dp">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/widget_titulo"
@@ -23,21 +23,23 @@
         android:id="@+id/widget_artista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="Toca para abrir"
-        android:textColor="#C7D2DE"
-        android:textSize="13sp" />
+        android:textColor="#AFC0D6"
+        android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/widget_estado"
+    <ProgressBar
+        android:id="@+id/widget_progreso"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:maxLines="1"
-        android:text=""
-        android:textColor="#34D399"
-        android:textSize="11sp" />
+        android:layout_height="6dp"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="#34D399"
+        android:progressBackgroundTint="#2A3850" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,7 +51,7 @@
         <ImageButton
             android:id="@+id/widget_prev"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="44dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:contentDescription="Anterior"
@@ -59,7 +61,7 @@
         <ImageButton
             android:id="@+id/widget_play"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="44dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:contentDescription="Reproducir o pausar"
@@ -69,11 +71,21 @@
         <ImageButton
             android:id="@+id/widget_next"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="44dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:contentDescription="Siguiente"
             android:scaleType="centerInside"
             android:src="@android:drawable/ic_media_next" />
+
+        <ImageButton
+            android:id="@+id/widget_stop"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:contentDescription="Detener"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_widget_stop" />
     </LinearLayout>
 </LinearLayout>
