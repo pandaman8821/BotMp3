@@ -12,7 +12,7 @@ import android.widget.RemoteViews
 import es.antonborri.home_widget.HomeWidgetLaunchIntent
 import es.antonborri.home_widget.HomeWidgetProvider
 
-/** Widget de inicio: muestra lo que suena y controla la reproduccion. */
+/** Widget de inicio: cancion actual, progreso y controles de reproduccion. */
 class BotMp3Widget : HomeWidgetProvider() {
     override fun onUpdate(
         context: Context,
@@ -21,6 +21,7 @@ class BotMp3Widget : HomeWidgetProvider() {
         widgetData: SharedPreferences,
     ) {
         val sonando = widgetData.getBoolean("sonando", false)
+        val progreso = widgetData.getInt("progreso", 0).coerceIn(0, 100)
         appWidgetIds.forEach { id ->
             val views = RemoteViews(context.packageName, R.layout.widget_botmp3)
             views.setTextViewText(
@@ -31,10 +32,7 @@ class BotMp3Widget : HomeWidgetProvider() {
                 R.id.widget_artista,
                 widgetData.getString("artista", "Toca para abrir") ?: "Toca para abrir",
             )
-            views.setTextViewText(
-                R.id.widget_estado,
-                widgetData.getString("estado", "") ?: "",
-            )
+            views.setProgressBar(R.id.widget_progreso, 100, progreso, false)
             views.setImageViewResource(
                 R.id.widget_play,
                 if (sonando) android.R.drawable.ic_media_pause
@@ -55,6 +53,10 @@ class BotMp3Widget : HomeWidgetProvider() {
             views.setOnClickPendingIntent(
                 R.id.widget_next,
                 accion(context, id * 10 + 3, WidgetActionReceiver.ACCION_SIGUIENTE),
+            )
+            views.setOnClickPendingIntent(
+                R.id.widget_stop,
+                accion(context, id * 10 + 4, WidgetActionReceiver.ACCION_DETENER),
             )
             appWidgetManager.updateAppWidget(id, views)
         }
@@ -82,6 +84,7 @@ class WidgetActionReceiver : BroadcastReceiver() {
             ACCION_PLAY_PAUSA -> KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE
             ACCION_SIGUIENTE -> KeyEvent.KEYCODE_MEDIA_NEXT
             ACCION_ANTERIOR -> KeyEvent.KEYCODE_MEDIA_PREVIOUS
+            ACCION_DETENER -> KeyEvent.KEYCODE_MEDIA_STOP
             else -> return
         }
         val audio = context.getSystemService(Context.AUDIO_SERVICE) as? AudioManager
@@ -96,5 +99,6 @@ class WidgetActionReceiver : BroadcastReceiver() {
         const val ACCION_PLAY_PAUSA = "play_pausa"
         const val ACCION_SIGUIENTE = "siguiente"
         const val ACCION_ANTERIOR = "anterior"
+        const val ACCION_DETENER = "detener"
     }
 }
