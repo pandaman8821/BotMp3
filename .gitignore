@@ -30,3 +30,5 @@ ios/.symlinks/
 # Temporales
 _wrapper_tmp/
 **/build/
+
+dist/
