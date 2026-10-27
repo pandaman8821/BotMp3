@@ -13,6 +13,7 @@ class WidgetService {
 
   static Future<void> actualizar(Song cancion, {required bool suena}) async {
     try {
+      await HomeWidget.saveWidgetData<bool>('sonando', suena);
       await HomeWidget.saveWidgetData<String>('titulo', cancion.title);
       await HomeWidget.saveWidgetData<String>('artista', cancion.artist);
       await HomeWidget.saveWidgetData<String>(

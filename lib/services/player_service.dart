@@ -28,7 +28,12 @@ class PlayerService {
     _player.playerStateStream.listen((PlayerState state) {
       _syncWakelock(state.playing);
       // Se cuenta la reproducción cuando el audio suena de verdad.
-      if (state.playing) _registrarInicioDeReproduccion();
+      if (state.playing) {
+        _registrarInicioDeReproduccion();
+      } else if (_queue.isNotEmpty && _currentIndex >= 0) {
+        // Refresca el widget para que el icono refleje la pausa.
+        unawaited(WidgetService.actualizar(_queue[_currentIndex], suena: false));
+      }
     });
 
     // La sesión multimedia (bloqueo, auriculares, reloj…) puede cambiar de
