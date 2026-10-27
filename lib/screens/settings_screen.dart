@@ -481,6 +481,15 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: const Icon(Icons.graphic_eq),
+            title: const Text('Ecualizador'),
+            subtitle: const Text('Abre el ecualizador de 5 bandas (pantalla nativa)'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              const MethodChannel('botmp3/equalizer').invokeMethod<bool>('abrir');
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.volume_up_outlined),
             title: const Text('Volumen de la canción que suena'),
             subtitle: const Text(
