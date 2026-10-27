@@ -1,5 +1,9 @@
 package com.botmp3.app
 
+import android.content.Intent
+
+import com.example.botmp3.ui.fragments.EqualizerActivity
+
 import android.app.AlarmManager
 import android.os.Build
 import android.os.PowerManager
@@ -33,6 +37,17 @@ class MainActivity : AudioServiceActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        MethodChannel(
+            flutterEngine.dartExecutor.binaryMessenger,
+            "botmp3/equalizer",
+        ).setMethodCallHandler { call, result ->
+            if (call.method == "abrir") {
+                startActivity(Intent(this, EqualizerActivity::class.java))
+                result.success(true)
+            } else {
+                result.notImplemented()
+            }
+        }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, channelName)
             .setMethodCallHandler { call, result ->
                 when (call.method) {

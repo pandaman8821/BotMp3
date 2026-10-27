@@ -122,5 +122,10 @@
         <receiver
             android:name=".WidgetActionReceiver"
             android:exported="false" />
+        <activity
+            android:name="com.example.botmp3.ui.fragments.EqualizerActivity"
+            android:exported="false"
+            android:label="Ecualizador"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
     </application>
 </manifest>
