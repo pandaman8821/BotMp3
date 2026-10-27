@@ -61,6 +61,15 @@ class AudioFormats {
 
   static const List<String> supported = <String>[
     'mp3',
+    'mp2',
+    'amr',
+    'awb',
+    'mka',
+    'mp4',
+    '3gp',
+    'ac3',
+    'eac3',
+    'dts',
     'm4a',
     'm4b',
     'aac',
