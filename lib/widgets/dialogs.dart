@@ -178,6 +178,8 @@ class AppDialogs {
     List<Song> preselected = const <Song>[],
   }) async {
     final Set<String> selected = preselected.map((Song s) => s.id).toSet();
+    // Buscador del selector: filtra por cancion, artista, album o genero.
+    String query = '';
     final LibraryProvider library = context.read<LibraryProvider>();
 
     final bool? accepted = await showModalBottomSheet<bool>(
@@ -186,6 +188,14 @@ class AppDialogs {
       showDragHandle: true,
       builder: (BuildContext sheetContext) => StatefulBuilder(
         builder: (BuildContext innerContext, void Function(void Function()) setState) {
+          final String q = query.trim().toLowerCase();
+          final List<Song> visibles = q.isEmpty
+              ? candidates
+              : candidates
+                  .where((Song s) => ('${s.title} ${s.artist} ${s.album} ${s.genre}')
+                      .toLowerCase()
+                      .contains(q))
+                  .toList();
           return DraggableScrollableSheet(
             expand: false,
             initialChildSize: 0.85,
@@ -207,12 +217,24 @@ class AppDialogs {
                     ],
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                  child: TextField(
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.search),
+                      hintText: 'Buscar canción, artista, álbum o género',
+                      isDense: true,
+                      border: OutlineInputBorder(),
+                    ),
+                    onChanged: (String value) => setState(() => query = value),
+                  ),
+                ),
                 Expanded(
                   child: ListView.builder(
                     controller: controller,
-                    itemCount: candidates.length,
+                    itemCount: visibles.length,
                     itemBuilder: (BuildContext context, int index) {
-                      final Song song = candidates[index];
+                      final Song song = visibles[index];
                       final bool isSelected = selected.contains(song.id);
                       return CheckboxListTile(
                         value: isSelected,
