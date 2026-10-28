@@ -77,15 +77,5 @@
             android:contentDescription="Siguiente"
             android:scaleType="centerInside"
             android:src="@android:drawable/ic_media_next" />
-
-        <ImageButton
-            android:id="@+id/widget_stop"
-            android:layout_width="0dp"
-            android:layout_height="44dp"
-            android:layout_weight="1"
-            android:background="#00000000"
-            android:contentDescription="Detener"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_widget_stop" />
     </LinearLayout>
 </LinearLayout>
