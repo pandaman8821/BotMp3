@@ -3,7 +3,7 @@ description: "BotMp3: reproductor de música con biblioteca, listas, editor de c
 publish_to: 'none'
 
 # Versión 1.0 lista para probar (versionName 1.0.0 / versionCode 1)
-version: 1.9.5+58
+version: 1.9.6+59
 
 environment:
   sdk: ">=3.5.0 <4.0.0"
