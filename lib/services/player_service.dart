@@ -331,10 +331,20 @@ class PlayerService {
   }
 
   Future<void> play() async {
-    // Tras un STOP (notificacion o widget) el motor queda en idle y sin fuente:
-    // hay que volver a cargar la cola antes de darle al play.
+    // Tras un STOP (notificacion) just_audio_background mata la sesion y deja el
+    // motor en idle. Se recarga la cola, pero NUNCA sin limite de tiempo: si el
+    // motor no responde, antes se quedaba la app entera bloqueada esperando.
     if (_player.processingState == ProcessingState.idle && _queue.isNotEmpty) {
-      await _loadQueueIntoPlayer(_currentIndex < 0 ? 0 : _currentIndex);
+      try {
+        await _loadQueueIntoPlayer(_currentIndex < 0 ? 0 : _currentIndex)
+            .timeout(const Duration(seconds: 6));
+      } on TimeoutException {
+        _registrarError('El motor no respondio al reanudar tras el STOP.');
+        return;
+      } catch (e) {
+        _registrarError('No se pudo reanudar tras el STOP: $e');
+        return;
+      }
     }
     if (_queue.isEmpty) return;
     await _player.play();
