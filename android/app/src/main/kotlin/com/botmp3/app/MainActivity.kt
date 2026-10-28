@@ -42,7 +42,11 @@ class MainActivity : AudioServiceActivity() {
             "botmp3/equalizer",
         ).setMethodCallHandler { call, result ->
             if (call.method == "abrir") {
-                startActivity(Intent(this, EqualizerActivity::class.java))
+                val sesion = call.argument<Int>("session") ?: 0
+                startActivity(
+                    Intent(this, EqualizerActivity::class.java)
+                        .putExtra("session", sesion),
+                )
                 result.success(true)
             } else {
                 result.notImplemented()

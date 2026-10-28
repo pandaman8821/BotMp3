@@ -7,10 +7,13 @@ import android.widget.FrameLayout;
 /**
  * Actividad nativa que aloja el ecualizador.
  *
- * Se abre desde Flutter con el MethodChannel "botmp3/equalizer".
- * No necesita layout XML: crea un contenedor y monta el fragmento.
+ * Recibe por Intent el id de sesion de audio del motor (extra "session") y lo
+ * pasa al fragmento: asi el efecto se aplica a la reproduccion real y no a la
+ * salida global (que Android 10+ restringe).
  */
 public class EqualizerActivity extends Activity implements EqualizerFragment.EqualizerHost {
+
+    public static final String EXTRA_SESION = "session";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +23,20 @@ public class EqualizerActivity extends Activity implements EqualizerFragment.Equ
         setContentView(contenedor);
 
         if (savedInstanceState == null) {
+            int sesion = (getIntent() != null)
+                    ? getIntent().getIntExtra(EXTRA_SESION, 0)
+                    : 0;
+            EqualizerFragment fragmento = EqualizerFragment.nuevaInstancia(sesion);
             getFragmentManager()
                     .beginTransaction()
-                    .replace(1, new EqualizerFragment())
+                    .replace(1, fragmento)
                     .commit();
         }
     }
 
     @Override
     public void applyEqualizer(float[] gainsDb) {
-        // Aqui se puede conectar el ecualizador al servicio de audio real.
-        // El fragmento ya aplica el efecto nativo del framework; este metodo
-        // queda listo por si tu servicio expone su propio applyEqualizer.
+        // El fragmento ya aplica el efecto nativo sobre la sesion del motor.
+        // Este gancho queda disponible por si el servicio quiere hacer algo mas.
     }
 }
