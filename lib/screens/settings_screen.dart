@@ -486,7 +486,15 @@ class SettingsScreen extends StatelessWidget {
             subtitle: const Text('Abre el ecualizador de 5 bandas (pantalla nativa)'),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
-              const MethodChannel('botmp3/equalizer').invokeMethod<bool>('abrir');
+              // Se pasa la sesion real del motor para que el ecualizador nativo
+              // actue sobre ella (la sesion global 0 esta restringida).
+              final PlayerProvider player = context.read<PlayerProvider>();
+              final int sesion =
+                  player.service.player.androidAudioSessionId ?? 0;
+              const MethodChannel('botmp3/equalizer').invokeMethod<bool>(
+                'abrir',
+                <String, dynamic>{'session': sesion},
+              );
             },
           ),
           ListTile(

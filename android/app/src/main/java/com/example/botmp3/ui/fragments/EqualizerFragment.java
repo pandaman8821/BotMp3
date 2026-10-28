@@ -35,6 +35,19 @@ import java.util.Locale;
  */
 public class EqualizerFragment extends Fragment {
 
+    private static final String ARG_SESION = "session";
+
+    private int sesionAudio = 0;
+
+    /** Crea el fragmento con el id de sesion de audio del motor. */
+    public static EqualizerFragment nuevaInstancia(int sesionAudio) {
+        EqualizerFragment fragmento = new EqualizerFragment();
+        Bundle argumentos = new Bundle();
+        argumentos.putInt(ARG_SESION, sesionAudio);
+        fragmento.setArguments(argumentos);
+        return fragmento;
+    }
+
     // ------------------------------------------------------------------ constantes
 
     private static final String PREFS = "botmp3_equalizer";
@@ -89,6 +102,9 @@ public class EqualizerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final Context contexto = getActivity();
+        if (getArguments() != null) {
+            sesionAudio = getArguments().getInt(ARG_SESION, 0);
+        }
         prefs = contexto.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
 
         ScrollView scroll = new ScrollView(contexto);
@@ -345,7 +361,7 @@ public class EqualizerFragment extends Fragment {
         // 2) Ecualizador nativo del framework sobre la salida global (sesion 0).
         try {
             if (ecualizadorNativo == null) {
-                ecualizadorNativo = new android.media.audiofx.Equalizer(0, 0);
+                ecualizadorNativo = new android.media.audiofx.Equalizer(0, sesionAudio);
                 ecualizadorNativo.setEnabled(true);
             }
             short numeroBandas = ecualizadorNativo.getNumberOfBands();
