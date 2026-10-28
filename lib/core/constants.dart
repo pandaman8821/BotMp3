@@ -118,7 +118,13 @@ extension AiProviderInfo on AiProvider {
   List<String> get models {
     switch (this) {
       case AiProvider.openai:
-        return <String>['gpt-4o', 'gpt-4o-mini', 'o1', 'o1-mini'];
+        return <String>[
+            'gpt-4o',
+            'gpt-4o-mini',
+            'gpt-4.1',
+            'gpt-4.1-mini',
+            'o4-mini',
+          ];
       case AiProvider.deepseek:
         // Nombres VIGENTES de la API de DeepSeek. Los antiguos
         // `deepseek-chat` y `deepseek-reasoner` ya no existen.
@@ -127,10 +133,10 @@ extension AiProviderInfo on AiProvider {
         return <String>['gemini-2.5-pro', 'gemini-2.5-flash', 'gemini-2.0-flash'];
       case AiProvider.claude:
         return <String>[
-          'claude-3-5-sonnet-latest',
-          'claude-3-5-haiku-latest',
-          'claude-3-opus-latest',
-        ];
+            'claude-sonnet-4-20250514',
+            'claude-3-7-sonnet-20250219',
+            'claude-3-5-haiku-20241022',
+          ];
     }
   }
 
