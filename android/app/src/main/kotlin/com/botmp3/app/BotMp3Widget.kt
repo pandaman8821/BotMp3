@@ -54,11 +54,7 @@ class BotMp3Widget : HomeWidgetProvider() {
                 R.id.widget_next,
                 accion(context, id * 10 + 3, WidgetActionReceiver.ACCION_SIGUIENTE),
             )
-            views.setOnClickPendingIntent(
-                R.id.widget_stop,
-                accion(context, id * 10 + 4, WidgetActionReceiver.ACCION_DETENER),
-            )
-            appWidgetManager.updateAppWidget(id, views)
+                        appWidgetManager.updateAppWidget(id, views)
         }
     }
 

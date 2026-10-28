@@ -331,6 +331,11 @@ class PlayerService {
   }
 
   Future<void> play() async {
+    // Tras un STOP (notificacion o widget) el motor queda en idle y sin fuente:
+    // hay que volver a cargar la cola antes de darle al play.
+    if (_player.processingState == ProcessingState.idle && _queue.isNotEmpty) {
+      await _loadQueueIntoPlayer(_currentIndex < 0 ? 0 : _currentIndex);
+    }
     if (_queue.isEmpty) return;
     await _player.play();
   }
