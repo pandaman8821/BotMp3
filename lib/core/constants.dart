@@ -124,7 +124,7 @@ extension AiProviderInfo on AiProvider {
         // `deepseek-chat` y `deepseek-reasoner` ya no existen.
         return <String>['deepseek-flash', 'deepseek-v4-pro'];
       case AiProvider.gemini:
-        return <String>['gemini-1.5-pro', 'gemini-1.5-flash', 'gemini-2.0-flash'];
+        return <String>['gemini-2.5-pro', 'gemini-2.5-flash', 'gemini-2.0-flash'];
       case AiProvider.claude:
         return <String>[
           'claude-3-5-sonnet-latest',
@@ -154,9 +154,9 @@ extension AiProviderInfo on AiProvider {
       case 'o1-mini':
         return 'Razonamiento: más lento y caro; con estos la app omite el modo JSON.';
       case 'gemini-2.0-flash':
-      case 'gemini-1.5-flash':
+      case 'gemini-2.5-flash':
         return 'Rápido y con cuota gratuita generosa de Google.';
-      case 'gemini-1.5-pro':
+      case 'gemini-2.5-pro':
         return 'Más capaz; consume antes la cuota gratuita.';
       case 'claude-3-5-haiku-latest':
         return 'El más rápido y económico de Claude.';
