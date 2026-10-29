@@ -36,8 +36,8 @@ class BotMp3Widget : HomeWidgetProvider() {
             )
             // Barra de bloques por TEXTO: el launcher no repinta dibujos al cambiar
             // un texto, asi que no puede parpadear (era el fallo en MIUI).
-            val llenos = (progreso * 20 / 100).coerceIn(0, 20)
-            val barra = "▰".repeat(llenos) + "▱".repeat(20 - llenos)
+            val llenos = (progreso * 32 / 100).coerceIn(0, 32)
+            val barra = "▰".repeat(llenos) + "▱".repeat(32 - llenos)
             views.setTextViewText(R.id.widget_progreso, barra)
             views.setTextViewText(
                 R.id.widget_album,
