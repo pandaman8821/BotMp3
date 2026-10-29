@@ -119,6 +119,9 @@ extension AiProviderInfo on AiProvider {
 
   /// Modelos recomendados (el primero es el que se usa por defecto).
   List<String> get models {
+    // Si ya se descargo el catalogo real de la API, manda sobre la lista fija.
+    final List<String>? enCache = AudioFormats.cacheModelos[name];
+    if (enCache != null && enCache.isNotEmpty) return enCache;
     switch (this) {
       case AiProvider.openai:
         return <String>[
