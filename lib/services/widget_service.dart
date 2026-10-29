@@ -10,6 +10,12 @@ class WidgetService {
 
   static const String _nombreAndroid = 'BotMp3Widget';
 
+  static String _mmss(Duration d) {
+    final int minutos = d.inMinutes;
+    final int segundos = d.inSeconds % 60;
+    return '$minutos:${segundos.toString().padLeft(2, '0')}';
+  }
+
   static Future<void> actualizar(
     Song cancion, {
     required bool suena,
@@ -26,6 +32,12 @@ class WidgetService {
       await HomeWidget.saveWidgetData<int>('progreso', progreso);
       await HomeWidget.saveWidgetData<String>('titulo', cancion.title);
       await HomeWidget.saveWidgetData<String>('artista', cancion.artist);
+      await HomeWidget.saveWidgetData<String>('album', cancion.album);
+      await HomeWidget.saveWidgetData<String>('portada', cancion.coverPath ?? '');
+      await HomeWidget.saveWidgetData<String>(
+        'tiempo',
+        '${_mmss(posicion)} / ${_mmss(total)}',
+      );
       await HomeWidget.saveWidgetData<String>(
         'estado',
         suena ? 'Sonando ahora' : 'En pausa',

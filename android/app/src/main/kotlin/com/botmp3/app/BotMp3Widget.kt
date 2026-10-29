@@ -6,8 +6,10 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.BitmapFactory
 import android.media.AudioManager
 import android.view.KeyEvent
+import android.widget.ImageView
 import android.widget.RemoteViews
 import es.antonborri.home_widget.HomeWidgetLaunchIntent
 import es.antonborri.home_widget.HomeWidgetProvider
@@ -33,6 +35,31 @@ class BotMp3Widget : HomeWidgetProvider() {
                 widgetData.getString("artista", "Toca para abrir") ?: "Toca para abrir",
             )
             views.setProgressBar(R.id.widget_progreso, 100, progreso, false)
+            views.setTextViewText(
+                R.id.widget_album,
+                widgetData.getString("album", "") ?: "",
+            )
+            views.setTextViewText(
+                R.id.widget_tiempo,
+                widgetData.getString("tiempo", "0:00 / 0:00") ?: "0:00 / 0:00",
+            )
+            val portada = widgetData.getString("portada", "") ?: ""
+            if (portada.isNotEmpty()) {
+                try {
+                    val bmp = BitmapFactory.decodeFile(portada)
+                    if (bmp != null) {
+                        val escalada = android.graphics.Bitmap.createScaledBitmap(
+                            bmp,
+                            186,
+                            186,
+                            true,
+                        )
+                        views.setImageViewBitmap(R.id.widget_portada, escalada)
+                    }
+                } catch (_: Throwable) {
+                    // Si la caratula falla, se queda el fondo por defecto.
+                }
+            }
             views.setImageViewResource(
                 R.id.widget_play,
                 if (sonando) android.R.drawable.ic_media_pause
