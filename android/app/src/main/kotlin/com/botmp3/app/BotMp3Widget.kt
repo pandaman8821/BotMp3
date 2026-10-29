@@ -34,7 +34,9 @@ class BotMp3Widget : HomeWidgetProvider() {
                 R.id.widget_artista,
                 widgetData.getString("artista", "Toca para abrir") ?: "Toca para abrir",
             )
-            views.setProgressBar(R.id.widget_progreso, 100, progreso, false)
+            // Nivel 0..10000 sobre el drawable 'clip': se posiciona sin animacion
+            // (el ProgressBar nativo parpadeaba al re-inflar el widget en MIUI).
+            views.setInt(R.id.widget_progreso, "setImageLevel", (progreso * 100).coerceIn(0, 10000))
             views.setTextViewText(
                 R.id.widget_album,
                 widgetData.getString("album", "") ?: "",
