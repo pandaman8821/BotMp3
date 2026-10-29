@@ -157,7 +157,7 @@ class PlayerService {
   /// Refresca el widget cada 5 s mientras suena: icono, progreso y tiempo.
   void _iniciarRefrescoWidget() {
     _temporizadorWidget2?.cancel();
-    _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 5), (_) {
+    _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 1), (_) {
       final Song? cancion = current;
       if (cancion == null) return;
       unawaited(WidgetService.actualizar(
@@ -184,7 +184,7 @@ class PlayerService {
       ));
       return;
     }
-    _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 5), (_) {
+    _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 1), (_) {
       final Song? actual = current;
       if (actual == null) return;
       unawaited(WidgetService.actualizar(
