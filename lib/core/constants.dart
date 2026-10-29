@@ -59,6 +59,9 @@ class GenreCatalog {
 class AudioFormats {
   const AudioFormats._();
 
+  /// Modelos descargados de la API de cada proveedor (sustituyen a la lista fija).
+  static final Map<String, List<String>> cacheModelos = <String, List<String>>{};
+
   static const List<String> supported = <String>[
     'mp3',
     'mp2',
