@@ -21,6 +21,9 @@ class PlayerProvider extends ChangeNotifier {
     service.currentSong.addListener(_onSongChanged);
     _currentSubscription = () => service.currentSong.removeListener(_onSongChanged);
     service.onSongStarted = _onSongStarted;
+    // Cualquier cambio de estado del motor (play, pausa, stop, fin de pista,
+    // auriculares, notificacion) refresca la interfaz al instante.
+    service.player.playerStateStream.listen((PlayerState _) => notifyListeners());
     _bind();
     AiBridge.player = this;
   }
@@ -33,7 +36,7 @@ class PlayerProvider extends ChangeNotifier {
   final List<Song> _recentlyPlayed = <Song>[];
 
   Song? get current => service.current;
-  bool get playing => service.player.playing;
+  bool get playing => service.estaSonando;
   bool get isShuffleEnabled => service.isShuffleEnabled;
   RepeatMode get repeatMode => service.repeatMode;
   List<Song> get queue => service.queue;

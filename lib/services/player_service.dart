@@ -151,6 +151,18 @@ class PlayerService {
   }
 
   AudioPlayer get player => _player;
+
+  /// Ultima accion play/pausa: evita que un doble toque (o un evento duplicado
+  /// del sistema) se ejecute dos veces y deje el boton en el estado contrario.
+  DateTime _ultimaAccion = DateTime.fromMillisecondsSinceEpoch(0);
+
+  /// Estado REAL de reproduccion. El flag `playing` de just_audio sigue en true
+  /// aunque el motor este en idle o completed: por eso el boton se quedaba
+  /// "frisado" en Pausa. Solo cuenta como sonando si ademas hay audio listo.
+  bool get estaSonando =>
+      _player.playing &&
+      _player.processingState != ProcessingState.idle &&
+      _player.processingState != ProcessingState.completed;
   List<Song> get queue => List<Song>.unmodifiable(_queue);
   int get currentIndex => _currentIndex;
   bool get isShuffleEnabled => _shuffle;
@@ -331,6 +343,9 @@ class PlayerService {
   }
 
   Future<void> play() async {
+    if (DateTime.now().difference(_ultimaAccion) < const Duration(milliseconds: 300)) return;
+    _ultimaAccion = DateTime.now();
+
     // Tras un STOP (notificacion) just_audio_background mata la sesion y deja el
     // motor en idle. Se recarga la cola, pero NUNCA sin limite de tiempo: si el
     // motor no responde, antes se quedaba la app entera bloqueada esperando.
@@ -350,7 +365,11 @@ class PlayerService {
     await _player.play();
   }
 
-  Future<void> pause() => _player.pause();
+  Future<void> pause() async {
+    if (DateTime.now().difference(_ultimaAccion) < const Duration(milliseconds: 300)) return;
+    _ultimaAccion = DateTime.now();
+    await _player.pause();
+  }
 
   Future<void> next({bool auto = false}) async {
     if (_queue.isEmpty) return;
