@@ -97,6 +97,15 @@
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/widget_rewind"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:contentDescription="Atrasar 10 segundos"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_media_rew" />
+        <ImageButton
             android:id="@+id/widget_prev"
             android:layout_width="0dp"
             android:layout_height="42dp"
@@ -125,5 +134,14 @@
             android:contentDescription="Siguiente"
             android:scaleType="centerInside"
             android:src="@android:drawable/ic_media_next" />
+        <ImageButton
+            android:id="@+id/widget_forward"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:contentDescription="Adelantar 10 segundos"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_media_ff" />
     </LinearLayout>
 </LinearLayout>
