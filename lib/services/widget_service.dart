@@ -16,12 +16,22 @@ class WidgetService {
     return '$minutos:${segundos.toString().padLeft(2, '0')}';
   }
 
+  static DateTime _ultimaActualizacion = DateTime.fromMillisecondsSinceEpoch(0);
+
   static Future<void> actualizar(
     Song cancion, {
     required bool suena,
     Duration posicion = Duration.zero,
     Duration total = Duration.zero,
   }) async {
+    // agrupar: si dos updates llegan con milisegundos de diferencia (play+stop,
+    // tick+pausa) se queda solo el primero: evita el doble redibujado que
+    // producia el destello del widget.
+    final DateTime ahora = DateTime.now();
+    if (ahora.difference(_ultimaActualizacion) < const Duration(milliseconds: 400)) {
+      return;
+    }
+    _ultimaActualizacion = ahora;
     try {
       final int progreso = total.inMilliseconds <= 0
           ? 0
