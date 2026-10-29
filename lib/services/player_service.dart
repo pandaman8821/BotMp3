@@ -152,6 +152,35 @@ class PlayerService {
 
   AudioPlayer get player => _player;
 
+  Timer? _temporizadorWidget2;
+
+  /// Mantiene el widget al dia: cada 5 s mientras suena (progreso, tiempo e
+  /// icono) y una vez al pausar para que muestre "En pausa" e icono play.
+  void _programarRefrescoWidget() {
+    _temporizadorWidget2?.cancel();
+    final Song? cancion = current;
+    if (cancion == null) return;
+    if (!_player.playing) {
+      unawaited(WidgetService.actualizar(
+        cancion,
+        suena: false,
+        posicion: _player.position,
+        total: _player.duration ?? Duration.zero,
+      ));
+      return;
+    }
+    _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 5), (_) {
+      final Song? actual = current;
+      if (actual == null) return;
+      unawaited(WidgetService.actualizar(
+        actual,
+        suena: true,
+        posicion: _player.position,
+        total: _player.duration ?? Duration.zero,
+      ));
+    });
+  }
+
   /// Ultima accion play/pausa: evita que un doble toque (o un evento duplicado
   /// del sistema) se ejecute dos veces y deje el boton en el estado contrario.
   DateTime _ultimaAccion = DateTime.fromMillisecondsSinceEpoch(0);
