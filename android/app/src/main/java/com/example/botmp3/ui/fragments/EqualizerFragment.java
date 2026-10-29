@@ -50,12 +50,20 @@ public class EqualizerFragment extends Fragment {
 
     private static final String[] FRECUENCIAS = {"63 Hz", "250 Hz", "1 kHz", "4 kHz", "16 kHz"};
 
-    private static final String[] PRESETS_NOMBRES = {"Rock", "Pop", "Jazz", "Clásico"};
+    private static final String[] PRESETS_NOMBRES = {"Rock", "Pop", "Jazz", "Clásico", "Rap", "Reggaetón", "Cumbia", "Electrónica", "Rock pesado", "Vocal", "Bajos", "Agudos"};
     private static final float[][] PRESETS_VALORES = {
-            {+5f, +3f, 0f, +2f, +4f},
-            {-2f, +1f, +4f, +3f, -1f},
-            {+3f, +1f, 0f, +2f, +2f},
-            {+2f, +2f, -1f, +3f, +4f}
+            {+5f, +3f, 0f, +2f, +4f},    // Rock
+            {-2f, +1f, +4f, +3f, -1f},   // Pop
+            {+3f, +1f, 0f, +2f, +2f},    // Jazz
+            {+2f, +2f, -1f, +3f, +4f},   // Clásico
+            {+6f, +4f, 0f, +2f, +2f},    // Rap
+            {+7f, +5f, 0f, +3f, +2f},    // Reggaetón
+            {+5f, +3f, +1f, +2f, +3f},   // Cumbia
+            {+6f, +2f, -1f, +3f, +5f},   // Electrónica
+            {+7f, +4f, -2f, +4f, +5f},   // Rock pesado
+            {-3f, 0f, +5f, +4f, +1f},    // Vocal
+            {+8f, +6f, 0f, 0f, 0f},      // Bajos
+            {-1f, 0f, +1f, +4f, +6f}     // Agudos
     };
     private static final float[] APLASTAR_VALORES = {+6f, +6f, -3f, -3f, 0f};
 
@@ -228,21 +236,28 @@ public class EqualizerFragment extends Fragment {
             sliders[i] = slider;
         }
 
-        // ---- Chips de presets
-        LinearLayout filaPresets = new LinearLayout(contexto);
-        filaPresets.setOrientation(LinearLayout.HORIZONTAL);
-        LinearLayout.LayoutParams presetsLp = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        presetsLp.topMargin = dp(16);
-        root.addView(filaPresets, presetsLp);
+        // ---- Chips de presets (filas de 4)
+        final int porFila = 4;
+        LinearLayout filaPresets = null;
         for (int i = 0; i < PRESETS_NOMBRES.length; i++) {
+            if (i % porFila == 0) {
+                filaPresets = new LinearLayout(contexto);
+                filaPresets.setOrientation(LinearLayout.HORIZONTAL);
+                LinearLayout.LayoutParams filaLp = new LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+                filaLp.topMargin = i == 0 ? dp(16) : dp(8);
+                root.addView(filaPresets, filaLp);
+            }
             final int indice = i;
             TextView chip = new TextView(contexto);
             chip.setText(PRESETS_NOMBRES[i]);
             chip.setTextColor(TEXTO);
-            chip.setTextSize(12.5f);
+            chip.setTextSize(12f);
             chip.setGravity(Gravity.CENTER);
-            chip.setPadding(dp(10), dp(8), dp(10), dp(8));
+            chip.setPadding(dp(6), dp(9), dp(6), dp(9));
+            chip.setMaxLines(1);
+            chip.setEllipsize(android.text.TextUtils.TruncateAt.END);
             GradientDrawable fondo = new GradientDrawable();
             fondo.setColor(Color.parseColor("#152134"));
             fondo.setCornerRadius(dp(18));
