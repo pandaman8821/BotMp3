@@ -169,16 +169,9 @@ class PlayerService {
         total: _player.duration ?? Duration.zero,
       ));
     }
-    _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 1), (_) {
-      final Song? cancion = current;
-      if (cancion == null) return;
-      unawaited(WidgetService.actualizar(
-        cancion,
-        suena: estaSonando,
-        posicion: _player.position,
-        total: _player.duration ?? Duration.zero,
-      ));
-    });
+    // Sin ciclo periodico: en el launcher de MIUI cada actualizacion del widget
+    // se veia como un destello. Solo se publica al cambiar de cancion, al
+    // pausar y al reanudar (2-3 veces por cancion en lugar de cada segundo).
   }
 
   /// Mantiene el widget al dia: cada 5 s mientras suena (progreso, tiempo e
