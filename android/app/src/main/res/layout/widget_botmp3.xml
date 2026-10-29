@@ -4,42 +4,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/widget_fondo"
-    android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="14dp">
 
-    <TextView
-        android:id="@+id/widget_titulo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="BotMp3"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/widget_artista"
+        <ImageView
+            android:id="@+id/widget_portada"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:background="#1B2740"
+            android:contentDescription="Carátula"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="BotMp3"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/widget_artista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Toca para abrir"
+                android:textColor="#AFC0D6"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/widget_album"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text=""
+                android:textColor="#7D92AD"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="Toca para abrir"
-        android:textColor="#AFC0D6"
-        android:textSize="12sp" />
-
-    <ProgressBar
-        android:id="@+id/widget_progreso"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="6dp"
         android:layout_marginTop="8dp"
-        android:max="100"
-        android:progress="0"
-        android:progressTint="#34D399"
-        android:progressBackgroundTint="#2A3850" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/widget_progreso"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="0"
+            android:progressBackgroundTint="#2A3850"
+            android:progressTint="#34D399" />
+
+        <TextView
+            android:id="@+id/widget_tiempo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="0:00 / 0:00"
+            android:textColor="#8FA3BF"
+            android:textSize="10sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +99,7 @@
         <ImageButton
             android:id="@+id/widget_prev"
             android:layout_width="0dp"
-            android:layout_height="44dp"
+            android:layout_height="42dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:contentDescription="Anterior"
@@ -61,7 +109,7 @@
         <ImageButton
             android:id="@+id/widget_play"
             android:layout_width="0dp"
-            android:layout_height="44dp"
+            android:layout_height="42dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:contentDescription="Reproducir o pausar"
@@ -71,7 +119,7 @@
         <ImageButton
             android:id="@+id/widget_next"
             android:layout_width="0dp"
-            android:layout_height="44dp"
+            android:layout_height="42dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:contentDescription="Siguiente"
