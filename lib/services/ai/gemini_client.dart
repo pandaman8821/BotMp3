@@ -37,6 +37,10 @@ class GeminiClient extends AiClient {
         'temperature': temperature,
         'maxOutputTokens': maxTokens,
         if (json) 'responseMimeType': 'application/json',
+            // Los modelos 2.5 piensan por defecto: se comen los tokens y la
+            // respuesta sale vacia o cortada. Se desactiva el pensamiento.
+            if (model.contains('2.5'))
+              'thinkingConfig': <String, dynamic>{'thinkingBudget': 0},
       },
     };
 
@@ -55,7 +59,8 @@ class GeminiClient extends AiClient {
     final List<dynamic>? parts = content?['parts'] as List<dynamic>?;
     final String text = (parts ?? <dynamic>[])
         .whereType<Map<String, dynamic>>()
-        .map((Map<String, dynamic> part) => (part['text'] ?? '').toString())
+        .where((Map<String, dynamic> part) => part['thought'] != true)
+            .map((Map<String, dynamic> part) => (part['text'] ?? '').toString())
         .join('\n')
         .trim();
 
