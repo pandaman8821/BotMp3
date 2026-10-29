@@ -408,18 +408,9 @@ class PlayerService {
     // Tras un STOP (notificacion) just_audio_background mata la sesion y deja el
     // motor en idle. Se recarga la cola, pero NUNCA sin limite de tiempo: si el
     // motor no responde, antes se quedaba la app entera bloqueada esperando.
-    if (_player.processingState == ProcessingState.idle && _queue.isNotEmpty) {
-      try {
-        await _loadQueueIntoPlayer(_currentIndex < 0 ? 0 : _currentIndex)
-            .timeout(const Duration(seconds: 6));
-      } on TimeoutException {
-        _registrarError('El motor no respondio al reanudar tras el STOP.');
-        return;
-      } catch (e) {
-        _registrarError('No se pudo reanudar tras el STOP: $e');
-        return;
-      }
-    }
+    // Ya no se recarga la cola al reanudar: el control STOP de la notificacion
+    // fue eliminado del paquete vendorizado, asi que recargar solo provocaba que
+    // la cancion se reiniciara al pulsar play repetidamente.    }
     if (_queue.isEmpty) return;
     await _player.play();
   }
