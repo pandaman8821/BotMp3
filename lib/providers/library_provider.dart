@@ -230,7 +230,7 @@ class LibraryProvider extends ChangeNotifier {
     try {
       await init();
       final bool incluirAudios =
-          SettingsService.actual?.importMediaAudio ?? false;
+          SettingsService.actual?.importMediaAudio ?? true;
       final List<ScannedTrack> tracks =
           await MediaScanner.queryAudio(includeNonMusic: incluirAudios);
       if (tracks.isEmpty) {
@@ -308,7 +308,7 @@ class LibraryProvider extends ChangeNotifier {
     );
     // Los audios de apps y las notas de voz solo se muestran si el usuario
     // activa la opción (así también desaparecen los ya importados antes).
-    if (SettingsService.actual?.importMediaAudio ?? false) return lista;
+    if (SettingsService.actual?.importMediaAudio ?? true) return lista;
     return lista
         .where((Song song) => !pareceAudioDeApp(song))
         .toList(growable: false);
