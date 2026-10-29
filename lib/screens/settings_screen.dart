@@ -446,10 +446,10 @@ class SettingsScreen extends StatelessWidget {
                 return;
               }
               final String sello =
-                  DateTime.now().toIso8601String().substring(0, 10);
+                  DateTime.now().toIso8601String().replaceAll(':', '').substring(0, 15);
               final String? ruta = await MediaImporter.exportText(
                 'botmp3-copia-$sello.json',
-                const JsonEncoder.withIndent('  ').convert(copia),
+                const JsonEncoder.withIndent('  ').convert(<String, dynamic>{'schema': 1, 'exportedAt': DateTime.now().toIso8601String(), ...copia}),
               );
               if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
@@ -1008,6 +1008,22 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
       ),
     );
   }
+  /// Exporta el texto y distingue error de cancelacion (el usuario merece saberlo).
+  Future<String?> _exportarConErrores(BuildContext context, String nombre, String contenido) async {
+    try {
+      return await MediaImporter.exportText(nombre, contenido);
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('No se pudo exportar: revisa el almacenamiento'),
+          ),
+        );
+      }
+      return null;
+    }
+  }
+
 }
 
 /// Utilidad de enmascarado expuesta para otras pantallas.
