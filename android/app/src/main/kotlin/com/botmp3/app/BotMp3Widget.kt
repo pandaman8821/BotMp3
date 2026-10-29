@@ -34,9 +34,11 @@ class BotMp3Widget : HomeWidgetProvider() {
                 R.id.widget_artista,
                 widgetData.getString("artista", "Toca para abrir") ?: "Toca para abrir",
             )
-            // Nivel 0..10000 sobre el drawable 'clip': se posiciona sin animacion
-            // (el ProgressBar nativo parpadeaba al re-inflar el widget en MIUI).
-            views.setInt(R.id.widget_progreso, "setImageLevel", (progreso * 100).coerceIn(0, 10000))
+            // Barra de bloques por TEXTO: el launcher no repinta dibujos al cambiar
+            // un texto, asi que no puede parpadear (era el fallo en MIUI).
+            val llenos = (progreso * 20 / 100).coerceIn(0, 20)
+            val barra = "▰".repeat(llenos) + "▱".repeat(20 - llenos)
+            views.setTextViewText(R.id.widget_progreso, barra)
             views.setTextViewText(
                 R.id.widget_album,
                 widgetData.getString("album", "") ?: "",

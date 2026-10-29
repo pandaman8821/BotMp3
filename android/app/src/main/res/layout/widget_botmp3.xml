@@ -69,14 +69,16 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
+        <TextView
             android:id="@+id/widget_progreso"
             android:layout_width="0dp"
-            android:layout_height="6dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="Progreso"
-            android:scaleType="fitXY"
-            android:src="@drawable/widget_barra" />
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱"
+            android:textColor="#34D399"
+            android:textSize="11sp" />
 
         <TextView
             android:id="@+id/widget_tiempo"
