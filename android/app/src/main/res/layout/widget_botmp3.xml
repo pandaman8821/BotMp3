@@ -77,7 +77,8 @@
             android:layout_weight="1"
             android:max="100"
             android:progress="0"
-            android:progressDrawable="@drawable/widget_progreso" />
+            android:progressBackgroundTint="#25344B"
+            android:progressTint="#34D399" />
 
         <TextView
             android:id="@+id/widget_tiempo"
