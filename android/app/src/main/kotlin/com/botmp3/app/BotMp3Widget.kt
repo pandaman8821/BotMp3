@@ -91,7 +91,9 @@ class BotMp3Widget : HomeWidgetProvider() {
                 R.id.widget_forward,
                 accion(context, id * 10 + 6, WidgetActionReceiver.ACCION_ADELANTAR),
             )
-            appWidgetManager.updateAppWidget(id, views)
+            // Se actualiza SOLO lo que cambia: con updateAppWidget el launcher
+            // re-inflaba todo el widget en cada play/pausa y se veia un destello.
+            appWidgetManager.partiallyUpdateAppWidget(id, views)
         }
     }
 
