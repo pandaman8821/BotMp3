@@ -245,6 +245,10 @@ class PlayerService {
     // 1) canciones con ruta utilizable  2) cuyo archivo siga existiendo.
     // Una sola pista perdida hacia fallar la carga de la cola y dejaba de sonar
     // todo lo que viniera despues.
+    // El widget se refresca SIEMPRE al montar una cola (cualquier forma de
+    // iniciar la reproduccion pasa por aqui, tambien el autoPlay y el sistema).
+    _iniciarRefrescoWidget();
+
     final List<Song> limpias = PlayInvariants.conFuenteUtilizable(songs)
         .where((Song s) {
       try {
