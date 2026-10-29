@@ -15,9 +15,9 @@
 
         <ImageView
             android:id="@+id/widget_portada"
-            android:layout_width="62dp"
-            android:layout_height="62dp"
-            android:background="#1B2740"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/widget_portada"
             android:contentDescription="Carátula"
             android:scaleType="centerCrop" />
 
@@ -43,10 +43,11 @@
                 android:id="@+id/widget_artista"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Toca para abrir"
-                android:textColor="#AFC0D6"
+                android:textColor="#B9CBE3"
                 android:textSize="12sp" />
 
             <TextView
@@ -56,9 +57,37 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text=""
-                android:textColor="#7D92AD"
-                android:textSize="11sp" />
+                android:textColor="#71839B"
+                android:textSize="10.5sp" />
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/widget_progreso"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/widget_progreso" />
+
+        <TextView
+            android:id="@+id/widget_tiempo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="0:00 / 0:00"
+            android:textColor="#9DB0C9"
+            android:textSize="10sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -68,80 +97,59 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ProgressBar
-            android:id="@+id/widget_progreso"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="0dp"
-            android:layout_height="6dp"
-            android:layout_weight="1"
-            android:max="100"
-            android:progress="0"
-            android:progressBackgroundTint="#2A3850"
-            android:progressTint="#34D399" />
-
-        <TextView
-            android:id="@+id/widget_tiempo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="0:00 / 0:00"
-            android:textColor="#8FA3BF"
-            android:textSize="10sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
         <ImageButton
             android:id="@+id/widget_rewind"
             android:layout_width="0dp"
-            android:layout_height="42dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:contentDescription="Atrasar 10 segundos"
             android:scaleType="centerInside"
-            android:src="@android:drawable/ic_media_rew" />
+            android:src="@android:drawable/ic_media_rew"
+            android:tint="#C7D6EA" />
+
         <ImageButton
             android:id="@+id/widget_prev"
             android:layout_width="0dp"
-            android:layout_height="42dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:contentDescription="Anterior"
             android:scaleType="centerInside"
-            android:src="@android:drawable/ic_media_previous" />
+            android:src="@android:drawable/ic_media_previous"
+            android:tint="#C7D6EA" />
 
         <ImageButton
             android:id="@+id/widget_play"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:background="#00000000"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/widget_play_fondo"
             android:contentDescription="Reproducir o pausar"
+            android:padding="9dp"
             android:scaleType="centerInside"
-            android:src="@android:drawable/ic_media_play" />
+            android:src="@android:drawable/ic_media_play"
+            android:tint="#FFFFFF" />
 
         <ImageButton
             android:id="@+id/widget_next"
             android:layout_width="0dp"
-            android:layout_height="42dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:contentDescription="Siguiente"
             android:scaleType="centerInside"
-            android:src="@android:drawable/ic_media_next" />
+            android:src="@android:drawable/ic_media_next"
+            android:tint="#C7D6EA" />
+
         <ImageButton
             android:id="@+id/widget_forward"
             android:layout_width="0dp"
-            android:layout_height="42dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="#00000000"
             android:contentDescription="Adelantar 10 segundos"
             android:scaleType="centerInside"
-            android:src="@android:drawable/ic_media_ff" />
+            android:src="@android:drawable/ic_media_ff"
+            android:tint="#C7D6EA" />
     </LinearLayout>
 </LinearLayout>
