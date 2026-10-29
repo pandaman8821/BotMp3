@@ -157,6 +157,18 @@ class PlayerService {
   /// Refresca el widget cada 5 s mientras suena: icono, progreso y tiempo.
   void _iniciarRefrescoWidget() {
     _temporizadorWidget2?.cancel();
+    // Publica el estado ACTUAL de inmediato, antes del primer tick: al pausar o
+    // reanudar no debe verse un fotograma con el progreso de la cancion anterior
+    // (eso era el parpadeo de la barra).
+    final Song? ahora = current;
+    if (ahora != null) {
+      unawaited(WidgetService.actualizar(
+        ahora,
+        suena: estaSonando,
+        posicion: _player.position,
+        total: _player.duration ?? Duration.zero,
+      ));
+    }
     _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 1), (_) {
       final Song? cancion = current;
       if (cancion == null) return;
@@ -183,6 +195,18 @@ class PlayerService {
         total: _player.duration ?? Duration.zero,
       ));
       return;
+    }
+    // Publica el estado ACTUAL de inmediato, antes del primer tick: al pausar o
+    // reanudar no debe verse un fotograma con el progreso de la cancion anterior
+    // (eso era el parpadeo de la barra).
+    final Song? ahora = current;
+    if (ahora != null) {
+      unawaited(WidgetService.actualizar(
+        ahora,
+        suena: estaSonando,
+        posicion: _player.position,
+        total: _player.duration ?? Duration.zero,
+      ));
     }
     _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 1), (_) {
       final Song? actual = current;
