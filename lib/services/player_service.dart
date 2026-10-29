@@ -154,6 +154,21 @@ class PlayerService {
 
   Timer? _temporizadorWidget2;
 
+  /// Refresca el widget cada 5 s mientras suena: icono, progreso y tiempo.
+  void _iniciarRefrescoWidget() {
+    _temporizadorWidget2?.cancel();
+    _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 5), (_) {
+      final Song? cancion = current;
+      if (cancion == null) return;
+      unawaited(WidgetService.actualizar(
+        cancion,
+        suena: estaSonando,
+        posicion: _player.position,
+        total: _player.duration ?? Duration.zero,
+      ));
+    });
+  }
+
   /// Mantiene el widget al dia: cada 5 s mientras suena (progreso, tiempo e
   /// icono) y una vez al pausar para que muestre "En pausa" e icono play.
   void _programarRefrescoWidget() {
@@ -366,12 +381,23 @@ class PlayerService {
     if (_queue.isEmpty) return;
     if (_player.playing) {
       await _player.pause();
+    _temporizadorWidget2?.cancel();
+    final Song? enPausa = current;
+    if (enPausa != null) {
+      unawaited(WidgetService.actualizar(
+        enPausa,
+        suena: false,
+        posicion: _player.position,
+        total: _player.duration ?? Duration.zero,
+      ));
+    }
     } else {
       await _player.play();
     }
   }
 
   Future<void> play() async {
+    _iniciarRefrescoWidget();
     if (DateTime.now().difference(_ultimaAccion) < const Duration(milliseconds: 300)) return;
     _ultimaAccion = DateTime.now();
 
@@ -398,6 +424,16 @@ class PlayerService {
     if (DateTime.now().difference(_ultimaAccion) < const Duration(milliseconds: 300)) return;
     _ultimaAccion = DateTime.now();
     await _player.pause();
+    _temporizadorWidget2?.cancel();
+    final Song? enPausa = current;
+    if (enPausa != null) {
+      unawaited(WidgetService.actualizar(
+        enPausa,
+        suena: false,
+        posicion: _player.position,
+        total: _player.duration ?? Duration.zero,
+      ));
+    }
   }
 
   Future<void> next({bool auto = false}) async {
@@ -426,6 +462,16 @@ class PlayerService {
 
     // Fin de la cola sin repetición.
     await _player.pause();
+    _temporizadorWidget2?.cancel();
+    final Song? enPausa = current;
+    if (enPausa != null) {
+      unawaited(WidgetService.actualizar(
+        enPausa,
+        suena: false,
+        posicion: _player.position,
+        total: _player.duration ?? Duration.zero,
+      ));
+    }
     await _player.seek(Duration.zero);
   }
 
