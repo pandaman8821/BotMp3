@@ -1,3 +1,4 @@
+import '../services/ai/model_catalog.dart';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
@@ -152,6 +153,12 @@ class AiAssistantProvider extends ChangeNotifier {
     _setBusy(true, 'Probando ${activeProvider.label}…');
     try {
       final String reply = await orchestrator.testConnection();
+      // Conexion valida: se descarga el catalogo REAL de modelos para que el
+      // selector ofrezca solo los que existen hoy (nunca mas caducados).
+      final String? claveModelos = await _secure.readKey(activeProvider);
+      if (claveModelos != null) {
+        await ModelCatalog.actualizar(activeProvider, claveModelos);
+      }
       _status = reply.isEmpty ? 'Conexión correcta' : reply;
       _lastError = null;
       return true;
