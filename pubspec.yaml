@@ -3,7 +3,7 @@ description: "BotMp3: reproductor de música con biblioteca, listas, editor de c
 publish_to: 'none'
 
 # Versión 1.0 lista para probar (versionName 1.0.0 / versionCode 1)
-version: 1.9.10+63
+version: 1.9.11+64
 
 environment:
   sdk: ">=3.5.0 <4.0.0"
@@ -66,6 +66,9 @@ dev_dependencies:
 # compilar código nativo y por tanto a instalar el NDK (~1 GB) + CMake.
 # La rama 2.2.x usa MethodChannel, funciona igual y no necesita NDK.
 dependency_overrides:
+  # Paquete vendorizado: sin el control de stop, que mataba la sesion.
+  just_audio_background:
+    path: third_party/just_audio_background
   path_provider_android: ">=2.2.0 <2.3.0"
 
 flutter:
