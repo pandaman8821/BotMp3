@@ -70,6 +70,10 @@ class BotMp3Widget : HomeWidgetProvider() {
                 HomeWidgetLaunchIntent.getActivity(context, MainActivity::class.java),
             )
             views.setOnClickPendingIntent(
+                R.id.widget_rewind,
+                accion(context, id * 10 + 5, WidgetActionReceiver.ACCION_ATRASAR),
+            )
+            views.setOnClickPendingIntent(
                 R.id.widget_prev,
                 accion(context, id * 10 + 1, WidgetActionReceiver.ACCION_ANTERIOR),
             )
@@ -81,7 +85,11 @@ class BotMp3Widget : HomeWidgetProvider() {
                 R.id.widget_next,
                 accion(context, id * 10 + 3, WidgetActionReceiver.ACCION_SIGUIENTE),
             )
-                        appWidgetManager.updateAppWidget(id, views)
+                        views.setOnClickPendingIntent(
+                R.id.widget_forward,
+                accion(context, id * 10 + 6, WidgetActionReceiver.ACCION_ADELANTAR),
+            )
+            appWidgetManager.updateAppWidget(id, views)
         }
     }
 
@@ -108,6 +116,8 @@ class WidgetActionReceiver : BroadcastReceiver() {
             ACCION_SIGUIENTE -> KeyEvent.KEYCODE_MEDIA_NEXT
             ACCION_ANTERIOR -> KeyEvent.KEYCODE_MEDIA_PREVIOUS
             ACCION_DETENER -> KeyEvent.KEYCODE_MEDIA_STOP
+            ACCION_ATRASAR -> KeyEvent.KEYCODE_MEDIA_REWIND
+            ACCION_ADELANTAR -> KeyEvent.KEYCODE_MEDIA_FAST_FORWARD
             else -> return
         }
         val audio = context.getSystemService(Context.AUDIO_SERVICE) as? AudioManager
@@ -123,5 +133,7 @@ class WidgetActionReceiver : BroadcastReceiver() {
         const val ACCION_SIGUIENTE = "siguiente"
         const val ACCION_ANTERIOR = "anterior"
         const val ACCION_DETENER = "detener"
+        const val ACCION_ATRASAR = "atrasar"
+        const val ACCION_ADELANTAR = "adelantar"
     }
 }
