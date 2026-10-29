@@ -4,151 +4,140 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/widget_fondo"
-    android:orientation="vertical"
-    android:padding="14dp">
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/widget_portada"
+        android:layout_width="96dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/widget_portada"
+        android:contentDescription="Carátula"
+        android:scaleType="centerCrop" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/widget_portada"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/widget_portada"
-            android:contentDescription="Carátula"
-            android:scaleType="centerCrop" />
+        <TextView
+            android:id="@+id/widget_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="BotMp3"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/widget_titulo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="BotMp3"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/widget_artista"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
+                android:layout_weight="1"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Toca para abrir"
-                android:textColor="#B9CBE3"
+                android:textColor="#E9D5FF"
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/widget_album"
-                android:layout_width="match_parent"
+                android:id="@+id/widget_tiempo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:maxLines="1"
-                android:text=""
-                android:textColor="#71839B"
-                android:textSize="10.5sp" />
+                android:text="0:00 / 0:00"
+                android:textColor="#D8B4FE"
+                android:textSize="11sp" />
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/widget_album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="#C4A5F0"
+            android:textSize="10.5sp" />
 
         <TextView
             android:id="@+id/widget_progreso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:maxLines="1"
-            android:textColor="#34D399"
-            android:textSize="9sp" />
+            android:textColor="#F0ABFC"
+            android:textSize="10sp" />
 
-        <TextView
-            android:id="@+id/widget_tiempo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="0:00 / 0:00"
-            android:textColor="#9DB0C9"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/widget_rewind"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="2dp"
             android:layout_weight="1"
-            android:background="#00000000"
-            android:contentDescription="Atrasar 10 segundos"
-            android:scaleType="centerInside"
-            android:src="@android:drawable/ic_media_rew"
-            android:tint="#C7D6EA" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/widget_prev"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="#00000000"
-            android:contentDescription="Anterior"
-            android:scaleType="centerInside"
-            android:src="@android:drawable/ic_media_previous"
-            android:tint="#C7D6EA" />
+            <ImageButton
+                android:id="@+id/widget_rewind"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:contentDescription="Atrasar 10 segundos"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_rew10" />
 
-        <ImageButton
-            android:id="@+id/widget_play"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:background="@drawable/widget_play_fondo"
-            android:contentDescription="Reproducir o pausar"
-            android:padding="9dp"
-            android:scaleType="centerInside"
-            android:src="@android:drawable/ic_media_play"
-            android:tint="#FFFFFF" />
+            <ImageButton
+                android:id="@+id/widget_prev"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:contentDescription="Anterior"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_media_previous"
+                android:tint="#F3E8FF" />
 
-        <ImageButton
-            android:id="@+id/widget_next"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="#00000000"
-            android:contentDescription="Siguiente"
-            android:scaleType="centerInside"
-            android:src="@android:drawable/ic_media_next"
-            android:tint="#C7D6EA" />
+            <ImageButton
+                android:id="@+id/widget_play"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:background="@drawable/widget_play_fondo"
+                android:contentDescription="Reproducir o pausar"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_media_pause"
+                android:tint="#1E1033" />
 
-        <ImageButton
-            android:id="@+id/widget_forward"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="#00000000"
-            android:contentDescription="Adelantar 10 segundos"
-            android:scaleType="centerInside"
-            android:src="@android:drawable/ic_media_ff"
-            android:tint="#C7D6EA" />
+            <ImageButton
+                android:id="@+id/widget_next"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:contentDescription="Siguiente"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_media_next"
+                android:tint="#F3E8FF" />
+
+            <ImageButton
+                android:id="@+id/widget_forward"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:contentDescription="Adelantar 10 segundos"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_ff10" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
