@@ -34,19 +34,13 @@ class BotMp3Widget : HomeWidgetProvider() {
                 R.id.widget_artista,
                 widgetData.getString("artista", "Toca para abrir") ?: "Toca para abrir",
             )
-            // Barra de bloques por TEXTO: el launcher no repinta dibujos al cambiar
-            // un texto, asi que no puede parpadear (era el fallo en MIUI).
-            val llenos = (progreso * 32 / 100).coerceIn(0, 32)
-            val barra = "▰".repeat(llenos) + "▱".repeat(32 - llenos)
-            views.setTextViewText(R.id.widget_progreso, barra)
             views.setTextViewText(
                 R.id.widget_album,
                 widgetData.getString("album", "") ?: "",
             )
-            views.setTextViewText(
-                R.id.widget_tiempo,
-                widgetData.getString("tiempo", "0:00 / 0:00") ?: "0:00 / 0:00",
-            )
+            val tiempos = (widgetData.getString("tiempo", "0:00 / 0:00") ?: "0:00 / 0:00").split(" / ")
+            views.setTextViewText(R.id.widget_tiempo, tiempos.getOrElse(0) { "0:00" })
+            views.setTextViewText(R.id.widget_duracion, tiempos.getOrElse(1) { "0:00" })
             val portada = widgetData.getString("portada", "") ?: ""
             if (portada.isNotEmpty()) {
                 try {
