@@ -69,16 +69,14 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ProgressBar
+        <ImageView
             android:id="@+id/widget_progreso"
-            style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="0dp"
-            android:layout_height="8dp"
+            android:layout_height="6dp"
             android:layout_weight="1"
-            android:max="100"
-            android:progress="0"
-            android:progressBackgroundTint="#25344B"
-            android:progressTint="#34D399" />
+            android:contentDescription="Progreso"
+            android:scaleType="fitXY"
+            android:src="@drawable/widget_barra" />
 
         <TextView
             android:id="@+id/widget_tiempo"
