@@ -301,9 +301,32 @@ class _AiScreenState extends State<AiScreen> {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(fontSize: 12),
                 ),
-                trailing: suggestion.isLocal
-                    ? const Icon(Icons.play_arrow)
-                    : const Icon(Icons.open_in_new, size: 18),
+                trailing: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: suggestion.isLocal
+                              ? AppColors.green.withAlpha(34)
+                              : AppColors.aiCyan.withAlpha(28),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: suggestion.isLocal
+                                ? AppColors.green
+                                : AppColors.aiCyan,
+                            width: 1,
+                          ),
+                        ),
+                        child: Text(
+                          suggestion.isLocal ? 'Biblioteca' : 'Externa',
+                          style: TextStyle(
+                            fontSize: 10.5,
+                            fontWeight: FontWeight.w700,
+                            color: suggestion.isLocal
+                                ? AppColors.green
+                                : AppColors.aiCyan,
+                          ),
+                        ),
+                      ),
                 onTap: () {
                   if (suggestion.isLocal) {
                     final Song? song = library.songById(suggestion.localSongId!);
