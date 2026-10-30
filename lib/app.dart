@@ -1,3 +1,4 @@
+import 'l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -54,12 +55,9 @@ class BotMp3App extends StatelessWidget {
             themeMode: settingsProvider.themeMode,
             theme: AppTheme.light(),
             darkTheme: AppTheme.dark(),
-            locale: const Locale('es'),
-            supportedLocales: const <Locale>[
-              Locale('es'),
-              Locale('en'),
-            ],
+                  supportedLocales: AppLocalizations.supportedLocales,
             localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+        AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
