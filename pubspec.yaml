@@ -3,7 +3,7 @@ description: "BotMp3: reproductor de música con biblioteca, listas, editor de c
 publish_to: 'none'
 
 # Versión 1.0 lista para probar (versionName 1.0.0 / versionCode 1)
-version: 1.9.40+93
+version: 1.9.41+94
 
 environment:
   sdk: ">=3.5.0 <4.0.0"
@@ -72,6 +72,7 @@ dependency_overrides:
   path_provider_android: ">=2.2.0 <2.3.0"
 
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - assets/icon/
