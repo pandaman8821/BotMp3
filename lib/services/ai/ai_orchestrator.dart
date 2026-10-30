@@ -467,14 +467,18 @@ Devuelve EXACTAMENTE este JSON:
       Song? best;
       double bestScore = 0;
       for (final Song song in librarySongs) {
-        final double score = Formatters.similarity(song.title, suggestion.title) * 0.6 +
-            Formatters.similarity(song.artist, suggestion.artist) * 0.4;
+        final double titulo = Formatters.similarity(song.title, suggestion.title);
+          final double artista = Formatters.similarity(song.artist, suggestion.artist);
+          // El TITULO manda: muchas bibliotecas tienen el artista vacio o como
+          // "Artista desconocido"; exigirlo marcaba como externa una cancion que
+          // SI estaba en la biblioteca. El artista solo desempata.
+          final double score = titulo >= 0.8 ? titulo : (titulo * 0.75 + artista * 0.25);
         if (score > bestScore) {
           bestScore = score;
           best = song;
         }
       }
-      if (best != null && bestScore >= 0.62) {
+      if (best != null && bestScore >= 0.55) {
         return suggestion.copyWith(localSongId: best.id, localSongTitle: best.title);
       }
       return suggestion;
