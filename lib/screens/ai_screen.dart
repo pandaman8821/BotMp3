@@ -279,7 +279,7 @@ class _AiScreenState extends State<AiScreen> {
                 ),
               ),
             const SizedBox(height: 10),
-            ...result.suggestions.take(30).map((AiSongSuggestion suggestion) {
+            ..._sugerenciasUnicas(result.suggestions).take(30).map((AiSongSuggestion suggestion) {
               return ListTile(
                 dense: true,
                 contentPadding: EdgeInsets.zero,
@@ -742,4 +742,14 @@ class _AiScreenState extends State<AiScreen> {
       await Clipboard.setData(ClipboardData(text: url));
     }
   }
+}
+
+/// Quita duplicados de las sugerencias de la IA (misma cancion y artista).
+List<AiSongSuggestion> _sugerenciasUnicas(List<AiSongSuggestion> lista) {
+  final Set<String> vistos = <String>{};
+  return lista.where((AiSongSuggestion s) {
+    final String clave =
+        '${s.title.toLowerCase().trim()}|${s.artist.toLowerCase().trim()}';
+    return vistos.add(clave);
+  }).toList();
 }
