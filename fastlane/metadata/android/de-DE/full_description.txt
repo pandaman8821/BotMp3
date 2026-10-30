@@ -1,0 +1,5 @@
+Höre deine gesamte Bibliothek ohne Internet. Intelligente Wiedergabelisten, 5-Band-Equalizer, Songtexte, Homescreen-Widget und ein DJ, der die Stimmung erkennt – mit deinem eigenen KI-Schlüssel.
+
+Keine Werbung, kein Konto, kein Tracking: deine Musik bleibt auf dem Gerät.
+
+BotMp3 1.9.40 · Offline-Musikplayer mit KI · GPL-3.0
