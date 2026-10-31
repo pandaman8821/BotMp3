@@ -136,6 +136,36 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get voiceDictation => 'Ditado por voz';
+
+  @override
+  String get glassEffect => 'Efeito vidro (Liquid Glass)';
+
+  @override
+  String get scanNow => 'Escanear agora';
+
+  @override
+  String get restoreBackup => 'Restaurar backup';
+
+  @override
+  String get tagWithAi => 'Etiquetar com IA (precisa chave)';
+
+  @override
+  String get deleteLocalLibrary => 'Excluir biblioteca local';
+
+  @override
+  String get fillGenres => 'Completar gêneros que faltam';
+
+  @override
+  String get speakResponses => 'Respostas faladas';
+
+  @override
+  String get freeUpSpace => 'Liberar espaço';
+
+  @override
+  String get importSongs => 'Importar músicas';
+
+  @override
+  String get exportBackup => 'Exportar backup';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -270,4 +300,34 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get voiceDictation => '';
+
+  @override
+  String get glassEffect => '';
+
+  @override
+  String get scanNow => '';
+
+  @override
+  String get restoreBackup => '';
+
+  @override
+  String get tagWithAi => '';
+
+  @override
+  String get deleteLocalLibrary => '';
+
+  @override
+  String get fillGenres => '';
+
+  @override
+  String get speakResponses => '';
+
+  @override
+  String get freeUpSpace => '';
+
+  @override
+  String get importSongs => '';
+
+  @override
+  String get exportBackup => '';
 }

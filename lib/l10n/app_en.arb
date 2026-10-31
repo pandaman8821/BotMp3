@@ -42,5 +42,15 @@
   "dailyAlertTime": "Daily alert time",
   "soundWaves": "Animated sound waves",
   "notifyTrends": "Notify me of trends",
-  "voiceDictation": "Voice dictation"
+  "voiceDictation": "Voice dictation",
+  "glassEffect": "Glass effect (Liquid Glass)",
+  "scanNow": "Scan now",
+  "restoreBackup": "Restore backup",
+  "tagWithAi": "Tag with AI (key required)",
+  "deleteLocalLibrary": "Delete local library",
+  "fillGenres": "Fill missing genres",
+  "speakResponses": "Spoken replies",
+  "freeUpSpace": "Free up space",
+  "importSongs": "Import songs",
+  "exportBackup": "Export backup"
 }

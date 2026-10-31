@@ -136,6 +136,36 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get voiceDictation => '语音输入';
+
+  @override
+  String get glassEffect => '玻璃效果（Liquid Glass）';
+
+  @override
+  String get scanNow => '立即扫描';
+
+  @override
+  String get restoreBackup => '恢复备份';
+
+  @override
+  String get tagWithAi => '用 AI 标记（需密钥）';
+
+  @override
+  String get deleteLocalLibrary => '删除本地音乐库';
+
+  @override
+  String get fillGenres => '补全缺失的风格';
+
+  @override
+  String get speakResponses => '语音播报回复';
+
+  @override
+  String get freeUpSpace => '释放空间';
+
+  @override
+  String get importSongs => '导入歌曲';
+
+  @override
+  String get exportBackup => '导出备份';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -270,4 +300,34 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get voiceDictation => '';
+
+  @override
+  String get glassEffect => '';
+
+  @override
+  String get scanNow => '';
+
+  @override
+  String get restoreBackup => '';
+
+  @override
+  String get tagWithAi => '';
+
+  @override
+  String get deleteLocalLibrary => '';
+
+  @override
+  String get fillGenres => '';
+
+  @override
+  String get speakResponses => '';
+
+  @override
+  String get freeUpSpace => '';
+
+  @override
+  String get importSongs => '';
+
+  @override
+  String get exportBackup => '';
 }

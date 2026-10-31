@@ -136,4 +136,34 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get voiceDictation => '음성 받아쓰기';
+
+  @override
+  String get glassEffect => '유리 효과(Liquid Glass)';
+
+  @override
+  String get scanNow => '지금 스캔';
+
+  @override
+  String get restoreBackup => '백업 복원';
+
+  @override
+  String get tagWithAi => 'AI로 태그 지정(키 필요)';
+
+  @override
+  String get deleteLocalLibrary => '로컬 라이브러리 삭제';
+
+  @override
+  String get fillGenres => '빠진 장르 채우기';
+
+  @override
+  String get speakResponses => '음성 응답';
+
+  @override
+  String get freeUpSpace => '공간 확보';
+
+  @override
+  String get importSongs => '곡 가져오기';
+
+  @override
+  String get exportBackup => '백업 내보내기';
 }

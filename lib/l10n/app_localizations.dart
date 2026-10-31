@@ -373,6 +373,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Voice dictation'**
   String get voiceDictation;
+
+  /// No description provided for @glassEffect.
+  ///
+  /// In en, this message translates to:
+  /// **'Glass effect (Liquid Glass)'**
+  String get glassEffect;
+
+  /// No description provided for @scanNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan now'**
+  String get scanNow;
+
+  /// No description provided for @restoreBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore backup'**
+  String get restoreBackup;
+
+  /// No description provided for @tagWithAi.
+  ///
+  /// In en, this message translates to:
+  /// **'Tag with AI (key required)'**
+  String get tagWithAi;
+
+  /// No description provided for @deleteLocalLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete local library'**
+  String get deleteLocalLibrary;
+
+  /// No description provided for @fillGenres.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill missing genres'**
+  String get fillGenres;
+
+  /// No description provided for @speakResponses.
+  ///
+  /// In en, this message translates to:
+  /// **'Spoken replies'**
+  String get speakResponses;
+
+  /// No description provided for @freeUpSpace.
+  ///
+  /// In en, this message translates to:
+  /// **'Free up space'**
+  String get freeUpSpace;
+
+  /// No description provided for @importSongs.
+  ///
+  /// In en, this message translates to:
+  /// **'Import songs'**
+  String get importSongs;
+
+  /// No description provided for @exportBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Export backup'**
+  String get exportBackup;
 }
 
 class _AppLocalizationsDelegate

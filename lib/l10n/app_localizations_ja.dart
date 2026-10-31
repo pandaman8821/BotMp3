@@ -136,4 +136,34 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get voiceDictation => '音声入力';
+
+  @override
+  String get glassEffect => 'ガラス効果（Liquid Glass）';
+
+  @override
+  String get scanNow => '今すぐスキャン';
+
+  @override
+  String get restoreBackup => 'バックアップを復元';
+
+  @override
+  String get tagWithAi => 'AIでタグ付け（キーが必要）';
+
+  @override
+  String get deleteLocalLibrary => 'ローカルライブラリを削除';
+
+  @override
+  String get fillGenres => '未設定のジャンルを補完';
+
+  @override
+  String get speakResponses => '音声で回答';
+
+  @override
+  String get freeUpSpace => '空き容量を増やす';
+
+  @override
+  String get importSongs => '曲を読み込む';
+
+  @override
+  String get exportBackup => 'バックアップを書き出す';
 }

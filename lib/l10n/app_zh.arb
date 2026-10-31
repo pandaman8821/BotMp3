@@ -42,5 +42,15 @@
   "dailyAlertTime": "每日提醒时间",
   "soundWaves": "动态声波",
   "notifyTrends": "趋势提醒",
-  "voiceDictation": "语音输入"
+  "voiceDictation": "语音输入",
+  "glassEffect": "玻璃效果（Liquid Glass）",
+  "scanNow": "立即扫描",
+  "restoreBackup": "恢复备份",
+  "tagWithAi": "用 AI 标记（需密钥）",
+  "deleteLocalLibrary": "删除本地音乐库",
+  "fillGenres": "补全缺失的风格",
+  "speakResponses": "语音播报回复",
+  "freeUpSpace": "释放空间",
+  "importSongs": "导入歌曲",
+  "exportBackup": "导出备份"
 }

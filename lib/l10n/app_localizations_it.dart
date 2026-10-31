@@ -136,4 +136,34 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get voiceDictation => 'Dettatura vocale';
+
+  @override
+  String get glassEffect => 'Effetto vetro (Liquid Glass)';
+
+  @override
+  String get scanNow => 'Analizza ora';
+
+  @override
+  String get restoreBackup => 'Ripristina backup';
+
+  @override
+  String get tagWithAi => 'Etichetta con IA (serve chiave)';
+
+  @override
+  String get deleteLocalLibrary => 'Elimina libreria locale';
+
+  @override
+  String get fillGenres => 'Completa i generi mancanti';
+
+  @override
+  String get speakResponses => 'Risposte parlate';
+
+  @override
+  String get freeUpSpace => 'Libera spazio';
+
+  @override
+  String get importSongs => 'Importa brani';
+
+  @override
+  String get exportBackup => 'Esporta backup';
 }

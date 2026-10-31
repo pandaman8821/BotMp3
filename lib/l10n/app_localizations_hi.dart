@@ -136,4 +136,34 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get voiceDictation => 'वॉइस डिक्टेशन';
+
+  @override
+  String get glassEffect => 'ग्लास इफ़ेक्ट (Liquid Glass)';
+
+  @override
+  String get scanNow => 'अभी स्कैन करें';
+
+  @override
+  String get restoreBackup => 'बैकअप पुनर्स्थापित करें';
+
+  @override
+  String get tagWithAi => 'AI से टैग करें (कुंजी आवश्यक)';
+
+  @override
+  String get deleteLocalLibrary => 'स्थानीय लाइब्रेरी हटाएँ';
+
+  @override
+  String get fillGenres => 'गुम शैलियाँ भरें';
+
+  @override
+  String get speakResponses => 'बोली जाने वाली प्रतिक्रियाएँ';
+
+  @override
+  String get freeUpSpace => 'जगह खाली करें';
+
+  @override
+  String get importSongs => 'गाने आयात करें';
+
+  @override
+  String get exportBackup => 'बैकअप निर्यात करें';
 }

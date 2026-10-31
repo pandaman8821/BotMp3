@@ -42,5 +42,15 @@
   "dailyAlertTime": "毎日の通知時刻",
   "soundWaves": "サウンドウェーブ",
   "notifyTrends": "トレンドを通知",
-  "voiceDictation": "音声入力"
+  "voiceDictation": "音声入力",
+  "glassEffect": "ガラス効果（Liquid Glass）",
+  "scanNow": "今すぐスキャン",
+  "restoreBackup": "バックアップを復元",
+  "tagWithAi": "AIでタグ付け（キーが必要）",
+  "deleteLocalLibrary": "ローカルライブラリを削除",
+  "fillGenres": "未設定のジャンルを補完",
+  "speakResponses": "音声で回答",
+  "freeUpSpace": "空き容量を増やす",
+  "importSongs": "曲を読み込む",
+  "exportBackup": "バックアップを書き出す"
 }
