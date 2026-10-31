@@ -61,5 +61,11 @@
   "create": "Erstellen",
   "createNewPlaylist": "Neue Wiedergabeliste erstellen",
   "editPlaylist": "Wiedergabeliste bearbeiten",
-  "newPlaylist": "Neue Wiedergabeliste"
+  "newPlaylist": "Neue Wiedergabeliste",
+  "playQueue": "Warteschlange",
+  "playing": "Wiedergabe",
+  "noSongPlaying": "Keine Wiedergabe",
+  "albumLabel": "Album",
+  "artistLabel": "Künstler",
+  "playbackSpeed": "Wiedergabegeschwindigkeit"
 }

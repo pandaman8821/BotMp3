@@ -193,4 +193,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get newPlaylist => '新しいプレイリスト';
+
+  @override
+  String get playQueue => '再生キュー';
+
+  @override
+  String get playing => '再生中';
+
+  @override
+  String get noSongPlaying => '再生中の曲はありません';
+
+  @override
+  String get albumLabel => 'アルバム';
+
+  @override
+  String get artistLabel => 'アーティスト';
+
+  @override
+  String get playbackSpeed => '再生速度';
 }

@@ -61,5 +61,11 @@
   "create": "",
   "createNewPlaylist": "",
   "editPlaylist": "",
-  "newPlaylist": ""
+  "newPlaylist": "",
+  "playQueue": "",
+  "playing": "",
+  "noSongPlaying": "",
+  "albumLabel": "",
+  "artistLabel": "",
+  "playbackSpeed": ""
 }

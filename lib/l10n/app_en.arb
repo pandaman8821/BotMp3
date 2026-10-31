@@ -61,5 +61,11 @@
   "create": "Create",
   "createNewPlaylist": "Create new playlist",
   "editPlaylist": "Edit playlist",
-  "newPlaylist": "New playlist"
+  "newPlaylist": "New playlist",
+  "playQueue": "Play queue",
+  "playing": "Now playing",
+  "noSongPlaying": "Nothing is playing",
+  "albumLabel": "Album",
+  "artistLabel": "Artist",
+  "playbackSpeed": "Playback speed"
 }

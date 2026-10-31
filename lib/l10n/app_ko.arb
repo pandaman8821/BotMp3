@@ -61,5 +61,11 @@
   "create": "만들기",
   "createNewPlaylist": "새 플레이리스트 만들기",
   "editPlaylist": "플레이리스트 편집",
-  "newPlaylist": "새 플레이리스트"
+  "newPlaylist": "새 플레이리스트",
+  "playQueue": "재생 대기열",
+  "playing": "재생 중",
+  "noSongPlaying": "재생 중인 곡이 없습니다",
+  "albumLabel": "앨범",
+  "artistLabel": "아티스트",
+  "playbackSpeed": "재생 속도"
 }

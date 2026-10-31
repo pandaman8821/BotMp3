@@ -487,6 +487,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'New playlist'**
   String get newPlaylist;
+
+  /// No description provided for @playQueue.
+  ///
+  /// In en, this message translates to:
+  /// **'Play queue'**
+  String get playQueue;
+
+  /// No description provided for @playing.
+  ///
+  /// In en, this message translates to:
+  /// **'Now playing'**
+  String get playing;
+
+  /// No description provided for @noSongPlaying.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is playing'**
+  String get noSongPlaying;
+
+  /// No description provided for @albumLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Album'**
+  String get albumLabel;
+
+  /// No description provided for @artistLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Artist'**
+  String get artistLabel;
+
+  /// No description provided for @playbackSpeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Playback speed'**
+  String get playbackSpeed;
 }
 
 class _AppLocalizationsDelegate

@@ -193,4 +193,22 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get newPlaylist => 'Neue Wiedergabeliste';
+
+  @override
+  String get playQueue => 'Warteschlange';
+
+  @override
+  String get playing => 'Wiedergabe';
+
+  @override
+  String get noSongPlaying => 'Keine Wiedergabe';
+
+  @override
+  String get albumLabel => 'Album';
+
+  @override
+  String get artistLabel => 'Künstler';
+
+  @override
+  String get playbackSpeed => 'Wiedergabegeschwindigkeit';
 }

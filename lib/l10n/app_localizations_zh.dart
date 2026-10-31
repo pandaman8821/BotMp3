@@ -193,6 +193,24 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get newPlaylist => '新建歌单';
+
+  @override
+  String get playQueue => '播放队列';
+
+  @override
+  String get playing => '正在播放';
+
+  @override
+  String get noSongPlaying => '当前没有播放';
+
+  @override
+  String get albumLabel => '专辑';
+
+  @override
+  String get artistLabel => '艺术家';
+
+  @override
+  String get playbackSpeed => '播放速度';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -384,4 +402,22 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get newPlaylist => '';
+
+  @override
+  String get playQueue => '';
+
+  @override
+  String get playing => '';
+
+  @override
+  String get noSongPlaying => '';
+
+  @override
+  String get albumLabel => '';
+
+  @override
+  String get artistLabel => '';
+
+  @override
+  String get playbackSpeed => '';
 }

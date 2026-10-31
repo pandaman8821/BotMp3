@@ -61,5 +61,11 @@
   "create": "बनाएँ",
   "createNewPlaylist": "नई प्लेलिस्ट बनाएँ",
   "editPlaylist": "प्लेलिस्ट संपादित करें",
-  "newPlaylist": "नई प्लेलिस्ट"
+  "newPlaylist": "नई प्लेलिस्ट",
+  "playQueue": "प्लेबैक क्यू",
+  "playing": "चल रहा है",
+  "noSongPlaying": "कुछ नहीं चल रहा",
+  "albumLabel": "एल्बम",
+  "artistLabel": "कलाकार",
+  "playbackSpeed": "प्लेबैक गति"
 }
