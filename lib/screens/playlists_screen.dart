@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -26,10 +27,10 @@ class PlaylistsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Listas'),
+        title: Text(AppLocalizations.of(context)!.tabPlaylists),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Importar lista (JSON)',
+            tooltip: AppLocalizations.of(context)!.importListJson,
             icon: const Icon(Icons.file_download_outlined),
             onPressed: () => _importJson(context),
           ),
@@ -45,7 +46,7 @@ class PlaylistsScreen extends StatelessWidget {
           }
         },
         icon: const Icon(Icons.playlist_add),
-        label: const Text('Nueva lista'),
+        label: Text(AppLocalizations.of(context)!.newPlaylist),
       ),
       body: playlists.isEmpty
           ? const EmptyState(
@@ -109,13 +110,13 @@ class PlaylistsScreen extends StatelessWidget {
                       onSelected: (String action) =>
                           _playlistAction(context, playlist, action),
                       itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                        const PopupMenuItem<String>(value: 'play', child: Text('Reproducir')),
-                        const PopupMenuItem<String>(value: 'shuffle', child: Text('Aleatorio')),
-                        const PopupMenuItem<String>(value: 'edit', child: Text('Editar nombre/descripción')),
-                        const PopupMenuItem<String>(value: 'export', child: Text('Exportar JSON')),
-                        const PopupMenuItem<String>(
+                        PopupMenuItem<String>(value: 'play', child: Text(AppLocalizations.of(context)!.play)),
+                        PopupMenuItem<String>(value: 'shuffle', child: Text(AppLocalizations.of(context)!.shuffle)),
+                        PopupMenuItem<String>(value: 'edit', child: Text(AppLocalizations.of(context)!.editNameDesc)),
+                        PopupMenuItem<String>(value: 'export', child: Text(AppLocalizations.of(context)!.exportJson)),
+                        PopupMenuItem<String>(
                           value: 'delete',
-                          child: Text('Eliminar', style: TextStyle(color: Colors.redAccent)),
+                          child: Text(AppLocalizations.of(context)!.delete, style: const TextStyle(color: Colors.redAccent)),
                         ),
                       ],
                     ),
@@ -208,7 +209,7 @@ class _PlaylistSongsScreen extends StatelessWidget {
     final Playlist? playlist = library.playlistById(playlistId);
 
     if (playlist == null) {
-      return const Scaffold(body: Center(child: Text('Lista no encontrada')));
+      return Scaffold(body: Center(child: Text(AppLocalizations.of(context)!.listNotFound)));
     }
 
     final List<Song> songs = library.songsOf(playlist);
@@ -218,12 +219,12 @@ class _PlaylistSongsScreen extends StatelessWidget {
         title: Text(playlist.name, overflow: TextOverflow.ellipsis),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Reproducir',
+            tooltip: AppLocalizations.of(context)!.play,
             icon: const Icon(Icons.play_arrow),
             onPressed: songs.isEmpty ? null : () => player.setQueue(songs),
           ),
           IconButton(
-            tooltip: 'Añadir canciones',
+            tooltip: AppLocalizations.of(context)!.addSongs,
             icon: const Icon(Icons.playlist_add),
             onPressed: () async {
               final List<Song> chosen = await AppDialogs.pickSongs(
@@ -277,12 +278,12 @@ class _PlaylistSongsScreen extends StatelessWidget {
               }
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(value: 'edit', child: Text('Editar datos')),
-              const PopupMenuItem<String>(value: 'cover', child: Text('Cambiar carátula')),
-              const PopupMenuItem<String>(value: 'export', child: Text('Exportar JSON')),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(value: 'edit', child: Text(AppLocalizations.of(context)!.editData)),
+              PopupMenuItem<String>(value: 'cover', child: Text(AppLocalizations.of(context)!.changeCover)),
+              PopupMenuItem<String>(value: 'export', child: Text(AppLocalizations.of(context)!.exportJson)),
+              PopupMenuItem<String>(
                 value: 'delete',
-                child: Text('Eliminar lista', style: TextStyle(color: Colors.redAccent)),
+                child: Text(AppLocalizations.of(context)!.deleteList, style: const TextStyle(color: Colors.redAccent)),
               ),
             ],
           ),

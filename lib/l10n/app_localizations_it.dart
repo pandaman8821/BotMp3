@@ -269,4 +269,49 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get songLyrics => 'Testo del brano';
+
+  @override
+  String get editData => 'Modifica dettagli';
+
+  @override
+  String get notifyTop => 'Notifica la top';
+
+  @override
+  String get addSongs => 'Aggiungi brani';
+
+  @override
+  String get listCopied => 'Lista copiata negli appunti';
+
+  @override
+  String get updateTrendsFirst => 'Aggiorna prima le tendenze';
+
+  @override
+  String get deleteList => 'Elimina playlist';
+
+  @override
+  String get linkOpenFailed => 'Impossibile aprire il link';
+
+  @override
+  String get updateAction => 'Aggiorna';
+
+  @override
+  String get listNotFound => 'Playlist non trovata';
+
+  @override
+  String get editNameDesc => 'Modifica nome/descrizione';
+
+  @override
+  String get changeCover => 'Cambia copertina';
+
+  @override
+  String get copyList => 'Copia la lista';
+
+  @override
+  String get importListJson => 'Importa playlist (JSON)';
+
+  @override
+  String get trendsTitle => 'Tendenze';
+
+  @override
+  String get exportJson => 'Esporta JSON';
 }

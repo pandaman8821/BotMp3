@@ -268,6 +268,51 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get songLyrics => '歌词';
+
+  @override
+  String get editData => '编辑详情';
+
+  @override
+  String get notifyTop => '提醒热门';
+
+  @override
+  String get addSongs => '添加歌曲';
+
+  @override
+  String get listCopied => '列表已复制到剪贴板';
+
+  @override
+  String get updateTrendsFirst => '请先刷新趋势';
+
+  @override
+  String get deleteList => '删除歌单';
+
+  @override
+  String get linkOpenFailed => '无法打开链接';
+
+  @override
+  String get updateAction => '刷新';
+
+  @override
+  String get listNotFound => '未找到歌单';
+
+  @override
+  String get editNameDesc => '编辑名称/描述';
+
+  @override
+  String get changeCover => '更换封面';
+
+  @override
+  String get copyList => '复制列表';
+
+  @override
+  String get importListJson => '导入歌单（JSON）';
+
+  @override
+  String get trendsTitle => '趋势';
+
+  @override
+  String get exportJson => '导出 JSON';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -534,4 +579,49 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get songLyrics => '';
+
+  @override
+  String get editData => '';
+
+  @override
+  String get notifyTop => '';
+
+  @override
+  String get addSongs => '';
+
+  @override
+  String get listCopied => '';
+
+  @override
+  String get updateTrendsFirst => '';
+
+  @override
+  String get deleteList => '';
+
+  @override
+  String get linkOpenFailed => '';
+
+  @override
+  String get updateAction => '';
+
+  @override
+  String get listNotFound => '';
+
+  @override
+  String get editNameDesc => '';
+
+  @override
+  String get changeCover => '';
+
+  @override
+  String get copyList => '';
+
+  @override
+  String get importListJson => '';
+
+  @override
+  String get trendsTitle => '';
+
+  @override
+  String get exportJson => '';
 }

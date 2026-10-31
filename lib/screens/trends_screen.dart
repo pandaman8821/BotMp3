@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -69,7 +70,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
     );
     if (!await launchUrl(url, mode: LaunchMode.externalApplication) && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No se pudo abrir el enlace')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.linkOpenFailed)),
       );
     }
   }
@@ -78,7 +79,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
     final List<TrendSong> lista = _trends.ultimas;
     if (lista.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Primero actualiza las tendencias')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.updateTrendsFirst)),
       );
       return;
     }
@@ -110,7 +111,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
     await Clipboard.setData(ClipboardData(text: buffer.toString()));
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Lista copiada al portapapeles')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.listCopied)),
     );
   }
 
@@ -122,20 +123,20 @@ class _TrendsScreenState extends State<TrendsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tendencias'),
+        title: Text(AppLocalizations.of(context)!.trendsTitle),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Notificar el top',
+            tooltip: AppLocalizations.of(context)!.notifyTop,
             icon: const Icon(Icons.notifications_active_outlined),
             onPressed: _notificar,
           ),
           IconButton(
-            tooltip: 'Copiar la lista',
+            tooltip: AppLocalizations.of(context)!.copyList,
             icon: const Icon(Icons.copy_all_outlined),
             onPressed: _copiar,
           ),
           IconButton(
-            tooltip: 'Actualizar',
+            tooltip: AppLocalizations.of(context)!.updateAction,
             icon: const Icon(Icons.refresh),
             onPressed: () => _cargar(),
           ),

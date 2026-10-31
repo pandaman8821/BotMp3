@@ -268,4 +268,49 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get songLyrics => '가사';
+
+  @override
+  String get editData => '세부 정보 편집';
+
+  @override
+  String get notifyTop => '톱 알림';
+
+  @override
+  String get addSongs => '곡 추가';
+
+  @override
+  String get listCopied => '목록을 클립보드에 복사했습니다';
+
+  @override
+  String get updateTrendsFirst => '먼저 트렌드를 새로 고치세요';
+
+  @override
+  String get deleteList => '플레이리스트 삭제';
+
+  @override
+  String get linkOpenFailed => '링크를 열 수 없습니다';
+
+  @override
+  String get updateAction => '새로 고침';
+
+  @override
+  String get listNotFound => '플레이리스트를 찾을 수 없습니다';
+
+  @override
+  String get editNameDesc => '이름/설명 편집';
+
+  @override
+  String get changeCover => '커버 변경';
+
+  @override
+  String get copyList => '목록 복사';
+
+  @override
+  String get importListJson => '플레이리스트 가져오기(JSON)';
+
+  @override
+  String get trendsTitle => '트렌드';
+
+  @override
+  String get exportJson => 'JSON 내보내기';
 }

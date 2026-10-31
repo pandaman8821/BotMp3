@@ -268,4 +268,49 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get songLyrics => '歌詞';
+
+  @override
+  String get editData => '詳細を編集';
+
+  @override
+  String get notifyTop => 'トップを通知';
+
+  @override
+  String get addSongs => '曲を追加';
+
+  @override
+  String get listCopied => 'リストをクリップボードにコピーしました';
+
+  @override
+  String get updateTrendsFirst => '先にトレンドを更新してください';
+
+  @override
+  String get deleteList => 'プレイリストを削除';
+
+  @override
+  String get linkOpenFailed => 'リンクを開けませんでした';
+
+  @override
+  String get updateAction => '更新';
+
+  @override
+  String get listNotFound => 'プレイリストが見つかりません';
+
+  @override
+  String get editNameDesc => '名前と説明を編集';
+
+  @override
+  String get changeCover => 'カバーを変更';
+
+  @override
+  String get copyList => 'リストをコピー';
+
+  @override
+  String get importListJson => 'プレイリストを読み込む（JSON）';
+
+  @override
+  String get trendsTitle => 'トレンド';
+
+  @override
+  String get exportJson => 'JSONを書き出す';
 }

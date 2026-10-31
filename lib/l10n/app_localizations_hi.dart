@@ -268,4 +268,49 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get songLyrics => 'गाने के बोल';
+
+  @override
+  String get editData => 'विवरण संपादित करें';
+
+  @override
+  String get notifyTop => 'टॉप की सूचना';
+
+  @override
+  String get addSongs => 'गाने जोड़ें';
+
+  @override
+  String get listCopied => 'सूची क्लिपबोर्ड पर कॉपी हो गई';
+
+  @override
+  String get updateTrendsFirst => 'पहले ट्रेंड रीफ़्रेश करें';
+
+  @override
+  String get deleteList => 'प्लेलिस्ट हटाएँ';
+
+  @override
+  String get linkOpenFailed => 'लिंक नहीं खोला जा सका';
+
+  @override
+  String get updateAction => 'रीफ़्रेश करें';
+
+  @override
+  String get listNotFound => 'प्लेलिस्ट नहीं मिली';
+
+  @override
+  String get editNameDesc => 'नाम/विवरण संपादित करें';
+
+  @override
+  String get changeCover => 'कवर बदलें';
+
+  @override
+  String get copyList => 'सूची कॉपी करें';
+
+  @override
+  String get importListJson => 'प्लेलिस्ट आयात करें (JSON)';
+
+  @override
+  String get trendsTitle => 'ट्रेंड';
+
+  @override
+  String get exportJson => 'JSON निर्यात करें';
 }

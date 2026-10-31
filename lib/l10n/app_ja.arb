@@ -86,5 +86,20 @@
   "clearFilters": "フィルターを解除",
   "addToPlaylist": "プレイリストに追加",
   "playSomethingFirst": "先に何か再生してください",
-  "songLyrics": "歌詞"
+  "songLyrics": "歌詞",
+  "editData": "詳細を編集",
+  "notifyTop": "トップを通知",
+  "addSongs": "曲を追加",
+  "listCopied": "リストをクリップボードにコピーしました",
+  "updateTrendsFirst": "先にトレンドを更新してください",
+  "deleteList": "プレイリストを削除",
+  "linkOpenFailed": "リンクを開けませんでした",
+  "updateAction": "更新",
+  "listNotFound": "プレイリストが見つかりません",
+  "editNameDesc": "名前と説明を編集",
+  "changeCover": "カバーを変更",
+  "copyList": "リストをコピー",
+  "importListJson": "プレイリストを読み込む（JSON）",
+  "trendsTitle": "トレンド",
+  "exportJson": "JSONを書き出す"
 }

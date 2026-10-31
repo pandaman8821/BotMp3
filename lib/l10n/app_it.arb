@@ -86,5 +86,20 @@
   "clearFilters": "Rimuovi filtri",
   "addToPlaylist": "Aggiungi alla playlist",
   "playSomethingFirst": "Riproduci prima qualcosa",
-  "songLyrics": "Testo del brano"
+  "songLyrics": "Testo del brano",
+  "editData": "Modifica dettagli",
+  "notifyTop": "Notifica la top",
+  "addSongs": "Aggiungi brani",
+  "listCopied": "Lista copiata negli appunti",
+  "updateTrendsFirst": "Aggiorna prima le tendenze",
+  "deleteList": "Elimina playlist",
+  "linkOpenFailed": "Impossibile aprire il link",
+  "updateAction": "Aggiorna",
+  "listNotFound": "Playlist non trovata",
+  "editNameDesc": "Modifica nome/descrizione",
+  "changeCover": "Cambia copertina",
+  "copyList": "Copia la lista",
+  "importListJson": "Importa playlist (JSON)",
+  "trendsTitle": "Tendenze",
+  "exportJson": "Esporta JSON"
 }
