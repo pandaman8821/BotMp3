@@ -30,5 +30,11 @@
   "recommend":"Recomendar",
   "external":"Externa",
   "library":"Biblioteca",
-  "nowPlaying":"Tocando agora"
+  "nowPlaying":"Tocando agora",
+  "trendsNow": "",
+  "batterySaver": "",
+  "screenAlwaysOn": "",
+  "playbackDiagnostics": "",
+  "autoDjMode": "",
+  "seeMyRanking": ""
 }

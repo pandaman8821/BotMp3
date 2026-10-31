@@ -30,5 +30,11 @@
   "recommend":"Recommander",
   "external":"Externe",
   "library":"Bibliotheque",
-  "nowPlaying":"Lecture en cours"
+  "nowPlaying":"Lecture en cours",
+  "trendsNow": "Voir les tendances",
+  "batterySaver": "Économiseur de batterie",
+  "screenAlwaysOn": "Écran toujours allumé",
+  "playbackDiagnostics": "Diagnostic de lecture",
+  "autoDjMode": "DJ IA automatique",
+  "seeMyRanking": "Mon classement"
 }

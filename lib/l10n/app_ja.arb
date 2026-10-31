@@ -30,5 +30,11 @@
   "recommend":"おすすめ",
   "external":"外部",
   "library":"ライブラリ",
-  "nowPlaying":"再生中"
+  "nowPlaying":"再生中",
+  "trendsNow": "トレンドを見る",
+  "batterySaver": "バッテリー節約",
+  "screenAlwaysOn": "画面を常時オン",
+  "playbackDiagnostics": "再生の診断",
+  "autoDjMode": "AI DJ 自動",
+  "seeMyRanking": "ランキングを見る"
 }

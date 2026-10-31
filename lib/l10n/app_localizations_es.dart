@@ -100,4 +100,22 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get nowPlaying => 'Sonando ahora';
+
+  @override
+  String get trendsNow => 'Ver tendencias ahora';
+
+  @override
+  String get batterySaver => 'Modo ahorro de batería';
+
+  @override
+  String get screenAlwaysOn => 'Pantalla siempre visible';
+
+  @override
+  String get playbackDiagnostics => 'Diagnóstico de reproducción';
+
+  @override
+  String get autoDjMode => 'Modo DJ IA automático';
+
+  @override
+  String get seeMyRanking => 'Ver mi ranking';
 }

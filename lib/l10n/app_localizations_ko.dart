@@ -100,4 +100,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get nowPlaying => '재생 중';
+
+  @override
+  String get trendsNow => '트렌드 보기';
+
+  @override
+  String get batterySaver => '배터리 절약';
+
+  @override
+  String get screenAlwaysOn => '화면 항상 켜기';
+
+  @override
+  String get playbackDiagnostics => '재생 진단';
+
+  @override
+  String get autoDjMode => '자동 AI DJ';
+
+  @override
+  String get seeMyRanking => '내 순위 보기';
 }

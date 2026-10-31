@@ -100,4 +100,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get nowPlaying => '再生中';
+
+  @override
+  String get trendsNow => 'トレンドを見る';
+
+  @override
+  String get batterySaver => 'バッテリー節約';
+
+  @override
+  String get screenAlwaysOn => '画面を常時オン';
+
+  @override
+  String get playbackDiagnostics => '再生の診断';
+
+  @override
+  String get autoDjMode => 'AI DJ 自動';
+
+  @override
+  String get seeMyRanking => 'ランキングを見る';
 }

@@ -30,5 +30,11 @@
   "recommend":"추천",
   "external":"외부",
   "library":"라이브러리",
-  "nowPlaying":"재생 중"
+  "nowPlaying":"재생 중",
+  "trendsNow": "트렌드 보기",
+  "batterySaver": "배터리 절약",
+  "screenAlwaysOn": "화면 항상 켜기",
+  "playbackDiagnostics": "재생 진단",
+  "autoDjMode": "자동 AI DJ",
+  "seeMyRanking": "내 순위 보기"
 }

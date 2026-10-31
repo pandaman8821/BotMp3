@@ -123,7 +123,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.local_fire_department_outlined),
-            title: const Text('Ver tendencias ahora'),
+            title: Text(AppLocalizations.of(context)!.trendsNow),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => const TrendsScreen()),
@@ -131,7 +131,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.health_and_safety_outlined),
-            title: const Text('Diagnóstico de reproducción'),
+            title: Text(AppLocalizations.of(context)!.playbackDiagnostics),
             subtitle: const Text(
               'Comprueba por qué no responden los controles en el bloqueo.',
             ),
@@ -142,7 +142,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.leaderboard_outlined),
-            title: const Text('Ver mi ranking'),
+            title: Text(AppLocalizations.of(context)!.seeMyRanking),
             subtitle: const Text('Tus canciones, artistas y géneros más escuchados.'),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
@@ -195,7 +195,7 @@ class SettingsScreen extends StatelessWidget {
                 SwitchListTile(
                   value: settings.autoDj,
                   onChanged: settings.setAutoDj,
-                  title: const Text('Modo DJ IA automático'),
+                  title: Text(AppLocalizations.of(context)!.autoDjMode),
                   subtitle: const Text(
                     'La IA elige y explica la siguiente canción mientras reproduces.',
                   ),
@@ -212,7 +212,7 @@ class SettingsScreen extends StatelessWidget {
               settings.setKeepScreenOn(value);
               context.read<PlayerProvider>().setKeepScreenOn(value);
             },
-            title: const Text('Pantalla siempre visible'),
+            title: Text(AppLocalizations.of(context)!.screenAlwaysOn),
             subtitle: const Text('Útil en conciertos o vídeos largos (baja el consumo del AMOLED).'),
           ),
           SwitchListTile(
@@ -227,7 +227,7 @@ class SettingsScreen extends StatelessWidget {
           SwitchListTile(
             value: settings.batterySaver,
             onChanged: settings.setBatterySaver,
-            title: const Text('Modo ahorro de batería'),
+            title: Text(AppLocalizations.of(context)!.batterySaver),
             subtitle: const Text(
               'Reduce animaciones y refresco de la barra de progreso. Ideal para sesiones largas.',
             ),

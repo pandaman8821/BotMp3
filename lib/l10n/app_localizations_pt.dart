@@ -100,6 +100,24 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get nowPlaying => 'Tocando agora';
+
+  @override
+  String get trendsNow => 'Ver tendências agora';
+
+  @override
+  String get batterySaver => 'Economia de bateria';
+
+  @override
+  String get screenAlwaysOn => 'Tela sempre ligada';
+
+  @override
+  String get playbackDiagnostics => 'Diagnóstico de reprodução';
+
+  @override
+  String get autoDjMode => 'DJ de IA automático';
+
+  @override
+  String get seeMyRanking => 'Ver meu ranking';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -198,4 +216,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get nowPlaying => 'Tocando agora';
+
+  @override
+  String get trendsNow => '';
+
+  @override
+  String get batterySaver => '';
+
+  @override
+  String get screenAlwaysOn => '';
+
+  @override
+  String get playbackDiagnostics => '';
+
+  @override
+  String get autoDjMode => '';
+
+  @override
+  String get seeMyRanking => '';
 }

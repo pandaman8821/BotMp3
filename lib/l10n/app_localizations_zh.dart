@@ -100,6 +100,24 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get nowPlaying => '正在播放';
+
+  @override
+  String get trendsNow => '查看趋势';
+
+  @override
+  String get batterySaver => '省电模式';
+
+  @override
+  String get screenAlwaysOn => '屏幕常亮';
+
+  @override
+  String get playbackDiagnostics => '播放诊断';
+
+  @override
+  String get autoDjMode => '自动 AI DJ';
+
+  @override
+  String get seeMyRanking => '查看我的排行';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -198,4 +216,22 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get nowPlaying => '正在播放';
+
+  @override
+  String get trendsNow => '';
+
+  @override
+  String get batterySaver => '';
+
+  @override
+  String get screenAlwaysOn => '';
+
+  @override
+  String get playbackDiagnostics => '';
+
+  @override
+  String get autoDjMode => '';
+
+  @override
+  String get seeMyRanking => '';
 }

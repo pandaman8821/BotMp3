@@ -30,5 +30,11 @@
   "recommend":"Empfehlen",
   "external":"Extern",
   "library":"Bibliothek",
-  "nowPlaying":"Laeuft jetzt"
+  "nowPlaying":"Laeuft jetzt",
+  "trendsNow": "Trends jetzt ansehen",
+  "batterySaver": "Energiesparmodus",
+  "screenAlwaysOn": "Bildschirm anlassen",
+  "playbackDiagnostics": "Wiedergabe-Diagnose",
+  "autoDjMode": "Automatischer KI-DJ",
+  "seeMyRanking": "Mein Ranking"
 }
