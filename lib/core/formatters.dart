@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'dart:math' as math;
 
 /// Utilidades de formato y comparación de texto usadas en toda la app.
@@ -111,5 +112,15 @@ class Formatters {
     if (diff.inDays < 1) return 'hace ${diff.inHours} h';
     if (diff.inDays < 30) return 'hace ${diff.inDays} d';
     return '${date.day.toString().padLeft(2, '0')}/${date.month.toString().padLeft(2, '0')}/${date.year}';
+  }
+  /// Fecha corta en el idioma del usuario (ej. 31 oct 2026 / 2026/10/31).
+  /// Si algo falla, cae al formato ISO para no romper la interfaz.
+  static String date(DateTime? value, String locale) {
+    if (value == null) return '—';
+    try {
+      return DateFormat.yMMMd(locale).format(value);
+    } catch (_) {
+      return value.toIso8601String().substring(0, 10);
+    }
   }
 }
