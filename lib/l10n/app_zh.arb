@@ -61,5 +61,11 @@
   "create": "创建",
   "createNewPlaylist": "新建歌单",
   "editPlaylist": "编辑歌单",
-  "newPlaylist": "新建歌单"
+  "newPlaylist": "新建歌单",
+  "playQueue": "播放队列",
+  "playing": "正在播放",
+  "noSongPlaying": "当前没有播放",
+  "albumLabel": "专辑",
+  "artistLabel": "艺术家",
+  "playbackSpeed": "播放速度"
 }

@@ -194,6 +194,24 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get newPlaylist => 'Nova playlist';
+
+  @override
+  String get playQueue => 'Fila de reprodução';
+
+  @override
+  String get playing => 'Reproduzindo';
+
+  @override
+  String get noSongPlaying => 'Nada em reprodução';
+
+  @override
+  String get albumLabel => 'Álbum';
+
+  @override
+  String get artistLabel => 'Artista';
+
+  @override
+  String get playbackSpeed => 'Velocidade de reprodução';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -385,4 +403,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get newPlaylist => '';
+
+  @override
+  String get playQueue => '';
+
+  @override
+  String get playing => '';
+
+  @override
+  String get noSongPlaying => '';
+
+  @override
+  String get albumLabel => '';
+
+  @override
+  String get artistLabel => '';
+
+  @override
+  String get playbackSpeed => '';
 }

@@ -61,5 +61,11 @@
   "create": "作成",
   "createNewPlaylist": "新しいプレイリストを作成",
   "editPlaylist": "プレイリストを編集",
-  "newPlaylist": "新しいプレイリスト"
+  "newPlaylist": "新しいプレイリスト",
+  "playQueue": "再生キュー",
+  "playing": "再生中",
+  "noSongPlaying": "再生中の曲はありません",
+  "albumLabel": "アルバム",
+  "artistLabel": "アーティスト",
+  "playbackSpeed": "再生速度"
 }

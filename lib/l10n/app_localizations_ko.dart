@@ -193,4 +193,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get newPlaylist => '새 플레이리스트';
+
+  @override
+  String get playQueue => '재생 대기열';
+
+  @override
+  String get playing => '재생 중';
+
+  @override
+  String get noSongPlaying => '재생 중인 곡이 없습니다';
+
+  @override
+  String get albumLabel => '앨범';
+
+  @override
+  String get artistLabel => '아티스트';
+
+  @override
+  String get playbackSpeed => '재생 속도';
 }

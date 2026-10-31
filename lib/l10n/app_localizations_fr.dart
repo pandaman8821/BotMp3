@@ -193,4 +193,22 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get newPlaylist => 'Nouvelle playlist';
+
+  @override
+  String get playQueue => 'File de lecture';
+
+  @override
+  String get playing => 'Lecture en cours';
+
+  @override
+  String get noSongPlaying => 'Aucune lecture en cours';
+
+  @override
+  String get albumLabel => 'Album';
+
+  @override
+  String get artistLabel => 'Artiste';
+
+  @override
+  String get playbackSpeed => 'Vitesse de lecture';
 }

@@ -61,5 +61,11 @@
   "create": "Crea",
   "createNewPlaylist": "Crea nuova playlist",
   "editPlaylist": "Modifica playlist",
-  "newPlaylist": "Nuova playlist"
+  "newPlaylist": "Nuova playlist",
+  "playQueue": "Coda di riproduzione",
+  "playing": "In riproduzione",
+  "noSongPlaying": "Nessuna riproduzione",
+  "albumLabel": "Album",
+  "artistLabel": "Artista",
+  "playbackSpeed": "Velocità di riproduzione"
 }

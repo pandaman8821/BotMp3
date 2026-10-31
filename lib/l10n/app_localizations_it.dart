@@ -194,4 +194,22 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get newPlaylist => 'Nuova playlist';
+
+  @override
+  String get playQueue => 'Coda di riproduzione';
+
+  @override
+  String get playing => 'In riproduzione';
+
+  @override
+  String get noSongPlaying => 'Nessuna riproduzione';
+
+  @override
+  String get albumLabel => 'Album';
+
+  @override
+  String get artistLabel => 'Artista';
+
+  @override
+  String get playbackSpeed => 'Velocità di riproduzione';
 }

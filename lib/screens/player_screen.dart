@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import '../core/text_utils.dart';
 import 'package:flutter/material.dart' hide RepeatMode;
 import 'package:just_audio/just_audio.dart';
@@ -50,8 +51,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
 
     if (song == null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Reproduciendo')),
-        body: const Center(child: Text('No hay ninguna canción en reproducción')),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.playing)),
+        body: Center(child: Text(AppLocalizations.of(context)!.noSongPlaying)),
       );
     }
 
@@ -368,9 +369,9 @@ class _PlayerScreenState extends State<PlayerScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.all(12),
-              child: Text('Velocidad de reproducción', style: TextStyle(fontWeight: FontWeight.w700)),
+            Padding(
+                padding: const EdgeInsets.all(12),
+                child: Text(AppLocalizations.of(context)!.playbackSpeed, style: const TextStyle(fontWeight: FontWeight.w700)),
             ),
             Wrap(
               spacing: 8,
@@ -443,8 +444,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
             children: <Widget>[
               Text(song.title, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
               const SizedBox(height: 8),
-              Text('Artista: ${song.artist}'),
-              Text('Álbum: ${song.album.isEmpty ? '—' : song.album}'),
+              Text('${AppLocalizations.of(context)!.artistLabel}: ${song.artist}'),
+              Text('${AppLocalizations.of(context)!.albumLabel}: ${song.album.isEmpty ? '—' : song.album}'),
               Text('Año: ${song.year == 0 ? '—' : song.year}'),
               Text('Género: ${song.genre}'),
               Text('Duración: ${Formatters.durationFromMs(song.durationMs)}'),
@@ -480,9 +481,9 @@ class _PlayerScreenState extends State<PlayerScreen> {
             itemCount: queue.length + 1,
             itemBuilder: (BuildContext context, int index) {
               if (index == 0) {
-                return const Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Text('Cola de reproducción', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
+                return Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(AppLocalizations.of(context)!.playQueue, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
                 );
               }
               final Song song = queue[index - 1];

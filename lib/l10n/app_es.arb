@@ -61,5 +61,11 @@
   "create": "Crear",
   "createNewPlaylist": "Crear lista nueva",
   "editPlaylist": "Editar lista",
-  "newPlaylist": "Nueva lista"
+  "newPlaylist": "Nueva lista",
+  "playQueue": "Cola de reproducción",
+  "playing": "Reproduciendo",
+  "noSongPlaying": "No hay ninguna canción en reproducción",
+  "albumLabel": "Álbum",
+  "artistLabel": "Artista",
+  "playbackSpeed": "Velocidad de reproducción"
 }

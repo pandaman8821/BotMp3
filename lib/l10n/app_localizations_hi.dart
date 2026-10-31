@@ -193,4 +193,22 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get newPlaylist => 'नई प्लेलिस्ट';
+
+  @override
+  String get playQueue => 'प्लेबैक क्यू';
+
+  @override
+  String get playing => 'चल रहा है';
+
+  @override
+  String get noSongPlaying => 'कुछ नहीं चल रहा';
+
+  @override
+  String get albumLabel => 'एल्बम';
+
+  @override
+  String get artistLabel => 'कलाकार';
+
+  @override
+  String get playbackSpeed => 'प्लेबैक गति';
 }
