@@ -118,4 +118,22 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get seeMyRanking => 'La mia classifica';
+
+  @override
+  String get countryForTrends => 'Paese delle classifiche';
+
+  @override
+  String get thermalProtection => 'Protezione termica';
+
+  @override
+  String get dailyAlertTime => 'Ora dell\'avviso giornaliero';
+
+  @override
+  String get soundWaves => 'Onde sonore animate';
+
+  @override
+  String get notifyTrends => 'Avvisami delle tendenze';
+
+  @override
+  String get voiceDictation => 'Dettatura vocale';
 }

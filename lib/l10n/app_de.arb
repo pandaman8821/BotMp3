@@ -36,5 +36,11 @@
   "screenAlwaysOn": "Bildschirm anlassen",
   "playbackDiagnostics": "Wiedergabe-Diagnose",
   "autoDjMode": "Automatischer KI-DJ",
-  "seeMyRanking": "Mein Ranking"
+  "seeMyRanking": "Mein Ranking",
+  "countryForTrends": "Land der Charts",
+  "thermalProtection": "Hitzeschutz",
+  "dailyAlertTime": "Uhrzeit des Tagesalarms",
+  "soundWaves": "Animierte Schallwellen",
+  "notifyTrends": "Über Trends informieren",
+  "voiceDictation": "Sprachdiktat"
 }

@@ -118,4 +118,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get seeMyRanking => '내 순위 보기';
+
+  @override
+  String get countryForTrends => '차트 국가';
+
+  @override
+  String get thermalProtection => '발열 보호';
+
+  @override
+  String get dailyAlertTime => '매일 알림 시간';
+
+  @override
+  String get soundWaves => '사운드 웨이브';
+
+  @override
+  String get notifyTrends => '트렌드 알림';
+
+  @override
+  String get voiceDictation => '음성 받아쓰기';
 }

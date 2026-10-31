@@ -337,6 +337,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'See my ranking'**
   String get seeMyRanking;
+
+  /// No description provided for @countryForTrends.
+  ///
+  /// In en, this message translates to:
+  /// **'Charts country'**
+  String get countryForTrends;
+
+  /// No description provided for @thermalProtection.
+  ///
+  /// In en, this message translates to:
+  /// **'Thermal protection'**
+  String get thermalProtection;
+
+  /// No description provided for @dailyAlertTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily alert time'**
+  String get dailyAlertTime;
+
+  /// No description provided for @soundWaves.
+  ///
+  /// In en, this message translates to:
+  /// **'Animated sound waves'**
+  String get soundWaves;
+
+  /// No description provided for @notifyTrends.
+  ///
+  /// In en, this message translates to:
+  /// **'Notify me of trends'**
+  String get notifyTrends;
+
+  /// No description provided for @voiceDictation.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice dictation'**
+  String get voiceDictation;
 }
 
 class _AppLocalizationsDelegate

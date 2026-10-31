@@ -118,4 +118,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get seeMyRanking => 'ランキングを見る';
+
+  @override
+  String get countryForTrends => 'チャートの国';
+
+  @override
+  String get thermalProtection => '温度保護';
+
+  @override
+  String get dailyAlertTime => '毎日の通知時刻';
+
+  @override
+  String get soundWaves => 'サウンドウェーブ';
+
+  @override
+  String get notifyTrends => 'トレンドを通知';
+
+  @override
+  String get voiceDictation => '音声入力';
 }

@@ -36,5 +36,11 @@
   "screenAlwaysOn": "Pantalla siempre visible",
   "playbackDiagnostics": "Diagnóstico de reproducción",
   "autoDjMode": "Modo DJ IA automático",
-  "seeMyRanking": "Ver mi ranking"
+  "seeMyRanking": "Ver mi ranking",
+  "countryForTrends": "País de las listas",
+  "thermalProtection": "Protección térmica",
+  "dailyAlertTime": "Hora del aviso diario",
+  "soundWaves": "Ondas sonoras animadas",
+  "notifyTrends": "Avisarme de las tendencias",
+  "voiceDictation": "Dictado por voz"
 }

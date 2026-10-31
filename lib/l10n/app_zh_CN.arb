@@ -36,5 +36,11 @@
   "screenAlwaysOn": "",
   "playbackDiagnostics": "",
   "autoDjMode": "",
-  "seeMyRanking": ""
+  "seeMyRanking": "",
+  "countryForTrends": "",
+  "thermalProtection": "",
+  "dailyAlertTime": "",
+  "soundWaves": "",
+  "notifyTrends": "",
+  "voiceDictation": ""
 }

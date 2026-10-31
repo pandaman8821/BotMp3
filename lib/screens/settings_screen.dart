@@ -48,7 +48,7 @@ class SettingsScreen extends StatelessWidget {
           const _SectionTitle('Tendencias musicales'),
           ListTile(
             leading: const Icon(Icons.public),
-            title: const Text('País de las listas'),
+            title: Text(AppLocalizations.of(context)!.countryForTrends),
             subtitle: Text(
               TrendsService.paises[settings.trendsCountry] ??
                   settings.trendsCountry.toUpperCase(),
@@ -79,7 +79,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.schedule),
-            title: const Text('Hora del aviso diario'),
+            title: Text(AppLocalizations.of(context)!.dailyAlertTime),
             subtitle: Text('${settings.trendsHour.toString().padLeft(2, '0')}:00'),
             onTap: () async {
               final TimeOfDay? hora = await showTimePicker(
@@ -116,7 +116,7 @@ class SettingsScreen extends StatelessWidget {
               );
             },
             secondary: const Icon(Icons.notifications_active_outlined),
-            title: const Text('Avisarme de las tendencias'),
+            title: Text(AppLocalizations.of(context)!.notifyTrends),
             subtitle: const Text(
               'Una notificación al día con lo más escuchado en internet.',
             ),
@@ -218,7 +218,7 @@ class SettingsScreen extends StatelessWidget {
           SwitchListTile(
             value: settings.showWaveAnimation,
             onChanged: settings.setShowWaveAnimation,
-            title: const Text('Ondas sonoras animadas'),
+            title: Text(AppLocalizations.of(context)!.soundWaves),
             subtitle: const Text('Desactívalas para ahorrar batería en reproducción continua.'),
           ),
 
@@ -235,7 +235,7 @@ class SettingsScreen extends StatelessWidget {
           SwitchListTile(
             value: settings.thermalGuard,
             onChanged: settings.setThermalGuard,
-            title: const Text('Protección térmica'),
+            title: Text(AppLocalizations.of(context)!.thermalProtection),
             subtitle: const Text(
               'Evita trabajo pesado en segundo plano cuando el dispositivo está caliente '
               '(verano) o en frío extremo (invierno boliviano).',
@@ -247,7 +247,7 @@ class SettingsScreen extends StatelessWidget {
           SwitchListTile(
             value: settings.voiceEnabled,
             onChanged: settings.setVoiceEnabled,
-            title: const Text('Dictado por voz'),
+            title: Text(AppLocalizations.of(context)!.voiceDictation),
             subtitle: const Text('Habla a la IA y busca canciones sin escribir.'),
           ),
           SwitchListTile(

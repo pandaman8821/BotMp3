@@ -118,4 +118,22 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get seeMyRanking => 'मेरी रैंकिंग देखें';
+
+  @override
+  String get countryForTrends => 'चार्ट देश';
+
+  @override
+  String get thermalProtection => 'ताप सुरक्षा';
+
+  @override
+  String get dailyAlertTime => 'दैनिक सूचना का समय';
+
+  @override
+  String get soundWaves => 'साउंड वेव्स';
+
+  @override
+  String get notifyTrends => 'ट्रेंड की सूचना दें';
+
+  @override
+  String get voiceDictation => 'वॉइस डिक्टेशन';
 }
