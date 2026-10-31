@@ -583,6 +583,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Create playlist'**
   String get createList;
+
+  /// No description provided for @sortBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort'**
+  String get sortBy;
+
+  /// No description provided for @shuffleAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle everything'**
+  String get shuffleAll;
+
+  /// No description provided for @mostPlayedRanking.
+  ///
+  /// In en, this message translates to:
+  /// **'Most played'**
+  String get mostPlayedRanking;
+
+  /// No description provided for @advancedFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced filters'**
+  String get advancedFilters;
+
+  /// No description provided for @playSelection.
+  ///
+  /// In en, this message translates to:
+  /// **'Play selection'**
+  String get playSelection;
+
+  /// No description provided for @clearFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear filters'**
+  String get clearFilters;
+
+  /// No description provided for @addToPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to playlist'**
+  String get addToPlaylist;
+
+  /// No description provided for @playSomethingFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Play something first'**
+  String get playSomethingFirst;
+
+  /// No description provided for @songLyrics.
+  ///
+  /// In en, this message translates to:
+  /// **'Song lyrics'**
+  String get songLyrics;
 }
 
 class _AppLocalizationsDelegate

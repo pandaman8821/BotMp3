@@ -77,5 +77,14 @@
   "clearConversation": "बातचीत मिटाएँ",
   "copyPrompt": "प्रॉम्प्ट कॉपी करें",
   "gotIt": "समझ गया",
-  "createList": "प्लेलिस्ट बनाएँ"
+  "createList": "प्लेलिस्ट बनाएँ",
+  "sortBy": "क्रमबद्ध करें",
+  "shuffleAll": "सब शफ़ल करें",
+  "mostPlayedRanking": "सबसे ज़्यादा सुने गए",
+  "advancedFilters": "उन्नत फ़िल्टर",
+  "playSelection": "चयन चलाएँ",
+  "clearFilters": "फ़िल्टर हटाएँ",
+  "addToPlaylist": "प्लेलिस्ट में जोड़ें",
+  "playSomethingFirst": "पहले कुछ चलाएँ",
+  "songLyrics": "गाने के बोल"
 }

@@ -241,4 +241,31 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get createList => 'Créer une playlist';
+
+  @override
+  String get sortBy => 'Trier';
+
+  @override
+  String get shuffleAll => 'Tout lire en aléatoire';
+
+  @override
+  String get mostPlayedRanking => 'Les plus écoutés';
+
+  @override
+  String get advancedFilters => 'Filtres avancés';
+
+  @override
+  String get playSelection => 'Lire la sélection';
+
+  @override
+  String get clearFilters => 'Retirer les filtres';
+
+  @override
+  String get addToPlaylist => 'Ajouter à la playlist';
+
+  @override
+  String get playSomethingFirst => 'Lance d\'abord une lecture';
+
+  @override
+  String get songLyrics => 'Paroles';
 }

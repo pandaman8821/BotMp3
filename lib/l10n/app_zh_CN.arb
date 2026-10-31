@@ -77,5 +77,14 @@
   "clearConversation": "",
   "copyPrompt": "",
   "gotIt": "",
-  "createList": ""
+  "createList": "",
+  "sortBy": "",
+  "shuffleAll": "",
+  "mostPlayedRanking": "",
+  "advancedFilters": "",
+  "playSelection": "",
+  "clearFilters": "",
+  "addToPlaylist": "",
+  "playSomethingFirst": "",
+  "songLyrics": ""
 }

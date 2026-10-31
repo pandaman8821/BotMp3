@@ -77,5 +77,14 @@
   "clearConversation": "대화 지우기",
   "copyPrompt": "프롬프트 복사",
   "gotIt": "확인",
-  "createList": "플레이리스트 만들기"
+  "createList": "플레이리스트 만들기",
+  "sortBy": "정렬",
+  "shuffleAll": "전체 셔플",
+  "mostPlayedRanking": "최다 재생",
+  "advancedFilters": "고급 필터",
+  "playSelection": "선택 항목 재생",
+  "clearFilters": "필터 해제",
+  "addToPlaylist": "플레이리스트에 추가",
+  "playSomethingFirst": "먼저 뭔가 재생하세요",
+  "songLyrics": "가사"
 }

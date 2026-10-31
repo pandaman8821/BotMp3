@@ -77,5 +77,14 @@
   "clearConversation": "Unterhaltung löschen",
   "copyPrompt": "Prompt kopieren",
   "gotIt": "Verstanden",
-  "createList": "Wiedergabeliste erstellen"
+  "createList": "Wiedergabeliste erstellen",
+  "sortBy": "Sortieren",
+  "shuffleAll": "Alles zufällig abspielen",
+  "mostPlayedRanking": "Meistgehört",
+  "advancedFilters": "Erweiterte Filter",
+  "playSelection": "Auswahl abspielen",
+  "clearFilters": "Filter zurücksetzen",
+  "addToPlaylist": "Zur Wiedergabeliste",
+  "playSomethingFirst": "Spiele zuerst etwas ab",
+  "songLyrics": "Songtext"
 }

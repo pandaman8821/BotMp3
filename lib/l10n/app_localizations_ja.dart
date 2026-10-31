@@ -241,4 +241,31 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get createList => 'プレイリストを作成';
+
+  @override
+  String get sortBy => '並べ替え';
+
+  @override
+  String get shuffleAll => 'すべてシャッフル';
+
+  @override
+  String get mostPlayedRanking => '再生回数ランキング';
+
+  @override
+  String get advancedFilters => '詳細フィルター';
+
+  @override
+  String get playSelection => '選択を再生';
+
+  @override
+  String get clearFilters => 'フィルターを解除';
+
+  @override
+  String get addToPlaylist => 'プレイリストに追加';
+
+  @override
+  String get playSomethingFirst => '先に何か再生してください';
+
+  @override
+  String get songLyrics => '歌詞';
 }

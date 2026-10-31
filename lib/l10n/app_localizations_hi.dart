@@ -241,4 +241,31 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get createList => 'प्लेलिस्ट बनाएँ';
+
+  @override
+  String get sortBy => 'क्रमबद्ध करें';
+
+  @override
+  String get shuffleAll => 'सब शफ़ल करें';
+
+  @override
+  String get mostPlayedRanking => 'सबसे ज़्यादा सुने गए';
+
+  @override
+  String get advancedFilters => 'उन्नत फ़िल्टर';
+
+  @override
+  String get playSelection => 'चयन चलाएँ';
+
+  @override
+  String get clearFilters => 'फ़िल्टर हटाएँ';
+
+  @override
+  String get addToPlaylist => 'प्लेलिस्ट में जोड़ें';
+
+  @override
+  String get playSomethingFirst => 'पहले कुछ चलाएँ';
+
+  @override
+  String get songLyrics => 'गाने के बोल';
 }

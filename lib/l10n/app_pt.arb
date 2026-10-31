@@ -77,5 +77,14 @@
   "clearConversation": "Apagar conversa",
   "copyPrompt": "Copiar prompt",
   "gotIt": "Entendi",
-  "createList": "Criar playlist"
+  "createList": "Criar playlist",
+  "sortBy": "Ordenar",
+  "shuffleAll": "Aleatório de tudo",
+  "mostPlayedRanking": "Mais tocadas",
+  "advancedFilters": "Filtros avançados",
+  "playSelection": "Reproduzir seleção",
+  "clearFilters": "Remover filtros",
+  "addToPlaylist": "Adicionar à playlist",
+  "playSomethingFirst": "Toque algo primeiro",
+  "songLyrics": "Letra da música"
 }
