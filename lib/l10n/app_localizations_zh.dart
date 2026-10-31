@@ -166,6 +166,21 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get exportBackup => '导出备份';
+
+  @override
+  String get noSongsWithoutGenre => '没有缺少风格的歌曲';
+
+  @override
+  String get restoreTheBackup => '恢复备份';
+
+  @override
+  String get exportFailedStorage => '导出失败：请检查存储';
+
+  @override
+  String get noCompatibleAudio => '未找到兼容的音频';
+
+  @override
+  String get noBackupSaved => '没有已保存的备份';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -330,4 +345,19 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get exportBackup => '';
+
+  @override
+  String get noSongsWithoutGenre => '';
+
+  @override
+  String get restoreTheBackup => '';
+
+  @override
+  String get exportFailedStorage => '';
+
+  @override
+  String get noCompatibleAudio => '';
+
+  @override
+  String get noBackupSaved => '';
 }

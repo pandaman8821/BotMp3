@@ -381,14 +381,14 @@ class SettingsScreen extends StatelessWidget {
               if (!context.mounted) return;
               if (copia == null) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('No hay ninguna copia guardada')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.noBackupSaved)),
                 );
                 return;
               }
               final bool? confirmar = await showDialog<bool>(
                 context: context,
                 builder: (BuildContext dialogo) => AlertDialog(
-                  title: const Text('Restaurar la copia'),
+                  title: Text(AppLocalizations.of(context)!.restoreTheBackup),
                   content: const Text(
                     'Se sustituirán tu biblioteca, listas, historial y chat por los '
                     'de la copia. No se puede deshacer.',
@@ -552,7 +552,7 @@ class SettingsScreen extends StatelessWidget {
               if (!context.mounted) return;
               if (pendientes.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('No hay canciones sin género')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.noSongsWithoutGenre)),
                 );
                 return;
               }
@@ -671,7 +671,7 @@ class SettingsScreen extends StatelessWidget {
               if (files.isEmpty) {
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('No se encontraron audios compatibles')),
+                    SnackBar(content: Text(AppLocalizations.of(context)!.noCompatibleAudio)),
                   );
                 }
                 return;
@@ -1016,9 +1016,9 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('No se pudo exportar: revisa el almacenamiento'),
-          ),
+          SnackBar(
+              content: Text(AppLocalizations.of(context)!.exportFailedStorage),
+            ),
         );
       }
       return null;

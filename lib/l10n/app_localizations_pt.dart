@@ -166,6 +166,22 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get exportBackup => 'Exportar backup';
+
+  @override
+  String get noSongsWithoutGenre => 'Nenhuma música sem gênero';
+
+  @override
+  String get restoreTheBackup => 'Restaurar o backup';
+
+  @override
+  String get exportFailedStorage =>
+      'Falha ao exportar: verifique o armazenamento';
+
+  @override
+  String get noCompatibleAudio => 'Nenhum áudio compatível encontrado';
+
+  @override
+  String get noBackupSaved => 'Nenhum backup salvo';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -330,4 +346,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get exportBackup => '';
+
+  @override
+  String get noSongsWithoutGenre => '';
+
+  @override
+  String get restoreTheBackup => '';
+
+  @override
+  String get exportFailedStorage => '';
+
+  @override
+  String get noCompatibleAudio => '';
+
+  @override
+  String get noBackupSaved => '';
 }

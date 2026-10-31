@@ -433,6 +433,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Export backup'**
   String get exportBackup;
+
+  /// No description provided for @noSongsWithoutGenre.
+  ///
+  /// In en, this message translates to:
+  /// **'No songs without genre'**
+  String get noSongsWithoutGenre;
+
+  /// No description provided for @restoreTheBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore the backup'**
+  String get restoreTheBackup;
+
+  /// No description provided for @exportFailedStorage.
+  ///
+  /// In en, this message translates to:
+  /// **'Export failed: check storage'**
+  String get exportFailedStorage;
+
+  /// No description provided for @noCompatibleAudio.
+  ///
+  /// In en, this message translates to:
+  /// **'No compatible audio found'**
+  String get noCompatibleAudio;
+
+  /// No description provided for @noBackupSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'No backup saved'**
+  String get noBackupSaved;
 }
 
 class _AppLocalizationsDelegate

@@ -52,5 +52,10 @@
   "speakResponses": "语音播报回复",
   "freeUpSpace": "释放空间",
   "importSongs": "导入歌曲",
-  "exportBackup": "导出备份"
+  "exportBackup": "导出备份",
+  "noSongsWithoutGenre": "没有缺少风格的歌曲",
+  "restoreTheBackup": "恢复备份",
+  "exportFailedStorage": "导出失败：请检查存储",
+  "noCompatibleAudio": "未找到兼容的音频",
+  "noBackupSaved": "没有已保存的备份"
 }

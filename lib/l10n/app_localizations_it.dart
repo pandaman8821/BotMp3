@@ -166,4 +166,20 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get exportBackup => 'Esporta backup';
+
+  @override
+  String get noSongsWithoutGenre => 'Nessun brano senza genere';
+
+  @override
+  String get restoreTheBackup => 'Ripristina il backup';
+
+  @override
+  String get exportFailedStorage =>
+      'Esportazione non riuscita: controlla lo spazio';
+
+  @override
+  String get noCompatibleAudio => 'Nessun audio compatibile trovato';
+
+  @override
+  String get noBackupSaved => 'Nessun backup salvato';
 }

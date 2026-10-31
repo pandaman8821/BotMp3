@@ -52,5 +52,10 @@
   "speakResponses": "음성 응답",
   "freeUpSpace": "공간 확보",
   "importSongs": "곡 가져오기",
-  "exportBackup": "백업 내보내기"
+  "exportBackup": "백업 내보내기",
+  "noSongsWithoutGenre": "장르가 없는 곡이 없습니다",
+  "restoreTheBackup": "백업 복원",
+  "exportFailedStorage": "내보내기 실패: 저장 공간을 확인하세요",
+  "noCompatibleAudio": "호환되는 오디오를 찾지 못했습니다",
+  "noBackupSaved": "저장된 백업이 없습니다"
 }

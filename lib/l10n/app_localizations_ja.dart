@@ -166,4 +166,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get exportBackup => 'バックアップを書き出す';
+
+  @override
+  String get noSongsWithoutGenre => 'ジャンル未設定の曲はありません';
+
+  @override
+  String get restoreTheBackup => 'バックアップを復元';
+
+  @override
+  String get exportFailedStorage => '書き出しに失敗しました：保存先を確認';
+
+  @override
+  String get noCompatibleAudio => '対応する音声が見つかりません';
+
+  @override
+  String get noBackupSaved => 'バックアップがありません';
 }

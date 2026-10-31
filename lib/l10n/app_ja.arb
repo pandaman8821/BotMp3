@@ -52,5 +52,10 @@
   "speakResponses": "音声で回答",
   "freeUpSpace": "空き容量を増やす",
   "importSongs": "曲を読み込む",
-  "exportBackup": "バックアップを書き出す"
+  "exportBackup": "バックアップを書き出す",
+  "noSongsWithoutGenre": "ジャンル未設定の曲はありません",
+  "restoreTheBackup": "バックアップを復元",
+  "exportFailedStorage": "書き出しに失敗しました：保存先を確認",
+  "noCompatibleAudio": "対応する音声が見つかりません",
+  "noBackupSaved": "バックアップがありません"
 }
