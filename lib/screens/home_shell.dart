@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'dart:io';
 import 'dart:ui' as ui;
 
@@ -176,31 +177,31 @@ class _HomeShellState extends State<HomeShell>
                   index: _index,
                   onChanged: _changeTab,
                   quality: context.watch<SettingsProvider>().glassQuality,
-                  destinations: const <GlassNavDestination>[
+                  destinations: <GlassNavDestination>[
                     GlassNavDestination(
                       icon: Icons.library_music_outlined,
                       selectedIcon: Icons.library_music,
-                      label: 'Canciones',
+                      label: AppLocalizations.of(context)!.tabSongs,
                     ),
                     GlassNavDestination(
                       icon: Icons.queue_music_outlined,
                       selectedIcon: Icons.queue_music,
-                      label: 'Listas',
+                      label: AppLocalizations.of(context)!.tabPlaylists,
                     ),
                     GlassNavDestination(
                       icon: Icons.search,
                       selectedIcon: Icons.saved_search,
-                      label: 'Buscar',
+                      label: AppLocalizations.of(context)!.tabSearch,
                     ),
                     GlassNavDestination(
                       icon: Icons.smart_toy_outlined,
                       selectedIcon: Icons.smart_toy,
-                      label: 'IA',
+                      label: AppLocalizations.of(context)!.tabAi,
                     ),
                     GlassNavDestination(
                       icon: Icons.settings_outlined,
                       selectedIcon: Icons.settings,
-                      label: 'Ajustes',
+                      label: AppLocalizations.of(context)!.tabSettings,
                     ),
                   ],
                 ),
