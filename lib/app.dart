@@ -56,6 +56,15 @@ class BotMp3App extends StatelessWidget {
             theme: AppTheme.light(),
             darkTheme: AppTheme.dark(),
                   supportedLocales: AppLocalizations.supportedLocales,
+      // Si el idioma del telefono no esta traducido, la app usa INGLES (idioma
+      // universal) en lugar de caer al primero de la lista, que era otro.
+      localeResolutionCallback: (Locale? dispositivo, Iterable<Locale> soportados) {
+        if (dispositivo == null) return const Locale('en');
+        for (final Locale locale in soportados) {
+          if (locale.languageCode == dispositivo.languageCode) return locale;
+        }
+        return const Locale('en');
+      },
             localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
         AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
