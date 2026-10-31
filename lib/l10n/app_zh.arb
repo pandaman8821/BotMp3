@@ -36,5 +36,11 @@
   "screenAlwaysOn": "屏幕常亮",
   "playbackDiagnostics": "播放诊断",
   "autoDjMode": "自动 AI DJ",
-  "seeMyRanking": "查看我的排行"
+  "seeMyRanking": "查看我的排行",
+  "countryForTrends": "榜单国家",
+  "thermalProtection": "过热保护",
+  "dailyAlertTime": "每日提醒时间",
+  "soundWaves": "动态声波",
+  "notifyTrends": "趋势提醒",
+  "voiceDictation": "语音输入"
 }

@@ -36,5 +36,11 @@
   "screenAlwaysOn": "Écran toujours allumé",
   "playbackDiagnostics": "Diagnostic de lecture",
   "autoDjMode": "DJ IA automatique",
-  "seeMyRanking": "Mon classement"
+  "seeMyRanking": "Mon classement",
+  "countryForTrends": "Pays des classements",
+  "thermalProtection": "Protection thermique",
+  "dailyAlertTime": "Heure de l'alerte quotidienne",
+  "soundWaves": "Ondes sonores animées",
+  "notifyTrends": "Me prévenir des tendances",
+  "voiceDictation": "Dictée vocale"
 }

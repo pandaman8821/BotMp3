@@ -36,5 +36,11 @@
   "screenAlwaysOn": "स्क्रीन चालू रखें",
   "playbackDiagnostics": "प्लेबैक जाँच",
   "autoDjMode": "स्वचालित AI DJ",
-  "seeMyRanking": "मेरी रैंकिंग देखें"
+  "seeMyRanking": "मेरी रैंकिंग देखें",
+  "countryForTrends": "चार्ट देश",
+  "thermalProtection": "ताप सुरक्षा",
+  "dailyAlertTime": "दैनिक सूचना का समय",
+  "soundWaves": "साउंड वेव्स",
+  "notifyTrends": "ट्रेंड की सूचना दें",
+  "voiceDictation": "वॉइस डिक्टेशन"
 }

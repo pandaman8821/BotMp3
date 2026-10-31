@@ -36,5 +36,11 @@
   "screenAlwaysOn": "Keep screen on",
   "playbackDiagnostics": "Playback diagnostics",
   "autoDjMode": "Automatic AI DJ",
-  "seeMyRanking": "See my ranking"
+  "seeMyRanking": "See my ranking",
+  "countryForTrends": "Charts country",
+  "thermalProtection": "Thermal protection",
+  "dailyAlertTime": "Daily alert time",
+  "soundWaves": "Animated sound waves",
+  "notifyTrends": "Notify me of trends",
+  "voiceDictation": "Voice dictation"
 }

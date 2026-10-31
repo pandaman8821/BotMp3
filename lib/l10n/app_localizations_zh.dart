@@ -118,6 +118,24 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get seeMyRanking => '查看我的排行';
+
+  @override
+  String get countryForTrends => '榜单国家';
+
+  @override
+  String get thermalProtection => '过热保护';
+
+  @override
+  String get dailyAlertTime => '每日提醒时间';
+
+  @override
+  String get soundWaves => '动态声波';
+
+  @override
+  String get notifyTrends => '趋势提醒';
+
+  @override
+  String get voiceDictation => '语音输入';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -234,4 +252,22 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get seeMyRanking => '';
+
+  @override
+  String get countryForTrends => '';
+
+  @override
+  String get thermalProtection => '';
+
+  @override
+  String get dailyAlertTime => '';
+
+  @override
+  String get soundWaves => '';
+
+  @override
+  String get notifyTrends => '';
+
+  @override
+  String get voiceDictation => '';
 }

@@ -118,6 +118,24 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get seeMyRanking => 'Ver meu ranking';
+
+  @override
+  String get countryForTrends => 'País das paradas';
+
+  @override
+  String get thermalProtection => 'Proteção térmica';
+
+  @override
+  String get dailyAlertTime => 'Hora do aviso diário';
+
+  @override
+  String get soundWaves => 'Ondas sonoras animadas';
+
+  @override
+  String get notifyTrends => 'Avisar sobre tendências';
+
+  @override
+  String get voiceDictation => 'Ditado por voz';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -234,4 +252,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get seeMyRanking => '';
+
+  @override
+  String get countryForTrends => '';
+
+  @override
+  String get thermalProtection => '';
+
+  @override
+  String get dailyAlertTime => '';
+
+  @override
+  String get soundWaves => '';
+
+  @override
+  String get notifyTrends => '';
+
+  @override
+  String get voiceDictation => '';
 }

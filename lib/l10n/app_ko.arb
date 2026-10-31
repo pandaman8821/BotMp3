@@ -36,5 +36,11 @@
   "screenAlwaysOn": "화면 항상 켜기",
   "playbackDiagnostics": "재생 진단",
   "autoDjMode": "자동 AI DJ",
-  "seeMyRanking": "내 순위 보기"
+  "seeMyRanking": "내 순위 보기",
+  "countryForTrends": "차트 국가",
+  "thermalProtection": "발열 보호",
+  "dailyAlertTime": "매일 알림 시간",
+  "soundWaves": "사운드 웨이브",
+  "notifyTrends": "트렌드 알림",
+  "voiceDictation": "음성 받아쓰기"
 }

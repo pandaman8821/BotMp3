@@ -36,5 +36,11 @@
   "screenAlwaysOn": "画面を常時オン",
   "playbackDiagnostics": "再生の診断",
   "autoDjMode": "AI DJ 自動",
-  "seeMyRanking": "ランキングを見る"
+  "seeMyRanking": "ランキングを見る",
+  "countryForTrends": "チャートの国",
+  "thermalProtection": "温度保護",
+  "dailyAlertTime": "毎日の通知時刻",
+  "soundWaves": "サウンドウェーブ",
+  "notifyTrends": "トレンドを通知",
+  "voiceDictation": "音声入力"
 }
