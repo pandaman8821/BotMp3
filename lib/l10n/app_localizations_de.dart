@@ -36,7 +36,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get next => 'Weiter';
 
   @override
-  String get previous => 'Zurueck';
+  String get previous => 'Zurück';
 
   @override
   String get shuffle => 'Zufall';
@@ -72,10 +72,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get save => 'Speichern';
 
   @override
-  String get delete => 'Loeschen';
+  String get delete => 'Löschen';
 
   @override
-  String get close => 'Schliessen';
+  String get close => 'Schließen';
 
   @override
   String get loading => 'Wird geladen...';
@@ -99,7 +99,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get library => 'Bibliothek';
 
   @override
-  String get nowPlaying => 'Laeuft jetzt';
+  String get nowPlaying => 'Läuft jetzt';
 
   @override
   String get trendsNow => 'Trends jetzt ansehen';
@@ -186,10 +186,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get create => 'Erstellen';
 
   @override
-  String get createNewPlaylist => 'Neue Wiedergabeliste erstellen';
+  String get createNewPlaylist => 'Neu erstellen';
 
   @override
-  String get editPlaylist => 'Wiedergabeliste bearbeiten';
+  String get editPlaylist => 'Bearbeiten';
 
   @override
   String get newPlaylist => 'Neue Wiedergabeliste';
@@ -285,7 +285,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get updateTrendsFirst => 'Trends zuerst aktualisieren';
 
   @override
-  String get deleteList => 'Wiedergabeliste löschen';
+  String get deleteList => 'Liste löschen';
 
   @override
   String get linkOpenFailed => 'Link konnte nicht geöffnet werden';
@@ -306,7 +306,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get copyList => 'Liste kopieren';
 
   @override
-  String get importListJson => 'Wiedergabeliste importieren (JSON)';
+  String get importListJson => 'Importieren (JSON)';
 
   @override
   String get trendsTitle => 'Trends';
