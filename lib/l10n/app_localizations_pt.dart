@@ -212,6 +212,36 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get playbackSpeed => 'Velocidade de reprodução';
+
+  @override
+  String get clearHistoryBody => 'O histórico da IA será apagado.';
+
+  @override
+  String get askHint => 'Peça música, playlists ou ideias…';
+
+  @override
+  String get promptCopied => 'Prompt copiado';
+
+  @override
+  String get aiProviders => 'Provedores de IA';
+
+  @override
+  String get aiMusicTitle => 'Música com IA';
+
+  @override
+  String get test => 'Testar';
+
+  @override
+  String get clearConversation => 'Apagar conversa';
+
+  @override
+  String get copyPrompt => 'Copiar prompt';
+
+  @override
+  String get gotIt => 'Entendi';
+
+  @override
+  String get createList => 'Criar playlist';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -421,4 +451,34 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get playbackSpeed => '';
+
+  @override
+  String get clearHistoryBody => '';
+
+  @override
+  String get askHint => '';
+
+  @override
+  String get promptCopied => '';
+
+  @override
+  String get aiProviders => '';
+
+  @override
+  String get aiMusicTitle => '';
+
+  @override
+  String get test => '';
+
+  @override
+  String get clearConversation => '';
+
+  @override
+  String get copyPrompt => '';
+
+  @override
+  String get gotIt => '';
+
+  @override
+  String get createList => '';
 }

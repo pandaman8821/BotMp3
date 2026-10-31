@@ -67,5 +67,15 @@
   "noSongPlaying": "कुछ नहीं चल रहा",
   "albumLabel": "एल्बम",
   "artistLabel": "कलाकार",
-  "playbackSpeed": "प्लेबैक गति"
+  "playbackSpeed": "प्लेबैक गति",
+  "clearHistoryBody": "AI इतिहास हटा दिया जाएगा।",
+  "askHint": "संगीत, प्लेलिस्ट या आइडिया माँगें…",
+  "promptCopied": "प्रॉम्प्ट कॉपी हो गया",
+  "aiProviders": "AI प्रदाता",
+  "aiMusicTitle": "AI संगीत",
+  "test": "परीक्षण",
+  "clearConversation": "बातचीत मिटाएँ",
+  "copyPrompt": "प्रॉम्प्ट कॉपी करें",
+  "gotIt": "समझ गया",
+  "createList": "प्लेलिस्ट बनाएँ"
 }

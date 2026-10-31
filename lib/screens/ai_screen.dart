@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -51,7 +52,7 @@ class _AiScreenState extends State<AiScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('IA musical'),
+        title: Text(AppLocalizations.of(context)!.aiMusicTitle),
         actions: <Widget>[
           IconButton(
             tooltip: settings.ttsEnabled ? 'Desactivar voz' : 'Leer respuestas en voz alta',
@@ -59,22 +60,22 @@ class _AiScreenState extends State<AiScreen> {
             onPressed: () => settings.setTtsEnabled(!settings.ttsEnabled),
           ),
           IconButton(
-            tooltip: 'Borrar conversación',
+            tooltip: AppLocalizations.of(context)!.clearConversation,
             icon: const Icon(Icons.delete_sweep_outlined),
             onPressed: () async {
               final bool ok = await showDialog<bool>(
                     context: context,
                     builder: (BuildContext dialogContext) => AlertDialog(
-                      title: const Text('Borrar conversación'),
-                      content: const Text('Se eliminará el historial con la IA.'),
+                      title: Text(AppLocalizations.of(context)!.clearConversation),
+                      content: Text(AppLocalizations.of(context)!.clearHistoryBody),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () => Navigator.of(dialogContext).pop(false),
-                          child: const Text('Cancelar'),
+                          child: Text(AppLocalizations.of(context)!.cancel),
                         ),
                         FilledButton(
                           onPressed: () => Navigator.of(dialogContext).pop(true),
-                          child: const Text('Borrar'),
+                          child: Text(AppLocalizations.of(context)!.delete),
                         ),
                       ],
                     ),
@@ -104,7 +105,7 @@ class _AiScreenState extends State<AiScreen> {
                   TextButton.icon(
                     onPressed: () => _testConnection(context, ai),
                     icon: const Icon(Icons.wifi_tethering, size: 16),
-                    label: const Text('Probar'),
+                    label: Text(AppLocalizations.of(context)!.test),
                   ),
               ],
             ),
@@ -174,7 +175,7 @@ class _AiScreenState extends State<AiScreen> {
         showDialog<void>(
           context: context,
           builder: (BuildContext dialogContext) => AlertDialog(
-            title: const Text('Proveedores de IA'),
+            title: Text(AppLocalizations.of(context)!.aiProviders),
             content: Text(
               'Añade al menos una API key en la pestaña Ajustes ▸ IA. '
               'Proveedor activo: ${ai.activeProvider.label}.',
@@ -182,7 +183,7 @@ class _AiScreenState extends State<AiScreen> {
             actions: <Widget>[
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: const Text('Entendido'),
+                child: Text(AppLocalizations.of(context)!.gotIt),
               ),
             ],
           ),
@@ -364,11 +365,11 @@ class _AiScreenState extends State<AiScreen> {
                               actions: <Widget>[
                                 TextButton(
                                   onPressed: () => Navigator.of(dialogContext).pop(false),
-                                  child: const Text('Cancelar'),
+                                  child: Text(AppLocalizations.of(context)!.cancel),
                                 ),
                                 FilledButton(
                                   onPressed: () => Navigator.of(dialogContext).pop(true),
-                                  child: const Text('Crear'),
+                                  child: Text(AppLocalizations.of(context)!.create),
                                 ),
                               ],
                             ),
@@ -385,7 +386,7 @@ class _AiScreenState extends State<AiScreen> {
                       );
                     },
                     icon: const Icon(Icons.playlist_add),
-                    label: const Text('Crear lista'),
+                    label: Text(AppLocalizations.of(context)!.createList),
                   ),
                 ),
               ],
@@ -449,11 +450,11 @@ class _AiScreenState extends State<AiScreen> {
                       await Clipboard.setData(ClipboardData(text: idea.generatorPrompt));
                       if (!context.mounted) return;
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Prompt copiado')),
+                        SnackBar(content: Text(AppLocalizations.of(context)!.promptCopied)),
                       );
                     },
                     icon: const Icon(Icons.copy),
-                    label: const Text('Copiar prompt'),
+                    label: Text(AppLocalizations.of(context)!.copyPrompt),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -461,7 +462,7 @@ class _AiScreenState extends State<AiScreen> {
                   child: OutlinedButton.icon(
                     onPressed: () => _openUrl(idea.youtubeSearchUrl),
                     icon: const Icon(Icons.open_in_new),
-                    label: const Text('Buscar'),
+                    label: Text(AppLocalizations.of(context)!.tabSearch),
                   ),
                 ),
               ],
@@ -653,8 +654,8 @@ class _AiScreenState extends State<AiScreen> {
                 minLines: 1,
                 maxLines: 4,
                 textInputAction: TextInputAction.send,
-                decoration: const InputDecoration(
-                  hintText: 'Pídele música, listas o ideas…',
+                decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.askHint,
                 ),
                 onSubmitted: (String value) => _send(ai, settings),
               ),

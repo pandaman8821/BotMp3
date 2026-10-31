@@ -211,6 +211,36 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get playbackSpeed => '播放速度';
+
+  @override
+  String get clearHistoryBody => '将删除与 AI 的对话记录。';
+
+  @override
+  String get askHint => '点歌、建歌单或要创意…';
+
+  @override
+  String get promptCopied => '提示词已复制';
+
+  @override
+  String get aiProviders => 'AI 服务商';
+
+  @override
+  String get aiMusicTitle => 'AI 音乐';
+
+  @override
+  String get test => '测试';
+
+  @override
+  String get clearConversation => '清除对话';
+
+  @override
+  String get copyPrompt => '复制提示词';
+
+  @override
+  String get gotIt => '明白了';
+
+  @override
+  String get createList => '创建歌单';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -420,4 +450,34 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get playbackSpeed => '';
+
+  @override
+  String get clearHistoryBody => '';
+
+  @override
+  String get askHint => '';
+
+  @override
+  String get promptCopied => '';
+
+  @override
+  String get aiProviders => '';
+
+  @override
+  String get aiMusicTitle => '';
+
+  @override
+  String get test => '';
+
+  @override
+  String get clearConversation => '';
+
+  @override
+  String get copyPrompt => '';
+
+  @override
+  String get gotIt => '';
+
+  @override
+  String get createList => '';
 }

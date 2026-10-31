@@ -67,5 +67,15 @@
   "noSongPlaying": "Nothing is playing",
   "albumLabel": "Album",
   "artistLabel": "Artist",
-  "playbackSpeed": "Playback speed"
+  "playbackSpeed": "Playback speed",
+  "clearHistoryBody": "The AI history will be deleted.",
+  "askHint": "Ask for music, playlists or ideas…",
+  "promptCopied": "Prompt copied",
+  "aiProviders": "AI providers",
+  "aiMusicTitle": "AI music",
+  "test": "Test",
+  "clearConversation": "Clear conversation",
+  "copyPrompt": "Copy prompt",
+  "gotIt": "Got it",
+  "createList": "Create playlist"
 }

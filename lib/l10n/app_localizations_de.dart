@@ -211,4 +211,34 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get playbackSpeed => 'Wiedergabegeschwindigkeit';
+
+  @override
+  String get clearHistoryBody => 'Der KI-Verlauf wird gelöscht.';
+
+  @override
+  String get askHint => 'Frag nach Musik, Playlists oder Ideen…';
+
+  @override
+  String get promptCopied => 'Prompt kopiert';
+
+  @override
+  String get aiProviders => 'KI-Anbieter';
+
+  @override
+  String get aiMusicTitle => 'KI-Musik';
+
+  @override
+  String get test => 'Testen';
+
+  @override
+  String get clearConversation => 'Unterhaltung löschen';
+
+  @override
+  String get copyPrompt => 'Prompt kopieren';
+
+  @override
+  String get gotIt => 'Verstanden';
+
+  @override
+  String get createList => 'Wiedergabeliste erstellen';
 }

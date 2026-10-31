@@ -67,5 +67,15 @@
   "noSongPlaying": "",
   "albumLabel": "",
   "artistLabel": "",
-  "playbackSpeed": ""
+  "playbackSpeed": "",
+  "clearHistoryBody": "",
+  "askHint": "",
+  "promptCopied": "",
+  "aiProviders": "",
+  "aiMusicTitle": "",
+  "test": "",
+  "clearConversation": "",
+  "copyPrompt": "",
+  "gotIt": "",
+  "createList": ""
 }

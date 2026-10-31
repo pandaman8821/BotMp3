@@ -67,5 +67,15 @@
   "noSongPlaying": "再生中の曲はありません",
   "albumLabel": "アルバム",
   "artistLabel": "アーティスト",
-  "playbackSpeed": "再生速度"
+  "playbackSpeed": "再生速度",
+  "clearHistoryBody": "AIとの履歴が削除されます。",
+  "askHint": "音楽・プレイリスト・アイデアをどうぞ…",
+  "promptCopied": "プロンプトをコピーしました",
+  "aiProviders": "AIプロバイダー",
+  "aiMusicTitle": "AI音楽",
+  "test": "テスト",
+  "clearConversation": "会話を消去",
+  "copyPrompt": "プロンプトをコピー",
+  "gotIt": "わかりました",
+  "createList": "プレイリストを作成"
 }
