@@ -86,5 +86,20 @@
   "clearFilters": "फ़िल्टर हटाएँ",
   "addToPlaylist": "प्लेलिस्ट में जोड़ें",
   "playSomethingFirst": "पहले कुछ चलाएँ",
-  "songLyrics": "गाने के बोल"
+  "songLyrics": "गाने के बोल",
+  "editData": "विवरण संपादित करें",
+  "notifyTop": "टॉप की सूचना",
+  "addSongs": "गाने जोड़ें",
+  "listCopied": "सूची क्लिपबोर्ड पर कॉपी हो गई",
+  "updateTrendsFirst": "पहले ट्रेंड रीफ़्रेश करें",
+  "deleteList": "प्लेलिस्ट हटाएँ",
+  "linkOpenFailed": "लिंक नहीं खोला जा सका",
+  "updateAction": "रीफ़्रेश करें",
+  "listNotFound": "प्लेलिस्ट नहीं मिली",
+  "editNameDesc": "नाम/विवरण संपादित करें",
+  "changeCover": "कवर बदलें",
+  "copyList": "सूची कॉपी करें",
+  "importListJson": "प्लेलिस्ट आयात करें (JSON)",
+  "trendsTitle": "ट्रेंड",
+  "exportJson": "JSON निर्यात करें"
 }

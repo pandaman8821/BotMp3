@@ -86,5 +86,20 @@
   "clearFilters": "Quitar filtros",
   "addToPlaylist": "Añadir a lista",
   "playSomethingFirst": "Primero pon algo a sonar",
-  "songLyrics": "Letra de la canción"
+  "songLyrics": "Letra de la canción",
+  "editData": "Editar datos",
+  "notifyTop": "Notificar el top",
+  "addSongs": "Añadir canciones",
+  "listCopied": "Lista copiada al portapapeles",
+  "updateTrendsFirst": "Primero actualiza las tendencias",
+  "deleteList": "Eliminar lista",
+  "linkOpenFailed": "No se pudo abrir el enlace",
+  "updateAction": "Actualizar",
+  "listNotFound": "Lista no encontrada",
+  "editNameDesc": "Editar nombre/descripción",
+  "changeCover": "Cambiar carátula",
+  "copyList": "Copiar la lista",
+  "importListJson": "Importar lista (JSON)",
+  "trendsTitle": "Tendencias",
+  "exportJson": "Exportar JSON"
 }

@@ -269,6 +269,51 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get songLyrics => 'Letra da música';
+
+  @override
+  String get editData => 'Editar dados';
+
+  @override
+  String get notifyTop => 'Notificar o top';
+
+  @override
+  String get addSongs => 'Adicionar músicas';
+
+  @override
+  String get listCopied => 'Lista copiada para a área de transferência';
+
+  @override
+  String get updateTrendsFirst => 'Atualize as tendências primeiro';
+
+  @override
+  String get deleteList => 'Excluir playlist';
+
+  @override
+  String get linkOpenFailed => 'Não foi possível abrir o link';
+
+  @override
+  String get updateAction => 'Atualizar';
+
+  @override
+  String get listNotFound => 'Playlist não encontrada';
+
+  @override
+  String get editNameDesc => 'Editar nome/descrição';
+
+  @override
+  String get changeCover => 'Trocar capa';
+
+  @override
+  String get copyList => 'Copiar a lista';
+
+  @override
+  String get importListJson => 'Importar playlist (JSON)';
+
+  @override
+  String get trendsTitle => 'Tendências';
+
+  @override
+  String get exportJson => 'Exportar JSON';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -535,4 +580,49 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get songLyrics => '';
+
+  @override
+  String get editData => '';
+
+  @override
+  String get notifyTop => '';
+
+  @override
+  String get addSongs => '';
+
+  @override
+  String get listCopied => '';
+
+  @override
+  String get updateTrendsFirst => '';
+
+  @override
+  String get deleteList => '';
+
+  @override
+  String get linkOpenFailed => '';
+
+  @override
+  String get updateAction => '';
+
+  @override
+  String get listNotFound => '';
+
+  @override
+  String get editNameDesc => '';
+
+  @override
+  String get changeCover => '';
+
+  @override
+  String get copyList => '';
+
+  @override
+  String get importListJson => '';
+
+  @override
+  String get trendsTitle => '';
+
+  @override
+  String get exportJson => '';
 }

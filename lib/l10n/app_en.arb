@@ -86,5 +86,20 @@
   "clearFilters": "Clear filters",
   "addToPlaylist": "Add to playlist",
   "playSomethingFirst": "Play something first",
-  "songLyrics": "Song lyrics"
+  "songLyrics": "Song lyrics",
+  "editData": "Edit details",
+  "notifyTop": "Notify top",
+  "addSongs": "Add songs",
+  "listCopied": "List copied to clipboard",
+  "updateTrendsFirst": "Refresh trends first",
+  "deleteList": "Delete playlist",
+  "linkOpenFailed": "Could not open the link",
+  "updateAction": "Refresh",
+  "listNotFound": "Playlist not found",
+  "editNameDesc": "Edit name/description",
+  "changeCover": "Change cover",
+  "copyList": "Copy list",
+  "importListJson": "Import playlist (JSON)",
+  "trendsTitle": "Trends",
+  "exportJson": "Export JSON"
 }

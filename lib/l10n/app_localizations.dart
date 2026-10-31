@@ -637,6 +637,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Song lyrics'**
   String get songLyrics;
+
+  /// No description provided for @editData.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit details'**
+  String get editData;
+
+  /// No description provided for @notifyTop.
+  ///
+  /// In en, this message translates to:
+  /// **'Notify top'**
+  String get notifyTop;
+
+  /// No description provided for @addSongs.
+  ///
+  /// In en, this message translates to:
+  /// **'Add songs'**
+  String get addSongs;
+
+  /// No description provided for @listCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'List copied to clipboard'**
+  String get listCopied;
+
+  /// No description provided for @updateTrendsFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh trends first'**
+  String get updateTrendsFirst;
+
+  /// No description provided for @deleteList.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete playlist'**
+  String get deleteList;
+
+  /// No description provided for @linkOpenFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open the link'**
+  String get linkOpenFailed;
+
+  /// No description provided for @updateAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get updateAction;
+
+  /// No description provided for @listNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlist not found'**
+  String get listNotFound;
+
+  /// No description provided for @editNameDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit name/description'**
+  String get editNameDesc;
+
+  /// No description provided for @changeCover.
+  ///
+  /// In en, this message translates to:
+  /// **'Change cover'**
+  String get changeCover;
+
+  /// No description provided for @copyList.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy list'**
+  String get copyList;
+
+  /// No description provided for @importListJson.
+  ///
+  /// In en, this message translates to:
+  /// **'Import playlist (JSON)'**
+  String get importListJson;
+
+  /// No description provided for @trendsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Trends'**
+  String get trendsTitle;
+
+  /// No description provided for @exportJson.
+  ///
+  /// In en, this message translates to:
+  /// **'Export JSON'**
+  String get exportJson;
 }
 
 class _AppLocalizationsDelegate

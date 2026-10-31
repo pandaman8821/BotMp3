@@ -86,5 +86,20 @@
   "clearFilters": "清除筛选",
   "addToPlaylist": "添加到歌单",
   "playSomethingFirst": "先播放点什么",
-  "songLyrics": "歌词"
+  "songLyrics": "歌词",
+  "editData": "编辑详情",
+  "notifyTop": "提醒热门",
+  "addSongs": "添加歌曲",
+  "listCopied": "列表已复制到剪贴板",
+  "updateTrendsFirst": "请先刷新趋势",
+  "deleteList": "删除歌单",
+  "linkOpenFailed": "无法打开链接",
+  "updateAction": "刷新",
+  "listNotFound": "未找到歌单",
+  "editNameDesc": "编辑名称/描述",
+  "changeCover": "更换封面",
+  "copyList": "复制列表",
+  "importListJson": "导入歌单（JSON）",
+  "trendsTitle": "趋势",
+  "exportJson": "导出 JSON"
 }
