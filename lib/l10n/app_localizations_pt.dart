@@ -12,7 +12,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get appTitle => 'BotMp3';
 
   @override
-  String get tabSongs => 'Musicas';
+  String get tabSongs => 'Músicas';
 
   @override
   String get tabPlaylists => 'Playlists';
@@ -33,13 +33,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get pause => 'Pausa';
 
   @override
-  String get next => 'Proxima';
+  String get next => 'Próxima';
 
   @override
   String get previous => 'Anterior';
 
   @override
-  String get shuffle => 'Aleatorio';
+  String get shuffle => 'Aleatório';
 
   @override
   String get repeatOne => 'Repetir uma';
@@ -84,7 +84,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get errorGeneric => 'Algo deu errado';
 
   @override
-  String get noSongs => 'Nenhuma musica ainda';
+  String get noSongs => 'Nenhuma música ainda';
 
   @override
   String get aiDj => 'DJ de IA';
@@ -324,7 +324,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get appTitle => 'BotMp3';
 
   @override
-  String get tabSongs => 'Musicas';
+  String get tabSongs => 'Músicas';
 
   @override
   String get tabPlaylists => 'Playlists';
@@ -345,13 +345,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get pause => 'Pausa';
 
   @override
-  String get next => 'Proxima';
+  String get next => 'Próxima';
 
   @override
   String get previous => 'Anterior';
 
   @override
-  String get shuffle => 'Aleatorio';
+  String get shuffle => 'Aleatório';
 
   @override
   String get repeatOne => 'Repetir uma';
@@ -396,7 +396,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get errorGeneric => 'Algo deu errado';
 
   @override
-  String get noSongs => 'Nenhuma musica ainda';
+  String get noSongs => 'Nenhuma música ainda';
 
   @override
   String get aiDj => 'DJ de IA';

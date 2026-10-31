@@ -24,7 +24,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get tabAi => 'IA';
 
   @override
-  String get tabSettings => 'Reglages';
+  String get tabSettings => 'Réglages';
 
   @override
   String get play => 'Lire';
@@ -36,19 +36,19 @@ class AppLocalizationsFr extends AppLocalizations {
   String get next => 'Suivant';
 
   @override
-  String get previous => 'Precedent';
+  String get previous => 'Précédent';
 
   @override
-  String get shuffle => 'Aleatoire';
+  String get shuffle => 'Aléatoire';
 
   @override
-  String get repeatOne => 'Repeter un titre';
+  String get repeatOne => 'Répéter un titre';
 
   @override
-  String get repeatAll => 'Tout repeter';
+  String get repeatAll => 'Tout répéter';
 
   @override
-  String get equalizer => 'Egaliseur';
+  String get equalizer => 'Égaliseur';
 
   @override
   String get carMode => 'Mode voiture';
@@ -96,7 +96,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get external => 'Externe';
 
   @override
-  String get library => 'Bibliotheque';
+  String get library => 'Bibliothèque';
 
   @override
   String get nowPlaying => 'Lecture en cours';
