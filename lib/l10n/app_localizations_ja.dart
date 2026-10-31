@@ -211,4 +211,34 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get playbackSpeed => '再生速度';
+
+  @override
+  String get clearHistoryBody => 'AIとの履歴が削除されます。';
+
+  @override
+  String get askHint => '音楽・プレイリスト・アイデアをどうぞ…';
+
+  @override
+  String get promptCopied => 'プロンプトをコピーしました';
+
+  @override
+  String get aiProviders => 'AIプロバイダー';
+
+  @override
+  String get aiMusicTitle => 'AI音楽';
+
+  @override
+  String get test => 'テスト';
+
+  @override
+  String get clearConversation => '会話を消去';
+
+  @override
+  String get copyPrompt => 'プロンプトをコピー';
+
+  @override
+  String get gotIt => 'わかりました';
+
+  @override
+  String get createList => 'プレイリストを作成';
 }

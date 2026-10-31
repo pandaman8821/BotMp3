@@ -67,5 +67,15 @@
   "noSongPlaying": "Nada em reprodução",
   "albumLabel": "Álbum",
   "artistLabel": "Artista",
-  "playbackSpeed": "Velocidade de reprodução"
+  "playbackSpeed": "Velocidade de reprodução",
+  "clearHistoryBody": "O histórico da IA será apagado.",
+  "askHint": "Peça música, playlists ou ideias…",
+  "promptCopied": "Prompt copiado",
+  "aiProviders": "Provedores de IA",
+  "aiMusicTitle": "Música com IA",
+  "test": "Testar",
+  "clearConversation": "Apagar conversa",
+  "copyPrompt": "Copiar prompt",
+  "gotIt": "Entendi",
+  "createList": "Criar playlist"
 }

@@ -67,5 +67,15 @@
   "noSongPlaying": "Keine Wiedergabe",
   "albumLabel": "Album",
   "artistLabel": "Künstler",
-  "playbackSpeed": "Wiedergabegeschwindigkeit"
+  "playbackSpeed": "Wiedergabegeschwindigkeit",
+  "clearHistoryBody": "Der KI-Verlauf wird gelöscht.",
+  "askHint": "Frag nach Musik, Playlists oder Ideen…",
+  "promptCopied": "Prompt kopiert",
+  "aiProviders": "KI-Anbieter",
+  "aiMusicTitle": "KI-Musik",
+  "test": "Testen",
+  "clearConversation": "Unterhaltung löschen",
+  "copyPrompt": "Prompt kopieren",
+  "gotIt": "Verstanden",
+  "createList": "Wiedergabeliste erstellen"
 }

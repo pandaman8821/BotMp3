@@ -211,4 +211,34 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get playbackSpeed => '재생 속도';
+
+  @override
+  String get clearHistoryBody => 'AI 기록이 삭제됩니다.';
+
+  @override
+  String get askHint => '음악, 플레이리스트, 아이디어를 요청하세요…';
+
+  @override
+  String get promptCopied => '프롬프트 복사됨';
+
+  @override
+  String get aiProviders => 'AI 제공자';
+
+  @override
+  String get aiMusicTitle => 'AI 음악';
+
+  @override
+  String get test => '테스트';
+
+  @override
+  String get clearConversation => '대화 지우기';
+
+  @override
+  String get copyPrompt => '프롬프트 복사';
+
+  @override
+  String get gotIt => '확인';
+
+  @override
+  String get createList => '플레이리스트 만들기';
 }

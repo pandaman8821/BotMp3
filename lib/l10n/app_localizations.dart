@@ -523,6 +523,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Playback speed'**
   String get playbackSpeed;
+
+  /// No description provided for @clearHistoryBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI history will be deleted.'**
+  String get clearHistoryBody;
+
+  /// No description provided for @askHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask for music, playlists or ideas…'**
+  String get askHint;
+
+  /// No description provided for @promptCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Prompt copied'**
+  String get promptCopied;
+
+  /// No description provided for @aiProviders.
+  ///
+  /// In en, this message translates to:
+  /// **'AI providers'**
+  String get aiProviders;
+
+  /// No description provided for @aiMusicTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AI music'**
+  String get aiMusicTitle;
+
+  /// No description provided for @test.
+  ///
+  /// In en, this message translates to:
+  /// **'Test'**
+  String get test;
+
+  /// No description provided for @clearConversation.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear conversation'**
+  String get clearConversation;
+
+  /// No description provided for @copyPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy prompt'**
+  String get copyPrompt;
+
+  /// No description provided for @gotIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it'**
+  String get gotIt;
+
+  /// No description provided for @createList.
+  ///
+  /// In en, this message translates to:
+  /// **'Create playlist'**
+  String get createList;
 }
 
 class _AppLocalizationsDelegate

@@ -211,4 +211,34 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get playbackSpeed => 'प्लेबैक गति';
+
+  @override
+  String get clearHistoryBody => 'AI इतिहास हटा दिया जाएगा।';
+
+  @override
+  String get askHint => 'संगीत, प्लेलिस्ट या आइडिया माँगें…';
+
+  @override
+  String get promptCopied => 'प्रॉम्प्ट कॉपी हो गया';
+
+  @override
+  String get aiProviders => 'AI प्रदाता';
+
+  @override
+  String get aiMusicTitle => 'AI संगीत';
+
+  @override
+  String get test => 'परीक्षण';
+
+  @override
+  String get clearConversation => 'बातचीत मिटाएँ';
+
+  @override
+  String get copyPrompt => 'प्रॉम्प्ट कॉपी करें';
+
+  @override
+  String get gotIt => 'समझ गया';
+
+  @override
+  String get createList => 'प्लेलिस्ट बनाएँ';
 }

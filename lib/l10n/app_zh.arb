@@ -67,5 +67,15 @@
   "noSongPlaying": "当前没有播放",
   "albumLabel": "专辑",
   "artistLabel": "艺术家",
-  "playbackSpeed": "播放速度"
+  "playbackSpeed": "播放速度",
+  "clearHistoryBody": "将删除与 AI 的对话记录。",
+  "askHint": "点歌、建歌单或要创意…",
+  "promptCopied": "提示词已复制",
+  "aiProviders": "AI 服务商",
+  "aiMusicTitle": "AI 音乐",
+  "test": "测试",
+  "clearConversation": "清除对话",
+  "copyPrompt": "复制提示词",
+  "gotIt": "明白了",
+  "createList": "创建歌单"
 }

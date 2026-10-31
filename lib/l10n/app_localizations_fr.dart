@@ -211,4 +211,34 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get playbackSpeed => 'Vitesse de lecture';
+
+  @override
+  String get clearHistoryBody => 'L\'historique IA sera supprimé.';
+
+  @override
+  String get askHint => 'Demande de la musique, des playlists ou des idées…';
+
+  @override
+  String get promptCopied => 'Prompt copié';
+
+  @override
+  String get aiProviders => 'Fournisseurs d\'IA';
+
+  @override
+  String get aiMusicTitle => 'Musique IA';
+
+  @override
+  String get test => 'Tester';
+
+  @override
+  String get clearConversation => 'Effacer la conversation';
+
+  @override
+  String get copyPrompt => 'Copier le prompt';
+
+  @override
+  String get gotIt => 'Compris';
+
+  @override
+  String get createList => 'Créer une playlist';
 }
