@@ -1,0 +1,201 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Portuguese (`pt`).
+class AppLocalizationsPt extends AppLocalizations {
+  AppLocalizationsPt([String locale = 'pt']) : super(locale);
+
+  @override
+  String get appTitle => 'BotMp3';
+
+  @override
+  String get tabSongs => 'Musicas';
+
+  @override
+  String get tabPlaylists => 'Playlists';
+
+  @override
+  String get tabSearch => 'Buscar';
+
+  @override
+  String get tabAi => 'IA';
+
+  @override
+  String get tabSettings => 'Ajustes';
+
+  @override
+  String get play => 'Reproduzir';
+
+  @override
+  String get pause => 'Pausa';
+
+  @override
+  String get next => 'Proxima';
+
+  @override
+  String get previous => 'Anterior';
+
+  @override
+  String get shuffle => 'Aleatorio';
+
+  @override
+  String get repeatOne => 'Repetir uma';
+
+  @override
+  String get repeatAll => 'Repetir tudo';
+
+  @override
+  String get equalizer => 'Equalizador';
+
+  @override
+  String get carMode => 'Modo carro';
+
+  @override
+  String get lyrics => 'Letra';
+
+  @override
+  String get widget => 'Widget';
+
+  @override
+  String get backup => 'Backup';
+
+  @override
+  String get restore => 'Restaurar';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get save => 'Salvar';
+
+  @override
+  String get delete => 'Excluir';
+
+  @override
+  String get close => 'Fechar';
+
+  @override
+  String get loading => 'Carregando...';
+
+  @override
+  String get errorGeneric => 'Algo deu errado';
+
+  @override
+  String get noSongs => 'Nenhuma musica ainda';
+
+  @override
+  String get aiDj => 'DJ de IA';
+
+  @override
+  String get recommend => 'Recomendar';
+
+  @override
+  String get external => 'Externa';
+
+  @override
+  String get library => 'Biblioteca';
+
+  @override
+  String get nowPlaying => 'Tocando agora';
+}
+
+/// The translations for Portuguese, as used in Brazil (`pt_BR`).
+class AppLocalizationsPtBr extends AppLocalizationsPt {
+  AppLocalizationsPtBr() : super('pt_BR');
+
+  @override
+  String get appTitle => 'BotMp3';
+
+  @override
+  String get tabSongs => 'Musicas';
+
+  @override
+  String get tabPlaylists => 'Playlists';
+
+  @override
+  String get tabSearch => 'Buscar';
+
+  @override
+  String get tabAi => 'IA';
+
+  @override
+  String get tabSettings => 'Ajustes';
+
+  @override
+  String get play => 'Reproduzir';
+
+  @override
+  String get pause => 'Pausa';
+
+  @override
+  String get next => 'Proxima';
+
+  @override
+  String get previous => 'Anterior';
+
+  @override
+  String get shuffle => 'Aleatorio';
+
+  @override
+  String get repeatOne => 'Repetir uma';
+
+  @override
+  String get repeatAll => 'Repetir tudo';
+
+  @override
+  String get equalizer => 'Equalizador';
+
+  @override
+  String get carMode => 'Modo carro';
+
+  @override
+  String get lyrics => 'Letra';
+
+  @override
+  String get widget => 'Widget';
+
+  @override
+  String get backup => 'Backup';
+
+  @override
+  String get restore => 'Restaurar';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get save => 'Salvar';
+
+  @override
+  String get delete => 'Excluir';
+
+  @override
+  String get close => 'Fechar';
+
+  @override
+  String get loading => 'Carregando...';
+
+  @override
+  String get errorGeneric => 'Algo deu errado';
+
+  @override
+  String get noSongs => 'Nenhuma musica ainda';
+
+  @override
+  String get aiDj => 'DJ de IA';
+
+  @override
+  String get recommend => 'Recomendar';
+
+  @override
+  String get external => 'Externa';
+
+  @override
+  String get library => 'Biblioteca';
+
+  @override
+  String get nowPlaying => 'Tocando agora';
+}
