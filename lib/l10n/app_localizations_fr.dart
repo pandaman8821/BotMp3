@@ -181,4 +181,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get noBackupSaved => 'Aucune sauvegarde';
+
+  @override
+  String get create => 'Créer';
+
+  @override
+  String get createNewPlaylist => 'Créer une playlist';
+
+  @override
+  String get editPlaylist => 'Modifier la playlist';
+
+  @override
+  String get newPlaylist => 'Nouvelle playlist';
 }

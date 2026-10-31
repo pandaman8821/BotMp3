@@ -57,5 +57,9 @@
   "restoreTheBackup": "बैकअप पुनर्स्थापित करें",
   "exportFailedStorage": "निर्यात विफल: संग्रहण जाँचें",
   "noCompatibleAudio": "कोई संगत ऑडियो नहीं मिला",
-  "noBackupSaved": "कोई बैकअप सहेजा नहीं गया"
+  "noBackupSaved": "कोई बैकअप सहेजा नहीं गया",
+  "create": "बनाएँ",
+  "createNewPlaylist": "नई प्लेलिस्ट बनाएँ",
+  "editPlaylist": "प्लेलिस्ट संपादित करें",
+  "newPlaylist": "नई प्लेलिस्ट"
 }

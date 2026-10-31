@@ -57,5 +57,9 @@
   "restoreTheBackup": "Restaurer la sauvegarde",
   "exportFailedStorage": "Échec de l'export : vérifiez le stockage",
   "noCompatibleAudio": "Aucun audio compatible trouvé",
-  "noBackupSaved": "Aucune sauvegarde"
+  "noBackupSaved": "Aucune sauvegarde",
+  "create": "Créer",
+  "createNewPlaylist": "Créer une playlist",
+  "editPlaylist": "Modifier la playlist",
+  "newPlaylist": "Nouvelle playlist"
 }

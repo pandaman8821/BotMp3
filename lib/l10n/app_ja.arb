@@ -57,5 +57,9 @@
   "restoreTheBackup": "バックアップを復元",
   "exportFailedStorage": "書き出しに失敗しました：保存先を確認",
   "noCompatibleAudio": "対応する音声が見つかりません",
-  "noBackupSaved": "バックアップがありません"
+  "noBackupSaved": "バックアップがありません",
+  "create": "作成",
+  "createNewPlaylist": "新しいプレイリストを作成",
+  "editPlaylist": "プレイリストを編集",
+  "newPlaylist": "新しいプレイリスト"
 }

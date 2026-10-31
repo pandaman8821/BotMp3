@@ -57,5 +57,9 @@
   "restoreTheBackup": "恢复备份",
   "exportFailedStorage": "导出失败：请检查存储",
   "noCompatibleAudio": "未找到兼容的音频",
-  "noBackupSaved": "没有已保存的备份"
+  "noBackupSaved": "没有已保存的备份",
+  "create": "创建",
+  "createNewPlaylist": "新建歌单",
+  "editPlaylist": "编辑歌单",
+  "newPlaylist": "新建歌单"
 }

@@ -181,4 +181,16 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noBackupSaved => '저장된 백업이 없습니다';
+
+  @override
+  String get create => '만들기';
+
+  @override
+  String get createNewPlaylist => '새 플레이리스트 만들기';
+
+  @override
+  String get editPlaylist => '플레이리스트 편집';
+
+  @override
+  String get newPlaylist => '새 플레이리스트';
 }

@@ -57,5 +57,9 @@
   "restoreTheBackup": "Sicherung wiederherstellen",
   "exportFailedStorage": "Export fehlgeschlagen: Speicher prüfen",
   "noCompatibleAudio": "Keine kompatiblen Audios gefunden",
-  "noBackupSaved": "Keine Sicherung vorhanden"
+  "noBackupSaved": "Keine Sicherung vorhanden",
+  "create": "Erstellen",
+  "createNewPlaylist": "Neue Wiedergabeliste erstellen",
+  "editPlaylist": "Wiedergabeliste bearbeiten",
+  "newPlaylist": "Neue Wiedergabeliste"
 }

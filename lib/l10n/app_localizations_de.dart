@@ -181,4 +181,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noBackupSaved => 'Keine Sicherung vorhanden';
+
+  @override
+  String get create => 'Erstellen';
+
+  @override
+  String get createNewPlaylist => 'Neue Wiedergabeliste erstellen';
+
+  @override
+  String get editPlaylist => 'Wiedergabeliste bearbeiten';
+
+  @override
+  String get newPlaylist => 'Neue Wiedergabeliste';
 }
