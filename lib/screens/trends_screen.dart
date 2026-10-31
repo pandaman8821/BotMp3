@@ -1,3 +1,4 @@
+import '../core/formatters.dart';
 import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -184,7 +185,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Actualizado: ${_fecha(_trends.actualizado!)}',
+                  '${AppLocalizations.of(context)!.updateAction}: ${Formatters.date(_trends.actualizado, Localizations.localeOf(context).toString())}',
                   style: const TextStyle(fontSize: 11.5, color: AppColors.darkTextDim),
                 ),
               ),

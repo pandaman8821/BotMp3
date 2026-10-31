@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -71,7 +72,12 @@ class BotMp3App extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            home: const HomeShell(),
+            // Los formatos (fechas, numeros) siguen el idioma que se este usando.
+      builder: (BuildContext context, Widget? child) {
+        Intl.defaultLocale = Localizations.localeOf(context).toString();
+        return child ?? const SizedBox.shrink();
+      },
+      home: const HomeShell(),
           );
         },
       ),
