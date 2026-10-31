@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +21,7 @@ class AppDialogs {
     final bool? accepted = await showDialog<bool>(
       context: context,
       builder: (BuildContext dialogContext) => AlertDialog(
-        title: const Text('Nueva lista'),
+        title: Text(AppLocalizations.of(context)!.newPlaylist),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -45,11 +46,11 @@ class AppDialogs {
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: const Text('Crear'),
+            child: Text(AppLocalizations.of(context)!.create),
           ),
         ],
       ),
@@ -75,7 +76,7 @@ class AppDialogs {
     final bool? accepted = await showDialog<bool>(
       context: context,
       builder: (BuildContext dialogContext) => AlertDialog(
-        title: const Text('Editar lista'),
+        title: Text(AppLocalizations.of(context)!.editPlaylist),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -94,11 +95,11 @@ class AppDialogs {
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: const Text('Guardar'),
+            child: Text(AppLocalizations.of(context)!.save),
           ),
         ],
       ),
@@ -158,11 +159,11 @@ class AppDialogs {
               Navigator.of(dialogContext).pop();
               await createPlaylist(context);
             },
-            child: const Row(
-              children: <Widget>[
-                Icon(Icons.add, size: 22),
-                SizedBox(width: 12),
-                Text('Crear lista nueva', style: TextStyle(fontSize: 16)),
+            child: Row(
+                children: <Widget>[
+                  const Icon(Icons.add, size: 22),
+                  const SizedBox(width: 12),
+                  Text(AppLocalizations.of(context)!.createNewPlaylist, style: const TextStyle(fontSize: 16)),
               ],
             ),
           ),
@@ -462,7 +463,7 @@ class AppDialogs {
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           FilledButton(
             style: FilledButton.styleFrom(backgroundColor: Colors.red.shade600),

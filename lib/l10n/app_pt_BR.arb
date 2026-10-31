@@ -57,5 +57,9 @@
   "restoreTheBackup": "",
   "exportFailedStorage": "",
   "noCompatibleAudio": "",
-  "noBackupSaved": ""
+  "noBackupSaved": "",
+  "create": "",
+  "createNewPlaylist": "",
+  "editPlaylist": "",
+  "newPlaylist": ""
 }

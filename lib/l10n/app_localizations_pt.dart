@@ -182,6 +182,18 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get noBackupSaved => 'Nenhum backup salvo';
+
+  @override
+  String get create => 'Criar';
+
+  @override
+  String get createNewPlaylist => 'Criar nova playlist';
+
+  @override
+  String get editPlaylist => 'Editar playlist';
+
+  @override
+  String get newPlaylist => 'Nova playlist';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -361,4 +373,16 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get noBackupSaved => '';
+
+  @override
+  String get create => '';
+
+  @override
+  String get createNewPlaylist => '';
+
+  @override
+  String get editPlaylist => '';
+
+  @override
+  String get newPlaylist => '';
 }

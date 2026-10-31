@@ -181,4 +181,16 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get noBackupSaved => 'कोई बैकअप सहेजा नहीं गया';
+
+  @override
+  String get create => 'बनाएँ';
+
+  @override
+  String get createNewPlaylist => 'नई प्लेलिस्ट बनाएँ';
+
+  @override
+  String get editPlaylist => 'प्लेलिस्ट संपादित करें';
+
+  @override
+  String get newPlaylist => 'नई प्लेलिस्ट';
 }

@@ -181,4 +181,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noBackupSaved => 'バックアップがありません';
+
+  @override
+  String get create => '作成';
+
+  @override
+  String get createNewPlaylist => '新しいプレイリストを作成';
+
+  @override
+  String get editPlaylist => 'プレイリストを編集';
+
+  @override
+  String get newPlaylist => '新しいプレイリスト';
 }

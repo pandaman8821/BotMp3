@@ -181,6 +181,18 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noBackupSaved => '没有已保存的备份';
+
+  @override
+  String get create => '创建';
+
+  @override
+  String get createNewPlaylist => '新建歌单';
+
+  @override
+  String get editPlaylist => '编辑歌单';
+
+  @override
+  String get newPlaylist => '新建歌单';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -360,4 +372,16 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get noBackupSaved => '';
+
+  @override
+  String get create => '';
+
+  @override
+  String get createNewPlaylist => '';
+
+  @override
+  String get editPlaylist => '';
+
+  @override
+  String get newPlaylist => '';
 }

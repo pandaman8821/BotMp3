@@ -463,6 +463,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No backup saved'**
   String get noBackupSaved;
+
+  /// No description provided for @create.
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get create;
+
+  /// No description provided for @createNewPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Create new playlist'**
+  String get createNewPlaylist;
+
+  /// No description provided for @editPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit playlist'**
+  String get editPlaylist;
+
+  /// No description provided for @newPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'New playlist'**
+  String get newPlaylist;
 }
 
 class _AppLocalizationsDelegate

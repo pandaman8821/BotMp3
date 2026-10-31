@@ -182,4 +182,16 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get noBackupSaved => 'Nessun backup salvato';
+
+  @override
+  String get create => 'Crea';
+
+  @override
+  String get createNewPlaylist => 'Crea nuova playlist';
+
+  @override
+  String get editPlaylist => 'Modifica playlist';
+
+  @override
+  String get newPlaylist => 'Nuova playlist';
 }
