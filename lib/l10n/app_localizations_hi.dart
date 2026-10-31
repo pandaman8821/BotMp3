@@ -166,4 +166,19 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get exportBackup => 'बैकअप निर्यात करें';
+
+  @override
+  String get noSongsWithoutGenre => 'बिना शैली वाले गाने नहीं';
+
+  @override
+  String get restoreTheBackup => 'बैकअप पुनर्स्थापित करें';
+
+  @override
+  String get exportFailedStorage => 'निर्यात विफल: संग्रहण जाँचें';
+
+  @override
+  String get noCompatibleAudio => 'कोई संगत ऑडियो नहीं मिला';
+
+  @override
+  String get noBackupSaved => 'कोई बैकअप सहेजा नहीं गया';
 }

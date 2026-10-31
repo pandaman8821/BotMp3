@@ -166,4 +166,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get exportBackup => '백업 내보내기';
+
+  @override
+  String get noSongsWithoutGenre => '장르가 없는 곡이 없습니다';
+
+  @override
+  String get restoreTheBackup => '백업 복원';
+
+  @override
+  String get exportFailedStorage => '내보내기 실패: 저장 공간을 확인하세요';
+
+  @override
+  String get noCompatibleAudio => '호환되는 오디오를 찾지 못했습니다';
+
+  @override
+  String get noBackupSaved => '저장된 백업이 없습니다';
 }

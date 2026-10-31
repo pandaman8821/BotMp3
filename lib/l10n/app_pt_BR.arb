@@ -52,5 +52,10 @@
   "speakResponses": "",
   "freeUpSpace": "",
   "importSongs": "",
-  "exportBackup": ""
+  "exportBackup": "",
+  "noSongsWithoutGenre": "",
+  "restoreTheBackup": "",
+  "exportFailedStorage": "",
+  "noCompatibleAudio": "",
+  "noBackupSaved": ""
 }

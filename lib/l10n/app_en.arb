@@ -52,5 +52,10 @@
   "speakResponses": "Spoken replies",
   "freeUpSpace": "Free up space",
   "importSongs": "Import songs",
-  "exportBackup": "Export backup"
+  "exportBackup": "Export backup",
+  "noSongsWithoutGenre": "No songs without genre",
+  "restoreTheBackup": "Restore the backup",
+  "exportFailedStorage": "Export failed: check storage",
+  "noCompatibleAudio": "No compatible audio found",
+  "noBackupSaved": "No backup saved"
 }

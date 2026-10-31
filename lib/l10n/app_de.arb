@@ -52,5 +52,10 @@
   "speakResponses": "Gesprochene Antworten",
   "freeUpSpace": "Speicher freigeben",
   "importSongs": "Lieder importieren",
-  "exportBackup": "Sicherung exportieren"
+  "exportBackup": "Sicherung exportieren",
+  "noSongsWithoutGenre": "Keine Lieder ohne Genre",
+  "restoreTheBackup": "Sicherung wiederherstellen",
+  "exportFailedStorage": "Export fehlgeschlagen: Speicher prüfen",
+  "noCompatibleAudio": "Keine kompatiblen Audios gefunden",
+  "noBackupSaved": "Keine Sicherung vorhanden"
 }

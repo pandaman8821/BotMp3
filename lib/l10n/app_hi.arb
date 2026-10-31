@@ -52,5 +52,10 @@
   "speakResponses": "बोली जाने वाली प्रतिक्रियाएँ",
   "freeUpSpace": "जगह खाली करें",
   "importSongs": "गाने आयात करें",
-  "exportBackup": "बैकअप निर्यात करें"
+  "exportBackup": "बैकअप निर्यात करें",
+  "noSongsWithoutGenre": "बिना शैली वाले गाने नहीं",
+  "restoreTheBackup": "बैकअप पुनर्स्थापित करें",
+  "exportFailedStorage": "निर्यात विफल: संग्रहण जाँचें",
+  "noCompatibleAudio": "कोई संगत ऑडियो नहीं मिला",
+  "noBackupSaved": "कोई बैकअप सहेजा नहीं गया"
 }
