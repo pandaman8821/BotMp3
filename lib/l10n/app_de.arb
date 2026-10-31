@@ -42,5 +42,15 @@
   "dailyAlertTime": "Uhrzeit des Tagesalarms",
   "soundWaves": "Animierte Schallwellen",
   "notifyTrends": "Über Trends informieren",
-  "voiceDictation": "Sprachdiktat"
+  "voiceDictation": "Sprachdiktat",
+  "glassEffect": "Glaseffekt (Liquid Glass)",
+  "scanNow": "Jetzt scannen",
+  "restoreBackup": "Sicherung wiederherstellen",
+  "tagWithAi": "Mit KI taggen (Schlüssel nötig)",
+  "deleteLocalLibrary": "Lokale Bibliothek löschen",
+  "fillGenres": "Fehlende Genres ergänzen",
+  "speakResponses": "Gesprochene Antworten",
+  "freeUpSpace": "Speicher freigeben",
+  "importSongs": "Lieder importieren",
+  "exportBackup": "Sicherung exportieren"
 }

@@ -253,7 +253,7 @@ class SettingsScreen extends StatelessWidget {
           SwitchListTile(
             value: settings.ttsEnabled,
             onChanged: settings.setTtsEnabled,
-            title: const Text('Respuestas habladas'),
+            title: Text(AppLocalizations.of(context)!.speakResponses),
             subtitle: const Text('La IA lee sus recomendaciones en voz alta.'),
           ),
           Padding(
@@ -289,7 +289,7 @@ class SettingsScreen extends StatelessWidget {
             value: settings.glassEnabled,
             onChanged: (bool value) => settings.setGlassEnabled(value),
             secondary: const Icon(Icons.blur_on),
-            title: const Text('Efecto cristal (Liquid Glass)'),
+            title: Text(AppLocalizations.of(context)!.glassEffect),
             subtitle: const Text(
               'Barras y paneles translúcidos con desenfoque real del fondo.',
             ),
@@ -351,7 +351,7 @@ class SettingsScreen extends StatelessWidget {
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
                 : const Icon(Icons.refresh),
-            title: const Text('Escanear ahora'),
+            title: Text(AppLocalizations.of(context)!.scanNow),
             subtitle: Text(library.scanMessage ?? 'Busca música nueva en el dispositivo'),
             onTap: () async {
               final int added = await library.autoScan(force: true);
@@ -369,7 +369,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.settings_backup_restore),
-            title: const Text('Restaurar copia de seguridad'),
+            title: Text(AppLocalizations.of(context)!.restoreBackup),
             subtitle: const Text(
               'Vuelve al estado de la última copia (biblioteca, listas, historial '
               'y chat). Se pierde lo hecho desde entonces.',
@@ -429,7 +429,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.file_download_outlined),
-            title: const Text('Exportar copia de seguridad'),
+            title: Text(AppLocalizations.of(context)!.exportBackup),
             subtitle: const Text(
               'Guarda la última copia en un archivo JSON que tú eliges, para '
               'llevarla a otro teléfono o guardarla aparte.',
@@ -483,7 +483,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.graphic_eq),
-            title: const Text('Ecualizador'),
+            title: Text(AppLocalizations.of(context)!.equalizer),
             subtitle: const Text('Abre el ecualizador de 5 bandas (pantalla nativa)'),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
@@ -537,7 +537,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.auto_awesome),
-            title: const Text('Etiquetar con IA (necesita clave)'),
+            title: Text(AppLocalizations.of(context)!.tagWithAi),
             subtitle: const Text(
               'Usa el modelo de IA para poner género a las canciones que aún no lo '
               'tienen. Revisa hasta 10 cada vez.',
@@ -581,7 +581,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.auto_fix_high_outlined),
-            title: const Text('Completar géneros que falten'),
+            title: Text(AppLocalizations.of(context)!.fillGenres),
             subtitle: const Text(
               'Rellena el género de las canciones que no lo tengan, usando el '
               'título y el álbum. Sin conexión y sin claves de IA.',
@@ -627,7 +627,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.cleaning_services_outlined),
-            title: const Text('Liberar espacio'),
+            title: Text(AppLocalizations.of(context)!.freeUpSpace),
             subtitle: FutureBuilder<int>(
               future: library.cacheBytes(),
               builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
@@ -656,7 +656,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.library_add),
-            title: const Text('Importar canciones'),
+            title: Text(AppLocalizations.of(context)!.importSongs),
             subtitle: const Text('MP3, M4A, OGG, FLAC, WAV… seleccionando archivos o rutas'),
             onTap: () => AppDialogs.importSongs(context),
           ),
@@ -722,7 +722,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.delete_forever_outlined, color: Colors.redAccent),
-            title: const Text('Borrar biblioteca local', style: TextStyle(color: Colors.redAccent)),
+            title: Text(AppLocalizations.of(context)!.deleteLocalLibrary, style: const TextStyle(color: Colors.redAccent)),
             subtitle: const Text('No borra los archivos de audio de tu dispositivo'),
             onTap: () async {
               final bool confirmed = await AppDialogs.confirm(

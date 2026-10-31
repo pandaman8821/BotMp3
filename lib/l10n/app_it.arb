@@ -42,5 +42,15 @@
   "dailyAlertTime": "Ora dell'avviso giornaliero",
   "soundWaves": "Onde sonore animate",
   "notifyTrends": "Avvisami delle tendenze",
-  "voiceDictation": "Dettatura vocale"
+  "voiceDictation": "Dettatura vocale",
+  "glassEffect": "Effetto vetro (Liquid Glass)",
+  "scanNow": "Analizza ora",
+  "restoreBackup": "Ripristina backup",
+  "tagWithAi": "Etichetta con IA (serve chiave)",
+  "deleteLocalLibrary": "Elimina libreria locale",
+  "fillGenres": "Completa i generi mancanti",
+  "speakResponses": "Risposte parlate",
+  "freeUpSpace": "Libera spazio",
+  "importSongs": "Importa brani",
+  "exportBackup": "Esporta backup"
 }

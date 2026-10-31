@@ -42,5 +42,15 @@
   "dailyAlertTime": "매일 알림 시간",
   "soundWaves": "사운드 웨이브",
   "notifyTrends": "트렌드 알림",
-  "voiceDictation": "음성 받아쓰기"
+  "voiceDictation": "음성 받아쓰기",
+  "glassEffect": "유리 효과(Liquid Glass)",
+  "scanNow": "지금 스캔",
+  "restoreBackup": "백업 복원",
+  "tagWithAi": "AI로 태그 지정(키 필요)",
+  "deleteLocalLibrary": "로컬 라이브러리 삭제",
+  "fillGenres": "빠진 장르 채우기",
+  "speakResponses": "음성 응답",
+  "freeUpSpace": "공간 확보",
+  "importSongs": "곡 가져오기",
+  "exportBackup": "백업 내보내기"
 }

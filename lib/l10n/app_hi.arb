@@ -42,5 +42,15 @@
   "dailyAlertTime": "दैनिक सूचना का समय",
   "soundWaves": "साउंड वेव्स",
   "notifyTrends": "ट्रेंड की सूचना दें",
-  "voiceDictation": "वॉइस डिक्टेशन"
+  "voiceDictation": "वॉइस डिक्टेशन",
+  "glassEffect": "ग्लास इफ़ेक्ट (Liquid Glass)",
+  "scanNow": "अभी स्कैन करें",
+  "restoreBackup": "बैकअप पुनर्स्थापित करें",
+  "tagWithAi": "AI से टैग करें (कुंजी आवश्यक)",
+  "deleteLocalLibrary": "स्थानीय लाइब्रेरी हटाएँ",
+  "fillGenres": "गुम शैलियाँ भरें",
+  "speakResponses": "बोली जाने वाली प्रतिक्रियाएँ",
+  "freeUpSpace": "जगह खाली करें",
+  "importSongs": "गाने आयात करें",
+  "exportBackup": "बैकअप निर्यात करें"
 }

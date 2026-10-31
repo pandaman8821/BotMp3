@@ -42,5 +42,15 @@
   "dailyAlertTime": "",
   "soundWaves": "",
   "notifyTrends": "",
-  "voiceDictation": ""
+  "voiceDictation": "",
+  "glassEffect": "",
+  "scanNow": "",
+  "restoreBackup": "",
+  "tagWithAi": "",
+  "deleteLocalLibrary": "",
+  "fillGenres": "",
+  "speakResponses": "",
+  "freeUpSpace": "",
+  "importSongs": "",
+  "exportBackup": ""
 }
