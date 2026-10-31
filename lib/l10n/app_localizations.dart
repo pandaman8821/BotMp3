@@ -301,6 +301,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Now playing'**
   String get nowPlaying;
+
+  /// No description provided for @trendsNow.
+  ///
+  /// In en, this message translates to:
+  /// **'See trends now'**
+  String get trendsNow;
+
+  /// No description provided for @batterySaver.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery saver'**
+  String get batterySaver;
+
+  /// No description provided for @screenAlwaysOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep screen on'**
+  String get screenAlwaysOn;
+
+  /// No description provided for @playbackDiagnostics.
+  ///
+  /// In en, this message translates to:
+  /// **'Playback diagnostics'**
+  String get playbackDiagnostics;
+
+  /// No description provided for @autoDjMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic AI DJ'**
+  String get autoDjMode;
+
+  /// No description provided for @seeMyRanking.
+  ///
+  /// In en, this message translates to:
+  /// **'See my ranking'**
+  String get seeMyRanking;
 }
 
 class _AppLocalizationsDelegate

@@ -30,5 +30,11 @@
   "recommend": "Recomiéndame",
   "external": "Externa",
   "library": "Biblioteca",
-  "nowPlaying": "Sonando ahora"
+  "nowPlaying": "Sonando ahora",
+  "trendsNow": "Ver tendencias ahora",
+  "batterySaver": "Modo ahorro de batería",
+  "screenAlwaysOn": "Pantalla siempre visible",
+  "playbackDiagnostics": "Diagnóstico de reproducción",
+  "autoDjMode": "Modo DJ IA automático",
+  "seeMyRanking": "Ver mi ranking"
 }

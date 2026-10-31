@@ -30,5 +30,11 @@
   "recommend":"Consiglia",
   "external":"Esterna",
   "library":"Libreria",
-  "nowPlaying":"In riproduzione"
+  "nowPlaying":"In riproduzione",
+  "trendsNow": "Vedi le tendenze",
+  "batterySaver": "Risparmio batteria",
+  "screenAlwaysOn": "Schermo sempre acceso",
+  "playbackDiagnostics": "Diagnostica riproduzione",
+  "autoDjMode": "DJ IA automatico",
+  "seeMyRanking": "La mia classifica"
 }

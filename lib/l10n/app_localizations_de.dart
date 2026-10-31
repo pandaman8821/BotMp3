@@ -100,4 +100,22 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get nowPlaying => 'Laeuft jetzt';
+
+  @override
+  String get trendsNow => 'Trends jetzt ansehen';
+
+  @override
+  String get batterySaver => 'Energiesparmodus';
+
+  @override
+  String get screenAlwaysOn => 'Bildschirm anlassen';
+
+  @override
+  String get playbackDiagnostics => 'Wiedergabe-Diagnose';
+
+  @override
+  String get autoDjMode => 'Automatischer KI-DJ';
+
+  @override
+  String get seeMyRanking => 'Mein Ranking';
 }

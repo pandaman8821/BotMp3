@@ -30,5 +30,11 @@
   "recommend":"推荐",
   "external":"外部",
   "library":"音乐库",
-  "nowPlaying":"正在播放"
+  "nowPlaying":"正在播放",
+  "trendsNow": "",
+  "batterySaver": "",
+  "screenAlwaysOn": "",
+  "playbackDiagnostics": "",
+  "autoDjMode": "",
+  "seeMyRanking": ""
 }

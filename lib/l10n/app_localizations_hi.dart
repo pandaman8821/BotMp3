@@ -100,4 +100,22 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get nowPlaying => 'अभी चल रहा है';
+
+  @override
+  String get trendsNow => 'ट्रेंड देखें';
+
+  @override
+  String get batterySaver => 'बैटरी बचत';
+
+  @override
+  String get screenAlwaysOn => 'स्क्रीन चालू रखें';
+
+  @override
+  String get playbackDiagnostics => 'प्लेबैक जाँच';
+
+  @override
+  String get autoDjMode => 'स्वचालित AI DJ';
+
+  @override
+  String get seeMyRanking => 'मेरी रैंकिंग देखें';
 }

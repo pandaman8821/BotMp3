@@ -30,5 +30,11 @@
   "recommend":"सुझाव",
   "external":"बाहरी",
   "library":"लाइब्रेरी",
-  "nowPlaying":"अभी चल रहा है"
+  "nowPlaying":"अभी चल रहा है",
+  "trendsNow": "ट्रेंड देखें",
+  "batterySaver": "बैटरी बचत",
+  "screenAlwaysOn": "स्क्रीन चालू रखें",
+  "playbackDiagnostics": "प्लेबैक जाँच",
+  "autoDjMode": "स्वचालित AI DJ",
+  "seeMyRanking": "मेरी रैंकिंग देखें"
 }
