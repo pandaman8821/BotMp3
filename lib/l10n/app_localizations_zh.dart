@@ -241,6 +241,33 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get createList => '创建歌单';
+
+  @override
+  String get sortBy => '排序';
+
+  @override
+  String get shuffleAll => '全部随机播放';
+
+  @override
+  String get mostPlayedRanking => '播放最多';
+
+  @override
+  String get advancedFilters => '高级筛选';
+
+  @override
+  String get playSelection => '播放所选';
+
+  @override
+  String get clearFilters => '清除筛选';
+
+  @override
+  String get addToPlaylist => '添加到歌单';
+
+  @override
+  String get playSomethingFirst => '先播放点什么';
+
+  @override
+  String get songLyrics => '歌词';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -480,4 +507,31 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get createList => '';
+
+  @override
+  String get sortBy => '';
+
+  @override
+  String get shuffleAll => '';
+
+  @override
+  String get mostPlayedRanking => '';
+
+  @override
+  String get advancedFilters => '';
+
+  @override
+  String get playSelection => '';
+
+  @override
+  String get clearFilters => '';
+
+  @override
+  String get addToPlaylist => '';
+
+  @override
+  String get playSomethingFirst => '';
+
+  @override
+  String get songLyrics => '';
 }

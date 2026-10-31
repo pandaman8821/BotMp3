@@ -77,5 +77,14 @@
   "clearConversation": "会話を消去",
   "copyPrompt": "プロンプトをコピー",
   "gotIt": "わかりました",
-  "createList": "プレイリストを作成"
+  "createList": "プレイリストを作成",
+  "sortBy": "並べ替え",
+  "shuffleAll": "すべてシャッフル",
+  "mostPlayedRanking": "再生回数ランキング",
+  "advancedFilters": "詳細フィルター",
+  "playSelection": "選択を再生",
+  "clearFilters": "フィルターを解除",
+  "addToPlaylist": "プレイリストに追加",
+  "playSomethingFirst": "先に何か再生してください",
+  "songLyrics": "歌詞"
 }

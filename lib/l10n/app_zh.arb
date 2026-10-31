@@ -77,5 +77,14 @@
   "clearConversation": "清除对话",
   "copyPrompt": "复制提示词",
   "gotIt": "明白了",
-  "createList": "创建歌单"
+  "createList": "创建歌单",
+  "sortBy": "排序",
+  "shuffleAll": "全部随机播放",
+  "mostPlayedRanking": "播放最多",
+  "advancedFilters": "高级筛选",
+  "playSelection": "播放所选",
+  "clearFilters": "清除筛选",
+  "addToPlaylist": "添加到歌单",
+  "playSomethingFirst": "先播放点什么",
+  "songLyrics": "歌词"
 }

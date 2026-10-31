@@ -241,4 +241,31 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get createList => '플레이리스트 만들기';
+
+  @override
+  String get sortBy => '정렬';
+
+  @override
+  String get shuffleAll => '전체 셔플';
+
+  @override
+  String get mostPlayedRanking => '최다 재생';
+
+  @override
+  String get advancedFilters => '고급 필터';
+
+  @override
+  String get playSelection => '선택 항목 재생';
+
+  @override
+  String get clearFilters => '필터 해제';
+
+  @override
+  String get addToPlaylist => '플레이리스트에 추가';
+
+  @override
+  String get playSomethingFirst => '먼저 뭔가 재생하세요';
+
+  @override
+  String get songLyrics => '가사';
 }

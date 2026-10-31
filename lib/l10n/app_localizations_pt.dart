@@ -242,6 +242,33 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get createList => 'Criar playlist';
+
+  @override
+  String get sortBy => 'Ordenar';
+
+  @override
+  String get shuffleAll => 'Aleatório de tudo';
+
+  @override
+  String get mostPlayedRanking => 'Mais tocadas';
+
+  @override
+  String get advancedFilters => 'Filtros avançados';
+
+  @override
+  String get playSelection => 'Reproduzir seleção';
+
+  @override
+  String get clearFilters => 'Remover filtros';
+
+  @override
+  String get addToPlaylist => 'Adicionar à playlist';
+
+  @override
+  String get playSomethingFirst => 'Toque algo primeiro';
+
+  @override
+  String get songLyrics => 'Letra da música';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -481,4 +508,31 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get createList => '';
+
+  @override
+  String get sortBy => '';
+
+  @override
+  String get shuffleAll => '';
+
+  @override
+  String get mostPlayedRanking => '';
+
+  @override
+  String get advancedFilters => '';
+
+  @override
+  String get playSelection => '';
+
+  @override
+  String get clearFilters => '';
+
+  @override
+  String get addToPlaylist => '';
+
+  @override
+  String get playSomethingFirst => '';
+
+  @override
+  String get songLyrics => '';
 }

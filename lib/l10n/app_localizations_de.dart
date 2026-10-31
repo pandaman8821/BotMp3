@@ -241,4 +241,31 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get createList => 'Wiedergabeliste erstellen';
+
+  @override
+  String get sortBy => 'Sortieren';
+
+  @override
+  String get shuffleAll => 'Alles zufällig abspielen';
+
+  @override
+  String get mostPlayedRanking => 'Meistgehört';
+
+  @override
+  String get advancedFilters => 'Erweiterte Filter';
+
+  @override
+  String get playSelection => 'Auswahl abspielen';
+
+  @override
+  String get clearFilters => 'Filter zurücksetzen';
+
+  @override
+  String get addToPlaylist => 'Zur Wiedergabeliste';
+
+  @override
+  String get playSomethingFirst => 'Spiele zuerst etwas ab';
+
+  @override
+  String get songLyrics => 'Songtext';
 }
