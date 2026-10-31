@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class SettingsScreen extends StatelessWidget {
     final LibraryProvider library = context.watch<LibraryProvider>();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Ajustes')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.tabSettings)),
       body: ListView(
         padding: const EdgeInsets.only(bottom: 40),
         children: <Widget>[
