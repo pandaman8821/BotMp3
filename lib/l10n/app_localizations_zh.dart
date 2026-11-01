@@ -102,13 +102,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nowPlaying => '正在播放';
 
   @override
-  String get trendsNow => '查看趋势';
+  String get trendsNow => '立即查看趋势';
 
   @override
   String get batterySaver => '省电模式';
 
   @override
-  String get screenAlwaysOn => '屏幕常亮';
+  String get screenAlwaysOn => '保持屏幕常亮';
 
   @override
   String get playbackDiagnostics => '播放诊断';
@@ -315,175 +315,164 @@ class AppLocalizationsZh extends AppLocalizations {
   String get exportJson => '导出 JSON';
 
   @override
-  String get subKeepScreen =>
-      'Great for concerts or long videos (reduces AMOLED burn-in).';
+  String get subKeepScreen => '适合演唱会或长视频（减少 AMOLED 烧屏）。';
 
   @override
-  String get subBatterySaver =>
-      'Reduces animations and progress-bar refresh. Ideal for long sessions.';
+  String get subBatterySaver => '减少动画和进度条刷新，适合长时间播放。';
 
   @override
-  String get secAi => 'AI models';
+  String get secAi => 'AI 模型';
 
   @override
-  String get secPlayback => 'Playback';
+  String get secPlayback => '播放';
 
   @override
-  String get secPerformance => 'Performance and temperature';
+  String get secPerformance => '性能与温度';
 
   @override
-  String get subSoundWaves =>
-      'Turn them off to save battery during continuous playback.';
+  String get subSoundWaves => '关闭可在连续播放时省电。';
 
   @override
-  String get secVoice => 'Voice';
+  String get secVoice => '语音';
 
   @override
-  String get subTrendsNotify =>
-      'One notification a day with what is trending online.';
+  String get subTrendsNotify => '每天一条通知，告诉你网络上的热门歌曲。';
 
   @override
-  String get secAppearance => 'Appearance';
+  String get secAppearance => '外观';
 
   @override
-  String get subRanking => 'Your most played songs, artists and genres.';
+  String get subRanking => '你最常听的歌曲、艺术家和风格。';
 
   @override
-  String get subThermal =>
-      'Avoids heavy background work when the device is hot (summer) or extremely cold (winter).';
+  String get subThermal => '设备过热（夏季）或极冷（冬季）时避免后台高负载。';
 
   @override
-  String get subVoice => 'Talk to the AI and search for songs without typing.';
+  String get subVoice => '对着 AI 说话即可找歌，无需打字。';
 
   @override
   String get subLockControls =>
-      'If music stops when you lock the phone or the controls do not appear, grant BotMp3 notification permission and, on HyperOS/MIUI, enable Autostart and set the battery to No restrictions.';
+      '如果锁屏后音乐停止或锁屏控件不显示，请授予 BotMp3 通知权限，并在 HyperOS/MIUI 中开启自启动、将电池设为无限制。';
 
   @override
-  String get secLibrary => 'Library and backup';
+  String get secLibrary => '音乐库与备份';
 
   @override
-  String get subDiagnostics =>
-      'Check why the lock-screen controls do not respond.';
+  String get subDiagnostics => '查看锁屏控件无响应的原因。';
 
   @override
-  String get menuPlayNext => 'Play next';
+  String get menuPlayNext => '下一首播放';
 
   @override
-  String get durationLabel => 'Duration';
+  String get durationLabel => '时长';
 
   @override
-  String get djNextUp => 'up next';
+  String get djNextUp => '下一首';
 
   @override
-  String get apiKeyHint => 'Set up the API key for';
+  String get apiKeyHint => '配置 API 密钥：';
 
   @override
-  String get menuEditCover => 'Edit cover';
+  String get menuEditCover => '编辑封面';
 
   @override
-  String get genreLabel => 'Genre';
+  String get genreLabel => '风格';
 
   @override
-  String get menuRemoveFromLibrary => 'Remove from library';
+  String get menuRemoveFromLibrary => '从音乐库移除';
 
   @override
-  String get diagErrorsHere => 'Playback problems will appear here.';
+  String get diagErrorsHere => '播放问题会显示在这里。';
 
   @override
-  String get menuPlayNow => 'Play now';
+  String get menuPlayNow => '立即播放';
 
   @override
-  String get yearLabel => 'Year';
+  String get yearLabel => '年份';
 
   @override
-  String get searchHint =>
-      'Type what you are looking for: \"something to work out\", \"2000s rock\"…';
+  String get searchHint => '输入你想找的：\"适合健身的歌\"、\"2000 年代摇滚\"…';
 
   @override
-  String get diagNoErrors => 'No playback errors';
+  String get diagNoErrors => '没有播放错误';
 
   @override
-  String get lockControlsTitle => 'Lock screen controls';
+  String get lockControlsTitle => '锁屏控件';
 
   @override
-  String get autoTheme => 'Automatic';
+  String get autoTheme => '自动';
 
   @override
-  String get aiSpeaks => 'The AI reads its recommendations out loud.';
+  String get aiSpeaks => 'AI 会朗读推荐内容。';
 
   @override
-  String get glassIntensity => 'Glass intensity';
+  String get glassIntensity => '玻璃强度';
 
   @override
-  String get autoImport => 'Import songs automatically';
+  String get autoImport => '自动导入歌曲';
 
   @override
-  String get importAppAudio => 'Import app audio and voice notes';
+  String get importAppAudio => '导入应用音频和语音消息';
 
   @override
-  String get noBackupYet => 'No backup yet: press Copy first';
+  String get noBackupYet => '还没有备份：请先点“复制”';
 
   @override
-  String get djBatch => 'Songs per DJ mode batch';
+  String get djBatch => 'DJ 模式每批歌曲数';
 
   @override
-  String get eqDesc => 'Opens the 5-band equalizer (native screen)';
+  String get eqDesc => '打开 5 段均衡器（原生界面）';
 
   @override
-  String get backupTitle => 'Backup';
+  String get backupTitle => '备份';
 
   @override
-  String get importFolder => 'Import a whole folder';
+  String get importFolder => '导入整个文件夹';
 
   @override
-  String get importFolderDesc =>
-      'Adds every supported audio file in the chosen folder';
+  String get importFolderDesc => '添加所选文件夹中所有支持的音频';
 
   @override
-  String get noAudioDeleted => 'Does not delete the audio files on your device';
+  String get noAudioDeleted => '不会删除你设备上的音频文件';
 
   @override
-  String get menuEditMetadata => 'Edit metadata and tags';
+  String get menuEditMetadata => '编辑元数据和标签';
 
   @override
-  String get menuRemoveFavorite => 'Remove from favorites';
+  String get menuRemoveFavorite => '取消收藏';
 
   @override
-  String get menuMarkFavorite => 'Mark as favorite';
+  String get menuMarkFavorite => '收藏';
 
   @override
-  String get backupRestored =>
-      'Backup restored. Restart the app if something looks off ✅';
+  String get backupRestored => '备份已恢复。如遇异常请重启应用 ✅';
 
   @override
-  String get volumeCurrent => 'Volume of the current song';
+  String get volumeCurrent => '当前歌曲音量';
 
   @override
-  String get dictationUnavailable =>
-      'Voice dictation is not available on this device';
+  String get dictationUnavailable => '此设备不支持语音输入';
 
   @override
-  String get songNotFound => 'Song not found';
+  String get songNotFound => '未找到歌曲';
 
   @override
-  String get albumCover => 'Album cover';
+  String get albumCover => '专辑封面';
 
   @override
-  String get writeTags => 'Write tags into the file';
+  String get writeTags => '将标签写入文件';
 
   @override
-  String get askingAi => 'Asking the AI for the details…';
+  String get askingAi => '正在向 AI 请求信息…';
 
   @override
-  String get autofillFailed =>
-      'Could not autofill. Check the API key in Settings ▸ AI.';
+  String get autofillFailed => '无法自动填充。请检查设置 ▸ AI 中的 API 密钥。';
 
   @override
-  String get noCoverOnDevice => 'That album has no cover on this device';
+  String get noCoverOnDevice => '该专辑在设备上没有封面';
 
   @override
-  String get albumCoverApplied => 'Album cover applied 🖼️';
+  String get albumCoverApplied => '已应用专辑封面 🖼️';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -584,386 +573,375 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get nowPlaying => '正在播放';
 
   @override
-  String get trendsNow => 'See trends now';
+  String get trendsNow => '立即查看趋势';
 
   @override
-  String get batterySaver => 'Battery saver';
+  String get batterySaver => '省电模式';
 
   @override
-  String get screenAlwaysOn => 'Keep screen on';
+  String get screenAlwaysOn => '保持屏幕常亮';
 
   @override
-  String get playbackDiagnostics => 'Playback diagnostics';
+  String get playbackDiagnostics => '播放诊断';
 
   @override
-  String get autoDjMode => 'Automatic AI DJ';
+  String get autoDjMode => '自动 AI DJ';
 
   @override
-  String get seeMyRanking => 'See my ranking';
+  String get seeMyRanking => '查看我的排行';
 
   @override
-  String get countryForTrends => 'Charts country';
+  String get countryForTrends => '榜单国家';
 
   @override
-  String get thermalProtection => 'Thermal protection';
+  String get thermalProtection => '过热保护';
 
   @override
-  String get dailyAlertTime => 'Daily alert time';
+  String get dailyAlertTime => '每日提醒时间';
 
   @override
-  String get soundWaves => 'Animated sound waves';
+  String get soundWaves => '动态声波';
 
   @override
-  String get notifyTrends => 'Notify me of trends';
+  String get notifyTrends => '趋势提醒';
 
   @override
-  String get voiceDictation => 'Voice dictation';
+  String get voiceDictation => '语音输入';
 
   @override
-  String get glassEffect => 'Glass effect (Liquid Glass)';
+  String get glassEffect => '玻璃效果（Liquid Glass）';
 
   @override
-  String get scanNow => 'Scan now';
+  String get scanNow => '立即扫描';
 
   @override
-  String get restoreBackup => 'Restore backup';
+  String get restoreBackup => '恢复备份';
 
   @override
-  String get tagWithAi => 'Tag with AI (key required)';
+  String get tagWithAi => '用 AI 标记（需密钥）';
 
   @override
-  String get deleteLocalLibrary => 'Delete local library';
+  String get deleteLocalLibrary => '删除本地音乐库';
 
   @override
-  String get fillGenres => 'Fill missing genres';
+  String get fillGenres => '补全缺失的风格';
 
   @override
-  String get speakResponses => 'Spoken replies';
+  String get speakResponses => '语音播报回复';
 
   @override
-  String get freeUpSpace => 'Free up space';
+  String get freeUpSpace => '释放空间';
 
   @override
-  String get importSongs => 'Import songs';
+  String get importSongs => '导入歌曲';
 
   @override
-  String get exportBackup => 'Export backup';
+  String get exportBackup => '导出备份';
 
   @override
-  String get noSongsWithoutGenre => 'No songs without genre';
+  String get noSongsWithoutGenre => '没有缺少风格的歌曲';
 
   @override
-  String get restoreTheBackup => 'Restore the backup';
+  String get restoreTheBackup => '恢复备份';
 
   @override
-  String get exportFailedStorage => 'Export failed: check storage';
+  String get exportFailedStorage => '导出失败：请检查存储';
 
   @override
-  String get noCompatibleAudio => 'No compatible audio found';
+  String get noCompatibleAudio => '未找到兼容的音频';
 
   @override
-  String get noBackupSaved => 'No backup saved';
+  String get noBackupSaved => '没有已保存的备份';
 
   @override
-  String get create => 'Create';
+  String get create => '创建';
 
   @override
-  String get createNewPlaylist => 'Create new playlist';
+  String get createNewPlaylist => '新建歌单';
 
   @override
-  String get editPlaylist => 'Edit playlist';
+  String get editPlaylist => '编辑歌单';
 
   @override
-  String get newPlaylist => 'New playlist';
+  String get newPlaylist => '新建歌单';
 
   @override
-  String get playQueue => 'Play queue';
+  String get playQueue => '播放队列';
 
   @override
-  String get playing => 'Now playing';
+  String get playing => '正在播放';
 
   @override
-  String get noSongPlaying => 'Nothing is playing';
+  String get noSongPlaying => '当前没有播放';
 
   @override
-  String get albumLabel => 'Album';
+  String get albumLabel => '专辑';
 
   @override
-  String get artistLabel => 'Artist';
+  String get artistLabel => '艺术家';
 
   @override
-  String get playbackSpeed => 'Playback speed';
+  String get playbackSpeed => '播放速度';
 
   @override
-  String get clearHistoryBody => 'The AI history will be deleted.';
+  String get clearHistoryBody => '将删除与 AI 的对话记录。';
 
   @override
-  String get askHint => 'Ask for music, playlists or ideas…';
+  String get askHint => '点歌、建歌单或要创意…';
 
   @override
-  String get promptCopied => 'Prompt copied';
+  String get promptCopied => '提示词已复制';
 
   @override
-  String get aiProviders => 'AI providers';
+  String get aiProviders => 'AI 服务商';
 
   @override
-  String get aiMusicTitle => 'AI music';
+  String get aiMusicTitle => 'AI 音乐';
 
   @override
-  String get test => 'Test';
+  String get test => '测试';
 
   @override
-  String get clearConversation => 'Clear conversation';
+  String get clearConversation => '清除对话';
 
   @override
-  String get copyPrompt => 'Copy prompt';
+  String get copyPrompt => '复制提示词';
 
   @override
-  String get gotIt => 'Got it';
+  String get gotIt => '明白了';
 
   @override
-  String get createList => 'Create playlist';
+  String get createList => '创建歌单';
 
   @override
-  String get sortBy => 'Sort';
+  String get sortBy => '排序';
 
   @override
-  String get shuffleAll => 'Shuffle everything';
+  String get shuffleAll => '全部随机播放';
 
   @override
-  String get mostPlayedRanking => 'Most played';
+  String get mostPlayedRanking => '播放最多';
 
   @override
-  String get advancedFilters => 'Advanced filters';
+  String get advancedFilters => '高级筛选';
 
   @override
-  String get playSelection => 'Play selection';
+  String get playSelection => '播放所选';
 
   @override
-  String get clearFilters => 'Clear filters';
+  String get clearFilters => '清除筛选';
 
   @override
-  String get addToPlaylist => 'Add to playlist';
+  String get addToPlaylist => '添加到歌单';
 
   @override
-  String get playSomethingFirst => 'Play something first';
+  String get playSomethingFirst => '先播放点什么';
 
   @override
-  String get songLyrics => 'Song lyrics';
+  String get songLyrics => '歌词';
 
   @override
-  String get editData => 'Edit details';
+  String get editData => '编辑详情';
 
   @override
-  String get notifyTop => 'Notify top';
+  String get notifyTop => '提醒热门';
 
   @override
-  String get addSongs => 'Add songs';
+  String get addSongs => '添加歌曲';
 
   @override
-  String get listCopied => 'List copied to clipboard';
+  String get listCopied => '列表已复制到剪贴板';
 
   @override
-  String get updateTrendsFirst => 'Refresh trends first';
+  String get updateTrendsFirst => '请先刷新趋势';
 
   @override
-  String get deleteList => 'Delete playlist';
+  String get deleteList => '删除歌单';
 
   @override
-  String get linkOpenFailed => 'Could not open the link';
+  String get linkOpenFailed => '无法打开链接';
 
   @override
-  String get updateAction => 'Refresh';
+  String get updateAction => '刷新';
 
   @override
-  String get listNotFound => 'Playlist not found';
+  String get listNotFound => '未找到歌单';
 
   @override
-  String get editNameDesc => 'Edit name/description';
+  String get editNameDesc => '编辑名称/描述';
 
   @override
-  String get changeCover => 'Change cover';
+  String get changeCover => '更换封面';
 
   @override
-  String get copyList => 'Copy list';
+  String get copyList => '复制列表';
 
   @override
-  String get importListJson => 'Import playlist (JSON)';
+  String get importListJson => '导入歌单（JSON）';
 
   @override
-  String get trendsTitle => 'Trends';
+  String get trendsTitle => '趋势';
 
   @override
-  String get exportJson => 'Export JSON';
+  String get exportJson => '导出 JSON';
 
   @override
-  String get subKeepScreen =>
-      'Great for concerts or long videos (reduces AMOLED burn-in).';
+  String get subKeepScreen => '适合演唱会或长视频（减少 AMOLED 烧屏）。';
 
   @override
-  String get subBatterySaver =>
-      'Reduces animations and progress-bar refresh. Ideal for long sessions.';
+  String get subBatterySaver => '减少动画和进度条刷新，适合长时间播放。';
 
   @override
-  String get secAi => 'AI models';
+  String get secAi => 'AI 模型';
 
   @override
-  String get secPlayback => 'Playback';
+  String get secPlayback => '播放';
 
   @override
-  String get secPerformance => 'Performance and temperature';
+  String get secPerformance => '性能与温度';
 
   @override
-  String get subSoundWaves =>
-      'Turn them off to save battery during continuous playback.';
+  String get subSoundWaves => '关闭可在连续播放时省电。';
 
   @override
-  String get secVoice => 'Voice';
+  String get secVoice => '语音';
 
   @override
-  String get subTrendsNotify =>
-      'One notification a day with what is trending online.';
+  String get subTrendsNotify => '每天一条通知，告诉你网络上的热门歌曲。';
 
   @override
-  String get secAppearance => 'Appearance';
+  String get secAppearance => '外观';
 
   @override
-  String get subRanking => 'Your most played songs, artists and genres.';
+  String get subRanking => '你最常听的歌曲、艺术家和风格。';
 
   @override
-  String get subThermal =>
-      'Avoids heavy background work when the device is hot (summer) or extremely cold (winter).';
+  String get subThermal => '设备过热（夏季）或极冷（冬季）时避免后台高负载。';
 
   @override
-  String get subVoice => 'Talk to the AI and search for songs without typing.';
+  String get subVoice => '对着 AI 说话即可找歌，无需打字。';
 
   @override
   String get subLockControls =>
-      'If music stops when you lock the phone or the controls do not appear, grant BotMp3 notification permission and, on HyperOS/MIUI, enable Autostart and set the battery to No restrictions.';
+      '如果锁屏后音乐停止或锁屏控件不显示，请授予 BotMp3 通知权限，并在 HyperOS/MIUI 中开启自启动、将电池设为无限制。';
 
   @override
-  String get secLibrary => 'Library and backup';
+  String get secLibrary => '音乐库与备份';
 
   @override
-  String get subDiagnostics =>
-      'Check why the lock-screen controls do not respond.';
+  String get subDiagnostics => '查看锁屏控件无响应的原因。';
 
   @override
-  String get menuPlayNext => 'Play next';
+  String get menuPlayNext => '下一首播放';
 
   @override
-  String get durationLabel => 'Duration';
+  String get durationLabel => '时长';
 
   @override
-  String get djNextUp => 'up next';
+  String get djNextUp => '下一首';
 
   @override
-  String get apiKeyHint => 'Set up the API key for';
+  String get apiKeyHint => '配置 API 密钥：';
 
   @override
-  String get menuEditCover => 'Edit cover';
+  String get menuEditCover => '编辑封面';
 
   @override
-  String get genreLabel => 'Genre';
+  String get genreLabel => '风格';
 
   @override
-  String get menuRemoveFromLibrary => 'Remove from library';
+  String get menuRemoveFromLibrary => '从音乐库移除';
 
   @override
-  String get diagErrorsHere => 'Playback problems will appear here.';
+  String get diagErrorsHere => '播放问题会显示在这里。';
 
   @override
-  String get menuPlayNow => 'Play now';
+  String get menuPlayNow => '立即播放';
 
   @override
-  String get yearLabel => 'Year';
+  String get yearLabel => '年份';
 
   @override
-  String get searchHint =>
-      'Type what you are looking for: \"something to work out\", \"2000s rock\"…';
+  String get searchHint => '输入你想找的：\"适合健身的歌\"、\"2000 年代摇滚\"…';
 
   @override
-  String get diagNoErrors => 'No playback errors';
+  String get diagNoErrors => '没有播放错误';
 
   @override
-  String get lockControlsTitle => 'Lock screen controls';
+  String get lockControlsTitle => '锁屏控件';
 
   @override
-  String get autoTheme => 'Automatic';
+  String get autoTheme => '自动';
 
   @override
-  String get aiSpeaks => 'The AI reads its recommendations out loud.';
+  String get aiSpeaks => 'AI 会朗读推荐内容。';
 
   @override
-  String get glassIntensity => 'Glass intensity';
+  String get glassIntensity => '玻璃强度';
 
   @override
-  String get autoImport => 'Import songs automatically';
+  String get autoImport => '自动导入歌曲';
 
   @override
-  String get importAppAudio => 'Import app audio and voice notes';
+  String get importAppAudio => '导入应用音频和语音消息';
 
   @override
-  String get noBackupYet => 'No backup yet: press Copy first';
+  String get noBackupYet => '还没有备份：请先点“复制”';
 
   @override
-  String get djBatch => 'Songs per DJ mode batch';
+  String get djBatch => 'DJ 模式每批歌曲数';
 
   @override
-  String get eqDesc => 'Opens the 5-band equalizer (native screen)';
+  String get eqDesc => '打开 5 段均衡器（原生界面）';
 
   @override
-  String get backupTitle => 'Backup';
+  String get backupTitle => '备份';
 
   @override
-  String get importFolder => 'Import a whole folder';
+  String get importFolder => '导入整个文件夹';
 
   @override
-  String get importFolderDesc =>
-      'Adds every supported audio file in the chosen folder';
+  String get importFolderDesc => '添加所选文件夹中所有支持的音频';
 
   @override
-  String get noAudioDeleted => 'Does not delete the audio files on your device';
+  String get noAudioDeleted => '不会删除你设备上的音频文件';
 
   @override
-  String get menuEditMetadata => 'Edit metadata and tags';
+  String get menuEditMetadata => '编辑元数据和标签';
 
   @override
-  String get menuRemoveFavorite => 'Remove from favorites';
+  String get menuRemoveFavorite => '取消收藏';
 
   @override
-  String get menuMarkFavorite => 'Mark as favorite';
+  String get menuMarkFavorite => '收藏';
 
   @override
-  String get backupRestored =>
-      'Backup restored. Restart the app if something looks off ✅';
+  String get backupRestored => '备份已恢复。如遇异常请重启应用 ✅';
 
   @override
-  String get volumeCurrent => 'Volume of the current song';
+  String get volumeCurrent => '当前歌曲音量';
 
   @override
-  String get dictationUnavailable =>
-      'Voice dictation is not available on this device';
+  String get dictationUnavailable => '此设备不支持语音输入';
 
   @override
-  String get songNotFound => 'Song not found';
+  String get songNotFound => '未找到歌曲';
 
   @override
-  String get albumCover => 'Album cover';
+  String get albumCover => '专辑封面';
 
   @override
-  String get writeTags => 'Write tags into the file';
+  String get writeTags => '将标签写入文件';
 
   @override
-  String get askingAi => 'Asking the AI for the details…';
+  String get askingAi => '正在向 AI 请求信息…';
 
   @override
-  String get autofillFailed =>
-      'Could not autofill. Check the API key in Settings ▸ AI.';
+  String get autofillFailed => '无法自动填充。请检查设置 ▸ AI 中的 API 密钥。';
 
   @override
-  String get noCoverOnDevice => 'That album has no cover on this device';
+  String get noCoverOnDevice => '该专辑在设备上没有封面';
 
   @override
-  String get albumCoverApplied => 'Album cover applied 🖼️';
+  String get albumCoverApplied => '已应用专辑封面 🖼️';
 }
