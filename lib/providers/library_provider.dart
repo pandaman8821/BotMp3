@@ -230,7 +230,16 @@ class LibraryProvider extends ChangeNotifier {
     notifyListeners();
     try {
       await init();
-      final bool incluirAudios =
+
+        // Compatibilidad Android 13+: sin READ_MEDIA_AUDIO, MediaStore devuelve
+        // cero pistas y parece que el telefono no tiene musica. Lo pedimos aqui,
+        // al escanear, y avisamos con claridad si el usuario lo deniega.
+        final bool permisoAudio = await MediaImporter.ensureAudioPermission();
+        if (!permisoAudio) {
+          _scanMessage = 'Falta el permiso de audio: activalo en Ajustes';
+          return 0;
+        }
+        final bool incluirAudios =
           SettingsService.actual?.importMediaAudio ?? true;
       final List<ScannedTrack> tracks =
           await MediaScanner.queryAudio(includeNonMusic: incluirAudios);
