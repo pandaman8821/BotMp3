@@ -1,0 +1,44 @@
+Categories:
+  - Multimedia
+License: GPL-3.0-or-later
+AuthorName: pandaman8821
+AuthorWebSite: https://github.com/pandaman8821
+WebSite: https://github.com/pandaman8821/BotMp3
+SourceCode: https://github.com/pandaman8821/BotMp3
+IssueTracker: https://github.com/pandaman8821/BotMp3/issues
+Changelog: https://github.com/pandaman8821/BotMp3/commits/main
+
+AutoName: BotMp3
+
+RepoType: git
+Repo: https://github.com/pandaman8821/BotMp3.git
+
+Builds:
+  - versionName: 1.9.58
+    versionCode: 111
+    commit: v1.9.57
+    subdir: BotMp3
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-21-jdk
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    prebuild:
+      - cd $$flutter$$/bin && ./flutter config --no-analytics
+      - cd $$flutter$$/bin && ./flutter precache --android
+      - export PUB_CACHE=$$flutter$$/.pub-cache
+      - cd $$flutter$$/bin && ./flutter pub get
+    build:
+      - export PUB_CACHE=$$flutter$$/.pub-cache
+      - cd $$flutter$$/bin && ./flutter build apk --release --target-platform android-arm64 --no-pub
+
+MaintainerNotes: |
+  Build sin red: se hace pub get dentro del srclib de Flutter.
+  Firmado por F-Droid (no usa el keystore del autor).
+  Sin dependencias propietarias: solo Flutter + plugins open source.
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.9.58
+CurrentVersionCode: 111
