@@ -476,72 +476,72 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String listCreated(String name) {
-    return 'Playlist \"$name\" created';
+    return 'プレイリスト「$name」を作成しました';
   }
 
   @override
   String mixtapeToday(int count) {
-    return 'Today\'s mixtape: $count songs 🎧';
+    return '今日のミックステープ：$count曲 🎧';
   }
 
   @override
   String coverFound(String source) {
-    return 'Cover found on $source: review it and press Apply';
+    return '$source でカバーを発見：確認して「適用」を押してください';
   }
 
   @override
   String imageProcessFailed(String error) {
-    return 'Could not process the image: $error';
+    return '画像を処理できませんでした：$error';
   }
 
   @override
-  String get coverEditorTitle => 'Cover editor';
+  String get coverEditorTitle => 'カバーエディター';
 
   @override
-  String get applyCoverToSong => 'Apply cover to the song';
+  String get applyCoverToSong => 'カバーを曲に適用';
 
   @override
-  String get exportToGallery => 'Export (gallery / storage)';
+  String get exportToGallery => '書き出し（ギャラリー / ストレージ）';
 
   @override
   String imageOpenFailed(String error) {
-    return 'Could not open the image: $error';
+    return '画像を開けませんでした：$error';
   }
 
   @override
-  String get coverApplied => 'Cover applied to the song ✅';
+  String get coverApplied => 'カバーを曲に適用しました ✅';
 
   @override
   String songsAddedToLibrary(int count) {
-    return '$count songs added to your library 🎵';
+    return '$count曲をライブラリに追加しました 🎵';
   }
 
   @override
-  String get resetRanking => 'Reset ranking';
+  String get resetRanking => 'ランキングをリセット';
 
   @override
   String songsImportedFromFolder(int count) {
-    return '$count songs imported from the folder';
+    return 'フォルダから$count曲を読み込みました';
   }
 
   @override
   String modelOf(String name) {
-    return 'Model: $name';
+    return 'モデル：$name';
   }
 
   @override
   String chartsIn(String country) {
-    return 'Charts in $country';
+    return '$country のヒット';
   }
 
   @override
-  String get noPlaylistsYet => 'No playlists yet. Create one.';
+  String get noPlaylistsYet => 'プレイリストはまだありません。作成しましょう。';
 
   @override
-  String get add => 'Add';
+  String get add => '追加';
 
   @override
   String songsAddedToPlaylist(int count, String name) {
-    return '$count song(s) added to \"$name\"';
+    return '$count曲を「$name」に追加しました';
   }
 }

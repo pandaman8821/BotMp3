@@ -476,72 +476,72 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String listCreated(String name) {
-    return 'Playlist \"$name\" created';
+    return '플레이리스트 \"$name\" 생성됨';
   }
 
   @override
   String mixtapeToday(int count) {
-    return 'Today\'s mixtape: $count songs 🎧';
+    return '오늘의 믹스테이프: $count곡 🎧';
   }
 
   @override
   String coverFound(String source) {
-    return 'Cover found on $source: review it and press Apply';
+    return '$source에서 커버를 찾았습니다: 확인 후 적용을 누르세요';
   }
 
   @override
   String imageProcessFailed(String error) {
-    return 'Could not process the image: $error';
+    return '이미지를 처리할 수 없습니다: $error';
   }
 
   @override
-  String get coverEditorTitle => 'Cover editor';
+  String get coverEditorTitle => '커버 편집기';
 
   @override
-  String get applyCoverToSong => 'Apply cover to the song';
+  String get applyCoverToSong => '곡에 커버 적용';
 
   @override
-  String get exportToGallery => 'Export (gallery / storage)';
+  String get exportToGallery => '내보내기(갤러리 / 저장소)';
 
   @override
   String imageOpenFailed(String error) {
-    return 'Could not open the image: $error';
+    return '이미지를 열 수 없습니다: $error';
   }
 
   @override
-  String get coverApplied => 'Cover applied to the song ✅';
+  String get coverApplied => '곡에 커버를 적용했습니다 ✅';
 
   @override
   String songsAddedToLibrary(int count) {
-    return '$count songs added to your library 🎵';
+    return '$count곡을 라이브러리에 추가했습니다 🎵';
   }
 
   @override
-  String get resetRanking => 'Reset ranking';
+  String get resetRanking => '순위 초기화';
 
   @override
   String songsImportedFromFolder(int count) {
-    return '$count songs imported from the folder';
+    return '폴더에서 $count곡을 가져왔습니다';
   }
 
   @override
   String modelOf(String name) {
-    return 'Model: $name';
+    return '모델: $name';
   }
 
   @override
   String chartsIn(String country) {
-    return 'Charts in $country';
+    return '$country 인기곡';
   }
 
   @override
-  String get noPlaylistsYet => 'No playlists yet. Create one.';
+  String get noPlaylistsYet => '아직 플레이리스트가 없습니다. 하나 만들어 보세요.';
 
   @override
-  String get add => 'Add';
+  String get add => '추가';
 
   @override
   String songsAddedToPlaylist(int count, String name) {
-    return '$count song(s) added to \"$name\"';
+    return '$count곡을 \"$name\"에 추가했습니다';
   }
 }
