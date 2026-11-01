@@ -1,12 +1,12 @@
 # APKs de BotMp3
 
-Instalador listo para instalar en Android (arm64-v8a, Android 7.0+).
+Instalador listo para Android (arm64-v8a, Android 7.0+). No requiere cuenta ni conexion.
 
-| Version | Archivo | Fecha |
+| Version | Archivo | Notas |
 |---|---|---|
-| 1.9.57 | `BotMp3-1.9.57.apk` | 2026-10-31 |
+| **1.9.58** | `BotMp3-1.9.58.apk` | Localizacion en 10 idiomas + formatos regionales + QA |
+| 1.9.57 | `BotMp3-1.9.57.apk` | Anterior estable |
 
-Notas:
-- Firma de depuracion: solo para instalar manualmente (sideload). No publicar en tiendas con esta firma.
-- La app es offline: no envia datos a ningun servidor. Las claves de IA las pone el usuario.
+- Firma de subida (sideload). Para tiendas se usa el AAB con Play App Signing.
+- App offline: sin anuncios, sin cuentas y sin rastreo. Las claves de IA las pone el usuario y se guardan cifradas (Android Keystore).
 - Licencia GPL-3.0.
