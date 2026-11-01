@@ -817,6 +817,174 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Check why the lock-screen controls do not respond.'**
   String get subDiagnostics;
+
+  /// No description provided for @menuPlayNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Play next'**
+  String get menuPlayNext;
+
+  /// No description provided for @durationLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration'**
+  String get durationLabel;
+
+  /// No description provided for @djNextUp.
+  ///
+  /// In en, this message translates to:
+  /// **'up next'**
+  String get djNextUp;
+
+  /// No description provided for @apiKeyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up the API key for'**
+  String get apiKeyHint;
+
+  /// No description provided for @menuEditCover.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit cover'**
+  String get menuEditCover;
+
+  /// No description provided for @genreLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Genre'**
+  String get genreLabel;
+
+  /// No description provided for @menuRemoveFromLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from library'**
+  String get menuRemoveFromLibrary;
+
+  /// No description provided for @diagErrorsHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Playback problems will appear here.'**
+  String get diagErrorsHere;
+
+  /// No description provided for @menuPlayNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Play now'**
+  String get menuPlayNow;
+
+  /// No description provided for @yearLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get yearLabel;
+
+  /// No description provided for @searchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type what you are looking for: \"something to work out\", \"2000s rock\"…'**
+  String get searchHint;
+
+  /// No description provided for @diagNoErrors.
+  ///
+  /// In en, this message translates to:
+  /// **'No playback errors'**
+  String get diagNoErrors;
+
+  /// No description provided for @lockControlsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lock screen controls'**
+  String get lockControlsTitle;
+
+  /// No description provided for @autoTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic'**
+  String get autoTheme;
+
+  /// No description provided for @aiSpeaks.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI reads its recommendations out loud.'**
+  String get aiSpeaks;
+
+  /// No description provided for @glassIntensity.
+  ///
+  /// In en, this message translates to:
+  /// **'Glass intensity'**
+  String get glassIntensity;
+
+  /// No description provided for @autoImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import songs automatically'**
+  String get autoImport;
+
+  /// No description provided for @importAppAudio.
+  ///
+  /// In en, this message translates to:
+  /// **'Import app audio and voice notes'**
+  String get importAppAudio;
+
+  /// No description provided for @noBackupYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No backup yet: press Copy first'**
+  String get noBackupYet;
+
+  /// No description provided for @djBatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Songs per DJ mode batch'**
+  String get djBatch;
+
+  /// No description provided for @eqDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Opens the 5-band equalizer (native screen)'**
+  String get eqDesc;
+
+  /// No description provided for @backupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup'**
+  String get backupTitle;
+
+  /// No description provided for @importFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Import a whole folder'**
+  String get importFolder;
+
+  /// No description provided for @importFolderDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Adds every supported audio file in the chosen folder'**
+  String get importFolderDesc;
+
+  /// No description provided for @noAudioDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Does not delete the audio files on your device'**
+  String get noAudioDeleted;
+
+  /// No description provided for @menuEditMetadata.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit metadata and tags'**
+  String get menuEditMetadata;
+
+  /// No description provided for @menuRemoveFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favorites'**
+  String get menuRemoveFavorite;
+
+  /// No description provided for @menuMarkFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as favorite'**
+  String get menuMarkFavorite;
 }
 
 class _AppLocalizationsDelegate

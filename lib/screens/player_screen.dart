@@ -437,18 +437,18 @@ class _PlayerScreenState extends State<PlayerScreen> {
       showDragHandle: true,
       builder: (BuildContext sheetContext) => SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(song.title, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
-              const SizedBox(height: 8),
+              Text(song.title, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+              SizedBox(height: 8),
               Text('${AppLocalizations.of(context)!.artistLabel}: ${song.artist}'),
-              Text('${AppLocalizations.of(context)!.albumLabel}: ${song.album.isEmpty ? '—' : song.album}'),
-              Text('Año: ${song.year == 0 ? '—' : song.year}'),
-              Text('Género: ${song.genre}'),
-              Text('Duración: ${Formatters.durationFromMs(song.durationMs)}'),
+                Text(AppLocalizations.of(context)!.albumLabel + ': ' + (song.album.isEmpty ? '—' : song.album)),
+                Text(AppLocalizations.of(context)!.yearLabel + ': ' + (song.year == 0 ? '—' : '${song.year}')),
+                Text(AppLocalizations.of(context)!.genreLabel + ': ' + song.genre),
+                Text(AppLocalizations.of(context)!.durationLabel + ': ' + Formatters.durationFromMs(song.durationMs)),
               Text('Formato: ${song.extension.toUpperCase()} · ${Formatters.bytes(song.fileSizeBytes)}'),
               if (song.tags.isNotEmpty) Text('Tags: ${song.tags.map((String t) => '#$t').join(' ')}'),
               const SizedBox(height: 8),
@@ -529,7 +529,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
     if (!ai.hasActiveKey) {
       if (manual) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Configura la API key de ${ai.activeProvider.label} en Ajustes ▸ IA')),
+          SnackBar(content: Text('${AppLocalizations.of(context)!.apiKeyHint} ${ai.activeProvider.label} · ${AppLocalizations.of(context)!.tabSettings} ▸ IA')),
         );
       }
       return;
@@ -558,7 +558,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
       }
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('DJ IA: a continuación "${nextSong.title}"')),
+          SnackBar(content: Text('${AppLocalizations.of(context)!.aiDj}: ${AppLocalizations.of(context)!.djNextUp} \"${nextSong.title}\"')),
         );
       }
     } else if (manual && mounted) {

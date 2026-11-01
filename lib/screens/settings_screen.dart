@@ -31,7 +31,7 @@ import '../widgets/dialogs.dart';
 /// Ajustes: apariencia, IA multimodelo (API keys cifradas), reproducción,
 /// rendimiento, voz y gestión de la biblioteca.
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+  SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class SettingsScreen extends StatelessWidget {
           // ---------------------------------------------------- Apariencia
           const _SectionTitle('Tendencias musicales'),
           ListTile(
-            leading: const Icon(Icons.public),
+            leading: Icon(Icons.public),
             title: Text(AppLocalizations.of(context)!.countryForTrends),
             subtitle: Text(
               TrendsService.paises[settings.trendsCountry] ??
@@ -78,7 +78,7 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.schedule),
+            leading: Icon(Icons.schedule),
             title: Text(AppLocalizations.of(context)!.dailyAlertTime),
             subtitle: Text('${settings.trendsHour.toString().padLeft(2, '0')}:00'),
             onTap: () async {
@@ -115,40 +115,40 @@ class SettingsScreen extends StatelessWidget {
                 ),
               );
             },
-            secondary: const Icon(Icons.notifications_active_outlined),
+            secondary: Icon(Icons.notifications_active_outlined),
             title: Text(AppLocalizations.of(context)!.notifyTrends),
             subtitle: Text(AppLocalizations.of(context)!.subTrendsNotify),
           ),
           ListTile(
-            leading: const Icon(Icons.local_fire_department_outlined),
+            leading: Icon(Icons.local_fire_department_outlined),
             title: Text(AppLocalizations.of(context)!.trendsNow),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(builder: (_) => const TrendsScreen()),
+              MaterialPageRoute<void>(builder: (_) => TrendsScreen()),
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.health_and_safety_outlined),
+            leading: Icon(Icons.health_and_safety_outlined),
             title: Text(AppLocalizations.of(context)!.playbackDiagnostics),
             subtitle: Text(AppLocalizations.of(context)!.subDiagnostics),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(builder: (_) => const DiagnosticsScreen()),
+              MaterialPageRoute<void>(builder: (_) => DiagnosticsScreen()),
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.leaderboard_outlined),
+            leading: Icon(Icons.leaderboard_outlined),
             title: Text(AppLocalizations.of(context)!.seeMyRanking),
             subtitle: Text(AppLocalizations.of(context)!.subRanking),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(builder: (_) => const RankingScreen()),
+              MaterialPageRoute<void>(builder: (_) => RankingScreen()),
             ),
           ),
           _SectionTitle(AppLocalizations.of(context)!.secAppearance),
-          const ListTile(
+          ListTile(
             leading: Icon(Icons.notifications_active_outlined),
-            title: Text('Controles en la pantalla de bloqueo'),
+            title: Text(AppLocalizations.of(context)!.lockControlsTitle),
             subtitle: Text(
               'Si la música se para al bloquear el móvil o no aparecen los '
               'controles, concede a BotMp3 el permiso de notificaciones y, en '
@@ -157,12 +157,12 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: Wrap(
               spacing: 8,
               children: <Widget>[
                 ChoiceChip(
-                  label: const Text('Automático'),
+                  label: Text(AppLocalizations.of(context)!.autoTheme),
                   selected: settings.themeMode == ThemeMode.system,
                   onSelected: (_) => settings.setThemeMode(ThemeMode.system),
                 ),
@@ -172,7 +172,7 @@ class SettingsScreen extends StatelessWidget {
                   onSelected: (_) => settings.setThemeMode(ThemeMode.dark),
                 ),
                 ChoiceChip(
-                  label: const Text('Claro'),
+                  label: Text('Claro'),
                   selected: settings.themeMode == ThemeMode.light,
                   onSelected: (_) => settings.setThemeMode(ThemeMode.light),
                 ),
@@ -183,7 +183,7 @@ class SettingsScreen extends StatelessWidget {
           // ---------------------------------------------------- IA
           _SectionTitle(AppLocalizations.of(context)!.secAi),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: <Widget>[
                 for (final AiProvider provider in AiProvider.values)
@@ -192,7 +192,7 @@ class SettingsScreen extends StatelessWidget {
                   value: settings.autoDj,
                   onChanged: settings.setAutoDj,
                   title: Text(AppLocalizations.of(context)!.autoDjMode),
-                  subtitle: const Text(
+                  subtitle: Text(
                     'La IA elige y explica la siguiente canción mientras reproduces.',
                   ),
                 ),
@@ -245,7 +245,7 @@ class SettingsScreen extends StatelessWidget {
             value: settings.ttsEnabled,
             onChanged: settings.setTtsEnabled,
             title: Text(AppLocalizations.of(context)!.speakResponses),
-            subtitle: const Text('La IA lee sus recomendaciones en voz alta.'),
+            subtitle: Text(AppLocalizations.of(context)!.aiSpeaks),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -270,7 +270,7 @@ class SettingsScreen extends StatelessWidget {
                 );
               },
               icon: const Icon(Icons.record_voice_over),
-              label: const Text('Probar voz'),
+              label: Text('Probar voz'),
             ),
           ),
 
@@ -279,15 +279,15 @@ class SettingsScreen extends StatelessWidget {
           SwitchListTile(
             value: settings.glassEnabled,
             onChanged: (bool value) => settings.setGlassEnabled(value),
-            secondary: const Icon(Icons.blur_on),
+            secondary: Icon(Icons.blur_on),
             title: Text(AppLocalizations.of(context)!.glassEffect),
             subtitle: const Text(
               'Barras y paneles translúcidos con desenfoque real del fondo.',
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.opacity),
-            title: const Text('Intensidad del cristal'),
+            leading: Icon(Icons.opacity),
+            title: Text(AppLocalizations.of(context)!.glassIntensity),
             subtitle: Slider(
               value: settings.glassIntensity,
               min: 0.2,
@@ -304,7 +304,7 @@ class SettingsScreen extends StatelessWidget {
           SwitchListTile(
             value: settings.autoImport,
             onChanged: (bool value) => settings.setAutoImport(value),
-            title: const Text('Importar canciones automáticamente'),
+            title: Text(AppLocalizations.of(context)!.autoImport),
             subtitle: const Text(
               'Escanea la música del dispositivo al abrir la app y añade lo nuevo.',
             ),
@@ -328,7 +328,7 @@ class SettingsScreen extends StatelessWidget {
                 ),
               );
             },
-            title: const Text('Importar audios de apps y notas de voz'),
+            title: Text(AppLocalizations.of(context)!.importAppAudio),
             subtitle: const Text(
               'Incluye los audios de WhatsApp, Telegram… y las grabaciones de '
               'voz. Desactivado (recomendado) solo se importa música.',
@@ -341,7 +341,7 @@ class SettingsScreen extends StatelessWidget {
                     height: 22,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
-                : const Icon(Icons.refresh),
+                : Icon(Icons.refresh),
             title: Text(AppLocalizations.of(context)!.scanNow),
             subtitle: Text(library.scanMessage ?? 'Busca música nueva en el dispositivo'),
             onTap: () async {
@@ -359,13 +359,13 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.settings_backup_restore),
+            leading: Icon(Icons.settings_backup_restore),
             title: Text(AppLocalizations.of(context)!.restoreBackup),
             subtitle: const Text(
               'Vuelve al estado de la última copia (biblioteca, listas, historial '
               'y chat). Se pierde lo hecho desde entonces.',
             ),
-            trailing: const Icon(Icons.chevron_right),
+            trailing: Icon(Icons.chevron_right),
             onTap: () async {
               final Map<String, dynamic>? copia = await StorageService.instance
                   .readJsonMap(StorageKeys.backupFile);
@@ -419,7 +419,7 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.file_download_outlined),
+            leading: Icon(Icons.file_download_outlined),
             title: Text(AppLocalizations.of(context)!.exportBackup),
             subtitle: const Text(
               'Guarda la última copia en un archivo JSON que tú eliges, para '
@@ -431,8 +431,8 @@ class SettingsScreen extends StatelessWidget {
               if (!context.mounted) return;
               if (copia == null) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Todavía no hay copia: pulsa «Copiar» primero'),
+                  SnackBar(
+                    content: Text(AppLocalizations.of(context)!.noBackupYet),
                   ),
                 );
                 return;
@@ -454,8 +454,8 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.queue_music),
-            title: const Text('Canciones por tanda del Modo DJ'),
+            leading: Icon(Icons.queue_music),
+            title: Text(AppLocalizations.of(context)!.djBatch),
             subtitle: Text('Ahora pide ' + settings.djCanciones.toString() + ' cada vez'),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
@@ -473,9 +473,9 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.graphic_eq),
+            leading: Icon(Icons.graphic_eq),
             title: Text(AppLocalizations.of(context)!.equalizer),
-            subtitle: const Text('Abre el ecualizador de 5 bandas (pantalla nativa)'),
+            subtitle: Text(AppLocalizations.of(context)!.eqDesc),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               // Se pasa la sesion real del motor para que el ecualizador nativo
@@ -527,13 +527,13 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.auto_awesome),
+            leading: Icon(Icons.auto_awesome),
             title: Text(AppLocalizations.of(context)!.tagWithAi),
             subtitle: const Text(
               'Usa el modelo de IA para poner género a las canciones que aún no lo '
               'tienen. Revisa hasta 10 cada vez.',
             ),
-            trailing: const Icon(Icons.chevron_right),
+            trailing: Icon(Icons.chevron_right),
             onTap: () async {
               final AiAssistantProvider ai = context.read<AiAssistantProvider>();
               final List<Song> pendientes = library.songs
@@ -581,7 +581,7 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.auto_fix_high_outlined),
+            leading: Icon(Icons.auto_fix_high_outlined),
             title: Text(AppLocalizations.of(context)!.fillGenres),
             subtitle: const Text(
               'Rellena el género de las canciones que no lo tengan, usando el '
@@ -603,8 +603,8 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.backup_outlined),
-            title: const Text('Copia de seguridad'),
+            leading: Icon(Icons.backup_outlined),
+            title: Text(AppLocalizations.of(context)!.backupTitle),
             subtitle: const Text(
               'Automática cada 7 días dentro de la app (biblioteca, listas, '
               'historial y chat). Se guarda en el teléfono, nunca en la nube.',
@@ -627,7 +627,7 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.cleaning_services_outlined),
+            leading: Icon(Icons.cleaning_services_outlined),
             title: Text(AppLocalizations.of(context)!.freeUpSpace),
             subtitle: FutureBuilder<int>(
               future: library.cacheBytes(),
@@ -656,15 +656,15 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.library_add),
+            leading: Icon(Icons.library_add),
             title: Text(AppLocalizations.of(context)!.importSongs),
-            subtitle: const Text('MP3, M4A, OGG, FLAC, WAV… seleccionando archivos o rutas'),
+            subtitle: Text('MP3, M4A, OGG, FLAC, WAV… seleccionando archivos o rutas'),
             onTap: () => AppDialogs.importSongs(context),
           ),
           ListTile(
-            leading: const Icon(Icons.folder_open),
-            title: const Text('Importar una carpeta completa'),
-            subtitle: const Text('Añade todos los audios compatibles de la carpeta elegida'),
+            leading: Icon(Icons.folder_open),
+            title: Text(AppLocalizations.of(context)!.importFolder),
+            subtitle: Text(AppLocalizations.of(context)!.importFolderDesc),
             onTap: () async {
               final String? dir = await MediaImporter.pickFolder();
               if (dir == null) return;
@@ -723,8 +723,8 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.delete_forever_outlined, color: Colors.redAccent),
-            title: Text(AppLocalizations.of(context)!.deleteLocalLibrary, style: const TextStyle(color: Colors.redAccent)),
-            subtitle: const Text('No borra los archivos de audio de tu dispositivo'),
+            title: Text(AppLocalizations.of(context)!.deleteLocalLibrary, style: TextStyle(color: Colors.redAccent)),
+            subtitle: Text(AppLocalizations.of(context)!.noAudioDeleted),
             onTap: () async {
               final bool confirmed = await AppDialogs.confirm(
                 context,

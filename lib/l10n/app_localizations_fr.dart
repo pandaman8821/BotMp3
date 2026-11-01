@@ -365,4 +365,90 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get subDiagnostics =>
       'Check why the lock-screen controls do not respond.';
+
+  @override
+  String get menuPlayNext => 'Play next';
+
+  @override
+  String get durationLabel => 'Duration';
+
+  @override
+  String get djNextUp => 'up next';
+
+  @override
+  String get apiKeyHint => 'Set up the API key for';
+
+  @override
+  String get menuEditCover => 'Edit cover';
+
+  @override
+  String get genreLabel => 'Genre';
+
+  @override
+  String get menuRemoveFromLibrary => 'Remove from library';
+
+  @override
+  String get diagErrorsHere => 'Playback problems will appear here.';
+
+  @override
+  String get menuPlayNow => 'Play now';
+
+  @override
+  String get yearLabel => 'Year';
+
+  @override
+  String get searchHint =>
+      'Type what you are looking for: \"something to work out\", \"2000s rock\"…';
+
+  @override
+  String get diagNoErrors => 'No playback errors';
+
+  @override
+  String get lockControlsTitle => 'Lock screen controls';
+
+  @override
+  String get autoTheme => 'Automatic';
+
+  @override
+  String get aiSpeaks => 'The AI reads its recommendations out loud.';
+
+  @override
+  String get glassIntensity => 'Glass intensity';
+
+  @override
+  String get autoImport => 'Import songs automatically';
+
+  @override
+  String get importAppAudio => 'Import app audio and voice notes';
+
+  @override
+  String get noBackupYet => 'No backup yet: press Copy first';
+
+  @override
+  String get djBatch => 'Songs per DJ mode batch';
+
+  @override
+  String get eqDesc => 'Opens the 5-band equalizer (native screen)';
+
+  @override
+  String get backupTitle => 'Backup';
+
+  @override
+  String get importFolder => 'Import a whole folder';
+
+  @override
+  String get importFolderDesc =>
+      'Adds every supported audio file in the chosen folder';
+
+  @override
+  String get noAudioDeleted => 'Does not delete the audio files on your device';
+
+  @override
+  String get menuEditMetadata => 'Edit metadata and tags';
+
+  @override
+  String get menuRemoveFavorite => 'Remove from favorites';
+
+  @override
+  String get menuMarkFavorite => 'Mark as favorite';
 }

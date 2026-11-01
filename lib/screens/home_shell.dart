@@ -55,7 +55,7 @@ class _HomeShellState extends State<HomeShell>
     }
   }
 
-  static const List<Widget> _screens = <Widget>[
+  static final List<Widget> _screens = <Widget>[
     SongsScreen(),
     PlaylistsScreen(),
     SearchScreen(),
