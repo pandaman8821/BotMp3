@@ -315,173 +315,162 @@ class AppLocalizationsKo extends AppLocalizations {
   String get exportJson => 'JSON 내보내기';
 
   @override
-  String get subKeepScreen =>
-      'Great for concerts or long videos (reduces AMOLED burn-in).';
+  String get subKeepScreen => '콘서트나 긴 영상에 적합(AMOLED 번인 감소).';
 
   @override
-  String get subBatterySaver =>
-      'Reduces animations and progress-bar refresh. Ideal for long sessions.';
+  String get subBatterySaver => '애니메이션과 진행 바 새로 고침을 줄입니다. 긴 재생에 적합.';
 
   @override
-  String get secAi => 'AI models';
+  String get secAi => 'AI 모델';
 
   @override
-  String get secPlayback => 'Playback';
+  String get secPlayback => '재생';
 
   @override
-  String get secPerformance => 'Performance and temperature';
+  String get secPerformance => '성능과 온도';
 
   @override
-  String get subSoundWaves =>
-      'Turn them off to save battery during continuous playback.';
+  String get subSoundWaves => '끄면 연속 재생 시 배터리를 절약합니다.';
 
   @override
-  String get secVoice => 'Voice';
+  String get secVoice => '음성';
 
   @override
-  String get subTrendsNotify =>
-      'One notification a day with what is trending online.';
+  String get subTrendsNotify => '인터넷 인기곡을 하루 한 번 알려줍니다.';
 
   @override
-  String get secAppearance => 'Appearance';
+  String get secAppearance => '화면';
 
   @override
-  String get subRanking => 'Your most played songs, artists and genres.';
+  String get subRanking => '자주 듣는 곡, 아티스트, 장르.';
 
   @override
-  String get subThermal =>
-      'Avoids heavy background work when the device is hot (summer) or extremely cold (winter).';
+  String get subThermal => '기기가 뜨거울 때(여름)나 매우 추울 때(겨울) 백그라운드 과부하를 피합니다.';
 
   @override
-  String get subVoice => 'Talk to the AI and search for songs without typing.';
+  String get subVoice => 'AI에게 말해 입력 없이 곡을 찾으세요.';
 
   @override
   String get subLockControls =>
-      'If music stops when you lock the phone or the controls do not appear, grant BotMp3 notification permission and, on HyperOS/MIUI, enable Autostart and set the battery to No restrictions.';
+      '잠금 후 음악이 멈추거나 잠금 화면 컨트롤이 안 보이면 BotMp3에 알림 권한을 허용하고 HyperOS/MIUI에서는 자동 시작을 켜고 배터리를 제한 없음으로 설정하세요.';
 
   @override
-  String get secLibrary => 'Library and backup';
+  String get secLibrary => '라이브러리와 백업';
 
   @override
-  String get subDiagnostics =>
-      'Check why the lock-screen controls do not respond.';
+  String get subDiagnostics => '잠금 화면 컨트롤이 반응하지 않는 이유를 확인합니다.';
 
   @override
-  String get menuPlayNext => 'Play next';
+  String get menuPlayNext => '다음에 재생';
 
   @override
-  String get durationLabel => 'Duration';
+  String get durationLabel => '길이';
 
   @override
-  String get djNextUp => 'up next';
+  String get djNextUp => '다음 곡';
 
   @override
-  String get apiKeyHint => 'Set up the API key for';
+  String get apiKeyHint => 'API 키 설정:';
 
   @override
-  String get menuEditCover => 'Edit cover';
+  String get menuEditCover => '커버 편집';
 
   @override
-  String get genreLabel => 'Genre';
+  String get genreLabel => '장르';
 
   @override
-  String get menuRemoveFromLibrary => 'Remove from library';
+  String get menuRemoveFromLibrary => '라이브러리에서 삭제';
 
   @override
-  String get diagErrorsHere => 'Playback problems will appear here.';
+  String get diagErrorsHere => '재생 문제가 여기에 표시됩니다.';
 
   @override
-  String get menuPlayNow => 'Play now';
+  String get menuPlayNow => '지금 재생';
 
   @override
-  String get yearLabel => 'Year';
+  String get yearLabel => '연도';
 
   @override
-  String get searchHint =>
-      'Type what you are looking for: \"something to work out\", \"2000s rock\"…';
+  String get searchHint => '원하는 것을 입력하세요: \"운동용\", \"2000년대 록\"…';
 
   @override
-  String get diagNoErrors => 'No playback errors';
+  String get diagNoErrors => '재생 오류 없음';
 
   @override
-  String get lockControlsTitle => 'Lock screen controls';
+  String get lockControlsTitle => '잠금 화면 컨트롤';
 
   @override
-  String get autoTheme => 'Automatic';
+  String get autoTheme => '자동';
 
   @override
-  String get aiSpeaks => 'The AI reads its recommendations out loud.';
+  String get aiSpeaks => 'AI가 추천을 소리 내어 읽습니다.';
 
   @override
-  String get glassIntensity => 'Glass intensity';
+  String get glassIntensity => '유리 강도';
 
   @override
-  String get autoImport => 'Import songs automatically';
+  String get autoImport => '곡 자동 가져오기';
 
   @override
-  String get importAppAudio => 'Import app audio and voice notes';
+  String get importAppAudio => '앱 오디오와 음성 메시지 가져오기';
 
   @override
-  String get noBackupYet => 'No backup yet: press Copy first';
+  String get noBackupYet => '아직 백업이 없습니다: 먼저 복사를 누르세요';
 
   @override
-  String get djBatch => 'Songs per DJ mode batch';
+  String get djBatch => 'DJ 모드 배치당 곡 수';
 
   @override
-  String get eqDesc => 'Opens the 5-band equalizer (native screen)';
+  String get eqDesc => '5밴드 이퀄라이저 열기(네이티브 화면)';
 
   @override
-  String get backupTitle => 'Backup';
+  String get backupTitle => '백업';
 
   @override
-  String get importFolder => 'Import a whole folder';
+  String get importFolder => '폴더 전체 가져오기';
 
   @override
-  String get importFolderDesc =>
-      'Adds every supported audio file in the chosen folder';
+  String get importFolderDesc => '선택한 폴더의 지원되는 모든 오디오 추가';
 
   @override
-  String get noAudioDeleted => 'Does not delete the audio files on your device';
+  String get noAudioDeleted => '기기의 오디오 파일은 삭제하지 않습니다';
 
   @override
-  String get menuEditMetadata => 'Edit metadata and tags';
+  String get menuEditMetadata => '메타데이터와 태그 편집';
 
   @override
-  String get menuRemoveFavorite => 'Remove from favorites';
+  String get menuRemoveFavorite => '즐겨찾기에서 제거';
 
   @override
-  String get menuMarkFavorite => 'Mark as favorite';
+  String get menuMarkFavorite => '즐겨찾기로 표시';
 
   @override
-  String get backupRestored =>
-      'Backup restored. Restart the app if something looks off ✅';
+  String get backupRestored => '백업을 복원했습니다. 이상하면 앱을 다시 시작하세요 ✅';
 
   @override
-  String get volumeCurrent => 'Volume of the current song';
+  String get volumeCurrent => '재생 중인 곡의 볼륨';
 
   @override
-  String get dictationUnavailable =>
-      'Voice dictation is not available on this device';
+  String get dictationUnavailable => '이 기기에서는 음성 받아쓰기를 사용할 수 없습니다';
 
   @override
-  String get songNotFound => 'Song not found';
+  String get songNotFound => '곡을 찾을 수 없습니다';
 
   @override
-  String get albumCover => 'Album cover';
+  String get albumCover => '앨범 커버';
 
   @override
-  String get writeTags => 'Write tags into the file';
+  String get writeTags => '태그를 파일에 쓰기';
 
   @override
-  String get askingAi => 'Asking the AI for the details…';
+  String get askingAi => 'AI에 정보를 요청하는 중…';
 
   @override
-  String get autofillFailed =>
-      'Could not autofill. Check the API key in Settings ▸ AI.';
+  String get autofillFailed => '자동으로 채울 수 없습니다. 설정 ▸ AI의 API 키를 확인하세요.';
 
   @override
-  String get noCoverOnDevice => 'That album has no cover on this device';
+  String get noCoverOnDevice => '이 앨범에는 기기에 커버가 없습니다';
 
   @override
-  String get albumCoverApplied => 'Album cover applied 🖼️';
+  String get albumCoverApplied => '앨범 커버를 적용했습니다 🖼️';
 }
