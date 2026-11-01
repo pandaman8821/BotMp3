@@ -147,13 +147,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get restoreBackup => 'Sicherung wiederherstellen';
 
   @override
-  String get tagWithAi => 'Mit KI taggen (Schlüssel nötig)';
+  String get tagWithAi => 'Mit KI taggen';
 
   @override
   String get deleteLocalLibrary => 'Lokale Bibliothek löschen';
 
   @override
-  String get fillGenres => 'Fehlende Genres ergänzen';
+  String get fillGenres => 'Genres ergänzen';
 
   @override
   String get speakResponses => 'Gesprochene Antworten';
@@ -240,7 +240,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get gotIt => 'Verstanden';
 
   @override
-  String get createList => 'Wiedergabeliste erstellen';
+  String get createList => 'Liste erstellen';
 
   @override
   String get sortBy => 'Sortieren';
@@ -384,7 +384,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get genreLabel => 'Genre';
 
   @override
-  String get menuRemoveFromLibrary => 'Aus Bibliothek entfernen';
+  String get menuRemoveFromLibrary => 'Aus Bibliothek';
 
   @override
   String get diagErrorsHere => 'Wiedergabeprobleme erscheinen hier.';
@@ -443,10 +443,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get noAudioDeleted => 'Löscht keine Audiodateien auf deinem Gerät';
 
   @override
-  String get menuEditMetadata => 'Metadaten und Tags bearbeiten';
+  String get menuEditMetadata => 'Metadaten und Tags';
 
   @override
-  String get menuRemoveFavorite => 'Aus Favoriten entfernen';
+  String get menuRemoveFavorite => 'Aus Favoriten';
 
   @override
   String get menuMarkFavorite => 'Als Favorit markieren';
