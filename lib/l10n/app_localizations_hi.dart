@@ -153,7 +153,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get deleteLocalLibrary => 'स्थानीय लाइब्रेरी हटाएँ';
 
   @override
-  String get fillGenres => 'गुम शैलियाँ भरें';
+  String get fillGenres => 'शैलियाँ भरें';
 
   @override
   String get speakResponses => 'बोली जाने वाली प्रतिक्रियाएँ';
@@ -443,7 +443,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get noAudioDeleted => 'आपके डिवाइस की ऑडियो फ़ाइलें नहीं हटाता';
 
   @override
-  String get menuEditMetadata => 'मेटाडेटा और टैग संपादित करें';
+  String get menuEditMetadata => 'मेटाडेटा/टैग संपादित करें';
 
   @override
   String get menuRemoveFavorite => 'पसंदीदा से हटाएँ';

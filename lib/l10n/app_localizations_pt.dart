@@ -147,13 +147,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get restoreBackup => 'Restaurar backup';
 
   @override
-  String get tagWithAi => 'Etiquetar com IA (precisa de chave)';
+  String get tagWithAi => 'Etiquetar (IA)';
 
   @override
   String get deleteLocalLibrary => 'Excluir biblioteca local';
 
   @override
-  String get fillGenres => 'Completar gêneros que faltam';
+  String get fillGenres => 'Completar gêneros';
 
   @override
   String get speakResponses => 'Respostas faladas';
@@ -307,7 +307,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get copyList => 'Copiar a lista';
 
   @override
-  String get importListJson => 'Importar playlist (JSON)';
+  String get importListJson => 'Importar (JSON)';
 
   @override
   String get trendsTitle => 'Tendências';
@@ -445,7 +445,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get noAudioDeleted => 'Não apaga os arquivos de áudio do seu aparelho';
 
   @override
-  String get menuEditMetadata => 'Editar metadados e etiquetas';
+  String get menuEditMetadata => 'Editar metadados';
 
   @override
   String get menuRemoveFavorite => 'Remover dos favoritos';
@@ -701,13 +701,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get restoreBackup => 'Restaurar backup';
 
   @override
-  String get tagWithAi => 'Etiquetar com IA (precisa de chave)';
+  String get tagWithAi => 'Etiquetar (IA)';
 
   @override
   String get deleteLocalLibrary => 'Excluir biblioteca local';
 
   @override
-  String get fillGenres => 'Completar gêneros que faltam';
+  String get fillGenres => 'Completar gêneros';
 
   @override
   String get speakResponses => 'Respostas faladas';
@@ -861,7 +861,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get copyList => 'Copiar a lista';
 
   @override
-  String get importListJson => 'Importar playlist (JSON)';
+  String get importListJson => 'Importar (JSON)';
 
   @override
   String get trendsTitle => 'Tendências';
@@ -999,7 +999,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get noAudioDeleted => 'Não apaga os arquivos de áudio do seu aparelho';
 
   @override
-  String get menuEditMetadata => 'Editar metadados e etiquetas';
+  String get menuEditMetadata => 'Editar metadados';
 
   @override
   String get menuRemoveFavorite => 'Remover dos favoritos';

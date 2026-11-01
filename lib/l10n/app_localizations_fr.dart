@@ -147,13 +147,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get restoreBackup => 'Restaurer la sauvegarde';
 
   @override
-  String get tagWithAi => 'Étiqueter avec l\'IA (clé requise)';
+  String get tagWithAi => 'Étiqueter (IA)';
 
   @override
   String get deleteLocalLibrary => 'Supprimer la bibliothèque locale';
 
   @override
-  String get fillGenres => 'Compléter les genres manquants';
+  String get fillGenres => 'Compléter les genres';
 
   @override
   String get speakResponses => 'Réponses parlées';
@@ -240,7 +240,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get gotIt => 'Compris';
 
   @override
-  String get createList => 'Créer une playlist';
+  String get createList => 'Créer une liste';
 
   @override
   String get sortBy => 'Trier';
@@ -306,7 +306,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get copyList => 'Copier la liste';
 
   @override
-  String get importListJson => 'Importer une playlist (JSON)';
+  String get importListJson => 'Importer (JSON)';
 
   @override
   String get trendsTitle => 'Tendances';
@@ -385,7 +385,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get genreLabel => 'Genre';
 
   @override
-  String get menuRemoveFromLibrary => 'Retirer de la bibliothèque';
+  String get menuRemoveFromLibrary => 'Retirer';
 
   @override
   String get diagErrorsHere => 'Les problèmes de lecture apparaîtront ici.';
@@ -447,7 +447,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Ne supprime pas les fichiers audio de votre appareil';
 
   @override
-  String get menuEditMetadata => 'Modifier les métadonnées et les tags';
+  String get menuEditMetadata => 'Métadonnées et tags';
 
   @override
   String get menuRemoveFavorite => 'Retirer des favoris';
