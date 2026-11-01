@@ -86,7 +86,15 @@ Si no estás seguro de un dato, repite el valor actual. No inventes años.
       systemPrompt: '$_system\n$_actionProtocol',
       json: true,
     );
-    final String? block = extractJsonBlock(raw);
+    String? block = extractJsonBlock(raw);
+      // Tolerancia: algunos modelos envuelven el JSON en texto o bloques de codigo.
+      if (block == null) {
+        final int ini = raw.indexOf('{');
+        final int fin = raw.lastIndexOf('}');
+        if (ini >= 0 && fin > ini) {
+          block = raw.substring(ini, fin + 1);
+        }
+      }
     if (block == null) return null;
     try {
       final dynamic decoded = jsonDecode(block);
@@ -392,7 +400,15 @@ Devuelve EXACTAMENTE este JSON:
       maxTokens: 1500,
     );
 
-    final String? block = extractJsonBlock(raw);
+    String? block = extractJsonBlock(raw);
+      // Tolerancia: algunos modelos envuelven el JSON en texto o bloques de codigo.
+      if (block == null) {
+        final int ini = raw.indexOf('{');
+        final int fin = raw.lastIndexOf('}');
+        if (ini >= 0 && fin > ini) {
+          block = raw.substring(ini, fin + 1);
+        }
+      }
     if (block != null) {
       try {
         final dynamic decoded = jsonDecode(block);
@@ -429,7 +445,15 @@ Devuelve EXACTAMENTE este JSON:
   // ------------------------------------------------------------------ parseo
 
   AiActionResult _parseActionResult(String raw) {
-    final String? block = extractJsonBlock(raw);
+    String? block = extractJsonBlock(raw);
+      // Tolerancia: algunos modelos envuelven el JSON en texto o bloques de codigo.
+      if (block == null) {
+        final int ini = raw.indexOf('{');
+        final int fin = raw.lastIndexOf('}');
+        if (ini >= 0 && fin > ini) {
+          block = raw.substring(ini, fin + 1);
+        }
+      }
     if (block == null) {
       return AiActionResult(text: raw.trim());
     }

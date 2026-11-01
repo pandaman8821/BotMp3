@@ -548,10 +548,20 @@ class SettingsScreen extends StatelessWidget {
                 return;
               }
               int hechas = 0;
-              for (final Song cancion in pendientes) {
-                final Map<String, String>? datos =
-                    await ai.suggestMetadata(cancion);
-                if (datos == null) continue;
+                int fallidas = 0;
+                for (final Song cancion in pendientes) {
+                  // Reintento: la IA a veces devuelve texto que no es JSON.
+                  Map<String, String>? datos;
+                  for (int intento = 0; intento < 2 && datos == null; intento++) {
+                    datos = await ai.suggestMetadata(cancion);
+                    if (datos == null) {
+                      await Future<void>.delayed(const Duration(milliseconds: 500));
+                    }
+                  }
+                  if (datos == null) {
+                    fallidas++;
+                    continue;
+                  }
                 final String genero =
                     (datos['genero'] ?? datos['genre'] ?? '').trim();
                 if (genero.isEmpty) continue;
