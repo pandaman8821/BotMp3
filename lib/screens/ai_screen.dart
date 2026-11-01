@@ -61,7 +61,7 @@ class _AiScreenState extends State<AiScreen> {
           ),
           IconButton(
             tooltip: AppLocalizations.of(context)!.clearConversation,
-            icon: const Icon(Icons.delete_sweep_outlined),
+            icon: Icon(Icons.delete_sweep_outlined),
             onPressed: () async {
               final bool ok = await showDialog<bool>(
                     context: context,
@@ -104,7 +104,7 @@ class _AiScreenState extends State<AiScreen> {
                 if (ai.hasActiveKey)
                   TextButton.icon(
                     onPressed: () => _testConnection(context, ai),
-                    icon: const Icon(Icons.wifi_tethering, size: 16),
+                    icon: Icon(Icons.wifi_tethering, size: 16),
                     label: Text(AppLocalizations.of(context)!.test),
                   ),
               ],
@@ -349,7 +349,7 @@ class _AiScreenState extends State<AiScreen> {
                       label: Text('Reproducir ${localSongs.length} locales'),
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8),
                 ],
                 Expanded(
                   child: OutlinedButton.icon(
@@ -357,7 +357,7 @@ class _AiScreenState extends State<AiScreen> {
                       final bool ok = await showDialog<bool>(
                             context: context,
                             builder: (BuildContext dialogContext) => AlertDialog(
-                              title: const Text('Crear lista'),
+                              title: Text(AppLocalizations.of(context)!.createList),
                               content: Text(
                                 'Se creará "${result.playlistName ?? 'Lista IA'}" con '
                                 '${localSongs.length} canciones de tu biblioteca.',
@@ -385,7 +385,7 @@ class _AiScreenState extends State<AiScreen> {
                         SnackBar(content: Text('Lista "${playlist.name}" creada')),
                       );
                     },
-                    icon: const Icon(Icons.playlist_add),
+                    icon: Icon(Icons.playlist_add),
                     label: Text(AppLocalizations.of(context)!.createList),
                   ),
                 ),
@@ -453,7 +453,7 @@ class _AiScreenState extends State<AiScreen> {
                         SnackBar(content: Text(AppLocalizations.of(context)!.promptCopied)),
                       );
                     },
-                    icon: const Icon(Icons.copy),
+                    icon: Icon(Icons.copy),
                     label: Text(AppLocalizations.of(context)!.copyPrompt),
                   ),
                 ),
@@ -461,7 +461,7 @@ class _AiScreenState extends State<AiScreen> {
                 Expanded(
                   child: OutlinedButton.icon(
                     onPressed: () => _openUrl(idea.youtubeSearchUrl),
-                    icon: const Icon(Icons.open_in_new),
+                    icon: Icon(Icons.open_in_new),
                     label: Text(AppLocalizations.of(context)!.tabSearch),
                   ),
                 ),
@@ -706,7 +706,7 @@ class _AiScreenState extends State<AiScreen> {
     if (!ready) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Dictado no disponible en este dispositivo')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.dictationUnavailable)),
       );
       return;
     }

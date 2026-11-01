@@ -144,5 +144,15 @@
   "noAudioDeleted": "Does not delete the audio files on your device",
   "menuEditMetadata": "Edit metadata and tags",
   "menuRemoveFavorite": "Remove from favorites",
-  "menuMarkFavorite": "Mark as favorite"
+  "menuMarkFavorite": "Mark as favorite",
+  "backupRestored": "Backup restored. Restart the app if something looks off ✅",
+  "volumeCurrent": "Volume of the current song",
+  "dictationUnavailable": "Voice dictation is not available on this device",
+  "songNotFound": "Song not found",
+  "albumCover": "Album cover",
+  "writeTags": "Write tags into the file",
+  "askingAi": "Asking the AI for the details…",
+  "autofillFailed": "Could not autofill. Check the API key in Settings ▸ AI.",
+  "noCoverOnDevice": "That album has no cover on this device",
+  "albumCoverApplied": "Album cover applied 🖼️"
 }

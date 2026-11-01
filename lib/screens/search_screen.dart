@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -52,7 +53,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Buscar'),
+        title: Text(AppLocalizations.of(context)!.tabSearch),
         actions: <Widget>[
           IconButton(
             tooltip: 'Filtros avanzados',
@@ -206,7 +207,7 @@ class _SearchScreenState extends State<SearchScreen> {
     final String query = _controller.text.trim();
     if (query.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Escribe qué buscas: "algo para entrenar", "rock de los 2000"…')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.searchHint)),
       );
       return;
     }
