@@ -556,6 +556,23 @@ class AppLocalizationsPt extends AppLocalizations {
   String songsAddedToPlaylist(int count, String name) {
     return '$count música(s) adicionada(s) a \"$name\"';
   }
+
+  @override
+  String get sleepTimer => 'Temporizador de sono';
+
+  @override
+  String get sleepTimerOff => 'Desligado';
+
+  @override
+  String get sleepTimerActive => 'Ativo: a música pausa ao terminar';
+
+  @override
+  String get sleepTimerCancel => 'Desativar';
+
+  @override
+  String sleepTimerMinutes(int count) {
+    return '$count min';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1109,5 +1126,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String songsAddedToPlaylist(int count, String name) {
     return '$count música(s) adicionada(s) a \"$name\"';
+  }
+
+  @override
+  String get sleepTimer => 'Temporizador de sono';
+
+  @override
+  String get sleepTimerOff => 'Desligado';
+
+  @override
+  String get sleepTimerActive => 'Ativo: a música pausa ao terminar';
+
+  @override
+  String get sleepTimerCancel => 'Desativar';
+
+  @override
+  String sleepTimerMinutes(int count) {
+    return '$count min';
   }
 }

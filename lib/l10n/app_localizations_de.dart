@@ -556,4 +556,21 @@ class AppLocalizationsDe extends AppLocalizations {
   String songsAddedToPlaylist(int count, String name) {
     return '$count Lied(er) zu „$name“ hinzugefügt';
   }
+
+  @override
+  String get sleepTimer => 'Sleep-Timer';
+
+  @override
+  String get sleepTimerOff => 'Aus';
+
+  @override
+  String get sleepTimerActive => 'An: Wiedergabe pausiert am Ende';
+
+  @override
+  String get sleepTimerCancel => 'Ausschalten';
+
+  @override
+  String sleepTimerMinutes(int count) {
+    return '$count Min.';
+  }
 }

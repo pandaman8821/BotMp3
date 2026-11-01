@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import '../services/media_importer.dart';
 import 'dart:async';
 import 'dart:io';
@@ -13,6 +14,8 @@ import '../core/text_utils.dart';
 import '../services/library_service.dart';
 import '../services/settings_service.dart';
 import '../services/storage_service.dart';
+import '../services/cover_editor_service.dart';
+import '../services/cover_finder.dart';
 import '../services/media_scanner.dart';
 
 /// Estado de la biblioteca: canciones, listas, filtros y búsqueda global.

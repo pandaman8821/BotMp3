@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../models/song.dart';
+import '../services/lyrics_fetcher.dart';
 
 /// Letra de la canción que está sonando.
 ///
@@ -14,7 +15,7 @@ class LyricsScreen extends StatelessWidget {
 
   final Song song;
 
-  Future<String?> _leerLetra() async {
+  Future<String?> _leerLetraLocal() async {
     final String ruta = song.path;
     if (ruta.isEmpty || ruta.startsWith('content://')) return null;
     final int punto = ruta.lastIndexOf('.');
@@ -42,6 +43,14 @@ class LyricsScreen extends StatelessWidget {
         .where((String linea) => linea.isNotEmpty)
         .join('\n');
   }
+
+  Future<String?> _leerLetra() async {
+    final String? local = await _leerLetraLocal();
+    if (local != null) return local;
+    // No hay archivo .lrc junto al audio: se busca la letra online.
+    return LyricsFetcher.fetch(song.title, song.artist, album: song.album);
+  }
+
 
   @override
   Widget build(BuildContext context) {

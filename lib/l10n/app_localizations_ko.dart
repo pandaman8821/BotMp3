@@ -544,4 +544,21 @@ class AppLocalizationsKo extends AppLocalizations {
   String songsAddedToPlaylist(int count, String name) {
     return '$count곡을 \"$name\"에 추가했습니다';
   }
+
+  @override
+  String get sleepTimer => '취침 타이머';
+
+  @override
+  String get sleepTimerOff => '꺼짐';
+
+  @override
+  String get sleepTimerActive => '켜짐: 끝나면 재생이 멈춥니다';
+
+  @override
+  String get sleepTimerCancel => '끄기';
+
+  @override
+  String sleepTimerMinutes(int count) {
+    return '$count분';
+  }
 }

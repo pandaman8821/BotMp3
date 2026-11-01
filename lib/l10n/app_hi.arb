@@ -171,5 +171,17 @@
   "chartsIn": "{country} में हिट",
   "noPlaylistsYet": "अभी कोई प्लेलिस्ट नहीं। एक बनाएँ।",
   "add": "जोड़ें",
-  "songsAddedToPlaylist": "{count} गाने \"{name}\" में जोड़े गए"
+  "songsAddedToPlaylist": "{count} गाने \"{name}\" में जोड़े गए",
+  "sleepTimer": "स्लीप टाइमर",
+  "sleepTimerOff": "बंद",
+  "sleepTimerActive": "चालू: समाप्त होने पर प्लेबैक रुकेगा",
+  "sleepTimerCancel": "बंद करें",
+  "sleepTimerMinutes": "{count} मिनट",
+  "@sleepTimerMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

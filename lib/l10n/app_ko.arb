@@ -171,5 +171,17 @@
   "chartsIn": "{country} 인기곡",
   "noPlaylistsYet": "아직 플레이리스트가 없습니다. 하나 만들어 보세요.",
   "add": "추가",
-  "songsAddedToPlaylist": "{count}곡을 \"{name}\"에 추가했습니다"
+  "songsAddedToPlaylist": "{count}곡을 \"{name}\"에 추가했습니다",
+  "sleepTimer": "취침 타이머",
+  "sleepTimerOff": "꺼짐",
+  "sleepTimerActive": "켜짐: 끝나면 재생이 멈춥니다",
+  "sleepTimerCancel": "끄기",
+  "sleepTimerMinutes": "{count}분",
+  "@sleepTimerMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

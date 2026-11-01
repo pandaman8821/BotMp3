@@ -544,6 +544,23 @@ class AppLocalizationsZh extends AppLocalizations {
   String songsAddedToPlaylist(int count, String name) {
     return '已将 $count 首歌曲添加到“$name”';
   }
+
+  @override
+  String get sleepTimer => '睡眠定时器';
+
+  @override
+  String get sleepTimerOff => '关闭';
+
+  @override
+  String get sleepTimerActive => '开启：结束后将暂停播放';
+
+  @override
+  String get sleepTimerCancel => '关闭';
+
+  @override
+  String sleepTimerMinutes(int count) {
+    return '$count 分钟';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -1085,5 +1102,22 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   @override
   String songsAddedToPlaylist(int count, String name) {
     return '已将 $count 首歌曲添加到“$name”';
+  }
+
+  @override
+  String get sleepTimer => '睡眠定时器';
+
+  @override
+  String get sleepTimerOff => '关闭';
+
+  @override
+  String get sleepTimerActive => '开启：结束后将暂停播放';
+
+  @override
+  String get sleepTimerCancel => '关闭';
+
+  @override
+  String sleepTimerMinutes(int count) {
+    return '$count 分钟';
   }
 }

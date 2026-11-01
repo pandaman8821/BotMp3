@@ -171,5 +171,17 @@
   "chartsIn": "Succès en {country}",
   "noPlaylistsYet": "Aucune playlist pour l’instant. Créez-en une.",
   "add": "Ajouter",
-  "songsAddedToPlaylist": "{count} chanson(s) ajoutée(s) à « {name} »"
+  "songsAddedToPlaylist": "{count} chanson(s) ajoutée(s) à « {name} »",
+  "sleepTimer": "Minuteur de sommeil",
+  "sleepTimerOff": "Désactivé",
+  "sleepTimerActive": "Actif : la lecture s’arrêtera à la fin",
+  "sleepTimerCancel": "Désactiver",
+  "sleepTimerMinutes": "{count} min",
+  "@sleepTimerMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -171,5 +171,17 @@
   "chartsIn": "{country} 的热门",
   "noPlaylistsYet": "还没有歌单，新建一个吧。",
   "add": "添加",
-  "songsAddedToPlaylist": "已将 {count} 首歌曲添加到“{name}”"
+  "songsAddedToPlaylist": "已将 {count} 首歌曲添加到“{name}”",
+  "sleepTimer": "睡眠定时器",
+  "sleepTimerOff": "关闭",
+  "sleepTimerActive": "开启：结束后将暂停播放",
+  "sleepTimerCancel": "关闭",
+  "sleepTimerMinutes": "{count} 分钟",
+  "@sleepTimerMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

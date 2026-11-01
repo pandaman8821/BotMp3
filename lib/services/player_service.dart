@@ -224,6 +224,34 @@ class PlayerService {
   /// Estado REAL de reproduccion. El flag `playing` de just_audio sigue en true
   /// aunque el motor este en idle o completed: por eso el boton se quedaba
   /// "frisado" en Pausa. Solo cuenta como sonando si ademas hay audio listo.
+  Timer? _sleepTimer;
+  DateTime? _sleepUntil;
+
+  /// Tiempo que queda del temporizador de sueno (o null si esta apagado).
+  Duration? get sleepRemaining {
+    final DateTime? hasta = _sleepUntil;
+    if (hasta == null) return null;
+    final Duration resto = hasta.difference(DateTime.now());
+    return resto.isNegative ? Duration.zero : resto;
+  }
+
+  /// Pausa la reproduccion al terminar [duracion].
+  void startSleepTimer(Duration duracion) {
+    cancelSleepTimer();
+    _sleepUntil = DateTime.now().add(duracion);
+    _sleepTimer = Timer(duracion, () async {
+      _sleepUntil = null;
+      _sleepTimer = null;
+      try { await pause(); } catch (_) {}
+    });
+  }
+
+  void cancelSleepTimer() {
+    _sleepTimer?.cancel();
+    _sleepTimer = null;
+    _sleepUntil = null;
+  }
+
   bool get estaSonando =>
       _player.playing &&
       _player.processingState != ProcessingState.idle &&

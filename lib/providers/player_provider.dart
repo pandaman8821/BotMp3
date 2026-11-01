@@ -37,6 +37,10 @@ class PlayerProvider extends ChangeNotifier {
 
   Song? get current => service.current;
   bool get playing => service.estaSonando;
+
+  Duration? get sleepRemaining => service.sleepRemaining;
+  void startSleepTimer(Duration d) => service.startSleepTimer(d);
+  void cancelSleepTimer() => service.cancelSleepTimer();
   bool get isShuffleEnabled => service.isShuffleEnabled;
   RepeatMode get repeatMode => service.repeatMode;
   List<Song> get queue => service.queue;

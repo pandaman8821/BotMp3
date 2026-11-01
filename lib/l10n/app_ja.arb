@@ -171,5 +171,17 @@
   "chartsIn": "{country} のヒット",
   "noPlaylistsYet": "プレイリストはまだありません。作成しましょう。",
   "add": "追加",
-  "songsAddedToPlaylist": "{count}曲を「{name}」に追加しました"
+  "songsAddedToPlaylist": "{count}曲を「{name}」に追加しました",
+  "sleepTimer": "スリープタイマー",
+  "sleepTimerOff": "オフ",
+  "sleepTimerActive": "オン：終了時に再生を停止します",
+  "sleepTimerCancel": "オフにする",
+  "sleepTimerMinutes": "{count}分",
+  "@sleepTimerMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }
