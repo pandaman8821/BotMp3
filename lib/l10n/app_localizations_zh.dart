@@ -465,215 +465,267 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get nowPlaying => '正在播放';
 
   @override
-  String get trendsNow => '';
+  String get trendsNow => 'See trends now';
 
   @override
-  String get batterySaver => '';
+  String get batterySaver => 'Battery saver';
 
   @override
-  String get screenAlwaysOn => '';
+  String get screenAlwaysOn => 'Keep screen on';
 
   @override
-  String get playbackDiagnostics => '';
+  String get playbackDiagnostics => 'Playback diagnostics';
 
   @override
-  String get autoDjMode => '';
+  String get autoDjMode => 'Automatic AI DJ';
 
   @override
-  String get seeMyRanking => '';
+  String get seeMyRanking => 'See my ranking';
 
   @override
-  String get countryForTrends => '';
+  String get countryForTrends => 'Charts country';
 
   @override
-  String get thermalProtection => '';
+  String get thermalProtection => 'Thermal protection';
 
   @override
-  String get dailyAlertTime => '';
+  String get dailyAlertTime => 'Daily alert time';
 
   @override
-  String get soundWaves => '';
+  String get soundWaves => 'Animated sound waves';
 
   @override
-  String get notifyTrends => '';
+  String get notifyTrends => 'Notify me of trends';
 
   @override
-  String get voiceDictation => '';
+  String get voiceDictation => 'Voice dictation';
 
   @override
-  String get glassEffect => '';
+  String get glassEffect => 'Glass effect (Liquid Glass)';
 
   @override
-  String get scanNow => '';
+  String get scanNow => 'Scan now';
 
   @override
-  String get restoreBackup => '';
+  String get restoreBackup => 'Restore backup';
 
   @override
-  String get tagWithAi => '';
+  String get tagWithAi => 'Tag with AI (key required)';
 
   @override
-  String get deleteLocalLibrary => '';
+  String get deleteLocalLibrary => 'Delete local library';
 
   @override
-  String get fillGenres => '';
+  String get fillGenres => 'Fill missing genres';
 
   @override
-  String get speakResponses => '';
+  String get speakResponses => 'Spoken replies';
 
   @override
-  String get freeUpSpace => '';
+  String get freeUpSpace => 'Free up space';
 
   @override
-  String get importSongs => '';
+  String get importSongs => 'Import songs';
 
   @override
-  String get exportBackup => '';
+  String get exportBackup => 'Export backup';
 
   @override
-  String get noSongsWithoutGenre => '';
+  String get noSongsWithoutGenre => 'No songs without genre';
 
   @override
-  String get restoreTheBackup => '';
+  String get restoreTheBackup => 'Restore the backup';
 
   @override
-  String get exportFailedStorage => '';
+  String get exportFailedStorage => 'Export failed: check storage';
 
   @override
-  String get noCompatibleAudio => '';
+  String get noCompatibleAudio => 'No compatible audio found';
 
   @override
-  String get noBackupSaved => '';
+  String get noBackupSaved => 'No backup saved';
 
   @override
-  String get create => '';
+  String get create => 'Create';
 
   @override
-  String get createNewPlaylist => '';
+  String get createNewPlaylist => 'Create new playlist';
 
   @override
-  String get editPlaylist => '';
+  String get editPlaylist => 'Edit playlist';
 
   @override
-  String get newPlaylist => '';
+  String get newPlaylist => 'New playlist';
 
   @override
-  String get playQueue => '';
+  String get playQueue => 'Play queue';
 
   @override
-  String get playing => '';
+  String get playing => 'Now playing';
 
   @override
-  String get noSongPlaying => '';
+  String get noSongPlaying => 'Nothing is playing';
 
   @override
-  String get albumLabel => '';
+  String get albumLabel => 'Album';
 
   @override
-  String get artistLabel => '';
+  String get artistLabel => 'Artist';
 
   @override
-  String get playbackSpeed => '';
+  String get playbackSpeed => 'Playback speed';
 
   @override
-  String get clearHistoryBody => '';
+  String get clearHistoryBody => 'The AI history will be deleted.';
 
   @override
-  String get askHint => '';
+  String get askHint => 'Ask for music, playlists or ideas…';
 
   @override
-  String get promptCopied => '';
+  String get promptCopied => 'Prompt copied';
 
   @override
-  String get aiProviders => '';
+  String get aiProviders => 'AI providers';
 
   @override
-  String get aiMusicTitle => '';
+  String get aiMusicTitle => 'AI music';
 
   @override
-  String get test => '';
+  String get test => 'Test';
 
   @override
-  String get clearConversation => '';
+  String get clearConversation => 'Clear conversation';
 
   @override
-  String get copyPrompt => '';
+  String get copyPrompt => 'Copy prompt';
 
   @override
-  String get gotIt => '';
+  String get gotIt => 'Got it';
 
   @override
-  String get createList => '';
+  String get createList => 'Create playlist';
 
   @override
-  String get sortBy => '';
+  String get sortBy => 'Sort';
 
   @override
-  String get shuffleAll => '';
+  String get shuffleAll => 'Shuffle everything';
 
   @override
-  String get mostPlayedRanking => '';
+  String get mostPlayedRanking => 'Most played';
 
   @override
-  String get advancedFilters => '';
+  String get advancedFilters => 'Advanced filters';
 
   @override
-  String get playSelection => '';
+  String get playSelection => 'Play selection';
 
   @override
-  String get clearFilters => '';
+  String get clearFilters => 'Clear filters';
 
   @override
-  String get addToPlaylist => '';
+  String get addToPlaylist => 'Add to playlist';
 
   @override
-  String get playSomethingFirst => '';
+  String get playSomethingFirst => 'Play something first';
 
   @override
-  String get songLyrics => '';
+  String get songLyrics => 'Song lyrics';
 
   @override
-  String get editData => '';
+  String get editData => 'Edit details';
 
   @override
-  String get notifyTop => '';
+  String get notifyTop => 'Notify top';
 
   @override
-  String get addSongs => '';
+  String get addSongs => 'Add songs';
 
   @override
-  String get listCopied => '';
+  String get listCopied => 'List copied to clipboard';
 
   @override
-  String get updateTrendsFirst => '';
+  String get updateTrendsFirst => 'Refresh trends first';
 
   @override
-  String get deleteList => '';
+  String get deleteList => 'Delete playlist';
 
   @override
-  String get linkOpenFailed => '';
+  String get linkOpenFailed => 'Could not open the link';
 
   @override
-  String get updateAction => '';
+  String get updateAction => 'Refresh';
 
   @override
-  String get listNotFound => '';
+  String get listNotFound => 'Playlist not found';
 
   @override
-  String get editNameDesc => '';
+  String get editNameDesc => 'Edit name/description';
 
   @override
-  String get changeCover => '';
+  String get changeCover => 'Change cover';
 
   @override
-  String get copyList => '';
+  String get copyList => 'Copy list';
 
   @override
-  String get importListJson => '';
+  String get importListJson => 'Import playlist (JSON)';
 
   @override
-  String get trendsTitle => '';
+  String get trendsTitle => 'Trends';
 
   @override
-  String get exportJson => '';
+  String get exportJson => 'Export JSON';
+
+  @override
+  String get subKeepScreen =>
+      'Great for concerts or long videos (reduces AMOLED burn-in).';
+
+  @override
+  String get subBatterySaver =>
+      'Reduces animations and progress-bar refresh. Ideal for long sessions.';
+
+  @override
+  String get secAi => 'AI models';
+
+  @override
+  String get secPlayback => 'Playback';
+
+  @override
+  String get secPerformance => 'Performance and temperature';
+
+  @override
+  String get subSoundWaves =>
+      'Turn them off to save battery during continuous playback.';
+
+  @override
+  String get secVoice => 'Voice';
+
+  @override
+  String get subTrendsNotify =>
+      'One notification a day with what is trending online.';
+
+  @override
+  String get secAppearance => 'Appearance';
+
+  @override
+  String get subRanking => 'Your most played songs, artists and genres.';
+
+  @override
+  String get subThermal =>
+      'Avoids heavy background work when the device is hot (summer) or extremely cold (winter).';
+
+  @override
+  String get subVoice => 'Talk to the AI and search for songs without typing.';
+
+  @override
+  String get subLockControls =>
+      'If music stops when you lock the phone or the controls do not appear, grant BotMp3 notification permission and, on HyperOS/MIUI, enable Autostart and set the battery to No restrictions.';
+
+  @override
+  String get secLibrary => 'Library and backup';
+
+  @override
+  String get subDiagnostics =>
+      'Check why the lock-screen controls do not respond.';
 }
