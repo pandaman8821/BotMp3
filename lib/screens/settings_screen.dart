@@ -202,6 +202,42 @@ class SettingsScreen extends StatelessWidget {
 
           // ---------------------------------------------------- Reproducción
           _SectionTitle(AppLocalizations.of(context)!.secPlayback),
+            ListTile(
+              leading: const Icon(Icons.bedtime_outlined),
+              title: Text(AppLocalizations.of(context)!.sleepTimer),
+              subtitle: Text(
+                context.watch<PlayerProvider>().sleepRemaining == null
+                    ? AppLocalizations.of(context)!.sleepTimerOff
+                    : AppLocalizations.of(context)!.sleepTimerActive,
+              ),
+              onTap: () async {
+                final PlayerProvider player = context.read<PlayerProvider>();
+                final int? minutos = await showDialog<int>(
+                  context: context,
+                  builder: (BuildContext dc) => SimpleDialog(
+                    title: Text(AppLocalizations.of(context)!.sleepTimer),
+                    children: <Widget>[
+                      SimpleDialogOption(
+                        onPressed: () => Navigator.of(dc).pop(0),
+                        child: Text(AppLocalizations.of(context)!.sleepTimerCancel),
+                      ),
+                      for (final int m in <int>[15, 30, 60, 90])
+                        SimpleDialogOption(
+                          onPressed: () => Navigator.of(dc).pop(m),
+                          child: Text(AppLocalizations.of(context)!.sleepTimerMinutes(m)),
+                        ),
+                    ],
+                  ),
+                );
+                if (minutos == null) return;
+                if (minutos == 0) {
+                  player.cancelSleepTimer();
+                } else {
+                  player.startSleepTimer(Duration(minutes: minutos));
+                }
+              },
+            ),
+
           SwitchListTile(
             value: settings.keepScreenOn,
             onChanged: (bool value) {
