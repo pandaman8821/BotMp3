@@ -486,72 +486,72 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String listCreated(String name) {
-    return 'Playlist \"$name\" created';
+    return '\"$name\" प्लेलिस्ट बनाई गई';
   }
 
   @override
   String mixtapeToday(int count) {
-    return 'Today\'s mixtape: $count songs 🎧';
+    return 'आज का मिक्सटेप: $count गाने 🎧';
   }
 
   @override
   String coverFound(String source) {
-    return 'Cover found on $source: review it and press Apply';
+    return '$source पर कवर मिला: जाँचें और लागू करें दबाएँ';
   }
 
   @override
   String imageProcessFailed(String error) {
-    return 'Could not process the image: $error';
+    return 'छवि संसाधित नहीं हो सकी: $error';
   }
 
   @override
-  String get coverEditorTitle => 'Cover editor';
+  String get coverEditorTitle => 'कवर संपादक';
 
   @override
-  String get applyCoverToSong => 'Apply cover to the song';
+  String get applyCoverToSong => 'गाने पर कवर लगाएँ';
 
   @override
-  String get exportToGallery => 'Export (gallery / storage)';
+  String get exportToGallery => 'निर्यात (गैलरी / संग्रहण)';
 
   @override
   String imageOpenFailed(String error) {
-    return 'Could not open the image: $error';
+    return 'छवि नहीं खुल सकी: $error';
   }
 
   @override
-  String get coverApplied => 'Cover applied to the song ✅';
+  String get coverApplied => 'गाने पर कवर लगाया गया ✅';
 
   @override
   String songsAddedToLibrary(int count) {
-    return '$count songs added to your library 🎵';
+    return '$count गाने लाइब्रेरी में जोड़े गए 🎵';
   }
 
   @override
-  String get resetRanking => 'Reset ranking';
+  String get resetRanking => 'रैंकिंग रीसेट करें';
 
   @override
   String songsImportedFromFolder(int count) {
-    return '$count songs imported from the folder';
+    return 'फ़ोल्डर से $count गाने आयात किए गए';
   }
 
   @override
   String modelOf(String name) {
-    return 'Model: $name';
+    return 'मॉडल: $name';
   }
 
   @override
   String chartsIn(String country) {
-    return 'Charts in $country';
+    return '$country में हिट';
   }
 
   @override
-  String get noPlaylistsYet => 'No playlists yet. Create one.';
+  String get noPlaylistsYet => 'अभी कोई प्लेलिस्ट नहीं। एक बनाएँ।';
 
   @override
-  String get add => 'Add';
+  String get add => 'जोड़ें';
 
   @override
   String songsAddedToPlaylist(int count, String name) {
-    return '$count song(s) added to \"$name\"';
+    return '$count गाने \"$name\" में जोड़े गए';
   }
 }

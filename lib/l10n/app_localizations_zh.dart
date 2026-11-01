@@ -476,73 +476,73 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String listCreated(String name) {
-    return 'Playlist \"$name\" created';
+    return '歌单“$name”已创建';
   }
 
   @override
   String mixtapeToday(int count) {
-    return 'Today\'s mixtape: $count songs 🎧';
+    return '今日混音带：$count 首歌曲 🎧';
   }
 
   @override
   String coverFound(String source) {
-    return 'Cover found on $source: review it and press Apply';
+    return '在 $source 找到封面：请确认后点“应用”';
   }
 
   @override
   String imageProcessFailed(String error) {
-    return 'Could not process the image: $error';
+    return '无法处理图片：$error';
   }
 
   @override
-  String get coverEditorTitle => 'Cover editor';
+  String get coverEditorTitle => '封面编辑器';
 
   @override
-  String get applyCoverToSong => 'Apply cover to the song';
+  String get applyCoverToSong => '将封面应用到歌曲';
 
   @override
-  String get exportToGallery => 'Export (gallery / storage)';
+  String get exportToGallery => '导出（相册 / 存储）';
 
   @override
   String imageOpenFailed(String error) {
-    return 'Could not open the image: $error';
+    return '无法打开图片：$error';
   }
 
   @override
-  String get coverApplied => 'Cover applied to the song ✅';
+  String get coverApplied => '封面已应用到歌曲 ✅';
 
   @override
   String songsAddedToLibrary(int count) {
-    return '$count songs added to your library 🎵';
+    return '已向音乐库添加 $count 首歌曲 🎵';
   }
 
   @override
-  String get resetRanking => 'Reset ranking';
+  String get resetRanking => '重置排行';
 
   @override
   String songsImportedFromFolder(int count) {
-    return '$count songs imported from the folder';
+    return '已从文件夹导入 $count 首歌曲';
   }
 
   @override
   String modelOf(String name) {
-    return 'Model: $name';
+    return '模型：$name';
   }
 
   @override
   String chartsIn(String country) {
-    return 'Charts in $country';
+    return '$country 的热门';
   }
 
   @override
-  String get noPlaylistsYet => 'No playlists yet. Create one.';
+  String get noPlaylistsYet => '还没有歌单，新建一个吧。';
 
   @override
-  String get add => 'Add';
+  String get add => '添加';
 
   @override
   String songsAddedToPlaylist(int count, String name) {
-    return '$count song(s) added to \"$name\"';
+    return '已将 $count 首歌曲添加到“$name”';
   }
 }
 
@@ -1018,72 +1018,72 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String listCreated(String name) {
-    return 'Playlist \"$name\" created';
+    return '歌单“$name”已创建';
   }
 
   @override
   String mixtapeToday(int count) {
-    return 'Today\'s mixtape: $count songs 🎧';
+    return '今日混音带：$count 首歌曲 🎧';
   }
 
   @override
   String coverFound(String source) {
-    return 'Cover found on $source: review it and press Apply';
+    return '在 $source 找到封面：请确认后点“应用”';
   }
 
   @override
   String imageProcessFailed(String error) {
-    return 'Could not process the image: $error';
+    return '无法处理图片：$error';
   }
 
   @override
-  String get coverEditorTitle => 'Cover editor';
+  String get coverEditorTitle => '封面编辑器';
 
   @override
-  String get applyCoverToSong => 'Apply cover to the song';
+  String get applyCoverToSong => '将封面应用到歌曲';
 
   @override
-  String get exportToGallery => 'Export (gallery / storage)';
+  String get exportToGallery => '导出（相册 / 存储）';
 
   @override
   String imageOpenFailed(String error) {
-    return 'Could not open the image: $error';
+    return '无法打开图片：$error';
   }
 
   @override
-  String get coverApplied => 'Cover applied to the song ✅';
+  String get coverApplied => '封面已应用到歌曲 ✅';
 
   @override
   String songsAddedToLibrary(int count) {
-    return '$count songs added to your library 🎵';
+    return '已向音乐库添加 $count 首歌曲 🎵';
   }
 
   @override
-  String get resetRanking => 'Reset ranking';
+  String get resetRanking => '重置排行';
 
   @override
   String songsImportedFromFolder(int count) {
-    return '$count songs imported from the folder';
+    return '已从文件夹导入 $count 首歌曲';
   }
 
   @override
   String modelOf(String name) {
-    return 'Model: $name';
+    return '模型：$name';
   }
 
   @override
   String chartsIn(String country) {
-    return 'Charts in $country';
+    return '$country 的热门';
   }
 
   @override
-  String get noPlaylistsYet => 'No playlists yet. Create one.';
+  String get noPlaylistsYet => '还没有歌单，新建一个吧。';
 
   @override
-  String get add => 'Add';
+  String get add => '添加';
 
   @override
   String songsAddedToPlaylist(int count, String name) {
-    return '$count song(s) added to \"$name\"';
+    return '已将 $count 首歌曲添加到“$name”';
   }
 }

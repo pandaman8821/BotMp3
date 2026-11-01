@@ -488,72 +488,72 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String listCreated(String name) {
-    return 'Playlist \"$name\" created';
+    return 'Playlist “$name” creata';
   }
 
   @override
   String mixtapeToday(int count) {
-    return 'Today\'s mixtape: $count songs 🎧';
+    return 'Mixtape del giorno: $count brani 🎧';
   }
 
   @override
   String coverFound(String source) {
-    return 'Cover found on $source: review it and press Apply';
+    return 'Copertina trovata su $source: controlla e premi Applica';
   }
 
   @override
   String imageProcessFailed(String error) {
-    return 'Could not process the image: $error';
+    return 'Impossibile elaborare l’immagine: $error';
   }
 
   @override
-  String get coverEditorTitle => 'Cover editor';
+  String get coverEditorTitle => 'Editor copertina';
 
   @override
-  String get applyCoverToSong => 'Apply cover to the song';
+  String get applyCoverToSong => 'Applica copertina al brano';
 
   @override
-  String get exportToGallery => 'Export (gallery / storage)';
+  String get exportToGallery => 'Esporta (galleria / archiviazione)';
 
   @override
   String imageOpenFailed(String error) {
-    return 'Could not open the image: $error';
+    return 'Impossibile aprire l’immagine: $error';
   }
 
   @override
-  String get coverApplied => 'Cover applied to the song ✅';
+  String get coverApplied => 'Copertina applicata al brano ✅';
 
   @override
   String songsAddedToLibrary(int count) {
-    return '$count songs added to your library 🎵';
+    return '$count brani aggiunti alla libreria 🎵';
   }
 
   @override
-  String get resetRanking => 'Reset ranking';
+  String get resetRanking => 'Reimposta classifica';
 
   @override
   String songsImportedFromFolder(int count) {
-    return '$count songs imported from the folder';
+    return '$count brani importati dalla cartella';
   }
 
   @override
   String modelOf(String name) {
-    return 'Model: $name';
+    return 'Modello: $name';
   }
 
   @override
   String chartsIn(String country) {
-    return 'Charts in $country';
+    return 'Successi in $country';
   }
 
   @override
-  String get noPlaylistsYet => 'No playlists yet. Create one.';
+  String get noPlaylistsYet => 'Nessuna playlist. Creane una nuova.';
 
   @override
-  String get add => 'Add';
+  String get add => 'Aggiungi';
 
   @override
   String songsAddedToPlaylist(int count, String name) {
-    return '$count song(s) added to \"$name\"';
+    return '$count brano/i aggiunti a “$name”';
   }
 }
