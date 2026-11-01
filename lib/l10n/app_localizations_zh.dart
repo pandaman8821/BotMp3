@@ -313,6 +313,58 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get exportJson => '导出 JSON';
+
+  @override
+  String get subKeepScreen =>
+      'Great for concerts or long videos (reduces AMOLED burn-in).';
+
+  @override
+  String get subBatterySaver =>
+      'Reduces animations and progress-bar refresh. Ideal for long sessions.';
+
+  @override
+  String get secAi => 'AI models';
+
+  @override
+  String get secPlayback => 'Playback';
+
+  @override
+  String get secPerformance => 'Performance and temperature';
+
+  @override
+  String get subSoundWaves =>
+      'Turn them off to save battery during continuous playback.';
+
+  @override
+  String get secVoice => 'Voice';
+
+  @override
+  String get subTrendsNotify =>
+      'One notification a day with what is trending online.';
+
+  @override
+  String get secAppearance => 'Appearance';
+
+  @override
+  String get subRanking => 'Your most played songs, artists and genres.';
+
+  @override
+  String get subThermal =>
+      'Avoids heavy background work when the device is hot (summer) or extremely cold (winter).';
+
+  @override
+  String get subVoice => 'Talk to the AI and search for songs without typing.';
+
+  @override
+  String get subLockControls =>
+      'If music stops when you lock the phone or the controls do not appear, grant BotMp3 notification permission and, on HyperOS/MIUI, enable Autostart and set the battery to No restrictions.';
+
+  @override
+  String get secLibrary => 'Library and backup';
+
+  @override
+  String get subDiagnostics =>
+      'Check why the lock-screen controls do not respond.';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
