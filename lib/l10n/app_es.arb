@@ -101,5 +101,20 @@
   "copyList": "Copiar la lista",
   "importListJson": "Importar lista (JSON)",
   "trendsTitle": "Tendencias",
-  "exportJson": "Exportar JSON"
+  "exportJson": "Exportar JSON",
+  "subKeepScreen": "Útil en conciertos o vídeos largos (baja el consumo del AMOLED).",
+  "subBatterySaver": "Reduce animaciones y refresco de la barra de progreso. Ideal para sesiones largas.",
+  "secAi": "IA multimodelo",
+  "secPlayback": "Reproducción",
+  "secPerformance": "Rendimiento y temperatura",
+  "subSoundWaves": "Desactívalas para ahorrar batería en reproducción continua.",
+  "secVoice": "Voz",
+  "subTrendsNotify": "Una notificación al día con lo más escuchado en internet.",
+  "secAppearance": "Apariencia",
+  "subRanking": "Tus canciones, artistas y géneros más escuchados.",
+  "subThermal": "Evita trabajo pesado en segundo plano cuando el dispositivo está caliente (verano) o frío extremo (invierno).",
+  "subVoice": "Habla a la IA y busca canciones sin escribir.",
+  "subLockControls": "Si la música se para al bloquear el móvil o no aparecen los controles, concede a BotMp3 el permiso de notificaciones y, en HyperOS/MIUI, activa el Inicio automático y pon la batería en Sin restricciones.",
+  "secLibrary": "Biblioteca y respaldo",
+  "subDiagnostics": "Comprueba por qué no responden los controles en el bloqueo."
 }

@@ -314,4 +314,56 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get exportJson => 'Exportar JSON';
+
+  @override
+  String get subKeepScreen =>
+      'Útil en conciertos o vídeos largos (baja el consumo del AMOLED).';
+
+  @override
+  String get subBatterySaver =>
+      'Reduce animaciones y refresco de la barra de progreso. Ideal para sesiones largas.';
+
+  @override
+  String get secAi => 'IA multimodelo';
+
+  @override
+  String get secPlayback => 'Reproducción';
+
+  @override
+  String get secPerformance => 'Rendimiento y temperatura';
+
+  @override
+  String get subSoundWaves =>
+      'Desactívalas para ahorrar batería en reproducción continua.';
+
+  @override
+  String get secVoice => 'Voz';
+
+  @override
+  String get subTrendsNotify =>
+      'Una notificación al día con lo más escuchado en internet.';
+
+  @override
+  String get secAppearance => 'Apariencia';
+
+  @override
+  String get subRanking => 'Tus canciones, artistas y géneros más escuchados.';
+
+  @override
+  String get subThermal =>
+      'Evita trabajo pesado en segundo plano cuando el dispositivo está caliente (verano) o frío extremo (invierno).';
+
+  @override
+  String get subVoice => 'Habla a la IA y busca canciones sin escribir.';
+
+  @override
+  String get subLockControls =>
+      'Si la música se para al bloquear el móvil o no aparecen los controles, concede a BotMp3 el permiso de notificaciones y, en HyperOS/MIUI, activa el Inicio automático y pon la batería en Sin restricciones.';
+
+  @override
+  String get secLibrary => 'Biblioteca y respaldo';
+
+  @override
+  String get subDiagnostics =>
+      'Comprueba por qué no responden los controles en el bloqueo.';
 }

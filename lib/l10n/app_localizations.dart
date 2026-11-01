@@ -727,6 +727,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Export JSON'**
   String get exportJson;
+
+  /// No description provided for @subKeepScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Great for concerts or long videos (reduces AMOLED burn-in).'**
+  String get subKeepScreen;
+
+  /// No description provided for @subBatterySaver.
+  ///
+  /// In en, this message translates to:
+  /// **'Reduces animations and progress-bar refresh. Ideal for long sessions.'**
+  String get subBatterySaver;
+
+  /// No description provided for @secAi.
+  ///
+  /// In en, this message translates to:
+  /// **'AI models'**
+  String get secAi;
+
+  /// No description provided for @secPlayback.
+  ///
+  /// In en, this message translates to:
+  /// **'Playback'**
+  String get secPlayback;
+
+  /// No description provided for @secPerformance.
+  ///
+  /// In en, this message translates to:
+  /// **'Performance and temperature'**
+  String get secPerformance;
+
+  /// No description provided for @subSoundWaves.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn them off to save battery during continuous playback.'**
+  String get subSoundWaves;
+
+  /// No description provided for @secVoice.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice'**
+  String get secVoice;
+
+  /// No description provided for @subTrendsNotify.
+  ///
+  /// In en, this message translates to:
+  /// **'One notification a day with what is trending online.'**
+  String get subTrendsNotify;
+
+  /// No description provided for @secAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get secAppearance;
+
+  /// No description provided for @subRanking.
+  ///
+  /// In en, this message translates to:
+  /// **'Your most played songs, artists and genres.'**
+  String get subRanking;
+
+  /// No description provided for @subThermal.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoids heavy background work when the device is hot (summer) or extremely cold (winter).'**
+  String get subThermal;
+
+  /// No description provided for @subVoice.
+  ///
+  /// In en, this message translates to:
+  /// **'Talk to the AI and search for songs without typing.'**
+  String get subVoice;
+
+  /// No description provided for @subLockControls.
+  ///
+  /// In en, this message translates to:
+  /// **'If music stops when you lock the phone or the controls do not appear, grant BotMp3 notification permission and, on HyperOS/MIUI, enable Autostart and set the battery to No restrictions.'**
+  String get subLockControls;
+
+  /// No description provided for @secLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Library and backup'**
+  String get secLibrary;
+
+  /// No description provided for @subDiagnostics.
+  ///
+  /// In en, this message translates to:
+  /// **'Check why the lock-screen controls do not respond.'**
+  String get subDiagnostics;
 }
 
 class _AppLocalizationsDelegate

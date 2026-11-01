@@ -117,9 +117,7 @@ class SettingsScreen extends StatelessWidget {
             },
             secondary: const Icon(Icons.notifications_active_outlined),
             title: Text(AppLocalizations.of(context)!.notifyTrends),
-            subtitle: const Text(
-              'Una notificación al día con lo más escuchado en internet.',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subTrendsNotify),
           ),
           ListTile(
             leading: const Icon(Icons.local_fire_department_outlined),
@@ -132,9 +130,7 @@ class SettingsScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.health_and_safety_outlined),
             title: Text(AppLocalizations.of(context)!.playbackDiagnostics),
-            subtitle: const Text(
-              'Comprueba por qué no responden los controles en el bloqueo.',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subDiagnostics),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => const DiagnosticsScreen()),
@@ -143,13 +139,13 @@ class SettingsScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.leaderboard_outlined),
             title: Text(AppLocalizations.of(context)!.seeMyRanking),
-            subtitle: const Text('Tus canciones, artistas y géneros más escuchados.'),
+            subtitle: Text(AppLocalizations.of(context)!.subRanking),
             trailing: const Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => const RankingScreen()),
             ),
           ),
-          const _SectionTitle('Apariencia'),
+          _SectionTitle(AppLocalizations.of(context)!.secAppearance),
           const ListTile(
             leading: Icon(Icons.notifications_active_outlined),
             title: Text('Controles en la pantalla de bloqueo'),
@@ -185,7 +181,7 @@ class SettingsScreen extends StatelessWidget {
           ),
 
           // ---------------------------------------------------- IA
-          const _SectionTitle('IA multimodelo'),
+          _SectionTitle(AppLocalizations.of(context)!.secAi),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
@@ -205,7 +201,7 @@ class SettingsScreen extends StatelessWidget {
           ),
 
           // ---------------------------------------------------- Reproducción
-          const _SectionTitle('Reproducción'),
+          _SectionTitle(AppLocalizations.of(context)!.secPlayback),
           SwitchListTile(
             value: settings.keepScreenOn,
             onChanged: (bool value) {
@@ -213,42 +209,37 @@ class SettingsScreen extends StatelessWidget {
               context.read<PlayerProvider>().setKeepScreenOn(value);
             },
             title: Text(AppLocalizations.of(context)!.screenAlwaysOn),
-            subtitle: const Text('Útil en conciertos o vídeos largos (baja el consumo del AMOLED).'),
+            subtitle: Text(AppLocalizations.of(context)!.subKeepScreen),
           ),
           SwitchListTile(
             value: settings.showWaveAnimation,
             onChanged: settings.setShowWaveAnimation,
             title: Text(AppLocalizations.of(context)!.soundWaves),
-            subtitle: const Text('Desactívalas para ahorrar batería en reproducción continua.'),
+            subtitle: Text(AppLocalizations.of(context)!.subSoundWaves),
           ),
 
           // ---------------------------------------------------- Rendimiento
-          const _SectionTitle('Rendimiento y temperatura'),
+          _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           SwitchListTile(
             value: settings.batterySaver,
             onChanged: settings.setBatterySaver,
             title: Text(AppLocalizations.of(context)!.batterySaver),
-            subtitle: const Text(
-              'Reduce animaciones y refresco de la barra de progreso. Ideal para sesiones largas.',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subBatterySaver),
           ),
           SwitchListTile(
             value: settings.thermalGuard,
             onChanged: settings.setThermalGuard,
             title: Text(AppLocalizations.of(context)!.thermalProtection),
-            subtitle: const Text(
-              'Evita trabajo pesado en segundo plano cuando el dispositivo está caliente '
-              '(verano) o en frío extremo (invierno boliviano).',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subThermal),
           ),
 
           // ---------------------------------------------------- Voz
-          const _SectionTitle('Voz en español'),
+          _SectionTitle(AppLocalizations.of(context)!.secVoice),
           SwitchListTile(
             value: settings.voiceEnabled,
             onChanged: settings.setVoiceEnabled,
             title: Text(AppLocalizations.of(context)!.voiceDictation),
-            subtitle: const Text('Habla a la IA y busca canciones sin escribir.'),
+            subtitle: Text(AppLocalizations.of(context)!.subVoice),
           ),
           SwitchListTile(
             value: settings.ttsEnabled,
@@ -284,7 +275,7 @@ class SettingsScreen extends StatelessWidget {
           ),
 
           // ---------------------------------------------------- Biblioteca
-          const _SectionTitle('Apariencia'),
+          _SectionTitle(AppLocalizations.of(context)!.secAppearance),
           SwitchListTile(
             value: settings.glassEnabled,
             onChanged: (bool value) => settings.setGlassEnabled(value),
@@ -309,7 +300,7 @@ class SettingsScreen extends StatelessWidget {
             ),
             onTap: null,
           ),
-          const _SectionTitle('Biblioteca y respaldo'),
+          _SectionTitle(AppLocalizations.of(context)!.secLibrary),
           SwitchListTile(
             value: settings.autoImport,
             onChanged: (bool value) => settings.setAutoImport(value),
