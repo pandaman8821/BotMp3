@@ -366,4 +366,91 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get subDiagnostics =>
       'Comprueba por qué no responden los controles en el bloqueo.';
+
+  @override
+  String get menuPlayNext => 'Reproducir a continuación';
+
+  @override
+  String get durationLabel => 'Duración';
+
+  @override
+  String get djNextUp => 'a continuación';
+
+  @override
+  String get apiKeyHint => 'Configura la API key de';
+
+  @override
+  String get menuEditCover => 'Editar carátula';
+
+  @override
+  String get genreLabel => 'Género';
+
+  @override
+  String get menuRemoveFromLibrary => 'Eliminar de la biblioteca';
+
+  @override
+  String get diagErrorsHere => 'Los problemas de carga aparecerán aquí.';
+
+  @override
+  String get menuPlayNow => 'Reproducir ahora';
+
+  @override
+  String get yearLabel => 'Año';
+
+  @override
+  String get searchHint =>
+      'Escribe qué buscas: \"algo para entrenar\", \"rock de los 2000\"…';
+
+  @override
+  String get diagNoErrors => 'Ningún error de reproducción';
+
+  @override
+  String get lockControlsTitle => 'Controles en la pantalla de bloqueo';
+
+  @override
+  String get autoTheme => 'Automático';
+
+  @override
+  String get aiSpeaks => 'La IA lee sus recomendaciones en voz alta.';
+
+  @override
+  String get glassIntensity => 'Intensidad del cristal';
+
+  @override
+  String get autoImport => 'Importar canciones automáticamente';
+
+  @override
+  String get importAppAudio => 'Importar audios de apps y notas de voz';
+
+  @override
+  String get noBackupYet => 'Todavía no hay copia: pulsa «Copiar» primero';
+
+  @override
+  String get djBatch => 'Canciones por tanda del Modo DJ';
+
+  @override
+  String get eqDesc => 'Abre el ecualizador de 5 bandas (pantalla nativa)';
+
+  @override
+  String get backupTitle => 'Copia de seguridad';
+
+  @override
+  String get importFolder => 'Importar una carpeta completa';
+
+  @override
+  String get importFolderDesc =>
+      'Añade todos los audios compatibles de la carpeta elegida';
+
+  @override
+  String get noAudioDeleted =>
+      'No borra los archivos de audio de tu dispositivo';
+
+  @override
+  String get menuEditMetadata => 'Editar metadatos y etiquetas';
+
+  @override
+  String get menuRemoveFavorite => 'Quitar de favoritas';
+
+  @override
+  String get menuMarkFavorite => 'Marcar como favorita';
 }

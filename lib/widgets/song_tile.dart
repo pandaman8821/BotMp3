@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -111,27 +112,27 @@ class SongTile extends StatelessWidget {
           children: <Widget>[
             ListTile(
               leading: const Icon(Icons.play_arrow),
-              title: const Text('Reproducir ahora'),
+              title: Text(AppLocalizations.of(context)!.menuPlayNow),
               onTap: () => Navigator.of(sheetContext).pop('play'),
             ),
             ListTile(
               leading: const Icon(Icons.playlist_play),
-              title: const Text('Reproducir a continuación'),
+              title: Text(AppLocalizations.of(context)!.menuPlayNext),
               onTap: () => Navigator.of(sheetContext).pop('next'),
             ),
             ListTile(
               leading: const Icon(Icons.queue_music),
-              title: const Text('Añadir a una lista'),
+              title: Text(AppLocalizations.of(context)!.addToPlaylist),
               onTap: () => Navigator.of(sheetContext).pop('playlist'),
             ),
             ListTile(
               leading: const Icon(Icons.edit_note),
-              title: const Text('Editar metadatos y etiquetas'),
+              title: Text(AppLocalizations.of(context)!.menuEditMetadata),
               onTap: () => Navigator.of(sheetContext).pop('edit'),
             ),
             ListTile(
               leading: const Icon(Icons.image_outlined),
-              title: const Text('Editar carátula'),
+              title: Text(AppLocalizations.of(context)!.menuEditCover),
               onTap: () => Navigator.of(sheetContext).pop('cover'),
             ),
             ListTile(
@@ -141,7 +142,7 @@ class SongTile extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.delete_outline, color: Colors.redAccent),
-              title: const Text('Eliminar de la biblioteca', style: TextStyle(color: Colors.redAccent)),
+              title: Text(AppLocalizations.of(context)!.menuRemoveFromLibrary, style: const TextStyle(color: Colors.redAccent)),
               onTap: () => Navigator.of(sheetContext).pop('delete'),
             ),
             const SizedBox(height: 8),
