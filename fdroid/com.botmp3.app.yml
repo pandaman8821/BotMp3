@@ -9,36 +9,48 @@ IssueTracker: https://github.com/pandaman8821/BotMp3/issues
 Changelog: https://github.com/pandaman8821/BotMp3/commits/main
 
 AutoName: BotMp3
+Summary: Reproductor de musica offline con DJ de IA opcional
+Description: |-
+  Reproductor de musica offline con biblioteca local, listas, ecualizador de
+  5 bandas, widget de pantalla de inicio, modo coche, letras, ranking de lo mas
+  escuchado y un DJ/asistente de IA opcional.
+
+  Privacidad: sin anuncios, sin cuentas y sin rastreo. La app no envia datos a
+  servidores del autor. Las funciones de IA usan la clave del propio usuario
+  (DeepSeek, Gemini, OpenAI o Claude) guardada cifrada con el Android Keystore.
+
+  Disponible en 10 idiomas: espanol, ingles, aleman, frances, italiano,
+  portugues (Brasil), japones, coreano, hindi y chino simplificado.
 
 RepoType: git
 Repo: https://github.com/pandaman8821/BotMp3.git
 
 Builds:
-  - versionName: 1.9.58
-    versionCode: 111
-    commit: v1.9.57
+  - versionName: 1.9.60
+    versionCode: 113
+    commit: v1.9.60
     subdir: BotMp3
     sudo:
       - apt-get update
-      - apt-get install -y openjdk-21-jdk
+      - apt-get install -y openjdk-21-jdk-headless
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
-      - flutter@stable
+      - flutter@3.47.7
     prebuild:
-      - cd $$flutter$$/bin && ./flutter config --no-analytics
-      - cd $$flutter$$/bin && ./flutter precache --android
       - export PUB_CACHE=$$flutter$$/.pub-cache
-      - cd $$flutter$$/bin && ./flutter pub get
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter precache --android
+      - cd $$flutter$$ && $${flutter}$$/bin/flutter pub get
     build:
       - export PUB_CACHE=$$flutter$$/.pub-cache
-      - cd $$flutter$$/bin && ./flutter build apk --release --target-platform android-arm64 --no-pub
+      - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64 --no-pub
 
 MaintainerNotes: |
-  Build sin red: se hace pub get dentro del srclib de Flutter.
-  Firmado por F-Droid (no usa el keystore del autor).
-  Sin dependencias propietarias: solo Flutter + plugins open source.
+  Compilacion hecha por F-Droid (firmada por F-Droid, no por el autor).
+  Solo dependencias open source. Sin red en tiempo de ejecucion salvo las
+  llamadas HTTPS que el usuario decida hacer a su proveedor de IA.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.58
-CurrentVersionCode: 111
+CurrentVersion: 1.9.60
+CurrentVersionCode: 113
