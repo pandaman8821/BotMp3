@@ -1147,6 +1147,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} song(s) added to \"{name}\"'**
   String songsAddedToPlaylist(int count, String name);
+
+  /// No description provided for @sleepTimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep timer'**
+  String get sleepTimer;
+
+  /// No description provided for @sleepTimerOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get sleepTimerOff;
+
+  /// No description provided for @sleepTimerActive.
+  ///
+  /// In en, this message translates to:
+  /// **'On: playback pauses when it ends'**
+  String get sleepTimerActive;
+
+  /// No description provided for @sleepTimerCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off'**
+  String get sleepTimerCancel;
+
+  /// No description provided for @sleepTimerMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min'**
+  String sleepTimerMinutes(int count);
 }
 
 class _AppLocalizationsDelegate

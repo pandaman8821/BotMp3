@@ -244,5 +244,17 @@
         "type": "String"
       }
     }
+  },
+  "sleepTimer": "Temporizador de sueño",
+  "sleepTimerOff": "Apagado",
+  "sleepTimerActive": "Activo: la música se pausará al terminar",
+  "sleepTimerCancel": "Desactivar",
+  "sleepTimerMinutes": "{count} min",
+  "@sleepTimerMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

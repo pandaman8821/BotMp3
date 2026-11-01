@@ -544,4 +544,21 @@ class AppLocalizationsJa extends AppLocalizations {
   String songsAddedToPlaylist(int count, String name) {
     return '$count曲を「$name」に追加しました';
   }
+
+  @override
+  String get sleepTimer => 'スリープタイマー';
+
+  @override
+  String get sleepTimerOff => 'オフ';
+
+  @override
+  String get sleepTimerActive => 'オン：終了時に再生を停止します';
+
+  @override
+  String get sleepTimerCancel => 'オフにする';
+
+  @override
+  String sleepTimerMinutes(int count) {
+    return '$count分';
+  }
 }

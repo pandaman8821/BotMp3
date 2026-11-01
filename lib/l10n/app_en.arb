@@ -244,5 +244,17 @@
         "type": "String"
       }
     }
+  },
+  "sleepTimer": "Sleep timer",
+  "sleepTimerOff": "Off",
+  "sleepTimerActive": "On: playback pauses when it ends",
+  "sleepTimerCancel": "Turn off",
+  "sleepTimerMinutes": "{count} min",
+  "@sleepTimerMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

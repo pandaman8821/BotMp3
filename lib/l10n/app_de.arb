@@ -171,5 +171,17 @@
   "chartsIn": "Hits in {country}",
   "noPlaylistsYet": "Noch keine Wiedergabelisten. Erstelle eine neue.",
   "add": "Hinzufügen",
-  "songsAddedToPlaylist": "{count} Lied(er) zu „{name}“ hinzugefügt"
+  "songsAddedToPlaylist": "{count} Lied(er) zu „{name}“ hinzugefügt",
+  "sleepTimer": "Sleep-Timer",
+  "sleepTimerOff": "Aus",
+  "sleepTimerActive": "An: Wiedergabe pausiert am Ende",
+  "sleepTimerCancel": "Ausschalten",
+  "sleepTimerMinutes": "{count} Min.",
+  "@sleepTimerMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -558,4 +558,21 @@ class AppLocalizationsFr extends AppLocalizations {
   String songsAddedToPlaylist(int count, String name) {
     return '$count chanson(s) ajoutée(s) à « $name »';
   }
+
+  @override
+  String get sleepTimer => 'Minuteur de sommeil';
+
+  @override
+  String get sleepTimerOff => 'Désactivé';
+
+  @override
+  String get sleepTimerActive => 'Actif : la lecture s’arrêtera à la fin';
+
+  @override
+  String get sleepTimerCancel => 'Désactiver';
+
+  @override
+  String sleepTimerMinutes(int count) {
+    return '$count min';
+  }
 }
