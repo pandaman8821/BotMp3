@@ -154,5 +154,22 @@
   "askingAi": "AIに問い合わせています…",
   "autofillFailed": "自動入力できませんでした。設定 ▸ AI のAPIキーを確認してください。",
   "noCoverOnDevice": "このアルバムには端末にカバーがありません",
-  "albumCoverApplied": "アルバムカバーを適用しました 🖼️"
+  "albumCoverApplied": "アルバムカバーを適用しました 🖼️",
+  "listCreated": "Playlist \"{name}\" created",
+  "mixtapeToday": "Today's mixtape: {count} songs 🎧",
+  "coverFound": "Cover found on {source}: review it and press Apply",
+  "imageProcessFailed": "Could not process the image: {error}",
+  "coverEditorTitle": "Cover editor",
+  "applyCoverToSong": "Apply cover to the song",
+  "exportToGallery": "Export (gallery / storage)",
+  "imageOpenFailed": "Could not open the image: {error}",
+  "coverApplied": "Cover applied to the song ✅",
+  "songsAddedToLibrary": "{count} songs added to your library 🎵",
+  "resetRanking": "Reset ranking",
+  "songsImportedFromFolder": "{count} songs imported from the folder",
+  "modelOf": "Model: {name}",
+  "chartsIn": "Charts in {country}",
+  "noPlaylistsYet": "No playlists yet. Create one.",
+  "add": "Add",
+  "songsAddedToPlaylist": "{count} song(s) added to \"{name}\""
 }

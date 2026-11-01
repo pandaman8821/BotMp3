@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -67,7 +68,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
               final bool? confirmar = await showDialog<bool>(
                 context: context,
                 builder: (BuildContext dialogContext) => AlertDialog(
-                  title: const Text('Reiniciar el ranking'),
+                  title: Text(AppLocalizations.of(context)!.resetRanking),
                   content: const Text(
                     'Se pondrán a cero las reproducciones de todas las canciones '
                     'y el historial. Útil si el contador se infló en versiones '

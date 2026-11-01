@@ -154,5 +154,22 @@
   "askingAi": "AI से जानकारी माँगी जा रही है…",
   "autofillFailed": "अपने आप भरना संभव नहीं। सेटिंग्स ▸ AI में API कुंजी जाँचें।",
   "noCoverOnDevice": "इस एल्बम का डिवाइस पर कवर नहीं है",
-  "albumCoverApplied": "एल्बम कवर लगाया गया 🖼️"
+  "albumCoverApplied": "एल्बम कवर लगाया गया 🖼️",
+  "listCreated": "Playlist \"{name}\" created",
+  "mixtapeToday": "Today's mixtape: {count} songs 🎧",
+  "coverFound": "Cover found on {source}: review it and press Apply",
+  "imageProcessFailed": "Could not process the image: {error}",
+  "coverEditorTitle": "Cover editor",
+  "applyCoverToSong": "Apply cover to the song",
+  "exportToGallery": "Export (gallery / storage)",
+  "imageOpenFailed": "Could not open the image: {error}",
+  "coverApplied": "Cover applied to the song ✅",
+  "songsAddedToLibrary": "{count} songs added to your library 🎵",
+  "resetRanking": "Reset ranking",
+  "songsImportedFromFolder": "{count} songs imported from the folder",
+  "modelOf": "Model: {name}",
+  "chartsIn": "Charts in {country}",
+  "noPlaylistsYet": "No playlists yet. Create one.",
+  "add": "Add",
+  "songsAddedToPlaylist": "{count} song(s) added to \"{name}\""
 }

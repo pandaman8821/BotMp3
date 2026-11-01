@@ -113,7 +113,7 @@ class _HomeShellState extends State<HomeShell>
     }
     if (!mounted || added <= 0) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$added canciones añadidas a tu biblioteca 🎵')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.songsAddedToLibrary(added))),
     );
   }
 

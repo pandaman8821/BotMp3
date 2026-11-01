@@ -41,7 +41,7 @@ class PlaylistsScreen extends StatelessWidget {
           final Playlist? playlist = await AppDialogs.createPlaylist(context);
           if (playlist != null && context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Lista "${playlist.name}" creada')),
+              SnackBar(content: Text(AppLocalizations.of(context)!.listCreated(playlist.name))),
             );
           }
         },

@@ -154,5 +154,22 @@
   "askingAi": "AI에 정보를 요청하는 중…",
   "autofillFailed": "자동으로 채울 수 없습니다. 설정 ▸ AI의 API 키를 확인하세요.",
   "noCoverOnDevice": "이 앨범에는 기기에 커버가 없습니다",
-  "albumCoverApplied": "앨범 커버를 적용했습니다 🖼️"
+  "albumCoverApplied": "앨범 커버를 적용했습니다 🖼️",
+  "listCreated": "Playlist \"{name}\" created",
+  "mixtapeToday": "Today's mixtape: {count} songs 🎧",
+  "coverFound": "Cover found on {source}: review it and press Apply",
+  "imageProcessFailed": "Could not process the image: {error}",
+  "coverEditorTitle": "Cover editor",
+  "applyCoverToSong": "Apply cover to the song",
+  "exportToGallery": "Export (gallery / storage)",
+  "imageOpenFailed": "Could not open the image: {error}",
+  "coverApplied": "Cover applied to the song ✅",
+  "songsAddedToLibrary": "{count} songs added to your library 🎵",
+  "resetRanking": "Reset ranking",
+  "songsImportedFromFolder": "{count} songs imported from the folder",
+  "modelOf": "Model: {name}",
+  "chartsIn": "Charts in {country}",
+  "noPlaylistsYet": "No playlists yet. Create one.",
+  "add": "Add",
+  "songsAddedToPlaylist": "{count} song(s) added to \"{name}\""
 }

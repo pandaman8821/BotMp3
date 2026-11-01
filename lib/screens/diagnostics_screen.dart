@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
@@ -69,7 +70,7 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Diagnóstico de reproducción'),
+        title: Text(AppLocalizations.of(context)!.playbackDiagnostics),
         actions: <Widget>[
           IconButton(
             tooltip: 'Copiar informe',
@@ -121,10 +122,10 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
           _fila('Canción', player.current?.title ?? '—'),
           const _Section('Errores recientes'),
           if (errores.isEmpty)
-            const ListTile(
+            ListTile(
               leading: Icon(Icons.check_circle_outline, color: AppColors.green),
-              title: Text('Ningún error de reproducción'),
-              subtitle: Text('Los problemas de carga aparecerán aquí.'),
+              title: Text(AppLocalizations.of(context)!.diagNoErrors),
+              subtitle: Text(AppLocalizations.of(context)!.diagErrorsHere),
             )
           else
             for (final String error in errores)

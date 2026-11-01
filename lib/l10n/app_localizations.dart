@@ -1045,6 +1045,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Album cover applied 🖼️'**
   String get albumCoverApplied;
+
+  /// No description provided for @listCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlist \"{name}\" created'**
+  String listCreated(String name);
+
+  /// No description provided for @mixtapeToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s mixtape: {count} songs 🎧'**
+  String mixtapeToday(int count);
+
+  /// No description provided for @coverFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Cover found on {source}: review it and press Apply'**
+  String coverFound(String source);
+
+  /// No description provided for @imageProcessFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not process the image: {error}'**
+  String imageProcessFailed(String error);
+
+  /// No description provided for @coverEditorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cover editor'**
+  String get coverEditorTitle;
+
+  /// No description provided for @applyCoverToSong.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply cover to the song'**
+  String get applyCoverToSong;
+
+  /// No description provided for @exportToGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Export (gallery / storage)'**
+  String get exportToGallery;
+
+  /// No description provided for @imageOpenFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open the image: {error}'**
+  String imageOpenFailed(String error);
+
+  /// No description provided for @coverApplied.
+  ///
+  /// In en, this message translates to:
+  /// **'Cover applied to the song ✅'**
+  String get coverApplied;
+
+  /// No description provided for @songsAddedToLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} songs added to your library 🎵'**
+  String songsAddedToLibrary(int count);
+
+  /// No description provided for @resetRanking.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset ranking'**
+  String get resetRanking;
+
+  /// No description provided for @songsImportedFromFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} songs imported from the folder'**
+  String songsImportedFromFolder(int count);
+
+  /// No description provided for @modelOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Model: {name}'**
+  String modelOf(String name);
+
+  /// No description provided for @chartsIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Charts in {country}'**
+  String chartsIn(String country);
+
+  /// No description provided for @noPlaylistsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No playlists yet. Create one.'**
+  String get noPlaylistsYet;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @songsAddedToPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} song(s) added to \"{name}\"'**
+  String songsAddedToPlaylist(int count, String name);
 }
 
 class _AppLocalizationsDelegate

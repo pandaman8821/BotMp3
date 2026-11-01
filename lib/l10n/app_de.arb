@@ -154,5 +154,22 @@
   "askingAi": "Die KI wird nach den Daten gefragt…",
   "autofillFailed": "Automatisches Ausfüllen fehlgeschlagen. Prüfe den API-Schlüssel unter Einstellungen ▸ KI.",
   "noCoverOnDevice": "Für dieses Album gibt es kein Cover auf dem Gerät",
-  "albumCoverApplied": "Albumcover übernommen 🖼️"
+  "albumCoverApplied": "Albumcover übernommen 🖼️",
+  "listCreated": "Playlist \"{name}\" created",
+  "mixtapeToday": "Today's mixtape: {count} songs 🎧",
+  "coverFound": "Cover found on {source}: review it and press Apply",
+  "imageProcessFailed": "Could not process the image: {error}",
+  "coverEditorTitle": "Cover editor",
+  "applyCoverToSong": "Apply cover to the song",
+  "exportToGallery": "Export (gallery / storage)",
+  "imageOpenFailed": "Could not open the image: {error}",
+  "coverApplied": "Cover applied to the song ✅",
+  "songsAddedToLibrary": "{count} songs added to your library 🎵",
+  "resetRanking": "Reset ranking",
+  "songsImportedFromFolder": "{count} songs imported from the folder",
+  "modelOf": "Model: {name}",
+  "chartsIn": "Charts in {country}",
+  "noPlaylistsYet": "No playlists yet. Create one.",
+  "add": "Add",
+  "songsAddedToPlaylist": "{count} song(s) added to \"{name}\""
 }

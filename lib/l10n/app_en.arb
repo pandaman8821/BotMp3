@@ -154,5 +154,95 @@
   "askingAi": "Asking the AI for the details…",
   "autofillFailed": "Could not autofill. Check the API key in Settings ▸ AI.",
   "noCoverOnDevice": "That album has no cover on this device",
-  "albumCoverApplied": "Album cover applied 🖼️"
+  "albumCoverApplied": "Album cover applied 🖼️",
+  "listCreated": "Playlist \"{name}\" created",
+  "@listCreated": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mixtapeToday": "Today's mixtape: {count} songs 🎧",
+  "@mixtapeToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "coverFound": "Cover found on {source}: review it and press Apply",
+  "@coverFound": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "imageProcessFailed": "Could not process the image: {error}",
+  "@imageProcessFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "coverEditorTitle": "Cover editor",
+  "applyCoverToSong": "Apply cover to the song",
+  "exportToGallery": "Export (gallery / storage)",
+  "imageOpenFailed": "Could not open the image: {error}",
+  "@imageOpenFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "coverApplied": "Cover applied to the song ✅",
+  "songsAddedToLibrary": "{count} songs added to your library 🎵",
+  "@songsAddedToLibrary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "resetRanking": "Reset ranking",
+  "songsImportedFromFolder": "{count} songs imported from the folder",
+  "@songsImportedFromFolder": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "modelOf": "Model: {name}",
+  "@modelOf": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "chartsIn": "Charts in {country}",
+  "@chartsIn": {
+    "placeholders": {
+      "country": {
+        "type": "String"
+      }
+    }
+  },
+  "noPlaylistsYet": "No playlists yet. Create one.",
+  "add": "Add",
+  "songsAddedToPlaylist": "{count} song(s) added to \"{name}\"",
+  "@songsAddedToPlaylist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

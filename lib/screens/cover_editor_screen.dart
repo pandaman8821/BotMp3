@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import '../services/cover_finder.dart';
 import 'dart:async';
 import 'dart:io';
@@ -79,7 +80,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
           bytes = online;
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Carátula encontrada en $fuente: revísala y pulsa Aplicar')),
+              SnackBar(content: Text(AppLocalizations.of(context)!.coverFound(fuente))),
             );
           }
         }
@@ -113,7 +114,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
       if (!mounted) return;
       setState(() => _rendering = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('No se pudo procesar la imagen: $error')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.imageProcessFailed(error.toString()))),
       );
     }
   }
@@ -130,7 +131,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Editor de carátula'),
+        title: Text(AppLocalizations.of(context)!.coverEditorTitle),
         actions: <Widget>[
           IconButton(
             tooltip: 'Deshacer cambios',
@@ -353,14 +354,14 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                           const SizedBox(height: 16),
                           FilledButton.icon(
                             onPressed: _rendering ? null : _applyToSong,
-                            icon: const Icon(Icons.check),
-                            label: const Text('Aplicar carátula a la canción'),
+                            icon: Icon(Icons.check),
+                            label: Text(AppLocalizations.of(context)!.applyCoverToSong),
                           ),
                           const SizedBox(height: 8),
                           OutlinedButton.icon(
                             onPressed: _preview == null ? null : _exportToGallery,
-                            icon: const Icon(Icons.ios_share),
-                            label: const Text('Exportar (galería / almacenamiento)'),
+                            icon: Icon(Icons.ios_share),
+                            label: Text(AppLocalizations.of(context)!.exportToGallery),
                           ),
                           const SizedBox(height: 8),
                           OutlinedButton.icon(
@@ -478,7 +479,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
     } catch (error) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('No se pudo abrir la imagen: $error')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.imageOpenFailed(error.toString()))),
       );
     }
   }
@@ -491,7 +492,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
     await library.setCover(widget.songId, path);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Carátula aplicada a la canción ✅')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.coverApplied)),
     );
   }
 

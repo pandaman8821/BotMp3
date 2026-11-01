@@ -88,7 +88,7 @@ class AppDialogs {
             TextField(
               controller: descriptionController,
               maxLines: 3,
-              decoration: const InputDecoration(labelText: 'Descripción'),
+              decoration: InputDecoration(labelText: 'Descripción'),
             ),
           ],
         ),
@@ -130,9 +130,9 @@ class AppDialogs {
         title: Text(title),
         children: <Widget>[
           if (playlists.isEmpty)
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(16),
-              child: Text('Todavía no tienes listas. Crea una nueva.'),
+              child: Text(AppLocalizations.of(context)!.noPlaylistsYet),
             ),
           ...playlists.map(
             (Playlist playlist) => SimpleDialogOption(
@@ -162,8 +162,8 @@ class AppDialogs {
             child: Row(
                 children: <Widget>[
                   const Icon(Icons.add, size: 22),
-                  const SizedBox(width: 12),
-                  Text(AppLocalizations.of(context)!.createNewPlaylist, style: const TextStyle(fontSize: 16)),
+                  SizedBox(width: 12),
+                  Text(AppLocalizations.of(context)!.createNewPlaylist, style: TextStyle(fontSize: 16)),
               ],
             ),
           ),
@@ -210,10 +210,10 @@ class AppDialogs {
                         '${selected.length} seleccionadas',
                         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                       ),
-                      const Spacer(),
+                      Spacer(),
                       FilledButton(
                         onPressed: () => Navigator.of(sheetContext).pop(true),
-                        child: const Text('Añadir'),
+                        child: Text(AppLocalizations.of(context)!.add),
                       ),
                     ],
                   ),
@@ -488,7 +488,7 @@ class AppDialogs {
     );
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${songs.length} canción(es) añadidas a "${playlist.name}"')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.songsAddedToPlaylist(songs.length, playlist.name))),
       );
     }
   }

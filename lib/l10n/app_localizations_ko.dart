@@ -473,4 +473,75 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get albumCoverApplied => '앨범 커버를 적용했습니다 🖼️';
+
+  @override
+  String listCreated(String name) {
+    return 'Playlist \"$name\" created';
+  }
+
+  @override
+  String mixtapeToday(int count) {
+    return 'Today\'s mixtape: $count songs 🎧';
+  }
+
+  @override
+  String coverFound(String source) {
+    return 'Cover found on $source: review it and press Apply';
+  }
+
+  @override
+  String imageProcessFailed(String error) {
+    return 'Could not process the image: $error';
+  }
+
+  @override
+  String get coverEditorTitle => 'Cover editor';
+
+  @override
+  String get applyCoverToSong => 'Apply cover to the song';
+
+  @override
+  String get exportToGallery => 'Export (gallery / storage)';
+
+  @override
+  String imageOpenFailed(String error) {
+    return 'Could not open the image: $error';
+  }
+
+  @override
+  String get coverApplied => 'Cover applied to the song ✅';
+
+  @override
+  String songsAddedToLibrary(int count) {
+    return '$count songs added to your library 🎵';
+  }
+
+  @override
+  String get resetRanking => 'Reset ranking';
+
+  @override
+  String songsImportedFromFolder(int count) {
+    return '$count songs imported from the folder';
+  }
+
+  @override
+  String modelOf(String name) {
+    return 'Model: $name';
+  }
+
+  @override
+  String chartsIn(String country) {
+    return 'Charts in $country';
+  }
+
+  @override
+  String get noPlaylistsYet => 'No playlists yet. Create one.';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String songsAddedToPlaylist(int count, String name) {
+    return '$count song(s) added to \"$name\"';
+  }
 }
