@@ -316,172 +316,172 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get subKeepScreen =>
-      'Great for concerts or long videos (reduces AMOLED burn-in).';
+      'Ideal für Konzerte oder lange Videos (reduziert AMOLED-Einbrennen).';
 
   @override
   String get subBatterySaver =>
-      'Reduces animations and progress-bar refresh. Ideal for long sessions.';
+      'Reduziert Animationen und das Aktualisieren der Fortschrittsleiste. Ideal für lange Sitzungen.';
 
   @override
-  String get secAi => 'AI models';
+  String get secAi => 'KI-Modelle';
 
   @override
-  String get secPlayback => 'Playback';
+  String get secPlayback => 'Wiedergabe';
 
   @override
-  String get secPerformance => 'Performance and temperature';
+  String get secPerformance => 'Leistung und Temperatur';
 
   @override
-  String get subSoundWaves =>
-      'Turn them off to save battery during continuous playback.';
+  String get subSoundWaves => 'Ausschalten spart Akku bei Dauerwiedergabe.';
 
   @override
-  String get secVoice => 'Voice';
+  String get secVoice => 'Stimme';
 
   @override
   String get subTrendsNotify =>
-      'One notification a day with what is trending online.';
+      'Eine Benachrichtigung pro Tag mit den Online-Trends.';
 
   @override
-  String get secAppearance => 'Appearance';
+  String get secAppearance => 'Darstellung';
 
   @override
-  String get subRanking => 'Your most played songs, artists and genres.';
+  String get subRanking => 'Deine meistgehörten Lieder, Künstler und Genres.';
 
   @override
   String get subThermal =>
-      'Avoids heavy background work when the device is hot (summer) or extremely cold (winter).';
+      'Vermeidet schwere Hintergrundarbeit bei Hitze (Sommer) oder extremer Kälte (Winter).';
 
   @override
-  String get subVoice => 'Talk to the AI and search for songs without typing.';
+  String get subVoice => 'Sprich mit der KI und suche Lieder ohne Tippen.';
 
   @override
   String get subLockControls =>
-      'If music stops when you lock the phone or the controls do not appear, grant BotMp3 notification permission and, on HyperOS/MIUI, enable Autostart and set the battery to No restrictions.';
+      'Wenn die Musik beim Sperren stoppt oder die Steuerung nicht erscheint, erlaube BotMp3 Benachrichtigungen und aktiviere unter HyperOS/MIUI den Autostart sowie Akku ohne Einschränkungen.';
 
   @override
-  String get secLibrary => 'Library and backup';
+  String get secLibrary => 'Bibliothek und Sicherung';
 
   @override
   String get subDiagnostics =>
-      'Check why the lock-screen controls do not respond.';
+      'Prüfe, warum die Sperrbildschirm-Steuerung nicht reagiert.';
 
   @override
-  String get menuPlayNext => 'Play next';
+  String get menuPlayNext => 'Als Nächstes abspielen';
 
   @override
-  String get durationLabel => 'Duration';
+  String get durationLabel => 'Dauer';
 
   @override
-  String get djNextUp => 'up next';
+  String get djNextUp => 'als Nächstes';
 
   @override
-  String get apiKeyHint => 'Set up the API key for';
+  String get apiKeyHint => 'API-Schlüssel einrichten für';
 
   @override
-  String get menuEditCover => 'Edit cover';
+  String get menuEditCover => 'Cover bearbeiten';
 
   @override
   String get genreLabel => 'Genre';
 
   @override
-  String get menuRemoveFromLibrary => 'Remove from library';
+  String get menuRemoveFromLibrary => 'Aus Bibliothek entfernen';
 
   @override
-  String get diagErrorsHere => 'Playback problems will appear here.';
+  String get diagErrorsHere => 'Wiedergabeprobleme erscheinen hier.';
 
   @override
-  String get menuPlayNow => 'Play now';
+  String get menuPlayNow => 'Jetzt abspielen';
 
   @override
-  String get yearLabel => 'Year';
+  String get yearLabel => 'Jahr';
 
   @override
   String get searchHint =>
-      'Type what you are looking for: \"something to work out\", \"2000s rock\"…';
+      'Wonach suchst du? „etwas zum Trainieren“, „Rock der 2000er“…';
 
   @override
-  String get diagNoErrors => 'No playback errors';
+  String get diagNoErrors => 'Keine Wiedergabefehler';
 
   @override
-  String get lockControlsTitle => 'Lock screen controls';
+  String get lockControlsTitle => 'Sperrbildschirm-Steuerung';
 
   @override
-  String get autoTheme => 'Automatic';
+  String get autoTheme => 'Automatisch';
 
   @override
-  String get aiSpeaks => 'The AI reads its recommendations out loud.';
+  String get aiSpeaks => 'Die KI liest ihre Empfehlungen laut vor.';
 
   @override
-  String get glassIntensity => 'Glass intensity';
+  String get glassIntensity => 'Glasstärke';
 
   @override
-  String get autoImport => 'Import songs automatically';
+  String get autoImport => 'Lieder automatisch importieren';
 
   @override
-  String get importAppAudio => 'Import app audio and voice notes';
+  String get importAppAudio => 'App-Audio und Sprachnotizen importieren';
 
   @override
-  String get noBackupYet => 'No backup yet: press Copy first';
+  String get noBackupYet => 'Noch keine Sicherung: zuerst auf Kopieren tippen';
 
   @override
-  String get djBatch => 'Songs per DJ mode batch';
+  String get djBatch => 'Lieder pro KI-DJ-Runde';
 
   @override
-  String get eqDesc => 'Opens the 5-band equalizer (native screen)';
+  String get eqDesc => 'Öffnet den 5-Band-Equalizer (native Ansicht)';
 
   @override
-  String get backupTitle => 'Backup';
+  String get backupTitle => 'Sicherung';
 
   @override
-  String get importFolder => 'Import a whole folder';
+  String get importFolder => 'Ganzen Ordner importieren';
 
   @override
   String get importFolderDesc =>
-      'Adds every supported audio file in the chosen folder';
+      'Fügt alle unterstützten Audiodateien des gewählten Ordners hinzu';
 
   @override
-  String get noAudioDeleted => 'Does not delete the audio files on your device';
+  String get noAudioDeleted => 'Löscht keine Audiodateien auf deinem Gerät';
 
   @override
-  String get menuEditMetadata => 'Edit metadata and tags';
+  String get menuEditMetadata => 'Metadaten und Tags bearbeiten';
 
   @override
-  String get menuRemoveFavorite => 'Remove from favorites';
+  String get menuRemoveFavorite => 'Aus Favoriten entfernen';
 
   @override
-  String get menuMarkFavorite => 'Mark as favorite';
+  String get menuMarkFavorite => 'Als Favorit markieren';
 
   @override
   String get backupRestored =>
-      'Backup restored. Restart the app if something looks off ✅';
+      'Sicherung wiederhergestellt. Starte die App neu, wenn etwas seltsam aussieht ✅';
 
   @override
-  String get volumeCurrent => 'Volume of the current song';
+  String get volumeCurrent => 'Lautstärke des aktuellen Liedes';
 
   @override
   String get dictationUnavailable =>
-      'Voice dictation is not available on this device';
+      'Sprachdiktat ist auf diesem Gerät nicht verfügbar';
 
   @override
-  String get songNotFound => 'Song not found';
+  String get songNotFound => 'Lied nicht gefunden';
 
   @override
-  String get albumCover => 'Album cover';
+  String get albumCover => 'Albumcover';
 
   @override
-  String get writeTags => 'Write tags into the file';
+  String get writeTags => 'Tags in die Datei schreiben';
 
   @override
-  String get askingAi => 'Asking the AI for the details…';
+  String get askingAi => 'Die KI wird nach den Daten gefragt…';
 
   @override
   String get autofillFailed =>
-      'Could not autofill. Check the API key in Settings ▸ AI.';
+      'Automatisches Ausfüllen fehlgeschlagen. Prüfe den API-Schlüssel unter Einstellungen ▸ KI.';
 
   @override
-  String get noCoverOnDevice => 'That album has no cover on this device';
+  String get noCoverOnDevice =>
+      'Für dieses Album gibt es kein Cover auf dem Gerät';
 
   @override
-  String get albumCoverApplied => 'Album cover applied 🖼️';
+  String get albumCoverApplied => 'Albumcover übernommen 🖼️';
 }
