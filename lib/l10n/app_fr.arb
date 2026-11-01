@@ -154,5 +154,22 @@
   "askingAi": "Demande des informations à l’IA…",
   "autofillFailed": "Remplissage automatique impossible. Vérifiez la clé API dans Réglages ▸ IA.",
   "noCoverOnDevice": "Cet album n’a pas de pochette sur l’appareil",
-  "albumCoverApplied": "Pochette appliquée 🖼️"
+  "albumCoverApplied": "Pochette appliquée 🖼️",
+  "listCreated": "Playlist \"{name}\" created",
+  "mixtapeToday": "Today's mixtape: {count} songs 🎧",
+  "coverFound": "Cover found on {source}: review it and press Apply",
+  "imageProcessFailed": "Could not process the image: {error}",
+  "coverEditorTitle": "Cover editor",
+  "applyCoverToSong": "Apply cover to the song",
+  "exportToGallery": "Export (gallery / storage)",
+  "imageOpenFailed": "Could not open the image: {error}",
+  "coverApplied": "Cover applied to the song ✅",
+  "songsAddedToLibrary": "{count} songs added to your library 🎵",
+  "resetRanking": "Reset ranking",
+  "songsImportedFromFolder": "{count} songs imported from the folder",
+  "modelOf": "Model: {name}",
+  "chartsIn": "Charts in {country}",
+  "noPlaylistsYet": "No playlists yet. Create one.",
+  "add": "Add",
+  "songsAddedToPlaylist": "{count} song(s) added to \"{name}\""
 }

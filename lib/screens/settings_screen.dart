@@ -680,7 +680,7 @@ class SettingsScreen extends StatelessWidget {
               final int added = await library.importPaths(files);
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('$added canciones importadas de la carpeta')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.songsImportedFromFolder(added))),
                 );
               }
             },
@@ -784,7 +784,7 @@ Future<void> escribirModeloPersonalizado(
   final String? escrito = await showDialog<String>(
     context: context,
     builder: (BuildContext dialogContext) => AlertDialog(
-      title: Text('Modelo de ${provider.label}'),
+      title: Text(AppLocalizations.of(context)!.modelOf(provider.label)),
       content: TextField(
         controller: controller,
         autofocus: true,

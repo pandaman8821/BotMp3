@@ -215,7 +215,7 @@ class _SearchScreenState extends State<SearchScreen> {
     if (!ai.hasActiveKey) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Configura la API key de ${ai.activeProvider.label} en Ajustes ▸ IA'),
+          content: Text(AppLocalizations.of(context)!.apiKeyHint + ' ' + ai.activeProvider.label + ' · ' + AppLocalizations.of(context)!.tabSettings + ' ▸ IA'),
         ),
       );
       return;

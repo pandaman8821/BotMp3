@@ -159,7 +159,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
                         .map(
                           (MapEntry<String, String> entry) => DropdownMenuItem<String>(
                             value: entry.key,
-                            child: Text('Éxitos en ${entry.value}'),
+                            child: Text(AppLocalizations.of(context)!.chartsIn(entry.value)),
                           ),
                         )
                         .toList(),

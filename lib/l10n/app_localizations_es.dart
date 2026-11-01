@@ -486,4 +486,75 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get albumCoverApplied => 'Carátula del álbum aplicada 🖼️';
+
+  @override
+  String listCreated(String name) {
+    return 'Lista \"$name\" creada';
+  }
+
+  @override
+  String mixtapeToday(int count) {
+    return 'Mixtape del día: $count canciones 🎧';
+  }
+
+  @override
+  String coverFound(String source) {
+    return 'Carátula encontrada en $source: revísala y pulsa Aplicar';
+  }
+
+  @override
+  String imageProcessFailed(String error) {
+    return 'No se pudo procesar la imagen: $error';
+  }
+
+  @override
+  String get coverEditorTitle => 'Editor de carátula';
+
+  @override
+  String get applyCoverToSong => 'Aplicar carátula a la canción';
+
+  @override
+  String get exportToGallery => 'Exportar (galería / almacenamiento)';
+
+  @override
+  String imageOpenFailed(String error) {
+    return 'No se pudo abrir la imagen: $error';
+  }
+
+  @override
+  String get coverApplied => 'Carátula aplicada a la canción ✅';
+
+  @override
+  String songsAddedToLibrary(int count) {
+    return '$count canciones añadidas a tu biblioteca 🎵';
+  }
+
+  @override
+  String get resetRanking => 'Reiniciar el ranking';
+
+  @override
+  String songsImportedFromFolder(int count) {
+    return '$count canciones importadas de la carpeta';
+  }
+
+  @override
+  String modelOf(String name) {
+    return 'Modelo: $name';
+  }
+
+  @override
+  String chartsIn(String country) {
+    return 'Éxitos en $country';
+  }
+
+  @override
+  String get noPlaylistsYet => 'Todavía no tienes listas. Crea una nueva.';
+
+  @override
+  String get add => 'Añadir';
+
+  @override
+  String songsAddedToPlaylist(int count, String name) {
+    return '$count canción(es) añadidas a \"$name\"';
+  }
 }

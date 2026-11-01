@@ -154,5 +154,95 @@
   "askingAi": "Pidiendo los datos a la IA…",
   "autofillFailed": "No pude autocompletar. Revisa la API key en Ajustes ▸ IA.",
   "noCoverOnDevice": "Ese álbum no tiene carátula en el dispositivo",
-  "albumCoverApplied": "Carátula del álbum aplicada 🖼️"
+  "albumCoverApplied": "Carátula del álbum aplicada 🖼️",
+  "listCreated": "Lista \"{name}\" creada",
+  "@listCreated": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mixtapeToday": "Mixtape del día: {count} canciones 🎧",
+  "@mixtapeToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "coverFound": "Carátula encontrada en {source}: revísala y pulsa Aplicar",
+  "@coverFound": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "imageProcessFailed": "No se pudo procesar la imagen: {error}",
+  "@imageProcessFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "coverEditorTitle": "Editor de carátula",
+  "applyCoverToSong": "Aplicar carátula a la canción",
+  "exportToGallery": "Exportar (galería / almacenamiento)",
+  "imageOpenFailed": "No se pudo abrir la imagen: {error}",
+  "@imageOpenFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "coverApplied": "Carátula aplicada a la canción ✅",
+  "songsAddedToLibrary": "{count} canciones añadidas a tu biblioteca 🎵",
+  "@songsAddedToLibrary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "resetRanking": "Reiniciar el ranking",
+  "songsImportedFromFolder": "{count} canciones importadas de la carpeta",
+  "@songsImportedFromFolder": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "modelOf": "Modelo: {name}",
+  "@modelOf": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "chartsIn": "Éxitos en {country}",
+  "@chartsIn": {
+    "placeholders": {
+      "country": {
+        "type": "String"
+      }
+    }
+  },
+  "noPlaylistsYet": "Todavía no tienes listas. Crea una nueva.",
+  "add": "Añadir",
+  "songsAddedToPlaylist": "{count} canción(es) añadidas a \"{name}\"",
+  "@songsAddedToPlaylist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

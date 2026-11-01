@@ -382,7 +382,7 @@ class _AiScreenState extends State<AiScreen> {
                       );
                       if (!context.mounted) return;
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Lista "${playlist.name}" creada')),
+                        SnackBar(content: Text(AppLocalizations.of(context)!.listCreated(playlist.name))),
                       );
                     },
                     icon: Icon(Icons.playlist_add),
@@ -586,7 +586,7 @@ class _AiScreenState extends State<AiScreen> {
             if (!context.mounted) return;
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('Mixtape del día: ${mixtape.length} canciones 🎧'),
+                content: Text(AppLocalizations.of(context)!.mixtapeToday(mixtape.length)),
               ),
             );
           }),
