@@ -1,3 +1,4 @@
+import '../services/cover_finder.dart';
 import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
@@ -67,11 +68,27 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
       bytes = null;
     }
 
-    if (!mounted) return;
-    setState(() {
-      _source = bytes;
-      _loading = false;
-    });
+    if (bytes == null && song != null) {
+        String fuente = '';
+        final Uint8List? online = await CoverFinder.search(
+          song.title,
+          song.artist,
+          onSource: (String s) => fuente = s,
+        );
+        if (online != null) {
+          bytes = online;
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Carátula encontrada en $fuente: revísala y pulsa Aplicar')),
+            );
+          }
+        }
+      }
+      if (!mounted) return;
+      setState(() {
+        _source = bytes;
+        _loading = false;
+      });
     if (bytes != null) _scheduleRender();
   }
 
