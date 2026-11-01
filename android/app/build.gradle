@@ -57,6 +57,11 @@ android {
             storePassword = "botmp3"
             keyAlias = "botmp3"
             keyPassword = "botmp3"
+        // Esquemas de firma modernos (v2/v3/v4). v3 permite rotacion de clave.
+        enableV1Signing true
+        enableV2Signing true
+        enableV3Signing true
+        enableV4Signing true
         }
     }
 
