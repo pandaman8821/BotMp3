@@ -985,6 +985,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Mark as favorite'**
   String get menuMarkFavorite;
+
+  /// No description provided for @backupRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup restored. Restart the app if something looks off ✅'**
+  String get backupRestored;
+
+  /// No description provided for @volumeCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume of the current song'**
+  String get volumeCurrent;
+
+  /// No description provided for @dictationUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice dictation is not available on this device'**
+  String get dictationUnavailable;
+
+  /// No description provided for @songNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Song not found'**
+  String get songNotFound;
+
+  /// No description provided for @albumCover.
+  ///
+  /// In en, this message translates to:
+  /// **'Album cover'**
+  String get albumCover;
+
+  /// No description provided for @writeTags.
+  ///
+  /// In en, this message translates to:
+  /// **'Write tags into the file'**
+  String get writeTags;
+
+  /// No description provided for @askingAi.
+  ///
+  /// In en, this message translates to:
+  /// **'Asking the AI for the details…'**
+  String get askingAi;
+
+  /// No description provided for @autofillFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not autofill. Check the API key in Settings ▸ AI.'**
+  String get autofillFailed;
+
+  /// No description provided for @noCoverOnDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'That album has no cover on this device'**
+  String get noCoverOnDevice;
+
+  /// No description provided for @albumCoverApplied.
+  ///
+  /// In en, this message translates to:
+  /// **'Album cover applied 🖼️'**
+  String get albumCoverApplied;
 }
 
 class _AppLocalizationsDelegate

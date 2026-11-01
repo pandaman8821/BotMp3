@@ -144,5 +144,15 @@
   "noAudioDeleted": "No borra los archivos de audio de tu dispositivo",
   "menuEditMetadata": "Editar metadatos y etiquetas",
   "menuRemoveFavorite": "Quitar de favoritas",
-  "menuMarkFavorite": "Marcar como favorita"
+  "menuMarkFavorite": "Marcar como favorita",
+  "backupRestored": "Copia restaurada. Reinicia la app si ves algo raro ✅",
+  "volumeCurrent": "Volumen de la canción que suena",
+  "dictationUnavailable": "Dictado no disponible en este dispositivo",
+  "songNotFound": "Canción no encontrada",
+  "albumCover": "Carátula del álbum",
+  "writeTags": "Escribir etiquetas en el archivo",
+  "askingAi": "Pidiendo los datos a la IA…",
+  "autofillFailed": "No pude autocompletar. Revisa la API key en Ajustes ▸ IA.",
+  "noCoverOnDevice": "Ese álbum no tiene carátula en el dispositivo",
+  "albumCoverApplied": "Carátula del álbum aplicada 🖼️"
 }

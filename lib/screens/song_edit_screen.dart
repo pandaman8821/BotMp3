@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -69,7 +70,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
     final Song? song = library.songById(widget.songId);
 
     if (song == null) {
-      return const Scaffold(body: Center(child: Text('Canción no encontrada')));
+      return Scaffold(body: Center(child: Text(AppLocalizations.of(context)!.songNotFound)));
     }
 
     return Scaffold(
@@ -107,14 +108,14 @@ class _SongEditScreenState extends State<SongEditScreen> {
                             builder: (_) => CoverEditorScreen(songId: song.id),
                           ),
                         ),
-                        icon: const Icon(Icons.image_outlined),
-                        label: const Text('Editar carátula'),
+                        icon: Icon(Icons.image_outlined),
+                        label: Text(AppLocalizations.of(context)!.menuEditCover),
                       ),
                       const SizedBox(height: 8),
                       OutlinedButton.icon(
                         onPressed: () => _usarCaratulaDelAlbum(song),
-                        icon: const Icon(Icons.album_outlined),
-                        label: const Text('Carátula del álbum'),
+                        icon: Icon(Icons.album_outlined),
+                        label: Text(AppLocalizations.of(context)!.albumCover),
                       ),
                       const SizedBox(height: 8),
                       Text(
@@ -258,8 +259,8 @@ class _SongEditScreenState extends State<SongEditScreen> {
             const SizedBox(height: 10),
             OutlinedButton.icon(
               onPressed: () => _writeTagsToFile(song),
-              icon: const Icon(Icons.tag),
-              label: const Text('Escribir etiquetas en el archivo'),
+              icon: Icon(Icons.tag),
+              label: Text(AppLocalizations.of(context)!.writeTags),
             ),
             const SizedBox(height: 6),
             const Text(
@@ -298,14 +299,14 @@ class _SongEditScreenState extends State<SongEditScreen> {
   Future<void> _autocompletarConIa(Song song) async {
     final AiAssistantProvider ai = context.read<AiAssistantProvider>();
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Pidiendo los datos a la IA…')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.askingAi)),
     );
     final Map<String, String>? sugerencia = await ai.suggestMetadata(song);
     if (!mounted) return;
     if (sugerencia == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('No pude autocompletar. Revisa la API key en Ajustes ▸ IA.'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.autofillFailed),
         ),
       );
       return;
@@ -344,14 +345,14 @@ class _SongEditScreenState extends State<SongEditScreen> {
     if (!mounted) return;
     if (path == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Ese álbum no tiene carátula en el dispositivo')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.noCoverOnDevice)),
       );
       return;
     }
     await library.setCover(song.id, path);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Carátula del álbum aplicada 🖼️')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.albumCoverApplied)),
     );
   }
 

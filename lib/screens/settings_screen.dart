@@ -42,7 +42,7 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(AppLocalizations.of(context)!.tabSettings)),
       body: ListView(
-        padding: const EdgeInsets.only(bottom: 40),
+        padding: EdgeInsets.only(bottom: 40),
         children: <Widget>[
           // ---------------------------------------------------- Apariencia
           const _SectionTitle('Tendencias musicales'),
@@ -122,7 +122,7 @@ class SettingsScreen extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.local_fire_department_outlined),
             title: Text(AppLocalizations.of(context)!.trendsNow),
-            trailing: const Icon(Icons.chevron_right),
+            trailing: Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => TrendsScreen()),
             ),
@@ -131,7 +131,7 @@ class SettingsScreen extends StatelessWidget {
             leading: Icon(Icons.health_and_safety_outlined),
             title: Text(AppLocalizations.of(context)!.playbackDiagnostics),
             subtitle: Text(AppLocalizations.of(context)!.subDiagnostics),
-            trailing: const Icon(Icons.chevron_right),
+            trailing: Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => DiagnosticsScreen()),
             ),
@@ -140,7 +140,7 @@ class SettingsScreen extends StatelessWidget {
             leading: Icon(Icons.leaderboard_outlined),
             title: Text(AppLocalizations.of(context)!.seeMyRanking),
             subtitle: Text(AppLocalizations.of(context)!.subRanking),
-            trailing: const Icon(Icons.chevron_right),
+            trailing: Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => RankingScreen()),
             ),
@@ -269,7 +269,7 @@ class SettingsScreen extends StatelessWidget {
                   locale: settings.voiceLocale,
                 );
               },
-              icon: const Icon(Icons.record_voice_over),
+              icon: Icon(Icons.record_voice_over),
               label: Text('Probar voz'),
             ),
           ),
@@ -281,7 +281,7 @@ class SettingsScreen extends StatelessWidget {
             onChanged: (bool value) => settings.setGlassEnabled(value),
             secondary: Icon(Icons.blur_on),
             title: Text(AppLocalizations.of(context)!.glassEffect),
-            subtitle: const Text(
+            subtitle: Text(
               'Barras y paneles translúcidos con desenfoque real del fondo.',
             ),
           ),
@@ -336,7 +336,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: library.isScanning
-                ? const SizedBox(
+                ? SizedBox(
                     width: 22,
                     height: 22,
                     child: CircularProgressIndicator(strokeWidth: 2),
@@ -412,8 +412,8 @@ class SettingsScreen extends StatelessWidget {
               await library.init();
               if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Copia restaurada. Reinicia la app si ves algo raro ✅'),
+                SnackBar(
+                  content: Text(AppLocalizations.of(context)!.backupRestored),
                 ),
               );
             },
@@ -490,8 +490,8 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.volume_up_outlined),
-            title: const Text('Volumen de la canción que suena'),
+            leading: Icon(Icons.volume_up_outlined),
+            title: Text(AppLocalizations.of(context)!.volumeCurrent),
             subtitle: const Text(
               'Iguala las pistas más flojas o más fuertes (±6 dB). Se guarda por '
               'canción y se aplica cada vez que suena.',
@@ -623,7 +623,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('Copiar'),
+              child: Text('Copiar'),
             ),
           ),
           ListTile(
@@ -652,7 +652,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('Limpiar'),
+              child: Text('Limpiar'),
             ),
           ),
           ListTile(
@@ -722,7 +722,7 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.delete_forever_outlined, color: Colors.redAccent),
+            leading: Icon(Icons.delete_forever_outlined, color: Colors.redAccent),
             title: Text(AppLocalizations.of(context)!.deleteLocalLibrary, style: TextStyle(color: Colors.redAccent)),
             subtitle: Text(AppLocalizations.of(context)!.noAudioDeleted),
             onTap: () async {

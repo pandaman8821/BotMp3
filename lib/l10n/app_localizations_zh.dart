@@ -451,6 +451,39 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get menuMarkFavorite => 'Mark as favorite';
+
+  @override
+  String get backupRestored =>
+      'Backup restored. Restart the app if something looks off ✅';
+
+  @override
+  String get volumeCurrent => 'Volume of the current song';
+
+  @override
+  String get dictationUnavailable =>
+      'Voice dictation is not available on this device';
+
+  @override
+  String get songNotFound => 'Song not found';
+
+  @override
+  String get albumCover => 'Album cover';
+
+  @override
+  String get writeTags => 'Write tags into the file';
+
+  @override
+  String get askingAi => 'Asking the AI for the details…';
+
+  @override
+  String get autofillFailed =>
+      'Could not autofill. Check the API key in Settings ▸ AI.';
+
+  @override
+  String get noCoverOnDevice => 'That album has no cover on this device';
+
+  @override
+  String get albumCoverApplied => 'Album cover applied 🖼️';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -900,4 +933,37 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get menuMarkFavorite => 'Mark as favorite';
+
+  @override
+  String get backupRestored =>
+      'Backup restored. Restart the app if something looks off ✅';
+
+  @override
+  String get volumeCurrent => 'Volume of the current song';
+
+  @override
+  String get dictationUnavailable =>
+      'Voice dictation is not available on this device';
+
+  @override
+  String get songNotFound => 'Song not found';
+
+  @override
+  String get albumCover => 'Album cover';
+
+  @override
+  String get writeTags => 'Write tags into the file';
+
+  @override
+  String get askingAi => 'Asking the AI for the details…';
+
+  @override
+  String get autofillFailed =>
+      'Could not autofill. Check the API key in Settings ▸ AI.';
+
+  @override
+  String get noCoverOnDevice => 'That album has no cover on this device';
+
+  @override
+  String get albumCoverApplied => 'Album cover applied 🖼️';
 }

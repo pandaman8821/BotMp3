@@ -453,4 +453,37 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get menuMarkFavorite => 'Marcar como favorita';
+
+  @override
+  String get backupRestored =>
+      'Copia restaurada. Reinicia la app si ves algo raro ✅';
+
+  @override
+  String get volumeCurrent => 'Volumen de la canción que suena';
+
+  @override
+  String get dictationUnavailable =>
+      'Dictado no disponible en este dispositivo';
+
+  @override
+  String get songNotFound => 'Canción no encontrada';
+
+  @override
+  String get albumCover => 'Carátula del álbum';
+
+  @override
+  String get writeTags => 'Escribir etiquetas en el archivo';
+
+  @override
+  String get askingAi => 'Pidiendo los datos a la IA…';
+
+  @override
+  String get autofillFailed =>
+      'No pude autocompletar. Revisa la API key en Ajustes ▸ IA.';
+
+  @override
+  String get noCoverOnDevice => 'Ese álbum no tiene carátula en el dispositivo';
+
+  @override
+  String get albumCoverApplied => 'Carátula del álbum aplicada 🖼️';
 }
