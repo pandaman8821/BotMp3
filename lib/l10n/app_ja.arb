@@ -183,5 +183,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "statsTitle": "再生統計",
+  "statsTotalPlays": "総再生回数",
+  "statsUniqueSongs": "再生した曲"
 }

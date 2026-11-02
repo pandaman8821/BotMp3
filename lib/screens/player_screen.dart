@@ -506,7 +506,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   onPressed: () => player.removeFromQueue(song.id),
                 ),
                 onTap: () {
-                  player.playAtIndex(index - 1);
+                  player.playAtIndex(index);
                   Navigator.of(sheetContext).pop();
                 },
               );

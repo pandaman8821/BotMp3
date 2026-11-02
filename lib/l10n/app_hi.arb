@@ -183,5 +183,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "statsTitle": "सुनने के आँकड़े",
+  "statsTotalPlays": "कुल प्लेबैक",
+  "statsUniqueSongs": "सुने गए गाने"
 }

@@ -1177,6 +1177,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} min'**
   String sleepTimerMinutes(int count);
+
+  /// No description provided for @statsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening stats'**
+  String get statsTitle;
+
+  /// No description provided for @statsTotalPlays.
+  ///
+  /// In en, this message translates to:
+  /// **'Total plays'**
+  String get statsTotalPlays;
+
+  /// No description provided for @statsUniqueSongs.
+  ///
+  /// In en, this message translates to:
+  /// **'Songs played'**
+  String get statsUniqueSongs;
 }
 
 class _AppLocalizationsDelegate

@@ -561,4 +561,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String sleepTimerMinutes(int count) {
     return '$count分';
   }
+
+  @override
+  String get statsTitle => '再生統計';
+
+  @override
+  String get statsTotalPlays => '総再生回数';
+
+  @override
+  String get statsUniqueSongs => '再生した曲';
 }

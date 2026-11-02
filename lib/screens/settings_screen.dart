@@ -1,3 +1,4 @@
+import 'stats_screen.dart';
 import '../l10n/app_localizations.dart';
 import 'dart:convert';
 
@@ -255,7 +256,16 @@ class SettingsScreen extends StatelessWidget {
           ),
 
           // ---------------------------------------------------- Rendimiento
-          _SectionTitle(AppLocalizations.of(context)!.secPerformance),
+          
+            ListTile(
+              leading: const Icon(Icons.insights_outlined),
+              title: Text(AppLocalizations.of(context)!.statsTitle),
+              subtitle: Text(AppLocalizations.of(context)!.statsTotalPlays),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(builder: (_) => const StatsScreen()),
+              ),
+            ),
+_SectionTitle(AppLocalizations.of(context)!.secPerformance),
           SwitchListTile(
             value: settings.batterySaver,
             onChanged: settings.setBatterySaver,

@@ -183,5 +183,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "statsTitle": "Statistiche di ascolto",
+  "statsTotalPlays": "Riproduzioni totali",
+  "statsUniqueSongs": "Brani ascoltati"
 }

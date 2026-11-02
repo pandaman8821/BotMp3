@@ -573,6 +573,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String sleepTimerMinutes(int count) {
     return '$count min';
   }
+
+  @override
+  String get statsTitle => 'Estatísticas de escuta';
+
+  @override
+  String get statsTotalPlays => 'Reproduções totais';
+
+  @override
+  String get statsUniqueSongs => 'Músicas ouvidas';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1144,4 +1153,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String sleepTimerMinutes(int count) {
     return '$count min';
   }
+
+  @override
+  String get statsTitle => 'Estatísticas de escuta';
+
+  @override
+  String get statsTotalPlays => 'Reproduções totais';
+
+  @override
+  String get statsUniqueSongs => 'Músicas ouvidas';
 }

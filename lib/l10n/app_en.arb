@@ -256,5 +256,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "statsTitle": "Listening stats",
+  "statsTotalPlays": "Total plays",
+  "statsUniqueSongs": "Songs played"
 }
