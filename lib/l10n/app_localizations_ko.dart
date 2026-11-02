@@ -561,4 +561,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String sleepTimerMinutes(int count) {
     return '$count분';
   }
+
+  @override
+  String get statsTitle => '청취 통계';
+
+  @override
+  String get statsTotalPlays => '총 재생 횟수';
+
+  @override
+  String get statsUniqueSongs => '들은 곡';
 }

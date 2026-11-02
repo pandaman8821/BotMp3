@@ -183,5 +183,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "statsTitle": "收听统计",
+  "statsTotalPlays": "总播放次数",
+  "statsUniqueSongs": "已播放歌曲"
 }

@@ -572,4 +572,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String sleepTimerMinutes(int count) {
     return '$count min';
   }
+
+  @override
+  String get statsTitle => 'Listening stats';
+
+  @override
+  String get statsTotalPlays => 'Total plays';
+
+  @override
+  String get statsUniqueSongs => 'Songs played';
 }

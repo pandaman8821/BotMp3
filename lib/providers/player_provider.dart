@@ -41,6 +41,7 @@ class PlayerProvider extends ChangeNotifier {
   Duration? get sleepRemaining => service.sleepRemaining;
   void startSleepTimer(Duration d) => service.startSleepTimer(d);
   void cancelSleepTimer() => service.cancelSleepTimer();
+  void moveInQueue(int from, int to) => service.moveInQueue(from, to);
   bool get isShuffleEnabled => service.isShuffleEnabled;
   RepeatMode get repeatMode => service.repeatMode;
   List<Song> get queue => service.queue;

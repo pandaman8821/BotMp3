@@ -256,6 +256,17 @@ class PlayerService {
       _player.playing &&
       _player.processingState != ProcessingState.idle &&
       _player.processingState != ProcessingState.completed;
+  /// Reordena la cola sin recargar el audio: mueve [from] a [to].
+  void moveInQueue(int from, int to) {
+    if (from < 0 || to < 0 || from >= _queue.length || to > _queue.length) return;
+    final bool hayActual = _currentIndex >= 0 && _currentIndex < _queue.length;
+    final Song? actual = hayActual ? _queue[_currentIndex] : null;
+    final Song movida = _queue.removeAt(from);
+    final int destino = to > from ? to - 1 : to;
+    _queue.insert(destino.clamp(0, _queue.length), movida);
+    if (actual != null) _currentIndex = _queue.indexOf(actual);
+  }
+
   List<Song> get queue => List<Song>.unmodifiable(_queue);
   int get currentIndex => _currentIndex;
   bool get isShuffleEnabled => _shuffle;

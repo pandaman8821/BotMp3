@@ -183,5 +183,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "statsTitle": "청취 통계",
+  "statsTotalPlays": "총 재생 횟수",
+  "statsUniqueSongs": "들은 곡"
 }

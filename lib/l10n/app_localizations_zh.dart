@@ -561,6 +561,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String sleepTimerMinutes(int count) {
     return '$count 分钟';
   }
+
+  @override
+  String get statsTitle => '收听统计';
+
+  @override
+  String get statsTotalPlays => '总播放次数';
+
+  @override
+  String get statsUniqueSongs => '已播放歌曲';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -1120,4 +1129,13 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String sleepTimerMinutes(int count) {
     return '$count 分钟';
   }
+
+  @override
+  String get statsTitle => '收听统计';
+
+  @override
+  String get statsTotalPlays => '总播放次数';
+
+  @override
+  String get statsUniqueSongs => '已播放歌曲';
 }

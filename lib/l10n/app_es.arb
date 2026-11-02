@@ -256,5 +256,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "statsTitle": "Estadísticas de escucha",
+  "statsTotalPlays": "Reproducciones totales",
+  "statsUniqueSongs": "Canciones escuchadas"
 }

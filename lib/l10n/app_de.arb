@@ -183,5 +183,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "statsTitle": "Hörstatistik",
+  "statsTotalPlays": "Wiedergaben insgesamt",
+  "statsUniqueSongs": "Gehörte Lieder"
 }
