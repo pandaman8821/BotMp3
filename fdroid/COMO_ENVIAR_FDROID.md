@@ -1,27 +1,50 @@
-# Enviar BotMp3 a F-Droid (gratis)
+# Enviar BotMp3 a F-Droid (paso a paso)
 
-## Requisitos
-1. Cuenta gratuita en https://gitlab.com
-2. Nada mas: F-Droid compila el proyecto desde el codigo (GPL-3.0) y lo firma con su clave.
+## Antes de nada
+- Repositorio: https://github.com/pandaman8821/BotMp3 (publico, GPL-3.0)
+- Version lista: **1.9.89 (versionCode 142)**, tag **v1.9.89** creado y publicado.
+- El build de F-Droid compila **desde el codigo fuente** en el tag y firma con
+  **su propia clave**. La firma del autor es condicional: si no existe
+  `android/app/botmp3-release.jks`, el APK sale sin firmar y F-Droid lo firma.
 
-## Pasos
-1. Entra en https://gitlab.com/fdroid/fdroiddata
-2. Pulsa **Fork** (bifurca el repo a tu cuenta).
-3. En tu fork, sube el archivo `fdroid/com.botmp3.app.yml` a la carpeta `metadata/`.
-4. Crea una rama: `add-botmp3` y haz **commit**.
-5. Abre un **Merge Request** contra `fdroid/fdroiddata` con titulo:
-   `New app: BotMp3 (com.botmp3.app)`
-6. En la descripcion del MR pega:
+## 1. Fork del repositorio de F-Droid
+1. Entra en https://gitlab.com/fdroid/fdroiddata y pulsa **Fork** (crea tu copia).
+2. Clona tu fork:
+   git clone https://gitlab.com/TU_USUARIO/fdroiddata.git
+   cd fdroiddata
 
-> BotMp3 es un reproductor de musica offline con asistente de IA opcional.
-> - Sin anuncios, sin cuentas, sin rastreo.
-> - 10 idiomas, ecualizador de 5 bandas, widget, modo coche, listas y ranking.
-> - La IA usa la clave del propio usuario (DeepSeek, Gemini, OpenAI o Claude); es opcional.
-> - Codigo: GPL-3.0. Solo usa dependencias open source.
+## 2. Copia los ficheros de metadata
+Desde el repositorio de BotMp3:
+- `fdroid/com.botmp3.app.yml`  ->  `metadata/com.botmp3.app.yml`
+- (opcional) descripciones e iconos: F-Droid lee ya
+  `fastlane/metadata/android/<idioma>/` del repositorio de BotMp3, asi que no
+  hace falta duplicarlas; si el revisor las pide, se pueden copiar a
+  `metadata/com.botmp3.app/<idioma>/`.
 
-7. Espera la revision (semanas). El robot ejecutara la compilacion; si falla, copia el error en el MR y avisame para corregir el YAML.
+## 3. Comprueba y crea el merge request
+    cd fdroiddata
+    cp /ruta/al/repo/BotMp3/fdroid/com.botmp3.app.yml metadata/com.botmp3.app.yml
+    git checkout -b botmp3-1.9.89
+    git add metadata/com.botmp3.app.yml
+    git commit -m "New app: BotMp3 (com.botmp3.app)"
+    git push origin botmp3-1.9.89
+Despues abre el MR en GitLab hacia `fdroid/fdroiddata` (rama `master`).
 
-## Notas
-- La version publicada en F-Droid la firma F-Droid, no tu keystore: no podras actualizar por encima con tu APK (hay que desinstalar e instalar la de F-Droid).
-- El YAML asume `subdir: BotMp3` (el proyecto Flutter esta dentro de la carpeta BotMp3 del repo).
-- Si cambias la version, actualiza `versionName`, `versionCode`, `commit` y `CurrentVersion`.
+## 4. Que revisara F-Droid (y como estamos)
+| Requisito | Estado |
+|---|---|
+| Codigo abierto (GPL-3.0) | OK |
+| Compila sin el keystore del autor | OK (firma condicional) |
+| Sin anuncios ni rastreo | OK |
+| Red solo cuando el usuario usa la IA | OK (declarado `NonFreeNet` por los proveedores de IA) |
+| Version/tag coherentes | OK (`v1.9.89` / 142) |
+| Sin dependencias binarias privativas | OK (solo plugins open source) |
+| Reproducibilidad | Lockfile incluido (`pubspec.lock`) |
+
+## 5. Tras la aceptacion
+- F-Droid hara el build automatico del tag; si falla por la version de Flutter
+  del `srclibs`, el revisor ajusta el numero (Flutter de F-Droid suele ir por
+  detras). Se puede cambiar el `srclibs: - flutter@X.Y.Z` a la version que
+  tengan disponible: el codigo compila con Flutter estable >= 3.24.
+- Las futuras versiones se publican solas (AutoUpdateMode: Version + Tags):
+  basta con crear el tag `vX.Y.Z` y actualizar `CurrentVersion`.
