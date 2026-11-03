@@ -5,4 +5,6 @@
     <string name="widget_prev">Previous</string>
     <string name="widget_play_pause">Play or pause</string>
     <string name="widget_next">Next</string>
+    <string name="widget_cover">Cover art</string>
+    <string name="widget_open_hint">Tap to open</string>
 </resources>
