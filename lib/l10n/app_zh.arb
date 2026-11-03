@@ -186,5 +186,24 @@
   },
   "statsTitle": "收听统计",
   "statsTotalPlays": "总播放次数",
-  "statsUniqueSongs": "已播放歌曲"
+  "statsUniqueSongs": "已播放歌曲",
+  "playAlbum": "播放专辑",
+  "playFolder": "播放文件夹",
+  "songUpNext": "即将播放“{title}”",
+  "deleteSongTitle": "删除歌曲",
+  "deleteSongBody": "将从音乐库移除“{title}”，文件仍保留在设备上。",
+  "@songUpNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteSongBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -259,5 +259,24 @@
   },
   "statsTitle": "Listening stats",
   "statsTotalPlays": "Total plays",
-  "statsUniqueSongs": "Songs played"
+  "statsUniqueSongs": "Songs played",
+  "playAlbum": "Play album",
+  "playFolder": "Play folder",
+  "songUpNext": "\"{title}\" is up next",
+  "deleteSongTitle": "Delete song",
+  "deleteSongBody": "\"{title}\" will be removed from the library. The file stays on your device.",
+  "@songUpNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteSongBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -137,10 +137,24 @@ class SongTile extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(song.isFavorite ? Icons.favorite_border : Icons.favorite),
-              title: Text(song.isFavorite ? 'Quitar de favoritas' : 'Marcar como favorita'),
+              title: Text(song.isFavorite
+                    ? AppLocalizations.of(context)!.menuRemoveFavorite
+                    : AppLocalizations.of(context)!.menuMarkFavorite),
               onTap: () => Navigator.of(sheetContext).pop('favorite'),
             ),
-            ListTile(
+            if (song.album.trim().isNotEmpty)
+                ListTile(
+                  leading: const Icon(Icons.album_outlined),
+                  title: Text(AppLocalizations.of(context)!.playAlbum),
+                  onTap: () => Navigator.of(sheetContext).pop('album'),
+                ),
+              if (song.path.isNotEmpty && !song.path.startsWith('content://'))
+                ListTile(
+                  leading: const Icon(Icons.folder_outlined),
+                  title: Text(AppLocalizations.of(context)!.playFolder),
+                  onTap: () => Navigator.of(sheetContext).pop('folder'),
+                ),
+              ListTile(
               leading: const Icon(Icons.delete_outline, color: Colors.redAccent),
               title: Text(AppLocalizations.of(context)!.menuRemoveFromLibrary, style: const TextStyle(color: Colors.redAccent)),
               onTap: () => Navigator.of(sheetContext).pop('delete'),
@@ -158,7 +172,7 @@ class SongTile extends StatelessWidget {
         await player.playSong(song, context: queueContext);
       case 'next':
         await player.playNext(song);
-        if (context.mounted) _snack(context, '"${song.title}" suena a continuación');
+        if (context.mounted) _snack(context, AppLocalizations.of(context)!.songUpNext(song.title));
       case 'playlist':
         await AppDialogs.addSongsToPlaylist(context, <Song>[song]);
       case 'edit':
@@ -169,14 +183,26 @@ class SongTile extends StatelessWidget {
         await Navigator.of(context).push(
           MaterialPageRoute<void>(builder: (_) => CoverEditorScreen(songId: song.id)),
         );
+        case 'album':
+          final List<Song> disco = library.songs
+              .where((Song s) => s.album.trim() == song.album.trim())
+              .toList();
+          if (disco.isNotEmpty) await player.playSong(song, context: disco);
+        case 'folder':
+          final int corte = song.path.lastIndexOf(RegExp(r'[\/]'));
+          final String carpeta = corte > 0 ? song.path.substring(0, corte) : '';
+          final List<Song> deCarpeta = library.songs
+              .where((Song s) => carpeta.isNotEmpty && s.path.startsWith(carpeta))
+              .toList();
+          if (deCarpeta.isNotEmpty) await player.playSong(song, context: deCarpeta);
       case 'favorite':
         await library.toggleFavorite(song.id);
       case 'delete':
         if (!context.mounted) return;
         final bool confirmed = await AppDialogs.confirm(
           context,
-          title: 'Eliminar canción',
-          message: 'Se quitará "${song.title}" de la biblioteca. El archivo no se borra del dispositivo.',
+          title: AppLocalizations.of(context)!.deleteSongTitle,
+            message: AppLocalizations.of(context)!.deleteSongBody(song.title),
         );
         if (confirmed) await library.deleteSong(song.id);
     }

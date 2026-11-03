@@ -186,5 +186,24 @@
   },
   "statsTitle": "청취 통계",
   "statsTotalPlays": "총 재생 횟수",
-  "statsUniqueSongs": "들은 곡"
+  "statsUniqueSongs": "들은 곡",
+  "playAlbum": "앨범 재생",
+  "playFolder": "폴더 재생",
+  "songUpNext": "\"{title}\" 다음 재생",
+  "deleteSongTitle": "곡 삭제",
+  "deleteSongBody": "\"{title}\"을(를) 라이브러리에서 제거합니다. 파일은 기기에 남습니다.",
+  "@songUpNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteSongBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

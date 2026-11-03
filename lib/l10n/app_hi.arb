@@ -186,5 +186,24 @@
   },
   "statsTitle": "सुनने के आँकड़े",
   "statsTotalPlays": "कुल प्लेबैक",
-  "statsUniqueSongs": "सुने गए गाने"
+  "statsUniqueSongs": "सुने गए गाने",
+  "playAlbum": "एल्बम चलाएँ",
+  "playFolder": "फ़ोल्डर चलाएँ",
+  "songUpNext": "\"{title}\" अगला चलेगा",
+  "deleteSongTitle": "गाना हटाएँ",
+  "deleteSongBody": "\"{title}\" लाइब्रेरी से हटाया जाएगा। फ़ाइल डिवाइस पर रहेगी।",
+  "@songUpNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteSongBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

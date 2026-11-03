@@ -570,4 +570,23 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get statsUniqueSongs => '再生した曲';
+
+  @override
+  String get playAlbum => 'アルバムを再生';
+
+  @override
+  String get playFolder => 'フォルダを再生';
+
+  @override
+  String songUpNext(String title) {
+    return '「$title」が次に再生されます';
+  }
+
+  @override
+  String get deleteSongTitle => '曲を削除';
+
+  @override
+  String deleteSongBody(String title) {
+    return '「$title」をライブラリから削除します。ファイルは端末に残ります。';
+  }
 }

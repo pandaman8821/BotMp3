@@ -186,5 +186,24 @@
   },
   "statsTitle": "Hörstatistik",
   "statsTotalPlays": "Wiedergaben insgesamt",
-  "statsUniqueSongs": "Gehörte Lieder"
+  "statsUniqueSongs": "Gehörte Lieder",
+  "playAlbum": "Album abspielen",
+  "playFolder": "Ordner abspielen",
+  "songUpNext": "„{title}“ kommt als Nächstes",
+  "deleteSongTitle": "Lied löschen",
+  "deleteSongBody": "„{title}“ wird aus der Bibliothek entfernt. Die Datei bleibt auf dem Gerät.",
+  "@songUpNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteSongBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }
