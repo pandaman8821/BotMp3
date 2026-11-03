@@ -840,6 +840,14 @@ class AppLocalizationsZh extends AppLocalizations {
   String songsFromLibrary(int count) {
     return '$count songs from your library.';
   }
+
+  @override
+  String get jsonCopied => 'JSON copied to clipboard';
+
+  @override
+  String exportedTo(String path) {
+    return 'Playlist exported to $path';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -1677,5 +1685,13 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   @override
   String songsFromLibrary(int count) {
     return '$count songs from your library.';
+  }
+
+  @override
+  String get jsonCopied => 'JSON copied to clipboard';
+
+  @override
+  String exportedTo(String path) {
+    return 'Playlist exported to $path';
   }
 }

@@ -859,4 +859,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String songsFromLibrary(int count) {
     return '$count songs from your library.';
   }
+
+  @override
+  String get jsonCopied => 'JSON copied to clipboard';
+
+  @override
+  String exportedTo(String path) {
+    return 'Playlist exported to $path';
+  }
 }

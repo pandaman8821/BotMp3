@@ -162,7 +162,7 @@ class PlaylistsScreen extends StatelessWidget {
           _snack(
             context,
             path == null
-                ? 'JSON copiado al portapapeles'
+                ? AppLocalizations.of(context)!.jsonCopied
                 : 'Lista exportada y JSON copiado al portapapeles',
           );
         }
@@ -254,7 +254,7 @@ class _PlaylistSongsScreen extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          path == null ? 'JSON copiado al portapapeles' : 'Lista exportada a $path',
+                          path == null ? AppLocalizations.of(context)!.jsonCopied : AppLocalizations.of(context)!.exportedTo(path),
                         ),
                       ),
                     );
@@ -262,7 +262,7 @@ class _PlaylistSongsScreen extends StatelessWidget {
                 case 'delete':
                   final bool confirmed = await AppDialogs.confirm(
                     context,
-                    title: 'Eliminar lista',
+                    title: AppLocalizations.of(context)!.deleteList,
                     message: AppLocalizations.of(context)!.deleteListBodyShort(playlist.name),
                   );
                   if (confirmed && context.mounted) {

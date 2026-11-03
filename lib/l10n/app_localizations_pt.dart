@@ -859,6 +859,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String songsFromLibrary(int count) {
     return '$count songs from your library.';
   }
+
+  @override
+  String get jsonCopied => 'JSON copied to clipboard';
+
+  @override
+  String exportedTo(String path) {
+    return 'Playlist exported to $path';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1715,5 +1723,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String songsFromLibrary(int count) {
     return '$count songs from your library.';
+  }
+
+  @override
+  String get jsonCopied => 'JSON copied to clipboard';
+
+  @override
+  String exportedTo(String path) {
+    return 'Playlist exported to $path';
   }
 }

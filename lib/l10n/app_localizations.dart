@@ -1663,6 +1663,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} songs from your library.'**
   String songsFromLibrary(int count);
+
+  /// No description provided for @jsonCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'JSON copied to clipboard'**
+  String get jsonCopied;
+
+  /// No description provided for @exportedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlist exported to {path}'**
+  String exportedTo(String path);
 }
 
 class _AppLocalizationsDelegate

@@ -278,5 +278,7 @@
   "playlistWillBe": "Playlist \"{name}\" will be created",
   "deleteListBodyShort": "Delete \"{name}\"?",
   "dialogDescription": "Description",
-  "songsFromLibrary": "{count} songs from your library."
+  "songsFromLibrary": "{count} songs from your library.",
+  "jsonCopied": "JSON copied to clipboard",
+  "exportedTo": "Playlist exported to {path}"
 }
