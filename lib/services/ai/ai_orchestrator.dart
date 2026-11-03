@@ -65,19 +65,25 @@ Usa el lenguaje natural solo para conversar; para actuar, usa <CMD>.
   Future<Map<String, String>?> suggestMetadata(Song song) async {
     final String fileName = song.path.split(RegExp(r'[\\/]')).last;
     final String prompt = '''
-Canción de mi biblioteca local:
-- archivo: $fileName
-- título actual: ${song.title}
-- artista actual: ${song.artist}
-- álbum actual: ${song.album}
-- año actual: ${song.year}
-- género actual: ${song.genre}
+You are a music metadata expert. Fix and complete the metadata of ONE local song.
 
-Devuelve SOLO un JSON con este formato:
-{"titulo":"...","artista":"...","album":"...","anio":2020,"genero":"...","tags":["..."]}
-Corrige mayúsculas y erratas y usa un género de esta lista si encaja:
-${GenreCatalog.all.join(', ')}.
-Si no estás seguro de un dato, repite el valor actual. No inventes años.
+Song data:
+- file name: $fileName
+- current title: ${song.title}
+- current artist: ${song.artist}
+- current album: ${song.album}
+- current year: ${song.year}
+- current genre: ${song.genre}
+
+Rules:
+1. Use the file name as a strong hint (it often contains "Artist - Title" or track numbers).
+2. Fix spelling, capitalisation and common tagging mistakes (feat., remix, slowed, sped up).
+3. Return ONLY this JSON, with every field filled:
+   {"titulo":"...","artista":"...","album":"...","anio":2020,"genero":"...","tags":["...","..."]}
+4. If a value is genuinely unknown, repeat the current value instead of inventing it.
+5. Year must be a real 4-digit year between 1900 and ${DateTime.now().year + 1}; otherwise 0.
+6. Genre MUST be one of: ${GenreCatalog.all.join(', ')}.
+7. Tags: 1 to 4 short lowercase keywords about mood, era or style.
 ''';
     final String raw = await client.complete(
       <AiMessage>[

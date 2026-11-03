@@ -65,12 +65,12 @@ class _PlayerScreenState extends State<PlayerScreen> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(Icons.keyboard_arrow_down, size: 32),
-          tooltip: 'Cerrar',
+          tooltip: AppLocalizations.of(context)!.close,
           onPressed: () => Navigator.of(context).maybePop(),
         ),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Editar carátula',
+            tooltip: AppLocalizations.of(context)!.menuEditCover,
             icon: const Icon(Icons.image_outlined),
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute<void>(
@@ -79,7 +79,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
             ),
           ),
           IconButton(
-            tooltip: 'Cola de reproducción',
+            tooltip: AppLocalizations.of(context)!.playQueue,
             icon: const Icon(Icons.queue_music),
             onPressed: () => _showQueue(context),
           ),
@@ -502,7 +502,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                 subtitle: Text(song.artist, maxLines: 1, overflow: TextOverflow.ellipsis),
                 trailing: IconButton(
                   icon: const Icon(Icons.close),
-                  tooltip: 'Quitar de la cola',
+                  tooltip: AppLocalizations.of(context)!.menuRemoveFromLibrary,
                   onPressed: () => player.removeFromQueue(song.id),
                 ),
                 onTap: () {
