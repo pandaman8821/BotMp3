@@ -317,5 +317,17 @@
     }
   },
   "keyStoredFor": "Clave de {provider} guardada cifrada",
-  "subAutoImport": "Escanea la música del dispositivo al abrir la app y añade lo nuevo."
+  "subAutoImport": "Escanea la música del dispositivo al abrir la app y añade lo nuevo.",
+  "editMetadataTitle": "Editar metadatos",
+  "autofillAi": "Autocompletar con IA",
+  "titleStar": "Título *",
+  "artistStar": "Artista *",
+  "durationStar": "Duración *",
+  "detectDuration": "Detectar duración",
+  "genreStar": "Género *",
+  "tagsAdvanced": "Etiquetas (búsqueda avanzada)",
+  "addTagHint": "Añadir etiqueta y pulsar +",
+  "saveChanges": "Guardar cambios",
+  "dataFilled": "Datos completados ✨ Revisa y guarda",
+  "metadataSaved": "Metadatos guardados"
 }

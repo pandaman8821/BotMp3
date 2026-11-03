@@ -75,15 +75,15 @@ class _SongEditScreenState extends State<SongEditScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Editar metadatos'),
+        title: Text(AppLocalizations.of(context)!.editMetadataTitle),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Autocompletar con IA',
+            tooltip: AppLocalizations.of(context)!.autofillAi,
             icon: const Icon(Icons.auto_awesome),
             onPressed: _saving ? null : () => _autocompletarConIa(song),
           ),
           IconButton(
-            tooltip: 'Eliminar de la biblioteca',
+            tooltip: AppLocalizations.of(context)!.menuRemoveFromLibrary,
             icon: const Icon(Icons.delete_outline),
             onPressed: _confirmDelete,
           ),
@@ -130,7 +130,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
             const SizedBox(height: 20),
             TextFormField(
               controller: _title,
-              decoration: const InputDecoration(labelText: 'Título *'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.titleStar),
               textCapitalization: TextCapitalization.sentences,
               validator: (String? value) =>
                   (value == null || value.trim().isEmpty) ? 'El título es obligatorio' : null,
@@ -138,7 +138,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
             const SizedBox(height: 12),
             TextFormField(
               controller: _artist,
-              decoration: const InputDecoration(labelText: 'Artista *'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.artistStar),
               textCapitalization: TextCapitalization.words,
               validator: (String? value) =>
                   (value == null || value.trim().isEmpty) ? 'El artista es obligatorio' : null,
@@ -146,7 +146,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
             const SizedBox(height: 12),
             TextFormField(
               controller: _album,
-              decoration: const InputDecoration(labelText: 'Álbum'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.albumLabel),
               textCapitalization: TextCapitalization.sentences,
             ),
             const SizedBox(height: 12),
@@ -155,7 +155,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
                 Expanded(
                   child: TextFormField(
                     controller: _year,
-                    decoration: const InputDecoration(labelText: 'Año'),
+                    decoration: InputDecoration(labelText: AppLocalizations.of(context)!.yearLabel),
                     keyboardType: TextInputType.number,
                     validator: (String? value) {
                       if (value == null || value.trim().isEmpty) return null;
@@ -170,7 +170,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
                 const SizedBox(width: 12),
                 Expanded(
                   child: InputDecorator(
-                    decoration: const InputDecoration(labelText: 'Duración *'),
+                    decoration: InputDecoration(labelText: AppLocalizations.of(context)!.durationStar),
                     child: Row(
                       children: <Widget>[
                         Expanded(
@@ -181,7 +181,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
                           ),
                         ),
                         IconButton(
-                          tooltip: 'Detectar duración',
+                          tooltip: AppLocalizations.of(context)!.detectDuration,
                           icon: const Icon(Icons.refresh, size: 18),
                           onPressed: _detectDuration,
                         ),
@@ -192,7 +192,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
               ],
             ),
             const SizedBox(height: 16),
-            const Text('Género *', style: TextStyle(fontWeight: FontWeight.w600)),
+            Text(AppLocalizations.of(context)!.genreStar, style: const TextStyle(fontWeight: FontWeight.w600)),
             const SizedBox(height: 8),
             Wrap(
               spacing: 8,
@@ -206,15 +206,15 @@ class _SongEditScreenState extends State<SongEditScreen> {
               }).toList(),
             ),
             const SizedBox(height: 20),
-            const Text('Etiquetas (búsqueda avanzada)', style: TextStyle(fontWeight: FontWeight.w600)),
+            Text(AppLocalizations.of(context)!.tagsAdvanced, style: const TextStyle(fontWeight: FontWeight.w600)),
             const SizedBox(height: 8),
             Row(
               children: <Widget>[
                 Expanded(
                   child: TextField(
                     controller: _tagInput,
-                    decoration: const InputDecoration(
-                      hintText: 'Añadir etiqueta y pulsar +',
+                    decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context)!.addTagHint,
                     ),
                     onSubmitted: (_) => _addTag(),
                   ),
@@ -254,7 +254,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
                   : const Icon(Icons.save),
-              label: const Text('Guardar cambios'),
+              label: Text(AppLocalizations.of(context)!.saveChanges),
             ),
             const SizedBox(height: 10),
             OutlinedButton.icon(
@@ -334,7 +334,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
       }
     });
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Datos completados ✨ Revisa y guarda')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.dataFilled)),
     );
   }
 
@@ -375,7 +375,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
     if (!mounted) return;
     setState(() => _saving = false);
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Metadatos guardados')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.metadataSaved)),
     );
   }
 
@@ -405,7 +405,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
     final LibraryProvider library = context.read<LibraryProvider>();
     final bool confirmed = await AppDialogs.confirm(
       context,
-      title: 'Eliminar canción',
+      title: AppLocalizations.of(context)!.deleteSongTitle,
       message: 'Se quitará de la biblioteca (el archivo de audio no se borra).',
     );
     if (!confirmed) return;

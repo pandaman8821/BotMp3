@@ -1333,6 +1333,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Scans device music when the app opens and adds anything new.'**
   String get subAutoImport;
+
+  /// No description provided for @editMetadataTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit metadata'**
+  String get editMetadataTitle;
+
+  /// No description provided for @autofillAi.
+  ///
+  /// In en, this message translates to:
+  /// **'Autofill with AI'**
+  String get autofillAi;
+
+  /// No description provided for @titleStar.
+  ///
+  /// In en, this message translates to:
+  /// **'Title *'**
+  String get titleStar;
+
+  /// No description provided for @artistStar.
+  ///
+  /// In en, this message translates to:
+  /// **'Artist *'**
+  String get artistStar;
+
+  /// No description provided for @durationStar.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration *'**
+  String get durationStar;
+
+  /// No description provided for @detectDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Detect duration'**
+  String get detectDuration;
+
+  /// No description provided for @genreStar.
+  ///
+  /// In en, this message translates to:
+  /// **'Genre *'**
+  String get genreStar;
+
+  /// No description provided for @tagsAdvanced.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags (advanced search)'**
+  String get tagsAdvanced;
+
+  /// No description provided for @addTagHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a tag and press +'**
+  String get addTagHint;
+
+  /// No description provided for @saveChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'Save changes'**
+  String get saveChanges;
+
+  /// No description provided for @dataFilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Details filled ✨ Review and save'**
+  String get dataFilled;
+
+  /// No description provided for @metadataSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Metadata saved'**
+  String get metadataSaved;
 }
 
 class _AppLocalizationsDelegate

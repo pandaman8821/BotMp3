@@ -152,28 +152,28 @@ extension AiProviderInfo on AiProvider {
   String? hintFor(String model) {
     switch (model) {
       case 'deepseek-flash':
-        return 'Recomendado: el más rápido y económico (ideal para toda la app).';
+        return 'Recommended: the fastest and cheapest (great for everything).';
       case 'deepseek-v4-pro':
         return 'Más capaz en razonamiento; cuesta unas 4 veces más por uso.';
       case 'deepseek-chat':
       case 'deepseek-reasoner':
         return 'Nombre retirado por DeepSeek: usa deepseek-flash o deepseek-v4-pro.';
       case 'gpt-4o':
-        return 'Equilibrado y con buen español; buen equilibrio calidad/precio.';
+        return 'Balanced and fluent; good value for the price.';
       case 'gpt-4o-mini':
-        return 'Muy rápido y barato; suficiente para metadatos y listas.';
+        return 'Very fast and cheap; enough for metadata and playlists.';
       case 'o1':
       case 'o1-mini':
         return 'Razonamiento: más lento y caro; con estos la app omite el modo JSON.';
       case 'gemini-2.0-flash':
       case 'gemini-2.5-flash':
-        return 'Rápido y con cuota gratuita generosa de Google.';
+        return 'Fast, with Google’s generous free tier.';
       case 'gemini-2.5-pro':
         return 'Más capaz; consume antes la cuota gratuita.';
       case 'claude-3-5-haiku-latest':
-        return 'El más rápido y económico de Claude.';
+        return 'The fastest and cheapest Claude model.';
       case 'claude-3-5-sonnet-latest':
-        return 'Equilibrado; muy buena redacción en español.';
+        return 'Balanced; excellent writing quality.';
       case 'claude-3-opus-latest':
         return 'El más potente de Claude y también el más caro.';
     }
