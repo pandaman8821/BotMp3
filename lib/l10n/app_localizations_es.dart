@@ -670,4 +670,40 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get subAutoImport =>
       'Escanea la música del dispositivo al abrir la app y añade lo nuevo.';
+
+  @override
+  String get editMetadataTitle => 'Editar metadatos';
+
+  @override
+  String get autofillAi => 'Autocompletar con IA';
+
+  @override
+  String get titleStar => 'Título *';
+
+  @override
+  String get artistStar => 'Artista *';
+
+  @override
+  String get durationStar => 'Duración *';
+
+  @override
+  String get detectDuration => 'Detectar duración';
+
+  @override
+  String get genreStar => 'Género *';
+
+  @override
+  String get tagsAdvanced => 'Etiquetas (búsqueda avanzada)';
+
+  @override
+  String get addTagHint => 'Añadir etiqueta y pulsar +';
+
+  @override
+  String get saveChanges => 'Guardar cambios';
+
+  @override
+  String get dataFilled => 'Datos completados ✨ Revisa y guarda';
+
+  @override
+  String get metadataSaved => 'Metadatos guardados';
 }

@@ -317,5 +317,17 @@
     }
   },
   "keyStoredFor": "{provider} key saved encrypted",
-  "subAutoImport": "Scans device music when the app opens and adds anything new."
+  "subAutoImport": "Scans device music when the app opens and adds anything new.",
+  "editMetadataTitle": "Edit metadata",
+  "autofillAi": "Autofill with AI",
+  "titleStar": "Title *",
+  "artistStar": "Artist *",
+  "durationStar": "Duration *",
+  "detectDuration": "Detect duration",
+  "genreStar": "Genre *",
+  "tagsAdvanced": "Tags (advanced search)",
+  "addTagHint": "Add a tag and press +",
+  "saveChanges": "Save changes",
+  "dataFilled": "Details filled ✨ Review and save",
+  "metadataSaved": "Metadata saved"
 }
