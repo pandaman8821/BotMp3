@@ -22,6 +22,9 @@ Description: |-
   Disponible en 10 idiomas: espanol, ingles, aleman, frances, italiano,
   portugues (Brasil), japones, coreano, hindi y chino simplificado.
 
+AntiFeatures:
+  - NonFreeNet
+
 RepoType: git
 Repo: https://github.com/pandaman8821/BotMp3.git
 
@@ -37,12 +40,10 @@ Builds:
     srclibs:
       - flutter@3.47.7
     prebuild:
-      - export PUB_CACHE=$$flutter$$/.pub-cache
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter precache --android
-      - cd $$flutter$$ && $${flutter}$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub get
     build:
-      - export PUB_CACHE=$$flutter$$/.pub-cache
       - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64 --no-pub
 
 MaintainerNotes: |
