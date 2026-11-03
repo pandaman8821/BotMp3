@@ -410,5 +410,14 @@
         "type": "int"
       }
     }
+  },
+  "jsonCopied": "JSON copiado al portapapeles",
+  "exportedTo": "Lista exportada a {path}",
+  "@exportedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
   }
 }

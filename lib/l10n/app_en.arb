@@ -410,5 +410,14 @@
         "type": "int"
       }
     }
+  },
+  "jsonCopied": "JSON copied to clipboard",
+  "exportedTo": "Playlist exported to {path}",
+  "@exportedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
   }
 }

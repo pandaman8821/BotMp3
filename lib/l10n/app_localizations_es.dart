@@ -861,4 +861,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String songsFromLibrary(int count) {
     return '$count canciones de tu biblioteca.';
   }
+
+  @override
+  String get jsonCopied => 'JSON copiado al portapapeles';
+
+  @override
+  String exportedTo(String path) {
+    return 'Lista exportada a $path';
+  }
 }
