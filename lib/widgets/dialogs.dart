@@ -37,7 +37,7 @@ class AppDialogs {
               textCapitalization: TextCapitalization.sentences,
               maxLines: 3,
               decoration: InputDecoration(
-                labelText: 'Descripción',
+                labelText: AppLocalizations.of(context)!.dialogDescription,
                 hintText: AppLocalizations.of(context)!.dialogMoodHint,
               ),
             ),
@@ -88,7 +88,7 @@ class AppDialogs {
             TextField(
               controller: descriptionController,
               maxLines: 3,
-              decoration: InputDecoration(labelText: 'Descripción'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.dialogDescription),
             ),
           ],
         ),

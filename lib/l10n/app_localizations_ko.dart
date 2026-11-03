@@ -826,4 +826,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get aboutWhatsNew => 'What\'s new:';
+
+  @override
+  String playlistWillBe(String name) {
+    return 'Playlist \"$name\" will be created';
+  }
+
+  @override
+  String deleteListBodyShort(String name) {
+    return 'Delete \"$name\"?';
+  }
+
+  @override
+  String get dialogDescription => 'Description';
+
+  @override
+  String songsFromLibrary(int count) {
+    return '$count songs from your library.';
+  }
 }

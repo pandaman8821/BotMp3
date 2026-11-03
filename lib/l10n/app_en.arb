@@ -385,5 +385,30 @@
   "aiAskExamples": "Ask it things like:",
   "aiKeyMissing": "Add at least one API key in Settings ▸ AI.",
   "aboutOffline": "Full offline mode: your music never leaves the device.",
-  "aboutWhatsNew": "What's new:"
+  "aboutWhatsNew": "What's new:",
+  "playlistWillBe": "Playlist \"{name}\" will be created",
+  "deleteListBodyShort": "Delete \"{name}\"?",
+  "dialogDescription": "Description",
+  "@playlistWillBe": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteListBodyShort": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "songsFromLibrary": "{count} songs from your library.",
+  "@songsFromLibrary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

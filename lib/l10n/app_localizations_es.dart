@@ -843,4 +843,22 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get aboutWhatsNew => 'Novedades:';
+
+  @override
+  String playlistWillBe(String name) {
+    return 'Se creará la lista \"$name\"';
+  }
+
+  @override
+  String deleteListBodyShort(String name) {
+    return '¿Eliminar \"$name\"?';
+  }
+
+  @override
+  String get dialogDescription => 'Descripción';
+
+  @override
+  String songsFromLibrary(int count) {
+    return '$count canciones de tu biblioteca.';
+  }
 }
