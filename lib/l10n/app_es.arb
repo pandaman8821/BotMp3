@@ -329,5 +329,61 @@
   "addTagHint": "Añadir etiqueta y pulsar +",
   "saveChanges": "Guardar cambios",
   "dataFilled": "Datos completados ✨ Revisa y guarda",
-  "metadataSaved": "Metadatos guardados"
+  "metadataSaved": "Metadatos guardados",
+  "playlistsEmpty": "Sin listas todavía",
+  "playlistEmptyTitle": "Lista vacía",
+  "playlistEmptyDesc": "Añade canciones con el botón + o desde la biblioteca.",
+  "resetStatsTitle": "Reiniciar estadísticas",
+  "playTop10": "Reproducir el top 10",
+  "searchFieldsHint": "Título, artista, álbum, género, año o #tag",
+  "backToNormalSearch": "Volver a la búsqueda normal",
+  "lyricsNotFound": "No se encontró la letra de esta canción.",
+  "saveToGallery": "Guardar en galería/almacenamiento",
+  "coverTextOptional": "Texto sobre la carátula (opcional)",
+  "aiExplains": "La IA elige y explica la siguiente canción mientras reproduces.",
+  "glassDesc": "Barras y paneles translúcidos con desenfoque real del fondo.",
+  "modelId": "Identificador del modelo",
+  "songDeleteBody": "Se quitará de la biblioteca (el archivo de audio no se borra).",
+  "ideaNoTitle": "Idea sin título",
+  "dialogListName": "Nombre de la lista",
+  "dialogMoodHint": "Para qué momento es esta lista…",
+  "dialogSearchHint": "Buscar canción, artista, álbum o género",
+  "dialogGenre": "Género",
+  "aiDjTitle": "Tu DJ con IA",
+  "promptForGenerator": "Prompt para generador:",
+  "actionsRun": "Órdenes ejecutadas",
+  "coverSongLine": "Canción: {title} — {artist}",
+  "deleteListBody": "¿Eliminar \"{name}\"? Las canciones seguirán en tu biblioteca.",
+  "@coverSongLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteListBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistsEmptyDesc": "Crea listas ilimitadas con nombre y descripción, o pídele una a la IA",
+  "resetStatsBody": "Se pondrán a cero las reproducciones de todas las canciones",
+  "lyricsHowTo": "Guarda un archivo .lrc (o .txt) con el mismo nombre que la",
+  "carModeHint": "Desliza el dedo por la barra de abajo o usa estos botones: están",
+  "noImagePick": "Sin imagen. Elige una foto (PNG/JPG) para empezar a editar la carátula.",
+  "diagCopyThis": "Si los botones de la pantalla de bloqueo no responden, copia este",
+  "restoreWarning": "Se sustituirán tu biblioteca, listas, historial y chat por los",
+  "tagAiDesc": "Usa el modelo de IA para poner género a las canciones que aún no lo",
+  "aboutBody": "Reproductor local con IA multimodelo (OpenAI, DeepSeek, Gemini, Claude), efecto cristal, ranking propio y tendencias.",
+  "songEditNote": "BotMp3 guarda los metadatos en su propia base de datos local y, además,",
+  "aiTestOk": "Responde solo con: BotMp3 IA conectada",
+  "aiAskExamples": "Pídele cosas como:",
+  "aiKeyMissing": "Añade al menos una API key en la pestaña Ajustes ▸ IA.",
+  "aboutOffline": "Modo offline total: la música nunca sale del dispositivo.",
+  "aboutWhatsNew": "Novedades:"
 }

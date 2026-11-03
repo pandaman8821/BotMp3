@@ -62,17 +62,15 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
         title: const Text('Ranking'),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Reiniciar estadísticas',
+            tooltip: AppLocalizations.of(context)!.resetStatsTitle,
             icon: const Icon(Icons.restart_alt),
             onPressed: () async {
               final bool? confirmar = await showDialog<bool>(
                 context: context,
                 builder: (BuildContext dialogContext) => AlertDialog(
                   title: Text(AppLocalizations.of(context)!.resetRanking),
-                  content: const Text(
-                    'Se pondrán a cero las reproducciones de todas las canciones '
-                    'y el historial. Útil si el contador se infló en versiones '
-                    'anteriores.\n\nEsta acción no se puede deshacer.',
+                  content: Text(
+                    AppLocalizations.of(context)!.resetStatsBody,
                   ),
                   actions: <Widget>[
                     TextButton(
@@ -96,7 +94,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
           ),
           if (canciones.isNotEmpty)
             IconButton(
-              tooltip: 'Reproducir el top 10',
+              tooltip: AppLocalizations.of(context)!.playTop10,
               icon: const Icon(Icons.play_circle_outline),
               onPressed: () {
                 final List<Song> top = canciones.take(10).toList();

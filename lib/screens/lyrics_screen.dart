@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -70,20 +71,18 @@ class LyricsScreen extends StatelessWidget {
           }
           final String? letra = snap.data;
           if (letra == null || letra.trim().isEmpty) {
-            return const Padding(
+            return Padding(
               padding: EdgeInsets.all(24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'No se encontró la letra de esta canción.',
+                    AppLocalizations.of(context)!.lyricsNotFound,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'Guarda un archivo .lrc (o .txt) con el mismo nombre que la '
-                    'canción, en la misma carpeta del audio. Ejemplo:\n\n'
-                    'Cancion.mp3\nCancion.lrc',
+                    AppLocalizations.of(context)!.lyricsHowTo,
                     style: TextStyle(fontSize: 14, height: 1.5),
                   ),
                 ],

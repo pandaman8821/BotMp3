@@ -424,7 +424,7 @@ Devuelve EXACTAMENTE este JSON:
       }
     }
     return AiSongIdea(
-      title: 'Idea sin título',
+      title: 'Untitled idea',
       genre: 'Pop',
       mood: 'neutro',
       bpm: 100,
@@ -439,7 +439,7 @@ Devuelve EXACTAMENTE este JSON:
   Future<String> testConnection() async {
     final String reply = await client.complete(
       <AiMessage>[
-        const AiMessage(role: 'user', content: 'Responde solo con: BotMp3 IA conectada ✅'),
+        const AiMessage(role: 'user', content: 'Reply only with: BotMp3 AI connected'),
       ],
       systemPrompt: 'Eres un comprobador de conexión. Responde en una línea.',
       temperature: 0,

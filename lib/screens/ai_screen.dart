@@ -163,12 +163,8 @@ class _AiScreenState extends State<AiScreen> {
   Widget _emptyState(BuildContext context) {
     return EmptyState(
       icon: Icons.smart_toy_outlined,
-      title: 'Tu DJ con IA',
-      message: 'Pídele cosas como:\n'
-          '• "recomiéndame 10 canciones de rock latino 2020-2025"\n'
-          '• "hazme una playlist de 30 canciones para entrenar"\n'
-          '• "algo tranquilo para estudiar un domingo"\n'
-          '• "crea una canción de cumbia sobre Bolivia"',
+      title: AppLocalizations.of(context)!.aiDjTitle,
+      message: AppLocalizations.of(context)!.aiAskExamples,
       actionLabel: 'Configurar API keys',
       onAction: () {
         final AiAssistantProvider ai = context.read<AiAssistantProvider>();
@@ -177,8 +173,7 @@ class _AiScreenState extends State<AiScreen> {
           builder: (BuildContext dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context)!.aiProviders),
             content: Text(
-              'Añade al menos una API key en la pestaña Ajustes ▸ IA. '
-              'Proveedor activo: ${ai.activeProvider.label}.',
+              AppLocalizations.of(context)!.aiKeyMissing,
             ),
             actions: <Widget>[
               FilledButton(
@@ -439,7 +434,7 @@ class _AiScreenState extends State<AiScreen> {
                 child: Text(idea.lyricSeed, style: const TextStyle(fontStyle: FontStyle.italic)),
               ),
             const SizedBox(height: 10),
-            const Text('Prompt para generador:', style: TextStyle(fontWeight: FontWeight.w600)),
+            Text(AppLocalizations.of(context)!.promptForGenerator, style: TextStyle(fontWeight: FontWeight.w600)),
             SelectableText(idea.generatorPrompt, style: const TextStyle(fontSize: 12.5)),
             const SizedBox(height: 10),
             Row(
@@ -482,8 +477,8 @@ class _AiScreenState extends State<AiScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const Text(
-            'Órdenes ejecutadas',
+          Text(
+            AppLocalizations.of(context)!.actionsRun,
             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 6),

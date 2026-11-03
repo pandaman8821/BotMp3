@@ -329,5 +329,61 @@
   "addTagHint": "Add a tag and press +",
   "saveChanges": "Save changes",
   "dataFilled": "Details filled ✨ Review and save",
-  "metadataSaved": "Metadata saved"
+  "metadataSaved": "Metadata saved",
+  "playlistsEmpty": "No playlists yet",
+  "playlistEmptyTitle": "Empty playlist",
+  "playlistEmptyDesc": "Add songs with the + button or from the library.",
+  "resetStatsTitle": "Reset stats",
+  "playTop10": "Play the top 10",
+  "searchFieldsHint": "Title, artist, album, genre, year or #tag",
+  "backToNormalSearch": "Back to normal search",
+  "lyricsNotFound": "No lyrics found for this song.",
+  "saveToGallery": "Save to gallery/storage",
+  "coverTextOptional": "Text on the cover (optional)",
+  "aiExplains": "The AI picks and explains the next song while you play.",
+  "glassDesc": "Translucent bars and panels with real background blur.",
+  "modelId": "Model identifier",
+  "songDeleteBody": "It will be removed from the library (the audio file is not deleted).",
+  "ideaNoTitle": "Untitled idea",
+  "dialogListName": "Playlist name",
+  "dialogMoodHint": "What moment is this playlist for…",
+  "dialogSearchHint": "Search song, artist, album or genre",
+  "dialogGenre": "Genre",
+  "aiDjTitle": "Your AI DJ",
+  "promptForGenerator": "Prompt for the generator:",
+  "actionsRun": "Actions run",
+  "coverSongLine": "Song: {title} — {artist}",
+  "deleteListBody": "Delete \"{name}\"? The songs stay in your library.",
+  "@coverSongLine": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteListBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistsEmptyDesc": "Create unlimited playlists with a name and description, or ask the AI for one",
+  "resetStatsBody": "Play counts for all songs will be reset to zero",
+  "lyricsHowTo": "Save a .lrc (or .txt) file with the same name as the",
+  "carModeHint": "Swipe the bottom bar or use these buttons: they are",
+  "noImagePick": "No image. Pick a photo (PNG/JPG) to start editing the cover.",
+  "diagCopyThis": "If the lock screen buttons do not respond, copy this",
+  "restoreWarning": "Your library, playlists, history and chat will be replaced by the",
+  "tagAiDesc": "Uses the AI model to tag songs that do not have a genre yet.",
+  "aboutBody": "Local player with multi-model AI (OpenAI, DeepSeek, Gemini, Claude), glass effect, own ranking and trends.",
+  "songEditNote": "BotMp3 stores metadata in its own local database and also",
+  "aiTestOk": "Reply only with: BotMp3 AI connected",
+  "aiAskExamples": "Ask it things like:",
+  "aiKeyMissing": "Add at least one API key in Settings ▸ AI.",
+  "aboutOffline": "Full offline mode: your music never leaves the device.",
+  "aboutWhatsNew": "What's new:"
 }
