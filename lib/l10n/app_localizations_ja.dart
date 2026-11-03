@@ -592,105 +592,100 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get subImportAppAudio =>
-      'Include WhatsApp, Telegram… audio and voice recordings. Off (recommended) imports music only.';
+      'WhatsApp・Telegram…の音声やボイスメモも含めます。オフ（推奨）では音楽のみ。';
 
   @override
   String get subRestoreBackup =>
-      'Returns to the last backup (library, playlists, history and chat). Anything done since is lost.';
+      '最後のバックアップ（ライブラリ・プレイリスト・履歴・チャット）に戻します。以降の変更は失われます。';
 
   @override
-  String get subExportBackup =>
-      'Saves the last backup to a JSON file you choose, to move it to another phone or keep it apart.';
+  String get subExportBackup => '最後のバックアップを選んだJSONファイルに保存し、別の端末へ移したり保管できます。';
 
   @override
-  String get subVolume =>
-      'Balances quieter or louder tracks (±6 dB). Saved per song and applied every time it plays.';
+  String get subVolume => '小さい曲・大きい曲の音量を揃えます（±6 dB）。曲ごとに保存され、再生のたびに適用されます。';
 
   @override
-  String get subFillGenres =>
-      'Fills the genre of songs that have none, using the title and album. No connection, no AI key.';
+  String get subFillGenres => 'タイトルとアルバムから、ジャンル未設定の曲にジャンルを入れます。通信もAIキーも不要。';
 
   @override
   String get subBackup =>
-      'Automatic every 7 days inside the app (library, playlists, history and chat). Stored on your phone, never in the cloud.';
+      'アプリ内で7日ごとに自動（ライブラリ・プレイリスト・履歴・チャット）。端末に保存され、クラウドには送りません。';
 
   @override
-  String get exportLibraryJson => 'Export library (JSON)';
+  String get exportLibraryJson => 'ライブラリを書き出す（JSON）';
 
   @override
-  String get restoreLibraryJson => 'Restore library (JSON)';
+  String get restoreLibraryJson => 'ライブラリを復元（JSON）';
 
   @override
-  String get aboutTitle => 'About BotMp3';
+  String get aboutTitle => 'BotMp3 について';
 
   @override
-  String get darkMode => 'Dark';
+  String get darkMode => 'ダーク';
 
   @override
-  String get lightMode => 'Light';
+  String get lightMode => 'ライト';
 
   @override
-  String get clearAllWarning =>
-      'All songs and playlists saved in the app will be deleted.';
+  String get clearAllWarning => 'アプリ内に保存されたすべての曲とプレイリストが削除されます。';
 
   @override
-  String get replaceKey => 'Replace key…';
+  String get replaceKey => 'キーを置き換え…';
 
   @override
-  String get otherOption => 'Other…';
+  String get otherOption => 'その他…';
 
   @override
   String djBatchNow(int count) {
-    return 'Now asks for $count each time';
+    return '現在は毎回 $count 曲';
   }
 
   @override
   String keySaved(String value) {
-    return 'Saved: $value';
+    return '保存済み：$value';
   }
 
   @override
   String keyStoredFor(String provider) {
-    return '$provider key saved encrypted';
+    return '$provider のキーを暗号化して保存しました';
   }
 
   @override
-  String get subAutoImport =>
-      'Scans device music when the app opens and adds anything new.';
+  String get subAutoImport => 'アプリ起動時に端末の音楽をスキャンし、新しい曲を追加します。';
 
   @override
-  String get editMetadataTitle => 'Edit metadata';
+  String get editMetadataTitle => 'メタデータを編集';
 
   @override
-  String get autofillAi => 'Autofill with AI';
+  String get autofillAi => 'AIで自動入力';
 
   @override
-  String get titleStar => 'Title *';
+  String get titleStar => 'タイトル *';
 
   @override
-  String get artistStar => 'Artist *';
+  String get artistStar => 'アーティスト *';
 
   @override
-  String get durationStar => 'Duration *';
+  String get durationStar => '長さ *';
 
   @override
-  String get detectDuration => 'Detect duration';
+  String get detectDuration => '長さを検出';
 
   @override
-  String get genreStar => 'Genre *';
+  String get genreStar => 'ジャンル *';
 
   @override
-  String get tagsAdvanced => 'Tags (advanced search)';
+  String get tagsAdvanced => 'タグ（詳細検索）';
 
   @override
-  String get addTagHint => 'Add a tag and press +';
+  String get addTagHint => 'タグを入力して + を押す';
 
   @override
-  String get saveChanges => 'Save changes';
+  String get saveChanges => '変更を保存';
 
   @override
-  String get dataFilled => 'Details filled ✨ Review and save';
+  String get dataFilled => '情報を入力しました ✨ 確認して保存してください';
 
   @override
-  String get metadataSaved => 'Metadata saved';
+  String get metadataSaved => 'メタデータを保存しました';
 }

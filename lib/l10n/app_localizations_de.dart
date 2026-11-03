@@ -604,105 +604,105 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get subImportAppAudio =>
-      'Include WhatsApp, Telegram… audio and voice recordings. Off (recommended) imports music only.';
+      'Schließt Audio aus WhatsApp, Telegram… und Sprachnotizen ein. Aus (empfohlen) importiert nur Musik.';
 
   @override
   String get subRestoreBackup =>
-      'Returns to the last backup (library, playlists, history and chat). Anything done since is lost.';
+      'Kehrt zum Stand der letzten Sicherung zurück (Bibliothek, Playlists, Verlauf, Chat). Spätere Änderungen gehen verloren.';
 
   @override
   String get subExportBackup =>
-      'Saves the last backup to a JSON file you choose, to move it to another phone or keep it apart.';
+      'Speichert die letzte Sicherung in eine JSON-Datei deiner Wahl, für ein anderes Telefon oder als Kopie.';
 
   @override
   String get subVolume =>
-      'Balances quieter or louder tracks (±6 dB). Saved per song and applied every time it plays.';
+      'Gleicht leise oder laute Titel an (±6 dB). Pro Lied gespeichert und bei jeder Wiedergabe angewendet.';
 
   @override
   String get subFillGenres =>
-      'Fills the genre of songs that have none, using the title and album. No connection, no AI key.';
+      'Ergänzt das Genre fehlender Lieder anhand von Titel und Album. Ohne Netz und ohne KI-Schlüssel.';
 
   @override
   String get subBackup =>
-      'Automatic every 7 days inside the app (library, playlists, history and chat). Stored on your phone, never in the cloud.';
+      'Automatisch alle 7 Tage in der App (Bibliothek, Playlists, Verlauf, Chat). Auf dem Telefon, nie in der Cloud.';
 
   @override
-  String get exportLibraryJson => 'Export library (JSON)';
+  String get exportLibraryJson => 'Bibliothek exportieren (JSON)';
 
   @override
-  String get restoreLibraryJson => 'Restore library (JSON)';
+  String get restoreLibraryJson => 'Bibliothek wiederherstellen (JSON)';
 
   @override
-  String get aboutTitle => 'About BotMp3';
+  String get aboutTitle => 'Über BotMp3';
 
   @override
-  String get darkMode => 'Dark';
+  String get darkMode => 'Dunkel';
 
   @override
-  String get lightMode => 'Light';
+  String get lightMode => 'Hell';
 
   @override
   String get clearAllWarning =>
-      'All songs and playlists saved in the app will be deleted.';
+      'Alle in der App gespeicherten Lieder und Playlists werden gelöscht.';
 
   @override
-  String get replaceKey => 'Replace key…';
+  String get replaceKey => 'Schlüssel ersetzen…';
 
   @override
-  String get otherOption => 'Other…';
+  String get otherOption => 'Andere…';
 
   @override
   String djBatchNow(int count) {
-    return 'Now asks for $count each time';
+    return 'Fragt jetzt $count pro Runde an';
   }
 
   @override
   String keySaved(String value) {
-    return 'Saved: $value';
+    return 'Gespeichert: $value';
   }
 
   @override
   String keyStoredFor(String provider) {
-    return '$provider key saved encrypted';
+    return '$provider-Schlüssel verschlüsselt gespeichert';
   }
 
   @override
   String get subAutoImport =>
-      'Scans device music when the app opens and adds anything new.';
+      'Durchsucht beim Öffnen die Gerätemusik und fügt Neues hinzu.';
 
   @override
-  String get editMetadataTitle => 'Edit metadata';
+  String get editMetadataTitle => 'Metadaten bearbeiten';
 
   @override
-  String get autofillAi => 'Autofill with AI';
+  String get autofillAi => 'Mit KI ausfüllen';
 
   @override
-  String get titleStar => 'Title *';
+  String get titleStar => 'Titel *';
 
   @override
-  String get artistStar => 'Artist *';
+  String get artistStar => 'Künstler *';
 
   @override
-  String get durationStar => 'Duration *';
+  String get durationStar => 'Dauer *';
 
   @override
-  String get detectDuration => 'Detect duration';
+  String get detectDuration => 'Dauer erkennen';
 
   @override
   String get genreStar => 'Genre *';
 
   @override
-  String get tagsAdvanced => 'Tags (advanced search)';
+  String get tagsAdvanced => 'Tags (erweiterte Suche)';
 
   @override
-  String get addTagHint => 'Add a tag and press +';
+  String get addTagHint => 'Tag eingeben und + drücken';
 
   @override
-  String get saveChanges => 'Save changes';
+  String get saveChanges => 'Änderungen speichern';
 
   @override
-  String get dataFilled => 'Details filled ✨ Review and save';
+  String get dataFilled => 'Daten ergänzt ✨ Prüfen und speichern';
 
   @override
-  String get metadataSaved => 'Metadata saved';
+  String get metadataSaved => 'Metadaten gespeichert';
 }

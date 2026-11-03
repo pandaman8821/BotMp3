@@ -592,105 +592,102 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get subImportAppAudio =>
-      'Include WhatsApp, Telegram… audio and voice recordings. Off (recommended) imports music only.';
+      'WhatsApp·Telegram… 오디오와 음성 메모도 포함합니다. 끄기(권장)면 음악만 가져옵니다.';
 
   @override
   String get subRestoreBackup =>
-      'Returns to the last backup (library, playlists, history and chat). Anything done since is lost.';
+      '마지막 백업 상태(라이브러리, 플레이리스트, 기록, 대화)로 되돌립니다. 그 이후 변경은 사라집니다.';
 
   @override
   String get subExportBackup =>
-      'Saves the last backup to a JSON file you choose, to move it to another phone or keep it apart.';
+      '마지막 백업을 선택한 JSON 파일로 저장해 다른 휴대폰으로 옮기거나 따로 보관합니다.';
 
   @override
   String get subVolume =>
-      'Balances quieter or louder tracks (±6 dB). Saved per song and applied every time it plays.';
+      '조용한 곡과 큰 곡의 음량을 맞춥니다(±6 dB). 곡마다 저장되어 재생할 때마다 적용됩니다.';
 
   @override
-  String get subFillGenres =>
-      'Fills the genre of songs that have none, using the title and album. No connection, no AI key.';
+  String get subFillGenres => '제목과 앨범으로 장르가 없는 곡의 장르를 채웁니다. 연결도 AI 키도 필요 없습니다.';
 
   @override
   String get subBackup =>
-      'Automatic every 7 days inside the app (library, playlists, history and chat). Stored on your phone, never in the cloud.';
+      '앱 안에서 7일마다 자동(라이브러리, 플레이리스트, 기록, 대화). 휴대폰에만 저장되고 클라우드로 보내지 않습니다.';
 
   @override
-  String get exportLibraryJson => 'Export library (JSON)';
+  String get exportLibraryJson => '라이브러리 내보내기(JSON)';
 
   @override
-  String get restoreLibraryJson => 'Restore library (JSON)';
+  String get restoreLibraryJson => '라이브러리 복원(JSON)';
 
   @override
-  String get aboutTitle => 'About BotMp3';
+  String get aboutTitle => 'BotMp3 정보';
 
   @override
-  String get darkMode => 'Dark';
+  String get darkMode => '어둡게';
 
   @override
-  String get lightMode => 'Light';
+  String get lightMode => '밝게';
 
   @override
-  String get clearAllWarning =>
-      'All songs and playlists saved in the app will be deleted.';
+  String get clearAllWarning => '앱에 저장된 모든 곡과 플레이리스트가 삭제됩니다.';
 
   @override
-  String get replaceKey => 'Replace key…';
+  String get replaceKey => '키 교체…';
 
   @override
-  String get otherOption => 'Other…';
+  String get otherOption => '기타…';
 
   @override
   String djBatchNow(int count) {
-    return 'Now asks for $count each time';
+    return '이제 한 번에 $count곡';
   }
 
   @override
   String keySaved(String value) {
-    return 'Saved: $value';
+    return '저장됨: $value';
   }
 
   @override
   String keyStoredFor(String provider) {
-    return '$provider key saved encrypted';
+    return '$provider 키가 암호화되어 저장되었습니다';
   }
 
   @override
-  String get subAutoImport =>
-      'Scans device music when the app opens and adds anything new.';
+  String get subAutoImport => '앱을 열 때 기기의 음악을 검사해 새 곡을 추가합니다.';
 
   @override
-  String get editMetadataTitle => 'Edit metadata';
+  String get editMetadataTitle => '메타데이터 편집';
 
   @override
-  String get autofillAi => 'Autofill with AI';
+  String get autofillAi => 'AI로 자동 채우기';
 
   @override
-  String get titleStar => 'Title *';
+  String get titleStar => '제목 *';
 
   @override
-  String get artistStar => 'Artist *';
+  String get artistStar => '아티스트 *';
 
   @override
-  String get durationStar => 'Duration *';
+  String get durationStar => '길이 *';
 
   @override
-  String get detectDuration => 'Detect duration';
+  String get detectDuration => '길이 감지';
 
   @override
-  String get genreStar => 'Genre *';
+  String get genreStar => '장르 *';
 
   @override
-  String get tagsAdvanced => 'Tags (advanced search)';
+  String get tagsAdvanced => '태그(고급 검색)';
 
   @override
-  String get addTagHint => 'Add a tag and press +';
+  String get addTagHint => '태그를 입력하고 + 를 누르세요';
 
   @override
-  String get saveChanges => 'Save changes';
+  String get saveChanges => '변경 사항 저장';
 
   @override
-  String get dataFilled => 'Details filled ✨ Review and save';
+  String get dataFilled => '정보를 채웠습니다 ✨ 확인 후 저장하세요';
 
   @override
-  String get metadataSaved => 'Metadata saved';
+  String get metadataSaved => '메타데이터가 저장되었습니다';
 }

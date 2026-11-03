@@ -602,105 +602,105 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get subImportAppAudio =>
-      'Include WhatsApp, Telegram… audio and voice recordings. Off (recommended) imports music only.';
+      'WhatsApp, Telegram… के ऑडियो और वॉइस नोट्स भी शामिल करें। बंद (सुझाव) पर केवल संगीत।';
 
   @override
   String get subRestoreBackup =>
-      'Returns to the last backup (library, playlists, history and chat). Anything done since is lost.';
+      'पिछले बैकअप (लाइब्रेरी, प्लेलिस्ट, इतिहास, चैट) पर लौटाता है। उसके बाद के बदलाव चले जाएँगे।';
 
   @override
   String get subExportBackup =>
-      'Saves the last backup to a JSON file you choose, to move it to another phone or keep it apart.';
+      'पिछला बैकअप आपके चुने JSON फ़ाइल में सहेजता है, दूसरे फ़ोन या अलग रखने के लिए।';
 
   @override
   String get subVolume =>
-      'Balances quieter or louder tracks (±6 dB). Saved per song and applied every time it plays.';
+      'धीमे या तेज़ गानों का स्तर बराबर करता है (±6 dB)। हर गाने के लिए सहेजा जाता है।';
 
   @override
   String get subFillGenres =>
-      'Fills the genre of songs that have none, using the title and album. No connection, no AI key.';
+      'बिना शैली वाले गानों में शीर्षक और एल्बम से शैली भरता है। नेटवर्क या AI कुंजी नहीं चाहिए।';
 
   @override
   String get subBackup =>
-      'Automatic every 7 days inside the app (library, playlists, history and chat). Stored on your phone, never in the cloud.';
+      'ऐप में हर 7 दिन में स्वचालित (लाइब्रेरी, प्लेलिस्ट, इतिहास, चैट)। फ़ोन में सहेजा जाता है, क्लाउड में नहीं।';
 
   @override
-  String get exportLibraryJson => 'Export library (JSON)';
+  String get exportLibraryJson => 'लाइब्रेरी निर्यात करें (JSON)';
 
   @override
-  String get restoreLibraryJson => 'Restore library (JSON)';
+  String get restoreLibraryJson => 'लाइब्रेरी बहाल करें (JSON)';
 
   @override
-  String get aboutTitle => 'About BotMp3';
+  String get aboutTitle => 'BotMp3 के बारे में';
 
   @override
-  String get darkMode => 'Dark';
+  String get darkMode => 'गहरा';
 
   @override
-  String get lightMode => 'Light';
+  String get lightMode => 'हल्का';
 
   @override
   String get clearAllWarning =>
-      'All songs and playlists saved in the app will be deleted.';
+      'ऐप में सहेजे गए सभी गाने और प्लेलिस्ट हटा दिए जाएँगे।';
 
   @override
-  String get replaceKey => 'Replace key…';
+  String get replaceKey => 'कुंजी बदलें…';
 
   @override
-  String get otherOption => 'Other…';
+  String get otherOption => 'अन्य…';
 
   @override
   String djBatchNow(int count) {
-    return 'Now asks for $count each time';
+    return 'अब हर बार $count माँगता है';
   }
 
   @override
   String keySaved(String value) {
-    return 'Saved: $value';
+    return 'सहेजी गई: $value';
   }
 
   @override
   String keyStoredFor(String provider) {
-    return '$provider key saved encrypted';
+    return '$provider कुंजी एन्क्रिप्ट करके सहेजी गई';
   }
 
   @override
   String get subAutoImport =>
-      'Scans device music when the app opens and adds anything new.';
+      'ऐप खुलने पर डिवाइस का संगीत स्कैन करता है और नया जोड़ता है।';
 
   @override
-  String get editMetadataTitle => 'Edit metadata';
+  String get editMetadataTitle => 'मेटाडेटा संपादित करें';
 
   @override
-  String get autofillAi => 'Autofill with AI';
+  String get autofillAi => 'AI से भरें';
 
   @override
-  String get titleStar => 'Title *';
+  String get titleStar => 'शीर्षक *';
 
   @override
-  String get artistStar => 'Artist *';
+  String get artistStar => 'कलाकार *';
 
   @override
-  String get durationStar => 'Duration *';
+  String get durationStar => 'अवधि *';
 
   @override
-  String get detectDuration => 'Detect duration';
+  String get detectDuration => 'अवधि पहचानें';
 
   @override
-  String get genreStar => 'Genre *';
+  String get genreStar => 'शैली *';
 
   @override
-  String get tagsAdvanced => 'Tags (advanced search)';
+  String get tagsAdvanced => 'टैग (उन्नत खोज)';
 
   @override
-  String get addTagHint => 'Add a tag and press +';
+  String get addTagHint => 'टैग जोड़ें और + दबाएँ';
 
   @override
-  String get saveChanges => 'Save changes';
+  String get saveChanges => 'बदलाव सहेजें';
 
   @override
-  String get dataFilled => 'Details filled ✨ Review and save';
+  String get dataFilled => 'जानकारी भर गई ✨ जाँचें और सहेजें';
 
   @override
-  String get metadataSaved => 'Metadata saved';
+  String get metadataSaved => 'मेटाडेटा सहेजा गया';
 }
