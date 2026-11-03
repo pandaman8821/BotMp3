@@ -267,7 +267,7 @@ class AiAssistantProvider extends ChangeNotifier {
           final String reply = await orchestrator.chat(<AiMessage>[
             AiMessage(
               role: 'user',
-              content: 'Ordena la ejecución de: $text',
+              content: 'Executing: $text',
               createdAt: DateTime.now(),
             ),
           ]);

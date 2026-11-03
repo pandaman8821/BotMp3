@@ -263,7 +263,7 @@ class _PlaylistSongsScreen extends StatelessWidget {
                   final bool confirmed = await AppDialogs.confirm(
                     context,
                     title: 'Eliminar lista',
-                    message: '¿Eliminar "${playlist.name}"?',
+                    message: AppLocalizations.of(context)!.deleteListBodyShort(playlist.name),
                   );
                   if (confirmed && context.mounted) {
                     await library.deletePlaylist(playlist.id);

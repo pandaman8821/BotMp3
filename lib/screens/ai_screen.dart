@@ -354,8 +354,8 @@ class _AiScreenState extends State<AiScreen> {
                             builder: (BuildContext dialogContext) => AlertDialog(
                               title: Text(AppLocalizations.of(context)!.createList),
                               content: Text(
-                                'Se creará "${result.playlistName ?? 'Lista IA'}" con '
-                                '${localSongs.length} canciones de tu biblioteca.',
+                                '${AppLocalizations.of(context)!.playlistWillBe(result.playlistName ?? 'IA')} '
+                                '${AppLocalizations.of(context)!.songsFromLibrary(localSongs.length)}',
                               ),
                               actions: <Widget>[
                                 TextButton(

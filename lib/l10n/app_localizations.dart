@@ -1639,6 +1639,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'What\'s new:'**
   String get aboutWhatsNew;
+
+  /// No description provided for @playlistWillBe.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlist \"{name}\" will be created'**
+  String playlistWillBe(String name);
+
+  /// No description provided for @deleteListBodyShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{name}\"?'**
+  String deleteListBodyShort(String name);
+
+  /// No description provided for @dialogDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get dialogDescription;
+
+  /// No description provided for @songsFromLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} songs from your library.'**
+  String songsFromLibrary(int count);
 }
 
 class _AppLocalizationsDelegate
