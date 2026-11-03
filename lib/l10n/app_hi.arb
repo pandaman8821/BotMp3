@@ -205,5 +205,23 @@
         "type": "String"
       }
     }
-  }
+  },
+  "subImportAppAudio": "Include WhatsApp, Telegram… audio and voice recordings. Off (recommended) imports music only.",
+  "subRestoreBackup": "Returns to the last backup (library, playlists, history and chat). Anything done since is lost.",
+  "subExportBackup": "Saves the last backup to a JSON file you choose, to move it to another phone or keep it apart.",
+  "subVolume": "Balances quieter or louder tracks (±6 dB). Saved per song and applied every time it plays.",
+  "subFillGenres": "Fills the genre of songs that have none, using the title and album. No connection, no AI key.",
+  "subBackup": "Automatic every 7 days inside the app (library, playlists, history and chat). Stored on your phone, never in the cloud.",
+  "exportLibraryJson": "Export library (JSON)",
+  "restoreLibraryJson": "Restore library (JSON)",
+  "aboutTitle": "About BotMp3",
+  "darkMode": "Dark",
+  "lightMode": "Light",
+  "clearAllWarning": "All songs and playlists saved in the app will be deleted.",
+  "replaceKey": "Replace key…",
+  "otherOption": "Other…",
+  "djBatchNow": "Now asks for {count} each time",
+  "keySaved": "Saved: {value}",
+  "keyStoredFor": "{provider} key saved encrypted",
+  "subAutoImport": "Scans device music when the app opens and adds anything new."
 }

@@ -278,5 +278,44 @@
         "type": "String"
       }
     }
-  }
+  },
+  "subImportAppAudio": "Incluye los audios de WhatsApp, Telegram… y las grabaciones de voz. Desactivado (recomendado) solo se importa música.",
+  "subRestoreBackup": "Vuelve al estado de la última copia (biblioteca, listas, historial y chat). Se pierde lo hecho desde entonces.",
+  "subExportBackup": "Guarda la última copia en un archivo JSON que tú eliges, para llevarla a otro teléfono o guardarla aparte.",
+  "subVolume": "Iguala las pistas más flojas o más fuertes (±6 dB). Se guarda por canción y se aplica cada vez que suena.",
+  "subFillGenres": "Rellena el género de las canciones que no lo tengan, usando el título y el álbum. Sin conexión y sin claves de IA.",
+  "subBackup": "Automática cada 7 días dentro de la app (biblioteca, listas, historial y chat). Se guarda en el teléfono, nunca en la nube.",
+  "exportLibraryJson": "Exportar biblioteca (JSON)",
+  "restoreLibraryJson": "Restaurar biblioteca (JSON)",
+  "aboutTitle": "Acerca de BotMp3",
+  "darkMode": "Oscuro",
+  "lightMode": "Claro",
+  "clearAllWarning": "Se eliminarán todas las canciones y listas guardadas en la app.",
+  "replaceKey": "Reemplazar clave…",
+  "otherOption": "Otro…",
+  "@djBatchNow": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "djBatchNow": "Ahora pide {count} cada vez",
+  "@keySaved": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "keySaved": "Guardada: {value}",
+  "@keyStoredFor": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "keyStoredFor": "Clave de {provider} guardada cifrada",
+  "subAutoImport": "Escanea la música del dispositivo al abrir la app y añade lo nuevo."
 }

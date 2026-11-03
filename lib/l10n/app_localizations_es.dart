@@ -602,4 +602,72 @@ class AppLocalizationsEs extends AppLocalizations {
   String deleteSongBody(String title) {
     return 'Se quitará «$title» de la biblioteca. El archivo no se borra del dispositivo.';
   }
+
+  @override
+  String get subImportAppAudio =>
+      'Incluye los audios de WhatsApp, Telegram… y las grabaciones de voz. Desactivado (recomendado) solo se importa música.';
+
+  @override
+  String get subRestoreBackup =>
+      'Vuelve al estado de la última copia (biblioteca, listas, historial y chat). Se pierde lo hecho desde entonces.';
+
+  @override
+  String get subExportBackup =>
+      'Guarda la última copia en un archivo JSON que tú eliges, para llevarla a otro teléfono o guardarla aparte.';
+
+  @override
+  String get subVolume =>
+      'Iguala las pistas más flojas o más fuertes (±6 dB). Se guarda por canción y se aplica cada vez que suena.';
+
+  @override
+  String get subFillGenres =>
+      'Rellena el género de las canciones que no lo tengan, usando el título y el álbum. Sin conexión y sin claves de IA.';
+
+  @override
+  String get subBackup =>
+      'Automática cada 7 días dentro de la app (biblioteca, listas, historial y chat). Se guarda en el teléfono, nunca en la nube.';
+
+  @override
+  String get exportLibraryJson => 'Exportar biblioteca (JSON)';
+
+  @override
+  String get restoreLibraryJson => 'Restaurar biblioteca (JSON)';
+
+  @override
+  String get aboutTitle => 'Acerca de BotMp3';
+
+  @override
+  String get darkMode => 'Oscuro';
+
+  @override
+  String get lightMode => 'Claro';
+
+  @override
+  String get clearAllWarning =>
+      'Se eliminarán todas las canciones y listas guardadas en la app.';
+
+  @override
+  String get replaceKey => 'Reemplazar clave…';
+
+  @override
+  String get otherOption => 'Otro…';
+
+  @override
+  String djBatchNow(int count) {
+    return 'Ahora pide $count cada vez';
+  }
+
+  @override
+  String keySaved(String value) {
+    return 'Guardada: $value';
+  }
+
+  @override
+  String keyStoredFor(String provider) {
+    return 'Clave de $provider guardada cifrada';
+  }
+
+  @override
+  String get subAutoImport =>
+      'Escanea la música del dispositivo al abrir la app y añade lo nuevo.';
 }
