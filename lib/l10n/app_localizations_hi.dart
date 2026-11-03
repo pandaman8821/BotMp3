@@ -599,4 +599,72 @@ class AppLocalizationsHi extends AppLocalizations {
   String deleteSongBody(String title) {
     return '\"$title\" लाइब्रेरी से हटाया जाएगा। फ़ाइल डिवाइस पर रहेगी।';
   }
+
+  @override
+  String get subImportAppAudio =>
+      'Include WhatsApp, Telegram… audio and voice recordings. Off (recommended) imports music only.';
+
+  @override
+  String get subRestoreBackup =>
+      'Returns to the last backup (library, playlists, history and chat). Anything done since is lost.';
+
+  @override
+  String get subExportBackup =>
+      'Saves the last backup to a JSON file you choose, to move it to another phone or keep it apart.';
+
+  @override
+  String get subVolume =>
+      'Balances quieter or louder tracks (±6 dB). Saved per song and applied every time it plays.';
+
+  @override
+  String get subFillGenres =>
+      'Fills the genre of songs that have none, using the title and album. No connection, no AI key.';
+
+  @override
+  String get subBackup =>
+      'Automatic every 7 days inside the app (library, playlists, history and chat). Stored on your phone, never in the cloud.';
+
+  @override
+  String get exportLibraryJson => 'Export library (JSON)';
+
+  @override
+  String get restoreLibraryJson => 'Restore library (JSON)';
+
+  @override
+  String get aboutTitle => 'About BotMp3';
+
+  @override
+  String get darkMode => 'Dark';
+
+  @override
+  String get lightMode => 'Light';
+
+  @override
+  String get clearAllWarning =>
+      'All songs and playlists saved in the app will be deleted.';
+
+  @override
+  String get replaceKey => 'Replace key…';
+
+  @override
+  String get otherOption => 'Other…';
+
+  @override
+  String djBatchNow(int count) {
+    return 'Now asks for $count each time';
+  }
+
+  @override
+  String keySaved(String value) {
+    return 'Saved: $value';
+  }
+
+  @override
+  String keyStoredFor(String provider) {
+    return '$provider key saved encrypted';
+  }
+
+  @override
+  String get subAutoImport =>
+      'Scans device music when the app opens and adds anything new.';
 }

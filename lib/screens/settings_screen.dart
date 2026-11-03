@@ -150,12 +150,7 @@ class SettingsScreen extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.notifications_active_outlined),
             title: Text(AppLocalizations.of(context)!.lockControlsTitle),
-            subtitle: Text(
-              'Si la música se para al bloquear el móvil o no aparecen los '
-              'controles, concede a BotMp3 el permiso de notificaciones y, en '
-              'HyperOS/MIUI, activa «Inicio automático» y pon la batería en '
-              '«Sin restricciones».',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subLockControls),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
@@ -168,12 +163,12 @@ class SettingsScreen extends StatelessWidget {
                   onSelected: (_) => settings.setThemeMode(ThemeMode.system),
                 ),
                 ChoiceChip(
-                  label: const Text('Oscuro'),
+                  label: Text(AppLocalizations.of(context)!.darkMode),
                   selected: settings.themeMode == ThemeMode.dark,
                   onSelected: (_) => settings.setThemeMode(ThemeMode.dark),
                 ),
                 ChoiceChip(
-                  label: Text('Claro'),
+                  label: Text(AppLocalizations.of(context)!.lightMode),
                   selected: settings.themeMode == ThemeMode.light,
                   onSelected: (_) => settings.setThemeMode(ThemeMode.light),
                 ),
@@ -351,9 +346,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
             value: settings.autoImport,
             onChanged: (bool value) => settings.setAutoImport(value),
             title: Text(AppLocalizations.of(context)!.autoImport),
-            subtitle: const Text(
-              'Escanea la música del dispositivo al abrir la app y añade lo nuevo.',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subAutoImport),
           ),
           SwitchListTile(
             value: settings.importMediaAudio,
@@ -375,10 +368,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
               );
             },
             title: Text(AppLocalizations.of(context)!.importAppAudio),
-            subtitle: const Text(
-              'Incluye los audios de WhatsApp, Telegram… y las grabaciones de '
-              'voz. Desactivado (recomendado) solo se importa música.',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subImportAppAudio),
           ),
           ListTile(
             leading: library.isScanning
@@ -407,10 +397,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ListTile(
             leading: Icon(Icons.settings_backup_restore),
             title: Text(AppLocalizations.of(context)!.restoreBackup),
-            subtitle: const Text(
-              'Vuelve al estado de la última copia (biblioteca, listas, historial '
-              'y chat). Se pierde lo hecho desde entonces.',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subRestoreBackup),
             trailing: Icon(Icons.chevron_right),
             onTap: () async {
               final Map<String, dynamic>? copia = await StorageService.instance
@@ -467,10 +454,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ListTile(
             leading: Icon(Icons.file_download_outlined),
             title: Text(AppLocalizations.of(context)!.exportBackup),
-            subtitle: const Text(
-              'Guarda la última copia en un archivo JSON que tú eliges, para '
-              'llevarla a otro teléfono o guardarla aparte.',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subExportBackup),
             onTap: () async {
               final Map<String, dynamic>? copia =
                   await StorageService.instance.readJsonMap(StorageKeys.backupFile);
@@ -502,7 +486,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ListTile(
             leading: Icon(Icons.queue_music),
             title: Text(AppLocalizations.of(context)!.djBatch),
-            subtitle: Text('Ahora pide ' + settings.djCanciones.toString() + ' cada vez'),
+            subtitle: Text(AppLocalizations.of(context)!.djBatchNow(settings.djCanciones)),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -538,10 +522,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ListTile(
             leading: Icon(Icons.volume_up_outlined),
             title: Text(AppLocalizations.of(context)!.volumeCurrent),
-            subtitle: const Text(
-              'Iguala las pistas más flojas o más fuertes (±6 dB). Se guarda por '
-              'canción y se aplica cada vez que suena.',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subVolume),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -629,10 +610,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ListTile(
             leading: Icon(Icons.auto_fix_high_outlined),
             title: Text(AppLocalizations.of(context)!.fillGenres),
-            subtitle: const Text(
-              'Rellena el género de las canciones que no lo tengan, usando el '
-              'título y el álbum. Sin conexión y sin claves de IA.',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subFillGenres),
             trailing: const Icon(Icons.chevron_right),
             onTap: () async {
               final int cambiadas = await library.completarGeneros();
@@ -651,10 +629,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ListTile(
             leading: Icon(Icons.backup_outlined),
             title: Text(AppLocalizations.of(context)!.backupTitle),
-            subtitle: const Text(
-              'Automática cada 7 días dentro de la app (biblioteca, listas, '
-              'historial y chat). Se guarda en el teléfono, nunca en la nube.',
-            ),
+            subtitle: Text(AppLocalizations.of(context)!.subBackup),
             trailing: TextButton(
               onPressed: () async {
                 final bool hecha = await library.autoBackup(forzar: true);
@@ -733,7 +708,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: const Icon(Icons.upload_file),
-            title: const Text('Exportar biblioteca (JSON)'),
+            title: Text(AppLocalizations.of(context)!.exportLibraryJson),
             subtitle: Text('${library.songs.length} canciones · ${library.playlists.length} listas'),
             onTap: () async {
               final String json = library.exportLibraryJson();
@@ -755,7 +730,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: const Icon(Icons.download_for_offline_outlined),
-            title: const Text('Restaurar biblioteca (JSON)'),
+            title: Text(AppLocalizations.of(context)!.restoreLibraryJson),
             onTap: () async {
               final String? content = await MediaImporter.pickJsonFile();
               if (content == null) return;
@@ -775,7 +750,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
               final bool confirmed = await AppDialogs.confirm(
                 context,
                 title: 'Borrar biblioteca',
-                message: 'Se eliminarán todas las canciones y listas guardadas en la app.',
+                message: AppLocalizations.of(context)!.clearAllWarning,
                 confirmLabel: 'Borrar todo',
               );
               if (confirmed) await library.clearLibrary();
@@ -783,7 +758,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
 
           // ---------------------------------------------------- Acerca de
-          const _SectionTitle('Acerca de BotMp3'),
+          _SectionTitle(AppLocalizations.of(context)!.aboutTitle),
           FutureBuilder<String>(
             future: AppInfoService.etiquetaVersion(),
             builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
@@ -946,7 +921,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 6),
                 child: Text(
-                  'Guardada: $mask',
+                  AppLocalizations.of(context)!.keySaved(mask),
                   style: const TextStyle(fontSize: 12, color: AppColors.green),
                 ),
               ),
@@ -954,7 +929,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
               controller: _controller,
               obscureText: _obscure,
               decoration: InputDecoration(
-                hintText: configured ? 'Reemplazar clave…' : provider.hint,
+                hintText: configured ? AppLocalizations.of(context)!.replaceKey : provider.hint,
                 suffixIcon: IconButton(
                   icon: Icon(_obscure ? Icons.visibility : Icons.visibility_off),
                   onPressed: () => setState(() => _obscure = !_obscure),
@@ -975,7 +950,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                 }),
                 ActionChip(
                   avatar: const Icon(Icons.edit_outlined, size: 15),
-                  label: const Text('Otro…', style: TextStyle(fontSize: 12)),
+                  label: Text(AppLocalizations.of(context)!.otherOption, style: const TextStyle(fontSize: 12)),
                   onPressed: () =>
                       escribirModeloPersonalizado(context, ai, provider, model),
                 ),
@@ -1012,7 +987,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                           content: Text(
                             ai.keyFor(provider) == null
                                 ? 'Clave de ${provider.label} eliminada'
-                                : 'Clave de ${provider.label} guardada cifrada',
+                                : AppLocalizations.of(context)!.keyStoredFor(provider.label),
                           ),
                         ),
                       );

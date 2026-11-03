@@ -1225,6 +1225,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'\"{title}\" will be removed from the library. The file stays on your device.'**
   String deleteSongBody(String title);
+
+  /// No description provided for @subImportAppAudio.
+  ///
+  /// In en, this message translates to:
+  /// **'Include WhatsApp, Telegram… audio and voice recordings. Off (recommended) imports music only.'**
+  String get subImportAppAudio;
+
+  /// No description provided for @subRestoreBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Returns to the last backup (library, playlists, history and chat). Anything done since is lost.'**
+  String get subRestoreBackup;
+
+  /// No description provided for @subExportBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Saves the last backup to a JSON file you choose, to move it to another phone or keep it apart.'**
+  String get subExportBackup;
+
+  /// No description provided for @subVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Balances quieter or louder tracks (±6 dB). Saved per song and applied every time it plays.'**
+  String get subVolume;
+
+  /// No description provided for @subFillGenres.
+  ///
+  /// In en, this message translates to:
+  /// **'Fills the genre of songs that have none, using the title and album. No connection, no AI key.'**
+  String get subFillGenres;
+
+  /// No description provided for @subBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic every 7 days inside the app (library, playlists, history and chat). Stored on your phone, never in the cloud.'**
+  String get subBackup;
+
+  /// No description provided for @exportLibraryJson.
+  ///
+  /// In en, this message translates to:
+  /// **'Export library (JSON)'**
+  String get exportLibraryJson;
+
+  /// No description provided for @restoreLibraryJson.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore library (JSON)'**
+  String get restoreLibraryJson;
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About BotMp3'**
+  String get aboutTitle;
+
+  /// No description provided for @darkMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get darkMode;
+
+  /// No description provided for @lightMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get lightMode;
+
+  /// No description provided for @clearAllWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'All songs and playlists saved in the app will be deleted.'**
+  String get clearAllWarning;
+
+  /// No description provided for @replaceKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace key…'**
+  String get replaceKey;
+
+  /// No description provided for @otherOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Other…'**
+  String get otherOption;
+
+  /// No description provided for @djBatchNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Now asks for {count} each time'**
+  String djBatchNow(int count);
+
+  /// No description provided for @keySaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved: {value}'**
+  String keySaved(String value);
+
+  /// No description provided for @keyStoredFor.
+  ///
+  /// In en, this message translates to:
+  /// **'{provider} key saved encrypted'**
+  String keyStoredFor(String provider);
+
+  /// No description provided for @subAutoImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Scans device music when the app opens and adds anything new.'**
+  String get subAutoImport;
 }
 
 class _AppLocalizationsDelegate
