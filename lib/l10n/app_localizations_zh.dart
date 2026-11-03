@@ -570,6 +570,25 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get statsUniqueSongs => '已播放歌曲';
+
+  @override
+  String get playAlbum => '播放专辑';
+
+  @override
+  String get playFolder => '播放文件夹';
+
+  @override
+  String songUpNext(String title) {
+    return '即将播放“$title”';
+  }
+
+  @override
+  String get deleteSongTitle => '删除歌曲';
+
+  @override
+  String deleteSongBody(String title) {
+    return '将从音乐库移除“$title”，文件仍保留在设备上。';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -1138,4 +1157,23 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get statsUniqueSongs => '已播放歌曲';
+
+  @override
+  String get playAlbum => '播放专辑';
+
+  @override
+  String get playFolder => '播放文件夹';
+
+  @override
+  String songUpNext(String title) {
+    return '即将播放“$title”';
+  }
+
+  @override
+  String get deleteSongTitle => '删除歌曲';
+
+  @override
+  String deleteSongBody(String title) {
+    return '将从音乐库移除“$title”，文件仍保留在设备上。';
+  }
 }

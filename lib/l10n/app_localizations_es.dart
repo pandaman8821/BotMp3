@@ -583,4 +583,23 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get statsUniqueSongs => 'Canciones escuchadas';
+
+  @override
+  String get playAlbum => 'Reproducir álbum';
+
+  @override
+  String get playFolder => 'Reproducir carpeta';
+
+  @override
+  String songUpNext(String title) {
+    return '«$title» suena a continuación';
+  }
+
+  @override
+  String get deleteSongTitle => 'Eliminar canción';
+
+  @override
+  String deleteSongBody(String title) {
+    return 'Se quitará «$title» de la biblioteca. El archivo no se borra del dispositivo.';
+  }
 }

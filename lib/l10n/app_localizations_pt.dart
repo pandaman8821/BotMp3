@@ -582,6 +582,25 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get statsUniqueSongs => 'Músicas ouvidas';
+
+  @override
+  String get playAlbum => 'Reproduzir álbum';
+
+  @override
+  String get playFolder => 'Reproduzir pasta';
+
+  @override
+  String songUpNext(String title) {
+    return '\"$title\" toca a seguir';
+  }
+
+  @override
+  String get deleteSongTitle => 'Excluir música';
+
+  @override
+  String deleteSongBody(String title) {
+    return '\"$title\" será removida da biblioteca. O arquivo continua no aparelho.';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1162,4 +1181,23 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get statsUniqueSongs => 'Músicas ouvidas';
+
+  @override
+  String get playAlbum => 'Reproduzir álbum';
+
+  @override
+  String get playFolder => 'Reproduzir pasta';
+
+  @override
+  String songUpNext(String title) {
+    return '\"$title\" toca a seguir';
+  }
+
+  @override
+  String get deleteSongTitle => 'Excluir música';
+
+  @override
+  String deleteSongBody(String title) {
+    return '\"$title\" será removida da biblioteca. O arquivo continua no aparelho.';
+  }
 }

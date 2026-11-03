@@ -186,5 +186,24 @@
   },
   "statsTitle": "Estatísticas de escuta",
   "statsTotalPlays": "Reproduções totais",
-  "statsUniqueSongs": "Músicas ouvidas"
+  "statsUniqueSongs": "Músicas ouvidas",
+  "playAlbum": "Reproduzir álbum",
+  "playFolder": "Reproduzir pasta",
+  "songUpNext": "\"{title}\" toca a seguir",
+  "deleteSongTitle": "Excluir música",
+  "deleteSongBody": "\"{title}\" será removida da biblioteca. O arquivo continua no aparelho.",
+  "@songUpNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteSongBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

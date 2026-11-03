@@ -580,4 +580,23 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get statsUniqueSongs => 'सुने गए गाने';
+
+  @override
+  String get playAlbum => 'एल्बम चलाएँ';
+
+  @override
+  String get playFolder => 'फ़ोल्डर चलाएँ';
+
+  @override
+  String songUpNext(String title) {
+    return '\"$title\" अगला चलेगा';
+  }
+
+  @override
+  String get deleteSongTitle => 'गाना हटाएँ';
+
+  @override
+  String deleteSongBody(String title) {
+    return '\"$title\" लाइब्रेरी से हटाया जाएगा। फ़ाइल डिवाइस पर रहेगी।';
+  }
 }

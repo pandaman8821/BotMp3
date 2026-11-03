@@ -570,4 +570,23 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get statsUniqueSongs => '들은 곡';
+
+  @override
+  String get playAlbum => '앨범 재생';
+
+  @override
+  String get playFolder => '폴더 재생';
+
+  @override
+  String songUpNext(String title) {
+    return '\"$title\" 다음 재생';
+  }
+
+  @override
+  String get deleteSongTitle => '곡 삭제';
+
+  @override
+  String deleteSongBody(String title) {
+    return '\"$title\"을(를) 라이브러리에서 제거합니다. 파일은 기기에 남습니다.';
+  }
 }

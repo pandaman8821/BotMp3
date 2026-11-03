@@ -186,5 +186,24 @@
   },
   "statsTitle": "再生統計",
   "statsTotalPlays": "総再生回数",
-  "statsUniqueSongs": "再生した曲"
+  "statsUniqueSongs": "再生した曲",
+  "playAlbum": "アルバムを再生",
+  "playFolder": "フォルダを再生",
+  "songUpNext": "「{title}」が次に再生されます",
+  "deleteSongTitle": "曲を削除",
+  "deleteSongBody": "「{title}」をライブラリから削除します。ファイルは端末に残ります。",
+  "@songUpNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteSongBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -186,5 +186,24 @@
   },
   "statsTitle": "Statistiques d’écoute",
   "statsTotalPlays": "Écoutes au total",
-  "statsUniqueSongs": "Chansons écoutées"
+  "statsUniqueSongs": "Chansons écoutées",
+  "playAlbum": "Lire l’album",
+  "playFolder": "Lire le dossier",
+  "songUpNext": "« {title} » est à suivre",
+  "deleteSongTitle": "Supprimer la chanson",
+  "deleteSongBody": "« {title} » sera retiré de la bibliothèque. Le fichier reste sur l’appareil.",
+  "@songUpNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@deleteSongBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

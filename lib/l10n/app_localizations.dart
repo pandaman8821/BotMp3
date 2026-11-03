@@ -1195,6 +1195,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Songs played'**
   String get statsUniqueSongs;
+
+  /// No description provided for @playAlbum.
+  ///
+  /// In en, this message translates to:
+  /// **'Play album'**
+  String get playAlbum;
+
+  /// No description provided for @playFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Play folder'**
+  String get playFolder;
+
+  /// No description provided for @songUpNext.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{title}\" is up next'**
+  String songUpNext(String title);
+
+  /// No description provided for @deleteSongTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete song'**
+  String get deleteSongTitle;
+
+  /// No description provided for @deleteSongBody.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{title}\" will be removed from the library. The file stays on your device.'**
+  String deleteSongBody(String title);
 }
 
 class _AppLocalizationsDelegate
