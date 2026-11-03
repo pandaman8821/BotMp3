@@ -71,60 +71,71 @@
                 android:textColor="#F0ABFC"
                 android:textSize="11sp" />
 
-                        <ImageButton
+                                    <ImageButton
                 android:id="@+id/widget_rewind"
                 android:layout_width="0dp"
-                android:layout_height="36dp"
+                android:layout_height="44dp"
                 android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:background="@drawable/widget_boton_circulo"
                 android:contentDescription="@string/widget_rewind_10"
-                android:padding="6dp"
+                android:padding="10dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_replay_10" />
 
-                        <ImageButton
+                                    <ImageButton
                 android:id="@+id/widget_prev"
                 android:layout_width="0dp"
-                android:layout_height="36dp"
+                android:layout_height="44dp"
                 android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:background="@drawable/widget_boton_circulo"
                 android:contentDescription="@string/widget_prev"
-                android:padding="8dp"
+                android:padding="12dp"
                 android:scaleType="centerInside"
                 android:src="@android:drawable/ic_media_previous"
                 android:tint="#F3E8FF" />
 
-            <ImageButton
+                        <ImageButton
                 android:id="@+id/widget_play"
-                android:layout_width="46dp"
-                android:layout_height="46dp"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:background="@drawable/widget_play_fondo"
                 android:contentDescription="@string/widget_play_pause"
-                android:padding="10dp"
+                android:padding="12dp"
                 android:scaleType="centerInside"
                 android:src="@android:drawable/ic_media_pause"
                 android:tint="#1E1033" />
 
-                        <ImageButton
+                                    <ImageButton
                 android:id="@+id/widget_next"
                 android:layout_width="0dp"
-                android:layout_height="36dp"
+                android:layout_height="44dp"
                 android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:background="@drawable/widget_boton_circulo"
                 android:contentDescription="@string/widget_next"
-                android:padding="8dp"
+                android:padding="12dp"
                 android:scaleType="centerInside"
                 android:src="@android:drawable/ic_media_next"
                 android:tint="#F3E8FF" />
 
-                        <ImageButton
+                                    <ImageButton
                 android:id="@+id/widget_forward"
                 android:layout_width="0dp"
-                android:layout_height="36dp"
+                android:layout_height="44dp"
                 android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:background="@drawable/widget_boton_circulo"
                 android:contentDescription="@string/widget_forward_10"
-                android:padding="6dp"
+                android:padding="10dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_forward_10" />
 
