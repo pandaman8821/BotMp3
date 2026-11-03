@@ -692,164 +692,151 @@ class AppLocalizationsKo extends AppLocalizations {
   String get metadataSaved => '메타데이터가 저장되었습니다';
 
   @override
-  String get playlistsEmpty => 'No playlists yet';
+  String get playlistsEmpty => '아직 플레이리스트가 없습니다';
 
   @override
-  String get playlistEmptyTitle => 'Empty playlist';
+  String get playlistEmptyTitle => '빈 플레이리스트';
 
   @override
-  String get playlistEmptyDesc =>
-      'Add songs with the + button or from the library.';
+  String get playlistEmptyDesc => '+ 버튼이나 라이브러리에서 곡을 추가하세요.';
 
   @override
-  String get resetStatsTitle => 'Reset stats';
+  String get resetStatsTitle => '통계 초기화';
 
   @override
-  String get playTop10 => 'Play the top 10';
+  String get playTop10 => '상위 10곡 재생';
 
   @override
-  String get searchFieldsHint => 'Title, artist, album, genre, year or #tag';
+  String get searchFieldsHint => '제목, 아티스트, 앨범, 장르, 연도 또는 #태그';
 
   @override
-  String get backToNormalSearch => 'Back to normal search';
+  String get backToNormalSearch => '일반 검색으로 돌아가기';
 
   @override
-  String get lyricsNotFound => 'No lyrics found for this song.';
+  String get lyricsNotFound => '이 곡의 가사를 찾지 못했습니다.';
 
   @override
-  String get saveToGallery => 'Save to gallery/storage';
+  String get saveToGallery => '갤러리/저장소에 저장';
 
   @override
-  String get coverTextOptional => 'Text on the cover (optional)';
+  String get coverTextOptional => '커버 위 텍스트(선택)';
 
   @override
-  String get aiExplains =>
-      'The AI picks and explains the next song while you play.';
+  String get aiExplains => 'AI가 재생 중에 다음 곡을 고르고 이유를 설명합니다.';
 
   @override
-  String get glassDesc =>
-      'Translucent bars and panels with real background blur.';
+  String get glassDesc => '배경이 실제로 흐려지는 반투명 바와 패널.';
 
   @override
-  String get modelId => 'Model identifier';
+  String get modelId => '모델 식별자';
 
   @override
-  String get songDeleteBody =>
-      'It will be removed from the library (the audio file is not deleted).';
+  String get songDeleteBody => '라이브러리에서 제거됩니다(오디오 파일은 삭제되지 않음).';
 
   @override
-  String get ideaNoTitle => 'Untitled idea';
+  String get ideaNoTitle => '제목 없는 아이디어';
 
   @override
-  String get dialogListName => 'Playlist name';
+  String get dialogListName => '플레이리스트 이름';
 
   @override
-  String get dialogMoodHint => 'What moment is this playlist for…';
+  String get dialogMoodHint => '이 플레이리스트는 어떤 순간을 위한 건가요…';
 
   @override
-  String get dialogSearchHint => 'Search song, artist, album or genre';
+  String get dialogSearchHint => '곡, 아티스트, 앨범, 장르 검색';
 
   @override
-  String get dialogGenre => 'Genre';
+  String get dialogGenre => '장르';
 
   @override
-  String get aiDjTitle => 'Your AI DJ';
+  String get aiDjTitle => '나의 AI DJ';
 
   @override
-  String get promptForGenerator => 'Prompt for the generator:';
+  String get promptForGenerator => '생성기 프롬프트:';
 
   @override
-  String get actionsRun => 'Actions run';
+  String get actionsRun => '실행한 작업';
 
   @override
   String coverSongLine(String title, String artist) {
-    return 'Song: $title — $artist';
+    return '곡: $title — $artist';
   }
 
   @override
   String deleteListBody(String name) {
-    return 'Delete \"$name\"? The songs stay in your library.';
+    return '\"$name\"을(를) 삭제할까요? 곡은 라이브러리에 남습니다.';
   }
 
   @override
   String get playlistsEmptyDesc =>
-      'Create unlimited playlists with a name and description, or ask the AI for one';
+      '이름과 설명이 있는 플레이리스트를 무제한으로 만들 수 있고, AI에 요청할 수도 있습니다';
 
   @override
-  String get resetStatsBody =>
-      'Play counts for all songs will be reset to zero';
+  String get resetStatsBody => '모든 곡의 재생 횟수가 0이 됩니다';
 
   @override
-  String get lyricsHowTo =>
-      'Save a .lrc (or .txt) file with the same name as the';
+  String get lyricsHowTo => '곡과 같은 이름의 .lrc(또는 .txt) 파일을 저장하세요';
 
   @override
-  String get carModeHint =>
-      'Swipe the bottom bar or use these buttons: they are';
+  String get carModeHint => '하단 바를 밀거나 이 버튼을 사용하세요:';
 
   @override
-  String get noImagePick =>
-      'No image. Pick a photo (PNG/JPG) to start editing the cover.';
+  String get noImagePick => '이미지가 없습니다. 사진(PNG/JPG)을 선택해 커버 편집을 시작하세요.';
 
   @override
-  String get diagCopyThis =>
-      'If the lock screen buttons do not respond, copy this';
+  String get diagCopyThis => '잠금 화면 버튼이 반응하지 않으면 다음을 복사하세요';
 
   @override
-  String get restoreWarning =>
-      'Your library, playlists, history and chat will be replaced by the';
+  String get restoreWarning => '라이브러리, 플레이리스트, 기록, 대화가 다음으로 바뀝니다:';
 
   @override
-  String get tagAiDesc =>
-      'Uses the AI model to tag songs that do not have a genre yet.';
+  String get tagAiDesc => 'AI 모델로 장르가 없는 곡에 장르를 붙입니다.';
 
   @override
   String get aboutBody =>
-      'Local player with multi-model AI (OpenAI, DeepSeek, Gemini, Claude), glass effect, own ranking and trends.';
+      '로컬 플레이어. 멀티모델 AI(OpenAI, DeepSeek, Gemini, Claude), 유리 효과, 자체 순위와 트렌드.';
 
   @override
-  String get songEditNote =>
-      'BotMp3 stores metadata in its own local database and also';
+  String get songEditNote => 'BotMp3는 메타데이터를 자체 로컬 DB에 저장하고, 또한';
 
   @override
-  String get aiTestOk => 'Reply only with: BotMp3 AI connected';
+  String get aiTestOk => 'BotMp3 AI 연결됨 이라고만 답하세요';
 
   @override
-  String get aiAskExamples => 'Ask it things like:';
+  String get aiAskExamples => '예를 들어:';
 
   @override
-  String get aiKeyMissing => 'Add at least one API key in Settings ▸ AI.';
+  String get aiKeyMissing => '\"설정 ▸ AI\"에서 API 키를 하나 이상 추가하세요.';
 
   @override
-  String get aboutOffline =>
-      'Full offline mode: your music never leaves the device.';
+  String get aboutOffline => '완전 오프라인: 음악은 기기 밖으로 나가지 않습니다.';
 
   @override
-  String get aboutWhatsNew => 'What\'s new:';
+  String get aboutWhatsNew => '새 소식:';
 
   @override
   String playlistWillBe(String name) {
-    return 'Playlist \"$name\" will be created';
+    return '플레이리스트 \"$name\"을(를) 만듭니다';
   }
 
   @override
   String deleteListBodyShort(String name) {
-    return 'Delete \"$name\"?';
+    return '\"$name\"을(를) 삭제할까요?';
   }
 
   @override
-  String get dialogDescription => 'Description';
+  String get dialogDescription => '설명';
 
   @override
   String songsFromLibrary(int count) {
-    return '$count songs from your library.';
+    return '라이브러리의 $count곡.';
   }
 
   @override
-  String get jsonCopied => 'JSON copied to clipboard';
+  String get jsonCopied => 'JSON을 클립보드에 복사했습니다';
 
   @override
   String exportedTo(String path) {
-    return 'Playlist exported to $path';
+    return '플레이리스트를 $path에 내보냈습니다';
   }
 }
