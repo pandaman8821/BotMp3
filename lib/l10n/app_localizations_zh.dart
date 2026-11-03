@@ -688,165 +688,151 @@ class AppLocalizationsZh extends AppLocalizations {
   String get metadataSaved => '元数据已保存';
 
   @override
-  String get playlistsEmpty => 'No playlists yet';
+  String get playlistsEmpty => '还没有歌单';
 
   @override
-  String get playlistEmptyTitle => 'Empty playlist';
+  String get playlistEmptyTitle => '空歌单';
 
   @override
-  String get playlistEmptyDesc =>
-      'Add songs with the + button or from the library.';
+  String get playlistEmptyDesc => '用 + 按钮或从音乐库添加歌曲。';
 
   @override
-  String get resetStatsTitle => 'Reset stats';
+  String get resetStatsTitle => '重置统计';
 
   @override
-  String get playTop10 => 'Play the top 10';
+  String get playTop10 => '播放前 10 名';
 
   @override
-  String get searchFieldsHint => 'Title, artist, album, genre, year or #tag';
+  String get searchFieldsHint => '标题、艺术家、专辑、风格、年份或 #标签';
 
   @override
-  String get backToNormalSearch => 'Back to normal search';
+  String get backToNormalSearch => '返回普通搜索';
 
   @override
-  String get lyricsNotFound => 'No lyrics found for this song.';
+  String get lyricsNotFound => '未找到这首歌的歌词。';
 
   @override
-  String get saveToGallery => 'Save to gallery/storage';
+  String get saveToGallery => '保存到相册/存储';
 
   @override
-  String get coverTextOptional => 'Text on the cover (optional)';
+  String get coverTextOptional => '封面上的文字（可选）';
 
   @override
-  String get aiExplains =>
-      'The AI picks and explains the next song while you play.';
+  String get aiExplains => 'AI 会在播放时挑选并说明下一首。';
 
   @override
-  String get glassDesc =>
-      'Translucent bars and panels with real background blur.';
+  String get glassDesc => '半透明条与面板，带真实背景模糊。';
 
   @override
-  String get modelId => 'Model identifier';
+  String get modelId => '模型标识符';
 
   @override
-  String get songDeleteBody =>
-      'It will be removed from the library (the audio file is not deleted).';
+  String get songDeleteBody => '将从音乐库移除（不会删除音频文件）。';
 
   @override
-  String get ideaNoTitle => 'Untitled idea';
+  String get ideaNoTitle => '未命名创意';
 
   @override
-  String get dialogListName => 'Playlist name';
+  String get dialogListName => '歌单名称';
 
   @override
-  String get dialogMoodHint => 'What moment is this playlist for…';
+  String get dialogMoodHint => '这个歌单是为什么场合准备的…';
 
   @override
-  String get dialogSearchHint => 'Search song, artist, album or genre';
+  String get dialogSearchHint => '搜索歌曲、艺术家、专辑或风格';
 
   @override
-  String get dialogGenre => 'Genre';
+  String get dialogGenre => '风格';
 
   @override
-  String get aiDjTitle => 'Your AI DJ';
+  String get aiDjTitle => '你的 AI DJ';
 
   @override
-  String get promptForGenerator => 'Prompt for the generator:';
+  String get promptForGenerator => '生成器提示词：';
 
   @override
-  String get actionsRun => 'Actions run';
+  String get actionsRun => '已执行的操作';
 
   @override
   String coverSongLine(String title, String artist) {
-    return 'Song: $title — $artist';
+    return '歌曲：$title — $artist';
   }
 
   @override
   String deleteListBody(String name) {
-    return 'Delete \"$name\"? The songs stay in your library.';
+    return '删除“$name”？歌曲仍会留在音乐库中。';
   }
 
   @override
-  String get playlistsEmptyDesc =>
-      'Create unlimited playlists with a name and description, or ask the AI for one';
+  String get playlistsEmptyDesc => '创建不限数量的歌单（含名称和描述），或让 AI 生成一个';
 
   @override
-  String get resetStatsBody =>
-      'Play counts for all songs will be reset to zero';
+  String get resetStatsBody => '所有歌曲的播放次数将归零';
 
   @override
-  String get lyricsHowTo =>
-      'Save a .lrc (or .txt) file with the same name as the';
+  String get lyricsHowTo => '保存一个与歌曲同名的 .lrc（或 .txt）文件';
 
   @override
-  String get carModeHint =>
-      'Swipe the bottom bar or use these buttons: they are';
+  String get carModeHint => '在底部栏滑动或使用这些按钮：它们';
 
   @override
-  String get noImagePick =>
-      'No image. Pick a photo (PNG/JPG) to start editing the cover.';
+  String get noImagePick => '没有图片。选择一张（PNG/JPG）开始编辑封面。';
 
   @override
-  String get diagCopyThis =>
-      'If the lock screen buttons do not respond, copy this';
+  String get diagCopyThis => '如果锁屏按钮无响应，请复制以下内容';
 
   @override
-  String get restoreWarning =>
-      'Your library, playlists, history and chat will be replaced by the';
+  String get restoreWarning => '你的音乐库、歌单、历史和对话将被替换为';
 
   @override
-  String get tagAiDesc =>
-      'Uses the AI model to tag songs that do not have a genre yet.';
+  String get tagAiDesc => '使用 AI 模型为还没有风格的歌曲添加风格。';
 
   @override
   String get aboutBody =>
-      'Local player with multi-model AI (OpenAI, DeepSeek, Gemini, Claude), glass effect, own ranking and trends.';
+      '本地播放器，支持多模型 AI（OpenAI、DeepSeek、Gemini、Claude）、玻璃效果、自有排行与趋势。';
 
   @override
-  String get songEditNote =>
-      'BotMp3 stores metadata in its own local database and also';
+  String get songEditNote => 'BotMp3 将元数据保存在自己的本地数据库中，并且';
 
   @override
-  String get aiTestOk => 'Reply only with: BotMp3 AI connected';
+  String get aiTestOk => '只回复：BotMp3 AI 已连接';
 
   @override
-  String get aiAskExamples => 'Ask it things like:';
+  String get aiAskExamples => '可以这样问：';
 
   @override
-  String get aiKeyMissing => 'Add at least one API key in Settings ▸ AI.';
+  String get aiKeyMissing => '请在“设置 ▸ AI”中添加至少一个 API 密钥。';
 
   @override
-  String get aboutOffline =>
-      'Full offline mode: your music never leaves the device.';
+  String get aboutOffline => '完全离线：你的音乐永不离开设备。';
 
   @override
-  String get aboutWhatsNew => 'What\'s new:';
+  String get aboutWhatsNew => '新内容：';
 
   @override
   String playlistWillBe(String name) {
-    return 'Playlist \"$name\" will be created';
+    return '将创建歌单“$name”';
   }
 
   @override
   String deleteListBodyShort(String name) {
-    return 'Delete \"$name\"?';
+    return '删除“$name”？';
   }
 
   @override
-  String get dialogDescription => 'Description';
+  String get dialogDescription => '描述';
 
   @override
   String songsFromLibrary(int count) {
-    return '$count songs from your library.';
+    return '音乐库中的 $count 首歌曲。';
   }
 
   @override
-  String get jsonCopied => 'JSON copied to clipboard';
+  String get jsonCopied => 'JSON 已复制到剪贴板';
 
   @override
   String exportedTo(String path) {
-    return 'Playlist exported to $path';
+    return '歌单已导出到 $path';
   }
 }
 
@@ -1534,164 +1520,150 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get metadataSaved => '元数据已保存';
 
   @override
-  String get playlistsEmpty => 'No playlists yet';
+  String get playlistsEmpty => '还没有歌单';
 
   @override
-  String get playlistEmptyTitle => 'Empty playlist';
+  String get playlistEmptyTitle => '空歌单';
 
   @override
-  String get playlistEmptyDesc =>
-      'Add songs with the + button or from the library.';
+  String get playlistEmptyDesc => '用 + 按钮或从音乐库添加歌曲。';
 
   @override
-  String get resetStatsTitle => 'Reset stats';
+  String get resetStatsTitle => '重置统计';
 
   @override
-  String get playTop10 => 'Play the top 10';
+  String get playTop10 => '播放前 10 名';
 
   @override
-  String get searchFieldsHint => 'Title, artist, album, genre, year or #tag';
+  String get searchFieldsHint => '标题、艺术家、专辑、风格、年份或 #标签';
 
   @override
-  String get backToNormalSearch => 'Back to normal search';
+  String get backToNormalSearch => '返回普通搜索';
 
   @override
-  String get lyricsNotFound => 'No lyrics found for this song.';
+  String get lyricsNotFound => '未找到这首歌的歌词。';
 
   @override
-  String get saveToGallery => 'Save to gallery/storage';
+  String get saveToGallery => '保存到相册/存储';
 
   @override
-  String get coverTextOptional => 'Text on the cover (optional)';
+  String get coverTextOptional => '封面上的文字（可选）';
 
   @override
-  String get aiExplains =>
-      'The AI picks and explains the next song while you play.';
+  String get aiExplains => 'AI 会在播放时挑选并说明下一首。';
 
   @override
-  String get glassDesc =>
-      'Translucent bars and panels with real background blur.';
+  String get glassDesc => '半透明条与面板，带真实背景模糊。';
 
   @override
-  String get modelId => 'Model identifier';
+  String get modelId => '模型标识符';
 
   @override
-  String get songDeleteBody =>
-      'It will be removed from the library (the audio file is not deleted).';
+  String get songDeleteBody => '将从音乐库移除（不会删除音频文件）。';
 
   @override
-  String get ideaNoTitle => 'Untitled idea';
+  String get ideaNoTitle => '未命名创意';
 
   @override
-  String get dialogListName => 'Playlist name';
+  String get dialogListName => '歌单名称';
 
   @override
-  String get dialogMoodHint => 'What moment is this playlist for…';
+  String get dialogMoodHint => '这个歌单是为什么场合准备的…';
 
   @override
-  String get dialogSearchHint => 'Search song, artist, album or genre';
+  String get dialogSearchHint => '搜索歌曲、艺术家、专辑或风格';
 
   @override
-  String get dialogGenre => 'Genre';
+  String get dialogGenre => '风格';
 
   @override
-  String get aiDjTitle => 'Your AI DJ';
+  String get aiDjTitle => '你的 AI DJ';
 
   @override
-  String get promptForGenerator => 'Prompt for the generator:';
+  String get promptForGenerator => '生成器提示词：';
 
   @override
-  String get actionsRun => 'Actions run';
+  String get actionsRun => '已执行的操作';
 
   @override
   String coverSongLine(String title, String artist) {
-    return 'Song: $title — $artist';
+    return '歌曲：$title — $artist';
   }
 
   @override
   String deleteListBody(String name) {
-    return 'Delete \"$name\"? The songs stay in your library.';
+    return '删除“$name”？歌曲仍会留在音乐库中。';
   }
 
   @override
-  String get playlistsEmptyDesc =>
-      'Create unlimited playlists with a name and description, or ask the AI for one';
+  String get playlistsEmptyDesc => '创建不限数量的歌单（含名称和描述），或让 AI 生成一个';
 
   @override
-  String get resetStatsBody =>
-      'Play counts for all songs will be reset to zero';
+  String get resetStatsBody => '所有歌曲的播放次数将归零';
 
   @override
-  String get lyricsHowTo =>
-      'Save a .lrc (or .txt) file with the same name as the';
+  String get lyricsHowTo => '保存一个与歌曲同名的 .lrc（或 .txt）文件';
 
   @override
-  String get carModeHint =>
-      'Swipe the bottom bar or use these buttons: they are';
+  String get carModeHint => '在底部栏滑动或使用这些按钮：它们';
 
   @override
-  String get noImagePick =>
-      'No image. Pick a photo (PNG/JPG) to start editing the cover.';
+  String get noImagePick => '没有图片。选择一张（PNG/JPG）开始编辑封面。';
 
   @override
-  String get diagCopyThis =>
-      'If the lock screen buttons do not respond, copy this';
+  String get diagCopyThis => '如果锁屏按钮无响应，请复制以下内容';
 
   @override
-  String get restoreWarning =>
-      'Your library, playlists, history and chat will be replaced by the';
+  String get restoreWarning => '你的音乐库、歌单、历史和对话将被替换为';
 
   @override
-  String get tagAiDesc =>
-      'Uses the AI model to tag songs that do not have a genre yet.';
+  String get tagAiDesc => '使用 AI 模型为还没有风格的歌曲添加风格。';
 
   @override
   String get aboutBody =>
-      'Local player with multi-model AI (OpenAI, DeepSeek, Gemini, Claude), glass effect, own ranking and trends.';
+      '本地播放器，支持多模型 AI（OpenAI、DeepSeek、Gemini、Claude）、玻璃效果、自有排行与趋势。';
 
   @override
-  String get songEditNote =>
-      'BotMp3 stores metadata in its own local database and also';
+  String get songEditNote => 'BotMp3 将元数据保存在自己的本地数据库中，并且';
 
   @override
-  String get aiTestOk => 'Reply only with: BotMp3 AI connected';
+  String get aiTestOk => '只回复：BotMp3 AI 已连接';
 
   @override
-  String get aiAskExamples => 'Ask it things like:';
+  String get aiAskExamples => '可以这样问：';
 
   @override
-  String get aiKeyMissing => 'Add at least one API key in Settings ▸ AI.';
+  String get aiKeyMissing => '请在“设置 ▸ AI”中添加至少一个 API 密钥。';
 
   @override
-  String get aboutOffline =>
-      'Full offline mode: your music never leaves the device.';
+  String get aboutOffline => '完全离线：你的音乐永不离开设备。';
 
   @override
-  String get aboutWhatsNew => 'What\'s new:';
+  String get aboutWhatsNew => '新内容：';
 
   @override
   String playlistWillBe(String name) {
-    return 'Playlist \"$name\" will be created';
+    return '将创建歌单“$name”';
   }
 
   @override
   String deleteListBodyShort(String name) {
-    return 'Delete \"$name\"?';
+    return '删除“$name”？';
   }
 
   @override
-  String get dialogDescription => 'Description';
+  String get dialogDescription => '描述';
 
   @override
   String songsFromLibrary(int count) {
-    return '$count songs from your library.';
+    return '音乐库中的 $count 首歌曲。';
   }
 
   @override
-  String get jsonCopied => 'JSON copied to clipboard';
+  String get jsonCopied => 'JSON 已复制到剪贴板';
 
   @override
   String exportedTo(String path) {
-    return 'Playlist exported to $path';
+    return '歌单已导出到 $path';
   }
 }

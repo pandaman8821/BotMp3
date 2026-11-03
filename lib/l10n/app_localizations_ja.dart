@@ -690,164 +690,150 @@ class AppLocalizationsJa extends AppLocalizations {
   String get metadataSaved => 'メタデータを保存しました';
 
   @override
-  String get playlistsEmpty => 'No playlists yet';
+  String get playlistsEmpty => 'プレイリストはまだありません';
 
   @override
-  String get playlistEmptyTitle => 'Empty playlist';
+  String get playlistEmptyTitle => '空のプレイリスト';
 
   @override
-  String get playlistEmptyDesc =>
-      'Add songs with the + button or from the library.';
+  String get playlistEmptyDesc => '「+」ボタンかライブラリから曲を追加してください。';
 
   @override
-  String get resetStatsTitle => 'Reset stats';
+  String get resetStatsTitle => '統計をリセット';
 
   @override
-  String get playTop10 => 'Play the top 10';
+  String get playTop10 => 'トップ10を再生';
 
   @override
-  String get searchFieldsHint => 'Title, artist, album, genre, year or #tag';
+  String get searchFieldsHint => 'タイトル、アーティスト、アルバム、ジャンル、年、#タグ';
 
   @override
-  String get backToNormalSearch => 'Back to normal search';
+  String get backToNormalSearch => '通常の検索に戻る';
 
   @override
-  String get lyricsNotFound => 'No lyrics found for this song.';
+  String get lyricsNotFound => 'この曲の歌詞は見つかりませんでした。';
 
   @override
-  String get saveToGallery => 'Save to gallery/storage';
+  String get saveToGallery => 'ギャラリー/ストレージに保存';
 
   @override
-  String get coverTextOptional => 'Text on the cover (optional)';
+  String get coverTextOptional => 'カバー上のテキスト（任意）';
 
   @override
-  String get aiExplains =>
-      'The AI picks and explains the next song while you play.';
+  String get aiExplains => 'AIが再生中に次の曲を選び、理由を説明します。';
 
   @override
-  String get glassDesc =>
-      'Translucent bars and panels with real background blur.';
+  String get glassDesc => '背景が本当にぼやける半透明のバーとパネル。';
 
   @override
-  String get modelId => 'Model identifier';
+  String get modelId => 'モデル識別子';
 
   @override
-  String get songDeleteBody =>
-      'It will be removed from the library (the audio file is not deleted).';
+  String get songDeleteBody => 'ライブラリから削除します（音声ファイルは削除されません）。';
 
   @override
-  String get ideaNoTitle => 'Untitled idea';
+  String get ideaNoTitle => '無題のアイデア';
 
   @override
-  String get dialogListName => 'Playlist name';
+  String get dialogListName => 'プレイリスト名';
 
   @override
-  String get dialogMoodHint => 'What moment is this playlist for…';
+  String get dialogMoodHint => 'このプレイリストはどんな場面向けですか…';
 
   @override
-  String get dialogSearchHint => 'Search song, artist, album or genre';
+  String get dialogSearchHint => '曲・アーティスト・アルバム・ジャンルを検索';
 
   @override
-  String get dialogGenre => 'Genre';
+  String get dialogGenre => 'ジャンル';
 
   @override
-  String get aiDjTitle => 'Your AI DJ';
+  String get aiDjTitle => 'あなたのAI DJ';
 
   @override
-  String get promptForGenerator => 'Prompt for the generator:';
+  String get promptForGenerator => '生成用プロンプト：';
 
   @override
-  String get actionsRun => 'Actions run';
+  String get actionsRun => '実行した操作';
 
   @override
   String coverSongLine(String title, String artist) {
-    return 'Song: $title — $artist';
+    return '曲：$title — $artist';
   }
 
   @override
   String deleteListBody(String name) {
-    return 'Delete \"$name\"? The songs stay in your library.';
+    return '「$name」を削除しますか？曲はライブラリに残ります。';
   }
 
   @override
-  String get playlistsEmptyDesc =>
-      'Create unlimited playlists with a name and description, or ask the AI for one';
+  String get playlistsEmptyDesc => '名前と説明付きのプレイリストを無制限に作成できます。AIに頼むこともできます';
 
   @override
-  String get resetStatsBody =>
-      'Play counts for all songs will be reset to zero';
+  String get resetStatsBody => 'すべての曲の再生回数が0になります';
 
   @override
-  String get lyricsHowTo =>
-      'Save a .lrc (or .txt) file with the same name as the';
+  String get lyricsHowTo => '曲と同じ名前の .lrc（または .txt）ファイルを保存してください';
 
   @override
-  String get carModeHint =>
-      'Swipe the bottom bar or use these buttons: they are';
+  String get carModeHint => '下のバーをスワイプするか、これらのボタンを使ってください：';
 
   @override
-  String get noImagePick =>
-      'No image. Pick a photo (PNG/JPG) to start editing the cover.';
+  String get noImagePick => '画像がありません。写真（PNG/JPG）を選んでカバー編集を始めてください。';
 
   @override
-  String get diagCopyThis =>
-      'If the lock screen buttons do not respond, copy this';
+  String get diagCopyThis => 'ロック画面のボタンが反応しない場合は、これをコピーしてください';
 
   @override
-  String get restoreWarning =>
-      'Your library, playlists, history and chat will be replaced by the';
+  String get restoreWarning => 'ライブラリ・プレイリスト・履歴・チャットは次で置き換えられます：';
 
   @override
-  String get tagAiDesc =>
-      'Uses the AI model to tag songs that do not have a genre yet.';
+  String get tagAiDesc => 'AIモデルでジャンル未設定の曲にジャンルを付けます。';
 
   @override
   String get aboutBody =>
-      'Local player with multi-model AI (OpenAI, DeepSeek, Gemini, Claude), glass effect, own ranking and trends.';
+      'ローカル再生アプリ。マルチモデルAI（OpenAI、DeepSeek、Gemini、Claude）、ガラス効果、独自ランキングとトレンド。';
 
   @override
-  String get songEditNote =>
-      'BotMp3 stores metadata in its own local database and also';
+  String get songEditNote => 'BotMp3はメタデータを独自のローカルDBに保存し、さらに';
 
   @override
-  String get aiTestOk => 'Reply only with: BotMp3 AI connected';
+  String get aiTestOk => 'BotMp3 AI 接続済み とだけ返してください';
 
   @override
-  String get aiAskExamples => 'Ask it things like:';
+  String get aiAskExamples => 'たとえば：';
 
   @override
-  String get aiKeyMissing => 'Add at least one API key in Settings ▸ AI.';
+  String get aiKeyMissing => '「設定 ▸ AI」でAPIキーを1つ以上追加してください。';
 
   @override
-  String get aboutOffline =>
-      'Full offline mode: your music never leaves the device.';
+  String get aboutOffline => '完全オフライン：音楽が端末の外に出ることはありません。';
 
   @override
-  String get aboutWhatsNew => 'What\'s new:';
+  String get aboutWhatsNew => '新着：';
 
   @override
   String playlistWillBe(String name) {
-    return 'Playlist \"$name\" will be created';
+    return 'プレイリスト「$name」を作成します';
   }
 
   @override
   String deleteListBodyShort(String name) {
-    return 'Delete \"$name\"?';
+    return '「$name」を削除しますか？';
   }
 
   @override
-  String get dialogDescription => 'Description';
+  String get dialogDescription => '説明';
 
   @override
   String songsFromLibrary(int count) {
-    return '$count songs from your library.';
+    return 'ライブラリの$count曲。';
   }
 
   @override
-  String get jsonCopied => 'JSON copied to clipboard';
+  String get jsonCopied => 'JSONをクリップボードにコピーしました';
 
   @override
   String exportedTo(String path) {
-    return 'Playlist exported to $path';
+    return 'プレイリストを $path に書き出しました';
   }
 }

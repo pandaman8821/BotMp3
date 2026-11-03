@@ -709,149 +709,150 @@ class AppLocalizationsFr extends AppLocalizations {
   String get metadataSaved => 'Métadonnées enregistrées';
 
   @override
-  String get playlistsEmpty => 'No playlists yet';
+  String get playlistsEmpty => 'Aucune playlist pour l’instant';
 
   @override
-  String get playlistEmptyTitle => 'Empty playlist';
+  String get playlistEmptyTitle => 'Playlist vide';
 
   @override
   String get playlistEmptyDesc =>
-      'Add songs with the + button or from the library.';
+      'Ajoutez des morceaux avec le bouton + ou depuis la bibliothèque.';
 
   @override
-  String get resetStatsTitle => 'Reset stats';
+  String get resetStatsTitle => 'Réinitialiser les stats';
 
   @override
-  String get playTop10 => 'Play the top 10';
+  String get playTop10 => 'Lire le top 10';
 
   @override
-  String get searchFieldsHint => 'Title, artist, album, genre, year or #tag';
+  String get searchFieldsHint => 'Titre, artiste, album, genre, année ou #tag';
 
   @override
-  String get backToNormalSearch => 'Back to normal search';
+  String get backToNormalSearch => 'Revenir à la recherche normale';
 
   @override
-  String get lyricsNotFound => 'No lyrics found for this song.';
+  String get lyricsNotFound => 'Aucune parole trouvée pour ce morceau.';
 
   @override
-  String get saveToGallery => 'Save to gallery/storage';
+  String get saveToGallery => 'Enregistrer dans la galerie/le stockage';
 
   @override
-  String get coverTextOptional => 'Text on the cover (optional)';
+  String get coverTextOptional => 'Texte sur la pochette (facultatif)';
 
   @override
   String get aiExplains =>
-      'The AI picks and explains the next song while you play.';
+      'L’IA choisit et explique le morceau suivant pendant la lecture.';
 
   @override
   String get glassDesc =>
-      'Translucent bars and panels with real background blur.';
+      'Barres et panneaux translucides avec un vrai flou d’arrière-plan.';
 
   @override
-  String get modelId => 'Model identifier';
+  String get modelId => 'Identifiant du modèle';
 
   @override
   String get songDeleteBody =>
-      'It will be removed from the library (the audio file is not deleted).';
+      'Sera retiré de la bibliothèque (le fichier audio n’est pas supprimé).';
 
   @override
-  String get ideaNoTitle => 'Untitled idea';
+  String get ideaNoTitle => 'Idée sans titre';
 
   @override
-  String get dialogListName => 'Playlist name';
+  String get dialogListName => 'Nom de la playlist';
 
   @override
-  String get dialogMoodHint => 'What moment is this playlist for…';
+  String get dialogMoodHint => 'Pour quel moment est cette playlist…';
 
   @override
-  String get dialogSearchHint => 'Search song, artist, album or genre';
+  String get dialogSearchHint =>
+      'Rechercher un morceau, un artiste, un album ou un genre';
 
   @override
   String get dialogGenre => 'Genre';
 
   @override
-  String get aiDjTitle => 'Your AI DJ';
+  String get aiDjTitle => 'Votre DJ IA';
 
   @override
-  String get promptForGenerator => 'Prompt for the generator:';
+  String get promptForGenerator => 'Invite pour le générateur :';
 
   @override
-  String get actionsRun => 'Actions run';
+  String get actionsRun => 'Actions exécutées';
 
   @override
   String coverSongLine(String title, String artist) {
-    return 'Song: $title — $artist';
+    return 'Morceau : $title — $artist';
   }
 
   @override
   String deleteListBody(String name) {
-    return 'Delete \"$name\"? The songs stay in your library.';
+    return 'Supprimer « $name » ? Les morceaux restent dans votre bibliothèque.';
   }
 
   @override
   String get playlistsEmptyDesc =>
-      'Create unlimited playlists with a name and description, or ask the AI for one';
+      'Créez autant de playlists que vous voulez (nom et description) ou demandez-en une à l’IA';
 
   @override
   String get resetStatsBody =>
-      'Play counts for all songs will be reset to zero';
+      'Les écoutes de tous les morceaux seront remises à zéro';
 
   @override
   String get lyricsHowTo =>
-      'Save a .lrc (or .txt) file with the same name as the';
+      'Enregistrez un fichier .lrc (ou .txt) portant le même nom que le';
 
   @override
   String get carModeHint =>
-      'Swipe the bottom bar or use these buttons: they are';
+      'Faites glisser la barre du bas ou utilisez ces boutons :';
 
   @override
   String get noImagePick =>
-      'No image. Pick a photo (PNG/JPG) to start editing the cover.';
+      'Aucune image. Choisissez une photo (PNG/JPG) pour modifier la pochette.';
 
   @override
   String get diagCopyThis =>
-      'If the lock screen buttons do not respond, copy this';
+      'Si les boutons de l’écran verrouillé ne répondent pas, copiez ceci';
 
   @override
   String get restoreWarning =>
-      'Your library, playlists, history and chat will be replaced by the';
+      'Votre bibliothèque, playlists, historique et chat seront remplacés par';
 
   @override
   String get tagAiDesc =>
-      'Uses the AI model to tag songs that do not have a genre yet.';
+      'Utilise le modèle IA pour donner un genre aux morceaux qui n’en ont pas.';
 
   @override
   String get aboutBody =>
-      'Local player with multi-model AI (OpenAI, DeepSeek, Gemini, Claude), glass effect, own ranking and trends.';
+      'Lecteur local avec IA multi-modèles (OpenAI, DeepSeek, Gemini, Claude), effet verre, classement et tendances maison.';
 
   @override
   String get songEditNote =>
-      'BotMp3 stores metadata in its own local database and also';
+      'BotMp3 enregistre les métadonnées dans sa propre base locale et aussi';
 
   @override
-  String get aiTestOk => 'Reply only with: BotMp3 AI connected';
+  String get aiTestOk => 'Répondez uniquement : BotMp3 IA connectée';
 
   @override
-  String get aiAskExamples => 'Ask it things like:';
+  String get aiAskExamples => 'Demandez par exemple :';
 
   @override
-  String get aiKeyMissing => 'Add at least one API key in Settings ▸ AI.';
+  String get aiKeyMissing => 'Ajoutez au moins une clé API dans Réglages ▸ IA.';
 
   @override
   String get aboutOffline =>
-      'Full offline mode: your music never leaves the device.';
+      'Mode 100 % hors ligne : votre musique ne quitte jamais l\'appareil.';
 
   @override
-  String get aboutWhatsNew => 'What\'s new:';
+  String get aboutWhatsNew => 'Nouveautés :';
 
   @override
   String playlistWillBe(String name) {
-    return 'Playlist \"$name\" will be created';
+    return 'La playlist « $name » va être créée';
   }
 
   @override
   String deleteListBodyShort(String name) {
-    return 'Delete \"$name\"?';
+    return 'Supprimer « $name » ?';
   }
 
   @override
@@ -859,14 +860,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String songsFromLibrary(int count) {
-    return '$count songs from your library.';
+    return '$count morceaux de votre bibliothèque.';
   }
 
   @override
-  String get jsonCopied => 'JSON copied to clipboard';
+  String get jsonCopied => 'JSON copié dans le presse-papiers';
 
   @override
   String exportedTo(String path) {
-    return 'Playlist exported to $path';
+    return 'Playlist exportée vers $path';
   }
 }
