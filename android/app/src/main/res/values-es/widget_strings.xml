@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_rewind_10">Atrasar 10 segundos</string>
+    <string name="widget_forward_10">Adelantar 10 segundos</string>
+    <string name="widget_prev">Anterior</string>
+    <string name="widget_play_pause">Reproducir o pausar</string>
+    <string name="widget_next">Siguiente</string>
+</resources>
