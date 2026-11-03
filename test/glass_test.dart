@@ -130,7 +130,8 @@ void main() {
 
   testWidgets('Calidades coherentes con la intensidad', (WidgetTester tester) async {
     expect(glassQualityFor(enabled: false, intensity: 1), GlassQuality.off);
-    expect(glassQualityFor(enabled: true, intensity: 1, batterySaver: true), GlassQuality.off);
+    // El ahorro de bateria ya no desactiva el cristal (manda el interruptor).
+      expect(glassQualityFor(enabled: true, intensity: 1, batterySaver: true), GlassQuality.high);
     expect(glassQualityFor(enabled: true, intensity: 0.3), GlassQuality.light);
     expect(glassQualityFor(enabled: true, intensity: 0.7), GlassQuality.standard);
     expect(glassQualityFor(enabled: true, intensity: 1), GlassQuality.high);
