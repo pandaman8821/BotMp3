@@ -22,7 +22,7 @@ $pkg = "$fl\packages\flutter_tools\.dart_tool\package_config.json"
 $fail = 0
 function Seccion($t) { Write-Host ""; Write-Host "=== $t ===" }
 function Ok($m) { Write-Host ("  [OK]   " + $m) }
-function Fallo($m) { Write-Host ("  [FALLO] " + $m); $script:fail++ }
+function Fallo($m) { Write-Host ("  [FALLO] " + $m); $global:fail++ }
 
 Seccion "1. Dependencias (offline)"
 & $dart pub get --offline 2>&1 | Select-Object -Last 1 | ForEach-Object { Ok $_ }
@@ -35,11 +35,11 @@ if ($errores -eq 0) { Ok "dart analyze sin errores" } else { Fallo "$errores err
 Seccion "3. Pruebas unitarias / widget"
 $testOut = & $dart --packages=$pkg $tool --suppress-analytics test 2>&1
 $resumen = ($testOut | Select-String -Pattern "\+\d+.*(Some tests failed|All tests passed)") | Select-Object -Last 1
-if ($resumen -and $resumen.Line -match "All tests passed") { Ok $resumen.Line.Trim() } else { Fallo ("tests: " + ($resumen.Line ?? "sin resultado")) }
+if ($resumen -and $resumen.Line -match "All tests passed") { Ok $resumen.Line.Trim() } else { Fallo ("tests: " + ((if ($resumen) { $resumen.Line } else { "sin resultado" }))) }
 
 Seccion "4. Localizacion (claves usadas vs definidas)"
 $l10n = & $py (Join-Path $ws "_tools\l10ncheck.py") 2>&1
-$usadasSinDefinir = ($l10n | Select-String -Pattern "usadas sin definir: \[(.)").Matches.Count
+$usadasSinDefinir = 0; $lineaSin = ($l10n | Select-String -Pattern "usadas sin definir: (\[.*\])" | Select-Object -First 1); if ($lineaSin) { $lista = $lineaSin.Matches[0].Groups[1].Value; if ($lista -ne "[]") { $usadasSinDefinir = 1 } }
 $l10n | Select-Object -First 4 | ForEach-Object { Write-Host ("  " + $_) }
 if ($usadasSinDefinir -eq 0) { Ok "sin claves usadas sin definir" } else { Fallo "hay claves usadas sin definir" }
 
@@ -58,5 +58,5 @@ if ($Build) {
 }
 
 Write-Host ""
-if ($fail -eq 0) { Write-Host "RESULTADO: TODO OK" } else { Write-Host ("RESULTADO: " + $fail + " FALLOS") }
-exit $fail
+if ($fail -eq 0) { Write-Host "RESULTADO: TODO OK" } else { Write-Host ("RESULTADO: " + $global:fail + " FALLOS") }
+exit $global:fail
