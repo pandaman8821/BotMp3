@@ -76,7 +76,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   _debouncer.run(() => library.setQuery(value)),
               onSubmitted: library.setQuery,
               decoration: InputDecoration(
-                hintText: 'Título, artista, álbum, género, año o #tag',
+                hintText: AppLocalizations.of(context)!.searchFieldsHint,
                 prefixIcon: const Icon(Icons.search),
                 suffixIcon: _controller.text.isEmpty
                     ? null
@@ -133,7 +133,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 if (_aiResult != null) ...<Widget>[
                   const SizedBox(width: 8),
                   IconButton(
-                    tooltip: 'Volver a la búsqueda normal',
+                    tooltip: AppLocalizations.of(context)!.backToNormalSearch,
                     icon: const Icon(Icons.close),
                     onPressed: () => setState(() => _aiResult = null),
                   ),

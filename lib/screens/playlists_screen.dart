@@ -49,11 +49,10 @@ class PlaylistsScreen extends StatelessWidget {
         label: Text(AppLocalizations.of(context)!.newPlaylist),
       ),
       body: playlists.isEmpty
-          ? const EmptyState(
+          ? EmptyState(
               icon: Icons.queue_music_outlined,
-              title: 'Sin listas todavía',
-              message: 'Crea listas ilimitadas con nombre y descripción, o pídele una a la IA '
-                  '("hazme una playlist de 30 canciones de rock latino 2020-2025").',
+              title: AppLocalizations.of(context)!.playlistsEmpty,
+              message: AppLocalizations.of(context)!.playlistsEmptyDesc,
             )
           : ListView.builder(
               padding: const EdgeInsets.only(bottom: 96, top: 6),
@@ -170,8 +169,8 @@ class PlaylistsScreen extends StatelessWidget {
       case 'delete':
         final bool confirmed = await AppDialogs.confirm(
           context,
-          title: 'Eliminar lista',
-          message: '¿Eliminar "${playlist.name}"? Las canciones seguirán en tu biblioteca.',
+          title: AppLocalizations.of(context)!.deleteList,
+          message: AppLocalizations.of(context)!.deleteListBody(playlist.name),
         );
         if (confirmed) await library.deletePlaylist(playlist.id);
     }
@@ -319,10 +318,10 @@ class _PlaylistSongsScreen extends StatelessWidget {
             ),
           Expanded(
             child: songs.isEmpty
-                ? const EmptyState(
+                ? EmptyState(
                     icon: Icons.music_off,
-                    title: 'Lista vacía',
-                    message: 'Añade canciones con el botón + o desde la biblioteca.',
+                    title: AppLocalizations.of(context)!.playlistEmptyTitle,
+                    message: AppLocalizations.of(context)!.playlistEmptyDesc,
                   )
                 : ReorderableListView.builder(
                     padding: const EdgeInsets.only(bottom: 24),

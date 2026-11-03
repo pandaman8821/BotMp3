@@ -1405,6 +1405,240 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Metadata saved'**
   String get metadataSaved;
+
+  /// No description provided for @playlistsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No playlists yet'**
+  String get playlistsEmpty;
+
+  /// No description provided for @playlistEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty playlist'**
+  String get playlistEmptyTitle;
+
+  /// No description provided for @playlistEmptyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Add songs with the + button or from the library.'**
+  String get playlistEmptyDesc;
+
+  /// No description provided for @resetStatsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset stats'**
+  String get resetStatsTitle;
+
+  /// No description provided for @playTop10.
+  ///
+  /// In en, this message translates to:
+  /// **'Play the top 10'**
+  String get playTop10;
+
+  /// No description provided for @searchFieldsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Title, artist, album, genre, year or #tag'**
+  String get searchFieldsHint;
+
+  /// No description provided for @backToNormalSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to normal search'**
+  String get backToNormalSearch;
+
+  /// No description provided for @lyricsNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No lyrics found for this song.'**
+  String get lyricsNotFound;
+
+  /// No description provided for @saveToGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Save to gallery/storage'**
+  String get saveToGallery;
+
+  /// No description provided for @coverTextOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Text on the cover (optional)'**
+  String get coverTextOptional;
+
+  /// No description provided for @aiExplains.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI picks and explains the next song while you play.'**
+  String get aiExplains;
+
+  /// No description provided for @glassDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Translucent bars and panels with real background blur.'**
+  String get glassDesc;
+
+  /// No description provided for @modelId.
+  ///
+  /// In en, this message translates to:
+  /// **'Model identifier'**
+  String get modelId;
+
+  /// No description provided for @songDeleteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'It will be removed from the library (the audio file is not deleted).'**
+  String get songDeleteBody;
+
+  /// No description provided for @ideaNoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled idea'**
+  String get ideaNoTitle;
+
+  /// No description provided for @dialogListName.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlist name'**
+  String get dialogListName;
+
+  /// No description provided for @dialogMoodHint.
+  ///
+  /// In en, this message translates to:
+  /// **'What moment is this playlist for…'**
+  String get dialogMoodHint;
+
+  /// No description provided for @dialogSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search song, artist, album or genre'**
+  String get dialogSearchHint;
+
+  /// No description provided for @dialogGenre.
+  ///
+  /// In en, this message translates to:
+  /// **'Genre'**
+  String get dialogGenre;
+
+  /// No description provided for @aiDjTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your AI DJ'**
+  String get aiDjTitle;
+
+  /// No description provided for @promptForGenerator.
+  ///
+  /// In en, this message translates to:
+  /// **'Prompt for the generator:'**
+  String get promptForGenerator;
+
+  /// No description provided for @actionsRun.
+  ///
+  /// In en, this message translates to:
+  /// **'Actions run'**
+  String get actionsRun;
+
+  /// No description provided for @coverSongLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Song: {title} — {artist}'**
+  String coverSongLine(String title, String artist);
+
+  /// No description provided for @deleteListBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{name}\"? The songs stay in your library.'**
+  String deleteListBody(String name);
+
+  /// No description provided for @playlistsEmptyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Create unlimited playlists with a name and description, or ask the AI for one'**
+  String get playlistsEmptyDesc;
+
+  /// No description provided for @resetStatsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Play counts for all songs will be reset to zero'**
+  String get resetStatsBody;
+
+  /// No description provided for @lyricsHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Save a .lrc (or .txt) file with the same name as the'**
+  String get lyricsHowTo;
+
+  /// No description provided for @carModeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Swipe the bottom bar or use these buttons: they are'**
+  String get carModeHint;
+
+  /// No description provided for @noImagePick.
+  ///
+  /// In en, this message translates to:
+  /// **'No image. Pick a photo (PNG/JPG) to start editing the cover.'**
+  String get noImagePick;
+
+  /// No description provided for @diagCopyThis.
+  ///
+  /// In en, this message translates to:
+  /// **'If the lock screen buttons do not respond, copy this'**
+  String get diagCopyThis;
+
+  /// No description provided for @restoreWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Your library, playlists, history and chat will be replaced by the'**
+  String get restoreWarning;
+
+  /// No description provided for @tagAiDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Uses the AI model to tag songs that do not have a genre yet.'**
+  String get tagAiDesc;
+
+  /// No description provided for @aboutBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Local player with multi-model AI (OpenAI, DeepSeek, Gemini, Claude), glass effect, own ranking and trends.'**
+  String get aboutBody;
+
+  /// No description provided for @songEditNote.
+  ///
+  /// In en, this message translates to:
+  /// **'BotMp3 stores metadata in its own local database and also'**
+  String get songEditNote;
+
+  /// No description provided for @aiTestOk.
+  ///
+  /// In en, this message translates to:
+  /// **'Reply only with: BotMp3 AI connected'**
+  String get aiTestOk;
+
+  /// No description provided for @aiAskExamples.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask it things like:'**
+  String get aiAskExamples;
+
+  /// No description provided for @aiKeyMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Add at least one API key in Settings ▸ AI.'**
+  String get aiKeyMissing;
+
+  /// No description provided for @aboutOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'Full offline mode: your music never leaves the device.'**
+  String get aboutOffline;
+
+  /// No description provided for @aboutWhatsNew.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s new:'**
+  String get aboutWhatsNew;
 }
 
 class _AppLocalizationsDelegate

@@ -1,3 +1,4 @@
+import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -97,8 +98,7 @@ class CarModeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                'Desliza el dedo por la barra de abajo o usa estos botones: están '
-                'pensados para pulsarlos sin apartar la vista de la carretera.',
+                AppLocalizations.of(context)!.carModeHint,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 12,

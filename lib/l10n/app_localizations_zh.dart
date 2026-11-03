@@ -686,6 +686,142 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get metadataSaved => '元数据已保存';
+
+  @override
+  String get playlistsEmpty => 'No playlists yet';
+
+  @override
+  String get playlistEmptyTitle => 'Empty playlist';
+
+  @override
+  String get playlistEmptyDesc =>
+      'Add songs with the + button or from the library.';
+
+  @override
+  String get resetStatsTitle => 'Reset stats';
+
+  @override
+  String get playTop10 => 'Play the top 10';
+
+  @override
+  String get searchFieldsHint => 'Title, artist, album, genre, year or #tag';
+
+  @override
+  String get backToNormalSearch => 'Back to normal search';
+
+  @override
+  String get lyricsNotFound => 'No lyrics found for this song.';
+
+  @override
+  String get saveToGallery => 'Save to gallery/storage';
+
+  @override
+  String get coverTextOptional => 'Text on the cover (optional)';
+
+  @override
+  String get aiExplains =>
+      'The AI picks and explains the next song while you play.';
+
+  @override
+  String get glassDesc =>
+      'Translucent bars and panels with real background blur.';
+
+  @override
+  String get modelId => 'Model identifier';
+
+  @override
+  String get songDeleteBody =>
+      'It will be removed from the library (the audio file is not deleted).';
+
+  @override
+  String get ideaNoTitle => 'Untitled idea';
+
+  @override
+  String get dialogListName => 'Playlist name';
+
+  @override
+  String get dialogMoodHint => 'What moment is this playlist for…';
+
+  @override
+  String get dialogSearchHint => 'Search song, artist, album or genre';
+
+  @override
+  String get dialogGenre => 'Genre';
+
+  @override
+  String get aiDjTitle => 'Your AI DJ';
+
+  @override
+  String get promptForGenerator => 'Prompt for the generator:';
+
+  @override
+  String get actionsRun => 'Actions run';
+
+  @override
+  String coverSongLine(String title, String artist) {
+    return 'Song: $title — $artist';
+  }
+
+  @override
+  String deleteListBody(String name) {
+    return 'Delete \"$name\"? The songs stay in your library.';
+  }
+
+  @override
+  String get playlistsEmptyDesc =>
+      'Create unlimited playlists with a name and description, or ask the AI for one';
+
+  @override
+  String get resetStatsBody =>
+      'Play counts for all songs will be reset to zero';
+
+  @override
+  String get lyricsHowTo =>
+      'Save a .lrc (or .txt) file with the same name as the';
+
+  @override
+  String get carModeHint =>
+      'Swipe the bottom bar or use these buttons: they are';
+
+  @override
+  String get noImagePick =>
+      'No image. Pick a photo (PNG/JPG) to start editing the cover.';
+
+  @override
+  String get diagCopyThis =>
+      'If the lock screen buttons do not respond, copy this';
+
+  @override
+  String get restoreWarning =>
+      'Your library, playlists, history and chat will be replaced by the';
+
+  @override
+  String get tagAiDesc =>
+      'Uses the AI model to tag songs that do not have a genre yet.';
+
+  @override
+  String get aboutBody =>
+      'Local player with multi-model AI (OpenAI, DeepSeek, Gemini, Claude), glass effect, own ranking and trends.';
+
+  @override
+  String get songEditNote =>
+      'BotMp3 stores metadata in its own local database and also';
+
+  @override
+  String get aiTestOk => 'Reply only with: BotMp3 AI connected';
+
+  @override
+  String get aiAskExamples => 'Ask it things like:';
+
+  @override
+  String get aiKeyMissing => 'Add at least one API key in Settings ▸ AI.';
+
+  @override
+  String get aboutOffline =>
+      'Full offline mode: your music never leaves the device.';
+
+  @override
+  String get aboutWhatsNew => 'What\'s new:';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).

@@ -263,9 +263,8 @@ class _SongEditScreenState extends State<SongEditScreen> {
               label: Text(AppLocalizations.of(context)!.writeTags),
             ),
             const SizedBox(height: 6),
-            const Text(
-              'BotMp3 guarda los metadatos en su propia base de datos local y, además, '
-              'puede escribirlos dentro del archivo (ID3/MP4/FLAC/OGG) cuando el formato lo permite.',
+            Text(
+              AppLocalizations.of(context)!.songEditNote,
               style: TextStyle(fontSize: 12, color: Color(0xFF9AA0B4)),
             ),
           ],
@@ -406,7 +405,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
     final bool confirmed = await AppDialogs.confirm(
       context,
       title: AppLocalizations.of(context)!.deleteSongTitle,
-      message: 'Se quitará de la biblioteca (el archivo de audio no se borra).',
+      message: AppLocalizations.of(context)!.songDeleteBody,
     );
     if (!confirmed) return;
     await library.deleteSong(widget.songId);

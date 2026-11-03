@@ -189,7 +189,7 @@ class SettingsScreen extends StatelessWidget {
                   onChanged: settings.setAutoDj,
                   title: Text(AppLocalizations.of(context)!.autoDjMode),
                   subtitle: Text(
-                    'La IA elige y explica la siguiente canción mientras reproduces.',
+                    AppLocalizations.of(context)!.aiExplains,
                   ),
                 ),
               ],
@@ -323,7 +323,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
             secondary: Icon(Icons.blur_on),
             title: Text(AppLocalizations.of(context)!.glassEffect),
             subtitle: Text(
-              'Barras y paneles translúcidos con desenfoque real del fondo.',
+              AppLocalizations.of(context)!.glassDesc,
             ),
           ),
           ListTile(
@@ -413,9 +413,8 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
                 context: context,
                 builder: (BuildContext dialogo) => AlertDialog(
                   title: Text(AppLocalizations.of(context)!.restoreTheBackup),
-                  content: const Text(
-                    'Se sustituirán tu biblioteca, listas, historial y chat por los '
-                    'de la copia. No se puede deshacer.',
+                  content: Text(
+                    AppLocalizations.of(context)!.restoreWarning,
                   ),
                   actions: <Widget>[
                     TextButton(
@@ -556,9 +555,8 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ListTile(
             leading: Icon(Icons.auto_awesome),
             title: Text(AppLocalizations.of(context)!.tagWithAi),
-            subtitle: const Text(
-              'Usa el modelo de IA para poner género a las canciones que aún no lo '
-              'tienen. Revisa hasta 10 cada vez.',
+            subtitle: Text(
+              AppLocalizations.of(context)!.tagAiDesc,
             ),
             trailing: Icon(Icons.chevron_right),
             onTap: () async {
@@ -767,15 +765,14 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
               final String? novedades =
                   codigo == null ? null : AppChangelog.forCode(codigo);
               return ListTile(
-                leading: const Icon(Icons.info_outline),
+                leading: Icon(Icons.info_outline),
                 title: Text(version),
-                subtitle: Text(
-                  'Reproductor local con IA multimodelo (OpenAI, DeepSeek, Gemini, '
-                  'Claude), efecto cristal, ranking propio y tendencias.\n'
-                  'Modo offline total: la música nunca sale del dispositivo.'
-                  '${novedades == null ? '' : '\n\nNovedades: $novedades'}',
-                ),
-                isThreeLine: true,
+                  subtitle: Text(
+                    '${AppLocalizations.of(context)!.aboutBody}\n'
+                    '${AppLocalizations.of(context)!.aboutOffline}\n\n'
+                    '${AppLocalizations.of(context)!.aboutWhatsNew} $novedades',
+                  ),
+                  isThreeLine: true,
               );
             },
           ),
@@ -809,8 +806,8 @@ Future<void> escribirModeloPersonalizado(
       content: TextField(
         controller: controller,
         autofocus: true,
-        decoration: const InputDecoration(
-          labelText: 'Identificador del modelo',
+        decoration: InputDecoration(
+          labelText: AppLocalizations.of(context)!.modelId,
           helperText: 'Ej.: deepseek-flash, gpt-4o-mini, gemini-2.0-flash…',
         ),
       ),

@@ -139,7 +139,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
             onPressed: () => _update(const CoverEditState()),
           ),
           IconButton(
-            tooltip: 'Guardar en galería/almacenamiento',
+            tooltip: AppLocalizations.of(context)!.saveToGallery,
             icon: const Icon(Icons.download_outlined),
             onPressed: _preview == null ? null : _exportToGallery,
           ),
@@ -297,8 +297,8 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                           _sectionTitle('Texto o logo'),
                           TextField(
                             controller: _textController,
-                            decoration: const InputDecoration(
-                              hintText: 'Texto sobre la carátula (opcional)',
+                            decoration: InputDecoration(
+                              hintText: AppLocalizations.of(context)!.coverTextOptional,
                             ),
                             onChanged: (String value) =>
                                 _update(_state.copyWith(text: value)),
@@ -374,7 +374,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                           Padding(
                             padding: const EdgeInsets.only(top: 12),
                             child: Text(
-                              'Canción: ${song.title} — ${song.artist}',
+                              AppLocalizations.of(context)!.coverSongLine(song.title, song.artist),
                               style: const TextStyle(fontSize: 12),
                             ),
                           ),
@@ -393,12 +393,10 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
       color: Colors.black,
       alignment: Alignment.center,
       child: preview == null
-          ? const Padding(
+          ? Padding(
               padding: EdgeInsets.all(24),
               child: Text(
-                'Sin imagen. Elige una foto (PNG/JPG) para empezar a editar la carátula.\n\n'
-                'Puedes ajustar brillo, contraste, saturación, rotar, recortar, aplicar filtros '
-                'y añadir texto.',
+                AppLocalizations.of(context)!.noImagePick,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white70),
               ),

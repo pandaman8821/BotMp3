@@ -29,16 +29,16 @@ class AppDialogs {
               controller: nameController,
               autofocus: true,
               textCapitalization: TextCapitalization.sentences,
-              decoration: const InputDecoration(labelText: 'Nombre de la lista'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.dialogListName),
             ),
             const SizedBox(height: 12),
             TextField(
               controller: descriptionController,
               textCapitalization: TextCapitalization.sentences,
               maxLines: 3,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Descripción',
-                hintText: 'Para qué momento es esta lista…',
+                hintText: AppLocalizations.of(context)!.dialogMoodHint,
               ),
             ),
           ],
@@ -221,9 +221,9 @@ class AppDialogs {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
                   child: TextField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       prefixIcon: Icon(Icons.search),
-                      hintText: 'Buscar canción, artista, álbum o género',
+                      hintText: AppLocalizations.of(context)!.dialogSearchHint,
                       isDense: true,
                       border: OutlineInputBorder(),
                     ),
@@ -300,7 +300,7 @@ class AppDialogs {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 16),
-                const Text('Género', style: TextStyle(fontWeight: FontWeight.w600)),
+                Text(AppLocalizations.of(context)!.dialogGenre, style: TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 Wrap(
                   spacing: 8,

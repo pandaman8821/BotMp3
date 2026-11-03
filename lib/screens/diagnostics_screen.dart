@@ -137,8 +137,7 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              'Si los botones de la pantalla de bloqueo no responden, copia este '
-              'informe y envíalo: con él se localiza el problema.',
+              AppLocalizations.of(context)!.diagCopyThis,
               style: TextStyle(fontSize: 12, color: Colors.white.withAlpha(160)),
             ),
           ),

@@ -706,4 +706,141 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get metadataSaved => 'Metadatos guardados';
+
+  @override
+  String get playlistsEmpty => 'Sin listas todavía';
+
+  @override
+  String get playlistEmptyTitle => 'Lista vacía';
+
+  @override
+  String get playlistEmptyDesc =>
+      'Añade canciones con el botón + o desde la biblioteca.';
+
+  @override
+  String get resetStatsTitle => 'Reiniciar estadísticas';
+
+  @override
+  String get playTop10 => 'Reproducir el top 10';
+
+  @override
+  String get searchFieldsHint => 'Título, artista, álbum, género, año o #tag';
+
+  @override
+  String get backToNormalSearch => 'Volver a la búsqueda normal';
+
+  @override
+  String get lyricsNotFound => 'No se encontró la letra de esta canción.';
+
+  @override
+  String get saveToGallery => 'Guardar en galería/almacenamiento';
+
+  @override
+  String get coverTextOptional => 'Texto sobre la carátula (opcional)';
+
+  @override
+  String get aiExplains =>
+      'La IA elige y explica la siguiente canción mientras reproduces.';
+
+  @override
+  String get glassDesc =>
+      'Barras y paneles translúcidos con desenfoque real del fondo.';
+
+  @override
+  String get modelId => 'Identificador del modelo';
+
+  @override
+  String get songDeleteBody =>
+      'Se quitará de la biblioteca (el archivo de audio no se borra).';
+
+  @override
+  String get ideaNoTitle => 'Idea sin título';
+
+  @override
+  String get dialogListName => 'Nombre de la lista';
+
+  @override
+  String get dialogMoodHint => 'Para qué momento es esta lista…';
+
+  @override
+  String get dialogSearchHint => 'Buscar canción, artista, álbum o género';
+
+  @override
+  String get dialogGenre => 'Género';
+
+  @override
+  String get aiDjTitle => 'Tu DJ con IA';
+
+  @override
+  String get promptForGenerator => 'Prompt para generador:';
+
+  @override
+  String get actionsRun => 'Órdenes ejecutadas';
+
+  @override
+  String coverSongLine(String title, String artist) {
+    return 'Canción: $title — $artist';
+  }
+
+  @override
+  String deleteListBody(String name) {
+    return '¿Eliminar \"$name\"? Las canciones seguirán en tu biblioteca.';
+  }
+
+  @override
+  String get playlistsEmptyDesc =>
+      'Crea listas ilimitadas con nombre y descripción, o pídele una a la IA';
+
+  @override
+  String get resetStatsBody =>
+      'Se pondrán a cero las reproducciones de todas las canciones';
+
+  @override
+  String get lyricsHowTo =>
+      'Guarda un archivo .lrc (o .txt) con el mismo nombre que la';
+
+  @override
+  String get carModeHint =>
+      'Desliza el dedo por la barra de abajo o usa estos botones: están';
+
+  @override
+  String get noImagePick =>
+      'Sin imagen. Elige una foto (PNG/JPG) para empezar a editar la carátula.';
+
+  @override
+  String get diagCopyThis =>
+      'Si los botones de la pantalla de bloqueo no responden, copia este';
+
+  @override
+  String get restoreWarning =>
+      'Se sustituirán tu biblioteca, listas, historial y chat por los';
+
+  @override
+  String get tagAiDesc =>
+      'Usa el modelo de IA para poner género a las canciones que aún no lo';
+
+  @override
+  String get aboutBody =>
+      'Reproductor local con IA multimodelo (OpenAI, DeepSeek, Gemini, Claude), efecto cristal, ranking propio y tendencias.';
+
+  @override
+  String get songEditNote =>
+      'BotMp3 guarda los metadatos en su propia base de datos local y, además,';
+
+  @override
+  String get aiTestOk => 'Responde solo con: BotMp3 IA conectada';
+
+  @override
+  String get aiAskExamples => 'Pídele cosas como:';
+
+  @override
+  String get aiKeyMissing =>
+      'Añade al menos una API key en la pestaña Ajustes ▸ IA.';
+
+  @override
+  String get aboutOffline =>
+      'Modo offline total: la música nunca sale del dispositivo.';
+
+  @override
+  String get aboutWhatsNew => 'Novedades:';
 }
