@@ -71,23 +71,25 @@
                 android:textColor="#F0ABFC"
                 android:textSize="11sp" />
 
-            <ImageButton
+                        <ImageButton
                 android:id="@+id/widget_rewind"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="36dp"
                 android:layout_weight="1"
-                android:background="#00000000"
-                android:contentDescription="Atrasar 10 segundos"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_rew10" />
+                android:background="@drawable/widget_boton_circulo"
+                android:contentDescription="@string/widget_rewind_10"
+                android:padding="6dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_replay_10" />
 
-            <ImageButton
+                        <ImageButton
                 android:id="@+id/widget_prev"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="36dp"
                 android:layout_weight="1"
-                android:background="#00000000"
-                android:contentDescription="Anterior"
+                android:background="@drawable/widget_boton_circulo"
+                android:contentDescription="@string/widget_prev"
+                android:padding="8dp"
                 android:scaleType="centerInside"
                 android:src="@android:drawable/ic_media_previous"
                 android:tint="#F3E8FF" />
@@ -97,32 +99,34 @@
                 android:layout_width="46dp"
                 android:layout_height="46dp"
                 android:background="@drawable/widget_play_fondo"
-                android:contentDescription="Reproducir o pausar"
+                android:contentDescription="@string/widget_play_pause"
                 android:padding="10dp"
                 android:scaleType="centerInside"
                 android:src="@android:drawable/ic_media_pause"
                 android:tint="#1E1033" />
 
-            <ImageButton
+                        <ImageButton
                 android:id="@+id/widget_next"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="36dp"
                 android:layout_weight="1"
-                android:background="#00000000"
-                android:contentDescription="Siguiente"
+                android:background="@drawable/widget_boton_circulo"
+                android:contentDescription="@string/widget_next"
+                android:padding="8dp"
                 android:scaleType="centerInside"
                 android:src="@android:drawable/ic_media_next"
                 android:tint="#F3E8FF" />
 
-            <ImageButton
+                        <ImageButton
                 android:id="@+id/widget_forward"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="36dp"
                 android:layout_weight="1"
-                android:background="#00000000"
-                android:contentDescription="Adelantar 10 segundos"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_ff10" />
+                android:background="@drawable/widget_boton_circulo"
+                android:contentDescription="@string/widget_forward_10"
+                android:padding="6dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_forward_10" />
 
             <TextView
                 android:id="@+id/widget_duracion"
