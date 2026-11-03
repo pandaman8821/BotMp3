@@ -26,9 +26,9 @@ RepoType: git
 Repo: https://github.com/pandaman8821/BotMp3.git
 
 Builds:
-  - versionName: 1.9.60
-    versionCode: 113
-    commit: v1.9.60
+  - versionName: 1.9.89
+    versionCode: 142
+    commit: v1.9.89
     subdir: BotMp3
     sudo:
       - apt-get update
@@ -52,5 +52,5 @@ MaintainerNotes: |
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.60
-CurrentVersionCode: 113
+CurrentVersion: 1.9.89
+CurrentVersionCode: 142
