@@ -592,107 +592,100 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get subImportAppAudio =>
-      'Include WhatsApp, Telegram… audio and voice recordings. Off (recommended) imports music only.';
+      '包含 WhatsApp、Telegram… 的音频和语音录音。关闭（推荐）时只导入音乐。';
 
   @override
-  String get subRestoreBackup =>
-      'Returns to the last backup (library, playlists, history and chat). Anything done since is lost.';
+  String get subRestoreBackup => '恢复到上次备份的状态（音乐库、歌单、历史和对话）。此后的更改会丢失。';
 
   @override
-  String get subExportBackup =>
-      'Saves the last backup to a JSON file you choose, to move it to another phone or keep it apart.';
+  String get subExportBackup => '把上次备份保存到你选择的 JSON 文件，以便换机或另存。';
 
   @override
-  String get subVolume =>
-      'Balances quieter or louder tracks (±6 dB). Saved per song and applied every time it plays.';
+  String get subVolume => '均衡较安静或较响的曲目（±6 dB），按歌曲保存，每次播放时应用。';
 
   @override
-  String get subFillGenres =>
-      'Fills the genre of songs that have none, using the title and album. No connection, no AI key.';
+  String get subFillGenres => '用标题和专辑为缺少风格的歌曲补全风格。无需联网、无需 AI 密钥。';
 
   @override
-  String get subBackup =>
-      'Automatic every 7 days inside the app (library, playlists, history and chat). Stored on your phone, never in the cloud.';
+  String get subBackup => '应用内每 7 天自动备份（音乐库、歌单、历史和对话）。保存在手机上，绝不上传到云端。';
 
   @override
-  String get exportLibraryJson => 'Export library (JSON)';
+  String get exportLibraryJson => '导出音乐库（JSON）';
 
   @override
-  String get restoreLibraryJson => 'Restore library (JSON)';
+  String get restoreLibraryJson => '恢复音乐库（JSON）';
 
   @override
-  String get aboutTitle => 'About BotMp3';
+  String get aboutTitle => '关于 BotMp3';
 
   @override
-  String get darkMode => 'Dark';
+  String get darkMode => '深色';
 
   @override
-  String get lightMode => 'Light';
+  String get lightMode => '浅色';
 
   @override
-  String get clearAllWarning =>
-      'All songs and playlists saved in the app will be deleted.';
+  String get clearAllWarning => '应用中保存的所有歌曲和歌单都将被删除。';
 
   @override
-  String get replaceKey => 'Replace key…';
+  String get replaceKey => '替换密钥…';
 
   @override
-  String get otherOption => 'Other…';
+  String get otherOption => '其他…';
 
   @override
   String djBatchNow(int count) {
-    return 'Now asks for $count each time';
+    return '现在每次请求 $count 首';
   }
 
   @override
   String keySaved(String value) {
-    return 'Saved: $value';
+    return '已保存：$value';
   }
 
   @override
   String keyStoredFor(String provider) {
-    return '$provider key saved encrypted';
+    return '$provider 密钥已加密保存';
   }
 
   @override
-  String get subAutoImport =>
-      'Scans device music when the app opens and adds anything new.';
+  String get subAutoImport => '打开应用时扫描设备中的音乐并添加新内容。';
 
   @override
-  String get editMetadataTitle => 'Edit metadata';
+  String get editMetadataTitle => '编辑元数据';
 
   @override
-  String get autofillAi => 'Autofill with AI';
+  String get autofillAi => '用 AI 自动填充';
 
   @override
-  String get titleStar => 'Title *';
+  String get titleStar => '标题 *';
 
   @override
-  String get artistStar => 'Artist *';
+  String get artistStar => '艺术家 *';
 
   @override
-  String get durationStar => 'Duration *';
+  String get durationStar => '时长 *';
 
   @override
-  String get detectDuration => 'Detect duration';
+  String get detectDuration => '检测时长';
 
   @override
-  String get genreStar => 'Genre *';
+  String get genreStar => '风格 *';
 
   @override
-  String get tagsAdvanced => 'Tags (advanced search)';
+  String get tagsAdvanced => '标签（高级搜索）';
 
   @override
-  String get addTagHint => 'Add a tag and press +';
+  String get addTagHint => '添加标签后点 +';
 
   @override
-  String get saveChanges => 'Save changes';
+  String get saveChanges => '保存更改';
 
   @override
-  String get dataFilled => 'Details filled ✨ Review and save';
+  String get dataFilled => '信息已填充 ✨ 请检查并保存';
 
   @override
-  String get metadataSaved => 'Metadata saved';
+  String get metadataSaved => '元数据已保存';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -1283,105 +1276,98 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get subImportAppAudio =>
-      'Include WhatsApp, Telegram… audio and voice recordings. Off (recommended) imports music only.';
+      '包含 WhatsApp、Telegram… 的音频和语音录音。关闭（推荐）时只导入音乐。';
 
   @override
-  String get subRestoreBackup =>
-      'Returns to the last backup (library, playlists, history and chat). Anything done since is lost.';
+  String get subRestoreBackup => '恢复到上次备份的状态（音乐库、歌单、历史和对话）。此后的更改会丢失。';
 
   @override
-  String get subExportBackup =>
-      'Saves the last backup to a JSON file you choose, to move it to another phone or keep it apart.';
+  String get subExportBackup => '把上次备份保存到你选择的 JSON 文件，以便换机或另存。';
 
   @override
-  String get subVolume =>
-      'Balances quieter or louder tracks (±6 dB). Saved per song and applied every time it plays.';
+  String get subVolume => '均衡较安静或较响的曲目（±6 dB），按歌曲保存，每次播放时应用。';
 
   @override
-  String get subFillGenres =>
-      'Fills the genre of songs that have none, using the title and album. No connection, no AI key.';
+  String get subFillGenres => '用标题和专辑为缺少风格的歌曲补全风格。无需联网、无需 AI 密钥。';
 
   @override
-  String get subBackup =>
-      'Automatic every 7 days inside the app (library, playlists, history and chat). Stored on your phone, never in the cloud.';
+  String get subBackup => '应用内每 7 天自动备份（音乐库、歌单、历史和对话）。保存在手机上，绝不上传到云端。';
 
   @override
-  String get exportLibraryJson => 'Export library (JSON)';
+  String get exportLibraryJson => '导出音乐库（JSON）';
 
   @override
-  String get restoreLibraryJson => 'Restore library (JSON)';
+  String get restoreLibraryJson => '恢复音乐库（JSON）';
 
   @override
-  String get aboutTitle => 'About BotMp3';
+  String get aboutTitle => '关于 BotMp3';
 
   @override
-  String get darkMode => 'Dark';
+  String get darkMode => '深色';
 
   @override
-  String get lightMode => 'Light';
+  String get lightMode => '浅色';
 
   @override
-  String get clearAllWarning =>
-      'All songs and playlists saved in the app will be deleted.';
+  String get clearAllWarning => '应用中保存的所有歌曲和歌单都将被删除。';
 
   @override
-  String get replaceKey => 'Replace key…';
+  String get replaceKey => '替换密钥…';
 
   @override
-  String get otherOption => 'Other…';
+  String get otherOption => '其他…';
 
   @override
   String djBatchNow(int count) {
-    return 'Now asks for $count each time';
+    return '现在每次请求 $count 首';
   }
 
   @override
   String keySaved(String value) {
-    return 'Saved: $value';
+    return '已保存：$value';
   }
 
   @override
   String keyStoredFor(String provider) {
-    return '$provider key saved encrypted';
+    return '$provider 密钥已加密保存';
   }
 
   @override
-  String get subAutoImport =>
-      'Scans device music when the app opens and adds anything new.';
+  String get subAutoImport => '打开应用时扫描设备中的音乐并添加新内容。';
 
   @override
-  String get editMetadataTitle => 'Edit metadata';
+  String get editMetadataTitle => '编辑元数据';
 
   @override
-  String get autofillAi => 'Autofill with AI';
+  String get autofillAi => '用 AI 自动填充';
 
   @override
-  String get titleStar => 'Title *';
+  String get titleStar => '标题 *';
 
   @override
-  String get artistStar => 'Artist *';
+  String get artistStar => '艺术家 *';
 
   @override
-  String get durationStar => 'Duration *';
+  String get durationStar => '时长 *';
 
   @override
-  String get detectDuration => 'Detect duration';
+  String get detectDuration => '检测时长';
 
   @override
-  String get genreStar => 'Genre *';
+  String get genreStar => '风格 *';
 
   @override
-  String get tagsAdvanced => 'Tags (advanced search)';
+  String get tagsAdvanced => '标签（高级搜索）';
 
   @override
-  String get addTagHint => 'Add a tag and press +';
+  String get addTagHint => '添加标签后点 +';
 
   @override
-  String get saveChanges => 'Save changes';
+  String get saveChanges => '保存更改';
 
   @override
-  String get dataFilled => 'Details filled ✨ Review and save';
+  String get dataFilled => '信息已填充 ✨ 请检查并保存';
 
   @override
-  String get metadataSaved => 'Metadata saved';
+  String get metadataSaved => '元数据已保存';
 }
