@@ -78,7 +78,7 @@
                     android:textColor="#F0ABFC"
                     android:textSize="11sp" />
 
-                <View
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center_vertical"
