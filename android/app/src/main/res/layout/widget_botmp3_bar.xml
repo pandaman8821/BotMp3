@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bar_raiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_fondo"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="6dp">
+
+    <ImageButton
+        android:id="@+id/bar_play"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/widget_play_fondo"
+        android:contentDescription="@string/widget_play_pause"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@android:drawable/ic_media_play"
+        android:tint="#1E1033" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/bar_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="BotMp3"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bar_artista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="#C4A5F0"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/bar_next"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/widget_boton_circulo"
+        android:contentDescription="@string/widget_next"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@android:drawable/ic_media_next"
+        android:tint="#F3E8FF" />
+</LinearLayout>

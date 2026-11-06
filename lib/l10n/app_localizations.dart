@@ -1789,6 +1789,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Empty fields are left unchanged.'**
   String get batchEditHint;
+
+  /// No description provided for @normalizeVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Normalize volume'**
+  String get normalizeVolume;
+
+  /// No description provided for @normalizeVolumeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Uses ReplayGain tags to even out volume between songs.'**
+  String get normalizeVolumeDesc;
 }
 
 class _AppLocalizationsDelegate

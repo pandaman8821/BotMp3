@@ -202,6 +202,13 @@ class SettingsScreen extends StatelessWidget {
 
           // ---------------------------------------------------- Reproducción
           _SectionTitle(AppLocalizations.of(context).secPlayback),
+              SwitchListTile(
+                value: settings.normalizarVolumen,
+                onChanged: (bool v) async => settings.setNormalizarVolumen(v),
+                title: Text(AppLocalizations.of(context).normalizeVolume),
+                subtitle: Text(AppLocalizations.of(context).normalizeVolumeDesc, style: const TextStyle(fontSize: 12)),
+                secondary: const Icon(Icons.graphic_eq),
+              ),
             ListTile(
               leading: const Icon(Icons.bedtime_outlined),
               title: Text(AppLocalizations.of(context).sleepTimer),

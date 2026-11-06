@@ -66,6 +66,12 @@ class SettingsService {
   }
 
   /// Importa automáticamente la música del dispositivo al abrir la app.
+  /// Normalizacion de volumen con ReplayGain (etiquetas del archivo).
+  bool get normalizarVolumen => _prefs.getBool('normalizar_volumen') ?? false;
+
+  Future<void> setNormalizarVolumen(bool valor) async =>
+      _prefs.setBool('normalizar_volumen', valor);
+
   /// Historial de reproduccion (ids, el mas reciente primero; max 100).
   List<String> get historial {
     final String? crudo = _prefs.getString('historial');

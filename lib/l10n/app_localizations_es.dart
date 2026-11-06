@@ -935,4 +935,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get batchEditHint => 'Los campos vacíos no se modifican.';
+
+  @override
+  String get normalizeVolume => 'Normalizar volumen';
+
+  @override
+  String get normalizeVolumeDesc =>
+      'Usa las etiquetas ReplayGain para igualar el volumen entre canciones.';
 }

@@ -469,5 +469,7 @@
     }
   },
   "batchEdit": "Editar selección",
-  "batchEditHint": "Los campos vacíos no se modifican."
+  "batchEditHint": "Los campos vacíos no se modifican.",
+  "normalizeVolume": "Normalizar volumen",
+  "normalizeVolumeDesc": "Usa las etiquetas ReplayGain para igualar el volumen entre canciones."
 }
