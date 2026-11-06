@@ -758,7 +758,7 @@ _SectionTitle(AppLocalizations.of(context).secPerformance),
           FutureBuilder<String>(
             future: AppInfoService.etiquetaVersion(),
             builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-              final String version = snapshot.data ?? 'Comprobando…';
+              final String version = snapshot.data ?? AppLocalizations.of(context).loading;
               final int? codigo = AppInfoService.codigoCache;
               final String? novedades =
                   codigo == null ? null : AppChangelog.forCode(codigo);
