@@ -1,3 +1,5 @@
+import '../services/m3u_service.dart';
+import '../models/playlist.dart';
 import 'stats_screen.dart';
 import '../l10n/app_localizations.dart';
 import 'dart:convert';
@@ -25,6 +27,8 @@ import 'diagnostics_screen.dart';
 import 'trends_screen.dart';
 import '../services/voice_service.dart';
 import '../widgets/dialogs.dart';
+import 'duplicates_screen.dart';
+import 'folder_screen.dart';
 import 'history_screen.dart';
 import '../widgets/theme_picker.dart';
 
@@ -268,6 +272,64 @@ ListTile(
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute<void>(builder: (_) => const HistoryScreen()),
                 ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.folder_outlined),
+                title: Text(AppLocalizations.of(context).foldersTitle),
+                subtitle: Text(AppLocalizations.of(context).foldersEmpty, style: const TextStyle(fontSize: 12)),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(builder: (_) => const FolderScreen()),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.content_copy_outlined),
+                title: Text(AppLocalizations.of(context).duplicatesTitle),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(builder: (_) => const DuplicatesScreen()),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.playlist_add),
+                title: Text(AppLocalizations.of(context).importM3u),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () async {
+                  final String? contenido = await MediaImporter.pickM3uFile();
+                  if (contenido == null || !context.mounted) return;
+                  final List<Song> encontradas = M3uService.resolver(contenido, library.songs);
+                  if (encontradas.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(AppLocalizations.of(context).m3uNoSongs)),
+                    );
+                    return;
+                  }
+                  final Playlist nueva = await library.createPlaylist(
+                    name: AppLocalizations.of(context).m3uPlaylistName(DateTime.now().day, DateTime.now().month),
+                  );
+                  await library.addSongsToPlaylist(
+                    nueva.id,
+                    encontradas.map((Song s) => s.id).toList(),
+                  );
+                  if (!context.mounted) return;
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(AppLocalizations.of(context).songsFromLibrary(encontradas.length))),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.ios_share),
+                title: Text(AppLocalizations.of(context).exportM3u),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () async {
+                  final String contenido = M3uService.generar(library.songs);
+                  final String? ruta = await MediaImporter.exportText('BotMp3_biblioteca.m3u', contenido);
+                  if (ruta != null && context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(AppLocalizations.of(context).exportedTo(ruta))),
+                    );
+                  }
+                },
               ),
               _SectionTitle(AppLocalizations.of(context).secPerformance),
           SwitchListTile(

@@ -103,6 +103,26 @@ class MediaImporter {
     }
   }
 
+  /// Abre el selector para elegir un archivo M3U/M3U8 y devuelve su contenido.
+  static Future<String?> pickM3uFile() async {
+    try {
+      final FilePickerResult? resultado = await FilePicker.platform.pickFiles(
+        allowMultiple: false,
+        withData: true,
+        type: FileType.custom,
+        allowedExtensions: <String>['m3u', 'm3u8'],
+      );
+      if (resultado == null || resultado.files.isEmpty) return null;
+      final PlatformFile archivo = resultado.files.first;
+      if (archivo == null) return null;
+      if (archivo.bytes != null) return String.fromCharCodes(archivo.bytes!);
+      return await File(archivo.path!).readAsString();
+    } catch (error) {
+      debugPrint('Error al leer M3U: $error');
+      return null;
+    }
+  }
+
   /// Abre el selector para importar un JSON de lista y devuelve su contenido.
   static Future<String?> pickJsonFile() async {
     try {

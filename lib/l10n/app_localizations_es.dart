@@ -890,4 +890,49 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get historyClear => 'Borrar historial';
+
+  @override
+  String get foldersTitle => 'Carpetas';
+
+  @override
+  String get foldersEmpty => 'Explora tu música por carpetas';
+
+  @override
+  String get duplicatesTitle => 'Duplicados';
+
+  @override
+  String get duplicatesEmpty => 'No se encontraron duplicados';
+
+  @override
+  String get duplicatesRemove => 'Quitar copias';
+
+  @override
+  String get importM3u => 'Importar lista M3U';
+
+  @override
+  String get exportM3u => 'Exportar biblioteca (M3U)';
+
+  @override
+  String get m3uNoSongs => 'No se encontró ninguna canción en tu biblioteca';
+
+  @override
+  String artistAlbums(int count) {
+    return '$count álbumes';
+  }
+
+  @override
+  String duplicatesRemoveBody(int count) {
+    return 'Las otras $count copias se quitarán de la biblioteca. Los archivos no se borran.';
+  }
+
+  @override
+  String m3uPlaylistName(int day, int month) {
+    return 'M3U $day/$month';
+  }
+
+  @override
+  String get batchEdit => 'Editar selección';
+
+  @override
+  String get batchEditHint => 'Los campos vacíos no se modifican.';
 }
