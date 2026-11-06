@@ -66,6 +66,18 @@ class SettingsService {
   }
 
   /// Importa automáticamente la música del dispositivo al abrir la app.
+  /// Reanudar la musica al conectar auriculares/Bluetooth.
+  bool get reanudarAlConectar => _prefs.getBool('reanudar_al_conectar') ?? true;
+
+  Future<void> setReanudarAlConectar(bool valor) async =>
+      _prefs.setBool('reanudar_al_conectar', valor);
+
+  /// Pausar al desconectar los auriculares/Bluetooth.
+  bool get pausarAlDesconectar => _prefs.getBool('pausar_al_desconectar') ?? true;
+
+  Future<void> setPausarAlDesconectar(bool valor) async =>
+      _prefs.setBool('pausar_al_desconectar', valor);
+
   /// Normalizacion de volumen con ReplayGain (etiquetas del archivo).
   bool get normalizarVolumen => _prefs.getBool('normalizar_volumen') ?? false;
 

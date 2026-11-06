@@ -471,5 +471,9 @@
   "batchEdit": "Editar selección",
   "batchEditHint": "Los campos vacíos no se modifican.",
   "normalizeVolume": "Normalizar volumen",
-  "normalizeVolumeDesc": "Usa las etiquetas ReplayGain para igualar el volumen entre canciones."
+  "normalizeVolumeDesc": "Usa las etiquetas ReplayGain para igualar el volumen entre canciones.",
+  "resumeOnConnect": "Reanudar al conectar",
+  "resumeOnConnectDesc": "Vuelve a reproducir al conectar auriculares o Bluetooth.",
+  "pauseOnDisconnect": "Pausar al desconectar",
+  "pauseOnDisconnectDesc": "Pausa al quitar los auriculares o el Bluetooth."
 }

@@ -942,4 +942,18 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get normalizeVolumeDesc =>
       'Usa las etiquetas ReplayGain para igualar el volumen entre canciones.';
+
+  @override
+  String get resumeOnConnect => 'Reanudar al conectar';
+
+  @override
+  String get resumeOnConnectDesc =>
+      'Vuelve a reproducir al conectar auriculares o Bluetooth.';
+
+  @override
+  String get pauseOnDisconnect => 'Pausar al desconectar';
+
+  @override
+  String get pauseOnDisconnectDesc =>
+      'Pausa al quitar los auriculares o el Bluetooth.';
 }
