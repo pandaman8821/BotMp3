@@ -131,7 +131,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
                 ),
                 Text(
                   '$totalReproducciones ${totalReproducciones == 1 ? 'reproducción' : 'reproducciones'}',
-                  style: const TextStyle(fontSize: 11.5, color: AppColors.darkTextDim),
+                  style: TextStyle(fontSize: 11.5, color: AppColors.darkTextDim),
                 ),
               ],
             ),

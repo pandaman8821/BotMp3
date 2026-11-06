@@ -815,4 +815,41 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get statsUniqueSongs => 'Canciones únicas';
+
+  @override
+  String get themeTitle => 'Tema';
+
+  @override
+  String get themeSubtitle => 'Elige un estilo visual. Se aplica al instante.';
+
+  @override
+  String get themeMinimal => 'Minimalista';
+
+  @override
+  String get themeNeon => 'Neón / Cyberpunk';
+
+  @override
+  String get themeRetro => 'Retro / Vintage';
+
+  @override
+  String get themeGlass => 'Cristal (predeterminado)';
+
+  @override
+  String get themeZen => 'Natural / Zen';
+
+  @override
+  String get themeAnime => 'Anime';
+
+  @override
+  String get themeGothic => 'Gótico';
+
+  @override
+  String get themeCinema => 'Cine';
+
+  @override
+  String get reduceMotion => 'Reducir movimiento';
+
+  @override
+  String get reduceMotionDesc =>
+      'Desactiva las animaciones del tema para ahorrar batería.';
 }

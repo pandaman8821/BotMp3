@@ -84,7 +84,7 @@ class MiniPlayer extends StatelessWidget {
                           song.artist,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(fontSize: 12, color: AppColors.darkTextDim),
+                          style: TextStyle(fontSize: 12, color: AppColors.darkTextDim),
                         ),
                       ],
                     ),
@@ -170,7 +170,7 @@ class SectionHeader extends StatelessWidget {
                 if (subtitle != null)
                   Text(
                     subtitle!,
-                    style: const TextStyle(fontSize: 12.5, color: AppColors.darkTextDim),
+                    style: TextStyle(fontSize: 12.5, color: AppColors.darkTextDim),
                   ),
               ],
             ),
@@ -220,7 +220,7 @@ class EmptyState extends StatelessWidget {
               Text(
                 message!,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 14, color: AppColors.darkTextDim),
+                style: TextStyle(fontSize: 14, color: AppColors.darkTextDim),
               ),
             ],
             if (actionLabel != null && onAction != null) ...<Widget>[

@@ -262,5 +262,17 @@
   "songsFromLibrary": "आपकी लाइब्रेरी के {count} गाने।",
   "jsonCopied": "JSON क्लिपबोर्ड में कॉपी हुआ",
   "exportedTo": "प्लेलिस्ट {path} में निर्यात हुई",
-  "statsUniqueSongs": "Unique songs"
+  "statsUniqueSongs": "Unique songs",
+  "themeTitle": "Theme",
+  "themeSubtitle": "Pick a visual style. Applies instantly.",
+  "themeMinimal": "Minimal",
+  "themeNeon": "Neon / Cyberpunk",
+  "themeRetro": "Retro / Vintage",
+  "themeGlass": "Glass (default)",
+  "themeZen": "Natural / Zen",
+  "themeAnime": "Anime",
+  "themeGothic": "Gothic",
+  "themeCinema": "Cinema",
+  "reduceMotion": "Reduce motion",
+  "reduceMotionDesc": "Turns off theme animations to save battery."
 }

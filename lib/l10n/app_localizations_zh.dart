@@ -780,6 +780,42 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get statsUniqueSongs => 'Unique songs';
+
+  @override
+  String get themeTitle => 'Theme';
+
+  @override
+  String get themeSubtitle => 'Pick a visual style. Applies instantly.';
+
+  @override
+  String get themeMinimal => 'Minimal';
+
+  @override
+  String get themeNeon => 'Neon / Cyberpunk';
+
+  @override
+  String get themeRetro => 'Retro / Vintage';
+
+  @override
+  String get themeGlass => 'Glass (default)';
+
+  @override
+  String get themeZen => 'Natural / Zen';
+
+  @override
+  String get themeAnime => 'Anime';
+
+  @override
+  String get themeGothic => 'Gothic';
+
+  @override
+  String get themeCinema => 'Cinema';
+
+  @override
+  String get reduceMotion => 'Reduce motion';
+
+  @override
+  String get reduceMotionDesc => 'Turns off theme animations to save battery.';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -1558,4 +1594,40 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get statsUniqueSongs => 'Unique songs';
+
+  @override
+  String get themeTitle => 'Theme';
+
+  @override
+  String get themeSubtitle => 'Pick a visual style. Applies instantly.';
+
+  @override
+  String get themeMinimal => 'Minimal';
+
+  @override
+  String get themeNeon => 'Neon / Cyberpunk';
+
+  @override
+  String get themeRetro => 'Retro / Vintage';
+
+  @override
+  String get themeGlass => 'Glass (default)';
+
+  @override
+  String get themeZen => 'Natural / Zen';
+
+  @override
+  String get themeAnime => 'Anime';
+
+  @override
+  String get themeGothic => 'Gothic';
+
+  @override
+  String get themeCinema => 'Cinema';
+
+  @override
+  String get reduceMotion => 'Reduce motion';
+
+  @override
+  String get reduceMotionDesc => 'Turns off theme animations to save battery.';
 }

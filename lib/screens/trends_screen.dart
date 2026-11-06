@@ -185,7 +185,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   '${AppLocalizations.of(context).updateAction}: ${Formatters.date(_trends.actualizado, Localizations.localeOf(context).toString())}',
-                  style: const TextStyle(fontSize: 11.5, color: AppColors.darkTextDim),
+                  style: TextStyle(fontSize: 11.5, color: AppColors.darkTextDim),
                 ),
               ),
             ),
