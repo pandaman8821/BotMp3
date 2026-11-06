@@ -879,6 +879,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String albumSongsCount(int count) {
     return '$count songs';
   }
+
+  @override
+  String get historyTitle => 'Playback history';
+
+  @override
+  String get historyEmpty => 'No playback history yet';
+
+  @override
+  String get historyClear => 'Clear history';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1756,4 +1765,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String albumSongsCount(int count) {
     return '$count songs';
   }
+
+  @override
+  String get historyTitle => 'Playback history';
+
+  @override
+  String get historyEmpty => 'No playback history yet';
+
+  @override
+  String get historyClear => 'Clear history';
 }

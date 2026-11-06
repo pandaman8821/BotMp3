@@ -845,6 +845,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String albumSongsCount(int count) {
     return '$count songs';
   }
+
+  @override
+  String get historyTitle => 'Playback history';
+
+  @override
+  String get historyEmpty => 'No playback history yet';
+
+  @override
+  String get historyClear => 'Clear history';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -1688,4 +1697,13 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String albumSongsCount(int count) {
     return '$count songs';
   }
+
+  @override
+  String get historyTitle => 'Playback history';
+
+  @override
+  String get historyEmpty => 'No playback history yet';
+
+  @override
+  String get historyClear => 'Clear history';
 }

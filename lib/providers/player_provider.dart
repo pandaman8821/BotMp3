@@ -52,6 +52,10 @@ class PlayerProvider extends ChangeNotifier {
   Stream<Duration> get positionStream => service.player.positionStream;
   Stream<Duration?> get durationStream => service.player.durationStream;
   Stream<Duration> get bufferedStream => service.player.bufferedPositionStream;
+  /// Recupera la ultima cancion/posicion al abrir la app.
+  Future<void> prepararSesion(Song cancion, Duration posicion) =>
+      service.prepararSesion(cancion, posicion);
+
   Stream<PlayerState> get playerStateStream => service.player.playerStateStream;
   Stream<ProcessingState> get processingStateStream => service.player.processingStateStream;
 

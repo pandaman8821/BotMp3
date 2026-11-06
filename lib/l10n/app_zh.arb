@@ -283,5 +283,8 @@
   "sortYear": "Year",
   "sortDuration": "Duration",
   "sortMostPlayed": "Most played",
-  "albumSongsCount": "{count} songs"
+  "albumSongsCount": "{count} songs",
+  "historyTitle": "Playback history",
+  "historyEmpty": "No playback history yet",
+  "historyClear": "Clear history"
 }
