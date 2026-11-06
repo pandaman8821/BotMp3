@@ -1801,6 +1801,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Uses ReplayGain tags to even out volume between songs.'**
   String get normalizeVolumeDesc;
+
+  /// No description provided for @resumeOnConnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume on connect'**
+  String get resumeOnConnect;
+
+  /// No description provided for @resumeOnConnectDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Starts playing again when headphones or Bluetooth connect.'**
+  String get resumeOnConnectDesc;
+
+  /// No description provided for @pauseOnDisconnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause on disconnect'**
+  String get pauseOnDisconnect;
+
+  /// No description provided for @pauseOnDisconnectDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Pauses when headphones or Bluetooth are removed.'**
+  String get pauseOnDisconnectDesc;
 }
 
 class _AppLocalizationsDelegate

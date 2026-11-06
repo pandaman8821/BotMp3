@@ -1,3 +1,4 @@
+import '../services/audio_device_watcher.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 import '../l10n/app_localizations.dart';
 import '../services/settings_service.dart';
@@ -72,6 +73,9 @@ class _HomeShellState extends State<HomeShell>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => _restaurarSesion());
+    // Reanudar/pausar al conectar o quitar auriculares/Bluetooth.
+    AudioDeviceWatcher.iniciar();
+    AudioDeviceWatcher.onCambio = _alCambiarDispositivoAudio;
     // Boton de favorito de la notificacion.
     JustAudioBackground.onCustomAction = (String name, Map<String, dynamic>? extra) async {
       if (name != 'favorito' || !mounted) return;
@@ -125,6 +129,22 @@ class _HomeShellState extends State<HomeShell>
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(AppLocalizations.of(context).songsAddedToLibrary(added))),
     );
+  }
+
+  /// Reanuda la musica al conectar auriculares/Bluetooth y la pausa al quitarlos.
+  Future<void> _alCambiarDispositivoAudio(String evento) async {
+    if (!mounted) return;
+    final SettingsService ajustes = await SettingsService.instance();
+    final PlayerProvider reproductor = context.read<PlayerProvider>();
+    if (evento == 'conectado') {
+      if (ajustes.reanudarAlConectar && !reproductor.playing && reproductor.current != null) {
+        await reproductor.play();
+      }
+    } else if (evento == 'desconectado') {
+      if (ajustes.pausarAlDesconectar && reproductor.playing) {
+        await reproductor.pause();
+      }
+    }
   }
 
   /// Continua donde lo dejaste la ultima vez (sin empezar a sonar).

@@ -471,5 +471,9 @@
   "batchEdit": "Edit selection",
   "batchEditHint": "Empty fields are left unchanged.",
   "normalizeVolume": "Normalize volume",
-  "normalizeVolumeDesc": "Uses ReplayGain tags to even out volume between songs."
+  "normalizeVolumeDesc": "Uses ReplayGain tags to even out volume between songs.",
+  "resumeOnConnect": "Resume on connect",
+  "resumeOnConnectDesc": "Starts playing again when headphones or Bluetooth connect.",
+  "pauseOnDisconnect": "Pause on disconnect",
+  "pauseOnDisconnectDesc": "Pauses when headphones or Bluetooth are removed."
 }

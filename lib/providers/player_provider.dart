@@ -111,6 +111,12 @@ class PlayerProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Reanuda la reproduccion (usado al conectar auriculares/Bluetooth).
+  Future<void> play() => service.play();
+
+  /// Pausa la reproduccion (usado al desconectar auriculares/Bluetooth).
+  Future<void> pause() => service.pause();
+
   Future<void> togglePlayPause() async {
     await service.togglePlayPause();
     notifyListeners();

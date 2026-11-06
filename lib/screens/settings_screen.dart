@@ -203,6 +203,20 @@ class SettingsScreen extends StatelessWidget {
           // ---------------------------------------------------- Reproducción
           _SectionTitle(AppLocalizations.of(context).secPlayback),
               SwitchListTile(
+                value: settings.reanudarAlConectar,
+                onChanged: (bool v) async => settings.setReanudarAlConectar(v),
+                title: Text(AppLocalizations.of(context).resumeOnConnect),
+                subtitle: Text(AppLocalizations.of(context).resumeOnConnectDesc, style: const TextStyle(fontSize: 12)),
+                secondary: const Icon(Icons.bluetooth_audio),
+              ),
+              SwitchListTile(
+                value: settings.pausarAlDesconectar,
+                onChanged: (bool v) async => settings.setPausarAlDesconectar(v),
+                title: Text(AppLocalizations.of(context).pauseOnDisconnect),
+                subtitle: Text(AppLocalizations.of(context).pauseOnDisconnectDesc, style: const TextStyle(fontSize: 12)),
+                secondary: const Icon(Icons.headset_off),
+              ),
+              SwitchListTile(
                 value: settings.normalizarVolumen,
                 onChanged: (bool v) async => settings.setNormalizarVolumen(v),
                 title: Text(AppLocalizations.of(context).normalizeVolume),

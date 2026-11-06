@@ -34,9 +34,13 @@ class MainActivity : AudioServiceActivity() {
     private val channelName = "botmp3/media"
     private val notificationChannelName = "botmp3/notifications"
     private val appInfoChannelName = "botmp3/appinfo"
+    private val devicesChannelName = "botmp3/devices"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        // Avisa a Flutter cuando se conecta/desconecta auriculares o Bluetooth.
+        val devicesChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, devicesChannelName)
+        AudioDeviceWatcher.iniciar(this, devicesChannel)
         MethodChannel(
             flutterEngine.dartExecutor.binaryMessenger,
             "botmp3/equalizer",
@@ -280,5 +284,10 @@ class MainActivity : AudioServiceActivity() {
             bitmap.recycle()
             target.absolutePath
         }.getOrNull()
+    }
+
+    override fun onDestroy() {
+        AudioDeviceWatcher.detener(this)
+        super.onDestroy()
     }
 }

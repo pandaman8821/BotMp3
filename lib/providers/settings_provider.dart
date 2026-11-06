@@ -29,6 +29,19 @@ class SettingsProvider extends ChangeNotifier {
   /// Cuántas canciones pide el Modo DJ a la vez.
   int get djCanciones => _service.djCanciones;
 
+  bool get reanudarAlConectar => _service.reanudarAlConectar;
+  bool get pausarAlDesconectar => _service.pausarAlDesconectar;
+
+  Future<void> setReanudarAlConectar(bool v) async {
+    await _service.setReanudarAlConectar(v);
+    notifyListeners();
+  }
+
+  Future<void> setPausarAlDesconectar(bool v) async {
+    await _service.setPausarAlDesconectar(v);
+    notifyListeners();
+  }
+
   bool get normalizarVolumen => _service.normalizarVolumen;
 
   Future<void> setNormalizarVolumen(bool valor) async {

@@ -940,6 +940,20 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get normalizeVolumeDesc =>
       'Uses ReplayGain tags to even out volume between songs.';
+
+  @override
+  String get resumeOnConnect => 'Resume on connect';
+
+  @override
+  String get resumeOnConnectDesc =>
+      'Starts playing again when headphones or Bluetooth connect.';
+
+  @override
+  String get pauseOnDisconnect => 'Pause on disconnect';
+
+  @override
+  String get pauseOnDisconnectDesc =>
+      'Pauses when headphones or Bluetooth are removed.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1878,4 +1892,18 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get normalizeVolumeDesc =>
       'Uses ReplayGain tags to even out volume between songs.';
+
+  @override
+  String get resumeOnConnect => 'Resume on connect';
+
+  @override
+  String get resumeOnConnectDesc =>
+      'Starts playing again when headphones or Bluetooth connect.';
+
+  @override
+  String get pauseOnDisconnect => 'Pause on disconnect';
+
+  @override
+  String get pauseOnDisconnectDesc =>
+      'Pauses when headphones or Bluetooth are removed.';
 }
