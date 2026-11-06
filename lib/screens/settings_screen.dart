@@ -15,12 +15,9 @@ import '../providers/library_provider.dart';
 import '../providers/player_provider.dart';
 import '../providers/settings_provider.dart';
 import '../services/media_importer.dart';
-import '../core/constants.dart';
 import '../services/app_info_service.dart';
-import '../services/media_importer.dart';
 import '../services/storage_service.dart';
 import '../services/secure_keys_service.dart';
-import '../services/settings_service.dart';
 import '../services/notification_service.dart';
 import '../services/trends_service.dart';
 import 'ranking_screen.dart';
@@ -1025,21 +1022,6 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
         ),
       ),
     );
-  }
-  /// Exporta el texto y distingue error de cancelacion (el usuario merece saberlo).
-  Future<String?> _exportarConErrores(BuildContext context, String nombre, String contenido) async {
-    try {
-      return await MediaImporter.exportText(nombre, contenido);
-    } catch (e) {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-              content: Text(AppLocalizations.of(context).exportFailedStorage),
-            ),
-        );
-      }
-      return null;
-    }
   }
 
 }
