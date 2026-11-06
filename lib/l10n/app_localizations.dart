@@ -1567,6 +1567,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unique songs'**
   String get statsUniqueSongs;
+
+  /// No description provided for @themeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get themeTitle;
+
+  /// No description provided for @themeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a visual style. Applies instantly.'**
+  String get themeSubtitle;
+
+  /// No description provided for @themeMinimal.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimal'**
+  String get themeMinimal;
+
+  /// No description provided for @themeNeon.
+  ///
+  /// In en, this message translates to:
+  /// **'Neon / Cyberpunk'**
+  String get themeNeon;
+
+  /// No description provided for @themeRetro.
+  ///
+  /// In en, this message translates to:
+  /// **'Retro / Vintage'**
+  String get themeRetro;
+
+  /// No description provided for @themeGlass.
+  ///
+  /// In en, this message translates to:
+  /// **'Glass (default)'**
+  String get themeGlass;
+
+  /// No description provided for @themeZen.
+  ///
+  /// In en, this message translates to:
+  /// **'Natural / Zen'**
+  String get themeZen;
+
+  /// No description provided for @themeAnime.
+  ///
+  /// In en, this message translates to:
+  /// **'Anime'**
+  String get themeAnime;
+
+  /// No description provided for @themeGothic.
+  ///
+  /// In en, this message translates to:
+  /// **'Gothic'**
+  String get themeGothic;
+
+  /// No description provided for @themeCinema.
+  ///
+  /// In en, this message translates to:
+  /// **'Cinema'**
+  String get themeCinema;
+
+  /// No description provided for @reduceMotion.
+  ///
+  /// In en, this message translates to:
+  /// **'Reduce motion'**
+  String get reduceMotion;
+
+  /// No description provided for @reduceMotionDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Turns off theme animations to save battery.'**
+  String get reduceMotionDesc;
 }
 
 class _AppLocalizationsDelegate

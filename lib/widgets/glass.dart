@@ -76,7 +76,7 @@ class GlassTheme {
 
   static GlassTheme of(BuildContext context) {
     final bool dark = Theme.of(context).brightness == Brightness.dark;
-    const Color accent = AppColors.aiViolet;
+    final Color accent = AppColors.aiViolet;
     if (dark) {
       return GlassTheme(
         tint: const Color(0x14FFFFFF),

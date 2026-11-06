@@ -25,6 +25,7 @@ import 'diagnostics_screen.dart';
 import 'trends_screen.dart';
 import '../services/voice_service.dart';
 import '../widgets/dialogs.dart';
+import '../widgets/theme_picker.dart';
 
 /// Ajustes: apariencia, IA multimodelo (API keys cifradas), reproducción,
 /// rendimiento, voz y gestión de la biblioteca.
@@ -144,6 +145,7 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           _SectionTitle(AppLocalizations.of(context).secAppearance),
+              const ThemePickerSection(),
           ListTile(
             leading: Icon(Icons.notifications_active_outlined),
             title: Text(AppLocalizations.of(context).lockControlsTitle),
@@ -776,7 +778,7 @@ _SectionTitle(AppLocalizations.of(context).secPerformance),
             child: Text(
               'Formatos: ${AudioFormats.supported.map((String e) => e.toUpperCase()).join(', ')}\n'
               'Las API keys se guardan cifradas con el Android Keystore.',
-              style: const TextStyle(fontSize: 12, color: AppColors.darkTextDim),
+              style: TextStyle(fontSize: 12, color: AppColors.darkTextDim),
             ),
           ),
         ],
@@ -895,7 +897,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                   ),
                 ),
                 if (configured)
-                  const Icon(Icons.verified_user, size: 16, color: AppColors.green),
+                  Icon(Icons.verified_user, size: 16, color: AppColors.green),
                 IconButton(
                   tooltip: 'Obtener API key',
                   icon: const Icon(Icons.open_in_new, size: 18),
@@ -914,7 +916,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                 padding: const EdgeInsets.only(bottom: 6),
                 child: Text(
                   AppLocalizations.of(context).keySaved(mask),
-                  style: const TextStyle(fontSize: 12, color: AppColors.green),
+                  style: TextStyle(fontSize: 12, color: AppColors.green),
                 ),
               ),
             TextField(

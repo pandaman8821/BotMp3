@@ -5,6 +5,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'core/theme.dart';
+import 'core/theme/theme_backdrop.dart';
+import 'core/theme/theme_manager.dart';
 import 'providers/ai_provider.dart';
 import 'providers/library_provider.dart';
 import 'providers/player_provider.dart';
@@ -12,7 +14,11 @@ import 'providers/settings_provider.dart';
 import 'screens/home_shell.dart';
 import 'services/settings_service.dart';
 
-/// Raíz de la aplicación: inyecta los providers y aplica el tema.
+/// Raiz de la aplicacion: inyecta los providers y aplica el tema.
+///
+/// El tema es dinamico: [ThemeManager] notifica y este `Consumer` reconstruye
+/// `MaterialApp`, por lo que el cambio de estilo se ve al instante (en caliente)
+/// sin reiniciar la app ni tocar la reproduccion de audio.
 class BotMp3App extends StatelessWidget {
   const BotMp3App({super.key, required this.settings});
 
@@ -25,6 +31,7 @@ class BotMp3App extends StatelessWidget {
         ChangeNotifierProvider<SettingsProvider>(
           create: (_) => SettingsProvider(settings),
         ),
+        ChangeNotifierProvider<ThemeManager>.value(value: ThemeManager.instance),
         ChangeNotifierProvider<LibraryProvider>(
           create: (_) => LibraryProvider()..init(),
         ),
@@ -38,7 +45,7 @@ class BotMp3App extends StatelessWidget {
             library: context.read<LibraryProvider>(),
             settings: settings,
           ),
-          // Se mantiene la misma instancia para no cortar la reproducción
+          // Se mantiene la misma instancia para no cortar la reproduccion
           // cuando cambia la biblioteca.
           update: (_, __, PlayerProvider? previous) =>
               previous ??
@@ -48,36 +55,39 @@ class BotMp3App extends StatelessWidget {
               ),
         ),
       ],
-      child: Consumer<SettingsProvider>(
-        builder: (BuildContext context, SettingsProvider settingsProvider, _) {
+      child: Consumer2<SettingsProvider, ThemeManager>(
+        builder: (BuildContext context, SettingsProvider settingsProvider, ThemeManager temas, _) {
+          // Sincroniza el modo claro/oscuro con el gestor de temas (no-op si ya
+          // coincide) para que los temas con variante clara la respeten.
+          temas.setModo(settingsProvider.themeMode);
           return MaterialApp(
             title: 'BotMp3',
             debugShowCheckedModeBanner: false,
             themeMode: settingsProvider.themeMode,
             theme: AppTheme.light(),
             darkTheme: AppTheme.dark(),
-                  supportedLocales: AppLocalizations.supportedLocales,
-      // Si el idioma del telefono no esta traducido, la app usa INGLES (idioma
-      // universal) en lugar de caer al primero de la lista, que era otro.
-      localeResolutionCallback: (Locale? dispositivo, Iterable<Locale> soportados) {
-        if (dispositivo == null) return const Locale('en');
-        for (final Locale locale in soportados) {
-          if (locale.languageCode == dispositivo.languageCode) return locale;
-        }
-        return const Locale('en');
-      },
+            supportedLocales: AppLocalizations.supportedLocales,
+            // Si el idioma del telefono no esta traducido, la app usa INGLES
+            // (idioma universal) en lugar de caer al primero de la lista.
+            localeResolutionCallback: (Locale? dispositivo, Iterable<Locale> soportados) {
+              if (dispositivo == null) return const Locale('en');
+              for (final Locale locale in soportados) {
+                if (locale.languageCode == dispositivo.languageCode) return locale;
+              }
+              return const Locale('en');
+            },
             localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
-        AppLocalizations.delegate,
+              AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
             // Los formatos (fechas, numeros) siguen el idioma que se este usando.
-      builder: (BuildContext context, Widget? child) {
-        Intl.defaultLocale = Localizations.localeOf(context).toString();
-        return child ?? const SizedBox.shrink();
-      },
-      home: const HomeShell(),
+            builder: (BuildContext context, Widget? child) {
+              Intl.defaultLocale = Localizations.localeOf(context).toString();
+              return ThemeBackdrop(child: child ?? const SizedBox.shrink());
+            },
+            home: const HomeShell(),
           );
         },
       ),

@@ -262,5 +262,17 @@
   "songsFromLibrary": "{count} morceaux de votre bibliothèque.",
   "jsonCopied": "JSON copié dans le presse-papiers",
   "exportedTo": "Playlist exportée vers {path}",
-  "statsUniqueSongs": "Unique songs"
+  "statsUniqueSongs": "Unique songs",
+  "themeTitle": "Theme",
+  "themeSubtitle": "Pick a visual style. Applies instantly.",
+  "themeMinimal": "Minimal",
+  "themeNeon": "Neon / Cyberpunk",
+  "themeRetro": "Retro / Vintage",
+  "themeGlass": "Glass (default)",
+  "themeZen": "Natural / Zen",
+  "themeAnime": "Anime",
+  "themeGothic": "Gothic",
+  "themeCinema": "Cinema",
+  "reduceMotion": "Reduce motion",
+  "reduceMotionDesc": "Turns off theme animations to save battery."
 }

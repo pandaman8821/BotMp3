@@ -96,7 +96,7 @@ class _AiScreenState extends State<AiScreen> {
                 Expanded(
                   child: Text(
                     library.summaryLabel,
-                    style: const TextStyle(fontSize: 12, color: AppColors.darkTextDim),
+                    style: TextStyle(fontSize: 12, color: AppColors.darkTextDim),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -211,7 +211,7 @@ class _AiScreenState extends State<AiScreen> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  const Icon(Icons.smart_toy, size: 15, color: AppColors.aiCyan),
+                  Icon(Icons.smart_toy, size: 15, color: AppColors.aiCyan),
                   const SizedBox(width: 6),
                   Text(
                     message.provider?.label ?? 'IA',
@@ -255,7 +255,7 @@ class _AiScreenState extends State<AiScreen> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                const Icon(Icons.auto_awesome, size: 18, color: AppColors.aiCyan),
+                Icon(Icons.auto_awesome, size: 18, color: AppColors.aiCyan),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -270,7 +270,7 @@ class _AiScreenState extends State<AiScreen> {
                 padding: const EdgeInsets.only(top: 4),
                 child: Text(
                   result.playlistDescription!,
-                  style: const TextStyle(fontSize: 12.5, color: AppColors.darkTextDim),
+                  style: TextStyle(fontSize: 12.5, color: AppColors.darkTextDim),
                 ),
               ),
             const SizedBox(height: 10),
@@ -410,7 +410,7 @@ class _AiScreenState extends State<AiScreen> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                const Icon(Icons.music_note, color: AppColors.aiCyan),
+                Icon(Icons.music_note, color: AppColors.aiCyan),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(

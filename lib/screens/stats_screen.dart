@@ -40,7 +40,7 @@ class StatsScreen extends StatelessWidget {
                 dense: true,
                 contentPadding: EdgeInsets.zero,
                 title: Text(g.key),
-                trailing: Text('${g.value}', style: const TextStyle(color: AppColors.green)),
+                trailing: Text('${g.value}', style: TextStyle(color: AppColors.green)),
               ),
           ],
         ],

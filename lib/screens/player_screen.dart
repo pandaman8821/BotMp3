@@ -86,7 +86,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
         ],
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -138,7 +138,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                                   current.artist,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 15,
                                     color: AppColors.darkTextDim,
                                   ),
@@ -316,7 +316,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                               padding: const EdgeInsets.all(12),
                               child: Row(
                                 children: <Widget>[
-                                  const Icon(Icons.smart_toy, size: 18, color: AppColors.aiViolet),
+                                  Icon(Icons.smart_toy, size: 18, color: AppColors.aiViolet),
                                   const SizedBox(width: 8),
                                   Expanded(
                                     child: Text(
@@ -454,7 +454,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
               const SizedBox(height: 8),
               Text(
                 song.path,
-                style: const TextStyle(fontSize: 11, color: AppColors.darkTextDim),
+                style: TextStyle(fontSize: 11, color: AppColors.darkTextDim),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),

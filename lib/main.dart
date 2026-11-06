@@ -4,6 +4,7 @@ import 'package:just_audio_background/just_audio_background.dart';
 
 import 'app.dart';
 import 'services/notification_service.dart';
+import 'core/theme/theme_manager.dart';
 import 'services/settings_service.dart';
 
 /// Punto de entrada de BotMp3.
@@ -31,6 +32,9 @@ Future<void> main() async {
   await session.configure(const AudioSessionConfiguration.music());
 
   final SettingsService settings = await SettingsService.instance();
+
+  // Tema guardado por el usuario (se aplica antes del primer frame).
+  await ThemeManager.init();
 
   // Si el usuario pidió avisos de tendencias, se reprograman al abrir la app
   // (Android borra las alarmas si apaga el móvil; el sistema las conserva si no).

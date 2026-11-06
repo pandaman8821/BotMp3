@@ -13,7 +13,7 @@ class WaveBars extends StatefulWidget {
     super.key,
     this.barCount = 5,
     this.height = 22,
-    this.color = AppColors.green,
+    this.color,
     this.animate = true,
     this.barWidth = 4,
     this.spacing = 3,
@@ -21,7 +21,7 @@ class WaveBars extends StatefulWidget {
 
   final int barCount;
   final double height;
-  final Color color;
+  final Color? color;
   final bool animate;
   final double barWidth;
   final double spacing;
@@ -81,7 +81,7 @@ class _WaveBarsState extends State<WaveBars> with SingleTickerProviderStateMixin
                   width: widget.barWidth,
                   height: widget.height * factor,
                   decoration: BoxDecoration(
-                    color: widget.color,
+                    color: widget.color ?? AppColors.green,
                     borderRadius: BorderRadius.circular(widget.barWidth / 2),
                   ),
                 ),

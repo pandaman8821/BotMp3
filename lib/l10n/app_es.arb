@@ -401,5 +401,17 @@
       }
     }
   },
-  "statsUniqueSongs": "Canciones únicas"
+  "statsUniqueSongs": "Canciones únicas",
+  "themeTitle": "Tema",
+  "themeSubtitle": "Elige un estilo visual. Se aplica al instante.",
+  "themeMinimal": "Minimalista",
+  "themeNeon": "Neón / Cyberpunk",
+  "themeRetro": "Retro / Vintage",
+  "themeGlass": "Cristal (predeterminado)",
+  "themeZen": "Natural / Zen",
+  "themeAnime": "Anime",
+  "themeGothic": "Gótico",
+  "themeCinema": "Cine",
+  "reduceMotion": "Reducir movimiento",
+  "reduceMotionDesc": "Desactiva las animaciones del tema para ahorrar batería."
 }

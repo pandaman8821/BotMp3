@@ -262,5 +262,17 @@
   "songsFromLibrary": "라이브러리의 {count}곡.",
   "jsonCopied": "JSON을 클립보드에 복사했습니다",
   "exportedTo": "플레이리스트를 {path}에 내보냈습니다",
-  "statsUniqueSongs": "Unique songs"
+  "statsUniqueSongs": "Unique songs",
+  "themeTitle": "Theme",
+  "themeSubtitle": "Pick a visual style. Applies instantly.",
+  "themeMinimal": "Minimal",
+  "themeNeon": "Neon / Cyberpunk",
+  "themeRetro": "Retro / Vintage",
+  "themeGlass": "Glass (default)",
+  "themeZen": "Natural / Zen",
+  "themeAnime": "Anime",
+  "themeGothic": "Gothic",
+  "themeCinema": "Cinema",
+  "reduceMotion": "Reduce motion",
+  "reduceMotionDesc": "Turns off theme animations to save battery."
 }

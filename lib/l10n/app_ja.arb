@@ -262,5 +262,17 @@
   "songsFromLibrary": "ライブラリの{count}曲。",
   "jsonCopied": "JSONをクリップボードにコピーしました",
   "exportedTo": "プレイリストを {path} に書き出しました",
-  "statsUniqueSongs": "Unique songs"
+  "statsUniqueSongs": "Unique songs",
+  "themeTitle": "Theme",
+  "themeSubtitle": "Pick a visual style. Applies instantly.",
+  "themeMinimal": "Minimal",
+  "themeNeon": "Neon / Cyberpunk",
+  "themeRetro": "Retro / Vintage",
+  "themeGlass": "Glass (default)",
+  "themeZen": "Natural / Zen",
+  "themeAnime": "Anime",
+  "themeGothic": "Gothic",
+  "themeCinema": "Cinema",
+  "reduceMotion": "Reduce motion",
+  "reduceMotionDesc": "Turns off theme animations to save battery."
 }

@@ -50,7 +50,7 @@ class CoverArt extends StatelessWidget {
 
   Widget _fallback() {
     return DecoratedBox(
-      decoration: const BoxDecoration(gradient: AppColors.coverFallback),
+      decoration: BoxDecoration(gradient: AppColors.coverFallback),
       child: Center(
         child: Icon(
           showBotIcon ? Icons.smart_toy_outlined : Icons.music_note,
