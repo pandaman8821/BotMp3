@@ -15,6 +15,10 @@ late JustAudioPlatform _platform;
 
 /// Provides the [init] method to initialise just_audio for background playback.
 class JustAudioBackground {
+  /// Callback opcional para acciones personalizadas de la notificacion
+  /// (por ejemplo el boton de favorito de BotMp3).
+  static Future<void> Function(String name, Map<String, dynamic>? extras)? onCustomAction;
+
   /// Initialise just_audio for background playback. This should be called from
   /// your app's `main` method. e.g.:
   ///
@@ -674,6 +678,13 @@ class _PlayerAudioHandler extends BaseAudioHandler
   }
 
   @override
+  Future<dynamic> customAction(String name, [Map<String, dynamic>? extras]) async {
+    final callback = JustAudioBackground.onCustomAction;
+    if (callback != null) await callback(name, extras);
+    return null;
+  }
+
+  @override
   Future<void> fastForward() =>
       _seekRelative(AudioService.config.fastForwardInterval);
 
@@ -768,6 +779,11 @@ class _PlayerAudioHandler extends BaseAudioHandler
     final controls = [
       if (hasPrevious) MediaControl.skipToPrevious,
       MediaControl.rewind,
+      MediaControl.custom(
+        androidIcon: 'drawable/ic_widget_fav',
+        label: 'Favorite',
+        name: 'favorito',
+      ),
         if (_playing) MediaControl.pause else MediaControl.play,
         MediaControl.fastForward,
       if (hasNext) MediaControl.skipToNext,

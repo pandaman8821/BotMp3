@@ -9,6 +9,7 @@ import 'package:just_audio_background/just_audio_background.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../models/song.dart';
+import 'replay_gain.dart';
 import 'settings_service.dart';
 import 'widget_service.dart';
 
@@ -102,7 +103,14 @@ class PlayerService {
   /// Cuenta una reproducción **solo si el audio está sonando**, una vez por
   /// canción. Así, cargar una cola o pulsar «aleatorio» sin arrancar no
   /// infla el ranking.
+  /// Normalizacion activada por el usuario (ReplayGain).
+  bool get _normalizar => SettingsService.actual?.normalizarVolumen ?? false;
+
   void _registrarInicioDeReproduccion() {
+    final Song? cancionParaGanancia = current;
+    if (cancionParaGanancia != null && _normalizar) {
+      unawaited(ReplayGain.precargar(cancionParaGanancia.path));
+    }
     final Song? cancionActual = current;
     final SettingsService? ajustes = SettingsService.actual;
     if (cancionActual != null && ajustes != null) {
@@ -122,7 +130,7 @@ class PlayerService {
     _sonadasEnPasada.add(cancion.id);
     // Volumen propio de la cancion (normalizacion) al arrancar.
     unawaited(_player.setVolume(
-      (_lastVolume * (SettingsService.actual?.factorVolumen(cancion.id) ?? 1.0))
+      ((_normalizar ? ReplayGain.factor(cancion.path) : 1.0) * (_lastVolume * (SettingsService.actual?.factorVolumen(cancion.id) ?? 1.0)))
           .clamp(0.0, 1.0),
     ));
     if (_ultimaReproduccionRegistrada == cancion.id) return;

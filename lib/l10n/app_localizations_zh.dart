@@ -899,6 +899,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get batchEditHint => 'Empty fields are left unchanged.';
+
+  @override
+  String get normalizeVolume => 'Normalize volume';
+
+  @override
+  String get normalizeVolumeDesc =>
+      'Uses ReplayGain tags to even out volume between songs.';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -1796,4 +1803,11 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get batchEditHint => 'Empty fields are left unchanged.';
+
+  @override
+  String get normalizeVolume => 'Normalize volume';
+
+  @override
+  String get normalizeVolumeDesc =>
+      'Uses ReplayGain tags to even out volume between songs.';
 }

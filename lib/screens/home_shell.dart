@@ -1,3 +1,4 @@
+import 'package:just_audio_background/just_audio_background.dart';
 import '../l10n/app_localizations.dart';
 import '../services/settings_service.dart';
 import 'dart:io';
@@ -71,6 +72,13 @@ class _HomeShellState extends State<HomeShell>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => _restaurarSesion());
+    // Boton de favorito de la notificacion.
+    JustAudioBackground.onCustomAction = (String name, Map<String, dynamic>? extra) async {
+      if (name != 'favorito' || !mounted) return;
+      final Song? actual = context.read<PlayerProvider>().current;
+      if (actual == null) return;
+      await context.read<LibraryProvider>().toggleFavorite(actual.id);
+    };
     // Importación automática al abrir la app y cada vez que vuelves a ella
     // (así aparecen las canciones nuevas sin reiniciar).
     WidgetsBinding.instance.addObserver(this);

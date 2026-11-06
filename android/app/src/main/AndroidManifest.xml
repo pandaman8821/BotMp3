@@ -130,5 +130,29 @@
             android:exported="false"
             android:label="Ecualizador"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
+        <receiver
+            android:name=".BotMp3WidgetSmall"
+            android:exported="false"
+            android:label="BotMp3 pequeño">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_botmp3_small_info" />
+        </receiver>
+
+        <receiver
+            android:name=".BotMp3WidgetBar"
+            android:exported="false"
+            android:label="BotMp3 barra">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_botmp3_bar_info" />
+        </receiver>
+
     </application>
 </manifest>
