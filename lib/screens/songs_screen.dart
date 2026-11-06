@@ -1,4 +1,5 @@
 import '../l10n/app_localizations.dart';
+import '../services/settings_service.dart';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -28,6 +29,30 @@ enum _SortMode { recientes, titulo, artista, album, anio, duracion, reproduccion
 
 class _SongsScreenState extends State<SongsScreen> {
   _SortMode _sort = _SortMode.recientes;
+
+  @override
+  void initState() {
+    super.initState();
+    _cargarOrden();
+  }
+
+  /// Recupera el ultimo orden usado (persistente entre sesiones).
+  Future<void> _cargarOrden() async {
+    final SettingsService ajustes = await SettingsService.instance();
+    final String guardado = ajustes.ordenBiblioteca;
+    final _SortMode modo = _SortMode.values.firstWhere(
+      (_SortMode m) => m.name == guardado,
+      orElse: () => _SortMode.recientes,
+    );
+    if (!mounted || modo == _sort) return;
+    setState(() => _sort = modo);
+  }
+
+  /// Guarda el orden para la proxima vez.
+  Future<void> _guardarOrden(_SortMode modo) async {
+    final SettingsService ajustes = await SettingsService.instance();
+    await ajustes.setOrdenBiblioteca(modo.name);
+  }
   bool _selectionMode = false;
   final Set<String> _selected = <String>{};
 
@@ -158,15 +183,18 @@ class _SongsScreenState extends State<SongsScreen> {
                 PopupMenuButton<_SortMode>(
                   tooltip: AppLocalizations.of(context).sortBy,
                   icon: const Icon(Icons.sort),
-                  onSelected: (_SortMode value) => setState(() => _sort = value),
+                  onSelected: (_SortMode value) {
+                setState(() => _sort = value);
+                _guardarOrden(value);
+              },
                   itemBuilder: (BuildContext context) => <PopupMenuEntry<_SortMode>>[
-                    _ordenItem('Añadidas recientemente', _SortMode.recientes),
-                    _ordenItem('Título (A-Z)', _SortMode.titulo),
-                    _ordenItem('Artista (A-Z)', _SortMode.artista),
-                    _ordenItem('Álbum (A-Z)', _SortMode.album),
-                    _ordenItem('Año (nuevo primero)', _SortMode.anio),
-                    _ordenItem('Duración (larga primero)', _SortMode.duracion),
-                    _ordenItem('Más escuchadas', _SortMode.reproducciones),
+                    _ordenItem(AppLocalizations.of(context).sortRecent, _SortMode.recientes),
+                    _ordenItem(AppLocalizations.of(context).sortTitle, _SortMode.titulo),
+                    _ordenItem(AppLocalizations.of(context).sortArtist, _SortMode.artista),
+                    _ordenItem(AppLocalizations.of(context).sortAlbum, _SortMode.album),
+                    _ordenItem(AppLocalizations.of(context).sortYear, _SortMode.anio),
+                    _ordenItem(AppLocalizations.of(context).sortDuration, _SortMode.duracion),
+                    _ordenItem(AppLocalizations.of(context).sortMostPlayed, _SortMode.reproducciones),
                   ],
                 ),
                 IconButton(

@@ -199,7 +199,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get sortBy => 'Ordenar';
 
   @override
-  String get shuffleAll => 'Reproducción aleatoria de todo';
+  String get shuffleAll => 'Aleatorio';
 
   @override
   String get mostPlayedRanking => 'Ranking de lo más escuchado';
@@ -852,4 +852,33 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get reduceMotionDesc =>
       'Desactiva las animaciones del tema para ahorrar batería.';
+
+  @override
+  String get playAll => 'Reproducir todo';
+
+  @override
+  String get sortRecent => 'Añadidas recientemente';
+
+  @override
+  String get sortTitle => 'Título (A-Z)';
+
+  @override
+  String get sortArtist => 'Artista';
+
+  @override
+  String get sortAlbum => 'Álbum';
+
+  @override
+  String get sortYear => 'Año';
+
+  @override
+  String get sortDuration => 'Duración';
+
+  @override
+  String get sortMostPlayed => 'Más escuchadas';
+
+  @override
+  String albumSongsCount(int count) {
+    return '$count canciones';
+  }
 }

@@ -850,6 +850,35 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get reduceMotionDesc => 'Turns off theme animations to save battery.';
+
+  @override
+  String get playAll => 'Play all';
+
+  @override
+  String get sortRecent => 'Recently added';
+
+  @override
+  String get sortTitle => 'Title (A-Z)';
+
+  @override
+  String get sortArtist => 'Artist';
+
+  @override
+  String get sortAlbum => 'Album';
+
+  @override
+  String get sortYear => 'Year';
+
+  @override
+  String get sortDuration => 'Duration';
+
+  @override
+  String get sortMostPlayed => 'Most played';
+
+  @override
+  String albumSongsCount(int count) {
+    return '$count songs';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1698,4 +1727,33 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get reduceMotionDesc => 'Turns off theme animations to save battery.';
+
+  @override
+  String get playAll => 'Play all';
+
+  @override
+  String get sortRecent => 'Recently added';
+
+  @override
+  String get sortTitle => 'Title (A-Z)';
+
+  @override
+  String get sortArtist => 'Artist';
+
+  @override
+  String get sortAlbum => 'Album';
+
+  @override
+  String get sortYear => 'Year';
+
+  @override
+  String get sortDuration => 'Duration';
+
+  @override
+  String get sortMostPlayed => 'Most played';
+
+  @override
+  String albumSongsCount(int count) {
+    return '$count songs';
+  }
 }

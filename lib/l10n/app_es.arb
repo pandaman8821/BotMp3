@@ -63,7 +63,7 @@
   "gotIt": "Entendido",
   "createList": "Crear lista",
   "sortBy": "Ordenar",
-  "shuffleAll": "Reproducción aleatoria de todo",
+  "shuffleAll": "Aleatorio",
   "mostPlayedRanking": "Ranking de lo más escuchado",
   "advancedFilters": "Filtros avanzados",
   "playSelection": "Reproducir selección",
@@ -413,5 +413,21 @@
   "themeGothic": "Gótico",
   "themeCinema": "Cine",
   "reduceMotion": "Reducir movimiento",
-  "reduceMotionDesc": "Desactiva las animaciones del tema para ahorrar batería."
+  "reduceMotionDesc": "Desactiva las animaciones del tema para ahorrar batería.",
+  "playAll": "Reproducir todo",
+  "sortRecent": "Añadidas recientemente",
+  "sortTitle": "Título (A-Z)",
+  "sortArtist": "Artista",
+  "sortAlbum": "Álbum",
+  "sortYear": "Año",
+  "sortDuration": "Duración",
+  "sortMostPlayed": "Más escuchadas",
+  "albumSongsCount": "{count} canciones",
+  "@albumSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

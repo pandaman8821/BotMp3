@@ -1,3 +1,4 @@
+import 'dart:async';
 import '../l10n/app_localizations.dart';
 import '../core/text_utils.dart';
 import 'package:flutter/material.dart' hide RepeatMode;
@@ -15,8 +16,10 @@ import '../providers/player_provider.dart';
 import '../providers/settings_provider.dart';
 import '../services/settings_service.dart';
 import '../services/voice_service.dart';
+import '../services/cover_palette.dart';
 import '../widgets/cover_art.dart';
 import '../widgets/wave_bars.dart';
+import 'album_screen.dart';
 import 'cover_editor_screen.dart';
 
 /// Reproductor a pantalla completa: carátula grande, controles táctiles amplios,
@@ -34,6 +37,10 @@ class _PlayerScreenState extends State<PlayerScreen> {
   String? _lastDjSongId;
   bool _djBusy = false;
   String? _djMessage;
+
+  /// Color dominante de la caratula actual (fondo del reproductor).
+  Color? _colorPortada;
+  String? _colorDe;
 
   @override
   void initState() {
@@ -57,6 +64,17 @@ class _PlayerScreenState extends State<PlayerScreen> {
     }
 
     final Song current = library.songById(song.id) ?? song;
+
+    // Color dominante de la caratula: se lee de cache o se calcula aparte para
+    // no bloquear el frame (el audio no se ve afectado).
+    final Color? cacheado = CoverPalette.cached(current.coverPath);
+    if (cacheado != _colorPortada) _colorPortada = cacheado;
+    if (current.coverPath != _colorDe) {
+      _colorDe = current.coverPath;
+      unawaited(CoverPalette.cargar(current.coverPath).then((Color? c) {
+        if (mounted) setState(() => _colorPortada = c);
+      }));
+    }
     final bool isFavorite = current.isFavorite;
 
     return Scaffold(
@@ -90,7 +108,10 @@ class _PlayerScreenState extends State<PlayerScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: <Color>[Color(0xFF1D1D28), AppColors.darkBg],
+            colors: <Color>[
+              Color.lerp(_colorPortada ?? const Color(0xFF1D1D28), AppColors.darkBg, 0.55)!,
+              AppColors.darkBg,
+            ],
           ),
         ),
         child: SafeArea(
@@ -161,7 +182,16 @@ class _PlayerScreenState extends State<PlayerScreen> {
                       Wrap(
                         spacing: 6,
                         children: <Widget>[
-                          if (current.album.isNotEmpty) Chip(label: Text(current.album)),
+                          if (current.album.isNotEmpty)
+                            InkWell(
+                              borderRadius: BorderRadius.circular(20),
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute<void>(
+                                  builder: (_) => AlbumScreen(album: current.album),
+                                ),
+                              ),
+                              child: Chip(label: Text(current.album)),
+                            ),
                           if (current.year > 0) Chip(label: Text('${current.year}')),
                           Chip(label: Text(current.genre)),
                           ...current.tags.take(3).map((String tag) => Chip(label: Text('#$tag'))),

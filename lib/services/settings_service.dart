@@ -66,6 +66,13 @@ class SettingsService {
   }
 
   /// Importa automáticamente la música del dispositivo al abrir la app.
+  /// Orden elegido en la biblioteca (persistente).
+  String get ordenBiblioteca => _prefs.getString('orden_biblioteca') ?? 'recientes';
+
+  Future<void> setOrdenBiblioteca(String valor) async {
+    await _prefs.setString('orden_biblioteca', valor);
+  }
+
   bool get autoImport => _prefs.getBool('auto_import') ?? true;
 
   Future<void> setAutoImport(bool value) async {
