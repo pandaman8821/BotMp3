@@ -110,6 +110,48 @@ class _SongsScreenState extends State<SongsScreen> {
     return songs;
   }
 
+  /// Edicion en lote: aplica artista/album/genero a la seleccion.
+  Future<void> _editarSeleccion(List<Song> canciones) async {
+    final AppLocalizations loc = AppLocalizations.of(context);
+    final TextEditingController artista = TextEditingController();
+    final TextEditingController album = TextEditingController();
+    final TextEditingController genero = TextEditingController();
+    final bool? aplicar = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext dialogContext) => AlertDialog(
+        title: Text(loc.batchEdit),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            TextField(controller: artista, decoration: InputDecoration(labelText: loc.artistStar)),
+            TextField(controller: album, decoration: InputDecoration(labelText: loc.albumLabel)),
+            TextField(controller: genero, decoration: InputDecoration(labelText: loc.genreStar)),
+            const SizedBox(height: 6),
+            Text(loc.batchEditHint, style: const TextStyle(fontSize: 12)),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(onPressed: () => Navigator.of(dialogContext).pop(false), child: Text(loc.cancel)),
+          FilledButton(onPressed: () => Navigator.of(dialogContext).pop(true), child: Text(loc.saveChanges)),
+        ],
+      ),
+    );
+    if (aplicar != true) return;
+    final LibraryProvider library = context.read<LibraryProvider>();
+    for (final Song cancion in canciones) {
+      Song actualizada = cancion;
+      if (artista.text.trim().isNotEmpty) actualizada = actualizada.copyWith(artist: artista.text.trim());
+      if (album.text.trim().isNotEmpty) actualizada = actualizada.copyWith(album: album.text.trim());
+      if (genero.text.trim().isNotEmpty) actualizada = actualizada.copyWith(genre: genero.text.trim());
+      if (actualizada != cancion) await library.saveSong(actualizada);
+    }
+    if (!mounted) return;
+    setState(() {
+      _selectionMode = false;
+      _selected.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final LibraryProvider library = context.watch<LibraryProvider>();
@@ -152,6 +194,15 @@ class _SongsScreenState extends State<SongsScreen> {
                         _selected.clear();
                       });
                     }
+                  },
+                ),
+                IconButton(
+                  tooltip: AppLocalizations.of(context).batchEdit,
+                  icon: const Icon(Icons.edit_outlined),
+                  onPressed: () {
+                    final List<Song> elegidas =
+                        songs.where((Song song) => _selected.contains(song.id)).toList();
+                    if (elegidas.isNotEmpty) _editarSeleccion(elegidas);
                   },
                 ),
                 IconButton(

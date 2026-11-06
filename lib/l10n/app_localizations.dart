@@ -1711,6 +1711,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Clear history'**
   String get historyClear;
+
+  /// No description provided for @foldersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Folders'**
+  String get foldersTitle;
+
+  /// No description provided for @foldersEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse your music by folders'**
+  String get foldersEmpty;
+
+  /// No description provided for @duplicatesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicates'**
+  String get duplicatesTitle;
+
+  /// No description provided for @duplicatesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No duplicates found'**
+  String get duplicatesEmpty;
+
+  /// No description provided for @duplicatesRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove copies'**
+  String get duplicatesRemove;
+
+  /// No description provided for @importM3u.
+  ///
+  /// In en, this message translates to:
+  /// **'Import M3U playlist'**
+  String get importM3u;
+
+  /// No description provided for @exportM3u.
+  ///
+  /// In en, this message translates to:
+  /// **'Export library (M3U)'**
+  String get exportM3u;
+
+  /// No description provided for @m3uNoSongs.
+  ///
+  /// In en, this message translates to:
+  /// **'None of the songs were found in your library'**
+  String get m3uNoSongs;
+
+  /// No description provided for @artistAlbums.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} albums'**
+  String artistAlbums(int count);
+
+  /// No description provided for @duplicatesRemoveBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The other {count} copies will be removed from the library. The files are not deleted.'**
+  String duplicatesRemoveBody(int count);
+
+  /// No description provided for @m3uPlaylistName.
+  ///
+  /// In en, this message translates to:
+  /// **'M3U {day}/{month}'**
+  String m3uPlaylistName(int day, int month);
+
+  /// No description provided for @batchEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit selection'**
+  String get batchEdit;
+
+  /// No description provided for @batchEditHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty fields are left unchanged.'**
+  String get batchEditHint;
 }
 
 class _AppLocalizationsDelegate

@@ -7,6 +7,7 @@ import '../models/song.dart';
 import '../providers/library_provider.dart';
 import '../providers/player_provider.dart';
 import '../widgets/cover_art.dart';
+import 'artist_screen.dart';
 
 /// Pantalla de detalle de un album: portada, artista, año y sus canciones.
 ///
@@ -65,7 +66,17 @@ class AlbumScreen extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
                       ),
                       if (artista.isNotEmpty)
-                        Text(artista, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(color: AppColors.darkTextDim)),
+                        InkWell(
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute<void>(builder: (_) => ArtistScreen(artist: artista)),
+                          ),
+                          child: Text(
+                            artista,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(color: AppColors.green, fontWeight: FontWeight.w600),
+                          ),
+                        ),
                       Text(
                         loc.albumSongsCount(canciones.length),
                         style: TextStyle(color: AppColors.darkTextDim, fontSize: 12),

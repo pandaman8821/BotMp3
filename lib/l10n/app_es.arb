@@ -432,5 +432,42 @@
   },
   "historyTitle": "Historial de reproducción",
   "historyEmpty": "Aún no hay historial de reproducción",
-  "historyClear": "Borrar historial"
+  "historyClear": "Borrar historial",
+  "foldersTitle": "Carpetas",
+  "foldersEmpty": "Explora tu música por carpetas",
+  "duplicatesTitle": "Duplicados",
+  "duplicatesEmpty": "No se encontraron duplicados",
+  "duplicatesRemove": "Quitar copias",
+  "importM3u": "Importar lista M3U",
+  "exportM3u": "Exportar biblioteca (M3U)",
+  "m3uNoSongs": "No se encontró ninguna canción en tu biblioteca",
+  "artistAlbums": "{count} álbumes",
+  "@artistAlbums": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "duplicatesRemoveBody": "Las otras {count} copias se quitarán de la biblioteca. Los archivos no se borran.",
+  "@duplicatesRemoveBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "m3uPlaylistName": "M3U {day}/{month}",
+  "@m3uPlaylistName": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "batchEdit": "Editar selección",
+  "batchEditHint": "Los campos vacíos no se modifican."
 }
