@@ -114,7 +114,6 @@ class MediaImporter {
       );
       if (resultado == null || resultado.files.isEmpty) return null;
       final PlatformFile archivo = resultado.files.first;
-      if (archivo == null) return null;
       if (archivo.bytes != null) return String.fromCharCodes(archivo.bytes!);
       return await File(archivo.path!).readAsString();
     } catch (error) {
