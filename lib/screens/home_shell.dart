@@ -1,4 +1,5 @@
 import '../l10n/app_localizations.dart';
+import '../services/settings_service.dart';
 import 'dart:io';
 import 'dart:ui' as ui;
 
@@ -69,6 +70,7 @@ class _HomeShellState extends State<HomeShell>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _restaurarSesion());
     // Importación automática al abrir la app y cada vez que vuelves a ella
     // (así aparecen las canciones nuevas sin reiniciar).
     WidgetsBinding.instance.addObserver(this);
@@ -115,6 +117,19 @@ class _HomeShellState extends State<HomeShell>
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(AppLocalizations.of(context).songsAddedToLibrary(added))),
     );
+  }
+
+  /// Continua donde lo dejaste la ultima vez (sin empezar a sonar).
+  Future<void> _restaurarSesion() async {
+    final SettingsService ajustes = await SettingsService.instance();
+    final String? id = ajustes.ultimaCancionId;
+    if (id == null || !mounted) return;
+    final LibraryProvider biblioteca = context.read<LibraryProvider>();
+    final PlayerProvider reproductor = context.read<PlayerProvider>();
+    if (reproductor.current != null) return;
+    final Song? cancion = biblioteca.songById(id);
+    if (cancion == null) return;
+    await reproductor.prepararSesion(cancion, Duration(milliseconds: ajustes.ultimaPosicionMs));
   }
 
   @override

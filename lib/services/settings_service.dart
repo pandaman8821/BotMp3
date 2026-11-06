@@ -66,6 +66,35 @@ class SettingsService {
   }
 
   /// Importa automáticamente la música del dispositivo al abrir la app.
+  /// Historial de reproduccion (ids, el mas reciente primero; max 100).
+  List<String> get historial {
+    final String? crudo = _prefs.getString('historial');
+    if (crudo == null || crudo.isEmpty) return <String>[];
+    try {
+      return (jsonDecode(crudo) as List<dynamic>).map((dynamic e) => e.toString()).toList();
+    } catch (_) {
+      return <String>[];
+    }
+  }
+
+  Future<void> registrarEnHistorial(String cancionId) async {
+    final List<String> actual =
+        historial.where((String id) => id != cancionId).toList(growable: true);
+    actual.insert(0, cancionId);
+    await _prefs.setString('historial', jsonEncode(actual.take(100).toList()));
+  }
+
+  Future<void> limpiarHistorial() async => _prefs.remove('historial');
+
+  /// Ultima cancion reproducida y su posicion (para continuar donde ibas).
+  String? get ultimaCancionId => _prefs.getString('ultima_cancion');
+
+  Future<void> setUltimaCancion(String id) async => _prefs.setString('ultima_cancion', id);
+
+  int get ultimaPosicionMs => _prefs.getInt('ultima_posicion_ms') ?? 0;
+
+  Future<void> setUltimaPosicion(int ms) async => _prefs.setInt('ultima_posicion_ms', ms);
+
   /// Orden elegido en la biblioteca (persistente).
   String get ordenBiblioteca => _prefs.getString('orden_biblioteca') ?? 'recientes';
 

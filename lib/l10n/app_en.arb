@@ -429,5 +429,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "historyTitle": "Playback history",
+  "historyEmpty": "No playback history yet",
+  "historyClear": "Clear history"
 }

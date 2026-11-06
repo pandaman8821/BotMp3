@@ -881,4 +881,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String albumSongsCount(int count) {
     return '$count canciones';
   }
+
+  @override
+  String get historyTitle => 'Historial de reproducción';
+
+  @override
+  String get historyEmpty => 'Aún no hay historial de reproducción';
+
+  @override
+  String get historyClear => 'Borrar historial';
 }

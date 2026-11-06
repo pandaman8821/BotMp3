@@ -429,5 +429,8 @@
         "type": "int"
       }
     }
-  }
+  },
+  "historyTitle": "Historial de reproducción",
+  "historyEmpty": "Aún no hay historial de reproducción",
+  "historyClear": "Borrar historial"
 }

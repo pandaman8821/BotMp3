@@ -103,6 +103,12 @@ class PlayerService {
   /// canción. Así, cargar una cola o pulsar «aleatorio» sin arrancar no
   /// infla el ranking.
   void _registrarInicioDeReproduccion() {
+    final Song? cancionActual = current;
+    final SettingsService? ajustes = SettingsService.actual;
+    if (cancionActual != null && ajustes != null) {
+      unawaited(ajustes.registrarEnHistorial(cancionActual.id));
+      unawaited(ajustes.setUltimaCancion(cancionActual.id));
+    }
     if (!_player.playing) return;
     // Se usa el índice PROPIO (el que se acaba de cargar), no el del
     // reproductor: al arrancar el audio, `currentIndex` puede llegar aún con
@@ -149,6 +155,31 @@ class PlayerService {
     if (ultimosErrores.length > 6) ultimosErrores.removeLast();
   }
 
+  /// Guarda la posicion cada 10 s para poder reanudar donde ibas.
+  DateTime _ultimoGuardadoPosicion = DateTime.fromMillisecondsSinceEpoch(0);
+
+  void _recordarPosicion() {
+    final Song? cancion = current;
+    final SettingsService? ajustes = SettingsService.actual;
+    if (cancion == null || ajustes == null) return;
+    if (DateTime.now().difference(_ultimoGuardadoPosicion).inSeconds < 10) return;
+    _ultimoGuardadoPosicion = DateTime.now();
+    unawaited(ajustes.setUltimaCancion(cancion.id));
+    unawaited(ajustes.setUltimaPosicion(_player.position.inMilliseconds));
+  }
+
+  /// Recupera la ultima sesion al abrir la app (sin empezar a sonar).
+  Future<void> prepararSesion(Song cancion, Duration posicion) async {
+    if (_queue.isNotEmpty) return;
+    _queue
+      ..clear()
+      ..add(cancion);
+    try {
+      await _loadQueueIntoPlayer(0, autoPlay: false);
+      if (posicion > Duration.zero) await _player.seek(posicion);
+    } catch (_) {}
+  }
+
   AudioPlayer get player => _player;
 
   Timer? _temporizadorWidget2;
@@ -174,6 +205,7 @@ class PlayerService {
       if (cancion == null) return;
       unawaited(WidgetService.actualizar(cancion, suena: estaSonando,
           posicion: _player.position, total: _player.duration ?? Duration.zero));
+      _recordarPosicion();
     });
   }
 

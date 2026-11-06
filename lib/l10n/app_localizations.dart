@@ -1693,6 +1693,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} songs'**
   String albumSongsCount(int count);
+
+  /// No description provided for @historyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Playback history'**
+  String get historyTitle;
+
+  /// No description provided for @historyEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No playback history yet'**
+  String get historyEmpty;
+
+  /// No description provided for @historyClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear history'**
+  String get historyClear;
 }
 
 class _AppLocalizationsDelegate

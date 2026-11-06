@@ -25,6 +25,7 @@ import 'diagnostics_screen.dart';
 import 'trends_screen.dart';
 import '../services/voice_service.dart';
 import '../widgets/dialogs.dart';
+import 'history_screen.dart';
 import '../widgets/theme_picker.dart';
 
 /// Ajustes: apariencia, IA multimodelo (API keys cifradas), reproducción,
@@ -259,7 +260,16 @@ class SettingsScreen extends StatelessWidget {
                 MaterialPageRoute<void>(builder: (_) => const StatsScreen()),
               ),
             ),
-_SectionTitle(AppLocalizations.of(context).secPerformance),
+ListTile(
+                leading: const Icon(Icons.history),
+                title: Text(AppLocalizations.of(context).historyTitle),
+                subtitle: Text(AppLocalizations.of(context).historyEmpty, style: const TextStyle(fontSize: 12)),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(builder: (_) => const HistoryScreen()),
+                ),
+              ),
+              _SectionTitle(AppLocalizations.of(context).secPerformance),
           SwitchListTile(
             value: settings.batterySaver,
             onChanged: settings.setBatterySaver,
