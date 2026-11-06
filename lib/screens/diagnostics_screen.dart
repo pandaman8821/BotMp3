@@ -1,7 +1,6 @@
 import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 
 import '../core/theme.dart';
@@ -70,7 +69,7 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.playbackDiagnostics),
+        title: Text(AppLocalizations.of(context).playbackDiagnostics),
         actions: <Widget>[
           IconButton(
             tooltip: 'Copiar informe',
@@ -124,8 +123,8 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
           if (errores.isEmpty)
             ListTile(
               leading: Icon(Icons.check_circle_outline, color: AppColors.green),
-              title: Text(AppLocalizations.of(context)!.diagNoErrors),
-              subtitle: Text(AppLocalizations.of(context)!.diagErrorsHere),
+              title: Text(AppLocalizations.of(context).diagNoErrors),
+              subtitle: Text(AppLocalizations.of(context).diagErrorsHere),
             )
           else
             for (final String error in errores)
@@ -137,7 +136,7 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              AppLocalizations.of(context)!.diagCopyThis,
+              AppLocalizations.of(context).diagCopyThis,
               style: TextStyle(fontSize: 12, color: Colors.white.withAlpha(160)),
             ),
           ),

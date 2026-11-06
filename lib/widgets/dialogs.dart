@@ -21,7 +21,7 @@ class AppDialogs {
     final bool? accepted = await showDialog<bool>(
       context: context,
       builder: (BuildContext dialogContext) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.newPlaylist),
+        title: Text(AppLocalizations.of(context).newPlaylist),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -29,7 +29,7 @@ class AppDialogs {
               controller: nameController,
               autofocus: true,
               textCapitalization: TextCapitalization.sentences,
-              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.dialogListName),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context).dialogListName),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -37,8 +37,8 @@ class AppDialogs {
               textCapitalization: TextCapitalization.sentences,
               maxLines: 3,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.dialogDescription,
-                hintText: AppLocalizations.of(context)!.dialogMoodHint,
+                labelText: AppLocalizations.of(context).dialogDescription,
+                hintText: AppLocalizations.of(context).dialogMoodHint,
               ),
             ),
           ],
@@ -46,11 +46,11 @@ class AppDialogs {
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context).cancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(AppLocalizations.of(context)!.create),
+            child: Text(AppLocalizations.of(context).create),
           ),
         ],
       ),
@@ -76,7 +76,7 @@ class AppDialogs {
     final bool? accepted = await showDialog<bool>(
       context: context,
       builder: (BuildContext dialogContext) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.editPlaylist),
+        title: Text(AppLocalizations.of(context).editPlaylist),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -88,18 +88,18 @@ class AppDialogs {
             TextField(
               controller: descriptionController,
               maxLines: 3,
-              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.dialogDescription),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context).dialogDescription),
             ),
           ],
         ),
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context).cancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(AppLocalizations.of(context)!.save),
+            child: Text(AppLocalizations.of(context).save),
           ),
         ],
       ),
@@ -132,7 +132,7 @@ class AppDialogs {
           if (playlists.isEmpty)
             Padding(
               padding: EdgeInsets.all(16),
-              child: Text(AppLocalizations.of(context)!.noPlaylistsYet),
+              child: Text(AppLocalizations.of(context).noPlaylistsYet),
             ),
           ...playlists.map(
             (Playlist playlist) => SimpleDialogOption(
@@ -163,7 +163,7 @@ class AppDialogs {
                 children: <Widget>[
                   const Icon(Icons.add, size: 22),
                   SizedBox(width: 12),
-                  Text(AppLocalizations.of(context)!.createNewPlaylist, style: TextStyle(fontSize: 16)),
+                  Text(AppLocalizations.of(context).createNewPlaylist, style: TextStyle(fontSize: 16)),
               ],
             ),
           ),
@@ -213,7 +213,7 @@ class AppDialogs {
                       Spacer(),
                       FilledButton(
                         onPressed: () => Navigator.of(sheetContext).pop(true),
-                        child: Text(AppLocalizations.of(context)!.add),
+                        child: Text(AppLocalizations.of(context).add),
                       ),
                     ],
                   ),
@@ -223,7 +223,7 @@ class AppDialogs {
                   child: TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.search),
-                      hintText: AppLocalizations.of(context)!.dialogSearchHint,
+                      hintText: AppLocalizations.of(context).dialogSearchHint,
                       isDense: true,
                       border: OutlineInputBorder(),
                     ),
@@ -300,7 +300,7 @@ class AppDialogs {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 16),
-                Text(AppLocalizations.of(context)!.dialogGenre, style: TextStyle(fontWeight: FontWeight.w600)),
+                Text(AppLocalizations.of(context).dialogGenre, style: TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 Wrap(
                   spacing: 8,
@@ -463,7 +463,7 @@ class AppDialogs {
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context).cancel),
           ),
           FilledButton(
             style: FilledButton.styleFrom(backgroundColor: Colors.red.shade600),
@@ -488,7 +488,7 @@ class AppDialogs {
     );
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.songsAddedToPlaylist(songs.length, playlist.name))),
+        SnackBar(content: Text(AppLocalizations.of(context).songsAddedToPlaylist(songs.length, playlist.name))),
       );
     }
   }

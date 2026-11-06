@@ -12,7 +12,7 @@ class StatsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations loc = AppLocalizations.of(context)!;
+    final AppLocalizations loc = AppLocalizations.of(context);
     final List<Song> canciones = context.watch<LibraryProvider>().songs;
     final int totalReproducciones = canciones.fold<int>(0, (int a, Song s) => a + s.playCount);
     final int conReproducciones = canciones.where((Song s) => s.playCount > 0).length;

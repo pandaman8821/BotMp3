@@ -350,25 +350,6 @@ Devuelve EXACTAMENTE este JSON:
     return cola;
   }
 
-  /// Elige la siguiente canción sin depender de la nube (Modo DJ de respaldo).
-  Song? _siguienteLocal(Song actual, List<Song> recientes) {
-    final Set<String> vistas = <String>{
-      actual.id,
-      ...recientes.map((Song s) => s.id),
-    };
-    final List<Song> libres =
-        librarySongs.where((Song s) => !vistas.contains(s.id)).toList();
-    if (libres.isEmpty) return null;
-    // Primero mismo género, después mismo artista y, si no, cualquiera.
-    final List<Song> mismoGenero = libres
-        .where((Song s) => actual.genre.isNotEmpty && s.genre == actual.genre)
-        .toList();
-    if (mismoGenero.isNotEmpty) return mismoGenero.first;
-    final List<Song> mismoArtista =
-        libres.where((Song s) => s.artist == actual.artist).toList();
-    if (mismoArtista.isNotEmpty) return mismoArtista.first;
-    return libres.first;
-  }
 
   /// Explicación del DJ cuando elige sin IA.
   String _razonLocal(Song actual, Song siguiente) {

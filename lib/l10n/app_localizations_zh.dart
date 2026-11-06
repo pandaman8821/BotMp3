@@ -9,9 +9,6 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String get appTitle => 'BotMp3';
-
-  @override
   String get tabSongs => '歌曲';
 
   @override
@@ -30,40 +27,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get play => '播放';
 
   @override
-  String get pause => '暂停';
-
-  @override
-  String get next => '下一首';
-
-  @override
-  String get previous => '上一首';
-
-  @override
   String get shuffle => '随机播放';
-
-  @override
-  String get repeatOne => '单曲循环';
-
-  @override
-  String get repeatAll => '列表循环';
 
   @override
   String get equalizer => '均衡器';
 
   @override
   String get carMode => '车载模式';
-
-  @override
-  String get lyrics => '歌词';
-
-  @override
-  String get widget => '小组件';
-
-  @override
-  String get backup => '备份';
-
-  @override
-  String get restore => '恢复';
 
   @override
   String get cancel => '取消';
@@ -81,25 +51,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get loading => '加载中...';
 
   @override
-  String get errorGeneric => '出错了';
-
-  @override
-  String get noSongs => '还没有歌曲';
-
-  @override
   String get aiDj => 'AI DJ';
-
-  @override
-  String get recommend => '推荐';
-
-  @override
-  String get external => '外部';
-
-  @override
-  String get library => '音乐库';
-
-  @override
-  String get nowPlaying => '正在播放';
 
   @override
   String get trendsNow => '立即查看趋势';
@@ -569,9 +521,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get statsTotalPlays => '总播放次数';
 
   @override
-  String get statsUniqueSongs => '已播放歌曲';
-
-  @override
   String get playAlbum => '播放专辑';
 
   @override
@@ -730,9 +679,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get songDeleteBody => '将从音乐库移除（不会删除音频文件）。';
 
   @override
-  String get ideaNoTitle => '未命名创意';
-
-  @override
   String get dialogListName => '歌单名称';
 
   @override
@@ -795,9 +741,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get songEditNote => 'BotMp3 将元数据保存在自己的本地数据库中，并且';
 
   @override
-  String get aiTestOk => '只回复：BotMp3 AI 已连接';
-
-  @override
   String get aiAskExamples => '可以这样问：';
 
   @override
@@ -834,6 +777,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String exportedTo(String path) {
     return '歌单已导出到 $path';
   }
+
+  @override
+  String get statsUniqueSongs => 'Unique songs';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -841,9 +787,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   AppLocalizationsZhCn() : super('zh_CN');
 
   @override
-  String get appTitle => 'BotMp3';
-
-  @override
   String get tabSongs => '歌曲';
 
   @override
@@ -862,40 +805,13 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get play => '播放';
 
   @override
-  String get pause => '暂停';
-
-  @override
-  String get next => '下一首';
-
-  @override
-  String get previous => '上一首';
-
-  @override
   String get shuffle => '随机播放';
-
-  @override
-  String get repeatOne => '单曲循环';
-
-  @override
-  String get repeatAll => '列表循环';
 
   @override
   String get equalizer => '均衡器';
 
   @override
   String get carMode => '车载模式';
-
-  @override
-  String get lyrics => '歌词';
-
-  @override
-  String get widget => '小组件';
-
-  @override
-  String get backup => '备份';
-
-  @override
-  String get restore => '恢复';
 
   @override
   String get cancel => '取消';
@@ -913,25 +829,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get loading => '加载中...';
 
   @override
-  String get errorGeneric => '出错了';
-
-  @override
-  String get noSongs => '还没有歌曲';
-
-  @override
   String get aiDj => 'AI DJ';
-
-  @override
-  String get recommend => '推荐';
-
-  @override
-  String get external => '外部';
-
-  @override
-  String get library => '音乐库';
-
-  @override
-  String get nowPlaying => '正在播放';
 
   @override
   String get trendsNow => '立即查看趋势';
@@ -1401,9 +1299,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get statsTotalPlays => '总播放次数';
 
   @override
-  String get statsUniqueSongs => '已播放歌曲';
-
-  @override
   String get playAlbum => '播放专辑';
 
   @override
@@ -1562,9 +1457,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get songDeleteBody => '将从音乐库移除（不会删除音频文件）。';
 
   @override
-  String get ideaNoTitle => '未命名创意';
-
-  @override
   String get dialogListName => '歌单名称';
 
   @override
@@ -1627,9 +1519,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get songEditNote => 'BotMp3 将元数据保存在自己的本地数据库中，并且';
 
   @override
-  String get aiTestOk => '只回复：BotMp3 AI 已连接';
-
-  @override
   String get aiAskExamples => '可以这样问：';
 
   @override
@@ -1666,4 +1555,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String exportedTo(String path) {
     return '歌单已导出到 $path';
   }
+
+  @override
+  String get statsUniqueSongs => 'Unique songs';
 }

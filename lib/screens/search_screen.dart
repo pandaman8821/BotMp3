@@ -53,7 +53,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.tabSearch),
+        title: Text(AppLocalizations.of(context).tabSearch),
         actions: <Widget>[
           IconButton(
             tooltip: 'Filtros avanzados',
@@ -76,7 +76,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   _debouncer.run(() => library.setQuery(value)),
               onSubmitted: library.setQuery,
               decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.searchFieldsHint,
+                hintText: AppLocalizations.of(context).searchFieldsHint,
                 prefixIcon: const Icon(Icons.search),
                 suffixIcon: _controller.text.isEmpty
                     ? null
@@ -133,7 +133,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 if (_aiResult != null) ...<Widget>[
                   const SizedBox(width: 8),
                   IconButton(
-                    tooltip: AppLocalizations.of(context)!.backToNormalSearch,
+                    tooltip: AppLocalizations.of(context).backToNormalSearch,
                     icon: const Icon(Icons.close),
                     onPressed: () => setState(() => _aiResult = null),
                   ),
@@ -207,7 +207,7 @@ class _SearchScreenState extends State<SearchScreen> {
     final String query = _controller.text.trim();
     if (query.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.searchHint)),
+        SnackBar(content: Text(AppLocalizations.of(context).searchHint)),
       );
       return;
     }
@@ -215,7 +215,7 @@ class _SearchScreenState extends State<SearchScreen> {
     if (!ai.hasActiveKey) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context)!.apiKeyHint + ' ' + ai.activeProvider.label + ' · ' + AppLocalizations.of(context)!.tabSettings + ' ▸ IA'),
+          content: Text(AppLocalizations.of(context).apiKeyHint + ' ' + ai.activeProvider.label + ' · ' + AppLocalizations.of(context).tabSettings + ' ▸ IA'),
         ),
       );
       return;

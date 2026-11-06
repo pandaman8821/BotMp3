@@ -9,9 +9,6 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
-  String get appTitle => 'BotMp3';
-
-  @override
   String get tabSongs => 'गाने';
 
   @override
@@ -30,40 +27,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get play => 'चलाएं';
 
   @override
-  String get pause => 'रोकें';
-
-  @override
-  String get next => 'अगला';
-
-  @override
-  String get previous => 'पिछला';
-
-  @override
   String get shuffle => 'शफल';
-
-  @override
-  String get repeatOne => 'एक गाना दोहराएं';
-
-  @override
-  String get repeatAll => 'सब दोहराएं';
 
   @override
   String get equalizer => 'इक्वलाइज़र';
 
   @override
   String get carMode => 'कार मोड';
-
-  @override
-  String get lyrics => 'बोल';
-
-  @override
-  String get widget => 'विजेट';
-
-  @override
-  String get backup => 'बैकअप';
-
-  @override
-  String get restore => 'पुनर्स्थापित करें';
 
   @override
   String get cancel => 'रद्द करें';
@@ -81,25 +51,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get loading => 'लोड हो रहा है...';
 
   @override
-  String get errorGeneric => 'कुछ गड़बड़ हो गई';
-
-  @override
-  String get noSongs => 'अभी कोई गाना नहीं';
-
-  @override
   String get aiDj => 'AI DJ';
-
-  @override
-  String get recommend => 'सुझाव';
-
-  @override
-  String get external => 'बाहरी';
-
-  @override
-  String get library => 'लाइब्रेरी';
-
-  @override
-  String get nowPlaying => 'अभी चल रहा है';
 
   @override
   String get trendsNow => 'ट्रेंड देखें';
@@ -579,9 +531,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get statsTotalPlays => 'कुल प्लेबैक';
 
   @override
-  String get statsUniqueSongs => 'सुने गए गाने';
-
-  @override
   String get playAlbum => 'एल्बम चलाएँ';
 
   @override
@@ -747,9 +696,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get songDeleteBody => 'लाइब्रेरी से हटेगा (ऑडियो फ़ाइल नहीं मिटती)।';
 
   @override
-  String get ideaNoTitle => 'बिना शीर्षक आइडिया';
-
-  @override
   String get dialogListName => 'प्लेलिस्ट का नाम';
 
   @override
@@ -816,9 +762,6 @@ class AppLocalizationsHi extends AppLocalizations {
       'BotMp3 मेटाडेटा अपने लोकल डेटाबेस में रखता है और साथ ही';
 
   @override
-  String get aiTestOk => 'केवल लिखें: BotMp3 AI कनेक्टेड';
-
-  @override
   String get aiAskExamples => 'ऐसे पूछें:';
 
   @override
@@ -856,4 +799,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String exportedTo(String path) {
     return 'प्लेलिस्ट $path में निर्यात हुई';
   }
+
+  @override
+  String get statsUniqueSongs => 'Unique songs';
 }

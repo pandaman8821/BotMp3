@@ -113,7 +113,7 @@ class _HomeShellState extends State<HomeShell>
     }
     if (!mounted || added <= 0) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.songsAddedToLibrary(added))),
+      SnackBar(content: Text(AppLocalizations.of(context).songsAddedToLibrary(added))),
     );
   }
 
@@ -181,27 +181,27 @@ class _HomeShellState extends State<HomeShell>
                     GlassNavDestination(
                       icon: Icons.library_music_outlined,
                       selectedIcon: Icons.library_music,
-                      label: AppLocalizations.of(context)!.tabSongs,
+                      label: AppLocalizations.of(context).tabSongs,
                     ),
                     GlassNavDestination(
                       icon: Icons.queue_music_outlined,
                       selectedIcon: Icons.queue_music,
-                      label: AppLocalizations.of(context)!.tabPlaylists,
+                      label: AppLocalizations.of(context).tabPlaylists,
                     ),
                     GlassNavDestination(
                       icon: Icons.search,
                       selectedIcon: Icons.saved_search,
-                      label: AppLocalizations.of(context)!.tabSearch,
+                      label: AppLocalizations.of(context).tabSearch,
                     ),
                     GlassNavDestination(
                       icon: Icons.smart_toy_outlined,
                       selectedIcon: Icons.smart_toy,
-                      label: AppLocalizations.of(context)!.tabAi,
+                      label: AppLocalizations.of(context).tabAi,
                     ),
                     GlassNavDestination(
                       icon: Icons.settings_outlined,
                       selectedIcon: Icons.settings,
-                      label: AppLocalizations.of(context)!.tabSettings,
+                      label: AppLocalizations.of(context).tabSettings,
                     ),
                   ],
                 ),

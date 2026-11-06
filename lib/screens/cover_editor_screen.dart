@@ -12,7 +12,6 @@ import '../providers/library_provider.dart';
 import '../services/cover_editor_service.dart';
 import '../services/media_importer.dart';
 import '../services/metadata_service.dart';
-import '../widgets/cover_art.dart';
 
 /// Editor de carátulas integrado: brillo, contraste, saturación, temperatura,
 /// filtros, rotación, recorte con zoom/encuadre, texto/logo y exportación.
@@ -80,7 +79,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
           bytes = online;
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(AppLocalizations.of(context)!.coverFound(fuente))),
+              SnackBar(content: Text(AppLocalizations.of(context).coverFound(fuente))),
             );
           }
         }
@@ -114,7 +113,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
       if (!mounted) return;
       setState(() => _rendering = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.imageProcessFailed(error.toString()))),
+        SnackBar(content: Text(AppLocalizations.of(context).imageProcessFailed(error.toString()))),
       );
     }
   }
@@ -131,7 +130,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.coverEditorTitle),
+        title: Text(AppLocalizations.of(context).coverEditorTitle),
         actions: <Widget>[
           IconButton(
             tooltip: 'Deshacer cambios',
@@ -139,7 +138,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
             onPressed: () => _update(const CoverEditState()),
           ),
           IconButton(
-            tooltip: AppLocalizations.of(context)!.saveToGallery,
+            tooltip: AppLocalizations.of(context).saveToGallery,
             icon: const Icon(Icons.download_outlined),
             onPressed: _preview == null ? null : _exportToGallery,
           ),
@@ -298,7 +297,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                           TextField(
                             controller: _textController,
                             decoration: InputDecoration(
-                              hintText: AppLocalizations.of(context)!.coverTextOptional,
+                              hintText: AppLocalizations.of(context).coverTextOptional,
                             ),
                             onChanged: (String value) =>
                                 _update(_state.copyWith(text: value)),
@@ -355,13 +354,13 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                           FilledButton.icon(
                             onPressed: _rendering ? null : _applyToSong,
                             icon: Icon(Icons.check),
-                            label: Text(AppLocalizations.of(context)!.applyCoverToSong),
+                            label: Text(AppLocalizations.of(context).applyCoverToSong),
                           ),
                           const SizedBox(height: 8),
                           OutlinedButton.icon(
                             onPressed: _preview == null ? null : _exportToGallery,
                             icon: Icon(Icons.ios_share),
-                            label: Text(AppLocalizations.of(context)!.exportToGallery),
+                            label: Text(AppLocalizations.of(context).exportToGallery),
                           ),
                           const SizedBox(height: 8),
                           OutlinedButton.icon(
@@ -374,7 +373,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                           Padding(
                             padding: const EdgeInsets.only(top: 12),
                             child: Text(
-                              AppLocalizations.of(context)!.coverSongLine(song.title, song.artist),
+                              AppLocalizations.of(context).coverSongLine(song.title, song.artist),
                               style: const TextStyle(fontSize: 12),
                             ),
                           ),
@@ -396,7 +395,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
           ? Padding(
               padding: EdgeInsets.all(24),
               child: Text(
-                AppLocalizations.of(context)!.noImagePick,
+                AppLocalizations.of(context).noImagePick,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white70),
               ),
@@ -477,7 +476,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
     } catch (error) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.imageOpenFailed(error.toString()))),
+        SnackBar(content: Text(AppLocalizations.of(context).imageOpenFailed(error.toString()))),
       );
     }
   }
@@ -490,7 +489,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
     await library.setCover(widget.songId, path);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.coverApplied)),
+      SnackBar(content: Text(AppLocalizations.of(context).coverApplied)),
     );
   }
 

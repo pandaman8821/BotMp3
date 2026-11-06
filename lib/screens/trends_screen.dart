@@ -12,7 +12,6 @@ import '../providers/player_provider.dart';
 import '../providers/settings_provider.dart';
 import '../services/notification_service.dart';
 import '../services/trends_service.dart';
-import '../widgets/glass.dart';
 
 /// Canciones que están en tendencia en internet, con opción de escucharlas si
 /// ya las tienes en la biblioteca y de recibir avisos.
@@ -71,7 +70,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
     );
     if (!await launchUrl(url, mode: LaunchMode.externalApplication) && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.linkOpenFailed)),
+        SnackBar(content: Text(AppLocalizations.of(context).linkOpenFailed)),
       );
     }
   }
@@ -80,7 +79,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
     final List<TrendSong> lista = _trends.ultimas;
     if (lista.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.updateTrendsFirst)),
+        SnackBar(content: Text(AppLocalizations.of(context).updateTrendsFirst)),
       );
       return;
     }
@@ -112,7 +111,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
     await Clipboard.setData(ClipboardData(text: buffer.toString()));
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.listCopied)),
+      SnackBar(content: Text(AppLocalizations.of(context).listCopied)),
     );
   }
 
@@ -124,20 +123,20 @@ class _TrendsScreenState extends State<TrendsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.trendsTitle),
+        title: Text(AppLocalizations.of(context).trendsTitle),
         actions: <Widget>[
           IconButton(
-            tooltip: AppLocalizations.of(context)!.notifyTop,
+            tooltip: AppLocalizations.of(context).notifyTop,
             icon: const Icon(Icons.notifications_active_outlined),
             onPressed: _notificar,
           ),
           IconButton(
-            tooltip: AppLocalizations.of(context)!.copyList,
+            tooltip: AppLocalizations.of(context).copyList,
             icon: const Icon(Icons.copy_all_outlined),
             onPressed: _copiar,
           ),
           IconButton(
-            tooltip: AppLocalizations.of(context)!.updateAction,
+            tooltip: AppLocalizations.of(context).updateAction,
             icon: const Icon(Icons.refresh),
             onPressed: () => _cargar(),
           ),
@@ -159,7 +158,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
                         .map(
                           (MapEntry<String, String> entry) => DropdownMenuItem<String>(
                             value: entry.key,
-                            child: Text(AppLocalizations.of(context)!.chartsIn(entry.value)),
+                            child: Text(AppLocalizations.of(context).chartsIn(entry.value)),
                           ),
                         )
                         .toList(),
@@ -185,7 +184,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '${AppLocalizations.of(context)!.updateAction}: ${Formatters.date(_trends.actualizado, Localizations.localeOf(context).toString())}',
+                  '${AppLocalizations.of(context).updateAction}: ${Formatters.date(_trends.actualizado, Localizations.localeOf(context).toString())}',
                   style: const TextStyle(fontSize: 11.5, color: AppColors.darkTextDim),
                 ),
               ),
@@ -277,11 +276,4 @@ class _TrendsScreenState extends State<TrendsScreen> {
     );
   }
 
-  String _fecha(DateTime value) {
-    final Duration diferencia = DateTime.now().difference(value);
-    if (diferencia.inMinutes < 1) return 'ahora mismo';
-    if (diferencia.inHours < 1) return 'hace ${diferencia.inMinutes} min';
-    if (diferencia.inDays < 1) return 'hace ${diferencia.inHours} h';
-    return 'hace ${diferencia.inDays} d';
-  }
 }

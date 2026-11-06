@@ -119,7 +119,7 @@ class MediaImporter {
       final String? path = file.path;
       if (path != null && path.isNotEmpty) {
         final File local = File(path);
-        if (local.existsSync()) return local.readAsString();
+        if (local.existsSync()) return await local.readAsString();
       }
       return null;
     } catch (error) {

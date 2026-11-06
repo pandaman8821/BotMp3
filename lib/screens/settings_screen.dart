@@ -41,7 +41,7 @@ class SettingsScreen extends StatelessWidget {
     final LibraryProvider library = context.watch<LibraryProvider>();
 
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.tabSettings)),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).tabSettings)),
       body: ListView(
         padding: EdgeInsets.only(bottom: 40),
         children: <Widget>[
@@ -49,7 +49,7 @@ class SettingsScreen extends StatelessWidget {
           const _SectionTitle('Tendencias musicales'),
           ListTile(
             leading: Icon(Icons.public),
-            title: Text(AppLocalizations.of(context)!.countryForTrends),
+            title: Text(AppLocalizations.of(context).countryForTrends),
             subtitle: Text(
               TrendsService.paises[settings.trendsCountry] ??
                   settings.trendsCountry.toUpperCase(),
@@ -80,7 +80,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.schedule),
-            title: Text(AppLocalizations.of(context)!.dailyAlertTime),
+            title: Text(AppLocalizations.of(context).dailyAlertTime),
             subtitle: Text('${settings.trendsHour.toString().padLeft(2, '0')}:00'),
             onTap: () async {
               final TimeOfDay? hora = await showTimePicker(
@@ -117,12 +117,12 @@ class SettingsScreen extends StatelessWidget {
               );
             },
             secondary: Icon(Icons.notifications_active_outlined),
-            title: Text(AppLocalizations.of(context)!.notifyTrends),
-            subtitle: Text(AppLocalizations.of(context)!.subTrendsNotify),
+            title: Text(AppLocalizations.of(context).notifyTrends),
+            subtitle: Text(AppLocalizations.of(context).subTrendsNotify),
           ),
           ListTile(
             leading: Icon(Icons.local_fire_department_outlined),
-            title: Text(AppLocalizations.of(context)!.trendsNow),
+            title: Text(AppLocalizations.of(context).trendsNow),
             trailing: Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => TrendsScreen()),
@@ -130,8 +130,8 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.health_and_safety_outlined),
-            title: Text(AppLocalizations.of(context)!.playbackDiagnostics),
-            subtitle: Text(AppLocalizations.of(context)!.subDiagnostics),
+            title: Text(AppLocalizations.of(context).playbackDiagnostics),
+            subtitle: Text(AppLocalizations.of(context).subDiagnostics),
             trailing: Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => DiagnosticsScreen()),
@@ -139,18 +139,18 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.leaderboard_outlined),
-            title: Text(AppLocalizations.of(context)!.seeMyRanking),
-            subtitle: Text(AppLocalizations.of(context)!.subRanking),
+            title: Text(AppLocalizations.of(context).seeMyRanking),
+            subtitle: Text(AppLocalizations.of(context).subRanking),
             trailing: Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => RankingScreen()),
             ),
           ),
-          _SectionTitle(AppLocalizations.of(context)!.secAppearance),
+          _SectionTitle(AppLocalizations.of(context).secAppearance),
           ListTile(
             leading: Icon(Icons.notifications_active_outlined),
-            title: Text(AppLocalizations.of(context)!.lockControlsTitle),
-            subtitle: Text(AppLocalizations.of(context)!.subLockControls),
+            title: Text(AppLocalizations.of(context).lockControlsTitle),
+            subtitle: Text(AppLocalizations.of(context).subLockControls),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
@@ -158,17 +158,17 @@ class SettingsScreen extends StatelessWidget {
               spacing: 8,
               children: <Widget>[
                 ChoiceChip(
-                  label: Text(AppLocalizations.of(context)!.autoTheme),
+                  label: Text(AppLocalizations.of(context).autoTheme),
                   selected: settings.themeMode == ThemeMode.system,
                   onSelected: (_) => settings.setThemeMode(ThemeMode.system),
                 ),
                 ChoiceChip(
-                  label: Text(AppLocalizations.of(context)!.darkMode),
+                  label: Text(AppLocalizations.of(context).darkMode),
                   selected: settings.themeMode == ThemeMode.dark,
                   onSelected: (_) => settings.setThemeMode(ThemeMode.dark),
                 ),
                 ChoiceChip(
-                  label: Text(AppLocalizations.of(context)!.lightMode),
+                  label: Text(AppLocalizations.of(context).lightMode),
                   selected: settings.themeMode == ThemeMode.light,
                   onSelected: (_) => settings.setThemeMode(ThemeMode.light),
                 ),
@@ -177,7 +177,7 @@ class SettingsScreen extends StatelessWidget {
           ),
 
           // ---------------------------------------------------- IA
-          _SectionTitle(AppLocalizations.of(context)!.secAi),
+          _SectionTitle(AppLocalizations.of(context).secAi),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Column(
@@ -187,9 +187,9 @@ class SettingsScreen extends StatelessWidget {
                 SwitchListTile(
                   value: settings.autoDj,
                   onChanged: settings.setAutoDj,
-                  title: Text(AppLocalizations.of(context)!.autoDjMode),
+                  title: Text(AppLocalizations.of(context).autoDjMode),
                   subtitle: Text(
-                    AppLocalizations.of(context)!.aiExplains,
+                    AppLocalizations.of(context).aiExplains,
                   ),
                 ),
               ],
@@ -197,30 +197,30 @@ class SettingsScreen extends StatelessWidget {
           ),
 
           // ---------------------------------------------------- Reproducción
-          _SectionTitle(AppLocalizations.of(context)!.secPlayback),
+          _SectionTitle(AppLocalizations.of(context).secPlayback),
             ListTile(
               leading: const Icon(Icons.bedtime_outlined),
-              title: Text(AppLocalizations.of(context)!.sleepTimer),
+              title: Text(AppLocalizations.of(context).sleepTimer),
               subtitle: Text(
                 context.watch<PlayerProvider>().sleepRemaining == null
-                    ? AppLocalizations.of(context)!.sleepTimerOff
-                    : AppLocalizations.of(context)!.sleepTimerActive,
+                    ? AppLocalizations.of(context).sleepTimerOff
+                    : AppLocalizations.of(context).sleepTimerActive,
               ),
               onTap: () async {
                 final PlayerProvider player = context.read<PlayerProvider>();
                 final int? minutos = await showDialog<int>(
                   context: context,
                   builder: (BuildContext dc) => SimpleDialog(
-                    title: Text(AppLocalizations.of(context)!.sleepTimer),
+                    title: Text(AppLocalizations.of(context).sleepTimer),
                     children: <Widget>[
                       SimpleDialogOption(
                         onPressed: () => Navigator.of(dc).pop(0),
-                        child: Text(AppLocalizations.of(context)!.sleepTimerCancel),
+                        child: Text(AppLocalizations.of(context).sleepTimerCancel),
                       ),
                       for (final int m in <int>[15, 30, 60, 90])
                         SimpleDialogOption(
                           onPressed: () => Navigator.of(dc).pop(m),
-                          child: Text(AppLocalizations.of(context)!.sleepTimerMinutes(m)),
+                          child: Text(AppLocalizations.of(context).sleepTimerMinutes(m)),
                         ),
                     ],
                   ),
@@ -240,53 +240,53 @@ class SettingsScreen extends StatelessWidget {
               settings.setKeepScreenOn(value);
               context.read<PlayerProvider>().setKeepScreenOn(value);
             },
-            title: Text(AppLocalizations.of(context)!.screenAlwaysOn),
-            subtitle: Text(AppLocalizations.of(context)!.subKeepScreen),
+            title: Text(AppLocalizations.of(context).screenAlwaysOn),
+            subtitle: Text(AppLocalizations.of(context).subKeepScreen),
           ),
           SwitchListTile(
             value: settings.showWaveAnimation,
             onChanged: settings.setShowWaveAnimation,
-            title: Text(AppLocalizations.of(context)!.soundWaves),
-            subtitle: Text(AppLocalizations.of(context)!.subSoundWaves),
+            title: Text(AppLocalizations.of(context).soundWaves),
+            subtitle: Text(AppLocalizations.of(context).subSoundWaves),
           ),
 
           // ---------------------------------------------------- Rendimiento
           
             ListTile(
               leading: const Icon(Icons.insights_outlined),
-              title: Text(AppLocalizations.of(context)!.statsTitle),
-              subtitle: Text(AppLocalizations.of(context)!.statsTotalPlays),
+              title: Text(AppLocalizations.of(context).statsTitle),
+              subtitle: Text(AppLocalizations.of(context).statsTotalPlays),
               onTap: () => Navigator.of(context).push(
                 MaterialPageRoute<void>(builder: (_) => const StatsScreen()),
               ),
             ),
-_SectionTitle(AppLocalizations.of(context)!.secPerformance),
+_SectionTitle(AppLocalizations.of(context).secPerformance),
           SwitchListTile(
             value: settings.batterySaver,
             onChanged: settings.setBatterySaver,
-            title: Text(AppLocalizations.of(context)!.batterySaver),
-            subtitle: Text(AppLocalizations.of(context)!.subBatterySaver),
+            title: Text(AppLocalizations.of(context).batterySaver),
+            subtitle: Text(AppLocalizations.of(context).subBatterySaver),
           ),
           SwitchListTile(
             value: settings.thermalGuard,
             onChanged: settings.setThermalGuard,
-            title: Text(AppLocalizations.of(context)!.thermalProtection),
-            subtitle: Text(AppLocalizations.of(context)!.subThermal),
+            title: Text(AppLocalizations.of(context).thermalProtection),
+            subtitle: Text(AppLocalizations.of(context).subThermal),
           ),
 
           // ---------------------------------------------------- Voz
-          _SectionTitle(AppLocalizations.of(context)!.secVoice),
+          _SectionTitle(AppLocalizations.of(context).secVoice),
           SwitchListTile(
             value: settings.voiceEnabled,
             onChanged: settings.setVoiceEnabled,
-            title: Text(AppLocalizations.of(context)!.voiceDictation),
-            subtitle: Text(AppLocalizations.of(context)!.subVoice),
+            title: Text(AppLocalizations.of(context).voiceDictation),
+            subtitle: Text(AppLocalizations.of(context).subVoice),
           ),
           SwitchListTile(
             value: settings.ttsEnabled,
             onChanged: settings.setTtsEnabled,
-            title: Text(AppLocalizations.of(context)!.speakResponses),
-            subtitle: Text(AppLocalizations.of(context)!.aiSpeaks),
+            title: Text(AppLocalizations.of(context).speakResponses),
+            subtitle: Text(AppLocalizations.of(context).aiSpeaks),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -316,19 +316,19 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
 
           // ---------------------------------------------------- Biblioteca
-          _SectionTitle(AppLocalizations.of(context)!.secAppearance),
+          _SectionTitle(AppLocalizations.of(context).secAppearance),
           SwitchListTile(
             value: settings.glassEnabled,
             onChanged: (bool value) => settings.setGlassEnabled(value),
             secondary: Icon(Icons.blur_on),
-            title: Text(AppLocalizations.of(context)!.glassEffect),
+            title: Text(AppLocalizations.of(context).glassEffect),
             subtitle: Text(
-              AppLocalizations.of(context)!.glassDesc,
+              AppLocalizations.of(context).glassDesc,
             ),
           ),
           ListTile(
             leading: Icon(Icons.opacity),
-            title: Text(AppLocalizations.of(context)!.glassIntensity),
+            title: Text(AppLocalizations.of(context).glassIntensity),
             subtitle: Slider(
               value: settings.glassIntensity,
               min: 0.2,
@@ -341,12 +341,12 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
             ),
             onTap: null,
           ),
-          _SectionTitle(AppLocalizations.of(context)!.secLibrary),
+          _SectionTitle(AppLocalizations.of(context).secLibrary),
           SwitchListTile(
             value: settings.autoImport,
             onChanged: (bool value) => settings.setAutoImport(value),
-            title: Text(AppLocalizations.of(context)!.autoImport),
-            subtitle: Text(AppLocalizations.of(context)!.subAutoImport),
+            title: Text(AppLocalizations.of(context).autoImport),
+            subtitle: Text(AppLocalizations.of(context).subAutoImport),
           ),
           SwitchListTile(
             value: settings.importMediaAudio,
@@ -367,8 +367,8 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
                 ),
               );
             },
-            title: Text(AppLocalizations.of(context)!.importAppAudio),
-            subtitle: Text(AppLocalizations.of(context)!.subImportAppAudio),
+            title: Text(AppLocalizations.of(context).importAppAudio),
+            subtitle: Text(AppLocalizations.of(context).subImportAppAudio),
           ),
           ListTile(
             leading: library.isScanning
@@ -378,7 +378,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
                 : Icon(Icons.refresh),
-            title: Text(AppLocalizations.of(context)!.scanNow),
+            title: Text(AppLocalizations.of(context).scanNow),
             subtitle: Text(library.scanMessage ?? 'Busca música nueva en el dispositivo'),
             onTap: () async {
               final int added = await library.autoScan(force: true);
@@ -396,8 +396,8 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: Icon(Icons.settings_backup_restore),
-            title: Text(AppLocalizations.of(context)!.restoreBackup),
-            subtitle: Text(AppLocalizations.of(context)!.subRestoreBackup),
+            title: Text(AppLocalizations.of(context).restoreBackup),
+            subtitle: Text(AppLocalizations.of(context).subRestoreBackup),
             trailing: Icon(Icons.chevron_right),
             onTap: () async {
               final Map<String, dynamic>? copia = await StorageService.instance
@@ -405,16 +405,16 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
               if (!context.mounted) return;
               if (copia == null) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.noBackupSaved)),
+                  SnackBar(content: Text(AppLocalizations.of(context).noBackupSaved)),
                 );
                 return;
               }
               final bool? confirmar = await showDialog<bool>(
                 context: context,
                 builder: (BuildContext dialogo) => AlertDialog(
-                  title: Text(AppLocalizations.of(context)!.restoreTheBackup),
+                  title: Text(AppLocalizations.of(context).restoreTheBackup),
                   content: Text(
-                    AppLocalizations.of(context)!.restoreWarning,
+                    AppLocalizations.of(context).restoreWarning,
                   ),
                   actions: <Widget>[
                     TextButton(
@@ -445,15 +445,15 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
               if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(AppLocalizations.of(context)!.backupRestored),
+                  content: Text(AppLocalizations.of(context).backupRestored),
                 ),
               );
             },
           ),
           ListTile(
             leading: Icon(Icons.file_download_outlined),
-            title: Text(AppLocalizations.of(context)!.exportBackup),
-            subtitle: Text(AppLocalizations.of(context)!.subExportBackup),
+            title: Text(AppLocalizations.of(context).exportBackup),
+            subtitle: Text(AppLocalizations.of(context).subExportBackup),
             onTap: () async {
               final Map<String, dynamic>? copia =
                   await StorageService.instance.readJsonMap(StorageKeys.backupFile);
@@ -461,7 +461,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
               if (copia == null) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(AppLocalizations.of(context)!.noBackupYet),
+                    content: Text(AppLocalizations.of(context).noBackupYet),
                   ),
                 );
                 return;
@@ -484,8 +484,8 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: Icon(Icons.queue_music),
-            title: Text(AppLocalizations.of(context)!.djBatch),
-            subtitle: Text(AppLocalizations.of(context)!.djBatchNow(settings.djCanciones)),
+            title: Text(AppLocalizations.of(context).djBatch),
+            subtitle: Text(AppLocalizations.of(context).djBatchNow(settings.djCanciones)),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -503,8 +503,8 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: Icon(Icons.graphic_eq),
-            title: Text(AppLocalizations.of(context)!.equalizer),
-            subtitle: Text(AppLocalizations.of(context)!.eqDesc),
+            title: Text(AppLocalizations.of(context).equalizer),
+            subtitle: Text(AppLocalizations.of(context).eqDesc),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               // Se pasa la sesion real del motor para que el ecualizador nativo
@@ -520,8 +520,8 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: Icon(Icons.volume_up_outlined),
-            title: Text(AppLocalizations.of(context)!.volumeCurrent),
-            subtitle: Text(AppLocalizations.of(context)!.subVolume),
+            title: Text(AppLocalizations.of(context).volumeCurrent),
+            subtitle: Text(AppLocalizations.of(context).subVolume),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -554,9 +554,9 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: Icon(Icons.auto_awesome),
-            title: Text(AppLocalizations.of(context)!.tagWithAi),
+            title: Text(AppLocalizations.of(context).tagWithAi),
             subtitle: Text(
-              AppLocalizations.of(context)!.tagAiDesc,
+              AppLocalizations.of(context).tagAiDesc,
             ),
             trailing: Icon(Icons.chevron_right),
             onTap: () async {
@@ -568,12 +568,11 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
               if (!context.mounted) return;
               if (pendientes.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.noSongsWithoutGenre)),
+                  SnackBar(content: Text(AppLocalizations.of(context).noSongsWithoutGenre)),
                 );
                 return;
               }
               int hechas = 0;
-                int fallidas = 0;
                 for (final Song cancion in pendientes) {
                   // Reintento: la IA a veces devuelve texto que no es JSON.
                   Map<String, String>? datos;
@@ -584,7 +583,6 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
                     }
                   }
                   if (datos == null) {
-                    fallidas++;
                     continue;
                   }
                 final String genero =
@@ -607,8 +605,8 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: Icon(Icons.auto_fix_high_outlined),
-            title: Text(AppLocalizations.of(context)!.fillGenres),
-            subtitle: Text(AppLocalizations.of(context)!.subFillGenres),
+            title: Text(AppLocalizations.of(context).fillGenres),
+            subtitle: Text(AppLocalizations.of(context).subFillGenres),
             trailing: const Icon(Icons.chevron_right),
             onTap: () async {
               final int cambiadas = await library.completarGeneros();
@@ -626,8 +624,8 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: Icon(Icons.backup_outlined),
-            title: Text(AppLocalizations.of(context)!.backupTitle),
-            subtitle: Text(AppLocalizations.of(context)!.subBackup),
+            title: Text(AppLocalizations.of(context).backupTitle),
+            subtitle: Text(AppLocalizations.of(context).subBackup),
             trailing: TextButton(
               onPressed: () async {
                 final bool hecha = await library.autoBackup(forzar: true);
@@ -647,7 +645,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: Icon(Icons.cleaning_services_outlined),
-            title: Text(AppLocalizations.of(context)!.freeUpSpace),
+            title: Text(AppLocalizations.of(context).freeUpSpace),
             subtitle: FutureBuilder<int>(
               future: library.cacheBytes(),
               builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
@@ -676,14 +674,14 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: Icon(Icons.library_add),
-            title: Text(AppLocalizations.of(context)!.importSongs),
+            title: Text(AppLocalizations.of(context).importSongs),
             subtitle: Text('MP3, M4A, OGG, FLAC, WAV… seleccionando archivos o rutas'),
             onTap: () => AppDialogs.importSongs(context),
           ),
           ListTile(
             leading: Icon(Icons.folder_open),
-            title: Text(AppLocalizations.of(context)!.importFolder),
-            subtitle: Text(AppLocalizations.of(context)!.importFolderDesc),
+            title: Text(AppLocalizations.of(context).importFolder),
+            subtitle: Text(AppLocalizations.of(context).importFolderDesc),
             onTap: () async {
               final String? dir = await MediaImporter.pickFolder();
               if (dir == null) return;
@@ -691,7 +689,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
               if (files.isEmpty) {
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(AppLocalizations.of(context)!.noCompatibleAudio)),
+                    SnackBar(content: Text(AppLocalizations.of(context).noCompatibleAudio)),
                   );
                 }
                 return;
@@ -699,14 +697,14 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
               final int added = await library.importPaths(files);
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.songsImportedFromFolder(added))),
+                  SnackBar(content: Text(AppLocalizations.of(context).songsImportedFromFolder(added))),
                 );
               }
             },
           ),
           ListTile(
             leading: const Icon(Icons.upload_file),
-            title: Text(AppLocalizations.of(context)!.exportLibraryJson),
+            title: Text(AppLocalizations.of(context).exportLibraryJson),
             subtitle: Text('${library.songs.length} canciones · ${library.playlists.length} listas'),
             onTap: () async {
               final String json = library.exportLibraryJson();
@@ -728,7 +726,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: const Icon(Icons.download_for_offline_outlined),
-            title: Text(AppLocalizations.of(context)!.restoreLibraryJson),
+            title: Text(AppLocalizations.of(context).restoreLibraryJson),
             onTap: () async {
               final String? content = await MediaImporter.pickJsonFile();
               if (content == null) return;
@@ -742,13 +740,13 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
           ListTile(
             leading: Icon(Icons.delete_forever_outlined, color: Colors.redAccent),
-            title: Text(AppLocalizations.of(context)!.deleteLocalLibrary, style: TextStyle(color: Colors.redAccent)),
-            subtitle: Text(AppLocalizations.of(context)!.noAudioDeleted),
+            title: Text(AppLocalizations.of(context).deleteLocalLibrary, style: TextStyle(color: Colors.redAccent)),
+            subtitle: Text(AppLocalizations.of(context).noAudioDeleted),
             onTap: () async {
               final bool confirmed = await AppDialogs.confirm(
                 context,
                 title: 'Borrar biblioteca',
-                message: AppLocalizations.of(context)!.clearAllWarning,
+                message: AppLocalizations.of(context).clearAllWarning,
                 confirmLabel: 'Borrar todo',
               );
               if (confirmed) await library.clearLibrary();
@@ -756,7 +754,7 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
           ),
 
           // ---------------------------------------------------- Acerca de
-          _SectionTitle(AppLocalizations.of(context)!.aboutTitle),
+          _SectionTitle(AppLocalizations.of(context).aboutTitle),
           FutureBuilder<String>(
             future: AppInfoService.etiquetaVersion(),
             builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
@@ -768,9 +766,9 @@ _SectionTitle(AppLocalizations.of(context)!.secPerformance),
                 leading: Icon(Icons.info_outline),
                 title: Text(version),
                   subtitle: Text(
-                    '${AppLocalizations.of(context)!.aboutBody}\n'
-                    '${AppLocalizations.of(context)!.aboutOffline}\n\n'
-                    '${AppLocalizations.of(context)!.aboutWhatsNew} $novedades',
+                    '${AppLocalizations.of(context).aboutBody}\n'
+                    '${AppLocalizations.of(context).aboutOffline}\n\n'
+                    '${AppLocalizations.of(context).aboutWhatsNew} $novedades',
                   ),
                   isThreeLine: true,
               );
@@ -802,12 +800,12 @@ Future<void> escribirModeloPersonalizado(
   final String? escrito = await showDialog<String>(
     context: context,
     builder: (BuildContext dialogContext) => AlertDialog(
-      title: Text(AppLocalizations.of(context)!.modelOf(provider.label)),
+      title: Text(AppLocalizations.of(context).modelOf(provider.label)),
       content: TextField(
         controller: controller,
         autofocus: true,
         decoration: InputDecoration(
-          labelText: AppLocalizations.of(context)!.modelId,
+          labelText: AppLocalizations.of(context).modelId,
           helperText: 'Ej.: deepseek-flash, gpt-4o-mini, gemini-2.0-flash…',
         ),
       ),
@@ -918,7 +916,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 6),
                 child: Text(
-                  AppLocalizations.of(context)!.keySaved(mask),
+                  AppLocalizations.of(context).keySaved(mask),
                   style: const TextStyle(fontSize: 12, color: AppColors.green),
                 ),
               ),
@@ -926,7 +924,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
               controller: _controller,
               obscureText: _obscure,
               decoration: InputDecoration(
-                hintText: configured ? AppLocalizations.of(context)!.replaceKey : provider.hint,
+                hintText: configured ? AppLocalizations.of(context).replaceKey : provider.hint,
                 suffixIcon: IconButton(
                   icon: Icon(_obscure ? Icons.visibility : Icons.visibility_off),
                   onPressed: () => setState(() => _obscure = !_obscure),
@@ -947,7 +945,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                 }),
                 ActionChip(
                   avatar: const Icon(Icons.edit_outlined, size: 15),
-                  label: Text(AppLocalizations.of(context)!.otherOption, style: const TextStyle(fontSize: 12)),
+                  label: Text(AppLocalizations.of(context).otherOption, style: const TextStyle(fontSize: 12)),
                   onPressed: () =>
                       escribirModeloPersonalizado(context, ai, provider, model),
                 ),
@@ -984,7 +982,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                           content: Text(
                             ai.keyFor(provider) == null
                                 ? 'Clave de ${provider.label} eliminada'
-                                : AppLocalizations.of(context)!.keyStoredFor(provider.label),
+                                : AppLocalizations.of(context).keyStoredFor(provider.label),
                           ),
                         ),
                       );
@@ -1036,7 +1034,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-              content: Text(AppLocalizations.of(context)!.exportFailedStorage),
+              content: Text(AppLocalizations.of(context).exportFailedStorage),
             ),
         );
       }

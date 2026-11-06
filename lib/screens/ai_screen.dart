@@ -52,7 +52,7 @@ class _AiScreenState extends State<AiScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.aiMusicTitle),
+        title: Text(AppLocalizations.of(context).aiMusicTitle),
         actions: <Widget>[
           IconButton(
             tooltip: settings.ttsEnabled ? 'Desactivar voz' : 'Leer respuestas en voz alta',
@@ -60,22 +60,22 @@ class _AiScreenState extends State<AiScreen> {
             onPressed: () => settings.setTtsEnabled(!settings.ttsEnabled),
           ),
           IconButton(
-            tooltip: AppLocalizations.of(context)!.clearConversation,
+            tooltip: AppLocalizations.of(context).clearConversation,
             icon: Icon(Icons.delete_sweep_outlined),
             onPressed: () async {
               final bool ok = await showDialog<bool>(
                     context: context,
                     builder: (BuildContext dialogContext) => AlertDialog(
-                      title: Text(AppLocalizations.of(context)!.clearConversation),
-                      content: Text(AppLocalizations.of(context)!.clearHistoryBody),
+                      title: Text(AppLocalizations.of(context).clearConversation),
+                      content: Text(AppLocalizations.of(context).clearHistoryBody),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () => Navigator.of(dialogContext).pop(false),
-                          child: Text(AppLocalizations.of(context)!.cancel),
+                          child: Text(AppLocalizations.of(context).cancel),
                         ),
                         FilledButton(
                           onPressed: () => Navigator.of(dialogContext).pop(true),
-                          child: Text(AppLocalizations.of(context)!.delete),
+                          child: Text(AppLocalizations.of(context).delete),
                         ),
                       ],
                     ),
@@ -105,7 +105,7 @@ class _AiScreenState extends State<AiScreen> {
                   TextButton.icon(
                     onPressed: () => _testConnection(context, ai),
                     icon: Icon(Icons.wifi_tethering, size: 16),
-                    label: Text(AppLocalizations.of(context)!.test),
+                    label: Text(AppLocalizations.of(context).test),
                   ),
               ],
             ),
@@ -163,22 +163,21 @@ class _AiScreenState extends State<AiScreen> {
   Widget _emptyState(BuildContext context) {
     return EmptyState(
       icon: Icons.smart_toy_outlined,
-      title: AppLocalizations.of(context)!.aiDjTitle,
-      message: AppLocalizations.of(context)!.aiAskExamples,
+      title: AppLocalizations.of(context).aiDjTitle,
+      message: AppLocalizations.of(context).aiAskExamples,
       actionLabel: 'Configurar API keys',
       onAction: () {
-        final AiAssistantProvider ai = context.read<AiAssistantProvider>();
         showDialog<void>(
           context: context,
           builder: (BuildContext dialogContext) => AlertDialog(
-            title: Text(AppLocalizations.of(context)!.aiProviders),
+            title: Text(AppLocalizations.of(context).aiProviders),
             content: Text(
-              AppLocalizations.of(context)!.aiKeyMissing,
+              AppLocalizations.of(context).aiKeyMissing,
             ),
             actions: <Widget>[
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: Text(AppLocalizations.of(context)!.gotIt),
+                child: Text(AppLocalizations.of(context).gotIt),
               ),
             ],
           ),
@@ -352,19 +351,19 @@ class _AiScreenState extends State<AiScreen> {
                       final bool ok = await showDialog<bool>(
                             context: context,
                             builder: (BuildContext dialogContext) => AlertDialog(
-                              title: Text(AppLocalizations.of(context)!.createList),
+                              title: Text(AppLocalizations.of(context).createList),
                               content: Text(
-                                '${AppLocalizations.of(context)!.playlistWillBe(result.playlistName ?? 'IA')} '
-                                '${AppLocalizations.of(context)!.songsFromLibrary(localSongs.length)}',
+                                '${AppLocalizations.of(context).playlistWillBe(result.playlistName ?? 'IA')} '
+                                '${AppLocalizations.of(context).songsFromLibrary(localSongs.length)}',
                               ),
                               actions: <Widget>[
                                 TextButton(
                                   onPressed: () => Navigator.of(dialogContext).pop(false),
-                                  child: Text(AppLocalizations.of(context)!.cancel),
+                                  child: Text(AppLocalizations.of(context).cancel),
                                 ),
                                 FilledButton(
                                   onPressed: () => Navigator.of(dialogContext).pop(true),
-                                  child: Text(AppLocalizations.of(context)!.create),
+                                  child: Text(AppLocalizations.of(context).create),
                                 ),
                               ],
                             ),
@@ -377,11 +376,11 @@ class _AiScreenState extends State<AiScreen> {
                       );
                       if (!context.mounted) return;
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context)!.listCreated(playlist.name))),
+                        SnackBar(content: Text(AppLocalizations.of(context).listCreated(playlist.name))),
                       );
                     },
                     icon: Icon(Icons.playlist_add),
-                    label: Text(AppLocalizations.of(context)!.createList),
+                    label: Text(AppLocalizations.of(context).createList),
                   ),
                 ),
               ],
@@ -434,7 +433,7 @@ class _AiScreenState extends State<AiScreen> {
                 child: Text(idea.lyricSeed, style: const TextStyle(fontStyle: FontStyle.italic)),
               ),
             const SizedBox(height: 10),
-            Text(AppLocalizations.of(context)!.promptForGenerator, style: TextStyle(fontWeight: FontWeight.w600)),
+            Text(AppLocalizations.of(context).promptForGenerator, style: TextStyle(fontWeight: FontWeight.w600)),
             SelectableText(idea.generatorPrompt, style: const TextStyle(fontSize: 12.5)),
             const SizedBox(height: 10),
             Row(
@@ -445,11 +444,11 @@ class _AiScreenState extends State<AiScreen> {
                       await Clipboard.setData(ClipboardData(text: idea.generatorPrompt));
                       if (!context.mounted) return;
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context)!.promptCopied)),
+                        SnackBar(content: Text(AppLocalizations.of(context).promptCopied)),
                       );
                     },
                     icon: Icon(Icons.copy),
-                    label: Text(AppLocalizations.of(context)!.copyPrompt),
+                    label: Text(AppLocalizations.of(context).copyPrompt),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -457,7 +456,7 @@ class _AiScreenState extends State<AiScreen> {
                   child: OutlinedButton.icon(
                     onPressed: () => _openUrl(idea.youtubeSearchUrl),
                     icon: Icon(Icons.open_in_new),
-                    label: Text(AppLocalizations.of(context)!.tabSearch),
+                    label: Text(AppLocalizations.of(context).tabSearch),
                   ),
                 ),
               ],
@@ -478,7 +477,7 @@ class _AiScreenState extends State<AiScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            AppLocalizations.of(context)!.actionsRun,
+            AppLocalizations.of(context).actionsRun,
             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 6),
@@ -581,7 +580,7 @@ class _AiScreenState extends State<AiScreen> {
             if (!context.mounted) return;
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(AppLocalizations.of(context)!.mixtapeToday(mixtape.length)),
+                content: Text(AppLocalizations.of(context).mixtapeToday(mixtape.length)),
               ),
             );
           }),
@@ -650,7 +649,7 @@ class _AiScreenState extends State<AiScreen> {
                 maxLines: 4,
                 textInputAction: TextInputAction.send,
                 decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.askHint,
+                    hintText: AppLocalizations.of(context).askHint,
                 ),
                 onSubmitted: (String value) => _send(ai, settings),
               ),
@@ -701,7 +700,7 @@ class _AiScreenState extends State<AiScreen> {
     if (!ready) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.dictationUnavailable)),
+        SnackBar(content: Text(AppLocalizations.of(context).dictationUnavailable)),
       );
       return;
     }

@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
-import 'package:just_audio/just_audio.dart' hide RepeatMode;
+import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
@@ -98,7 +98,6 @@ class PlayerService {
 
   /// Cuenta la reproduccion solo si la cancion sigue sonando a los 20 s.
   Timer? _temporizadorRecuento;
-  Timer? _temporizadorWidget;
 
   /// Cuenta una reproducción **solo si el audio está sonando**, una vez por
   /// canción. Así, cargar una cola o pulsar «aleatorio» sin arrancar no
@@ -175,45 +174,6 @@ class PlayerService {
       if (cancion == null) return;
       unawaited(WidgetService.actualizar(cancion, suena: estaSonando,
           posicion: _player.position, total: _player.duration ?? Duration.zero));
-    });
-  }
-
-  /// Mantiene el widget al dia: cada 5 s mientras suena (progreso, tiempo e
-  /// icono) y una vez al pausar para que muestre "En pausa" e icono play.
-  void _programarRefrescoWidget() {
-    _temporizadorWidget2?.cancel();
-    final Song? cancion = current;
-    if (cancion == null) return;
-    if (!_player.playing) {
-      unawaited(WidgetService.actualizar(
-        cancion,
-        suena: false,
-        posicion: _player.position,
-        total: _player.duration ?? Duration.zero,
-      ));
-      return;
-    }
-    // Publica el estado ACTUAL de inmediato, antes del primer tick: al pausar o
-    // reanudar no debe verse un fotograma con el progreso de la cancion anterior
-    // (eso era el parpadeo de la barra).
-    final Song? ahora = current;
-    if (ahora != null) {
-      unawaited(WidgetService.actualizar(
-        ahora,
-        suena: estaSonando,
-        posicion: _player.position,
-        total: _player.duration ?? Duration.zero,
-      ));
-    }
-    _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 1), (_) {
-      final Song? actual = current;
-      if (actual == null) return;
-      unawaited(WidgetService.actualizar(
-        actual,
-        suena: true,
-        posicion: _player.position,
-        total: _player.duration ?? Duration.zero,
-      ));
     });
   }
 
@@ -762,7 +722,6 @@ class PlayerService {
 
   double _lastVolume = 1.0;
 
-  @override
   void dispose() {
     _player.dispose();
     currentSong.dispose();
