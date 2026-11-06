@@ -497,7 +497,7 @@ abstract class AppLocalizations {
   /// No description provided for @shuffleAll.
   ///
   /// In en, this message translates to:
-  /// **'Shuffle everything'**
+  /// **'Shuffle'**
   String get shuffleAll;
 
   /// No description provided for @mostPlayedRanking.
@@ -1639,6 +1639,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Turns off theme animations to save battery.'**
   String get reduceMotionDesc;
+
+  /// No description provided for @playAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Play all'**
+  String get playAll;
+
+  /// No description provided for @sortRecent.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently added'**
+  String get sortRecent;
+
+  /// No description provided for @sortTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title (A-Z)'**
+  String get sortTitle;
+
+  /// No description provided for @sortArtist.
+  ///
+  /// In en, this message translates to:
+  /// **'Artist'**
+  String get sortArtist;
+
+  /// No description provided for @sortAlbum.
+  ///
+  /// In en, this message translates to:
+  /// **'Album'**
+  String get sortAlbum;
+
+  /// No description provided for @sortYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get sortYear;
+
+  /// No description provided for @sortDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration'**
+  String get sortDuration;
+
+  /// No description provided for @sortMostPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'Most played'**
+  String get sortMostPlayed;
+
+  /// No description provided for @albumSongsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} songs'**
+  String albumSongsCount(int count);
 }
 
 class _AppLocalizationsDelegate

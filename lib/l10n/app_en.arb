@@ -63,7 +63,7 @@
   "gotIt": "Got it",
   "createList": "Create playlist",
   "sortBy": "Sort",
-  "shuffleAll": "Shuffle everything",
+  "shuffleAll": "Shuffle",
   "mostPlayedRanking": "Most played",
   "advancedFilters": "Advanced filters",
   "playSelection": "Play selection",
@@ -413,5 +413,21 @@
   "themeGothic": "Gothic",
   "themeCinema": "Cinema",
   "reduceMotion": "Reduce motion",
-  "reduceMotionDesc": "Turns off theme animations to save battery."
+  "reduceMotionDesc": "Turns off theme animations to save battery.",
+  "playAll": "Play all",
+  "sortRecent": "Recently added",
+  "sortTitle": "Title (A-Z)",
+  "sortArtist": "Artist",
+  "sortAlbum": "Album",
+  "sortYear": "Year",
+  "sortDuration": "Duration",
+  "sortMostPlayed": "Most played",
+  "albumSongsCount": "{count} songs",
+  "@albumSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

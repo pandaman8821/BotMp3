@@ -195,15 +195,58 @@ class PlayerService {
     return resto.isNegative ? Duration.zero : resto;
   }
 
-  /// Pausa la reproduccion al terminar [duracion].
+  /// Pausa la reproduccion al terminar [duracion], bajando el volumen poco a
+  /// poco durante los ultimos segundos (asi no corta en seco al dormir).
   void startSleepTimer(Duration duracion) {
     cancelSleepTimer();
     _sleepUntil = DateTime.now().add(duracion);
-    _sleepTimer = Timer(duracion, () async {
+    // Desvanecido: 10 s si hay margen; si el temporizador es corto, un tercio.
+    final Duration desvanecido = duracion > const Duration(seconds: 12)
+        ? const Duration(seconds: 10)
+        : Duration(milliseconds: (duracion.inMilliseconds / 3).round());
+    final Duration espera = duracion - desvanecido;
+    _sleepTimer = Timer(espera.isNegative ? Duration.zero : espera, () async {
       _sleepUntil = null;
       _sleepTimer = null;
-      try { await pause(); } catch (_) {}
+      try {
+        await _fundirSalida(desvanecido);
+        await pause();
+      } catch (_) {
+      } finally {
+        await _aplicarVolumen(_lastVolume);
+      }
     });
+  }
+
+  /// Aplica el volumen al motor sin lanzar excepciones.
+  Future<void> _aplicarVolumen(double valor) async {
+    try {
+      await _player.setVolume(valor.clamp(0.0, 1.0));
+    } catch (_) {}
+  }
+
+  /// Sube el volumen suavemente desde 0 hasta el volumen del usuario.
+  Future<void> _fundirEntrada() async {
+    const int pasos = 6;
+    for (int i = 1; i <= pasos; i++) {
+      await _aplicarVolumen(_lastVolume * (i / pasos));
+      await Future<void>.delayed(const Duration(milliseconds: 45));
+    }
+    await _aplicarVolumen(_lastVolume);
+  }
+
+  /// Baja el volumen hasta 0 a lo largo de [duracion].
+  Future<void> _fundirSalida(Duration duracion) async {
+    if (duracion.inMilliseconds <= 0) {
+      await _aplicarVolumen(0);
+      return;
+    }
+    const int pasos = 24;
+    final int pausa = (duracion.inMilliseconds / pasos).round();
+    for (int i = pasos; i >= 1; i--) {
+      await _aplicarVolumen(_lastVolume * (i / pasos));
+      await Future<void>.delayed(Duration(milliseconds: pausa));
+    }
   }
 
   void cancelSleepTimer() {
@@ -433,12 +476,15 @@ class PlayerService {
     // la cancion se reiniciara al pulsar play repetidamente.    }
     if (_queue.isEmpty) return;
     await _player.play();
+    unawaited(_fundirEntrada());
   }
 
   Future<void> pause() async {
     if (DateTime.now().difference(_ultimaAccion) < const Duration(milliseconds: 300)) return;
     _ultimaAccion = DateTime.now();
+    await _fundirSalida(const Duration(milliseconds: 220));
     await _player.pause();
+    await _aplicarVolumen(_lastVolume);
     _temporizadorWidget2?.cancel();
     final Song? enPausa = current;
     if (enPausa != null) {

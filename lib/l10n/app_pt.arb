@@ -274,5 +274,14 @@
   "themeGothic": "Gothic",
   "themeCinema": "Cinema",
   "reduceMotion": "Reduce motion",
-  "reduceMotionDesc": "Turns off theme animations to save battery."
+  "reduceMotionDesc": "Turns off theme animations to save battery.",
+  "playAll": "Play all",
+  "sortRecent": "Recently added",
+  "sortTitle": "Title (A-Z)",
+  "sortArtist": "Artist",
+  "sortAlbum": "Album",
+  "sortYear": "Year",
+  "sortDuration": "Duration",
+  "sortMostPlayed": "Most played",
+  "albumSongsCount": "{count} songs"
 }
