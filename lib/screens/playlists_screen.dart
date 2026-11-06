@@ -1,5 +1,4 @@
 import '../l10n/app_localizations.dart';
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,10 +26,10 @@ class PlaylistsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.tabPlaylists),
+        title: Text(AppLocalizations.of(context).tabPlaylists),
         actions: <Widget>[
           IconButton(
-            tooltip: AppLocalizations.of(context)!.importListJson,
+            tooltip: AppLocalizations.of(context).importListJson,
             icon: const Icon(Icons.file_download_outlined),
             onPressed: () => _importJson(context),
           ),
@@ -41,18 +40,18 @@ class PlaylistsScreen extends StatelessWidget {
           final Playlist? playlist = await AppDialogs.createPlaylist(context);
           if (playlist != null && context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(AppLocalizations.of(context)!.listCreated(playlist.name))),
+              SnackBar(content: Text(AppLocalizations.of(context).listCreated(playlist.name))),
             );
           }
         },
         icon: const Icon(Icons.playlist_add),
-        label: Text(AppLocalizations.of(context)!.newPlaylist),
+        label: Text(AppLocalizations.of(context).newPlaylist),
       ),
       body: playlists.isEmpty
           ? EmptyState(
               icon: Icons.queue_music_outlined,
-              title: AppLocalizations.of(context)!.playlistsEmpty,
-              message: AppLocalizations.of(context)!.playlistsEmptyDesc,
+              title: AppLocalizations.of(context).playlistsEmpty,
+              message: AppLocalizations.of(context).playlistsEmptyDesc,
             )
           : ListView.builder(
               padding: const EdgeInsets.only(bottom: 96, top: 6),
@@ -109,13 +108,13 @@ class PlaylistsScreen extends StatelessWidget {
                       onSelected: (String action) =>
                           _playlistAction(context, playlist, action),
                       itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                        PopupMenuItem<String>(value: 'play', child: Text(AppLocalizations.of(context)!.play)),
-                        PopupMenuItem<String>(value: 'shuffle', child: Text(AppLocalizations.of(context)!.shuffle)),
-                        PopupMenuItem<String>(value: 'edit', child: Text(AppLocalizations.of(context)!.editNameDesc)),
-                        PopupMenuItem<String>(value: 'export', child: Text(AppLocalizations.of(context)!.exportJson)),
+                        PopupMenuItem<String>(value: 'play', child: Text(AppLocalizations.of(context).play)),
+                        PopupMenuItem<String>(value: 'shuffle', child: Text(AppLocalizations.of(context).shuffle)),
+                        PopupMenuItem<String>(value: 'edit', child: Text(AppLocalizations.of(context).editNameDesc)),
+                        PopupMenuItem<String>(value: 'export', child: Text(AppLocalizations.of(context).exportJson)),
                         PopupMenuItem<String>(
                           value: 'delete',
-                          child: Text(AppLocalizations.of(context)!.delete, style: const TextStyle(color: Colors.redAccent)),
+                          child: Text(AppLocalizations.of(context).delete, style: const TextStyle(color: Colors.redAccent)),
                         ),
                       ],
                     ),
@@ -162,15 +161,15 @@ class PlaylistsScreen extends StatelessWidget {
           _snack(
             context,
             path == null
-                ? AppLocalizations.of(context)!.jsonCopied
+                ? AppLocalizations.of(context).jsonCopied
                 : 'Lista exportada y JSON copiado al portapapeles',
           );
         }
       case 'delete':
         final bool confirmed = await AppDialogs.confirm(
           context,
-          title: AppLocalizations.of(context)!.deleteList,
-          message: AppLocalizations.of(context)!.deleteListBody(playlist.name),
+          title: AppLocalizations.of(context).deleteList,
+          message: AppLocalizations.of(context).deleteListBody(playlist.name),
         );
         if (confirmed) await library.deletePlaylist(playlist.id);
     }
@@ -208,7 +207,7 @@ class _PlaylistSongsScreen extends StatelessWidget {
     final Playlist? playlist = library.playlistById(playlistId);
 
     if (playlist == null) {
-      return Scaffold(body: Center(child: Text(AppLocalizations.of(context)!.listNotFound)));
+      return Scaffold(body: Center(child: Text(AppLocalizations.of(context).listNotFound)));
     }
 
     final List<Song> songs = library.songsOf(playlist);
@@ -218,12 +217,12 @@ class _PlaylistSongsScreen extends StatelessWidget {
         title: Text(playlist.name, overflow: TextOverflow.ellipsis),
         actions: <Widget>[
           IconButton(
-            tooltip: AppLocalizations.of(context)!.play,
+            tooltip: AppLocalizations.of(context).play,
             icon: const Icon(Icons.play_arrow),
             onPressed: songs.isEmpty ? null : () => player.setQueue(songs),
           ),
           IconButton(
-            tooltip: AppLocalizations.of(context)!.addSongs,
+            tooltip: AppLocalizations.of(context).addSongs,
             icon: const Icon(Icons.playlist_add),
             onPressed: () async {
               final List<Song> chosen = await AppDialogs.pickSongs(
@@ -254,7 +253,7 @@ class _PlaylistSongsScreen extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          path == null ? AppLocalizations.of(context)!.jsonCopied : AppLocalizations.of(context)!.exportedTo(path),
+                          path == null ? AppLocalizations.of(context).jsonCopied : AppLocalizations.of(context).exportedTo(path),
                         ),
                       ),
                     );
@@ -262,8 +261,8 @@ class _PlaylistSongsScreen extends StatelessWidget {
                 case 'delete':
                   final bool confirmed = await AppDialogs.confirm(
                     context,
-                    title: AppLocalizations.of(context)!.deleteList,
-                    message: AppLocalizations.of(context)!.deleteListBodyShort(playlist.name),
+                    title: AppLocalizations.of(context).deleteList,
+                    message: AppLocalizations.of(context).deleteListBodyShort(playlist.name),
                   );
                   if (confirmed && context.mounted) {
                     await library.deletePlaylist(playlist.id);
@@ -277,12 +276,12 @@ class _PlaylistSongsScreen extends StatelessWidget {
               }
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(value: 'edit', child: Text(AppLocalizations.of(context)!.editData)),
-              PopupMenuItem<String>(value: 'cover', child: Text(AppLocalizations.of(context)!.changeCover)),
-              PopupMenuItem<String>(value: 'export', child: Text(AppLocalizations.of(context)!.exportJson)),
+              PopupMenuItem<String>(value: 'edit', child: Text(AppLocalizations.of(context).editData)),
+              PopupMenuItem<String>(value: 'cover', child: Text(AppLocalizations.of(context).changeCover)),
+              PopupMenuItem<String>(value: 'export', child: Text(AppLocalizations.of(context).exportJson)),
               PopupMenuItem<String>(
                 value: 'delete',
-                child: Text(AppLocalizations.of(context)!.deleteList, style: const TextStyle(color: Colors.redAccent)),
+                child: Text(AppLocalizations.of(context).deleteList, style: const TextStyle(color: Colors.redAccent)),
               ),
             ],
           ),
@@ -320,8 +319,8 @@ class _PlaylistSongsScreen extends StatelessWidget {
             child: songs.isEmpty
                 ? EmptyState(
                     icon: Icons.music_off,
-                    title: AppLocalizations.of(context)!.playlistEmptyTitle,
-                    message: AppLocalizations.of(context)!.playlistEmptyDesc,
+                    title: AppLocalizations.of(context).playlistEmptyTitle,
+                    message: AppLocalizations.of(context).playlistEmptyDesc,
                   )
                 : ReorderableListView.builder(
                     padding: const EdgeInsets.only(bottom: 24),

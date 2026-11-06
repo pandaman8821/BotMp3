@@ -9,9 +9,6 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get appTitle => 'BotMp3';
-
-  @override
   String get tabSongs => '曲';
 
   @override
@@ -30,40 +27,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get play => '再生';
 
   @override
-  String get pause => '一時停止';
-
-  @override
-  String get next => '次へ';
-
-  @override
-  String get previous => '前へ';
-
-  @override
   String get shuffle => 'シャッフル';
-
-  @override
-  String get repeatOne => '1曲リピート';
-
-  @override
-  String get repeatAll => '全曲リピート';
 
   @override
   String get equalizer => 'イコライザー';
 
   @override
   String get carMode => 'カーモード';
-
-  @override
-  String get lyrics => '歌詞';
-
-  @override
-  String get widget => 'ウィジェット';
-
-  @override
-  String get backup => 'バックアップ';
-
-  @override
-  String get restore => '復元';
 
   @override
   String get cancel => 'キャンセル';
@@ -81,25 +51,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get loading => '読み込み中...';
 
   @override
-  String get errorGeneric => 'エラーが発生しました';
-
-  @override
-  String get noSongs => '曲がまだありません';
-
-  @override
   String get aiDj => 'AI DJ';
-
-  @override
-  String get recommend => 'おすすめ';
-
-  @override
-  String get external => '外部';
-
-  @override
-  String get library => 'ライブラリ';
-
-  @override
-  String get nowPlaying => '再生中';
 
   @override
   String get trendsNow => 'トレンドを見る';
@@ -569,9 +521,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get statsTotalPlays => '総再生回数';
 
   @override
-  String get statsUniqueSongs => '再生した曲';
-
-  @override
   String get playAlbum => 'アルバムを再生';
 
   @override
@@ -732,9 +681,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get songDeleteBody => 'ライブラリから削除します（音声ファイルは削除されません）。';
 
   @override
-  String get ideaNoTitle => '無題のアイデア';
-
-  @override
   String get dialogListName => 'プレイリスト名';
 
   @override
@@ -797,9 +743,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get songEditNote => 'BotMp3はメタデータを独自のローカルDBに保存し、さらに';
 
   @override
-  String get aiTestOk => 'BotMp3 AI 接続済み とだけ返してください';
-
-  @override
   String get aiAskExamples => 'たとえば：';
 
   @override
@@ -836,4 +779,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String exportedTo(String path) {
     return 'プレイリストを $path に書き出しました';
   }
+
+  @override
+  String get statsUniqueSongs => 'Unique songs';
 }

@@ -9,9 +9,6 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
-  String get appTitle => 'BotMp3';
-
-  @override
   String get tabSongs => 'Músicas';
 
   @override
@@ -30,40 +27,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get play => 'Reproduzir';
 
   @override
-  String get pause => 'Pausa';
-
-  @override
-  String get next => 'Próxima';
-
-  @override
-  String get previous => 'Anterior';
-
-  @override
   String get shuffle => 'Aleatório';
-
-  @override
-  String get repeatOne => 'Repetir uma';
-
-  @override
-  String get repeatAll => 'Repetir tudo';
 
   @override
   String get equalizer => 'Equalizador';
 
   @override
   String get carMode => 'Modo carro';
-
-  @override
-  String get lyrics => 'Letra';
-
-  @override
-  String get widget => 'Widget';
-
-  @override
-  String get backup => 'Backup';
-
-  @override
-  String get restore => 'Restaurar';
 
   @override
   String get cancel => 'Cancelar';
@@ -81,25 +51,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get loading => 'Carregando...';
 
   @override
-  String get errorGeneric => 'Algo deu errado';
-
-  @override
-  String get noSongs => 'Nenhuma música ainda';
-
-  @override
   String get aiDj => 'DJ com IA';
-
-  @override
-  String get recommend => 'Recomendar';
-
-  @override
-  String get external => 'Externa';
-
-  @override
-  String get library => 'Biblioteca';
-
-  @override
-  String get nowPlaying => 'Tocando agora';
 
   @override
   String get trendsNow => 'Ver tendências agora';
@@ -581,9 +533,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get statsTotalPlays => 'Reproduções totais';
 
   @override
-  String get statsUniqueSongs => 'Músicas ouvidas';
-
-  @override
   String get playAlbum => 'Reproduzir álbum';
 
   @override
@@ -753,9 +702,6 @@ class AppLocalizationsPt extends AppLocalizations {
       'Será removida da biblioteca (o arquivo de áudio não é apagado).';
 
   @override
-  String get ideaNoTitle => 'Ideia sem título';
-
-  @override
   String get dialogListName => 'Nome da playlist';
 
   @override
@@ -827,9 +773,6 @@ class AppLocalizationsPt extends AppLocalizations {
       'O BotMp3 guarda os metadados no próprio banco local e também';
 
   @override
-  String get aiTestOk => 'Responda apenas: BotMp3 IA conectada';
-
-  @override
   String get aiAskExamples => 'Peça coisas como:';
 
   @override
@@ -868,6 +811,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String exportedTo(String path) {
     return 'Playlist exportada para $path';
   }
+
+  @override
+  String get statsUniqueSongs => 'Unique songs';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -875,9 +821,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr() : super('pt_BR');
 
   @override
-  String get appTitle => 'BotMp3';
-
-  @override
   String get tabSongs => 'Músicas';
 
   @override
@@ -896,40 +839,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get play => 'Reproduzir';
 
   @override
-  String get pause => 'Pausa';
-
-  @override
-  String get next => 'Próxima';
-
-  @override
-  String get previous => 'Anterior';
-
-  @override
   String get shuffle => 'Aleatório';
-
-  @override
-  String get repeatOne => 'Repetir uma';
-
-  @override
-  String get repeatAll => 'Repetir tudo';
 
   @override
   String get equalizer => 'Equalizador';
 
   @override
   String get carMode => 'Modo carro';
-
-  @override
-  String get lyrics => 'Letra';
-
-  @override
-  String get widget => 'Widget';
-
-  @override
-  String get backup => 'Backup';
-
-  @override
-  String get restore => 'Restaurar';
 
   @override
   String get cancel => 'Cancelar';
@@ -947,25 +863,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get loading => 'Carregando...';
 
   @override
-  String get errorGeneric => 'Algo deu errado';
-
-  @override
-  String get noSongs => 'Nenhuma música ainda';
-
-  @override
   String get aiDj => 'DJ com IA';
-
-  @override
-  String get recommend => 'Recomendar';
-
-  @override
-  String get external => 'Externa';
-
-  @override
-  String get library => 'Biblioteca';
-
-  @override
-  String get nowPlaying => 'Tocando agora';
 
   @override
   String get trendsNow => 'Ver tendências agora';
@@ -1447,9 +1345,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get statsTotalPlays => 'Reproduções totais';
 
   @override
-  String get statsUniqueSongs => 'Músicas ouvidas';
-
-  @override
   String get playAlbum => 'Reproduzir álbum';
 
   @override
@@ -1619,9 +1514,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Será removida da biblioteca (o arquivo de áudio não é apagado).';
 
   @override
-  String get ideaNoTitle => 'Ideia sem título';
-
-  @override
   String get dialogListName => 'Nome da playlist';
 
   @override
@@ -1693,9 +1585,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'O BotMp3 guarda os metadados no próprio banco local e também';
 
   @override
-  String get aiTestOk => 'Responda apenas: BotMp3 IA conectada';
-
-  @override
   String get aiAskExamples => 'Peça coisas como:';
 
   @override
@@ -1734,4 +1623,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String exportedTo(String path) {
     return 'Playlist exportada para $path';
   }
+
+  @override
+  String get statsUniqueSongs => 'Unique songs';
 }

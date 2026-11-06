@@ -38,7 +38,6 @@ dependencies:
   # `audiotags: ^1.4.5` y activa los puntos de extensión en
   # lib/services/metadata_service.dart (requiere NDK y Rust).
   image: ">=4.2.0 <5.0.0"          # edición de carátulas 100% Dart
-  image_picker: ">=1.1.2 <2.0.0"   # elegir imagen de carátula desde la galería
 
   # ---------------- IA multimodelo ----------------
   http: ">=1.2.2 <2.0.0"

@@ -9,9 +9,6 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
-  String get appTitle => 'BotMp3';
-
-  @override
   String get tabSongs => '곡';
 
   @override
@@ -30,40 +27,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get play => '재생';
 
   @override
-  String get pause => '일시정지';
-
-  @override
-  String get next => '다음 곡';
-
-  @override
-  String get previous => '이전 곡';
-
-  @override
   String get shuffle => '셔플';
-
-  @override
-  String get repeatOne => '한 곡 반복';
-
-  @override
-  String get repeatAll => '전체 반복';
 
   @override
   String get equalizer => '이퀄라이저';
 
   @override
   String get carMode => '차량 모드';
-
-  @override
-  String get lyrics => '가사';
-
-  @override
-  String get widget => '위젯';
-
-  @override
-  String get backup => '백업';
-
-  @override
-  String get restore => '복원';
 
   @override
   String get cancel => '취소';
@@ -81,25 +51,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get loading => '불러오는 중...';
 
   @override
-  String get errorGeneric => '문제가 발생했습니다';
-
-  @override
-  String get noSongs => '아직 곡이 없습니다';
-
-  @override
   String get aiDj => 'AI DJ';
-
-  @override
-  String get recommend => '추천';
-
-  @override
-  String get external => '외부';
-
-  @override
-  String get library => '라이브러리';
-
-  @override
-  String get nowPlaying => '재생 중';
 
   @override
   String get trendsNow => '트렌드 보기';
@@ -569,9 +521,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get statsTotalPlays => '총 재생 횟수';
 
   @override
-  String get statsUniqueSongs => '들은 곡';
-
-  @override
   String get playAlbum => '앨범 재생';
 
   @override
@@ -734,9 +683,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get songDeleteBody => '라이브러리에서 제거됩니다(오디오 파일은 삭제되지 않음).';
 
   @override
-  String get ideaNoTitle => '제목 없는 아이디어';
-
-  @override
   String get dialogListName => '플레이리스트 이름';
 
   @override
@@ -800,9 +746,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get songEditNote => 'BotMp3는 메타데이터를 자체 로컬 DB에 저장하고, 또한';
 
   @override
-  String get aiTestOk => 'BotMp3 AI 연결됨 이라고만 답하세요';
-
-  @override
   String get aiAskExamples => '예를 들어:';
 
   @override
@@ -839,4 +782,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String exportedTo(String path) {
     return '플레이리스트를 $path에 내보냈습니다';
   }
+
+  @override
+  String get statsUniqueSongs => 'Unique songs';
 }

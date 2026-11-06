@@ -70,20 +70,20 @@ class _SongEditScreenState extends State<SongEditScreen> {
     final Song? song = library.songById(widget.songId);
 
     if (song == null) {
-      return Scaffold(body: Center(child: Text(AppLocalizations.of(context)!.songNotFound)));
+      return Scaffold(body: Center(child: Text(AppLocalizations.of(context).songNotFound)));
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.editMetadataTitle),
+        title: Text(AppLocalizations.of(context).editMetadataTitle),
         actions: <Widget>[
           IconButton(
-            tooltip: AppLocalizations.of(context)!.autofillAi,
+            tooltip: AppLocalizations.of(context).autofillAi,
             icon: const Icon(Icons.auto_awesome),
             onPressed: _saving ? null : () => _autocompletarConIa(song),
           ),
           IconButton(
-            tooltip: AppLocalizations.of(context)!.menuRemoveFromLibrary,
+            tooltip: AppLocalizations.of(context).menuRemoveFromLibrary,
             icon: const Icon(Icons.delete_outline),
             onPressed: _confirmDelete,
           ),
@@ -109,13 +109,13 @@ class _SongEditScreenState extends State<SongEditScreen> {
                           ),
                         ),
                         icon: Icon(Icons.image_outlined),
-                        label: Text(AppLocalizations.of(context)!.menuEditCover),
+                        label: Text(AppLocalizations.of(context).menuEditCover),
                       ),
                       const SizedBox(height: 8),
                       OutlinedButton.icon(
                         onPressed: () => _usarCaratulaDelAlbum(song),
                         icon: Icon(Icons.album_outlined),
-                        label: Text(AppLocalizations.of(context)!.albumCover),
+                        label: Text(AppLocalizations.of(context).albumCover),
                       ),
                       const SizedBox(height: 8),
                       Text(
@@ -130,7 +130,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
             const SizedBox(height: 20),
             TextFormField(
               controller: _title,
-              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.titleStar),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context).titleStar),
               textCapitalization: TextCapitalization.sentences,
               validator: (String? value) =>
                   (value == null || value.trim().isEmpty) ? 'El título es obligatorio' : null,
@@ -138,7 +138,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
             const SizedBox(height: 12),
             TextFormField(
               controller: _artist,
-              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.artistStar),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context).artistStar),
               textCapitalization: TextCapitalization.words,
               validator: (String? value) =>
                   (value == null || value.trim().isEmpty) ? 'El artista es obligatorio' : null,
@@ -146,7 +146,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
             const SizedBox(height: 12),
             TextFormField(
               controller: _album,
-              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.albumLabel),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context).albumLabel),
               textCapitalization: TextCapitalization.sentences,
             ),
             const SizedBox(height: 12),
@@ -155,7 +155,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
                 Expanded(
                   child: TextFormField(
                     controller: _year,
-                    decoration: InputDecoration(labelText: AppLocalizations.of(context)!.yearLabel),
+                    decoration: InputDecoration(labelText: AppLocalizations.of(context).yearLabel),
                     keyboardType: TextInputType.number,
                     validator: (String? value) {
                       if (value == null || value.trim().isEmpty) return null;
@@ -170,7 +170,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
                 const SizedBox(width: 12),
                 Expanded(
                   child: InputDecorator(
-                    decoration: InputDecoration(labelText: AppLocalizations.of(context)!.durationStar),
+                    decoration: InputDecoration(labelText: AppLocalizations.of(context).durationStar),
                     child: Row(
                       children: <Widget>[
                         Expanded(
@@ -181,7 +181,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
                           ),
                         ),
                         IconButton(
-                          tooltip: AppLocalizations.of(context)!.detectDuration,
+                          tooltip: AppLocalizations.of(context).detectDuration,
                           icon: const Icon(Icons.refresh, size: 18),
                           onPressed: _detectDuration,
                         ),
@@ -192,7 +192,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
               ],
             ),
             const SizedBox(height: 16),
-            Text(AppLocalizations.of(context)!.genreStar, style: const TextStyle(fontWeight: FontWeight.w600)),
+            Text(AppLocalizations.of(context).genreStar, style: const TextStyle(fontWeight: FontWeight.w600)),
             const SizedBox(height: 8),
             Wrap(
               spacing: 8,
@@ -206,7 +206,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
               }).toList(),
             ),
             const SizedBox(height: 20),
-            Text(AppLocalizations.of(context)!.tagsAdvanced, style: const TextStyle(fontWeight: FontWeight.w600)),
+            Text(AppLocalizations.of(context).tagsAdvanced, style: const TextStyle(fontWeight: FontWeight.w600)),
             const SizedBox(height: 8),
             Row(
               children: <Widget>[
@@ -214,7 +214,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
                   child: TextField(
                     controller: _tagInput,
                     decoration: InputDecoration(
-                        hintText: AppLocalizations.of(context)!.addTagHint,
+                        hintText: AppLocalizations.of(context).addTagHint,
                     ),
                     onSubmitted: (_) => _addTag(),
                   ),
@@ -254,17 +254,17 @@ class _SongEditScreenState extends State<SongEditScreen> {
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
                   : const Icon(Icons.save),
-              label: Text(AppLocalizations.of(context)!.saveChanges),
+              label: Text(AppLocalizations.of(context).saveChanges),
             ),
             const SizedBox(height: 10),
             OutlinedButton.icon(
               onPressed: () => _writeTagsToFile(song),
               icon: Icon(Icons.tag),
-              label: Text(AppLocalizations.of(context)!.writeTags),
+              label: Text(AppLocalizations.of(context).writeTags),
             ),
             const SizedBox(height: 6),
             Text(
-              AppLocalizations.of(context)!.songEditNote,
+              AppLocalizations.of(context).songEditNote,
               style: TextStyle(fontSize: 12, color: Color(0xFF9AA0B4)),
             ),
           ],
@@ -298,14 +298,14 @@ class _SongEditScreenState extends State<SongEditScreen> {
   Future<void> _autocompletarConIa(Song song) async {
     final AiAssistantProvider ai = context.read<AiAssistantProvider>();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.askingAi)),
+      SnackBar(content: Text(AppLocalizations.of(context).askingAi)),
     );
     final Map<String, String>? sugerencia = await ai.suggestMetadata(song);
     if (!mounted) return;
     if (sugerencia == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context)!.autofillFailed),
+          content: Text(AppLocalizations.of(context).autofillFailed),
         ),
       );
       return;
@@ -333,7 +333,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
       }
     });
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.dataFilled)),
+      SnackBar(content: Text(AppLocalizations.of(context).dataFilled)),
     );
   }
 
@@ -344,14 +344,14 @@ class _SongEditScreenState extends State<SongEditScreen> {
     if (!mounted) return;
     if (path == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.noCoverOnDevice)),
+        SnackBar(content: Text(AppLocalizations.of(context).noCoverOnDevice)),
       );
       return;
     }
     await library.setCover(song.id, path);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.albumCoverApplied)),
+      SnackBar(content: Text(AppLocalizations.of(context).albumCoverApplied)),
     );
   }
 
@@ -374,7 +374,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
     if (!mounted) return;
     setState(() => _saving = false);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.metadataSaved)),
+      SnackBar(content: Text(AppLocalizations.of(context).metadataSaved)),
     );
   }
 
@@ -404,8 +404,8 @@ class _SongEditScreenState extends State<SongEditScreen> {
     final LibraryProvider library = context.read<LibraryProvider>();
     final bool confirmed = await AppDialogs.confirm(
       context,
-      title: AppLocalizations.of(context)!.deleteSongTitle,
-      message: AppLocalizations.of(context)!.songDeleteBody,
+      title: AppLocalizations.of(context).deleteSongTitle,
+      message: AppLocalizations.of(context).songDeleteBody,
     );
     if (!confirmed) return;
     await library.deleteSong(widget.songId);

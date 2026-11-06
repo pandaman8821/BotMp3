@@ -112,51 +112,51 @@ class SongTile extends StatelessWidget {
           children: <Widget>[
             ListTile(
               leading: const Icon(Icons.play_arrow),
-              title: Text(AppLocalizations.of(context)!.menuPlayNow),
+              title: Text(AppLocalizations.of(context).menuPlayNow),
               onTap: () => Navigator.of(sheetContext).pop('play'),
             ),
             ListTile(
               leading: const Icon(Icons.playlist_play),
-              title: Text(AppLocalizations.of(context)!.menuPlayNext),
+              title: Text(AppLocalizations.of(context).menuPlayNext),
               onTap: () => Navigator.of(sheetContext).pop('next'),
             ),
             ListTile(
               leading: const Icon(Icons.queue_music),
-              title: Text(AppLocalizations.of(context)!.addToPlaylist),
+              title: Text(AppLocalizations.of(context).addToPlaylist),
               onTap: () => Navigator.of(sheetContext).pop('playlist'),
             ),
             ListTile(
               leading: const Icon(Icons.edit_note),
-              title: Text(AppLocalizations.of(context)!.menuEditMetadata),
+              title: Text(AppLocalizations.of(context).menuEditMetadata),
               onTap: () => Navigator.of(sheetContext).pop('edit'),
             ),
             ListTile(
               leading: const Icon(Icons.image_outlined),
-              title: Text(AppLocalizations.of(context)!.menuEditCover),
+              title: Text(AppLocalizations.of(context).menuEditCover),
               onTap: () => Navigator.of(sheetContext).pop('cover'),
             ),
             ListTile(
               leading: Icon(song.isFavorite ? Icons.favorite_border : Icons.favorite),
               title: Text(song.isFavorite
-                    ? AppLocalizations.of(context)!.menuRemoveFavorite
-                    : AppLocalizations.of(context)!.menuMarkFavorite),
+                    ? AppLocalizations.of(context).menuRemoveFavorite
+                    : AppLocalizations.of(context).menuMarkFavorite),
               onTap: () => Navigator.of(sheetContext).pop('favorite'),
             ),
             if (song.album.trim().isNotEmpty)
                 ListTile(
                   leading: const Icon(Icons.album_outlined),
-                  title: Text(AppLocalizations.of(context)!.playAlbum),
+                  title: Text(AppLocalizations.of(context).playAlbum),
                   onTap: () => Navigator.of(sheetContext).pop('album'),
                 ),
               if (song.path.isNotEmpty && !song.path.startsWith('content://'))
                 ListTile(
                   leading: const Icon(Icons.folder_outlined),
-                  title: Text(AppLocalizations.of(context)!.playFolder),
+                  title: Text(AppLocalizations.of(context).playFolder),
                   onTap: () => Navigator.of(sheetContext).pop('folder'),
                 ),
               ListTile(
               leading: const Icon(Icons.delete_outline, color: Colors.redAccent),
-              title: Text(AppLocalizations.of(context)!.menuRemoveFromLibrary, style: const TextStyle(color: Colors.redAccent)),
+              title: Text(AppLocalizations.of(context).menuRemoveFromLibrary, style: const TextStyle(color: Colors.redAccent)),
               onTap: () => Navigator.of(sheetContext).pop('delete'),
             ),
             const SizedBox(height: 8),
@@ -172,7 +172,7 @@ class SongTile extends StatelessWidget {
         await player.playSong(song, context: queueContext);
       case 'next':
         await player.playNext(song);
-        if (context.mounted) _snack(context, AppLocalizations.of(context)!.songUpNext(song.title));
+        if (context.mounted) _snack(context, AppLocalizations.of(context).songUpNext(song.title));
       case 'playlist':
         await AppDialogs.addSongsToPlaylist(context, <Song>[song]);
       case 'edit':
@@ -201,8 +201,8 @@ class SongTile extends StatelessWidget {
         if (!context.mounted) return;
         final bool confirmed = await AppDialogs.confirm(
           context,
-          title: AppLocalizations.of(context)!.deleteSongTitle,
-            message: AppLocalizations.of(context)!.deleteSongBody(song.title),
+          title: AppLocalizations.of(context).deleteSongTitle,
+            message: AppLocalizations.of(context).deleteSongBody(song.title),
         );
         if (confirmed) await library.deleteSong(song.id);
     }

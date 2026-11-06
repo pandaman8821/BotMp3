@@ -51,8 +51,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
 
     if (song == null) {
       return Scaffold(
-        appBar: AppBar(title: Text(AppLocalizations.of(context)!.playing)),
-        body: Center(child: Text(AppLocalizations.of(context)!.noSongPlaying)),
+        appBar: AppBar(title: Text(AppLocalizations.of(context).playing)),
+        body: Center(child: Text(AppLocalizations.of(context).noSongPlaying)),
       );
     }
 
@@ -65,12 +65,12 @@ class _PlayerScreenState extends State<PlayerScreen> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(Icons.keyboard_arrow_down, size: 32),
-          tooltip: AppLocalizations.of(context)!.close,
+          tooltip: AppLocalizations.of(context).close,
           onPressed: () => Navigator.of(context).maybePop(),
         ),
         actions: <Widget>[
           IconButton(
-            tooltip: AppLocalizations.of(context)!.menuEditCover,
+            tooltip: AppLocalizations.of(context).menuEditCover,
             icon: const Icon(Icons.image_outlined),
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute<void>(
@@ -79,7 +79,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
             ),
           ),
           IconButton(
-            tooltip: AppLocalizations.of(context)!.playQueue,
+            tooltip: AppLocalizations.of(context).playQueue,
             icon: const Icon(Icons.queue_music),
             onPressed: () => _showQueue(context),
           ),
@@ -371,7 +371,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
           children: <Widget>[
             Padding(
                 padding: const EdgeInsets.all(12),
-                child: Text(AppLocalizations.of(context)!.playbackSpeed, style: const TextStyle(fontWeight: FontWeight.w700)),
+                child: Text(AppLocalizations.of(context).playbackSpeed, style: const TextStyle(fontWeight: FontWeight.w700)),
             ),
             Wrap(
               spacing: 8,
@@ -444,11 +444,11 @@ class _PlayerScreenState extends State<PlayerScreen> {
             children: <Widget>[
               Text(song.title, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
               SizedBox(height: 8),
-              Text('${AppLocalizations.of(context)!.artistLabel}: ${song.artist}'),
-                Text(AppLocalizations.of(context)!.albumLabel + ': ' + (song.album.isEmpty ? '—' : song.album)),
-                Text(AppLocalizations.of(context)!.yearLabel + ': ' + (song.year == 0 ? '—' : '${song.year}')),
-                Text(AppLocalizations.of(context)!.genreLabel + ': ' + song.genre),
-                Text(AppLocalizations.of(context)!.durationLabel + ': ' + Formatters.durationFromMs(song.durationMs)),
+              Text('${AppLocalizations.of(context).artistLabel}: ${song.artist}'),
+                Text(AppLocalizations.of(context).albumLabel + ': ' + (song.album.isEmpty ? '—' : song.album)),
+                Text(AppLocalizations.of(context).yearLabel + ': ' + (song.year == 0 ? '—' : '${song.year}')),
+                Text(AppLocalizations.of(context).genreLabel + ': ' + song.genre),
+                Text(AppLocalizations.of(context).durationLabel + ': ' + Formatters.durationFromMs(song.durationMs)),
               Text('Formato: ${song.extension.toUpperCase()} · ${Formatters.bytes(song.fileSizeBytes)}'),
               if (song.tags.isNotEmpty) Text('Tags: ${song.tags.map((String t) => '#$t').join(' ')}'),
               const SizedBox(height: 8),
@@ -483,7 +483,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
               if (index == 0) {
                 return Padding(
                     padding: const EdgeInsets.all(16),
-                    child: Text(AppLocalizations.of(context)!.playQueue, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
+                    child: Text(AppLocalizations.of(context).playQueue, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
                 );
               }
               final Song song = queue[index - 1];
@@ -502,7 +502,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                 subtitle: Text(song.artist, maxLines: 1, overflow: TextOverflow.ellipsis),
                 trailing: IconButton(
                   icon: const Icon(Icons.close),
-                  tooltip: AppLocalizations.of(context)!.menuRemoveFromLibrary,
+                  tooltip: AppLocalizations.of(context).menuRemoveFromLibrary,
                   onPressed: () => player.removeFromQueue(song.id),
                 ),
                 onTap: () {
@@ -529,7 +529,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
     if (!ai.hasActiveKey) {
       if (manual) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${AppLocalizations.of(context)!.apiKeyHint} ${ai.activeProvider.label} · ${AppLocalizations.of(context)!.tabSettings} ▸ IA')),
+          SnackBar(content: Text('${AppLocalizations.of(context).apiKeyHint} ${ai.activeProvider.label} · ${AppLocalizations.of(context).tabSettings} ▸ IA')),
         );
       }
       return;
@@ -558,7 +558,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
       }
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${AppLocalizations.of(context)!.aiDj}: ${AppLocalizations.of(context)!.djNextUp} \"${nextSong.title}\"')),
+          SnackBar(content: Text('${AppLocalizations.of(context).aiDj}: ${AppLocalizations.of(context).djNextUp} \"${nextSong.title}\"')),
         );
       }
     } else if (manual && mounted) {

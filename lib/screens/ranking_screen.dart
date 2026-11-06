@@ -2,13 +2,11 @@ import '../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../core/formatters.dart';
 import '../core/theme.dart';
 import '../models/song.dart';
 import '../providers/library_provider.dart';
 import '../providers/player_provider.dart';
 import '../widgets/cover_art.dart';
-import '../widgets/glass.dart';
 
 enum _Periodo { todo, mes, semana }
 
@@ -62,15 +60,15 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
         title: const Text('Ranking'),
         actions: <Widget>[
           IconButton(
-            tooltip: AppLocalizations.of(context)!.resetStatsTitle,
+            tooltip: AppLocalizations.of(context).resetStatsTitle,
             icon: const Icon(Icons.restart_alt),
             onPressed: () async {
               final bool? confirmar = await showDialog<bool>(
                 context: context,
                 builder: (BuildContext dialogContext) => AlertDialog(
-                  title: Text(AppLocalizations.of(context)!.resetRanking),
+                  title: Text(AppLocalizations.of(context).resetRanking),
                   content: Text(
-                    AppLocalizations.of(context)!.resetStatsBody,
+                    AppLocalizations.of(context).resetStatsBody,
                   ),
                   actions: <Widget>[
                     TextButton(
@@ -94,7 +92,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
           ),
           if (canciones.isNotEmpty)
             IconButton(
-              tooltip: AppLocalizations.of(context)!.playTop10,
+              tooltip: AppLocalizations.of(context).playTop10,
               icon: const Icon(Icons.play_circle_outline),
               onPressed: () {
                 final List<Song> top = canciones.take(10).toList();

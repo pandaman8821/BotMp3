@@ -77,12 +77,12 @@ class LyricsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    AppLocalizations.of(context)!.lyricsNotFound,
+                    AppLocalizations.of(context).lyricsNotFound,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(height: 10),
                   Text(
-                    AppLocalizations.of(context)!.lyricsHowTo,
+                    AppLocalizations.of(context).lyricsHowTo,
                     style: TextStyle(fontSize: 14, height: 1.5),
                   ),
                 ],

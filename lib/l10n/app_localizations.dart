@@ -116,12 +116,6 @@ abstract class AppLocalizations {
     Locale('zh', 'CN')
   ];
 
-  /// No description provided for @appTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'BotMp3'**
-  String get appTitle;
-
   /// No description provided for @tabSongs.
   ///
   /// In en, this message translates to:
@@ -158,41 +152,11 @@ abstract class AppLocalizations {
   /// **'Play'**
   String get play;
 
-  /// No description provided for @pause.
-  ///
-  /// In en, this message translates to:
-  /// **'Pause'**
-  String get pause;
-
-  /// No description provided for @next.
-  ///
-  /// In en, this message translates to:
-  /// **'Next'**
-  String get next;
-
-  /// No description provided for @previous.
-  ///
-  /// In en, this message translates to:
-  /// **'Previous'**
-  String get previous;
-
   /// No description provided for @shuffle.
   ///
   /// In en, this message translates to:
   /// **'Shuffle'**
   String get shuffle;
-
-  /// No description provided for @repeatOne.
-  ///
-  /// In en, this message translates to:
-  /// **'Repeat one'**
-  String get repeatOne;
-
-  /// No description provided for @repeatAll.
-  ///
-  /// In en, this message translates to:
-  /// **'Repeat all'**
-  String get repeatAll;
 
   /// No description provided for @equalizer.
   ///
@@ -205,30 +169,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Car mode'**
   String get carMode;
-
-  /// No description provided for @lyrics.
-  ///
-  /// In en, this message translates to:
-  /// **'Lyrics'**
-  String get lyrics;
-
-  /// No description provided for @widget.
-  ///
-  /// In en, this message translates to:
-  /// **'Widget'**
-  String get widget;
-
-  /// No description provided for @backup.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup'**
-  String get backup;
-
-  /// No description provided for @restore.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore'**
-  String get restore;
 
   /// No description provided for @cancel.
   ///
@@ -260,47 +200,11 @@ abstract class AppLocalizations {
   /// **'Loading…'**
   String get loading;
 
-  /// No description provided for @errorGeneric.
-  ///
-  /// In en, this message translates to:
-  /// **'Something went wrong'**
-  String get errorGeneric;
-
-  /// No description provided for @noSongs.
-  ///
-  /// In en, this message translates to:
-  /// **'No songs yet'**
-  String get noSongs;
-
   /// No description provided for @aiDj.
   ///
   /// In en, this message translates to:
   /// **'AI DJ'**
   String get aiDj;
-
-  /// No description provided for @recommend.
-  ///
-  /// In en, this message translates to:
-  /// **'Recommend'**
-  String get recommend;
-
-  /// No description provided for @external.
-  ///
-  /// In en, this message translates to:
-  /// **'External'**
-  String get external;
-
-  /// No description provided for @library.
-  ///
-  /// In en, this message translates to:
-  /// **'Library'**
-  String get library;
-
-  /// No description provided for @nowPlaying.
-  ///
-  /// In en, this message translates to:
-  /// **'Now playing'**
-  String get nowPlaying;
 
   /// No description provided for @trendsNow.
   ///
@@ -1190,12 +1094,6 @@ abstract class AppLocalizations {
   /// **'Total plays'**
   String get statsTotalPlays;
 
-  /// No description provided for @statsUniqueSongs.
-  ///
-  /// In en, this message translates to:
-  /// **'Songs played'**
-  String get statsUniqueSongs;
-
   /// No description provided for @playAlbum.
   ///
   /// In en, this message translates to:
@@ -1490,12 +1388,6 @@ abstract class AppLocalizations {
   /// **'It will be removed from the library (the audio file is not deleted).'**
   String get songDeleteBody;
 
-  /// No description provided for @ideaNoTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Untitled idea'**
-  String get ideaNoTitle;
-
   /// No description provided for @dialogListName.
   ///
   /// In en, this message translates to:
@@ -1610,12 +1502,6 @@ abstract class AppLocalizations {
   /// **'BotMp3 stores metadata in its own local database and also'**
   String get songEditNote;
 
-  /// No description provided for @aiTestOk.
-  ///
-  /// In en, this message translates to:
-  /// **'Reply only with: BotMp3 AI connected'**
-  String get aiTestOk;
-
   /// No description provided for @aiAskExamples.
   ///
   /// In en, this message translates to:
@@ -1675,6 +1561,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Playlist exported to {path}'**
   String exportedTo(String path);
+
+  /// No description provided for @statsUniqueSongs.
+  ///
+  /// In en, this message translates to:
+  /// **'Unique songs'**
+  String get statsUniqueSongs;
 }
 
 class _AppLocalizationsDelegate

@@ -675,7 +675,7 @@ class LibraryService {
         }
       }
 
-      return createPlaylist(
+      return await createPlaylist(
         name: name,
         description: description,
         songIds: resolvedIds,

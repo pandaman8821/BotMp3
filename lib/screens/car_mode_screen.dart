@@ -98,7 +98,7 @@ class CarModeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                AppLocalizations.of(context)!.carModeHint,
+                AppLocalizations.of(context).carModeHint,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 12,

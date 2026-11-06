@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:just_audio/just_audio.dart' hide RepeatMode;
+import 'package:just_audio/just_audio.dart';
 
 import '../models/song.dart';
 import '../services/player_service.dart';

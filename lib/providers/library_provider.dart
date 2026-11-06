@@ -116,7 +116,6 @@ class LibraryProvider extends ChangeNotifier {
       final Map<String, String> reapuntadas = <String, String>{};
       int liberado = 0;
       int recuperadas = 0;
-      int movidas = 0;
 
       for (final Song song in List<Song>.from(_service.songs)) {
         final bool enCache = song.path.startsWith(cacheRoot);
@@ -145,7 +144,6 @@ class LibraryProvider extends ChangeNotifier {
               .moveImportedFile(song.path, file.uri.pathSegments.last);
           if (estable != song.path) {
             reapuntadas[song.id] = estable;
-            movidas++;
           }
         }
       }

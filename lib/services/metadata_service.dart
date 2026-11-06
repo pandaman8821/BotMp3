@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
-import 'package:just_audio/just_audio.dart';
 
 import '../core/constants.dart';
 import '../core/formatters.dart';
@@ -135,13 +134,6 @@ class MetadataService {
   static String _idFor(String path) =>
       '${path.hashCode.toRadixString(16)}_${path.length}';
 
-  static String? _clean(String? value) {
-    final String? trimmed = value?.trim();
-    if (trimmed == null || trimmed.isEmpty) return null;
-    const List<String> junk = <String>['unknown', 'desconocido', 'various artists'];
-    if (junk.contains(trimmed.toLowerCase())) return null;
-    return trimmed;
-  }
 
   /// Deduce el género por el nombre de alguna carpeta de la ruta.
   static String? _guessGenreFromFolder(String path) {

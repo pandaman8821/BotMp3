@@ -114,7 +114,7 @@ class _SongsScreenState extends State<SongsScreen> {
         actions: _selectionMode
             ? <Widget>[
                 IconButton(
-                  tooltip: AppLocalizations.of(context)!.addToPlaylist,
+                  tooltip: AppLocalizations.of(context).addToPlaylist,
                   icon: const Icon(Icons.playlist_add),
                   onPressed: () async {
                     final List<Song> chosen = songs
@@ -130,7 +130,7 @@ class _SongsScreenState extends State<SongsScreen> {
                   },
                 ),
                 IconButton(
-                  tooltip: AppLocalizations.of(context)!.playSelection,
+                  tooltip: AppLocalizations.of(context).playSelection,
                   icon: const Icon(Icons.play_arrow),
                   onPressed: () {
                     final List<Song> chosen =
@@ -141,14 +141,14 @@ class _SongsScreenState extends State<SongsScreen> {
               ]
             : <Widget>[
                 IconButton(
-                  tooltip: AppLocalizations.of(context)!.mostPlayedRanking,
+                  tooltip: AppLocalizations.of(context).mostPlayedRanking,
                   icon: const Icon(Icons.leaderboard_outlined),
                   onPressed: () => Navigator.of(context).push(
                     MaterialPageRoute<void>(builder: (_) => const RankingScreen()),
                   ),
                 ),
                 IconButton(
-                  tooltip: AppLocalizations.of(context)!.advancedFilters,
+                  tooltip: AppLocalizations.of(context).advancedFilters,
                   icon: Badge(
                     isLabelVisible: library.hasActiveFilters,
                     child: const Icon(Icons.filter_alt_outlined),
@@ -156,7 +156,7 @@ class _SongsScreenState extends State<SongsScreen> {
                   onPressed: () => AppDialogs.showFilters(context),
                 ),
                 PopupMenuButton<_SortMode>(
-                  tooltip: AppLocalizations.of(context)!.sortBy,
+                  tooltip: AppLocalizations.of(context).sortBy,
                   icon: const Icon(Icons.sort),
                   onSelected: (_SortMode value) => setState(() => _sort = value),
                   itemBuilder: (BuildContext context) => <PopupMenuEntry<_SortMode>>[
@@ -170,7 +170,7 @@ class _SongsScreenState extends State<SongsScreen> {
                   ],
                 ),
                 IconButton(
-                  tooltip: AppLocalizations.of(context)!.carMode,
+                  tooltip: AppLocalizations.of(context).carMode,
                   icon: const Icon(Icons.directions_car_outlined),
                   onPressed: () => Navigator.of(context).push(
                     MaterialPageRoute<void>(
@@ -179,13 +179,13 @@ class _SongsScreenState extends State<SongsScreen> {
                   ),
                 ),
                 IconButton(
-                  tooltip: AppLocalizations.of(context)!.songLyrics,
+                  tooltip: AppLocalizations.of(context).songLyrics,
                   icon: const Icon(Icons.lyrics_outlined),
                   onPressed: () {
                     final Song? actual = player.current;
                     if (actual == null) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context)!.playSomethingFirst)),
+                        SnackBar(content: Text(AppLocalizations.of(context).playSomethingFirst)),
                       );
                       return;
                     }
@@ -197,7 +197,7 @@ class _SongsScreenState extends State<SongsScreen> {
                   },
                 ),
                 IconButton(
-                  tooltip: AppLocalizations.of(context)!.shuffleAll,
+                  tooltip: AppLocalizations.of(context).shuffleAll,
                   icon: const Icon(Icons.shuffle),
                   onPressed: () async {
                     if (songs.isEmpty) return;
@@ -230,7 +230,7 @@ class _SongsScreenState extends State<SongsScreen> {
                   ),
                   TextButton(
                     onPressed: library.clearFilters,
-                    child: Text(AppLocalizations.of(context)!.clearFilters),
+                    child: Text(AppLocalizations.of(context).clearFilters),
                   ),
                 ],
               ),
