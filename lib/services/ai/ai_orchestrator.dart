@@ -8,6 +8,7 @@ import '../../models/ai_models.dart';
 import '../../models/song.dart';
 import '../../services/settings_service.dart';
 import 'ai_client.dart';
+import 'ai_local_search.dart';
 
 /// Agente musical de BotMp3.
 ///
@@ -28,6 +29,9 @@ Eres "BotMp3 IA", un DJ y curador musical experto que conversa en español.
 Conoces la biblioteca local del usuario (se te entrega como contexto) y puedes
 recomendar tanto canciones que ya tiene como música externa que debería buscar.
 Reglas:
+- La lista ARTISTAS DE LA BIBLIOTECA y las COINCIDENCIAS son la fuente de verdad:
+  si un artista o una cancion aparece ahi, el usuario SI lo tiene. Nunca digas que
+  no tiene algo que aparece en esas listas.
 - Responde SIEMPRE en español, con tono cercano y breve (máximo 6 líneas salvo que pidan más).
 - Cuando propongas canciones, explica en una frase por qué encajan (mood, época, género, energía).
 - No inventes datos técnicos; si no estás seguro de un año, omítelo.
@@ -151,7 +155,7 @@ Rules:
   Future<String> chat(List<AiMessage> history, {String? extraContext}) async {
     return client.complete(
       history,
-      systemPrompt: '$_system\n$_actionProtocol\n\nBIBLIOTECA DEL USUARIO (JSON):\n${_catalogContext()}\n'
+      systemPrompt: '$_system\n$_actionProtocol\n\nBIBLIOTECA DEL USUARIO:\n${AiLocalSearch.contexto(librarySongs, '')}\nMuestra (JSON):\n${_catalogContext()}\n'
           '${extraContext == null ? '' : '\nCONTEXTO ACTUAL:\n$extraContext'}',
       temperature: 0.8,
       maxTokens: 1200,
@@ -235,7 +239,10 @@ Devuelve EXACTAMENTE este JSON (sin markdown):
     final String prompt = '''
 El usuario busca en su biblioteca: "$query"
 
-Biblioteca local: ${_catalogContext(limit: 60)}
+CONTEXTO REAL (calculado en el dispositivo, es la verdad):
+${AiLocalSearch.contexto(librarySongs, query)}
+
+Biblioteca local (muestra de las mas escuchadas): ${_catalogContext(limit: 60)}
 
 Interpreta la intención (mood, época, energía, idioma, actividad) y elige las canciones
 de la biblioteca que mejor encajan. Devuelve EXACTAMENTE este JSON:
@@ -252,7 +259,36 @@ Ordena de más a menos relevante. Máximo 25 canciones, solo de la biblioteca lo
       temperature: 0.4,
       maxTokens: 2000,
     );
-    return _parseActionResult(raw);
+    final AiActionResult resultado = _parseActionResult(raw);
+    return _resultadoConGuardia(query, resultado);
+  }
+
+  /// Red de seguridad: si la biblioteca TIENE coincidencias, la respuesta no
+  /// puede decir que no existen. Si el modelo se equivoca, se corrige aqui.
+  AiActionResult _resultadoConGuardia(String query, AiActionResult resultado) {
+    final List<Song> coincidencias = AiLocalSearch.buscar(librarySongs, query);
+    if (coincidencias.isEmpty) return resultado;
+    final String texto = (resultado.text ?? '').toLowerCase();
+    final bool niega = texto.contains('no tienes') ||
+        texto.contains('no hay') ||
+        texto.contains('no encontr') ||
+        texto.contains('nada suyo') ||
+        texto.contains('no aparece');
+    final bool sinSugerencias = resultado.suggestions.isEmpty;
+    if (!niega && !sinSugerencias) return resultado;
+    final List<AiSongSuggestion> sugerencias = <AiSongSuggestion>[
+      for (final Song s in coincidencias.take(15))
+        AiSongSuggestion(title: s.title, artist: s.artist, reason: 'Esta en tu biblioteca'),
+    ];
+    final String mensaje = niega
+        ? 'Si las tienes: encontre ${coincidencias.length} coincidencias en tu biblioteca.'
+        : resultado.text;
+    return AiActionResult(
+      text: mensaje,
+      suggestions: sugerencias,
+      playlistName: resultado.playlistName,
+      playlistDescription: resultado.playlistDescription,
+    );
   }
 
   /// Modo DJ IA: elige la siguiente canción y explica por qué.
