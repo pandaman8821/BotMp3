@@ -353,6 +353,11 @@ ListTile(
                 },
               ),
               _SectionTitle(AppLocalizations.of(context).secPerformance),
+              ListTile(
+                leading: const Icon(Icons.storage),
+                title: Text(AppLocalizations.of(context).sqliteTitle),
+                subtitle: Text(library.sqliteEstado, style: const TextStyle(fontSize: 12)),
+              ),
           SwitchListTile(
             value: settings.batterySaver,
             onChanged: settings.setBatterySaver,

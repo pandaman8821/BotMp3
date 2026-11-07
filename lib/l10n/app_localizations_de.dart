@@ -954,4 +954,7 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get pauseOnDisconnectDesc =>
       'Pauses when headphones or Bluetooth are removed.';
+
+  @override
+  String get sqliteTitle => 'Search index (SQLite)';
 }

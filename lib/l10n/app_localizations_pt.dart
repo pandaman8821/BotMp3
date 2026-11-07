@@ -954,6 +954,9 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get pauseOnDisconnectDesc =>
       'Pauses when headphones or Bluetooth are removed.';
+
+  @override
+  String get sqliteTitle => 'Search index (SQLite)';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1906,4 +1909,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get pauseOnDisconnectDesc =>
       'Pauses when headphones or Bluetooth are removed.';
+
+  @override
+  String get sqliteTitle => 'Search index (SQLite)';
 }

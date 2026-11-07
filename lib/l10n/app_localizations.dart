@@ -1825,6 +1825,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pauses when headphones or Bluetooth are removed.'**
   String get pauseOnDisconnectDesc;
+
+  /// No description provided for @sqliteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Search index (SQLite)'**
+  String get sqliteTitle;
 }
 
 class _AppLocalizationsDelegate

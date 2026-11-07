@@ -3,7 +3,7 @@ description: "BotMp3: reproductor de música con biblioteca, listas, editor de c
 publish_to: 'none'
 
 # Versión 1.0 lista para probar (versionName 1.0.0 / versionCode 1)
-version: 1.9.98+151
+version: 1.9.99+153
 
 environment:
   sdk: ">=3.5.0 <4.0.0"
@@ -54,6 +54,7 @@ dependencies:
   # `sdkmanager "ndk;27.0.12077973" "cmake;3.22.1"` y restaura el bloque
   # marcado como PUNTO DE EXTENSIÓN en lib/services/voice_service.dart.
   intl: any
+  sqflite: ^2.4.4
   home_widget: ^0.10.0
 
 dev_dependencies:
