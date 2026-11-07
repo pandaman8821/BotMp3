@@ -163,7 +163,6 @@ class LibraryProvider extends ChangeNotifier {
       return 0;
     } finally {
       _scanning = false;
-      _importProgress = 0;
       notifyListeners();
     }
   }
@@ -226,7 +225,6 @@ class LibraryProvider extends ChangeNotifier {
     if (_scanning) return 0;
     _scanning = true;
     _scanMessage = 'Buscando música en el dispositivo…';
-    _importProgress = 0.05;
     notifyListeners();
     try {
       await init();
@@ -257,14 +255,11 @@ class LibraryProvider extends ChangeNotifier {
         for (final Song song in _service.songs)
           _claveDispositivo(song.title, song.artist),
       };
-      _importProgress = 0.45;
       final List<Song> nuevas = found
           .where((Song song) =>
               !conocidas.contains(_claveDispositivo(song.title, song.artist)))
           .toList(growable: false);
-      _importProgress = 0.75;
       final List<Song> added = await _service.importScannedTracks(nuevas);
-      _importProgress = 0.95;
       _scanMessage = added.isEmpty
           ? 'Biblioteca al día (${found.length} pistas en el dispositivo)'
           : '${added.length} canciones nuevas de ${found.length}';

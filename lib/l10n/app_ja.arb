@@ -305,16 +305,5 @@
   "resumeOnConnect": "Resume on connect",
   "resumeOnConnectDesc": "Starts playing again when headphones or Bluetooth connect.",
   "pauseOnDisconnect": "Pause on disconnect",
-  "pauseOnDisconnectDesc": "Pauses when headphones or Bluetooth are removed.",
-  "tabHome": "Home",
-  "homeContinue": "Continue listening",
-  "homeRecent": "Recently added",
-  "homeFavorites": "Favorites",
-  "homeMostPlayed": "Most played",
-  "homePlaylists": "Your playlists",
-  "homeEmpty": "Your library is empty. Scan your device to start.",
-  "homeScanning": "Scanning your music…",
-  "homeScanNow": "Scan now",
-  "addToQueue": "Add to queue",
-  "addedToQueue": "Added to the queue"
+  "pauseOnDisconnectDesc": "Pauses when headphones or Bluetooth are removed."
 }
