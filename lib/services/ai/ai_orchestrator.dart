@@ -268,7 +268,7 @@ Ordena de más a menos relevante. Máximo 25 canciones, solo de la biblioteca lo
   AiActionResult _resultadoConGuardia(String query, AiActionResult resultado) {
     final List<Song> coincidencias = AiLocalSearch.buscar(librarySongs, query);
     if (coincidencias.isEmpty) return resultado;
-    final String texto = (resultado.text ?? '').toLowerCase();
+    final String texto = resultado.text.toLowerCase();
     final bool niega = texto.contains('no tienes') ||
         texto.contains('no hay') ||
         texto.contains('no encontr') ||
