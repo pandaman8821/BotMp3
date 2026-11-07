@@ -475,5 +475,6 @@
   "resumeOnConnect": "Reanudar al conectar",
   "resumeOnConnectDesc": "Vuelve a reproducir al conectar auriculares o Bluetooth.",
   "pauseOnDisconnect": "Pausar al desconectar",
-  "pauseOnDisconnectDesc": "Pausa al quitar los auriculares o el Bluetooth."
+  "pauseOnDisconnectDesc": "Pausa al quitar los auriculares o el Bluetooth.",
+  "sqliteTitle": "Índice de búsqueda (SQLite)"
 }

@@ -478,6 +478,7 @@ class LibraryService {
     List<String> tags = const <String>[],
     bool favoritesOnly = false,
     int limit = 200,
+    Set<String>? candidatos,
   }) {
     final String needle = Formatters.normalize(query);
     final List<String> tagNeedles =
@@ -486,6 +487,7 @@ class LibraryService {
     final List<(Song, double)> scored = <(Song, double)>[];
 
     for (final Song song in _songs) {
+      if (candidatos != null && !candidatos.contains(song.id)) continue;
       if (favoritesOnly && !song.isFavorite) continue;
       if (genre != null && genre.isNotEmpty && song.genre != genre) continue;
       if (artist != null && artist.isNotEmpty) {

@@ -475,5 +475,6 @@
   "resumeOnConnect": "Resume on connect",
   "resumeOnConnectDesc": "Starts playing again when headphones or Bluetooth connect.",
   "pauseOnDisconnect": "Pause on disconnect",
-  "pauseOnDisconnectDesc": "Pauses when headphones or Bluetooth are removed."
+  "pauseOnDisconnectDesc": "Pauses when headphones or Bluetooth are removed.",
+  "sqliteTitle": "Search index (SQLite)"
 }

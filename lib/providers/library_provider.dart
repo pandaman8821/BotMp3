@@ -11,6 +11,7 @@ import '../services/ai/ai_bridge.dart';
 import '../core/formatters.dart';
 import '../core/text_utils.dart';
 import '../services/library_service.dart';
+import '../services/library_database.dart';
 import '../services/settings_service.dart';
 import '../services/storage_service.dart';
 import '../services/media_scanner.dart';
@@ -26,11 +27,15 @@ class LibraryProvider extends ChangeNotifier {
   bool _loading = true;
   String? _importMessage;
   double _importProgress = 0;
+  String _sqliteEstado = 'SQLite: iniciando';
+  bool _sqliteListo = false;
   bool _scanning = false;
   String? _scanMessage;
 
   // Filtros de la búsqueda avanzada.
   String _query = '';
+  Set<String>? _candidatosSqlite;
+  int _generacionBusqueda = 0;
   String? _genreFilter;
   String? _artistFilter;
   int? _yearFrom;
@@ -46,6 +51,10 @@ class LibraryProvider extends ChangeNotifier {
   double get importProgress => _importProgress;
   bool get isScanning => _scanning;
   String? get scanMessage => _scanMessage;
+
+  /// Estado del indice SQLite (para Diagnostico).
+  String get sqliteEstado => _sqliteEstado;
+  bool get sqliteListo => _sqliteListo;
 
   String get query => _query;
   String? get genreFilter => _genreFilter;
@@ -67,7 +76,28 @@ class LibraryProvider extends ChangeNotifier {
 
   Future<void>? _loadFuture;
 
-  Future<void> init() => _loadFuture ??= _load();
+  Future<void> init() async {
+    _loadFuture ??= _load();
+    await _loadFuture;
+    await _prepararIndice();
+  }
+
+  Future<void> _prepararIndice() async {
+    // Si el build es "sin SQLite" (--dart-define=BOTMP3_SQLITE=0) no se activa.
+    if (!const bool.fromEnvironment('BOTMP3_SQLITE', defaultValue: true)) {
+      _sqliteEstado = 'SQLite: desactivado en esta version';
+      return;
+    }
+    final bool ok = await LibraryDatabase.iniciar();
+    if (!ok) {
+      _sqliteEstado = LibraryDatabase.estado;
+      return;
+    }
+    await LibraryDatabase.sincronizar(_service.songs, _service.playlists);
+    _sqliteEstado = LibraryDatabase.estado;
+    _sqliteListo = LibraryDatabase.disponible;
+    notifyListeners();
+  }
 
   Future<void> _load() async {
     await _service.load();
@@ -301,6 +331,40 @@ class LibraryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Usa el indice SQLite para acotar los candidatos de la busqueda.
+  Future<void> _buscarEnIndice(String consulta) async {
+    final int generacion = ++_generacionBusqueda;
+    if (!_sqliteListo || consulta.trim().length < 2) {
+      if (_candidatosSqlite != null) {
+        _candidatosSqlite = null;
+        notifyListeners();
+      }
+      return;
+    }
+    final List<String>? ids = await LibraryDatabase.buscarIds(consulta);
+    if (generacion != _generacionBusqueda) return;
+    _candidatosSqlite = ids == null ? null : ids.toSet();
+    notifyListeners();
+  }
+
+  Timer? _timerReindexado;
+
+  /// Cualquier cambio de la biblioteca programa un reindexado (con retardo).
+  @override
+  void notifyListeners() {
+    _timerReindexado?.cancel();
+    _timerReindexado = Timer(const Duration(milliseconds: 1500), () {
+      _reindexarSqlite(); // reindexado programado
+    });
+    super.notifyListeners();
+  }
+
+  /// Reconstruye el indice SQLite cuando cambia la biblioteca.
+  void _reindexarSqlite() {
+    if (!_sqliteListo) return;
+    unawaited(LibraryDatabase.sincronizar(_service.songs, _service.playlists));
+  }
+
   // ------------------------------------------------------------ consultas
 
   /// Resultado de aplicar la consulta y los filtros activos.
@@ -313,6 +377,7 @@ class LibraryProvider extends ChangeNotifier {
       yearTo: _yearTo,
       tags: _tagFilters.toList(),
       favoritesOnly: _favoritesOnly,
+      candidatos: _candidatosSqlite,
     );
     // Los audios de apps y las notas de voz solo se muestran si el usuario
     // activa la opción (así también desaparecen los ya importados antes).
@@ -350,6 +415,7 @@ class LibraryProvider extends ChangeNotifier {
 
   void setQuery(String value) {
     _query = value;
+    _buscarEnIndice(value);
     notifyListeners();
   }
 
