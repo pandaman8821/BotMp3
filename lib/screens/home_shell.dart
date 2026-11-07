@@ -13,6 +13,7 @@ import '../providers/library_provider.dart';
 import '../providers/settings_provider.dart';
 import '../services/media_importer.dart';
 import '../screens/ai_screen.dart';
+import '../screens/home_dashboard.dart';
 import '../screens/playlists_screen.dart';
 import '../screens/search_screen.dart';
 import '../screens/settings_screen.dart';
@@ -59,6 +60,7 @@ class _HomeShellState extends State<HomeShell>
   }
 
   static final List<Widget> _screens = <Widget>[
+    HomeDashboard(),
     SongsScreen(),
     PlaylistsScreen(),
     SearchScreen(),
@@ -188,7 +190,7 @@ class _HomeShellState extends State<HomeShell>
         },
         child: IndexedStack(index: _index, children: _screens),
       ),
-      floatingActionButton: _index == 0
+      floatingActionButton: _index == 1
           ? FloatingActionButton.extended(
               onPressed: () => AppDialogs.importSongs(context),
               icon: const Icon(Icons.library_add),
@@ -221,6 +223,11 @@ class _HomeShellState extends State<HomeShell>
                   onChanged: _changeTab,
                   quality: context.watch<SettingsProvider>().glassQuality,
                   destinations: <GlassNavDestination>[
+                    GlassNavDestination(
+                      icon: Icons.home_outlined,
+                      selectedIcon: Icons.home,
+                      label: AppLocalizations.of(context).tabHome,
+                    ),
                     GlassNavDestination(
                       icon: Icons.library_music_outlined,
                       selectedIcon: Icons.library_music,

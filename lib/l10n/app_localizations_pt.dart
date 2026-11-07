@@ -954,6 +954,39 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get pauseOnDisconnectDesc =>
       'Pauses when headphones or Bluetooth are removed.';
+
+  @override
+  String get tabHome => 'Home';
+
+  @override
+  String get homeContinue => 'Continue listening';
+
+  @override
+  String get homeRecent => 'Recently added';
+
+  @override
+  String get homeFavorites => 'Favorites';
+
+  @override
+  String get homeMostPlayed => 'Most played';
+
+  @override
+  String get homePlaylists => 'Your playlists';
+
+  @override
+  String get homeEmpty => 'Your library is empty. Scan your device to start.';
+
+  @override
+  String get homeScanning => 'Scanning your music…';
+
+  @override
+  String get homeScanNow => 'Scan now';
+
+  @override
+  String get addToQueue => 'Add to queue';
+
+  @override
+  String get addedToQueue => 'Added to the queue';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1906,4 +1939,37 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get pauseOnDisconnectDesc =>
       'Pauses when headphones or Bluetooth are removed.';
+
+  @override
+  String get tabHome => 'Home';
+
+  @override
+  String get homeContinue => 'Continue listening';
+
+  @override
+  String get homeRecent => 'Recently added';
+
+  @override
+  String get homeFavorites => 'Favorites';
+
+  @override
+  String get homeMostPlayed => 'Most played';
+
+  @override
+  String get homePlaylists => 'Your playlists';
+
+  @override
+  String get homeEmpty => 'Your library is empty. Scan your device to start.';
+
+  @override
+  String get homeScanning => 'Scanning your music…';
+
+  @override
+  String get homeScanNow => 'Scan now';
+
+  @override
+  String get addToQueue => 'Add to queue';
+
+  @override
+  String get addedToQueue => 'Added to the queue';
 }

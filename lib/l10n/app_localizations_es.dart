@@ -956,4 +956,38 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get pauseOnDisconnectDesc =>
       'Pausa al quitar los auriculares o el Bluetooth.';
+
+  @override
+  String get tabHome => 'Inicio';
+
+  @override
+  String get homeContinue => 'Continuar escuchando';
+
+  @override
+  String get homeRecent => 'Añadido recientemente';
+
+  @override
+  String get homeFavorites => 'Favoritas';
+
+  @override
+  String get homeMostPlayed => 'Más escuchadas';
+
+  @override
+  String get homePlaylists => 'Tus playlists';
+
+  @override
+  String get homeEmpty =>
+      'Tu biblioteca está vacía. Escanea el dispositivo para empezar.';
+
+  @override
+  String get homeScanning => 'Escaneando tu música…';
+
+  @override
+  String get homeScanNow => 'Escanear ahora';
+
+  @override
+  String get addToQueue => 'Añadir a la cola';
+
+  @override
+  String get addedToQueue => 'Añadida a la cola';
 }
