@@ -1,0 +1,44 @@
+PARA:      harllinggarcia@gmail.com
+ASUNTO:    BotMp3 - Lista extensa de mejoras sin romper lo funcional ni lo estetico
+
+ADJUNTAR:  BotMp3-Mejoras-Sin-Riesgo.docx  (o el .pdf)
+
+--------------------------------------------------------------------
+CUERPO DEL CORREO (copiar desde aqui)
+--------------------------------------------------------------------
+
+Hola:
+
+Te envio la lista extensa de mejoras para BotMp3. El documento adjunto
+tiene 13 secciones y mas de 150 ideas, cada una con su nivel de esfuerzo,
+su riesgo y, sobre todo, la forma concreta de implementarla SIN romper
+lo que ya funciona.
+
+Resumen de secciones:
+ 1. Reglas para agregar cualquier cosa sin romper la app
+ 2. Audio y reproduccion (28 ideas)
+ 3. Biblioteca y organizacion (22 ideas)
+ 4. Busqueda e inteligencia artificial (18 ideas)
+ 5. Interfaz y estetica (28 ideas)
+ 6. Widgets y notificaciones (14 ideas)
+ 7. Accesibilidad (12 ideas)
+ 8. Rendimiento (12 ideas)
+ 9. Datos, copias y privacidad (12 ideas)
+10. Ingenieria y publicacion (16 ideas)
+11. Prioridad recomendada: 15 mejoras con mejor relacion impacto/trabajo
+12. Lo que NO conviene agregar
+13. Lista de comprobacion para cada mejora
+
+Las 5 primeras recomendadas para la siguiente ronda:
+ 1. Orden ascendente y descendente en la biblioteca
+ 2. Saltar silencio en la reproduccion
+ 3. Velocidad de reproduccion (podcasts y audiolibros)
+ 4. Mini-reproductor expandible con gesto
+ 5. Historial de busquedas
+
+Ninguna de ellas toca los datos del usuario, la cola de reproduccion ni
+la navegacion actual: son cambios aditivos y con posibilidad de apagarse.
+
+Quedo atento a cualquier duda.
+
+Un saludo.
