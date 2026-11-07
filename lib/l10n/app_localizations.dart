@@ -1825,6 +1825,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pauses when headphones or Bluetooth are removed.'**
   String get pauseOnDisconnectDesc;
+
+  /// No description provided for @tabHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get tabHome;
+
+  /// No description provided for @homeContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue listening'**
+  String get homeContinue;
+
+  /// No description provided for @homeRecent.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently added'**
+  String get homeRecent;
+
+  /// No description provided for @homeFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get homeFavorites;
+
+  /// No description provided for @homeMostPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'Most played'**
+  String get homeMostPlayed;
+
+  /// No description provided for @homePlaylists.
+  ///
+  /// In en, this message translates to:
+  /// **'Your playlists'**
+  String get homePlaylists;
+
+  /// No description provided for @homeEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your library is empty. Scan your device to start.'**
+  String get homeEmpty;
+
+  /// No description provided for @homeScanning.
+  ///
+  /// In en, this message translates to:
+  /// **'Scanning your music…'**
+  String get homeScanning;
+
+  /// No description provided for @homeScanNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan now'**
+  String get homeScanNow;
+
+  /// No description provided for @addToQueue.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to queue'**
+  String get addToQueue;
+
+  /// No description provided for @addedToQueue.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to the queue'**
+  String get addedToQueue;
 }
 
 class _AppLocalizationsDelegate
