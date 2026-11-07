@@ -475,16 +475,5 @@
   "resumeOnConnect": "Reanudar al conectar",
   "resumeOnConnectDesc": "Vuelve a reproducir al conectar auriculares o Bluetooth.",
   "pauseOnDisconnect": "Pausar al desconectar",
-  "pauseOnDisconnectDesc": "Pausa al quitar los auriculares o el Bluetooth.",
-  "tabHome": "Inicio",
-  "homeContinue": "Continuar escuchando",
-  "homeRecent": "Añadido recientemente",
-  "homeFavorites": "Favoritas",
-  "homeMostPlayed": "Más escuchadas",
-  "homePlaylists": "Tus playlists",
-  "homeEmpty": "Tu biblioteca está vacía. Escanea el dispositivo para empezar.",
-  "homeScanning": "Escaneando tu música…",
-  "homeScanNow": "Escanear ahora",
-  "addToQueue": "Añadir a la cola",
-  "addedToQueue": "Añadida a la cola"
+  "pauseOnDisconnectDesc": "Pausa al quitar los auriculares o el Bluetooth."
 }
