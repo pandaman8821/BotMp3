@@ -16,6 +16,7 @@ import '../providers/player_provider.dart';
 import '../providers/settings_provider.dart';
 import '../services/settings_service.dart';
 import '../services/voice_service.dart';
+import '../services/bookmarks_service.dart';
 import '../services/cover_palette.dart';
 import '../widgets/cover_art.dart';
 import '../widgets/wave_bars.dart';
@@ -48,7 +49,77 @@ class _PlayerScreenState extends State<PlayerScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _maybeRunAutoDj());
   }
 
-  @override
+    /// Marcadores de la cancion actual (anadir, saltar y borrar).
+  Future<void> _mostrarMarcadores(Song song) async {
+    final AppLocalizations loc = AppLocalizations.of(context);
+    final PlayerProvider player = context.read<PlayerProvider>();
+    final BookmarksService servicio = BookmarksService.instance;
+    List<Duration> marcadores = await servicio.de(song.id);
+    if (!mounted) return;
+    final Duration posicionActual = player.position;
+    await showDialog<void>(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setStateDialog) {
+            return AlertDialog(
+              title: Text(loc.bookmarksTitle),
+              content: SizedBox(
+                width: 340,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    if (marcadores.isEmpty)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: Text(loc.noBookmarks),
+                      ),
+                    for (final Duration marca in marcadores)
+                      ListTile(
+                        dense: true,
+                        leading: const Icon(Icons.bookmark, size: 20),
+                        title: Text(_formato(marca)),
+                        onTap: () {
+                          player.seek(marca);
+                          Navigator.of(dialogContext).pop();
+                        },
+                        onLongPress: () async {
+                          await servicio.quitar(song.id, marca);
+                          final List<Duration> nuevos = await servicio.de(song.id);
+                          if (context.mounted) setStateDialog(() => marcadores = nuevos);
+                        },
+                      ),
+                  ],
+                ),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () async {
+                    await servicio.agregar(song.id, posicionActual);
+                    final List<Duration> nuevos = await servicio.de(song.id);
+                    if (context.mounted) setStateDialog(() => marcadores = nuevos);
+                  },
+                  child: Text(loc.addBookmark),
+                ),
+                FilledButton(
+                  onPressed: () => Navigator.of(dialogContext).pop(),
+                  child: Text(loc.close),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+
+  static String _formato(Duration d) {
+    final int total = d.inSeconds;
+    final int m = total ~/ 60;
+    final int s = total % 60;
+    return '$m:${s.toString().padLeft(2, '0')}';
+  }
+
   Widget build(BuildContext context) {
     final PlayerProvider player = context.watch<PlayerProvider>();
     final LibraryProvider library = context.watch<LibraryProvider>();
@@ -87,6 +158,11 @@ class _PlayerScreenState extends State<PlayerScreen> {
           onPressed: () => Navigator.of(context).maybePop(),
         ),
         actions: <Widget>[
+          IconButton(
+            tooltip: AppLocalizations.of(context).bookmarksTitle,
+            icon: const Icon(Icons.bookmarks_outlined),
+            onPressed: () => _mostrarMarcadores(current),
+          ),
           IconButton(
             tooltip: AppLocalizations.of(context).menuEditCover,
             icon: const Icon(Icons.image_outlined),
@@ -623,7 +699,6 @@ class _MiniAction extends StatelessWidget {
   final VoidCallback? onTap;
   final bool highlight;
 
-  @override
   Widget build(BuildContext context) {
     final Color color = highlight ? AppColors.aiViolet : Theme.of(context).colorScheme.onSurface;
     return InkWell(

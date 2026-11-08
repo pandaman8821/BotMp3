@@ -476,5 +476,10 @@
   "resumeOnConnectDesc": "Starts playing again when headphones or Bluetooth connect.",
   "pauseOnDisconnect": "Pause on disconnect",
   "pauseOnDisconnectDesc": "Pauses when headphones or Bluetooth are removed.",
-  "sqliteTitle": "Search index (SQLite)"
+  "sqliteTitle": "Search index (SQLite)",
+  "fadeTitle": "Fade between songs",
+  "fadeDesc": "Cross-fades the volume when the track changes.",
+  "bookmarksTitle": "Bookmarks",
+  "addBookmark": "Add here",
+  "noBookmarks": "No bookmarks in this song"
 }

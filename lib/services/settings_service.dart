@@ -78,6 +78,12 @@ class SettingsService {
   Future<void> setPausarAlDesconectar(bool valor) async =>
       _prefs.setBool('pausar_al_desconectar', valor);
 
+  /// Fundido suave al cambiar de cancion.
+  bool get fundidoCanciones => _prefs.getBool('fundido_canciones') ?? true;
+
+  Future<void> setFundidoCanciones(bool valor) async =>
+      _prefs.setBool('fundido_canciones', valor);
+
   /// Normalizacion de volumen con ReplayGain (etiquetas del archivo).
   bool get normalizarVolumen => _prefs.getBool('normalizar_volumen') ?? false;
 

@@ -476,5 +476,10 @@
   "resumeOnConnectDesc": "Vuelve a reproducir al conectar auriculares o Bluetooth.",
   "pauseOnDisconnect": "Pausar al desconectar",
   "pauseOnDisconnectDesc": "Pausa al quitar los auriculares o el Bluetooth.",
-  "sqliteTitle": "Índice de búsqueda (SQLite)"
+  "sqliteTitle": "Índice de búsqueda (SQLite)",
+  "fadeTitle": "Fundido entre canciones",
+  "fadeDesc": "Cruza el volumen al cambiar de pista.",
+  "bookmarksTitle": "Marcadores",
+  "addBookmark": "Añadir aquí",
+  "noBookmarks": "Sin marcadores en esta canción"
 }

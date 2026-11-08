@@ -1831,6 +1831,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search index (SQLite)'**
   String get sqliteTitle;
+
+  /// No description provided for @fadeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Fade between songs'**
+  String get fadeTitle;
+
+  /// No description provided for @fadeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Cross-fades the volume when the track changes.'**
+  String get fadeDesc;
+
+  /// No description provided for @bookmarksTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookmarks'**
+  String get bookmarksTitle;
+
+  /// No description provided for @addBookmark.
+  ///
+  /// In en, this message translates to:
+  /// **'Add here'**
+  String get addBookmark;
+
+  /// No description provided for @noBookmarks.
+  ///
+  /// In en, this message translates to:
+  /// **'No bookmarks in this song'**
+  String get noBookmarks;
 }
 
 class _AppLocalizationsDelegate

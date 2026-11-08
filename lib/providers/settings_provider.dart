@@ -42,6 +42,13 @@ class SettingsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool get fundidoCanciones => _service.fundidoCanciones;
+
+  Future<void> setFundidoCanciones(bool v) async {
+    await _service.setFundidoCanciones(v);
+    notifyListeners();
+  }
+
   bool get normalizarVolumen => _service.normalizarVolumen;
 
   Future<void> setNormalizarVolumen(bool valor) async {
