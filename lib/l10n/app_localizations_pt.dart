@@ -981,6 +981,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get volumeReset => 'Reset volume';
+
+  @override
+  String get moreActions => 'More actions';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1960,4 +1963,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get volumeReset => 'Reset volume';
+
+  @override
+  String get moreActions => 'More actions';
 }

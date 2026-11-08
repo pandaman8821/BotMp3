@@ -1879,6 +1879,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reset volume'**
   String get volumeReset;
+
+  /// No description provided for @moreActions.
+  ///
+  /// In en, this message translates to:
+  /// **'More actions'**
+  String get moreActions;
 }
 
 class _AppLocalizationsDelegate

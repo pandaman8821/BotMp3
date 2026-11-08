@@ -983,4 +983,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get volumeReset => 'Restablecer volumen';
+
+  @override
+  String get moreActions => 'Más acciones';
 }

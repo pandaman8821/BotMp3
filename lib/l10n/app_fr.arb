@@ -314,5 +314,6 @@
   "noBookmarks": "No bookmarks in this song",
   "volumeDown": "Lower volume",
   "volumeUp": "Raise volume",
-  "volumeReset": "Reset volume"
+  "volumeReset": "Reset volume",
+  "moreActions": "More actions"
 }

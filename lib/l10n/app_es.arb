@@ -484,5 +484,6 @@
   "noBookmarks": "Sin marcadores en esta canción",
   "volumeDown": "Bajar volumen",
   "volumeUp": "Subir volumen",
-  "volumeReset": "Restablecer volumen"
+  "volumeReset": "Restablecer volumen",
+  "moreActions": "Más acciones"
 }
