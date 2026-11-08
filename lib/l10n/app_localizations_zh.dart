@@ -938,6 +938,15 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noBookmarks => 'No bookmarks in this song';
+
+  @override
+  String get volumeDown => 'Lower volume';
+
+  @override
+  String get volumeUp => 'Raise volume';
+
+  @override
+  String get volumeReset => 'Reset volume';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -1874,4 +1883,13 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get noBookmarks => 'No bookmarks in this song';
+
+  @override
+  String get volumeDown => 'Lower volume';
+
+  @override
+  String get volumeUp => 'Raise volume';
+
+  @override
+  String get volumeReset => 'Reset volume';
 }

@@ -1861,6 +1861,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No bookmarks in this song'**
   String get noBookmarks;
+
+  /// No description provided for @volumeDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Lower volume'**
+  String get volumeDown;
+
+  /// No description provided for @volumeUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Raise volume'**
+  String get volumeUp;
+
+  /// No description provided for @volumeReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset volume'**
+  String get volumeReset;
 }
 
 class _AppLocalizationsDelegate

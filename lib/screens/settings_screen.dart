@@ -586,21 +586,18 @@ ListTile(
               );
             },
           ),
-          ListTile(
-            leading: Icon(Icons.queue_music),
-            title: Text(AppLocalizations.of(context).djBatch),
-            subtitle: Text(AppLocalizations.of(context).djBatchNow(settings.djCanciones)),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
+          _AjusteApilado(
+            icono: Icons.queue_music,
+            titulo: AppLocalizations.of(context).djBatch,
+            subtitulo: AppLocalizations.of(context).djBatchNow(settings.djCanciones),
+            child: Wrap(
+              spacing: 8,
               children: <Widget>[
                 for (final int cantidad in <int>[10, 15, 25])
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6),
-                    child: ChoiceChip(
-                      label: Text(cantidad.toString()),
-                      selected: settings.djCanciones == cantidad,
-                      onSelected: (bool _) => settings.setDjCanciones(cantidad),
-                    ),
+                  ChoiceChip(
+                    label: Text(cantidad.toString()),
+                    selected: settings.djCanciones == cantidad,
+                    onSelected: (bool _) => settings.setDjCanciones(cantidad),
                   ),
               ],
             ),
@@ -622,36 +619,29 @@ ListTile(
               );
             },
           ),
-          ListTile(
-            leading: Icon(Icons.volume_up_outlined),
-            title: Text(AppLocalizations.of(context).volumeCurrent),
-            subtitle: Text(AppLocalizations.of(context).subVolume),
-            trailing: Row(
+          _AjusteApilado(
+            icono: Icons.volume_up_outlined,
+            titulo: AppLocalizations.of(context).volumeCurrent,
+            subtitulo: AppLocalizations.of(context).subVolume,
+            child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                IconButton(
-                  tooltip: 'Bajar',
+                IconButton.filledTonal(
+                  tooltip: AppLocalizations.of(context).volumeDown,
                   icon: const Icon(Icons.remove),
-                  onPressed: () => context
-                      .read<PlayerProvider>()
-                      .service
-                      .ajustarVolumenCancion(-0.1),
+                  onPressed: () => context.read<PlayerProvider>().service.ajustarVolumenCancion(-0.1),
                 ),
-                IconButton(
-                  tooltip: 'Subir',
+                const SizedBox(width: 8),
+                IconButton.filledTonal(
+                  tooltip: AppLocalizations.of(context).volumeUp,
                   icon: const Icon(Icons.add),
-                  onPressed: () => context
-                      .read<PlayerProvider>()
-                      .service
-                      .ajustarVolumenCancion(0.1),
+                  onPressed: () => context.read<PlayerProvider>().service.ajustarVolumenCancion(0.1),
                 ),
-                IconButton(
-                  tooltip: 'Restablecer',
+                const SizedBox(width: 8),
+                IconButton.filledTonal(
+                  tooltip: AppLocalizations.of(context).volumeReset,
                   icon: const Icon(Icons.restart_alt),
-                  onPressed: () => context
-                      .read<PlayerProvider>()
-                      .service
-                      .ajustarVolumenCancion(0, reset: true),
+                  onPressed: () => context.read<PlayerProvider>().service.ajustarVolumenCancion(0, reset: true),
                 ),
               ],
             ),
@@ -1135,3 +1125,56 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
 
 /// Utilidad de enmascarado expuesta para otras pantallas.
 String maskKey(String key) => SecureKeysService.mask(key);
+
+/// Ajuste compacto: titulo y subtitulo a lo ancho (maximo 2 lineas) y los
+/// controles debajo, para que no se apilen el texto ni ocupen media pantalla.
+class _AjusteApilado extends StatelessWidget {
+  const _AjusteApilado({
+    required this.icono,
+    required this.titulo,
+    required this.child,
+    this.subtitulo,
+  });
+
+  final IconData icono;
+  final String titulo;
+  final String? subtitulo;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Icon(icono, size: 22),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  titulo,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                ),
+              ),
+            ],
+          ),
+          if (subtitulo != null)
+            Padding(
+              padding: const EdgeInsets.only(left: 34, top: 2),
+              child: Text(
+                subtitulo!,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 12, color: AppColors.darkTextDim),
+              ),
+            ),
+          Padding(padding: const EdgeInsets.only(left: 34, top: 8), child: child),
+        ],
+      ),
+    );
+  }
+}
