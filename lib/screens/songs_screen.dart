@@ -11,7 +11,9 @@ import '../models/song.dart';
 import '../providers/library_provider.dart';
 import '../providers/player_provider.dart';
 import 'ranking_screen.dart';
+import '../core/theme.dart';
 import '../widgets/dialogs.dart';
+import '../widgets/modern_app_bar.dart';
 import '../widgets/mini_player.dart';
 import '../widgets/song_tile.dart';
 import 'car_mode_screen.dart';
@@ -56,18 +58,6 @@ class _SongsScreenState extends State<SongsScreen> {
   bool _selectionMode = false;
   final Set<String> _selected = <String>{};
 
-  /// Opción del menú de orden, marcada si está activa.
-  PopupMenuItem<_SortMode> _ordenItem(String texto, _SortMode modo) {
-    final bool activo = _sort == modo;
-    return CheckedPopupMenuItem<_SortMode>(
-      value: modo,
-      checked: activo,
-      child: Text(
-        texto,
-        style: TextStyle(fontWeight: activo ? FontWeight.w700 : FontWeight.w400),
-      ),
-    );
-  }
 
   List<Song> _sorted(List<Song> input) {
     final List<Song> songs = List<Song>.from(input);
@@ -152,6 +142,53 @@ class _SongsScreenState extends State<SongsScreen> {
     });
   }
 
+  /// Menu de orden en hoja inferior (mas moderno que el menu clasico).
+  Future<void> _mostrarMenuOrden(BuildContext context) async {
+    final AppLocalizations loc = AppLocalizations.of(context);
+    final _SortMode? elegido = await showModalBottomSheet<_SortMode>(
+      context: context,
+      showDragHandle: true,
+      backgroundColor: AppColors.darkSurface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
+      ),
+      builder: (BuildContext sheetContext) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.sort_rounded),
+                title: Text(loc.sortBy, style: const TextStyle(fontWeight: FontWeight.w700)),
+              ),
+              for (final (String texto, _SortMode modo) in <(String, _SortMode)>[
+                (loc.sortRecent, _SortMode.recientes),
+                (loc.sortTitle, _SortMode.titulo),
+                (loc.sortArtist, _SortMode.artista),
+                (loc.sortAlbum, _SortMode.album),
+                (loc.sortYear, _SortMode.anio),
+                (loc.sortDuration, _SortMode.duracion),
+                (loc.sortMostPlayed, _SortMode.reproducciones),
+              ])
+                ListTile(
+                  leading: Icon(
+                    _sort == modo ? Icons.radio_button_checked : Icons.radio_button_off,
+                    color: _sort == modo ? AppColors.green : null,
+                  ),
+                  title: Text(texto),
+                  onTap: () => Navigator.of(sheetContext).pop(modo),
+                ),
+              const SizedBox(height: 8),
+            ],
+          ),
+        );
+      },
+    );
+    if (elegido == null || elegido == _sort) return;
+    setState(() => _sort = elegido);
+    _guardarOrden(elegido);
+  }
+
   @override
   Widget build(BuildContext context) {
     final LibraryProvider library = context.watch<LibraryProvider>();
@@ -160,15 +197,11 @@ class _SongsScreenState extends State<SongsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        // Iconos mas pequenos para que el titulo BotMp3 tenga sitio.
-        actionsIconTheme: const IconThemeData(size: 18),
-        titleSpacing: 4,
-        title: _selectionMode ? Text('${_selected.length} seleccionadas') : Text(
-              'BotMp3',
-              style: DefaultTextStyle.of(context)
-                  .style
-                  .copyWith(fontSize: 18, fontWeight: FontWeight.w700),
-            ),
+        actionsIconTheme: const IconThemeData(size: 22),
+        titleSpacing: 10,
+        title: _selectionMode
+            ? Text('${_selected.length} seleccionadas', style: const TextStyle(fontSize: 18))
+            : const TituloBotMp3(),
         leading: _selectionMode
             ? IconButton(
                 icon: const Icon(Icons.close),
@@ -216,78 +249,78 @@ class _SongsScreenState extends State<SongsScreen> {
                 ),
               ]
             : <Widget>[
-                IconButton(
-                  tooltip: AppLocalizations.of(context).mostPlayedRanking,
-                  icon: const Icon(Icons.leaderboard_outlined),
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => const RankingScreen()),
-                  ),
+                BotonAccion(
+                  icono: Icons.sort_rounded,
+                  tooltip: AppLocalizations.of(context).sortBy,
+                  onPressed: () => _mostrarMenuOrden(context),
                 ),
-                IconButton(
+                BotonAccion(
+                  icono: library.hasActiveFilters ? Icons.filter_alt : Icons.filter_alt_outlined,
                   tooltip: AppLocalizations.of(context).advancedFilters,
-                  icon: Badge(
-                    isLabelVisible: library.hasActiveFilters,
-                    child: const Icon(Icons.filter_alt_outlined),
-                  ),
+                  activo: library.hasActiveFilters,
                   onPressed: () => AppDialogs.showFilters(context),
                 ),
-                PopupMenuButton<_SortMode>(
-                  tooltip: AppLocalizations.of(context).sortBy,
-                  icon: const Icon(Icons.sort),
-                  onSelected: (_SortMode value) {
-                setState(() => _sort = value);
-                _guardarOrden(value);
-              },
-                  itemBuilder: (BuildContext context) => <PopupMenuEntry<_SortMode>>[
-                    _ordenItem(AppLocalizations.of(context).sortRecent, _SortMode.recientes),
-                    _ordenItem(AppLocalizations.of(context).sortTitle, _SortMode.titulo),
-                    _ordenItem(AppLocalizations.of(context).sortArtist, _SortMode.artista),
-                    _ordenItem(AppLocalizations.of(context).sortAlbum, _SortMode.album),
-                    _ordenItem(AppLocalizations.of(context).sortYear, _SortMode.anio),
-                    _ordenItem(AppLocalizations.of(context).sortDuration, _SortMode.duracion),
-                    _ordenItem(AppLocalizations.of(context).sortMostPlayed, _SortMode.reproducciones),
-                  ],
-                ),
-                IconButton(
-                  tooltip: AppLocalizations.of(context).carMode,
-                  icon: const Icon(Icons.directions_car_outlined),
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(
-                      builder: (_) => const CarModeScreen(),
-                    ),
-                  ),
-                ),
-                IconButton(
-                  tooltip: AppLocalizations.of(context).songLyrics,
-                  icon: const Icon(Icons.lyrics_outlined),
-                  onPressed: () {
-                    final Song? actual = player.current;
-                    if (actual == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context).playSomethingFirst)),
-                      );
-                      return;
-                    }
-                    Navigator.of(context).push(
-                      MaterialPageRoute<void>(
-                        builder: (_) => LyricsScreen(song: actual),
-                      ),
-                    );
-                  },
-                ),
-                IconButton(
+                BotonAccion(
+                  icono: Icons.shuffle_rounded,
                   tooltip: AppLocalizations.of(context).shuffleAll,
-                  icon: const Icon(Icons.shuffle),
                   onPressed: () async {
                     if (songs.isEmpty) return;
-                    // Aleatorio de verdad: se elige una canción al azar y se
-                    // reproduce directamente. Antes se cargaba la cola desde
-                    // la primera canción con `autoPlay: false`, pero si ya
-                    // había música sonando esa primera canción arrancaba
-                    // igual y sumaba una reproducción al ranking.
                     final int azar = Random().nextInt(songs.length);
                     if (!player.isShuffleEnabled) player.toggleShuffle();
                     await player.setQueue(songs, startIndex: azar, autoPlay: true);
+                  },
+                ),
+                BotonMenu(
+                  tooltip: AppLocalizations.of(context).moreActions,
+                  items: <PopupMenuEntry<String>>[
+                    PopupMenuItem<String>(
+                      value: 'ranking',
+                      child: ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        leading: const Icon(Icons.leaderboard_rounded),
+                        title: Text(AppLocalizations.of(context).mostPlayedRanking),
+                      ),
+                    ),
+                    PopupMenuItem<String>(
+                      value: 'coche',
+                      child: ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        leading: const Icon(Icons.directions_car_rounded),
+                        title: Text(AppLocalizations.of(context).carMode),
+                      ),
+                    ),
+                    PopupMenuItem<String>(
+                      value: 'letra',
+                      child: ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        leading: const Icon(Icons.lyrics_rounded),
+                        title: Text(AppLocalizations.of(context).songLyrics),
+                      ),
+                    ),
+                  ],
+                  onSelected: (String valor) {
+                    final PlayerProvider reproductor = context.read<PlayerProvider>();
+                    switch (valor) {
+                      case 'ranking':
+                        Navigator.of(context).push(
+                          MaterialPageRoute<void>(builder: (_) => const RankingScreen()),
+                        );
+                      case 'coche':
+                        Navigator.of(context).push(
+                          MaterialPageRoute<void>(builder: (_) => const CarModeScreen()),
+                        );
+                      case 'letra':
+                        final Song? actual = reproductor.current;
+                        if (actual == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(AppLocalizations.of(context).playSomethingFirst)),
+                          );
+                          return;
+                        }
+                        Navigator.of(context).push(
+                          MaterialPageRoute<void>(builder: (_) => LyricsScreen(song: actual)),
+                        );
+                    }
                   },
                 ),
               ],
