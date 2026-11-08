@@ -265,6 +265,27 @@ class PlayerService {
     } catch (_) {}
   }
 
+  /// Evita que dos fundidos se solapen al cambiar de pista.
+  bool _enTransicion = false;
+
+  /// El usuario puede apagar el fundido entre canciones.
+  bool get _fundidoActivo => SettingsService.actual?.fundidoCanciones ?? true;
+
+  /// Fundido de entrada con duracion configurable.
+  Future<void> _fundirEntradaDur(Duration duracion) async {
+    if (duracion.inMilliseconds <= 0) {
+      await _aplicarVolumen(_lastVolume);
+      return;
+    }
+    const int pasos = 12;
+    final int pausa = (duracion.inMilliseconds / pasos).round();
+    for (int i = 1; i <= pasos; i++) {
+      await _aplicarVolumen(_lastVolume * (i / pasos));
+      await Future<void>.delayed(Duration(milliseconds: pausa));
+    }
+    await _aplicarVolumen(_lastVolume);
+  }
+
   /// Sube el volumen suavemente desde 0 hasta el volumen del usuario.
   Future<void> _fundirEntrada() async {
     const int pasos = 6;
@@ -548,7 +569,8 @@ class PlayerService {
 
     if (_playOrderIndex + 1 < _playOrder.length) {
       _playOrderIndex++;
-      await _loadIndex(_playOrder[_playOrderIndex]);
+      await _loadIndex(_playOrder[_playOrderIndex],
+          fundido: auto ? const Duration(milliseconds: 1100) : const Duration(milliseconds: 350));
       return;
     }
 
@@ -756,8 +778,16 @@ class PlayerService {
     }
   }
 
-  Future<void> _loadIndex(int queueIndex, {bool autoPlay = true}) async {
+  Future<void> _loadIndex(int queueIndex, {bool autoPlay = true, Duration? fundido}) async {
     if (queueIndex < 0 || queueIndex >= _queue.length) return;
+    final Duration duracionFundido = fundido ?? const Duration(milliseconds: 450);
+    final bool aplicarFundido = _fundidoActivo && estaSonando && !_enTransicion &&
+        duracionFundido.inMilliseconds > 0;
+    if (aplicarFundido) {
+      _enTransicion = true;
+      await _fundirSalida(duracionFundido);
+    }
+    try {
     _currentIndex = queueIndex;
     final Song song = _queue[queueIndex];
     currentSong.value = song;
@@ -784,6 +814,13 @@ class PlayerService {
       // Salta a la siguiente canción disponible.
       if (_playOrderIndex + 1 < _playOrder.length) {
         await _loadIndex(_playOrder[_playOrderIndex + 1], autoPlay: autoPlay);
+      }
+    }
+    } finally {
+      if (aplicarFundido) {
+        await _aplicarVolumen(_lastVolume);
+        unawaited(_fundirEntradaDur(duracionFundido));
+        _enTransicion = false;
       }
     }
   }

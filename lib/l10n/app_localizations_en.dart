@@ -955,4 +955,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sqliteTitle => 'Search index (SQLite)';
+
+  @override
+  String get fadeTitle => 'Fade between songs';
+
+  @override
+  String get fadeDesc => 'Cross-fades the volume when the track changes.';
+
+  @override
+  String get bookmarksTitle => 'Bookmarks';
+
+  @override
+  String get addBookmark => 'Add here';
+
+  @override
+  String get noBookmarks => 'No bookmarks in this song';
 }

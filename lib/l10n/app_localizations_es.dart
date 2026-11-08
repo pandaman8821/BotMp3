@@ -959,4 +959,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get sqliteTitle => 'Índice de búsqueda (SQLite)';
+
+  @override
+  String get fadeTitle => 'Fundido entre canciones';
+
+  @override
+  String get fadeDesc => 'Cruza el volumen al cambiar de pista.';
+
+  @override
+  String get bookmarksTitle => 'Marcadores';
+
+  @override
+  String get addBookmark => 'Añadir aquí';
+
+  @override
+  String get noBookmarks => 'Sin marcadores en esta canción';
 }

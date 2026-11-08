@@ -38,6 +38,9 @@ class ReplayGain {
     }
   }
 
+  /// Expuesto para pruebas: extrae el ReplayGain de un binario con etiquetas.
+  static double? gainDeBinario(Uint8List binario) => _buscarEtiqueta(binario);
+
   static Future<double?> _leer(String ruta) async {
     final File archivo = File(ruta);
     if (!await archivo.exists()) return null;
@@ -46,6 +49,8 @@ class ReplayGain {
     final String ext = ruta.split('.').last.toLowerCase();
     if (ext == 'mp3') return _leerMp3(bytes);
     if (ext == 'flac') return _leerFlac(bytes);
+    if (ext == 'ogg' || ext == 'oga' || ext == 'opus') return _leerOggOpus(bytes);
+    if (ext == 'm4a' || ext == 'mp4' || ext == 'm4b' || ext == 'aac') return _leerMp4(bytes);
     // Muchos MP3 sin extension clara: intentar ID3 si empieza por "ID3".
     if (bytes[0] == 0x49 && bytes[1] == 0x44 && bytes[2] == 0x33) return _leerMp3(bytes);
     return null;
@@ -102,6 +107,33 @@ class ReplayGain {
       if (ultimo) break;
     }
     return null;
+  }
+
+
+  /// OGG Vorbis / Opus: las etiquetas van en texto plano dentro del contenedor.
+  static double? _leerOggOpus(Uint8List b) => _buscarEtiqueta(b);
+
+  /// M4A / MP4: las etiquetas freeform de iTunes llevan el texto en claro.
+  static double? _leerMp4(Uint8List b) => _buscarEtiqueta(b);
+
+  /// Busca 'replaygain_track_gain' en el binario y extrae los dB.
+  static double? _buscarEtiqueta(Uint8List b) {
+    final StringBuffer texto = StringBuffer();
+    for (final int c in b) {
+      texto.write(c >= 32 && c < 127 ? String.fromCharCode(c) : ' ');
+    }
+    final String plano = texto.toString();
+    final int pos = plano.toLowerCase().indexOf('replaygain_track_gain');
+    if (pos < 0) return null;
+    final String trozo = plano.substring(pos, math.min(plano.length, pos + 120));
+    return _dbTexto(trozo);
+  }
+
+  /// Variante de _dbDeTexto que tambien acepta '= -7.5 dB'.
+  static double? _dbTexto(String texto) {
+    final RegExpMatch? m = RegExp(r'([+-]?\d+(?:[.,]\d+)?)\s*dB', caseSensitive: false).firstMatch(texto);
+    if (m == null) return null;
+    return double.tryParse(m.group(1)!.replaceAll(',', '.'));
   }
 
   /// Extrae "-7.25 dB" o "+3.1 dB" de un texto y lo devuelve como numero.

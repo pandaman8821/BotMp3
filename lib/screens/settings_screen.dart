@@ -217,6 +217,13 @@ class SettingsScreen extends StatelessWidget {
                 secondary: const Icon(Icons.headset_off),
               ),
               SwitchListTile(
+                value: settings.fundidoCanciones,
+                onChanged: (bool v) async => settings.setFundidoCanciones(v),
+                title: Text(AppLocalizations.of(context).fadeTitle),
+                subtitle: Text(AppLocalizations.of(context).fadeDesc, style: const TextStyle(fontSize: 12)),
+                secondary: const Icon(Icons.gradient),
+              ),
+              SwitchListTile(
                 value: settings.normalizarVolumen,
                 onChanged: (bool v) async => settings.setNormalizarVolumen(v),
                 title: Text(AppLocalizations.of(context).normalizeVolume),
