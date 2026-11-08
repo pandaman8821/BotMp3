@@ -481,5 +481,8 @@
   "fadeDesc": "Cross-fades the volume when the track changes.",
   "bookmarksTitle": "Bookmarks",
   "addBookmark": "Add here",
-  "noBookmarks": "No bookmarks in this song"
+  "noBookmarks": "No bookmarks in this song",
+  "volumeDown": "Lower volume",
+  "volumeUp": "Raise volume",
+  "volumeReset": "Reset volume"
 }

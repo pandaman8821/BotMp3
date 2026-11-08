@@ -974,4 +974,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get noBookmarks => 'Sin marcadores en esta canción';
+
+  @override
+  String get volumeDown => 'Bajar volumen';
+
+  @override
+  String get volumeUp => 'Subir volumen';
+
+  @override
+  String get volumeReset => 'Restablecer volumen';
 }

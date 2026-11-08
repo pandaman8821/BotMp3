@@ -124,7 +124,7 @@ class BotTokens {
       colorScheme: scheme,
       scaffoldBackgroundColor: Colors.transparent,
       splashFactory: glow ? InkRipple.splashFactory : InkSparkle.splashFactory,
-      visualDensity: VisualDensity.comfortable,
+      visualDensity: const VisualDensity(horizontal: -1, vertical: -1),
       textTheme: TextTheme(bodyMedium: baseText, bodyLarge: baseText),
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
@@ -137,7 +137,7 @@ class BotTokens {
       listTileTheme: ListTileThemeData(
         iconColor: text,
         textColor: text,
-        minVerticalPadding: 10,
+        minVerticalPadding: 6,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
       ),
       filledButtonTheme: FilledButtonThemeData(

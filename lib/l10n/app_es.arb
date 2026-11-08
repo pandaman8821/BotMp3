@@ -481,5 +481,8 @@
   "fadeDesc": "Cruza el volumen al cambiar de pista.",
   "bookmarksTitle": "Marcadores",
   "addBookmark": "Añadir aquí",
-  "noBookmarks": "Sin marcadores en esta canción"
+  "noBookmarks": "Sin marcadores en esta canción",
+  "volumeDown": "Bajar volumen",
+  "volumeUp": "Subir volumen",
+  "volumeReset": "Restablecer volumen"
 }
