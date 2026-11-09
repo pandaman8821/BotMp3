@@ -869,8 +869,8 @@ ListTile(
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              AppLocalizations.of(context).formatsLabel(AudioFormats.supported.map((String e) => e.toUpperCase()).join(', ')), ')}\n'
-              AppLocalizations.of(context).apiKeysKeystoreNotice,
+              '${AppLocalizations.of(context).formatsLabel(AudioFormats.supported.map((String e) => e.toUpperCase()).join(', '))}\n'
+              '${AppLocalizations.of(context).apiKeysKeystoreNotice}',
               style: TextStyle(fontSize: 12, color: AppColors.darkTextDim),
             ),
           ),

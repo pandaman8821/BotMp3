@@ -1176,7 +1176,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backupError => 'Could not create backup';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return '$size in cache (temporary, safe to clear)';
   }
 
@@ -1184,7 +1184,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cleanBtn => 'Clean';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return 'Freed $size 🧹';
   }
 

@@ -1183,7 +1183,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get backupError => 'No se pudo hacer la copia';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return '$size en caché (temporal, se puede borrar)';
   }
 
@@ -1191,7 +1191,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get cleanBtn => 'Limpiar';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return 'Liberados $size 🧹';
   }
 

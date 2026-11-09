@@ -395,7 +395,7 @@
   "@cacheDetail": {
     "placeholders": {
       "size": {
-        "type": "int"
+        "type": "String"
       }
     }
   },
@@ -404,7 +404,7 @@
   "@freedSpaceSuccess": {
     "placeholders": {
       "size": {
-        "type": "int"
+        "type": "String"
       }
     }
   },

@@ -1184,7 +1184,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get backupError => 'Sicherung konnte nicht erstellt werden';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return '$size im Cache (temporär, löschbar)';
   }
 
@@ -1192,7 +1192,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get cleanBtn => 'Bereinigen';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return '$size freigegeben 🧹';
   }
 
