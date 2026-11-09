@@ -485,5 +485,96 @@
   "volumeDown": "Lower volume",
   "volumeUp": "Raise volume",
   "volumeReset": "Reset volume",
-  "moreActions": "More actions"
+  "moreActions": "More actions",
+  "unknownArtist": "Unknown artist",
+  "unknownTitle": "Untitled",
+  "untitledPlaylist": "Untitled playlist",
+  "untitledIdea": "Untitled idea",
+  "relativeNow": "just now",
+  "btnSave": "Save",
+  "btnTest": "Test",
+  "aiKeyMissingFirst": "Set up an API key in AI settings first.",
+  "aiConnectionOk": "Connection OK",
+  "aiErrorConnection": "Connection error",
+  "aiNeedKey": "Set up an API key to talk to me.",
+  "aiUnknownCommand": "I did not understand. Type help to see examples.",
+  "aiCompletingMetadata": "Completing the song details…",
+  "aiInterpretingSearch": "Interpreting your search…",
+  "aiDjChoosing": "The DJ is choosing…",
+  "scanFreeingSpace": "Freeing up space…",
+  "scanNothingToFree": "Nothing to free up",
+  "scanFreeFailed": "Could not free up space",
+  "scanSearching": "Searching for music on this device…",
+  "scanNoPermission": "Audio permission missing: enable it in Settings",
+  "scanNotFound": "No music found on this device",
+  "scanNoNewSongs": "No new songs added",
+  "aiHintRecommended": "Recommended: the fastest and cheapest (great for everything).",
+  "aiHintDsPro": "More capable at reasoning; costs about 4x more per use.",
+  "aiHintDsRetired": "Name retired by DeepSeek: use deepseek-flash or deepseek-v4-pro.",
+  "aiHintBalanced": "Balanced and fluent; good value for the price.",
+  "aiHintVeryFast": "Very fast and cheap; enough for metadata and playlists.",
+  "aiHintO1": "Reasoning: slower and pricier; the app skips JSON mode with these.",
+  "aiHintGoogleFree": "Fast, with Google's generous free tier.",
+  "aiHintGeminiPro": "More capable; uses up the free quota faster.",
+  "aiHintClaudeFast": "The fastest and cheapest Claude model.",
+  "aiHintClaudeBalanced": "Balanced; excellent writing quality.",
+  "aiHintClaudeOpus": "The most powerful Claude model and also the priciest.",
+  "playLocals": "Play {count} local songs",
+  "aiPlaylistDefault": "AI playlist",
+  "relativeMinutes": "in {count} min",
+  "@relativeMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeHours": "in {count} h",
+  "@relativeHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeDays": "in {count} d",
+  "@relativeDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "aiCreatingPlaylist": "Creating a playlist with {count} songs…",
+  "@aiCreatingPlaylist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scanUpToDate": "Library is up to date ({count} tracks on device)",
+  "@scanUpToDate": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scanCovers": "Covers updated ({count} songs)",
+  "@scanCovers": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "keyRemovedFor": "{provider} key removed",
+  "@keyRemovedFor": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  }
 }

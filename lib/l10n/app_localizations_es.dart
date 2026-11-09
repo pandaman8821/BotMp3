@@ -986,4 +986,157 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get moreActions => 'Más acciones';
+
+  @override
+  String get unknownArtist => 'Artista desconocido';
+
+  @override
+  String get unknownTitle => 'Sin título';
+
+  @override
+  String get untitledPlaylist => 'Lista sin nombre';
+
+  @override
+  String get untitledIdea => 'Idea sin título';
+
+  @override
+  String get relativeNow => 'ahora mismo';
+
+  @override
+  String get btnSave => 'Guardar';
+
+  @override
+  String get btnTest => 'Probar';
+
+  @override
+  String get aiKeyMissingFirst =>
+      'Configura primero una API key en Ajustes de IA.';
+
+  @override
+  String get aiConnectionOk => 'Conexión correcta';
+
+  @override
+  String get aiErrorConnection => 'Error de conexión';
+
+  @override
+  String get aiNeedKey => 'Configura una API key para hablar conmigo.';
+
+  @override
+  String get aiUnknownCommand =>
+      'No entendí la orden. Escribe ayuda para ver ejemplos.';
+
+  @override
+  String get aiCompletingMetadata => 'Completando los datos de la canción…';
+
+  @override
+  String get aiInterpretingSearch => 'Interpretando tu búsqueda…';
+
+  @override
+  String get aiDjChoosing => 'El DJ está eligiendo…';
+
+  @override
+  String get scanFreeingSpace => 'Liberando espacio…';
+
+  @override
+  String get scanNothingToFree => 'No había nada que liberar';
+
+  @override
+  String get scanFreeFailed => 'No se pudo liberar espacio';
+
+  @override
+  String get scanSearching => 'Buscando música en el dispositivo…';
+
+  @override
+  String get scanNoPermission =>
+      'Falta el permiso de audio: actívalo en Ajustes';
+
+  @override
+  String get scanNotFound => 'No se encontró música en el dispositivo';
+
+  @override
+  String get scanNoNewSongs => 'No se añadió ninguna canción nueva';
+
+  @override
+  String get aiHintRecommended =>
+      'Recomendado: el más rápido y económico (ideal para todo).';
+
+  @override
+  String get aiHintDsPro =>
+      'Más capaz en razonamiento; cuesta unas 4 veces más por uso.';
+
+  @override
+  String get aiHintDsRetired =>
+      'Nombre retirado por DeepSeek: usa deepseek-flash o deepseek-v4-pro.';
+
+  @override
+  String get aiHintBalanced =>
+      'Equilibrado y fluido; buena relación calidad/precio.';
+
+  @override
+  String get aiHintVeryFast =>
+      'Muy rápido y barato; suficiente para metadatos y listas.';
+
+  @override
+  String get aiHintO1 =>
+      'Razonamiento: más lento y caro; con estos la app omite el modo JSON.';
+
+  @override
+  String get aiHintGoogleFree =>
+      'Rápido y con la generosa cuota gratuita de Google.';
+
+  @override
+  String get aiHintGeminiPro => 'Más capaz; consume antes la cuota gratuita.';
+
+  @override
+  String get aiHintClaudeFast => 'El modelo de Claude más rápido y económico.';
+
+  @override
+  String get aiHintClaudeBalanced => 'Equilibrado; muy buena redacción.';
+
+  @override
+  String get aiHintClaudeOpus =>
+      'El más potente de Claude y también el más caro.';
+
+  @override
+  String playLocals(Object count) {
+    return 'Reproducir $count canciones locales';
+  }
+
+  @override
+  String get aiPlaylistDefault => 'Lista IA';
+
+  @override
+  String relativeMinutes(int count) {
+    return 'hace $count min';
+  }
+
+  @override
+  String relativeHours(int count) {
+    return 'hace $count h';
+  }
+
+  @override
+  String relativeDays(int count) {
+    return 'hace $count d';
+  }
+
+  @override
+  String aiCreatingPlaylist(int count) {
+    return 'Creando lista de $count canciones…';
+  }
+
+  @override
+  String scanUpToDate(int count) {
+    return 'Biblioteca al día ($count pistas en el dispositivo)';
+  }
+
+  @override
+  String scanCovers(int count) {
+    return 'Carátulas actualizadas ($count canciones)';
+  }
+
+  @override
+  String keyRemovedFor(String provider) {
+    return 'Clave de $provider eliminada';
+  }
 }

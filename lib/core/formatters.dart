@@ -1,3 +1,4 @@
+import 'ui_strings.dart';
 import 'package:intl/intl.dart';
 import 'dart:math' as math;
 
@@ -107,10 +108,10 @@ class Formatters {
   static String relativeDate(DateTime? date) {
     if (date == null) return '';
     final Duration diff = DateTime.now().difference(date);
-    if (diff.inMinutes < 1) return 'ahora mismo';
-    if (diff.inHours < 1) return 'hace ${diff.inMinutes} min';
-    if (diff.inDays < 1) return 'hace ${diff.inHours} h';
-    if (diff.inDays < 30) return 'hace ${diff.inDays} d';
+    if (diff.inMinutes < 1) return UiStrings.loc.relativeNow;
+    if (diff.inHours < 1) return UiStrings.loc.relativeMinutes(diff.inMinutes);
+    if (diff.inDays < 1) return UiStrings.loc.relativeHours(diff.inHours);
+    if (diff.inDays < 30) return UiStrings.loc.relativeDays(diff.inDays);
     return '${date.day.toString().padLeft(2, '0')}/${date.month.toString().padLeft(2, '0')}/${date.year}';
   }
   /// Fecha corta en el idioma del usuario (ej. 31 oct 2026 / 2026/10/31).
