@@ -1136,7 +1136,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get backupError => 'バックアップを作成できませんでした';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return 'キャッシュ $size（一時ファイル、削除可能）';
   }
 
@@ -1144,7 +1144,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get cleanBtn => '削除';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return '$size 解放しました 🧹';
   }
 

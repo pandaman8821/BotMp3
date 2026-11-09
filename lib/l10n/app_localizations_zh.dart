@@ -1134,7 +1134,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get backupError => '无法创建备份';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return '缓存 $size（临时文件，可安全清理）';
   }
 
@@ -1142,7 +1142,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cleanBtn => '清理';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return '已释放 $size 🧹';
   }
 
@@ -2304,7 +2304,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get backupError => '无法创建备份';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return '缓存 $size（临时文件，可安全清理）';
   }
 
@@ -2312,7 +2312,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get cleanBtn => '清理';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return '已释放 $size 🧹';
   }
 

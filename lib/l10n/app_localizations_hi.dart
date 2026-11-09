@@ -1162,7 +1162,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get backupError => 'बैकअप नहीं बनाया जा सका';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return 'कैश में $size (अस्थायी, साफ़ करने योग्य)';
   }
 
@@ -1170,7 +1170,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get cleanBtn => 'साफ़ करें';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return '$size खाली किया गया 🧹';
   }
 

@@ -1187,7 +1187,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get backupError => 'Impossible de créer la sauvegarde';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return '$size en cache (temporaire, effaçable)';
   }
 
@@ -1195,7 +1195,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cleanBtn => 'Nettoyer';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return '$size libérés 🧹';
   }
 

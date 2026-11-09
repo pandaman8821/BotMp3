@@ -1139,7 +1139,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get backupError => '백업을 생성할 수 없습니다';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return '캐시 $size(임시 파일, 삭제 가능)';
   }
 
@@ -1147,7 +1147,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get cleanBtn => '청소';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return '$size 확보됨 🧹';
   }
 

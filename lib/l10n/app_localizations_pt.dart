@@ -1183,7 +1183,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get backupError => 'Não foi possível criar o backup';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return '$size em cache (temporário, pode limpar)';
   }
 
@@ -1191,7 +1191,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get cleanBtn => 'Limpar';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return 'Liberado $size 🧹';
   }
 
@@ -2405,7 +2405,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get backupError => 'Não foi possível criar o backup';
 
   @override
-  String cacheDetail(int size) {
+  String cacheDetail(String size) {
     return '$size em cache (temporário, pode limpar)';
   }
 
@@ -2413,7 +2413,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get cleanBtn => 'Limpar';
 
   @override
-  String freedSpaceSuccess(int size) {
+  String freedSpaceSuccess(String size) {
     return 'Liberado $size 🧹';
   }
 

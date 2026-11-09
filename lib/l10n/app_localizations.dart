@@ -2214,7 +2214,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{size} in cache (temporary, safe to clear)'**
-  String cacheDetail(int size);
+  String cacheDetail(String size);
 
   /// No description provided for @cleanBtn.
   ///
@@ -2226,7 +2226,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Freed {size} 🧹'**
-  String freedSpaceSuccess(int size);
+  String freedSpaceSuccess(String size);
 
   /// No description provided for @importFormatsDesc.
   ///
