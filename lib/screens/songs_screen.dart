@@ -197,11 +197,15 @@ class _SongsScreenState extends State<SongsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        actionsIconTheme: const IconThemeData(size: 22),
-        titleSpacing: 10,
+        actionsIconTheme: const IconThemeData(size: 20),
+        titleSpacing: 6,
         title: _selectionMode
             ? Text('${_selected.length} seleccionadas', style: const TextStyle(fontSize: 18))
-            : const TituloBotMp3(),
+            : const FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.centerLeft,
+                child: TituloBotMp3(tamano: 21),
+              ),
         leading: _selectionMode
             ? IconButton(
                 icon: const Icon(Icons.close),
@@ -251,6 +255,8 @@ class _SongsScreenState extends State<SongsScreen> {
             : <Widget>[
                 BotonAccion(
                   icono: Icons.sort_rounded,
+                  tamano: 20,
+                  anchoAlto: 36,
                   tooltip: AppLocalizations.of(context).sortBy,
                   onPressed: () => _mostrarMenuOrden(context),
                 ),
@@ -262,6 +268,8 @@ class _SongsScreenState extends State<SongsScreen> {
                 ),
                 BotonAccion(
                   icono: Icons.shuffle_rounded,
+                  tamano: 20,
+                  anchoAlto: 36,
                   tooltip: AppLocalizations.of(context).shuffleAll,
                   onPressed: () async {
                     if (songs.isEmpty) return;
@@ -270,57 +278,40 @@ class _SongsScreenState extends State<SongsScreen> {
                     await player.setQueue(songs, startIndex: azar, autoPlay: true);
                   },
                 ),
-                BotonMenu(
-                  tooltip: AppLocalizations.of(context).moreActions,
-                  items: <PopupMenuEntry<String>>[
-                    PopupMenuItem<String>(
-                      value: 'ranking',
-                      child: ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        leading: const Icon(Icons.leaderboard_rounded),
-                        title: Text(AppLocalizations.of(context).mostPlayedRanking),
-                      ),
-                    ),
-                    PopupMenuItem<String>(
-                      value: 'coche',
-                      child: ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        leading: const Icon(Icons.directions_car_rounded),
-                        title: Text(AppLocalizations.of(context).carMode),
-                      ),
-                    ),
-                    PopupMenuItem<String>(
-                      value: 'letra',
-                      child: ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        leading: const Icon(Icons.lyrics_rounded),
-                        title: Text(AppLocalizations.of(context).songLyrics),
-                      ),
-                    ),
-                  ],
-                  onSelected: (String valor) {
-                    final PlayerProvider reproductor = context.read<PlayerProvider>();
-                    switch (valor) {
-                      case 'ranking':
-                        Navigator.of(context).push(
-                          MaterialPageRoute<void>(builder: (_) => const RankingScreen()),
-                        );
-                      case 'coche':
-                        Navigator.of(context).push(
-                          MaterialPageRoute<void>(builder: (_) => const CarModeScreen()),
-                        );
-                      case 'letra':
-                        final Song? actual = reproductor.current;
-                        if (actual == null) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text(AppLocalizations.of(context).playSomethingFirst)),
-                          );
-                          return;
-                        }
-                        Navigator.of(context).push(
-                          MaterialPageRoute<void>(builder: (_) => LyricsScreen(song: actual)),
-                        );
+                BotonAccion(
+                  icono: Icons.leaderboard_rounded,
+                  tooltip: AppLocalizations.of(context).mostPlayedRanking,
+                  tamano: 20,
+                  anchoAlto: 36,
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => const RankingScreen()),
+                  ),
+                ),
+                BotonAccion(
+                  icono: Icons.directions_car_rounded,
+                  tooltip: AppLocalizations.of(context).carMode,
+                  tamano: 20,
+                  anchoAlto: 36,
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(builder: (_) => const CarModeScreen()),
+                  ),
+                ),
+                BotonAccion(
+                  icono: Icons.lyrics_rounded,
+                  tooltip: AppLocalizations.of(context).songLyrics,
+                  tamano: 20,
+                  anchoAlto: 36,
+                  onPressed: () {
+                    final Song? actual = context.read<PlayerProvider>().current;
+                    if (actual == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(AppLocalizations.of(context).playSomethingFirst)),
+                      );
+                      return;
                     }
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(builder: (_) => LyricsScreen(song: actual)),
+                    );
                   },
                 ),
               ],

@@ -46,6 +46,7 @@ class BotonAccion extends StatefulWidget {
     required this.onPressed,
     this.activo = false,
     this.tamano = 22,
+    this.anchoAlto = 42,
   });
 
   final IconData icono;
@@ -53,6 +54,7 @@ class BotonAccion extends StatefulWidget {
   final VoidCallback onPressed;
   final bool activo;
   final double tamano;
+  final double anchoAlto;
 
   @override
   State<BotonAccion> createState() => _BotonAccionState();
@@ -85,9 +87,9 @@ class _BotonAccionState extends State<BotonAccion> {
             curve: Curves.easeOut,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 160),
-              width: 42,
-              height: 42,
-              margin: const EdgeInsets.symmetric(horizontal: 1),
+              width: widget.anchoAlto,
+              height: widget.anchoAlto,
+              margin: const EdgeInsets.symmetric(horizontal: 0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: _pulsado
