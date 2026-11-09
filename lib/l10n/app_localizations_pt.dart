@@ -51,7 +51,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get loading => 'Carregando...';
 
   @override
-  String get aiDj => 'DJ com IA';
+  String get aiDj => 'DJ de IA';
 
   @override
   String get trendsNow => 'Ver tendências agora';
@@ -813,25 +813,25 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get statsUniqueSongs => 'Unique songs';
+  String get statsUniqueSongs => 'Músicas únicas';
 
   @override
-  String get themeTitle => 'Theme';
+  String get themeTitle => 'Tema';
 
   @override
-  String get themeSubtitle => 'Pick a visual style. Applies instantly.';
+  String get themeSubtitle => 'Escolha um estilo visual. Aplica na hora.';
 
   @override
-  String get themeMinimal => 'Minimal';
+  String get themeMinimal => 'Minimalista';
 
   @override
   String get themeNeon => 'Neon / Cyberpunk';
 
   @override
-  String get themeRetro => 'Retro / Vintage';
+  String get themeRetro => 'Retrô / Vintage';
 
   @override
-  String get themeGlass => 'Glass (default)';
+  String get themeGlass => 'Cristal (padrão)';
 
   @override
   String get themeZen => 'Natural / Zen';
@@ -840,87 +840,89 @@ class AppLocalizationsPt extends AppLocalizations {
   String get themeAnime => 'Anime';
 
   @override
-  String get themeGothic => 'Gothic';
+  String get themeGothic => 'Gótico';
 
   @override
   String get themeCinema => 'Cinema';
 
   @override
-  String get reduceMotion => 'Reduce motion';
+  String get reduceMotion => 'Reduzir movimento';
 
   @override
-  String get reduceMotionDesc => 'Turns off theme animations to save battery.';
+  String get reduceMotionDesc =>
+      'Desativa as animações do tema para economizar bateria.';
 
   @override
-  String get playAll => 'Play all';
+  String get playAll => 'Reproduzir tudo';
 
   @override
-  String get sortRecent => 'Recently added';
+  String get sortRecent => 'Adicionadas recentemente';
 
   @override
-  String get sortTitle => 'Title (A-Z)';
+  String get sortTitle => 'Título (A-Z)';
 
   @override
-  String get sortArtist => 'Artist';
+  String get sortArtist => 'Artista';
 
   @override
-  String get sortAlbum => 'Album';
+  String get sortAlbum => 'Álbum';
 
   @override
-  String get sortYear => 'Year';
+  String get sortYear => 'Ano';
 
   @override
-  String get sortDuration => 'Duration';
+  String get sortDuration => 'Duração';
 
   @override
-  String get sortMostPlayed => 'Most played';
+  String get sortMostPlayed => 'Mais tocadas';
 
   @override
   String albumSongsCount(int count) {
-    return '$count songs';
+    return '$count músicas';
   }
 
   @override
-  String get historyTitle => 'Playback history';
+  String get historyTitle => 'Histórico de reprodução';
 
   @override
-  String get historyEmpty => 'No playback history yet';
+  String get historyEmpty => 'Ainda não há histórico de reprodução';
 
   @override
-  String get historyClear => 'Clear history';
+  String get historyClear => 'Limpar histórico';
 
   @override
-  String get foldersTitle => 'Folders';
+  String get foldersTitle => 'Pastas';
 
   @override
-  String get foldersEmpty => 'Browse your music by folders';
+  String get foldersEmpty => 'Navegue sua música por pastas';
 
   @override
-  String get duplicatesTitle => 'Duplicates';
+  String get duplicatesTitle => 'Duplicados';
 
   @override
-  String get duplicatesEmpty => 'No duplicates found';
+  String get duplicatesEmpty => 'Nenhum duplicado encontrado';
 
   @override
-  String get duplicatesRemove => 'Remove copies';
+  String get duplicatesRemove => 'Remover cópias';
 
   @override
-  String get importM3u => 'Import M3U playlist';
+  String get importM3u => 'Importar playlist M3U';
 
   @override
-  String get exportM3u => 'Export library (M3U)';
+  String get exportM3u => 'Exportar biblioteca (M3U)';
 
   @override
-  String get m3uNoSongs => 'None of the songs were found in your library';
+  String get m3uNoSongs =>
+      'Nenhuma das músicas foi encontrada na sua biblioteca';
 
   @override
   String artistAlbums(int count) {
-    return '$count albums';
+    return '$count álbuns';
   }
 
   @override
   String duplicatesRemoveBody(int count) {
-    return 'The other $count copies will be removed from the library. The files are not deleted.';
+    return 'As outras $count cópias serão removidas da biblioteca. Os arquivos não são apagados.';
   }
 
   @override
@@ -929,210 +931,213 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get batchEdit => 'Edit selection';
+  String get batchEdit => 'Editar seleção';
 
   @override
-  String get batchEditHint => 'Empty fields are left unchanged.';
+  String get batchEditHint => 'Os campos vazios não são alterados.';
 
   @override
-  String get normalizeVolume => 'Normalize volume';
+  String get normalizeVolume => 'Normalizar volume';
 
   @override
   String get normalizeVolumeDesc =>
-      'Uses ReplayGain tags to even out volume between songs.';
+      'Usa etiquetas ReplayGain para igualar o volume entre músicas.';
 
   @override
-  String get resumeOnConnect => 'Resume on connect';
+  String get resumeOnConnect => 'Retomar ao conectar';
 
   @override
   String get resumeOnConnectDesc =>
-      'Starts playing again when headphones or Bluetooth connect.';
+      'Volta a tocar ao conectar fones ou Bluetooth.';
 
   @override
-  String get pauseOnDisconnect => 'Pause on disconnect';
+  String get pauseOnDisconnect => 'Pausar ao desconectar';
 
   @override
-  String get pauseOnDisconnectDesc =>
-      'Pauses when headphones or Bluetooth are removed.';
+  String get pauseOnDisconnectDesc => 'Pausa ao remover fones ou Bluetooth.';
 
   @override
-  String get sqliteTitle => 'Search index (SQLite)';
+  String get sqliteTitle => 'Índice de busca (SQLite)';
 
   @override
-  String get fadeTitle => 'Fade between songs';
+  String get fadeTitle => 'Fade entre músicas';
 
   @override
-  String get fadeDesc => 'Cross-fades the volume when the track changes.';
+  String get fadeDesc => 'Faz transição de volume ao trocar de faixa.';
 
   @override
-  String get bookmarksTitle => 'Bookmarks';
+  String get bookmarksTitle => 'Marcadores';
 
   @override
-  String get addBookmark => 'Add here';
+  String get addBookmark => 'Adicionar aqui';
 
   @override
-  String get noBookmarks => 'No bookmarks in this song';
+  String get noBookmarks => 'Sem marcadores nesta música';
 
   @override
-  String get volumeDown => 'Lower volume';
+  String get volumeDown => 'Baixar volume';
 
   @override
-  String get volumeUp => 'Raise volume';
+  String get volumeUp => 'Aumentar volume';
 
   @override
-  String get volumeReset => 'Reset volume';
+  String get volumeReset => 'Restaurar volume';
 
   @override
-  String get moreActions => 'More actions';
+  String get moreActions => 'Mais ações';
 
   @override
-  String get unknownArtist => 'Unknown artist';
+  String get unknownArtist => 'Artista desconhecido';
 
   @override
-  String get unknownTitle => 'Untitled';
+  String get unknownTitle => 'Sem título';
 
   @override
-  String get untitledPlaylist => 'Untitled playlist';
+  String get untitledPlaylist => 'Playlist sem nome';
 
   @override
-  String get untitledIdea => 'Untitled idea';
+  String get untitledIdea => 'Ideia sem título';
 
   @override
-  String get relativeNow => 'just now';
+  String get relativeNow => 'agora mesmo';
 
   @override
-  String get btnSave => 'Save';
+  String get btnSave => 'Salvar';
 
   @override
-  String get btnTest => 'Test';
+  String get btnTest => 'Testar';
 
   @override
-  String get aiKeyMissingFirst => 'Set up an API key in AI settings first.';
+  String get aiKeyMissingFirst =>
+      'Configure primeiro uma chave de API em Ajustes de IA.';
 
   @override
-  String get aiConnectionOk => 'Connection OK';
+  String get aiConnectionOk => 'Conexão OK';
 
   @override
-  String get aiErrorConnection => 'Connection error';
+  String get aiErrorConnection => 'Erro de conexão';
 
   @override
-  String get aiNeedKey => 'Set up an API key to talk to me.';
+  String get aiNeedKey => 'Configure uma chave de API para falar comigo.';
 
   @override
   String get aiUnknownCommand =>
-      'I did not understand. Type help to see examples.';
+      'Não entendi o comando. Escreva ajuda para ver exemplos.';
 
   @override
-  String get aiCompletingMetadata => 'Completing the song details…';
+  String get aiCompletingMetadata => 'Completando os dados da música…';
 
   @override
-  String get aiInterpretingSearch => 'Interpreting your search…';
+  String get aiInterpretingSearch => 'Interpretando sua busca…';
 
   @override
-  String get aiDjChoosing => 'The DJ is choosing…';
+  String get aiDjChoosing => 'O DJ está escolhendo…';
 
   @override
-  String get scanFreeingSpace => 'Freeing up space…';
+  String get scanFreeingSpace => 'Liberando espaço…';
 
   @override
-  String get scanNothingToFree => 'Nothing to free up';
+  String get scanNothingToFree => 'Nada para liberar';
 
   @override
-  String get scanFreeFailed => 'Could not free up space';
+  String get scanFreeFailed => 'Não foi possível liberar espaço';
 
   @override
-  String get scanSearching => 'Searching for music on this device…';
+  String get scanSearching => 'Procurando música no aparelho…';
 
   @override
-  String get scanNoPermission =>
-      'Audio permission missing: enable it in Settings';
+  String get scanNoPermission => 'Falta permissão de áudio: ative em Ajustes';
 
   @override
-  String get scanNotFound => 'No music found on this device';
+  String get scanNotFound => 'Nenhuma música encontrada no aparelho';
 
   @override
-  String get scanNoNewSongs => 'No new songs added';
+  String get scanNoNewSongs => 'Nenhuma música nova adicionada';
 
   @override
   String get aiHintRecommended =>
-      'Recommended: the fastest and cheapest (great for everything).';
+      'Recomendado: o mais rápido e econômico (ótimo para tudo).';
 
   @override
   String get aiHintDsPro =>
-      'More capable at reasoning; costs about 4x more per use.';
+      'Mais capaz em raciocínio; custa cerca de 4x mais por uso.';
 
   @override
   String get aiHintDsRetired =>
-      'Name retired by DeepSeek: use deepseek-flash or deepseek-v4-pro.';
+      'Nome retirado pela DeepSeek: use deepseek-flash ou deepseek-v4-pro.';
 
   @override
-  String get aiHintBalanced => 'Balanced and fluent; good value for the price.';
+  String get aiHintBalanced =>
+      'Equilibrado e fluente; boa relação qualidade/preço.';
 
   @override
   String get aiHintVeryFast =>
-      'Very fast and cheap; enough for metadata and playlists.';
+      'Muito rápido e barato; suficiente para metadados e playlists.';
 
   @override
   String get aiHintO1 =>
-      'Reasoning: slower and pricier; the app skips JSON mode with these.';
+      'Raciocínio: mais lento e caro; nesses a app ignora o modo JSON.';
 
   @override
-  String get aiHintGoogleFree => 'Fast, with Google\'s generous free tier.';
+  String get aiHintGoogleFree =>
+      'Rápido, com a generosa cota gratuita do Google.';
 
   @override
-  String get aiHintGeminiPro => 'More capable; uses up the free quota faster.';
+  String get aiHintGeminiPro =>
+      'Mais capaz; consome a cota gratuita mais rápido.';
 
   @override
-  String get aiHintClaudeFast => 'The fastest and cheapest Claude model.';
+  String get aiHintClaudeFast => 'O modelo Claude mais rápido e econômico.';
 
   @override
-  String get aiHintClaudeBalanced => 'Balanced; excellent writing quality.';
+  String get aiHintClaudeBalanced =>
+      'Equilibrado; excelente qualidade de escrita.';
 
   @override
   String get aiHintClaudeOpus =>
-      'The most powerful Claude model and also the priciest.';
+      'O modelo Claude mais potente e também o mais caro.';
 
   @override
   String playLocals(Object count) {
-    return 'Play $count local songs';
+    return 'Reproduzir $count músicas locais';
   }
 
   @override
-  String get aiPlaylistDefault => 'AI playlist';
+  String get aiPlaylistDefault => 'Playlist de IA';
 
   @override
   String relativeMinutes(int count) {
-    return 'in $count min';
+    return 'em $count min';
   }
 
   @override
   String relativeHours(int count) {
-    return 'in $count h';
+    return 'em $count h';
   }
 
   @override
   String relativeDays(int count) {
-    return 'in $count d';
+    return 'em $count d';
   }
 
   @override
   String aiCreatingPlaylist(int count) {
-    return 'Creating a playlist with $count songs…';
+    return 'Criando playlist com $count músicas…';
   }
 
   @override
   String scanUpToDate(int count) {
-    return 'Library is up to date ($count tracks on device)';
+    return 'Biblioteca atualizada ($count faixas no aparelho)';
   }
 
   @override
   String scanCovers(int count) {
-    return 'Covers updated ($count songs)';
+    return 'Capas atualizadas ($count músicas)';
   }
 
   @override
   String keyRemovedFor(String provider) {
-    return '$provider key removed';
+    return 'Chave de $provider removida';
   }
 }
 
@@ -1183,7 +1188,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get loading => 'Carregando...';
 
   @override
-  String get aiDj => 'DJ com IA';
+  String get aiDj => 'DJ de IA';
 
   @override
   String get trendsNow => 'Ver tendências agora';
@@ -1945,25 +1950,25 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get statsUniqueSongs => 'Unique songs';
+  String get statsUniqueSongs => 'Músicas únicas';
 
   @override
-  String get themeTitle => 'Theme';
+  String get themeTitle => 'Tema';
 
   @override
-  String get themeSubtitle => 'Pick a visual style. Applies instantly.';
+  String get themeSubtitle => 'Escolha um estilo visual. Aplica na hora.';
 
   @override
-  String get themeMinimal => 'Minimal';
+  String get themeMinimal => 'Minimalista';
 
   @override
   String get themeNeon => 'Neon / Cyberpunk';
 
   @override
-  String get themeRetro => 'Retro / Vintage';
+  String get themeRetro => 'Retrô / Vintage';
 
   @override
-  String get themeGlass => 'Glass (default)';
+  String get themeGlass => 'Cristal (padrão)';
 
   @override
   String get themeZen => 'Natural / Zen';
@@ -1972,87 +1977,89 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get themeAnime => 'Anime';
 
   @override
-  String get themeGothic => 'Gothic';
+  String get themeGothic => 'Gótico';
 
   @override
   String get themeCinema => 'Cinema';
 
   @override
-  String get reduceMotion => 'Reduce motion';
+  String get reduceMotion => 'Reduzir movimento';
 
   @override
-  String get reduceMotionDesc => 'Turns off theme animations to save battery.';
+  String get reduceMotionDesc =>
+      'Desativa as animações do tema para economizar bateria.';
 
   @override
-  String get playAll => 'Play all';
+  String get playAll => 'Reproduzir tudo';
 
   @override
-  String get sortRecent => 'Recently added';
+  String get sortRecent => 'Adicionadas recentemente';
 
   @override
-  String get sortTitle => 'Title (A-Z)';
+  String get sortTitle => 'Título (A-Z)';
 
   @override
-  String get sortArtist => 'Artist';
+  String get sortArtist => 'Artista';
 
   @override
-  String get sortAlbum => 'Album';
+  String get sortAlbum => 'Álbum';
 
   @override
-  String get sortYear => 'Year';
+  String get sortYear => 'Ano';
 
   @override
-  String get sortDuration => 'Duration';
+  String get sortDuration => 'Duração';
 
   @override
-  String get sortMostPlayed => 'Most played';
+  String get sortMostPlayed => 'Mais tocadas';
 
   @override
   String albumSongsCount(int count) {
-    return '$count songs';
+    return '$count músicas';
   }
 
   @override
-  String get historyTitle => 'Playback history';
+  String get historyTitle => 'Histórico de reprodução';
 
   @override
-  String get historyEmpty => 'No playback history yet';
+  String get historyEmpty => 'Ainda não há histórico de reprodução';
 
   @override
-  String get historyClear => 'Clear history';
+  String get historyClear => 'Limpar histórico';
 
   @override
-  String get foldersTitle => 'Folders';
+  String get foldersTitle => 'Pastas';
 
   @override
-  String get foldersEmpty => 'Browse your music by folders';
+  String get foldersEmpty => 'Navegue sua música por pastas';
 
   @override
-  String get duplicatesTitle => 'Duplicates';
+  String get duplicatesTitle => 'Duplicados';
 
   @override
-  String get duplicatesEmpty => 'No duplicates found';
+  String get duplicatesEmpty => 'Nenhum duplicado encontrado';
 
   @override
-  String get duplicatesRemove => 'Remove copies';
+  String get duplicatesRemove => 'Remover cópias';
 
   @override
-  String get importM3u => 'Import M3U playlist';
+  String get importM3u => 'Importar playlist M3U';
 
   @override
-  String get exportM3u => 'Export library (M3U)';
+  String get exportM3u => 'Exportar biblioteca (M3U)';
 
   @override
-  String get m3uNoSongs => 'None of the songs were found in your library';
+  String get m3uNoSongs =>
+      'Nenhuma das músicas foi encontrada na sua biblioteca';
 
   @override
   String artistAlbums(int count) {
-    return '$count albums';
+    return '$count álbuns';
   }
 
   @override
   String duplicatesRemoveBody(int count) {
-    return 'The other $count copies will be removed from the library. The files are not deleted.';
+    return 'As outras $count cópias serão removidas da biblioteca. Os arquivos não são apagados.';
   }
 
   @override
@@ -2061,209 +2068,212 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get batchEdit => 'Edit selection';
+  String get batchEdit => 'Editar seleção';
 
   @override
-  String get batchEditHint => 'Empty fields are left unchanged.';
+  String get batchEditHint => 'Os campos vazios não são alterados.';
 
   @override
-  String get normalizeVolume => 'Normalize volume';
+  String get normalizeVolume => 'Normalizar volume';
 
   @override
   String get normalizeVolumeDesc =>
-      'Uses ReplayGain tags to even out volume between songs.';
+      'Usa etiquetas ReplayGain para igualar o volume entre músicas.';
 
   @override
-  String get resumeOnConnect => 'Resume on connect';
+  String get resumeOnConnect => 'Retomar ao conectar';
 
   @override
   String get resumeOnConnectDesc =>
-      'Starts playing again when headphones or Bluetooth connect.';
+      'Volta a tocar ao conectar fones ou Bluetooth.';
 
   @override
-  String get pauseOnDisconnect => 'Pause on disconnect';
+  String get pauseOnDisconnect => 'Pausar ao desconectar';
 
   @override
-  String get pauseOnDisconnectDesc =>
-      'Pauses when headphones or Bluetooth are removed.';
+  String get pauseOnDisconnectDesc => 'Pausa ao remover fones ou Bluetooth.';
 
   @override
-  String get sqliteTitle => 'Search index (SQLite)';
+  String get sqliteTitle => 'Índice de busca (SQLite)';
 
   @override
-  String get fadeTitle => 'Fade between songs';
+  String get fadeTitle => 'Fade entre músicas';
 
   @override
-  String get fadeDesc => 'Cross-fades the volume when the track changes.';
+  String get fadeDesc => 'Faz transição de volume ao trocar de faixa.';
 
   @override
-  String get bookmarksTitle => 'Bookmarks';
+  String get bookmarksTitle => 'Marcadores';
 
   @override
-  String get addBookmark => 'Add here';
+  String get addBookmark => 'Adicionar aqui';
 
   @override
-  String get noBookmarks => 'No bookmarks in this song';
+  String get noBookmarks => 'Sem marcadores nesta música';
 
   @override
-  String get volumeDown => 'Lower volume';
+  String get volumeDown => 'Baixar volume';
 
   @override
-  String get volumeUp => 'Raise volume';
+  String get volumeUp => 'Aumentar volume';
 
   @override
-  String get volumeReset => 'Reset volume';
+  String get volumeReset => 'Restaurar volume';
 
   @override
-  String get moreActions => 'More actions';
+  String get moreActions => 'Mais ações';
 
   @override
-  String get unknownArtist => 'Unknown artist';
+  String get unknownArtist => 'Artista desconhecido';
 
   @override
-  String get unknownTitle => 'Untitled';
+  String get unknownTitle => 'Sem título';
 
   @override
-  String get untitledPlaylist => 'Untitled playlist';
+  String get untitledPlaylist => 'Playlist sem nome';
 
   @override
-  String get untitledIdea => 'Untitled idea';
+  String get untitledIdea => 'Ideia sem título';
 
   @override
-  String get relativeNow => 'just now';
+  String get relativeNow => 'agora mesmo';
 
   @override
-  String get btnSave => 'Save';
+  String get btnSave => 'Salvar';
 
   @override
-  String get btnTest => 'Test';
+  String get btnTest => 'Testar';
 
   @override
-  String get aiKeyMissingFirst => 'Set up an API key in AI settings first.';
+  String get aiKeyMissingFirst =>
+      'Configure primeiro uma chave de API em Ajustes de IA.';
 
   @override
-  String get aiConnectionOk => 'Connection OK';
+  String get aiConnectionOk => 'Conexão OK';
 
   @override
-  String get aiErrorConnection => 'Connection error';
+  String get aiErrorConnection => 'Erro de conexão';
 
   @override
-  String get aiNeedKey => 'Set up an API key to talk to me.';
+  String get aiNeedKey => 'Configure uma chave de API para falar comigo.';
 
   @override
   String get aiUnknownCommand =>
-      'I did not understand. Type help to see examples.';
+      'Não entendi o comando. Escreva ajuda para ver exemplos.';
 
   @override
-  String get aiCompletingMetadata => 'Completing the song details…';
+  String get aiCompletingMetadata => 'Completando os dados da música…';
 
   @override
-  String get aiInterpretingSearch => 'Interpreting your search…';
+  String get aiInterpretingSearch => 'Interpretando sua busca…';
 
   @override
-  String get aiDjChoosing => 'The DJ is choosing…';
+  String get aiDjChoosing => 'O DJ está escolhendo…';
 
   @override
-  String get scanFreeingSpace => 'Freeing up space…';
+  String get scanFreeingSpace => 'Liberando espaço…';
 
   @override
-  String get scanNothingToFree => 'Nothing to free up';
+  String get scanNothingToFree => 'Nada para liberar';
 
   @override
-  String get scanFreeFailed => 'Could not free up space';
+  String get scanFreeFailed => 'Não foi possível liberar espaço';
 
   @override
-  String get scanSearching => 'Searching for music on this device…';
+  String get scanSearching => 'Procurando música no aparelho…';
 
   @override
-  String get scanNoPermission =>
-      'Audio permission missing: enable it in Settings';
+  String get scanNoPermission => 'Falta permissão de áudio: ative em Ajustes';
 
   @override
-  String get scanNotFound => 'No music found on this device';
+  String get scanNotFound => 'Nenhuma música encontrada no aparelho';
 
   @override
-  String get scanNoNewSongs => 'No new songs added';
+  String get scanNoNewSongs => 'Nenhuma música nova adicionada';
 
   @override
   String get aiHintRecommended =>
-      'Recommended: the fastest and cheapest (great for everything).';
+      'Recomendado: o mais rápido e econômico (ótimo para tudo).';
 
   @override
   String get aiHintDsPro =>
-      'More capable at reasoning; costs about 4x more per use.';
+      'Mais capaz em raciocínio; custa cerca de 4x mais por uso.';
 
   @override
   String get aiHintDsRetired =>
-      'Name retired by DeepSeek: use deepseek-flash or deepseek-v4-pro.';
+      'Nome retirado pela DeepSeek: use deepseek-flash ou deepseek-v4-pro.';
 
   @override
-  String get aiHintBalanced => 'Balanced and fluent; good value for the price.';
+  String get aiHintBalanced =>
+      'Equilibrado e fluente; boa relação qualidade/preço.';
 
   @override
   String get aiHintVeryFast =>
-      'Very fast and cheap; enough for metadata and playlists.';
+      'Muito rápido e barato; suficiente para metadados e playlists.';
 
   @override
   String get aiHintO1 =>
-      'Reasoning: slower and pricier; the app skips JSON mode with these.';
+      'Raciocínio: mais lento e caro; nesses a app ignora o modo JSON.';
 
   @override
-  String get aiHintGoogleFree => 'Fast, with Google\'s generous free tier.';
+  String get aiHintGoogleFree =>
+      'Rápido, com a generosa cota gratuita do Google.';
 
   @override
-  String get aiHintGeminiPro => 'More capable; uses up the free quota faster.';
+  String get aiHintGeminiPro =>
+      'Mais capaz; consome a cota gratuita mais rápido.';
 
   @override
-  String get aiHintClaudeFast => 'The fastest and cheapest Claude model.';
+  String get aiHintClaudeFast => 'O modelo Claude mais rápido e econômico.';
 
   @override
-  String get aiHintClaudeBalanced => 'Balanced; excellent writing quality.';
+  String get aiHintClaudeBalanced =>
+      'Equilibrado; excelente qualidade de escrita.';
 
   @override
   String get aiHintClaudeOpus =>
-      'The most powerful Claude model and also the priciest.';
+      'O modelo Claude mais potente e também o mais caro.';
 
   @override
   String playLocals(Object count) {
-    return 'Play $count local songs';
+    return 'Reproduzir $count músicas locais';
   }
 
   @override
-  String get aiPlaylistDefault => 'AI playlist';
+  String get aiPlaylistDefault => 'Playlist de IA';
 
   @override
   String relativeMinutes(int count) {
-    return 'in $count min';
+    return 'em $count min';
   }
 
   @override
   String relativeHours(int count) {
-    return 'in $count h';
+    return 'em $count h';
   }
 
   @override
   String relativeDays(int count) {
-    return 'in $count d';
+    return 'em $count d';
   }
 
   @override
   String aiCreatingPlaylist(int count) {
-    return 'Creating a playlist with $count songs…';
+    return 'Criando playlist com $count músicas…';
   }
 
   @override
   String scanUpToDate(int count) {
-    return 'Library is up to date ($count tracks on device)';
+    return 'Biblioteca atualizada ($count faixas no aparelho)';
   }
 
   @override
   String scanCovers(int count) {
-    return 'Covers updated ($count songs)';
+    return 'Capas atualizadas ($count músicas)';
   }
 
   @override
   String keyRemovedFor(String provider) {
-    return '$provider key removed';
+    return 'Chave de $provider removida';
   }
 }
