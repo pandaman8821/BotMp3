@@ -1139,4 +1139,89 @@ class AppLocalizationsEs extends AppLocalizations {
   String keyRemovedFor(String provider) {
     return 'Clave de $provider eliminada';
   }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider (sin key)';
+  }
+
+  @override
+  String get setupApiKeys => 'Configurar API keys';
+
+  @override
+  String sessionLabel(String session) {
+    return 'Sesión: $session';
+  }
+
+  @override
+  String get sessionNone => 'ninguna';
+
+  @override
+  String get sessionDisabled => 'Sesión desactivada';
+
+  @override
+  String sessionNotice(String session) {
+    return 'Sesión: $session (el DJ y las listas la respetarán)';
+  }
+
+  @override
+  String get mixtapeOfDay => 'Mixtape del día';
+
+  @override
+  String get recommendMe => 'Recomiéndame';
+
+  @override
+  String get createSong => 'Crear canción';
+
+  @override
+  String get copyBtn => 'Copiar';
+
+  @override
+  String get backupSuccess => 'Copia hecha en el teléfono ✅';
+
+  @override
+  String get backupError => 'No se pudo hacer la copia';
+
+  @override
+  String cacheDetail(int size) {
+    return '$size en caché (temporal, se puede borrar)';
+  }
+
+  @override
+  String get cleanBtn => 'Limpiar';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return 'Liberados $size 🧹';
+  }
+
+  @override
+  String get importFormatsDesc =>
+      'MP3, M4A, OGG, FLAC, WAV… seleccionando archivos o rutas';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs canciones · $playlists listas';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON copiado al portapapeles';
+
+  @override
+  String get exportSuccessClipboard =>
+      'Biblioteca exportada y copiada al portapapeles';
+
+  @override
+  String songsRestored(int count) {
+    return '$count canciones restauradas';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice =>
+      'Las API keys se guardan cifradas con el Android Keystore.';
+
+  @override
+  String formatsLabel(String formats) {
+    return 'Formatos: $formats';
+  }
 }

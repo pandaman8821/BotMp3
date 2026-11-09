@@ -357,5 +357,86 @@
   "aiCreatingPlaylist": "{count}曲のプレイリストを作成中…",
   "scanUpToDate": "ライブラリは最新です（端末に{count}曲）",
   "scanCovers": "カバーを更新しました（{count}曲）",
-  "keyRemovedFor": "{provider}のキーを削除しました"
+  "keyRemovedFor": "{provider}のキーを削除しました",
+  "aiNoKeyBadge": "{provider}（キーなし）",
+  "@aiNoKeyBadge": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "setupApiKeys": "APIキーを設定",
+  "sessionLabel": "セッション: {session}",
+  "@sessionLabel": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "sessionNone": "なし",
+  "sessionDisabled": "セッション無効",
+  "sessionNotice": "セッション: {session}（DJとプレイリストに反映されます）",
+  "@sessionNotice": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "mixtapeOfDay": "今日のミックス",
+  "recommendMe": "おすすめ",
+  "createSong": "曲を作成",
+  "copyBtn": "コピー",
+  "backupSuccess": "端末内にバックアップを作成しました ✅",
+  "backupError": "バックアップを作成できませんでした",
+  "cacheDetail": "キャッシュ {size}（一時ファイル、削除可能）",
+  "@cacheDetail": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "cleanBtn": "削除",
+  "freedSpaceSuccess": "{size} 解放しました 🧹",
+  "@freedSpaceSuccess": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "importFormatsDesc": "MP3、M4A、OGG、FLAC、WAV… ファイルやパスを選択",
+  "exportSummary": "{songs}曲 · {playlists}個のプレイリスト",
+  "@exportSummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "jsonCopiedClipboard": "JSONをクリップボードにコピーしました",
+  "exportSuccessClipboard": "ライブラリをエクスポートしてクリップボードにコピーしました",
+  "songsRestored": "{count}曲を復元しました",
+  "@songsRestored": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "apiKeysKeystoreNotice": "APIキーはAndroid Keystoreで暗号化されて保存されます。",
+  "formatsLabel": "フォーマット: {formats}",
+  "@formatsLabel": {
+    "placeholders": {
+      "formats": {
+        "type": "String"
+      }
+    }
+  }
 }

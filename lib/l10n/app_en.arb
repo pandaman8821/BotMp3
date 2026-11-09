@@ -576,5 +576,86 @@
         "type": "String"
       }
     }
+  },
+  "aiNoKeyBadge": "{provider} (no key)",
+  "@aiNoKeyBadge": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "setupApiKeys": "Set up API keys",
+  "sessionLabel": "Session: {session}",
+  "@sessionLabel": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "sessionNone": "none",
+  "sessionDisabled": "Session disabled",
+  "sessionNotice": "Session: {session} (DJ and playlists will respect it)",
+  "@sessionNotice": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "mixtapeOfDay": "Daily mixtape",
+  "recommendMe": "Recommend",
+  "createSong": "Create song",
+  "copyBtn": "Copy",
+  "backupSuccess": "Backup created on device ✅",
+  "backupError": "Could not create backup",
+  "cacheDetail": "{size} in cache (temporary, safe to clear)",
+  "@cacheDetail": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "cleanBtn": "Clean",
+  "freedSpaceSuccess": "Freed {size} 🧹",
+  "@freedSpaceSuccess": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "importFormatsDesc": "MP3, M4A, OGG, FLAC, WAV… select files or paths",
+  "exportSummary": "{songs} songs · {playlists} playlists",
+  "@exportSummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "jsonCopiedClipboard": "JSON copied to clipboard",
+  "exportSuccessClipboard": "Library exported and copied to clipboard",
+  "songsRestored": "{count} songs restored",
+  "@songsRestored": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "apiKeysKeystoreNotice": "API keys are stored encrypted with Android Keystore.",
+  "formatsLabel": "Formats: {formats}",
+  "@formatsLabel": {
+    "placeholders": {
+      "formats": {
+        "type": "String"
+      }
+    }
   }
 }

@@ -1143,4 +1143,89 @@ class AppLocalizationsFr extends AppLocalizations {
   String keyRemovedFor(String provider) {
     return 'Clé $provider supprimée';
   }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider (sans clé)';
+  }
+
+  @override
+  String get setupApiKeys => 'Configurer les clés API';
+
+  @override
+  String sessionLabel(String session) {
+    return 'Session : $session';
+  }
+
+  @override
+  String get sessionNone => 'aucune';
+
+  @override
+  String get sessionDisabled => 'Session désactivée';
+
+  @override
+  String sessionNotice(String session) {
+    return 'Session : $session (le DJ et les playlists la respecteront)';
+  }
+
+  @override
+  String get mixtapeOfDay => 'Mixtape du jour';
+
+  @override
+  String get recommendMe => 'Recommander';
+
+  @override
+  String get createSong => 'Créer una chanson';
+
+  @override
+  String get copyBtn => 'Copier';
+
+  @override
+  String get backupSuccess => 'Sauvegarde créée sur l\'appareil ✅';
+
+  @override
+  String get backupError => 'Impossible de créer la sauvegarde';
+
+  @override
+  String cacheDetail(int size) {
+    return '$size en cache (temporaire, effaçable)';
+  }
+
+  @override
+  String get cleanBtn => 'Nettoyer';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return '$size libérés 🧹';
+  }
+
+  @override
+  String get importFormatsDesc =>
+      'MP3, M4A, OGG, FLAC, WAV… sélection de fichiers ou chemins';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs morceaux · $playlists playlists';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON copié dans le presse-papiers';
+
+  @override
+  String get exportSuccessClipboard =>
+      'Bibliothèque exportée et copiée dans le presse-papiers';
+
+  @override
+  String songsRestored(int count) {
+    return '$count morceaux restaurés';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice =>
+      'Les clés API sont stockées chiffrées avec Android Keystore.';
+
+  @override
+  String formatsLabel(String formats) {
+    return 'Formats : $formats';
+  }
 }

@@ -357,5 +357,86 @@
   "aiCreatingPlaylist": "{count} गानों की प्लेलिस्ट बनाई जा रही है…",
   "scanUpToDate": "लाइब्रेरी अपडेटेड ({count} ट्रैक डिवाइस पर)",
   "scanCovers": "कवर अपडेट हुए ({count} गाने)",
-  "keyRemovedFor": "{provider} कुंजी हटा दी गई"
+  "keyRemovedFor": "{provider} कुंजी हटा दी गई",
+  "aiNoKeyBadge": "{provider} (कुंजी नहीं)",
+  "@aiNoKeyBadge": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "setupApiKeys": "API कुंजियाँ सेट करें",
+  "sessionLabel": "सत्र: {session}",
+  "@sessionLabel": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "sessionNone": "कोई नहीं",
+  "sessionDisabled": "सत्र अक्षम",
+  "sessionNotice": "सत्र: {session} (डीजे और प्लेलिस्ट इसका सम्मान करेंगे)",
+  "@sessionNotice": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "mixtapeOfDay": "आज का मिक्सटेप",
+  "recommendMe": "अनुशंसा करें",
+  "createSong": "गाना बनाएँ",
+  "copyBtn": "कॉपी करें",
+  "backupSuccess": "डिवाइस पर बैकअप बनाया गया ✅",
+  "backupError": "बैकअप नहीं बनाया जा सका",
+  "cacheDetail": "कैश में {size} (अस्थायी, साफ़ करने योग्य)",
+  "@cacheDetail": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "cleanBtn": "साफ़ करें",
+  "freedSpaceSuccess": "{size} खाली किया गया 🧹",
+  "@freedSpaceSuccess": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "importFormatsDesc": "MP3, M4A, OGG, FLAC, WAV… फ़ाइलें या पथ चुनें",
+  "exportSummary": "{songs} गाने · {playlists} प्लेलिस्ट",
+  "@exportSummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "jsonCopiedClipboard": "JSON क्लिपबोर्ड पर कॉपी किया गया",
+  "exportSuccessClipboard": "लाइब्रेरी निर्यात और क्लिपबोर्ड पर कॉपी की गई",
+  "songsRestored": "{count} गाने पुनर्स्थापित किए गए",
+  "@songsRestored": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "apiKeysKeystoreNotice": "API कुंजियाँ Android Keystore के साथ एन्क्रिप्ट करके संग्रहीत की जाती हैं।",
+  "formatsLabel": "प्रारूप: {formats}",
+  "@formatsLabel": {
+    "placeholders": {
+      "formats": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -357,5 +357,86 @@
   "aiCreatingPlaylist": "Creazione playlist con {count} brani…",
   "scanUpToDate": "Libreria aggiornata ({count} brani sul dispositivo)",
   "scanCovers": "Copertine aggiornate ({count} brani)",
-  "keyRemovedFor": "Chiave {provider} rimossa"
+  "keyRemovedFor": "Chiave {provider} rimossa",
+  "aiNoKeyBadge": "{provider} (senza chiave)",
+  "@aiNoKeyBadge": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "setupApiKeys": "Configura chiavi API",
+  "sessionLabel": "Sessione: {session}",
+  "@sessionLabel": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "sessionNone": "nessuna",
+  "sessionDisabled": "Sessione disattivata",
+  "sessionNotice": "Sessione: {session} (DJ e playlist la rispetteranno)",
+  "@sessionNotice": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "mixtapeOfDay": "Mixtape del giorno",
+  "recommendMe": "Consigliami",
+  "createSong": "Crea brano",
+  "copyBtn": "Copia",
+  "backupSuccess": "Backup creato sul dispositivo ✅",
+  "backupError": "Impossibile creare il backup",
+  "cacheDetail": "{size} in cache (temporaneo, cancellabile)",
+  "@cacheDetail": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "cleanBtn": "Pulisci",
+  "freedSpaceSuccess": "Liberati {size} 🧹",
+  "@freedSpaceSuccess": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "importFormatsDesc": "MP3, M4A, OGG, FLAC, WAV… selezionando file o percorsi",
+  "exportSummary": "{songs} brani · {playlists} playlist",
+  "@exportSummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "jsonCopiedClipboard": "JSON copiato negli appunti",
+  "exportSuccessClipboard": "Libreria esportata e copiata negli appunti",
+  "songsRestored": "{count} brani ripristinati",
+  "@songsRestored": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "apiKeysKeystoreNotice": "Le chiavi API sono archiviate crittografate con Android Keystore.",
+  "formatsLabel": "Formati: {formats}",
+  "@formatsLabel": {
+    "placeholders": {
+      "formats": {
+        "type": "String"
+      }
+    }
+  }
 }

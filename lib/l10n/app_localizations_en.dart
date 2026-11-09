@@ -1132,4 +1132,89 @@ class AppLocalizationsEn extends AppLocalizations {
   String keyRemovedFor(String provider) {
     return '$provider key removed';
   }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider (no key)';
+  }
+
+  @override
+  String get setupApiKeys => 'Set up API keys';
+
+  @override
+  String sessionLabel(String session) {
+    return 'Session: $session';
+  }
+
+  @override
+  String get sessionNone => 'none';
+
+  @override
+  String get sessionDisabled => 'Session disabled';
+
+  @override
+  String sessionNotice(String session) {
+    return 'Session: $session (DJ and playlists will respect it)';
+  }
+
+  @override
+  String get mixtapeOfDay => 'Daily mixtape';
+
+  @override
+  String get recommendMe => 'Recommend';
+
+  @override
+  String get createSong => 'Create song';
+
+  @override
+  String get copyBtn => 'Copy';
+
+  @override
+  String get backupSuccess => 'Backup created on device ✅';
+
+  @override
+  String get backupError => 'Could not create backup';
+
+  @override
+  String cacheDetail(int size) {
+    return '$size in cache (temporary, safe to clear)';
+  }
+
+  @override
+  String get cleanBtn => 'Clean';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return 'Freed $size 🧹';
+  }
+
+  @override
+  String get importFormatsDesc =>
+      'MP3, M4A, OGG, FLAC, WAV… select files or paths';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs songs · $playlists playlists';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON copied to clipboard';
+
+  @override
+  String get exportSuccessClipboard =>
+      'Library exported and copied to clipboard';
+
+  @override
+  String songsRestored(int count) {
+    return '$count songs restored';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice =>
+      'API keys are stored encrypted with Android Keystore.';
+
+  @override
+  String formatsLabel(String formats) {
+    return 'Formats: $formats';
+  }
 }

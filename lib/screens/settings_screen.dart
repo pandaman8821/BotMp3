@@ -728,13 +728,13 @@ ListTile(
                   SnackBar(
                     content: Text(
                       hecha
-                          ? 'Copia hecha en el teléfono ✅'
-                          : 'No se pudo hacer la copia',
+                          ? AppLocalizations.of(context).backupSuccess
+                          : AppLocalizations.of(context).backupError,
                     ),
                   ),
                 );
               },
-              child: Text('Copiar'),
+              child: Text(AppLocalizations.of(context).copyBtn),
             ),
           ),
           ListTile(
@@ -744,7 +744,7 @@ ListTile(
               future: library.cacheBytes(),
               builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
                 final String detail = snapshot.hasData
-                    ? '${Formatters.bytes(snapshot.data!)} en caché (temporal, se puede borrar)'
+                    ? AppLocalizations.of(context).cacheDetail(Formatters.bytes(snapshot.data!))
                     : 'Calculando…';
                 return Text(detail);
               },
@@ -757,19 +757,19 @@ ListTile(
                   SnackBar(
                     content: Text(
                       freed > 0
-                          ? 'Liberados ${Formatters.bytes(freed)} 🧹'
-                          : 'No había nada que liberar',
+                          ? AppLocalizations.of(context).freedSpaceSuccess(Formatters.bytes(freed))
+                          : AppLocalizations.of(context).scanNothingToFree,
                     ),
                   ),
                 );
               },
-              child: Text('Limpiar'),
+              child: Text(AppLocalizations.of(context).cleanBtn),
             ),
           ),
           ListTile(
             leading: Icon(Icons.library_add),
             title: Text(AppLocalizations.of(context).importSongs),
-            subtitle: Text('MP3, M4A, OGG, FLAC, WAV… seleccionando archivos o rutas'),
+            subtitle: Text(AppLocalizations.of(context).importFormatsDesc),
             onTap: () => AppDialogs.importSongs(context),
           ),
           ListTile(
@@ -799,7 +799,7 @@ ListTile(
           ListTile(
             leading: const Icon(Icons.upload_file),
             title: Text(AppLocalizations.of(context).exportLibraryJson),
-            subtitle: Text('${library.songs.length} canciones · ${library.playlists.length} listas'),
+            subtitle: Text(AppLocalizations.of(context).exportSummary(library.songs.length, library.playlists.length)),
             onTap: () async {
               final String json = library.exportLibraryJson();
               final String? path =
@@ -809,9 +809,7 @@ ListTile(
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      path == null
-                          ? 'JSON copiado al portapapeles'
-                          : 'Biblioteca exportada y copiada al portapapeles',
+                      path == null ? AppLocalizations.of(context).jsonCopiedClipboard : AppLocalizations.of(context).exportSuccessClipboard,
                     ),
                   ),
                 );
@@ -827,7 +825,7 @@ ListTile(
               final int added = await library.importLibraryJson(content);
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('$added canciones restauradas')),
+                  SnackBar(content: Text(AppLocalizations.of(context).songsRestored(added))),
                 );
               }
             },
@@ -871,8 +869,8 @@ ListTile(
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              'Formatos: ${AudioFormats.supported.map((String e) => e.toUpperCase()).join(', ')}\n'
-              'Las API keys se guardan cifradas con el Android Keystore.',
+              AppLocalizations.of(context).formatsLabel(AudioFormats.supported.map((String e) => e.toUpperCase()).join(', ')), ')}\n'
+              AppLocalizations.of(context).apiKeysKeystoreNotice,
               style: TextStyle(fontSize: 12, color: AppColors.darkTextDim),
             ),
           ),

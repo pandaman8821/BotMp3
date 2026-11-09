@@ -357,5 +357,86 @@
   "aiCreatingPlaylist": "{count}곡 플레이리스트 만드는 중…",
   "scanUpToDate": "라이브러리가 최신입니다(기기에 {count}곡)",
   "scanCovers": "커버 업데이트됨({count}곡)",
-  "keyRemovedFor": "{provider} 키를 삭제했습니다"
+  "keyRemovedFor": "{provider} 키를 삭제했습니다",
+  "aiNoKeyBadge": "{provider} (키 없음)",
+  "@aiNoKeyBadge": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "setupApiKeys": "API 키 설정",
+  "sessionLabel": "세션: {session}",
+  "@sessionLabel": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "sessionNone": "없음",
+  "sessionDisabled": "세션 비활성화됨",
+  "sessionNotice": "세션: {session}(DJ 및 플레이리스트에 반영됨)",
+  "@sessionNotice": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "mixtapeOfDay": "오늘의 믹스테이프",
+  "recommendMe": "추천해줘",
+  "createSong": "노래 만들기",
+  "copyBtn": "복사",
+  "backupSuccess": "기기에 백업 생성됨 ✅",
+  "backupError": "백업을 생성할 수 없습니다",
+  "cacheDetail": "캐시 {size}(임시 파일, 삭제 가능)",
+  "@cacheDetail": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "cleanBtn": "청소",
+  "freedSpaceSuccess": "{size} 확보됨 🧹",
+  "@freedSpaceSuccess": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "importFormatsDesc": "MP3, M4A, OGG, FLAC, WAV… 파일 또는 경로 선택",
+  "exportSummary": "{songs}곡 · {playlists}개 플레이리스트",
+  "@exportSummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "jsonCopiedClipboard": "JSON이 클립보드에 복사되었습니다",
+  "exportSuccessClipboard": "라이브러리가 내보내져 클립보드에 복사되었습니다",
+  "songsRestored": "{count}곡 복원됨",
+  "@songsRestored": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "apiKeysKeystoreNotice": "API 키는 Android Keystore로 암호화되어 저장됩니다.",
+  "formatsLabel": "포맷: {formats}",
+  "@formatsLabel": {
+    "placeholders": {
+      "formats": {
+        "type": "String"
+      }
+    }
+  }
 }

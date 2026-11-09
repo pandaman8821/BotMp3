@@ -1090,6 +1090,88 @@ class AppLocalizationsZh extends AppLocalizations {
   String keyRemovedFor(String provider) {
     return '已移除 $provider 密钥';
   }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider（无密钥）';
+  }
+
+  @override
+  String get setupApiKeys => '配置 API 密钥';
+
+  @override
+  String sessionLabel(String session) {
+    return '会话：$session';
+  }
+
+  @override
+  String get sessionNone => '无';
+
+  @override
+  String get sessionDisabled => '会话已停用';
+
+  @override
+  String sessionNotice(String session) {
+    return '会话：$session（DJ 和歌单将遵循此设置）';
+  }
+
+  @override
+  String get mixtapeOfDay => '每日 AI 推荐';
+
+  @override
+  String get recommendMe => '推荐歌曲';
+
+  @override
+  String get createSong => '创作歌曲';
+
+  @override
+  String get copyBtn => '复制';
+
+  @override
+  String get backupSuccess => '已在设备上创建备份 ✅';
+
+  @override
+  String get backupError => '无法创建备份';
+
+  @override
+  String cacheDetail(int size) {
+    return '缓存 $size（临时文件，可安全清理）';
+  }
+
+  @override
+  String get cleanBtn => '清理';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return '已释放 $size 🧹';
+  }
+
+  @override
+  String get importFormatsDesc => 'MP3, M4A, OGG, FLAC, WAV… 选择文件或路径';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs 首歌曲 · $playlists 个歌单';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON 已复制到剪贴板';
+
+  @override
+  String get exportSuccessClipboard => '音乐库已导出并复制到剪贴板';
+
+  @override
+  String songsRestored(int count) {
+    return '已恢复 $count 首歌曲';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice => 'API 密钥使用 Android Keystore 加密存储。';
+
+  @override
+  String formatsLabel(String formats) {
+    return '格式：$formats';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -2177,5 +2259,87 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   @override
   String keyRemovedFor(String provider) {
     return '已移除 $provider 密钥';
+  }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider（无密钥）';
+  }
+
+  @override
+  String get setupApiKeys => '配置 API 密钥';
+
+  @override
+  String sessionLabel(String session) {
+    return '会话：$session';
+  }
+
+  @override
+  String get sessionNone => '无';
+
+  @override
+  String get sessionDisabled => '会话已停用';
+
+  @override
+  String sessionNotice(String session) {
+    return '会话：$session（DJ 和歌单将遵循此设置）';
+  }
+
+  @override
+  String get mixtapeOfDay => '每日 AI 推荐';
+
+  @override
+  String get recommendMe => '推荐歌曲';
+
+  @override
+  String get createSong => '创作歌曲';
+
+  @override
+  String get copyBtn => '复制';
+
+  @override
+  String get backupSuccess => '已在设备上创建备份 ✅';
+
+  @override
+  String get backupError => '无法创建备份';
+
+  @override
+  String cacheDetail(int size) {
+    return '缓存 $size（临时文件，可安全清理）';
+  }
+
+  @override
+  String get cleanBtn => '清理';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return '已释放 $size 🧹';
+  }
+
+  @override
+  String get importFormatsDesc => 'MP3, M4A, OGG, FLAC, WAV… 选择文件或路径';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs 首歌曲 · $playlists 个歌单';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON 已复制到剪贴板';
+
+  @override
+  String get exportSuccessClipboard => '音乐库已导出并复制到剪贴板';
+
+  @override
+  String songsRestored(int count) {
+    return '已恢复 $count 首歌曲';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice => 'API 密钥使用 Android Keystore 加密存储。';
+
+  @override
+  String formatsLabel(String formats) {
+    return '格式：$formats';
   }
 }

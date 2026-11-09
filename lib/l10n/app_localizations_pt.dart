@@ -1139,6 +1139,91 @@ class AppLocalizationsPt extends AppLocalizations {
   String keyRemovedFor(String provider) {
     return 'Chave de $provider removida';
   }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider (sem chave)';
+  }
+
+  @override
+  String get setupApiKeys => 'Configurar chaves de API';
+
+  @override
+  String sessionLabel(String session) {
+    return 'Sessão: $session';
+  }
+
+  @override
+  String get sessionNone => 'nenhuma';
+
+  @override
+  String get sessionDisabled => 'Sessão desativada';
+
+  @override
+  String sessionNotice(String session) {
+    return 'Sessão: $session (o DJ e as playlists respeitarão)';
+  }
+
+  @override
+  String get mixtapeOfDay => 'Mixtape do dia';
+
+  @override
+  String get recommendMe => 'Recomendar';
+
+  @override
+  String get createSong => 'Criar música';
+
+  @override
+  String get copyBtn => 'Copiar';
+
+  @override
+  String get backupSuccess => 'Backup criado no dispositivo ✅';
+
+  @override
+  String get backupError => 'Não foi possível criar o backup';
+
+  @override
+  String cacheDetail(int size) {
+    return '$size em cache (temporário, pode limpar)';
+  }
+
+  @override
+  String get cleanBtn => 'Limpar';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return 'Liberado $size 🧹';
+  }
+
+  @override
+  String get importFormatsDesc =>
+      'MP3, M4A, OGG, FLAC, WAV… selecionando arquivos ou caminhos';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs músicas · $playlists playlists';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON copiado para a área de transferência';
+
+  @override
+  String get exportSuccessClipboard =>
+      'Biblioteca exportada e copiada para a área de transferência';
+
+  @override
+  String songsRestored(int count) {
+    return '$count músicas restauradas';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice =>
+      'As chaves de API são armazenadas criptografadas com o Android Keystore.';
+
+  @override
+  String formatsLabel(String formats) {
+    return 'Formatos: $formats';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -2275,5 +2360,90 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String keyRemovedFor(String provider) {
     return 'Chave de $provider removida';
+  }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider (sem chave)';
+  }
+
+  @override
+  String get setupApiKeys => 'Configurar chaves de API';
+
+  @override
+  String sessionLabel(String session) {
+    return 'Sessão: $session';
+  }
+
+  @override
+  String get sessionNone => 'nenhuma';
+
+  @override
+  String get sessionDisabled => 'Sessão desativada';
+
+  @override
+  String sessionNotice(String session) {
+    return 'Sessão: $session (o DJ e as playlists respeitarão)';
+  }
+
+  @override
+  String get mixtapeOfDay => 'Mixtape do dia';
+
+  @override
+  String get recommendMe => 'Recomendar';
+
+  @override
+  String get createSong => 'Criar música';
+
+  @override
+  String get copyBtn => 'Copiar';
+
+  @override
+  String get backupSuccess => 'Backup criado no dispositivo ✅';
+
+  @override
+  String get backupError => 'Não foi possível criar o backup';
+
+  @override
+  String cacheDetail(int size) {
+    return '$size em cache (temporário, pode limpar)';
+  }
+
+  @override
+  String get cleanBtn => 'Limpar';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return 'Liberado $size 🧹';
+  }
+
+  @override
+  String get importFormatsDesc =>
+      'MP3, M4A, OGG, FLAC, WAV… selecionando arquivos ou caminhos';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs músicas · $playlists playlists';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON copiado para a área de transferência';
+
+  @override
+  String get exportSuccessClipboard =>
+      'Biblioteca exportada e copiada para a área de transferência';
+
+  @override
+  String songsRestored(int count) {
+    return '$count músicas restauradas';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice =>
+      'As chaves de API são armazenadas criptografadas com o Android Keystore.';
+
+  @override
+  String formatsLabel(String formats) {
+    return 'Formatos: $formats';
   }
 }

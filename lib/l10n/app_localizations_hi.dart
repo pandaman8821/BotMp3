@@ -1118,4 +1118,89 @@ class AppLocalizationsHi extends AppLocalizations {
   String keyRemovedFor(String provider) {
     return '$provider कुंजी हटा दी गई';
   }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider (कुंजी नहीं)';
+  }
+
+  @override
+  String get setupApiKeys => 'API कुंजियाँ सेट करें';
+
+  @override
+  String sessionLabel(String session) {
+    return 'सत्र: $session';
+  }
+
+  @override
+  String get sessionNone => 'कोई नहीं';
+
+  @override
+  String get sessionDisabled => 'सत्र अक्षम';
+
+  @override
+  String sessionNotice(String session) {
+    return 'सत्र: $session (डीजे और प्लेलिस्ट इसका सम्मान करेंगे)';
+  }
+
+  @override
+  String get mixtapeOfDay => 'आज का मिक्सटेप';
+
+  @override
+  String get recommendMe => 'अनुशंसा करें';
+
+  @override
+  String get createSong => 'गाना बनाएँ';
+
+  @override
+  String get copyBtn => 'कॉपी करें';
+
+  @override
+  String get backupSuccess => 'डिवाइस पर बैकअप बनाया गया ✅';
+
+  @override
+  String get backupError => 'बैकअप नहीं बनाया जा सका';
+
+  @override
+  String cacheDetail(int size) {
+    return 'कैश में $size (अस्थायी, साफ़ करने योग्य)';
+  }
+
+  @override
+  String get cleanBtn => 'साफ़ करें';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return '$size खाली किया गया 🧹';
+  }
+
+  @override
+  String get importFormatsDesc =>
+      'MP3, M4A, OGG, FLAC, WAV… फ़ाइलें या पथ चुनें';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs गाने · $playlists प्लेलिस्ट';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON क्लिपबोर्ड पर कॉपी किया गया';
+
+  @override
+  String get exportSuccessClipboard =>
+      'लाइब्रेरी निर्यात और क्लिपबोर्ड पर कॉपी की गई';
+
+  @override
+  String songsRestored(int count) {
+    return '$count गाने पुनर्स्थापित किए गए';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice =>
+      'API कुंजियाँ Android Keystore के साथ एन्क्रिप्ट करके संग्रहीत की जाती हैं।';
+
+  @override
+  String formatsLabel(String formats) {
+    return 'प्रारूप: $formats';
+  }
 }

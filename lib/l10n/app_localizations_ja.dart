@@ -1092,4 +1092,86 @@ class AppLocalizationsJa extends AppLocalizations {
   String keyRemovedFor(String provider) {
     return '$providerのキーを削除しました';
   }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider（キーなし）';
+  }
+
+  @override
+  String get setupApiKeys => 'APIキーを設定';
+
+  @override
+  String sessionLabel(String session) {
+    return 'セッション: $session';
+  }
+
+  @override
+  String get sessionNone => 'なし';
+
+  @override
+  String get sessionDisabled => 'セッション無効';
+
+  @override
+  String sessionNotice(String session) {
+    return 'セッション: $session（DJとプレイリストに反映されます）';
+  }
+
+  @override
+  String get mixtapeOfDay => '今日のミックス';
+
+  @override
+  String get recommendMe => 'おすすめ';
+
+  @override
+  String get createSong => '曲を作成';
+
+  @override
+  String get copyBtn => 'コピー';
+
+  @override
+  String get backupSuccess => '端末内にバックアップを作成しました ✅';
+
+  @override
+  String get backupError => 'バックアップを作成できませんでした';
+
+  @override
+  String cacheDetail(int size) {
+    return 'キャッシュ $size（一時ファイル、削除可能）';
+  }
+
+  @override
+  String get cleanBtn => '削除';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return '$size 解放しました 🧹';
+  }
+
+  @override
+  String get importFormatsDesc => 'MP3、M4A、OGG、FLAC、WAV… ファイルやパスを選択';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs曲 · $playlists個のプレイリスト';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSONをクリップボードにコピーしました';
+
+  @override
+  String get exportSuccessClipboard => 'ライブラリをエクスポートしてクリップボードにコピーしました';
+
+  @override
+  String songsRestored(int count) {
+    return '$count曲を復元しました';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice => 'APIキーはAndroid Keystoreで暗号化されて保存されます。';
+
+  @override
+  String formatsLabel(String formats) {
+    return 'フォーマット: $formats';
+  }
 }

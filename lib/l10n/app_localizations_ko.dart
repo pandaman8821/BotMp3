@@ -1095,4 +1095,86 @@ class AppLocalizationsKo extends AppLocalizations {
   String keyRemovedFor(String provider) {
     return '$provider 키를 삭제했습니다';
   }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider (키 없음)';
+  }
+
+  @override
+  String get setupApiKeys => 'API 키 설정';
+
+  @override
+  String sessionLabel(String session) {
+    return '세션: $session';
+  }
+
+  @override
+  String get sessionNone => '없음';
+
+  @override
+  String get sessionDisabled => '세션 비활성화됨';
+
+  @override
+  String sessionNotice(String session) {
+    return '세션: $session(DJ 및 플레이리스트에 반영됨)';
+  }
+
+  @override
+  String get mixtapeOfDay => '오늘의 믹스테이프';
+
+  @override
+  String get recommendMe => '추천해줘';
+
+  @override
+  String get createSong => '노래 만들기';
+
+  @override
+  String get copyBtn => '복사';
+
+  @override
+  String get backupSuccess => '기기에 백업 생성됨 ✅';
+
+  @override
+  String get backupError => '백업을 생성할 수 없습니다';
+
+  @override
+  String cacheDetail(int size) {
+    return '캐시 $size(임시 파일, 삭제 가능)';
+  }
+
+  @override
+  String get cleanBtn => '청소';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return '$size 확보됨 🧹';
+  }
+
+  @override
+  String get importFormatsDesc => 'MP3, M4A, OGG, FLAC, WAV… 파일 또는 경로 선택';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs곡 · $playlists개 플레이리스트';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON이 클립보드에 복사되었습니다';
+
+  @override
+  String get exportSuccessClipboard => '라이브러리가 내보내져 클립보드에 복사되었습니다';
+
+  @override
+  String songsRestored(int count) {
+    return '$count곡 복원됨';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice => 'API 키는 Android Keystore로 암호화되어 저장됩니다.';
+
+  @override
+  String formatsLabel(String formats) {
+    return '포맷: $formats';
+  }
 }
