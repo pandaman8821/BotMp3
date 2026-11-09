@@ -357,5 +357,86 @@
   "aiCreatingPlaylist": "Playlist mit {count} Titeln wird erstellt…",
   "scanUpToDate": "Bibliothek ist aktuell ({count} Titel auf dem Gerät)",
   "scanCovers": "Cover aktualisiert ({count} Titel)",
-  "keyRemovedFor": "{provider}-Schlüssel entfernt"
+  "keyRemovedFor": "{provider}-Schlüssel entfernt",
+  "aiNoKeyBadge": "{provider} (ohne Key)",
+  "@aiNoKeyBadge": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "setupApiKeys": "API-Schlüssel einrichten",
+  "sessionLabel": "Sitzung: {session}",
+  "@sessionLabel": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "sessionNone": "keine",
+  "sessionDisabled": "Sitzung deaktiviert",
+  "sessionNotice": "Sitzung: {session} (DJ und Playlists berücksichtigen dies)",
+  "@sessionNotice": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "mixtapeOfDay": "Mixtape des Tages",
+  "recommendMe": "Empfehlen",
+  "createSong": "Song erstellen",
+  "copyBtn": "Kopieren",
+  "backupSuccess": "Sicherung auf Gerät erstellt ✅",
+  "backupError": "Sicherung konnte nicht erstellt werden",
+  "cacheDetail": "{size} im Cache (temporär, löschbar)",
+  "@cacheDetail": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "cleanBtn": "Bereinigen",
+  "freedSpaceSuccess": "{size} freigegeben 🧹",
+  "@freedSpaceSuccess": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "importFormatsDesc": "MP3, M4A, OGG, FLAC, WAV… Dateien oder Pfade auswählen",
+  "exportSummary": "{songs} Titel · {playlists} Playlists",
+  "@exportSummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "jsonCopiedClipboard": "JSON in Zwischenablage kopiert",
+  "exportSuccessClipboard": "Bibliothek exportiert und in Zwischenablage kopiert",
+  "songsRestored": "{count} Titel wiederhergestellt",
+  "@songsRestored": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "apiKeysKeystoreNotice": "API-Schlüssel werden mit dem Android Keystore verschlüsselt gespeichert.",
+  "formatsLabel": "Formate: {formats}",
+  "@formatsLabel": {
+    "placeholders": {
+      "formats": {
+        "type": "String"
+      }
+    }
+  }
 }

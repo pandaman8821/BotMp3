@@ -149,7 +149,7 @@ class _AiScreenState extends State<AiScreen> {
                   color: ai.keyFor(provider) == null ? Colors.grey : null,
                 ),
                 label: Text(
-                  ai.keyFor(provider) == null ? '${provider.label} (sin key)' : provider.label,
+                  ai.keyFor(provider) == null ? AppLocalizations.of(context).aiNoKeyBadge(provider.label) : provider.label,
                 ),
                 selected: ai.activeProvider == provider,
                 onSelected: (_) => ai.selectProvider(provider),
@@ -165,7 +165,7 @@ class _AiScreenState extends State<AiScreen> {
       icon: Icons.smart_toy_outlined,
       title: AppLocalizations.of(context).aiDjTitle,
       message: AppLocalizations.of(context).aiAskExamples,
-      actionLabel: 'Configurar API keys',
+      actionLabel: AppLocalizations.of(context).setupApiKeys,
       onAction: () {
         showDialog<void>(
           context: context,
@@ -536,7 +536,7 @@ class _AiScreenState extends State<AiScreen> {
         children: <Widget>[
           // Acceso directo a las canciones en tendencia.
           _action(
-            'Sesión: ${context.watch<SettingsProvider>().sesion.isEmpty ? 'ninguna' : context.watch<SettingsProvider>().sesion}',
+            '${context.watch<SettingsProvider>().sesion.isEmpty ? 'ninguna' : context.watch<SettingsProvider>().sesion}',
             Icons.tune,
             () async {
               const List<String> sesiones = <String>[
@@ -556,14 +556,14 @@ class _AiScreenState extends State<AiScreen> {
                 SnackBar(
                   content: Text(
                     siguiente.isEmpty
-                        ? 'Sesión desactivada'
-                        : 'Sesión: $siguiente (el DJ y las listas la respetarán)',
+                        ? AppLocalizations.of(context).sessionDisabled
+                        : '$siguiente (el DJ y las listas la respetarán)',
                   ),
                 ),
               );
             },
           ),
-          _action('Mixtape del día', Icons.auto_awesome_motion, () async {
+          _action(AppLocalizations.of(context).mixtapeOfDay, Icons.auto_awesome_motion, () async {
             if (library.songs.isEmpty) return;
             // Lista diaria y estable: la fecha decide el orden, así el mismo día
             // siempre da el mismo mixtape y mañana cambia solo.
@@ -584,12 +584,12 @@ class _AiScreenState extends State<AiScreen> {
               ),
             );
           }),
-          _action('Tendencias 🔥', Icons.local_fire_department, () async {
+          _action('${AppLocalizations.of(context).trendsTitle} 🔥', Icons.local_fire_department, () async {
             await Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => const TrendsScreen()),
             );
           }),
-          _action('Recomiéndame', Icons.auto_awesome, () async {
+          _action(AppLocalizations.of(context).recommendMe, Icons.auto_awesome, () async {
             final AiActionResult? result = await ai.recommend(
               _controller.text.trim().isEmpty
                   ? 'Algo que encaje con lo que suelo escuchar'
@@ -599,14 +599,14 @@ class _AiScreenState extends State<AiScreen> {
             if (mounted) setState(() => _lastResult = result);
           }),
 
-          _action('Modo DJ', Icons.graphic_eq, () async {
+          _action(AppLocalizations.of(context).aiDj, Icons.graphic_eq, () async {
             final Song? current = player.current ?? (library.songs.isNotEmpty ? library.songs.first : null);
             if (current == null) return;
             final AiActionResult? result = await ai.djNext(current, player.recentlyPlayed, sesion: context.read<SettingsProvider>().sesion);
             if (!mounted) return;
             setState(() => _lastResult = result);
           }),
-          _action('Crear canción', Icons.music_note, () async {
+          _action(AppLocalizations.of(context).createSong, Icons.music_note, () async {
             final String description = _controller.text.trim().isEmpty
                 ? 'Una cumbia alegre sobre Bolivia con sintetizadores'
                 : _controller.text.trim();

@@ -1140,4 +1140,89 @@ class AppLocalizationsDe extends AppLocalizations {
   String keyRemovedFor(String provider) {
     return '$provider-Schlüssel entfernt';
   }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider (ohne Key)';
+  }
+
+  @override
+  String get setupApiKeys => 'API-Schlüssel einrichten';
+
+  @override
+  String sessionLabel(String session) {
+    return 'Sitzung: $session';
+  }
+
+  @override
+  String get sessionNone => 'keine';
+
+  @override
+  String get sessionDisabled => 'Sitzung deaktiviert';
+
+  @override
+  String sessionNotice(String session) {
+    return 'Sitzung: $session (DJ und Playlists berücksichtigen dies)';
+  }
+
+  @override
+  String get mixtapeOfDay => 'Mixtape des Tages';
+
+  @override
+  String get recommendMe => 'Empfehlen';
+
+  @override
+  String get createSong => 'Song erstellen';
+
+  @override
+  String get copyBtn => 'Kopieren';
+
+  @override
+  String get backupSuccess => 'Sicherung auf Gerät erstellt ✅';
+
+  @override
+  String get backupError => 'Sicherung konnte nicht erstellt werden';
+
+  @override
+  String cacheDetail(int size) {
+    return '$size im Cache (temporär, löschbar)';
+  }
+
+  @override
+  String get cleanBtn => 'Bereinigen';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return '$size freigegeben 🧹';
+  }
+
+  @override
+  String get importFormatsDesc =>
+      'MP3, M4A, OGG, FLAC, WAV… Dateien oder Pfade auswählen';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs Titel · $playlists Playlists';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON in Zwischenablage kopiert';
+
+  @override
+  String get exportSuccessClipboard =>
+      'Bibliothek exportiert und in Zwischenablage kopiert';
+
+  @override
+  String songsRestored(int count) {
+    return '$count Titel wiederhergestellt';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice =>
+      'API-Schlüssel werden mit dem Android Keystore verschlüsselt gespeichert.';
+
+  @override
+  String formatsLabel(String formats) {
+    return 'Formate: $formats';
+  }
 }

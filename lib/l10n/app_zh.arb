@@ -357,5 +357,86 @@
   "aiCreatingPlaylist": "正在创建含 {count} 首歌的歌单…",
   "scanUpToDate": "音乐库已最新（设备上 {count} 首）",
   "scanCovers": "封面已更新（{count} 首）",
-  "keyRemovedFor": "已移除 {provider} 密钥"
+  "keyRemovedFor": "已移除 {provider} 密钥",
+  "aiNoKeyBadge": "{provider}（无密钥）",
+  "@aiNoKeyBadge": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "setupApiKeys": "配置 API 密钥",
+  "sessionLabel": "会话：{session}",
+  "@sessionLabel": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "sessionNone": "无",
+  "sessionDisabled": "会话已停用",
+  "sessionNotice": "会话：{session}（DJ 和歌单将遵循此设置）",
+  "@sessionNotice": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "mixtapeOfDay": "每日 AI 推荐",
+  "recommendMe": "推荐歌曲",
+  "createSong": "创作歌曲",
+  "copyBtn": "复制",
+  "backupSuccess": "已在设备上创建备份 ✅",
+  "backupError": "无法创建备份",
+  "cacheDetail": "缓存 {size}（临时文件，可安全清理）",
+  "@cacheDetail": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "cleanBtn": "清理",
+  "freedSpaceSuccess": "已释放 {size} 🧹",
+  "@freedSpaceSuccess": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "importFormatsDesc": "MP3, M4A, OGG, FLAC, WAV… 选择文件或路径",
+  "exportSummary": "{songs} 首歌曲 · {playlists} 个歌单",
+  "@exportSummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "jsonCopiedClipboard": "JSON 已复制到剪贴板",
+  "exportSuccessClipboard": "音乐库已导出并复制到剪贴板",
+  "songsRestored": "已恢复 {count} 首歌曲",
+  "@songsRestored": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "apiKeysKeystoreNotice": "API 密钥使用 Android Keystore 加密存储。",
+  "formatsLabel": "格式：{formats}",
+  "@formatsLabel": {
+    "placeholders": {
+      "formats": {
+        "type": "String"
+      }
+    }
+  }
 }

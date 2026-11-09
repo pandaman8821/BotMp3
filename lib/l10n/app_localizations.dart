@@ -2137,6 +2137,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{provider} key removed'**
   String keyRemovedFor(String provider);
+
+  /// No description provided for @aiNoKeyBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'{provider} (no key)'**
+  String aiNoKeyBadge(String provider);
+
+  /// No description provided for @setupApiKeys.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up API keys'**
+  String get setupApiKeys;
+
+  /// No description provided for @sessionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Session: {session}'**
+  String sessionLabel(String session);
+
+  /// No description provided for @sessionNone.
+  ///
+  /// In en, this message translates to:
+  /// **'none'**
+  String get sessionNone;
+
+  /// No description provided for @sessionDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Session disabled'**
+  String get sessionDisabled;
+
+  /// No description provided for @sessionNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Session: {session} (DJ and playlists will respect it)'**
+  String sessionNotice(String session);
+
+  /// No description provided for @mixtapeOfDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily mixtape'**
+  String get mixtapeOfDay;
+
+  /// No description provided for @recommendMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommend'**
+  String get recommendMe;
+
+  /// No description provided for @createSong.
+  ///
+  /// In en, this message translates to:
+  /// **'Create song'**
+  String get createSong;
+
+  /// No description provided for @copyBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get copyBtn;
+
+  /// No description provided for @backupSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup created on device ✅'**
+  String get backupSuccess;
+
+  /// No description provided for @backupError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not create backup'**
+  String get backupError;
+
+  /// No description provided for @cacheDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'{size} in cache (temporary, safe to clear)'**
+  String cacheDetail(int size);
+
+  /// No description provided for @cleanBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Clean'**
+  String get cleanBtn;
+
+  /// No description provided for @freedSpaceSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Freed {size} 🧹'**
+  String freedSpaceSuccess(int size);
+
+  /// No description provided for @importFormatsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'MP3, M4A, OGG, FLAC, WAV… select files or paths'**
+  String get importFormatsDesc;
+
+  /// No description provided for @exportSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{songs} songs · {playlists} playlists'**
+  String exportSummary(int songs, int playlists);
+
+  /// No description provided for @jsonCopiedClipboard.
+  ///
+  /// In en, this message translates to:
+  /// **'JSON copied to clipboard'**
+  String get jsonCopiedClipboard;
+
+  /// No description provided for @exportSuccessClipboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Library exported and copied to clipboard'**
+  String get exportSuccessClipboard;
+
+  /// No description provided for @songsRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} songs restored'**
+  String songsRestored(int count);
+
+  /// No description provided for @apiKeysKeystoreNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'API keys are stored encrypted with Android Keystore.'**
+  String get apiKeysKeystoreNotice;
+
+  /// No description provided for @formatsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Formats: {formats}'**
+  String formatsLabel(String formats);
 }
 
 class _AppLocalizationsDelegate

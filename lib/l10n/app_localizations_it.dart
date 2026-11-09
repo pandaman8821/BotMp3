@@ -1137,4 +1137,89 @@ class AppLocalizationsIt extends AppLocalizations {
   String keyRemovedFor(String provider) {
     return 'Chiave $provider rimossa';
   }
+
+  @override
+  String aiNoKeyBadge(String provider) {
+    return '$provider (senza chiave)';
+  }
+
+  @override
+  String get setupApiKeys => 'Configura chiavi API';
+
+  @override
+  String sessionLabel(String session) {
+    return 'Sessione: $session';
+  }
+
+  @override
+  String get sessionNone => 'nessuna';
+
+  @override
+  String get sessionDisabled => 'Sessione disattivata';
+
+  @override
+  String sessionNotice(String session) {
+    return 'Sessione: $session (DJ e playlist la rispetteranno)';
+  }
+
+  @override
+  String get mixtapeOfDay => 'Mixtape del giorno';
+
+  @override
+  String get recommendMe => 'Consigliami';
+
+  @override
+  String get createSong => 'Crea brano';
+
+  @override
+  String get copyBtn => 'Copia';
+
+  @override
+  String get backupSuccess => 'Backup creato sul dispositivo ✅';
+
+  @override
+  String get backupError => 'Impossibile creare il backup';
+
+  @override
+  String cacheDetail(int size) {
+    return '$size in cache (temporaneo, cancellabile)';
+  }
+
+  @override
+  String get cleanBtn => 'Pulisci';
+
+  @override
+  String freedSpaceSuccess(int size) {
+    return 'Liberati $size 🧹';
+  }
+
+  @override
+  String get importFormatsDesc =>
+      'MP3, M4A, OGG, FLAC, WAV… selezionando file o percorsi';
+
+  @override
+  String exportSummary(int songs, int playlists) {
+    return '$songs brani · $playlists playlist';
+  }
+
+  @override
+  String get jsonCopiedClipboard => 'JSON copiato negli appunti';
+
+  @override
+  String get exportSuccessClipboard =>
+      'Libreria esportata e copiata negli appunti';
+
+  @override
+  String songsRestored(int count) {
+    return '$count brani ripristinati';
+  }
+
+  @override
+  String get apiKeysKeystoreNotice =>
+      'Le chiavi API sono archiviate crittografate con Android Keystore.';
+
+  @override
+  String formatsLabel(String formats) {
+    return 'Formati: $formats';
+  }
 }

@@ -576,5 +576,86 @@
         "type": "String"
       }
     }
+  },
+  "aiNoKeyBadge": "{provider} (sin key)",
+  "@aiNoKeyBadge": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "setupApiKeys": "Configurar API keys",
+  "sessionLabel": "Sesión: {session}",
+  "@sessionLabel": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "sessionNone": "ninguna",
+  "sessionDisabled": "Sesión desactivada",
+  "sessionNotice": "Sesión: {session} (el DJ y las listas la respetarán)",
+  "@sessionNotice": {
+    "placeholders": {
+      "session": {
+        "type": "String"
+      }
+    }
+  },
+  "mixtapeOfDay": "Mixtape del día",
+  "recommendMe": "Recomiéndame",
+  "createSong": "Crear canción",
+  "copyBtn": "Copiar",
+  "backupSuccess": "Copia hecha en el teléfono ✅",
+  "backupError": "No se pudo hacer la copia",
+  "cacheDetail": "{size} en caché (temporal, se puede borrar)",
+  "@cacheDetail": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "cleanBtn": "Limpiar",
+  "freedSpaceSuccess": "Liberados {size} 🧹",
+  "@freedSpaceSuccess": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "importFormatsDesc": "MP3, M4A, OGG, FLAC, WAV… seleccionando archivos o rutas",
+  "exportSummary": "{songs} canciones · {playlists} listas",
+  "@exportSummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "jsonCopiedClipboard": "JSON copiado al portapapeles",
+  "exportSuccessClipboard": "Biblioteca exportada y copiada al portapapeles",
+  "songsRestored": "{count} canciones restauradas",
+  "@songsRestored": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "apiKeysKeystoreNotice": "Las API keys se guardan cifradas con el Android Keystore.",
+  "formatsLabel": "Formatos: {formats}",
+  "@formatsLabel": {
+    "placeholders": {
+      "formats": {
+        "type": "String"
+      }
+    }
   }
 }
