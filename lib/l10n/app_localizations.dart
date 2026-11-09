@@ -1885,6 +1885,258 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'More actions'**
   String get moreActions;
+
+  /// No description provided for @unknownArtist.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown artist'**
+  String get unknownArtist;
+
+  /// No description provided for @unknownTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled'**
+  String get unknownTitle;
+
+  /// No description provided for @untitledPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled playlist'**
+  String get untitledPlaylist;
+
+  /// No description provided for @untitledIdea.
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled idea'**
+  String get untitledIdea;
+
+  /// No description provided for @relativeNow.
+  ///
+  /// In en, this message translates to:
+  /// **'just now'**
+  String get relativeNow;
+
+  /// No description provided for @btnSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get btnSave;
+
+  /// No description provided for @btnTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Test'**
+  String get btnTest;
+
+  /// No description provided for @aiKeyMissingFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up an API key in AI settings first.'**
+  String get aiKeyMissingFirst;
+
+  /// No description provided for @aiConnectionOk.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection OK'**
+  String get aiConnectionOk;
+
+  /// No description provided for @aiErrorConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection error'**
+  String get aiErrorConnection;
+
+  /// No description provided for @aiNeedKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up an API key to talk to me.'**
+  String get aiNeedKey;
+
+  /// No description provided for @aiUnknownCommand.
+  ///
+  /// In en, this message translates to:
+  /// **'I did not understand. Type help to see examples.'**
+  String get aiUnknownCommand;
+
+  /// No description provided for @aiCompletingMetadata.
+  ///
+  /// In en, this message translates to:
+  /// **'Completing the song details…'**
+  String get aiCompletingMetadata;
+
+  /// No description provided for @aiInterpretingSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Interpreting your search…'**
+  String get aiInterpretingSearch;
+
+  /// No description provided for @aiDjChoosing.
+  ///
+  /// In en, this message translates to:
+  /// **'The DJ is choosing…'**
+  String get aiDjChoosing;
+
+  /// No description provided for @scanFreeingSpace.
+  ///
+  /// In en, this message translates to:
+  /// **'Freeing up space…'**
+  String get scanFreeingSpace;
+
+  /// No description provided for @scanNothingToFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing to free up'**
+  String get scanNothingToFree;
+
+  /// No description provided for @scanFreeFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not free up space'**
+  String get scanFreeFailed;
+
+  /// No description provided for @scanSearching.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching for music on this device…'**
+  String get scanSearching;
+
+  /// No description provided for @scanNoPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio permission missing: enable it in Settings'**
+  String get scanNoPermission;
+
+  /// No description provided for @scanNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No music found on this device'**
+  String get scanNotFound;
+
+  /// No description provided for @scanNoNewSongs.
+  ///
+  /// In en, this message translates to:
+  /// **'No new songs added'**
+  String get scanNoNewSongs;
+
+  /// No description provided for @aiHintRecommended.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended: the fastest and cheapest (great for everything).'**
+  String get aiHintRecommended;
+
+  /// No description provided for @aiHintDsPro.
+  ///
+  /// In en, this message translates to:
+  /// **'More capable at reasoning; costs about 4x more per use.'**
+  String get aiHintDsPro;
+
+  /// No description provided for @aiHintDsRetired.
+  ///
+  /// In en, this message translates to:
+  /// **'Name retired by DeepSeek: use deepseek-flash or deepseek-v4-pro.'**
+  String get aiHintDsRetired;
+
+  /// No description provided for @aiHintBalanced.
+  ///
+  /// In en, this message translates to:
+  /// **'Balanced and fluent; good value for the price.'**
+  String get aiHintBalanced;
+
+  /// No description provided for @aiHintVeryFast.
+  ///
+  /// In en, this message translates to:
+  /// **'Very fast and cheap; enough for metadata and playlists.'**
+  String get aiHintVeryFast;
+
+  /// No description provided for @aiHintO1.
+  ///
+  /// In en, this message translates to:
+  /// **'Reasoning: slower and pricier; the app skips JSON mode with these.'**
+  String get aiHintO1;
+
+  /// No description provided for @aiHintGoogleFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast, with Google\'s generous free tier.'**
+  String get aiHintGoogleFree;
+
+  /// No description provided for @aiHintGeminiPro.
+  ///
+  /// In en, this message translates to:
+  /// **'More capable; uses up the free quota faster.'**
+  String get aiHintGeminiPro;
+
+  /// No description provided for @aiHintClaudeFast.
+  ///
+  /// In en, this message translates to:
+  /// **'The fastest and cheapest Claude model.'**
+  String get aiHintClaudeFast;
+
+  /// No description provided for @aiHintClaudeBalanced.
+  ///
+  /// In en, this message translates to:
+  /// **'Balanced; excellent writing quality.'**
+  String get aiHintClaudeBalanced;
+
+  /// No description provided for @aiHintClaudeOpus.
+  ///
+  /// In en, this message translates to:
+  /// **'The most powerful Claude model and also the priciest.'**
+  String get aiHintClaudeOpus;
+
+  /// No description provided for @playLocals.
+  ///
+  /// In en, this message translates to:
+  /// **'Play {count} local songs'**
+  String playLocals(Object count);
+
+  /// No description provided for @aiPlaylistDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'AI playlist'**
+  String get aiPlaylistDefault;
+
+  /// No description provided for @relativeMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'in {count} min'**
+  String relativeMinutes(int count);
+
+  /// No description provided for @relativeHours.
+  ///
+  /// In en, this message translates to:
+  /// **'in {count} h'**
+  String relativeHours(int count);
+
+  /// No description provided for @relativeDays.
+  ///
+  /// In en, this message translates to:
+  /// **'in {count} d'**
+  String relativeDays(int count);
+
+  /// No description provided for @aiCreatingPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating a playlist with {count} songs…'**
+  String aiCreatingPlaylist(int count);
+
+  /// No description provided for @scanUpToDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Library is up to date ({count} tracks on device)'**
+  String scanUpToDate(int count);
+
+  /// No description provided for @scanCovers.
+  ///
+  /// In en, this message translates to:
+  /// **'Covers updated ({count} songs)'**
+  String scanCovers(int count);
+
+  /// No description provided for @keyRemovedFor.
+  ///
+  /// In en, this message translates to:
+  /// **'{provider} key removed'**
+  String keyRemovedFor(String provider);
 }
 
 class _AppLocalizationsDelegate

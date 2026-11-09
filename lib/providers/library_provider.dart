@@ -1,3 +1,4 @@
+import '../core/ui_strings.dart';
 import '../services/media_importer.dart';
 import 'dart:async';
 import 'dart:io';
@@ -119,7 +120,7 @@ class LibraryProvider extends ChangeNotifier {
   Future<int> freeSpace() async {
     if (_scanning) return 0;
     _scanning = true;
-    _scanMessage = 'Liberando espacio…';
+    _scanMessage = UiStrings.loc.scanFreeingSpace;
     notifyListeners();
     try {
       await init();
@@ -185,11 +186,11 @@ class LibraryProvider extends ChangeNotifier {
       _scanMessage = liberado > 0
           ? 'Liberados ${Formatters.bytes(liberado)}'
               '${recuperadas > 0 ? ' · $recuperadas copias reemplazadas por el original' : ''}'
-          : 'No había nada que liberar';
+          : UiStrings.loc.scanNothingToFree;
       return liberado;
     } catch (error) {
       debugPrint('No se pudo liberar espacio: $error');
-      _scanMessage = 'No se pudo liberar espacio';
+      _scanMessage = UiStrings.loc.scanFreeFailed;
       return 0;
     } finally {
       _scanning = false;
@@ -254,7 +255,7 @@ class LibraryProvider extends ChangeNotifier {
   Future<int> autoScan({bool force = false}) async {
     if (_scanning) return 0;
     _scanning = true;
-    _scanMessage = 'Buscando música en el dispositivo…';
+    _scanMessage = UiStrings.loc.scanSearching;
     notifyListeners();
     try {
       await init();
@@ -264,7 +265,7 @@ class LibraryProvider extends ChangeNotifier {
         // al escanear, y avisamos con claridad si el usuario lo deniega.
         final bool permisoAudio = await MediaImporter.ensureAudioPermission();
         if (!permisoAudio) {
-          _scanMessage = 'Falta el permiso de audio: activalo en Ajustes';
+          _scanMessage = UiStrings.loc.scanNoPermission;
           return 0;
         }
         final bool incluirAudios =
@@ -272,7 +273,7 @@ class LibraryProvider extends ChangeNotifier {
       final List<ScannedTrack> tracks =
           await MediaScanner.queryAudio(includeNonMusic: incluirAudios);
       if (tracks.isEmpty) {
-        _scanMessage = 'No se encontró música en el dispositivo';
+        _scanMessage = UiStrings.loc.scanNotFound;
         return 0;
       }
       final List<Song> found = tracks
@@ -291,7 +292,7 @@ class LibraryProvider extends ChangeNotifier {
           .toList(growable: false);
       final List<Song> added = await _service.importScannedTracks(nuevas);
       _scanMessage = added.isEmpty
-          ? 'Biblioteca al día (${found.length} pistas en el dispositivo)'
+          ? UiStrings.loc.scanUpToDate(found.length)
           : '${added.length} canciones nuevas de ${found.length}';
       if (added.isNotEmpty) {
         final Map<String, ScannedTrack> byId = <String, ScannedTrack>{
@@ -327,7 +328,7 @@ class LibraryProvider extends ChangeNotifier {
       }
     }
     if (covers.isNotEmpty) await _service.setCoversBulk(covers);
-    if (processed > 0) _scanMessage = 'Carátulas actualizadas ($processed canciones)';
+    if (processed > 0) _scanMessage = UiStrings.loc.scanCovers(processed);
     notifyListeners();
   }
 
@@ -475,7 +476,7 @@ class LibraryProvider extends ChangeNotifier {
     );
 
     _importMessage = added.isEmpty
-        ? 'No se añadió ninguna canción nueva'
+        ? UiStrings.loc.scanNoNewSongs
         : '${added.length} canción(es) importada(s)';
     _importProgress = 0;
     notifyListeners();

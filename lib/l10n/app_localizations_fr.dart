@@ -986,4 +986,154 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get moreActions => 'More actions';
+
+  @override
+  String get unknownArtist => 'Unknown artist';
+
+  @override
+  String get unknownTitle => 'Untitled';
+
+  @override
+  String get untitledPlaylist => 'Untitled playlist';
+
+  @override
+  String get untitledIdea => 'Untitled idea';
+
+  @override
+  String get relativeNow => 'just now';
+
+  @override
+  String get btnSave => 'Save';
+
+  @override
+  String get btnTest => 'Test';
+
+  @override
+  String get aiKeyMissingFirst => 'Set up an API key in AI settings first.';
+
+  @override
+  String get aiConnectionOk => 'Connection OK';
+
+  @override
+  String get aiErrorConnection => 'Connection error';
+
+  @override
+  String get aiNeedKey => 'Set up an API key to talk to me.';
+
+  @override
+  String get aiUnknownCommand =>
+      'I did not understand. Type help to see examples.';
+
+  @override
+  String get aiCompletingMetadata => 'Completing the song details…';
+
+  @override
+  String get aiInterpretingSearch => 'Interpreting your search…';
+
+  @override
+  String get aiDjChoosing => 'The DJ is choosing…';
+
+  @override
+  String get scanFreeingSpace => 'Freeing up space…';
+
+  @override
+  String get scanNothingToFree => 'Nothing to free up';
+
+  @override
+  String get scanFreeFailed => 'Could not free up space';
+
+  @override
+  String get scanSearching => 'Searching for music on this device…';
+
+  @override
+  String get scanNoPermission =>
+      'Audio permission missing: enable it in Settings';
+
+  @override
+  String get scanNotFound => 'No music found on this device';
+
+  @override
+  String get scanNoNewSongs => 'No new songs added';
+
+  @override
+  String get aiHintRecommended =>
+      'Recommended: the fastest and cheapest (great for everything).';
+
+  @override
+  String get aiHintDsPro =>
+      'More capable at reasoning; costs about 4x more per use.';
+
+  @override
+  String get aiHintDsRetired =>
+      'Name retired by DeepSeek: use deepseek-flash or deepseek-v4-pro.';
+
+  @override
+  String get aiHintBalanced => 'Balanced and fluent; good value for the price.';
+
+  @override
+  String get aiHintVeryFast =>
+      'Very fast and cheap; enough for metadata and playlists.';
+
+  @override
+  String get aiHintO1 =>
+      'Reasoning: slower and pricier; the app skips JSON mode with these.';
+
+  @override
+  String get aiHintGoogleFree => 'Fast, with Google\'s generous free tier.';
+
+  @override
+  String get aiHintGeminiPro => 'More capable; uses up the free quota faster.';
+
+  @override
+  String get aiHintClaudeFast => 'The fastest and cheapest Claude model.';
+
+  @override
+  String get aiHintClaudeBalanced => 'Balanced; excellent writing quality.';
+
+  @override
+  String get aiHintClaudeOpus =>
+      'The most powerful Claude model and also the priciest.';
+
+  @override
+  String playLocals(Object count) {
+    return 'Play $count local songs';
+  }
+
+  @override
+  String get aiPlaylistDefault => 'AI playlist';
+
+  @override
+  String relativeMinutes(int count) {
+    return 'in $count min';
+  }
+
+  @override
+  String relativeHours(int count) {
+    return 'in $count h';
+  }
+
+  @override
+  String relativeDays(int count) {
+    return 'in $count d';
+  }
+
+  @override
+  String aiCreatingPlaylist(int count) {
+    return 'Creating a playlist with $count songs…';
+  }
+
+  @override
+  String scanUpToDate(int count) {
+    return 'Library is up to date ($count tracks on device)';
+  }
+
+  @override
+  String scanCovers(int count) {
+    return 'Covers updated ($count songs)';
+  }
+
+  @override
+  String keyRemovedFor(String provider) {
+    return '$provider key removed';
+  }
 }

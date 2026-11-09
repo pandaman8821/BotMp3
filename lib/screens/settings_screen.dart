@@ -1075,13 +1075,13 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                         SnackBar(
                           content: Text(
                             ai.keyFor(provider) == null
-                                ? 'Clave de ${provider.label} eliminada'
+                                ? AppLocalizations.of(context).keyRemovedFor(provider.label)
                                 : AppLocalizations.of(context).keyStoredFor(provider.label),
                           ),
                         ),
                       );
                     },
-                    child: const Text('Guardar'),
+                    child: Text(AppLocalizations.of(context).btnSave),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -1110,7 +1110,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                             height: 18,
                             child: CircularProgressIndicator(strokeWidth: 2),
                           )
-                        : const Text('Probar'),
+                        : Text(AppLocalizations.of(context).btnTest),
                   ),
                 ),
               ],

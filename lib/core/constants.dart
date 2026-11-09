@@ -1,3 +1,4 @@
+import 'ui_strings.dart';
 import 'package:flutter/material.dart';
 
 /// Catálogo de géneros disponibles en el selector obligatorio de cada canción.
@@ -152,30 +153,30 @@ extension AiProviderInfo on AiProvider {
   String? hintFor(String model) {
     switch (model) {
       case 'deepseek-flash':
-        return 'Recommended: the fastest and cheapest (great for everything).';
+        return UiStrings.loc.aiHintRecommended;
       case 'deepseek-v4-pro':
-        return 'Más capaz en razonamiento; cuesta unas 4 veces más por uso.';
+        return UiStrings.loc.aiHintDsPro;
       case 'deepseek-chat':
       case 'deepseek-reasoner':
-        return 'Nombre retirado por DeepSeek: usa deepseek-flash o deepseek-v4-pro.';
+        return UiStrings.loc.aiHintDsRetired;
       case 'gpt-4o':
-        return 'Balanced and fluent; good value for the price.';
+        return UiStrings.loc.aiHintBalanced;
       case 'gpt-4o-mini':
-        return 'Very fast and cheap; enough for metadata and playlists.';
+        return UiStrings.loc.aiHintVeryFast;
       case 'o1':
       case 'o1-mini':
-        return 'Razonamiento: más lento y caro; con estos la app omite el modo JSON.';
+        return UiStrings.loc.aiHintO1;
       case 'gemini-2.0-flash':
       case 'gemini-2.5-flash':
         return 'Fast, with Google’s generous free tier.';
       case 'gemini-2.5-pro':
-        return 'Más capaz; consume antes la cuota gratuita.';
+        return UiStrings.loc.aiHintGeminiPro;
       case 'claude-3-5-haiku-latest':
-        return 'The fastest and cheapest Claude model.';
+        return UiStrings.loc.aiHintClaudeFast;
       case 'claude-3-5-sonnet-latest':
-        return 'Balanced; excellent writing quality.';
+        return UiStrings.loc.aiHintClaudeBalanced;
       case 'claude-3-opus-latest':
-        return 'El más potente de Claude y también el más caro.';
+        return UiStrings.loc.aiHintClaudeOpus;
     }
     return null;
   }

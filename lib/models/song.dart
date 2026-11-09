@@ -1,3 +1,4 @@
+import '../core/ui_strings.dart';
 import 'dart:convert';
 
 import '../core/constants.dart';
@@ -76,7 +77,7 @@ class Song {
   /// Línea secundaria de la tarjeta: artista · álbum · año.
   String get subtitle {
     final List<String> parts = <String>[
-      artist.isEmpty ? 'Artista desconocido' : artist,
+      artist.isEmpty ? UiStrings.loc.unknownArtist : artist,
       if (album.isNotEmpty) album,
       if (year > 0) '$year',
     ];
@@ -141,7 +142,7 @@ class Song {
       id: (json['id'] ?? '').toString(),
       path: (json['path'] ?? '').toString(),
       title: (json['title'] ?? 'Sin título').toString(),
-      artist: (json['artist'] ?? 'Artista desconocido').toString(),
+      artist: (json['artist'] ?? UiStrings.loc.unknownArtist).toString(),
       album: (json['album'] ?? '').toString(),
       year: _asInt(json['year']),
       genre: GenreCatalog.normalize(json['genre']?.toString()),

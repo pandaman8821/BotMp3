@@ -1,3 +1,4 @@
+import '../core/ui_strings.dart';
 /// Lista de reproducción personalizable (creación ilimitada).
 class Playlist {
   Playlist({
@@ -72,7 +73,7 @@ class Playlist {
   static Playlist fromJson(Map<String, dynamic> json) {
     return Playlist(
       id: (json['id'] ?? '').toString(),
-      name: (json['name'] ?? 'Lista sin nombre').toString(),
+      name: (json['name'] ?? UiStrings.loc.untitledPlaylist).toString(),
       description: (json['description'] ?? '').toString(),
       songIds: (json['songIds'] as List<dynamic>? ?? <dynamic>[])
           .map((dynamic id) => id.toString())

@@ -1,3 +1,4 @@
+import '../core/ui_strings.dart';
 import '../core/constants.dart';
 
 /// Mensaje de la conversación con el agente musical.
@@ -124,7 +125,7 @@ class AiSongSuggestion {
 
   static AiSongSuggestion fromJson(Map<String, dynamic> json) {
     return AiSongSuggestion(
-      title: (json['titulo'] ?? json['title'] ?? 'Sin título').toString(),
+      title: (json['titulo'] ?? json['title'] ?? UiStrings.loc.unknownTitle).toString(),
       artist: (json['artista'] ?? json['artist'] ?? 'Desconocido').toString(),
       album: (json['album'])?.toString(),
       year: int.tryParse((json['anio'] ?? json['year'] ?? '').toString()),
@@ -168,7 +169,7 @@ class AiSongIdea {
 
   static AiSongIdea fromJson(Map<String, dynamic> json) {
     return AiSongIdea(
-      title: (json['titulo'] ?? json['title'] ?? 'Idea sin título').toString(),
+      title: (json['titulo'] ?? json['title'] ?? UiStrings.loc.untitledIdea).toString(),
       genre: (json['genero'] ?? json['genre'] ?? 'Pop').toString(),
       mood: (json['mood'] ?? json['animo'] ?? 'neutro').toString(),
       bpm: int.tryParse((json['bpm'] ?? '100').toString()) ?? 100,

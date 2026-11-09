@@ -485,5 +485,96 @@
   "volumeDown": "Bajar volumen",
   "volumeUp": "Subir volumen",
   "volumeReset": "Restablecer volumen",
-  "moreActions": "Más acciones"
+  "moreActions": "Más acciones",
+  "unknownArtist": "Artista desconocido",
+  "unknownTitle": "Sin título",
+  "untitledPlaylist": "Lista sin nombre",
+  "untitledIdea": "Idea sin título",
+  "relativeNow": "ahora mismo",
+  "btnSave": "Guardar",
+  "btnTest": "Probar",
+  "aiKeyMissingFirst": "Configura primero una API key en Ajustes de IA.",
+  "aiConnectionOk": "Conexión correcta",
+  "aiErrorConnection": "Error de conexión",
+  "aiNeedKey": "Configura una API key para hablar conmigo.",
+  "aiUnknownCommand": "No entendí la orden. Escribe ayuda para ver ejemplos.",
+  "aiCompletingMetadata": "Completando los datos de la canción…",
+  "aiInterpretingSearch": "Interpretando tu búsqueda…",
+  "aiDjChoosing": "El DJ está eligiendo…",
+  "scanFreeingSpace": "Liberando espacio…",
+  "scanNothingToFree": "No había nada que liberar",
+  "scanFreeFailed": "No se pudo liberar espacio",
+  "scanSearching": "Buscando música en el dispositivo…",
+  "scanNoPermission": "Falta el permiso de audio: actívalo en Ajustes",
+  "scanNotFound": "No se encontró música en el dispositivo",
+  "scanNoNewSongs": "No se añadió ninguna canción nueva",
+  "aiHintRecommended": "Recomendado: el más rápido y económico (ideal para todo).",
+  "aiHintDsPro": "Más capaz en razonamiento; cuesta unas 4 veces más por uso.",
+  "aiHintDsRetired": "Nombre retirado por DeepSeek: usa deepseek-flash o deepseek-v4-pro.",
+  "aiHintBalanced": "Equilibrado y fluido; buena relación calidad/precio.",
+  "aiHintVeryFast": "Muy rápido y barato; suficiente para metadatos y listas.",
+  "aiHintO1": "Razonamiento: más lento y caro; con estos la app omite el modo JSON.",
+  "aiHintGoogleFree": "Rápido y con la generosa cuota gratuita de Google.",
+  "aiHintGeminiPro": "Más capaz; consume antes la cuota gratuita.",
+  "aiHintClaudeFast": "El modelo de Claude más rápido y económico.",
+  "aiHintClaudeBalanced": "Equilibrado; muy buena redacción.",
+  "aiHintClaudeOpus": "El más potente de Claude y también el más caro.",
+  "playLocals": "Reproducir {count} canciones locales",
+  "aiPlaylistDefault": "Lista IA",
+  "relativeMinutes": "hace {count} min",
+  "@relativeMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeHours": "hace {count} h",
+  "@relativeHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeDays": "hace {count} d",
+  "@relativeDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "aiCreatingPlaylist": "Creando lista de {count} canciones…",
+  "@aiCreatingPlaylist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scanUpToDate": "Biblioteca al día ({count} pistas en el dispositivo)",
+  "@scanUpToDate": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scanCovers": "Carátulas actualizadas ({count} canciones)",
+  "@scanCovers": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "keyRemovedFor": "Clave de {provider} eliminada",
+  "@keyRemovedFor": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  }
 }

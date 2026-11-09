@@ -1,3 +1,4 @@
+import '../core/ui_strings.dart';
 import '../services/ai/model_catalog.dart';
 import 'dart:convert';
 
@@ -146,7 +147,7 @@ class AiAssistantProvider extends ChangeNotifier {
   Future<bool> testConnection() async {
     final AiOrchestrator? orchestrator = buildOrchestrator();
     if (orchestrator == null) {
-      _lastError = 'Configura primero una API key en Ajustes de IA.';
+      _lastError = UiStrings.loc.aiKeyMissingFirst;
       notifyListeners();
       return false;
     }
@@ -159,12 +160,12 @@ class AiAssistantProvider extends ChangeNotifier {
       if (claveModelos != null) {
         await ModelCatalog.actualizar(activeProvider, claveModelos);
       }
-      _status = reply.isEmpty ? 'Conexión correcta' : reply;
+      _status = reply.isEmpty ? UiStrings.loc.aiConnectionOk : reply;
       _lastError = null;
       return true;
     } catch (error) {
       _lastError = error is AiRequestException ? error.message : error.toString();
-      _status = 'Error de conexión';
+      _status = UiStrings.loc.aiErrorConnection;
       return false;
     } finally {
       _setBusy(false, _status);
@@ -186,7 +187,7 @@ class AiAssistantProvider extends ChangeNotifier {
       _messages.add(
         AiMessage(
           role: 'assistant',
-          content: _lastError ?? 'Configura una API key para hablar conmigo.',
+          content: _lastError ?? UiStrings.loc.aiNeedKey,
           createdAt: DateTime.now(),
           error: true,
         ),
@@ -280,9 +281,9 @@ class AiAssistantProvider extends ChangeNotifier {
     }
     if (actions.isEmpty) {
       _lastOutcomes = <ActionOutcome>[
-        const ActionOutcome(
+        ActionOutcome(
           AiAction(AiActionType.help),
-          'No entendí la orden. Escribe «ayuda» para ver ejemplos.',
+          UiStrings.loc.aiUnknownCommand,
           ok: false,
         ),
       ];
@@ -331,7 +332,7 @@ class AiAssistantProvider extends ChangeNotifier {
   Future<Map<String, String>?> suggestMetadata(Song song) async {
     final AiOrchestrator? orchestrator = buildOrchestrator();
     if (orchestrator == null) return null;
-    _setBusy(true, 'Completando los datos de la canción…');
+    _setBusy(true, UiStrings.loc.aiCompletingMetadata);
     try {
       return await orchestrator.suggestMetadata(song);
     } catch (error) {
@@ -359,7 +360,7 @@ class AiAssistantProvider extends ChangeNotifier {
   /// Genera una lista de reproducción completa a partir de una petición.
   Future<AiActionResult?> generatePlaylist(String request, {int count = 30}) async {
     return _runAction(
-      loadingLabel: 'Creando lista de $count canciones…',
+      loadingLabel: UiStrings.loc.aiCreatingPlaylist(count),
       action: (AiOrchestrator orchestrator) =>
           orchestrator.generatePlaylist(request: request, count: count),
       registerInChat: true,
@@ -369,7 +370,7 @@ class AiAssistantProvider extends ChangeNotifier {
   /// Búsqueda inteligente con explicación en lenguaje natural.
   Future<AiActionResult?> smartSearch(String query) async {
     return _runAction(
-      loadingLabel: 'Interpretando tu búsqueda…',
+      loadingLabel: UiStrings.loc.aiInterpretingSearch,
       action: (AiOrchestrator orchestrator) => orchestrator.smartSearch(query),
       registerInChat: false,
     );
@@ -378,7 +379,7 @@ class AiAssistantProvider extends ChangeNotifier {
   /// Modo DJ IA: elige la siguiente canción y la explica.
   Future<AiActionResult?> djNext(Song current, List<Song> recent, {String sesion = ''}) async {
     return _runAction(
-      loadingLabel: 'El DJ está eligiendo…',
+      loadingLabel: UiStrings.loc.aiDjChoosing,
       action: (AiOrchestrator orchestrator) =>
           orchestrator.djNext(current: current, recentlyPlayed: recent, sesion: sesion),
       registerInChat: false,
