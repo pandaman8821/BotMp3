@@ -781,114 +781,114 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get statsUniqueSongs => 'Unique songs';
+  String get statsUniqueSongs => 'ユニークな曲';
 
   @override
-  String get themeTitle => 'Theme';
+  String get themeTitle => 'テーマ';
 
   @override
-  String get themeSubtitle => 'Pick a visual style. Applies instantly.';
+  String get themeSubtitle => '見た目を選ぶとすぐ反映されます。';
 
   @override
-  String get themeMinimal => 'Minimal';
+  String get themeMinimal => 'ミニマル';
 
   @override
-  String get themeNeon => 'Neon / Cyberpunk';
+  String get themeNeon => 'ネオン / サイバーパンク';
 
   @override
-  String get themeRetro => 'Retro / Vintage';
+  String get themeRetro => 'レトロ';
 
   @override
-  String get themeGlass => 'Glass (default)';
+  String get themeGlass => 'ガラス（標準）';
 
   @override
-  String get themeZen => 'Natural / Zen';
+  String get themeZen => 'ナチュラル / 禅';
 
   @override
-  String get themeAnime => 'Anime';
+  String get themeAnime => 'アニメ';
 
   @override
-  String get themeGothic => 'Gothic';
+  String get themeGothic => 'ゴシック';
 
   @override
-  String get themeCinema => 'Cinema';
+  String get themeCinema => 'シネマ';
 
   @override
-  String get reduceMotion => 'Reduce motion';
+  String get reduceMotion => '動きを減らす';
 
   @override
-  String get reduceMotionDesc => 'Turns off theme animations to save battery.';
+  String get reduceMotionDesc => 'テーマのアニメーションを止めて省電力にします。';
 
   @override
-  String get playAll => 'Play all';
+  String get playAll => 'すべて再生';
 
   @override
-  String get sortRecent => 'Recently added';
+  String get sortRecent => '最近追加';
 
   @override
-  String get sortTitle => 'Title (A-Z)';
+  String get sortTitle => 'タイトル（A-Z）';
 
   @override
-  String get sortArtist => 'Artist';
+  String get sortArtist => 'アーティスト';
 
   @override
-  String get sortAlbum => 'Album';
+  String get sortAlbum => 'アルバム';
 
   @override
-  String get sortYear => 'Year';
+  String get sortYear => '年';
 
   @override
-  String get sortDuration => 'Duration';
+  String get sortDuration => '長さ';
 
   @override
-  String get sortMostPlayed => 'Most played';
+  String get sortMostPlayed => '再生回数順';
 
   @override
   String albumSongsCount(int count) {
-    return '$count songs';
+    return '$count曲';
   }
 
   @override
-  String get historyTitle => 'Playback history';
+  String get historyTitle => '再生履歴';
 
   @override
-  String get historyEmpty => 'No playback history yet';
+  String get historyEmpty => '再生履歴はまだありません';
 
   @override
-  String get historyClear => 'Clear history';
+  String get historyClear => '履歴を消去';
 
   @override
-  String get foldersTitle => 'Folders';
+  String get foldersTitle => 'フォルダ';
 
   @override
-  String get foldersEmpty => 'Browse your music by folders';
+  String get foldersEmpty => 'フォルダで音楽を探す';
 
   @override
-  String get duplicatesTitle => 'Duplicates';
+  String get duplicatesTitle => '重複';
 
   @override
-  String get duplicatesEmpty => 'No duplicates found';
+  String get duplicatesEmpty => '重複は見つかりませんでした';
 
   @override
-  String get duplicatesRemove => 'Remove copies';
+  String get duplicatesRemove => 'コピーを削除';
 
   @override
-  String get importM3u => 'Import M3U playlist';
+  String get importM3u => 'M3Uプレイリストを読み込む';
 
   @override
-  String get exportM3u => 'Export library (M3U)';
+  String get exportM3u => 'ライブラリを書き出す（M3U）';
 
   @override
-  String get m3uNoSongs => 'None of the songs were found in your library';
+  String get m3uNoSongs => 'ライブラリに該当する曲がありません';
 
   @override
   String artistAlbums(int count) {
-    return '$count albums';
+    return '$count枚のアルバム';
   }
 
   @override
   String duplicatesRemoveBody(int count) {
-    return 'The other $count copies will be removed from the library. The files are not deleted.';
+    return '残り$count件のコピーをライブラリから削除します。ファイルは削除されません。';
   }
 
   @override
@@ -897,209 +897,199 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get batchEdit => 'Edit selection';
+  String get batchEdit => '選択を編集';
 
   @override
-  String get batchEditHint => 'Empty fields are left unchanged.';
+  String get batchEditHint => '空欄の項目は変更されません。';
 
   @override
-  String get normalizeVolume => 'Normalize volume';
+  String get normalizeVolume => '音量をそろえる';
 
   @override
-  String get normalizeVolumeDesc =>
-      'Uses ReplayGain tags to even out volume between songs.';
+  String get normalizeVolumeDesc => 'ReplayGainタグで曲間の音量をそろえます。';
 
   @override
-  String get resumeOnConnect => 'Resume on connect';
+  String get resumeOnConnect => '接続時に再開';
 
   @override
-  String get resumeOnConnectDesc =>
-      'Starts playing again when headphones or Bluetooth connect.';
+  String get resumeOnConnectDesc => 'イヤホンやBluetoothを接続すると再生を再開します。';
 
   @override
-  String get pauseOnDisconnect => 'Pause on disconnect';
+  String get pauseOnDisconnect => '切断時に一時停止';
 
   @override
-  String get pauseOnDisconnectDesc =>
-      'Pauses when headphones or Bluetooth are removed.';
+  String get pauseOnDisconnectDesc => 'イヤホンやBluetoothを外すと一時停止します。';
 
   @override
-  String get sqliteTitle => 'Search index (SQLite)';
+  String get sqliteTitle => '検索インデックス（SQLite）';
 
   @override
-  String get fadeTitle => 'Fade between songs';
+  String get fadeTitle => '曲間のフェード';
 
   @override
-  String get fadeDesc => 'Cross-fades the volume when the track changes.';
+  String get fadeDesc => '曲が変わるとき音量をクロスフェードします。';
 
   @override
-  String get bookmarksTitle => 'Bookmarks';
+  String get bookmarksTitle => 'ブックマーク';
 
   @override
-  String get addBookmark => 'Add here';
+  String get addBookmark => 'ここに追加';
 
   @override
-  String get noBookmarks => 'No bookmarks in this song';
+  String get noBookmarks => 'この曲にブックマークはありません';
 
   @override
-  String get volumeDown => 'Lower volume';
+  String get volumeDown => '音量を下げる';
 
   @override
-  String get volumeUp => 'Raise volume';
+  String get volumeUp => '音量を上げる';
 
   @override
-  String get volumeReset => 'Reset volume';
+  String get volumeReset => '音量をリセット';
 
   @override
-  String get moreActions => 'More actions';
+  String get moreActions => 'その他の操作';
 
   @override
-  String get unknownArtist => 'Unknown artist';
+  String get unknownArtist => '不明なアーティスト';
 
   @override
-  String get unknownTitle => 'Untitled';
+  String get unknownTitle => 'タイトルなし';
 
   @override
-  String get untitledPlaylist => 'Untitled playlist';
+  String get untitledPlaylist => '名前のないプレイリスト';
 
   @override
-  String get untitledIdea => 'Untitled idea';
+  String get untitledIdea => '無題のアイデア';
 
   @override
-  String get relativeNow => 'just now';
+  String get relativeNow => 'たった今';
 
   @override
-  String get btnSave => 'Save';
+  String get btnSave => '保存';
 
   @override
-  String get btnTest => 'Test';
+  String get btnTest => 'テスト';
 
   @override
-  String get aiKeyMissingFirst => 'Set up an API key in AI settings first.';
+  String get aiKeyMissingFirst => 'まずAI設定でAPIキーを登録してください。';
 
   @override
-  String get aiConnectionOk => 'Connection OK';
+  String get aiConnectionOk => '接続OK';
 
   @override
-  String get aiErrorConnection => 'Connection error';
+  String get aiErrorConnection => '接続エラー';
 
   @override
-  String get aiNeedKey => 'Set up an API key to talk to me.';
+  String get aiNeedKey => '話しかけるにはAPIキーが必要です。';
 
   @override
-  String get aiUnknownCommand =>
-      'I did not understand. Type help to see examples.';
+  String get aiUnknownCommand => 'コマンドが理解できません。ヘルプで例を表示。';
 
   @override
-  String get aiCompletingMetadata => 'Completing the song details…';
+  String get aiCompletingMetadata => '曲の情報を補完中…';
 
   @override
-  String get aiInterpretingSearch => 'Interpreting your search…';
+  String get aiInterpretingSearch => '検索を解釈中…';
 
   @override
-  String get aiDjChoosing => 'The DJ is choosing…';
+  String get aiDjChoosing => 'DJが選曲中…';
 
   @override
-  String get scanFreeingSpace => 'Freeing up space…';
+  String get scanFreeingSpace => '空き容量を作成中…';
 
   @override
-  String get scanNothingToFree => 'Nothing to free up';
+  String get scanNothingToFree => '解放するものはありません';
 
   @override
-  String get scanFreeFailed => 'Could not free up space';
+  String get scanFreeFailed => '空き容量を増やせませんでした';
 
   @override
-  String get scanSearching => 'Searching for music on this device…';
+  String get scanSearching => '端末の音楽を検索中…';
 
   @override
-  String get scanNoPermission =>
-      'Audio permission missing: enable it in Settings';
+  String get scanNoPermission => 'オーディオ権限がありません。設定で有効にしてください';
 
   @override
-  String get scanNotFound => 'No music found on this device';
+  String get scanNotFound => '端末に音楽が見つかりません';
 
   @override
-  String get scanNoNewSongs => 'No new songs added';
+  String get scanNoNewSongs => '新しい曲は追加されませんでした';
 
   @override
-  String get aiHintRecommended =>
-      'Recommended: the fastest and cheapest (great for everything).';
+  String get aiHintRecommended => '推奨：最速かつ最安（すべてに最適）。';
 
   @override
-  String get aiHintDsPro =>
-      'More capable at reasoning; costs about 4x more per use.';
+  String get aiHintDsPro => '推論が強力。利用単価は約4倍。';
 
   @override
   String get aiHintDsRetired =>
-      'Name retired by DeepSeek: use deepseek-flash or deepseek-v4-pro.';
+      'DeepSeekが廃止した名称です。deepseek-flashまたはdeepseek-v4-proを使ってください。';
 
   @override
-  String get aiHintBalanced => 'Balanced and fluent; good value for the price.';
+  String get aiHintBalanced => 'バランスが良く流暢。価格対性能も良好。';
 
   @override
-  String get aiHintVeryFast =>
-      'Very fast and cheap; enough for metadata and playlists.';
+  String get aiHintVeryFast => '非常に高速で安価。メタデータとプレイリストには十分。';
 
   @override
-  String get aiHintO1 =>
-      'Reasoning: slower and pricier; the app skips JSON mode with these.';
+  String get aiHintO1 => '推論型：低速で高価。この場合アプリはJSONモードを省略します。';
 
   @override
-  String get aiHintGoogleFree => 'Fast, with Google\'s generous free tier.';
+  String get aiHintGoogleFree => '高速で、Googleの無料枠が充実。';
 
   @override
-  String get aiHintGeminiPro => 'More capable; uses up the free quota faster.';
+  String get aiHintGeminiPro => '高性能だが無料枠の消費が早い。';
 
   @override
-  String get aiHintClaudeFast => 'The fastest and cheapest Claude model.';
+  String get aiHintClaudeFast => 'Claudeで最速かつ最安のモデル。';
 
   @override
-  String get aiHintClaudeBalanced => 'Balanced; excellent writing quality.';
+  String get aiHintClaudeBalanced => 'バランス型。文章品質が優秀。';
 
   @override
-  String get aiHintClaudeOpus =>
-      'The most powerful Claude model and also the priciest.';
+  String get aiHintClaudeOpus => 'Claudeで最も高性能かつ最も高価なモデル。';
 
   @override
   String playLocals(Object count) {
-    return 'Play $count local songs';
+    return '$count曲のローカル曲を再生';
   }
 
   @override
-  String get aiPlaylistDefault => 'AI playlist';
+  String get aiPlaylistDefault => 'AIプレイリスト';
 
   @override
   String relativeMinutes(int count) {
-    return 'in $count min';
+    return '$count分前';
   }
 
   @override
   String relativeHours(int count) {
-    return 'in $count h';
+    return '$count時間後';
   }
 
   @override
   String relativeDays(int count) {
-    return 'in $count d';
+    return '$count日後';
   }
 
   @override
   String aiCreatingPlaylist(int count) {
-    return 'Creating a playlist with $count songs…';
+    return '$count曲のプレイリストを作成中…';
   }
 
   @override
   String scanUpToDate(int count) {
-    return 'Library is up to date ($count tracks on device)';
+    return 'ライブラリは最新です（端末に$count曲）';
   }
 
   @override
   String scanCovers(int count) {
-    return 'Covers updated ($count songs)';
+    return 'カバーを更新しました（$count曲）';
   }
 
   @override
   String keyRemovedFor(String provider) {
-    return '$provider key removed';
+    return '$providerのキーを削除しました';
   }
 }

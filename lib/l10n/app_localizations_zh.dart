@@ -779,114 +779,114 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get statsUniqueSongs => 'Unique songs';
+  String get statsUniqueSongs => '不重复歌曲';
 
   @override
-  String get themeTitle => 'Theme';
+  String get themeTitle => '主题';
 
   @override
-  String get themeSubtitle => 'Pick a visual style. Applies instantly.';
+  String get themeSubtitle => '选择视觉风格，立即生效。';
 
   @override
-  String get themeMinimal => 'Minimal';
+  String get themeMinimal => '极简';
 
   @override
-  String get themeNeon => 'Neon / Cyberpunk';
+  String get themeNeon => '霓虹 / 赛博朋克';
 
   @override
-  String get themeRetro => 'Retro / Vintage';
+  String get themeRetro => '复古';
 
   @override
-  String get themeGlass => 'Glass (default)';
+  String get themeGlass => '玻璃（默认）';
 
   @override
-  String get themeZen => 'Natural / Zen';
+  String get themeZen => '自然 / 禅';
 
   @override
-  String get themeAnime => 'Anime';
+  String get themeAnime => '动漫';
 
   @override
-  String get themeGothic => 'Gothic';
+  String get themeGothic => '哥特';
 
   @override
-  String get themeCinema => 'Cinema';
+  String get themeCinema => '电影';
 
   @override
-  String get reduceMotion => 'Reduce motion';
+  String get reduceMotion => '减少动态效果';
 
   @override
-  String get reduceMotionDesc => 'Turns off theme animations to save battery.';
+  String get reduceMotionDesc => '关闭主题动画以省电。';
 
   @override
-  String get playAll => 'Play all';
+  String get playAll => '播放全部';
 
   @override
-  String get sortRecent => 'Recently added';
+  String get sortRecent => '最近添加';
 
   @override
-  String get sortTitle => 'Title (A-Z)';
+  String get sortTitle => '标题（A-Z）';
 
   @override
-  String get sortArtist => 'Artist';
+  String get sortArtist => '艺术家';
 
   @override
-  String get sortAlbum => 'Album';
+  String get sortAlbum => '专辑';
 
   @override
-  String get sortYear => 'Year';
+  String get sortYear => '年份';
 
   @override
-  String get sortDuration => 'Duration';
+  String get sortDuration => '时长';
 
   @override
-  String get sortMostPlayed => 'Most played';
+  String get sortMostPlayed => '播放最多';
 
   @override
   String albumSongsCount(int count) {
-    return '$count songs';
+    return '$count 首歌曲';
   }
 
   @override
-  String get historyTitle => 'Playback history';
+  String get historyTitle => '播放历史';
 
   @override
-  String get historyEmpty => 'No playback history yet';
+  String get historyEmpty => '还没有播放历史';
 
   @override
-  String get historyClear => 'Clear history';
+  String get historyClear => '清除历史';
 
   @override
-  String get foldersTitle => 'Folders';
+  String get foldersTitle => '文件夹';
 
   @override
-  String get foldersEmpty => 'Browse your music by folders';
+  String get foldersEmpty => '按文件夹浏览音乐';
 
   @override
-  String get duplicatesTitle => 'Duplicates';
+  String get duplicatesTitle => '重复项';
 
   @override
-  String get duplicatesEmpty => 'No duplicates found';
+  String get duplicatesEmpty => '未找到重复项';
 
   @override
-  String get duplicatesRemove => 'Remove copies';
+  String get duplicatesRemove => '移除副本';
 
   @override
-  String get importM3u => 'Import M3U playlist';
+  String get importM3u => '导入 M3U 歌单';
 
   @override
-  String get exportM3u => 'Export library (M3U)';
+  String get exportM3u => '导出音乐库（M3U）';
 
   @override
-  String get m3uNoSongs => 'None of the songs were found in your library';
+  String get m3uNoSongs => '音乐库中未找到任何歌曲';
 
   @override
   String artistAlbums(int count) {
-    return '$count albums';
+    return '$count 张专辑';
   }
 
   @override
   String duplicatesRemoveBody(int count) {
-    return 'The other $count copies will be removed from the library. The files are not deleted.';
+    return '其余 $count 个副本将从音乐库移除，文件不会被删除。';
   }
 
   @override
@@ -895,210 +895,200 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get batchEdit => 'Edit selection';
+  String get batchEdit => '编辑所选';
 
   @override
-  String get batchEditHint => 'Empty fields are left unchanged.';
+  String get batchEditHint => '留空的字段不会修改。';
 
   @override
-  String get normalizeVolume => 'Normalize volume';
+  String get normalizeVolume => '音量标准化';
 
   @override
-  String get normalizeVolumeDesc =>
-      'Uses ReplayGain tags to even out volume between songs.';
+  String get normalizeVolumeDesc => '使用 ReplayGain 标签平衡歌曲音量。';
 
   @override
-  String get resumeOnConnect => 'Resume on connect';
+  String get resumeOnConnect => '连接时继续';
 
   @override
-  String get resumeOnConnectDesc =>
-      'Starts playing again when headphones or Bluetooth connect.';
+  String get resumeOnConnectDesc => '连接耳机或蓝牙后自动继续播放。';
 
   @override
-  String get pauseOnDisconnect => 'Pause on disconnect';
+  String get pauseOnDisconnect => '断开时暂停';
 
   @override
-  String get pauseOnDisconnectDesc =>
-      'Pauses when headphones or Bluetooth are removed.';
+  String get pauseOnDisconnectDesc => '拔出耳机或断开蓝牙时暂停。';
 
   @override
-  String get sqliteTitle => 'Search index (SQLite)';
+  String get sqliteTitle => '搜索索引（SQLite）';
 
   @override
-  String get fadeTitle => 'Fade between songs';
+  String get fadeTitle => '歌曲间淡入淡出';
 
   @override
-  String get fadeDesc => 'Cross-fades the volume when the track changes.';
+  String get fadeDesc => '切歌时平滑过渡音量。';
 
   @override
-  String get bookmarksTitle => 'Bookmarks';
+  String get bookmarksTitle => '书签';
 
   @override
-  String get addBookmark => 'Add here';
+  String get addBookmark => '在此添加';
 
   @override
-  String get noBookmarks => 'No bookmarks in this song';
+  String get noBookmarks => '这首歌没有书签';
 
   @override
-  String get volumeDown => 'Lower volume';
+  String get volumeDown => '降低音量';
 
   @override
-  String get volumeUp => 'Raise volume';
+  String get volumeUp => '提高音量';
 
   @override
-  String get volumeReset => 'Reset volume';
+  String get volumeReset => '重置音量';
 
   @override
-  String get moreActions => 'More actions';
+  String get moreActions => '更多操作';
 
   @override
-  String get unknownArtist => 'Unknown artist';
+  String get unknownArtist => '未知艺术家';
 
   @override
-  String get unknownTitle => 'Untitled';
+  String get unknownTitle => '无标题';
 
   @override
-  String get untitledPlaylist => 'Untitled playlist';
+  String get untitledPlaylist => '未命名歌单';
 
   @override
-  String get untitledIdea => 'Untitled idea';
+  String get untitledIdea => '无标题创意';
 
   @override
-  String get relativeNow => 'just now';
+  String get relativeNow => '刚刚';
 
   @override
-  String get btnSave => 'Save';
+  String get btnSave => '保存';
 
   @override
-  String get btnTest => 'Test';
+  String get btnTest => '测试';
 
   @override
-  String get aiKeyMissingFirst => 'Set up an API key in AI settings first.';
+  String get aiKeyMissingFirst => '请先在 AI 设置中配置 API 密钥。';
 
   @override
-  String get aiConnectionOk => 'Connection OK';
+  String get aiConnectionOk => '连接正常';
 
   @override
-  String get aiErrorConnection => 'Connection error';
+  String get aiErrorConnection => '连接错误';
 
   @override
-  String get aiNeedKey => 'Set up an API key to talk to me.';
+  String get aiNeedKey => '配置 API 密钥后才能和我对话。';
 
   @override
-  String get aiUnknownCommand =>
-      'I did not understand. Type help to see examples.';
+  String get aiUnknownCommand => '没听懂。输入帮助查看示例。';
 
   @override
-  String get aiCompletingMetadata => 'Completing the song details…';
+  String get aiCompletingMetadata => '正在补全歌曲信息…';
 
   @override
-  String get aiInterpretingSearch => 'Interpreting your search…';
+  String get aiInterpretingSearch => '正在理解你的搜索…';
 
   @override
-  String get aiDjChoosing => 'The DJ is choosing…';
+  String get aiDjChoosing => 'DJ 正在挑选…';
 
   @override
-  String get scanFreeingSpace => 'Freeing up space…';
+  String get scanFreeingSpace => '正在释放空间…';
 
   @override
-  String get scanNothingToFree => 'Nothing to free up';
+  String get scanNothingToFree => '没有可释放的空间';
 
   @override
-  String get scanFreeFailed => 'Could not free up space';
+  String get scanFreeFailed => '无法释放空间';
 
   @override
-  String get scanSearching => 'Searching for music on this device…';
+  String get scanSearching => '正在搜索设备中的音乐…';
 
   @override
-  String get scanNoPermission =>
-      'Audio permission missing: enable it in Settings';
+  String get scanNoPermission => '缺少音频权限：请在设置中开启';
 
   @override
-  String get scanNotFound => 'No music found on this device';
+  String get scanNotFound => '此设备未找到音乐';
 
   @override
-  String get scanNoNewSongs => 'No new songs added';
+  String get scanNoNewSongs => '没有新增歌曲';
 
   @override
-  String get aiHintRecommended =>
-      'Recommended: the fastest and cheapest (great for everything).';
+  String get aiHintRecommended => '推荐：最快最省（适合所有场景）。';
 
   @override
-  String get aiHintDsPro =>
-      'More capable at reasoning; costs about 4x more per use.';
+  String get aiHintDsPro => '推理更强；每次使用约贵 4 倍。';
 
   @override
   String get aiHintDsRetired =>
-      'Name retired by DeepSeek: use deepseek-flash or deepseek-v4-pro.';
+      'DeepSeek 已弃用此名称：请用 deepseek-flash 或 deepseek-v4-pro。';
 
   @override
-  String get aiHintBalanced => 'Balanced and fluent; good value for the price.';
+  String get aiHintBalanced => '均衡流畅；性价比不错。';
 
   @override
-  String get aiHintVeryFast =>
-      'Very fast and cheap; enough for metadata and playlists.';
+  String get aiHintVeryFast => '非常快且便宜；处理元数据和歌单足够。';
 
   @override
-  String get aiHintO1 =>
-      'Reasoning: slower and pricier; the app skips JSON mode with these.';
+  String get aiHintO1 => '推理型：更慢更贵；这些模型下应用会跳过 JSON 模式。';
 
   @override
-  String get aiHintGoogleFree => 'Fast, with Google\'s generous free tier.';
+  String get aiHintGoogleFree => '速度快，且 Google 免费额度慷慨。';
 
   @override
-  String get aiHintGeminiPro => 'More capable; uses up the free quota faster.';
+  String get aiHintGeminiPro => '能力更强；更快消耗免费额度。';
 
   @override
-  String get aiHintClaudeFast => 'The fastest and cheapest Claude model.';
+  String get aiHintClaudeFast => 'Claude 中速度最快、价格最低的模型。';
 
   @override
-  String get aiHintClaudeBalanced => 'Balanced; excellent writing quality.';
+  String get aiHintClaudeBalanced => '均衡；写作质量出色。';
 
   @override
-  String get aiHintClaudeOpus =>
-      'The most powerful Claude model and also the priciest.';
+  String get aiHintClaudeOpus => 'Claude 最强也最贵的模型。';
 
   @override
   String playLocals(Object count) {
-    return 'Play $count local songs';
+    return '播放 $count 首本地歌曲';
   }
 
   @override
-  String get aiPlaylistDefault => 'AI playlist';
+  String get aiPlaylistDefault => 'AI 歌单';
 
   @override
   String relativeMinutes(int count) {
-    return 'in $count min';
+    return '$count 分钟前';
   }
 
   @override
   String relativeHours(int count) {
-    return 'in $count h';
+    return '$count 小时后';
   }
 
   @override
   String relativeDays(int count) {
-    return 'in $count d';
+    return '$count 天后';
   }
 
   @override
   String aiCreatingPlaylist(int count) {
-    return 'Creating a playlist with $count songs…';
+    return '正在创建含 $count 首歌的歌单…';
   }
 
   @override
   String scanUpToDate(int count) {
-    return 'Library is up to date ($count tracks on device)';
+    return '音乐库已最新（设备上 $count 首）';
   }
 
   @override
   String scanCovers(int count) {
-    return 'Covers updated ($count songs)';
+    return '封面已更新（$count 首）';
   }
 
   @override
   String keyRemovedFor(String provider) {
-    return '$provider key removed';
+    return '已移除 $provider 密钥';
   }
 }
 
@@ -1877,114 +1867,114 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   }
 
   @override
-  String get statsUniqueSongs => 'Unique songs';
+  String get statsUniqueSongs => '不重复歌曲';
 
   @override
-  String get themeTitle => 'Theme';
+  String get themeTitle => '主题';
 
   @override
-  String get themeSubtitle => 'Pick a visual style. Applies instantly.';
+  String get themeSubtitle => '选择视觉风格，立即生效。';
 
   @override
-  String get themeMinimal => 'Minimal';
+  String get themeMinimal => '极简';
 
   @override
-  String get themeNeon => 'Neon / Cyberpunk';
+  String get themeNeon => '霓虹 / 赛博朋克';
 
   @override
-  String get themeRetro => 'Retro / Vintage';
+  String get themeRetro => '复古';
 
   @override
-  String get themeGlass => 'Glass (default)';
+  String get themeGlass => '玻璃（默认）';
 
   @override
-  String get themeZen => 'Natural / Zen';
+  String get themeZen => '自然 / 禅';
 
   @override
-  String get themeAnime => 'Anime';
+  String get themeAnime => '动漫';
 
   @override
-  String get themeGothic => 'Gothic';
+  String get themeGothic => '哥特';
 
   @override
-  String get themeCinema => 'Cinema';
+  String get themeCinema => '电影';
 
   @override
-  String get reduceMotion => 'Reduce motion';
+  String get reduceMotion => '减少动态效果';
 
   @override
-  String get reduceMotionDesc => 'Turns off theme animations to save battery.';
+  String get reduceMotionDesc => '关闭主题动画以省电。';
 
   @override
-  String get playAll => 'Play all';
+  String get playAll => '播放全部';
 
   @override
-  String get sortRecent => 'Recently added';
+  String get sortRecent => '最近添加';
 
   @override
-  String get sortTitle => 'Title (A-Z)';
+  String get sortTitle => '标题（A-Z）';
 
   @override
-  String get sortArtist => 'Artist';
+  String get sortArtist => '艺术家';
 
   @override
-  String get sortAlbum => 'Album';
+  String get sortAlbum => '专辑';
 
   @override
-  String get sortYear => 'Year';
+  String get sortYear => '年份';
 
   @override
-  String get sortDuration => 'Duration';
+  String get sortDuration => '时长';
 
   @override
-  String get sortMostPlayed => 'Most played';
+  String get sortMostPlayed => '播放最多';
 
   @override
   String albumSongsCount(int count) {
-    return '$count songs';
+    return '$count 首歌曲';
   }
 
   @override
-  String get historyTitle => 'Playback history';
+  String get historyTitle => '播放历史';
 
   @override
-  String get historyEmpty => 'No playback history yet';
+  String get historyEmpty => '还没有播放历史';
 
   @override
-  String get historyClear => 'Clear history';
+  String get historyClear => '清除历史';
 
   @override
-  String get foldersTitle => 'Folders';
+  String get foldersTitle => '文件夹';
 
   @override
-  String get foldersEmpty => 'Browse your music by folders';
+  String get foldersEmpty => '按文件夹浏览音乐';
 
   @override
-  String get duplicatesTitle => 'Duplicates';
+  String get duplicatesTitle => '重复项';
 
   @override
-  String get duplicatesEmpty => 'No duplicates found';
+  String get duplicatesEmpty => '未找到重复项';
 
   @override
-  String get duplicatesRemove => 'Remove copies';
+  String get duplicatesRemove => '移除副本';
 
   @override
-  String get importM3u => 'Import M3U playlist';
+  String get importM3u => '导入 M3U 歌单';
 
   @override
-  String get exportM3u => 'Export library (M3U)';
+  String get exportM3u => '导出音乐库（M3U）';
 
   @override
-  String get m3uNoSongs => 'None of the songs were found in your library';
+  String get m3uNoSongs => '音乐库中未找到任何歌曲';
 
   @override
   String artistAlbums(int count) {
-    return '$count albums';
+    return '$count 张专辑';
   }
 
   @override
   String duplicatesRemoveBody(int count) {
-    return 'The other $count copies will be removed from the library. The files are not deleted.';
+    return '其余 $count 个副本将从音乐库移除，文件不会被删除。';
   }
 
   @override
@@ -1993,209 +1983,199 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   }
 
   @override
-  String get batchEdit => 'Edit selection';
+  String get batchEdit => '编辑所选';
 
   @override
-  String get batchEditHint => 'Empty fields are left unchanged.';
+  String get batchEditHint => '留空的字段不会修改。';
 
   @override
-  String get normalizeVolume => 'Normalize volume';
+  String get normalizeVolume => '音量标准化';
 
   @override
-  String get normalizeVolumeDesc =>
-      'Uses ReplayGain tags to even out volume between songs.';
+  String get normalizeVolumeDesc => '使用 ReplayGain 标签平衡歌曲音量。';
 
   @override
-  String get resumeOnConnect => 'Resume on connect';
+  String get resumeOnConnect => '连接时继续';
 
   @override
-  String get resumeOnConnectDesc =>
-      'Starts playing again when headphones or Bluetooth connect.';
+  String get resumeOnConnectDesc => '连接耳机或蓝牙后自动继续播放。';
 
   @override
-  String get pauseOnDisconnect => 'Pause on disconnect';
+  String get pauseOnDisconnect => '断开时暂停';
 
   @override
-  String get pauseOnDisconnectDesc =>
-      'Pauses when headphones or Bluetooth are removed.';
+  String get pauseOnDisconnectDesc => '拔出耳机或断开蓝牙时暂停。';
 
   @override
-  String get sqliteTitle => 'Search index (SQLite)';
+  String get sqliteTitle => '搜索索引（SQLite）';
 
   @override
-  String get fadeTitle => 'Fade between songs';
+  String get fadeTitle => '歌曲间淡入淡出';
 
   @override
-  String get fadeDesc => 'Cross-fades the volume when the track changes.';
+  String get fadeDesc => '切歌时平滑过渡音量。';
 
   @override
-  String get bookmarksTitle => 'Bookmarks';
+  String get bookmarksTitle => '书签';
 
   @override
-  String get addBookmark => 'Add here';
+  String get addBookmark => '在此添加';
 
   @override
-  String get noBookmarks => 'No bookmarks in this song';
+  String get noBookmarks => '这首歌没有书签';
 
   @override
-  String get volumeDown => 'Lower volume';
+  String get volumeDown => '降低音量';
 
   @override
-  String get volumeUp => 'Raise volume';
+  String get volumeUp => '提高音量';
 
   @override
-  String get volumeReset => 'Reset volume';
+  String get volumeReset => '重置音量';
 
   @override
-  String get moreActions => 'More actions';
+  String get moreActions => '更多操作';
 
   @override
-  String get unknownArtist => 'Unknown artist';
+  String get unknownArtist => '未知艺术家';
 
   @override
-  String get unknownTitle => 'Untitled';
+  String get unknownTitle => '无标题';
 
   @override
-  String get untitledPlaylist => 'Untitled playlist';
+  String get untitledPlaylist => '未命名歌单';
 
   @override
-  String get untitledIdea => 'Untitled idea';
+  String get untitledIdea => '无标题创意';
 
   @override
-  String get relativeNow => 'just now';
+  String get relativeNow => '刚刚';
 
   @override
-  String get btnSave => 'Save';
+  String get btnSave => '保存';
 
   @override
-  String get btnTest => 'Test';
+  String get btnTest => '测试';
 
   @override
-  String get aiKeyMissingFirst => 'Set up an API key in AI settings first.';
+  String get aiKeyMissingFirst => '请先在 AI 设置中配置 API 密钥。';
 
   @override
-  String get aiConnectionOk => 'Connection OK';
+  String get aiConnectionOk => '连接正常';
 
   @override
-  String get aiErrorConnection => 'Connection error';
+  String get aiErrorConnection => '连接错误';
 
   @override
-  String get aiNeedKey => 'Set up an API key to talk to me.';
+  String get aiNeedKey => '配置 API 密钥后才能和我对话。';
 
   @override
-  String get aiUnknownCommand =>
-      'I did not understand. Type help to see examples.';
+  String get aiUnknownCommand => '没听懂。输入帮助查看示例。';
 
   @override
-  String get aiCompletingMetadata => 'Completing the song details…';
+  String get aiCompletingMetadata => '正在补全歌曲信息…';
 
   @override
-  String get aiInterpretingSearch => 'Interpreting your search…';
+  String get aiInterpretingSearch => '正在理解你的搜索…';
 
   @override
-  String get aiDjChoosing => 'The DJ is choosing…';
+  String get aiDjChoosing => 'DJ 正在挑选…';
 
   @override
-  String get scanFreeingSpace => 'Freeing up space…';
+  String get scanFreeingSpace => '正在释放空间…';
 
   @override
-  String get scanNothingToFree => 'Nothing to free up';
+  String get scanNothingToFree => '没有可释放的空间';
 
   @override
-  String get scanFreeFailed => 'Could not free up space';
+  String get scanFreeFailed => '无法释放空间';
 
   @override
-  String get scanSearching => 'Searching for music on this device…';
+  String get scanSearching => '正在搜索设备中的音乐…';
 
   @override
-  String get scanNoPermission =>
-      'Audio permission missing: enable it in Settings';
+  String get scanNoPermission => '缺少音频权限：请在设置中开启';
 
   @override
-  String get scanNotFound => 'No music found on this device';
+  String get scanNotFound => '此设备未找到音乐';
 
   @override
-  String get scanNoNewSongs => 'No new songs added';
+  String get scanNoNewSongs => '没有新增歌曲';
 
   @override
-  String get aiHintRecommended =>
-      'Recommended: the fastest and cheapest (great for everything).';
+  String get aiHintRecommended => '推荐：最快最省（适合所有场景）。';
 
   @override
-  String get aiHintDsPro =>
-      'More capable at reasoning; costs about 4x more per use.';
+  String get aiHintDsPro => '推理更强；每次使用约贵 4 倍。';
 
   @override
   String get aiHintDsRetired =>
-      'Name retired by DeepSeek: use deepseek-flash or deepseek-v4-pro.';
+      'DeepSeek 已弃用此名称：请用 deepseek-flash 或 deepseek-v4-pro。';
 
   @override
-  String get aiHintBalanced => 'Balanced and fluent; good value for the price.';
+  String get aiHintBalanced => '均衡流畅；性价比不错。';
 
   @override
-  String get aiHintVeryFast =>
-      'Very fast and cheap; enough for metadata and playlists.';
+  String get aiHintVeryFast => '非常快且便宜；处理元数据和歌单足够。';
 
   @override
-  String get aiHintO1 =>
-      'Reasoning: slower and pricier; the app skips JSON mode with these.';
+  String get aiHintO1 => '推理型：更慢更贵；这些模型下应用会跳过 JSON 模式。';
 
   @override
-  String get aiHintGoogleFree => 'Fast, with Google\'s generous free tier.';
+  String get aiHintGoogleFree => '速度快，且 Google 免费额度慷慨。';
 
   @override
-  String get aiHintGeminiPro => 'More capable; uses up the free quota faster.';
+  String get aiHintGeminiPro => '能力更强；更快消耗免费额度。';
 
   @override
-  String get aiHintClaudeFast => 'The fastest and cheapest Claude model.';
+  String get aiHintClaudeFast => 'Claude 中速度最快、价格最低的模型。';
 
   @override
-  String get aiHintClaudeBalanced => 'Balanced; excellent writing quality.';
+  String get aiHintClaudeBalanced => '均衡；写作质量出色。';
 
   @override
-  String get aiHintClaudeOpus =>
-      'The most powerful Claude model and also the priciest.';
+  String get aiHintClaudeOpus => 'Claude 最强也最贵的模型。';
 
   @override
   String playLocals(Object count) {
-    return 'Play $count local songs';
+    return '播放 $count 首本地歌曲';
   }
 
   @override
-  String get aiPlaylistDefault => 'AI playlist';
+  String get aiPlaylistDefault => 'AI 歌单';
 
   @override
   String relativeMinutes(int count) {
-    return 'in $count min';
+    return '$count 分钟前';
   }
 
   @override
   String relativeHours(int count) {
-    return 'in $count h';
+    return '$count 小时后';
   }
 
   @override
   String relativeDays(int count) {
-    return 'in $count d';
+    return '$count 天后';
   }
 
   @override
   String aiCreatingPlaylist(int count) {
-    return 'Creating a playlist with $count songs…';
+    return '正在创建含 $count 首歌的歌单…';
   }
 
   @override
   String scanUpToDate(int count) {
-    return 'Library is up to date ($count tracks on device)';
+    return '音乐库已最新（设备上 $count 首）';
   }
 
   @override
   String scanCovers(int count) {
-    return 'Covers updated ($count songs)';
+    return '封面已更新（$count 首）';
   }
 
   @override
   String keyRemovedFor(String provider) {
-    return '$provider key removed';
+    return '已移除 $provider 密钥';
   }
 }

@@ -784,114 +784,114 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get statsUniqueSongs => 'Unique songs';
+  String get statsUniqueSongs => '고유 곡';
 
   @override
-  String get themeTitle => 'Theme';
+  String get themeTitle => '테마';
 
   @override
-  String get themeSubtitle => 'Pick a visual style. Applies instantly.';
+  String get themeSubtitle => '스타일을 고르면 즉시 적용됩니다.';
 
   @override
-  String get themeMinimal => 'Minimal';
+  String get themeMinimal => '미니멀';
 
   @override
-  String get themeNeon => 'Neon / Cyberpunk';
+  String get themeNeon => '네온 / 사이버펑크';
 
   @override
-  String get themeRetro => 'Retro / Vintage';
+  String get themeRetro => '레트로';
 
   @override
-  String get themeGlass => 'Glass (default)';
+  String get themeGlass => '글래스(기본)';
 
   @override
-  String get themeZen => 'Natural / Zen';
+  String get themeZen => '내추럴 / 젠';
 
   @override
-  String get themeAnime => 'Anime';
+  String get themeAnime => '애니메';
 
   @override
-  String get themeGothic => 'Gothic';
+  String get themeGothic => '고딕';
 
   @override
-  String get themeCinema => 'Cinema';
+  String get themeCinema => '시네마';
 
   @override
-  String get reduceMotion => 'Reduce motion';
+  String get reduceMotion => '동작 줄이기';
 
   @override
-  String get reduceMotionDesc => 'Turns off theme animations to save battery.';
+  String get reduceMotionDesc => '테마 애니메이션을 꺼서 배터리를 절약합니다.';
 
   @override
-  String get playAll => 'Play all';
+  String get playAll => '모두 재생';
 
   @override
-  String get sortRecent => 'Recently added';
+  String get sortRecent => '최근 추가';
 
   @override
-  String get sortTitle => 'Title (A-Z)';
+  String get sortTitle => '제목(A-Z)';
 
   @override
-  String get sortArtist => 'Artist';
+  String get sortArtist => '아티스트';
 
   @override
-  String get sortAlbum => 'Album';
+  String get sortAlbum => '앨범';
 
   @override
-  String get sortYear => 'Year';
+  String get sortYear => '연도';
 
   @override
-  String get sortDuration => 'Duration';
+  String get sortDuration => '길이';
 
   @override
-  String get sortMostPlayed => 'Most played';
+  String get sortMostPlayed => '재생 많은 순';
 
   @override
   String albumSongsCount(int count) {
-    return '$count songs';
+    return '$count곡';
   }
 
   @override
-  String get historyTitle => 'Playback history';
+  String get historyTitle => '재생 기록';
 
   @override
-  String get historyEmpty => 'No playback history yet';
+  String get historyEmpty => '재생 기록이 아직 없습니다';
 
   @override
-  String get historyClear => 'Clear history';
+  String get historyClear => '기록 지우기';
 
   @override
-  String get foldersTitle => 'Folders';
+  String get foldersTitle => '폴더';
 
   @override
-  String get foldersEmpty => 'Browse your music by folders';
+  String get foldersEmpty => '폴더로 음악 찾아보기';
 
   @override
-  String get duplicatesTitle => 'Duplicates';
+  String get duplicatesTitle => '중복';
 
   @override
-  String get duplicatesEmpty => 'No duplicates found';
+  String get duplicatesEmpty => '중복을 찾지 못했습니다';
 
   @override
-  String get duplicatesRemove => 'Remove copies';
+  String get duplicatesRemove => '사본 제거';
 
   @override
-  String get importM3u => 'Import M3U playlist';
+  String get importM3u => 'M3U 플레이리스트 가져오기';
 
   @override
-  String get exportM3u => 'Export library (M3U)';
+  String get exportM3u => '라이브러리 내보내기(M3U)';
 
   @override
-  String get m3uNoSongs => 'None of the songs were found in your library';
+  String get m3uNoSongs => '라이브러리에서 해당 곡을 찾지 못했습니다';
 
   @override
   String artistAlbums(int count) {
-    return '$count albums';
+    return '$count개 앨범';
   }
 
   @override
   String duplicatesRemoveBody(int count) {
-    return 'The other $count copies will be removed from the library. The files are not deleted.';
+    return '나머지 $count개 사본을 라이브러리에서 제거합니다. 파일은 삭제되지 않습니다.';
   }
 
   @override
@@ -900,209 +900,199 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get batchEdit => 'Edit selection';
+  String get batchEdit => '선택 편집';
 
   @override
-  String get batchEditHint => 'Empty fields are left unchanged.';
+  String get batchEditHint => '비어 있는 항목은 변경되지 않습니다.';
 
   @override
-  String get normalizeVolume => 'Normalize volume';
+  String get normalizeVolume => '볼륨 표준화';
 
   @override
-  String get normalizeVolumeDesc =>
-      'Uses ReplayGain tags to even out volume between songs.';
+  String get normalizeVolumeDesc => 'ReplayGain 태그로 곡 간 볼륨을 맞춥니다.';
 
   @override
-  String get resumeOnConnect => 'Resume on connect';
+  String get resumeOnConnect => '연결 시 재개';
 
   @override
-  String get resumeOnConnectDesc =>
-      'Starts playing again when headphones or Bluetooth connect.';
+  String get resumeOnConnectDesc => '이어폰이나 블루투스를 연결하면 다시 재생합니다.';
 
   @override
-  String get pauseOnDisconnect => 'Pause on disconnect';
+  String get pauseOnDisconnect => '연결 해제 시 일시정지';
 
   @override
-  String get pauseOnDisconnectDesc =>
-      'Pauses when headphones or Bluetooth are removed.';
+  String get pauseOnDisconnectDesc => '이어폰이나 블루투스를 분리하면 일시정지합니다.';
 
   @override
-  String get sqliteTitle => 'Search index (SQLite)';
+  String get sqliteTitle => '검색 색인(SQLite)';
 
   @override
-  String get fadeTitle => 'Fade between songs';
+  String get fadeTitle => '곡 간 페이드';
 
   @override
-  String get fadeDesc => 'Cross-fades the volume when the track changes.';
+  String get fadeDesc => '곡이 바뀔 때 볼륨을 크로스페이드합니다.';
 
   @override
-  String get bookmarksTitle => 'Bookmarks';
+  String get bookmarksTitle => '북마크';
 
   @override
-  String get addBookmark => 'Add here';
+  String get addBookmark => '여기에 추가';
 
   @override
-  String get noBookmarks => 'No bookmarks in this song';
+  String get noBookmarks => '이 곡에는 북마크가 없습니다';
 
   @override
-  String get volumeDown => 'Lower volume';
+  String get volumeDown => '볼륨 낮추기';
 
   @override
-  String get volumeUp => 'Raise volume';
+  String get volumeUp => '볼륨 높이기';
 
   @override
-  String get volumeReset => 'Reset volume';
+  String get volumeReset => '볼륨 초기화';
 
   @override
-  String get moreActions => 'More actions';
+  String get moreActions => '더 많은 작업';
 
   @override
-  String get unknownArtist => 'Unknown artist';
+  String get unknownArtist => '알 수 없는 아티스트';
 
   @override
-  String get unknownTitle => 'Untitled';
+  String get unknownTitle => '제목 없음';
 
   @override
-  String get untitledPlaylist => 'Untitled playlist';
+  String get untitledPlaylist => '이름 없는 플레이리스트';
 
   @override
-  String get untitledIdea => 'Untitled idea';
+  String get untitledIdea => '제목 없는 아이디어';
 
   @override
-  String get relativeNow => 'just now';
+  String get relativeNow => '방금';
 
   @override
-  String get btnSave => 'Save';
+  String get btnSave => '저장';
 
   @override
-  String get btnTest => 'Test';
+  String get btnTest => '테스트';
 
   @override
-  String get aiKeyMissingFirst => 'Set up an API key in AI settings first.';
+  String get aiKeyMissingFirst => '먼저 AI 설정에서 API 키를 설정하세요.';
 
   @override
-  String get aiConnectionOk => 'Connection OK';
+  String get aiConnectionOk => '연결 정상';
 
   @override
-  String get aiErrorConnection => 'Connection error';
+  String get aiErrorConnection => '연결 오류';
 
   @override
-  String get aiNeedKey => 'Set up an API key to talk to me.';
+  String get aiNeedKey => '대화하려면 API 키를 설정하세요.';
 
   @override
-  String get aiUnknownCommand =>
-      'I did not understand. Type help to see examples.';
+  String get aiUnknownCommand => '명령을 이해하지 못했습니다. 도움말을 입력해 예시를 보세요.';
 
   @override
-  String get aiCompletingMetadata => 'Completing the song details…';
+  String get aiCompletingMetadata => '곡 정보를 채우는 중…';
 
   @override
-  String get aiInterpretingSearch => 'Interpreting your search…';
+  String get aiInterpretingSearch => '검색을 해석하는 중…';
 
   @override
-  String get aiDjChoosing => 'The DJ is choosing…';
+  String get aiDjChoosing => 'DJ가 고르는 중…';
 
   @override
-  String get scanFreeingSpace => 'Freeing up space…';
+  String get scanFreeingSpace => '공간을 확보하는 중…';
 
   @override
-  String get scanNothingToFree => 'Nothing to free up';
+  String get scanNothingToFree => '확보할 공간이 없습니다';
 
   @override
-  String get scanFreeFailed => 'Could not free up space';
+  String get scanFreeFailed => '공간을 확보하지 못했습니다';
 
   @override
-  String get scanSearching => 'Searching for music on this device…';
+  String get scanSearching => '기기에서 음악을 검색하는 중…';
 
   @override
-  String get scanNoPermission =>
-      'Audio permission missing: enable it in Settings';
+  String get scanNoPermission => '오디오 권한이 없습니다. 설정에서 켜세요';
 
   @override
-  String get scanNotFound => 'No music found on this device';
+  String get scanNotFound => '기기에서 음악을 찾지 못했습니다';
 
   @override
-  String get scanNoNewSongs => 'No new songs added';
+  String get scanNoNewSongs => '새로 추가된 곡이 없습니다';
 
   @override
-  String get aiHintRecommended =>
-      'Recommended: the fastest and cheapest (great for everything).';
+  String get aiHintRecommended => '추천: 가장 빠르고 저렴(모든 용도에 적합).';
 
   @override
-  String get aiHintDsPro =>
-      'More capable at reasoning; costs about 4x more per use.';
+  String get aiHintDsPro => '추론 능력이 뛰어남. 사용당 약 4배 비쌈.';
 
   @override
   String get aiHintDsRetired =>
-      'Name retired by DeepSeek: use deepseek-flash or deepseek-v4-pro.';
+      'DeepSeek가 폐기한 이름입니다. deepseek-flash 또는 deepseek-v4-pro를 사용하세요.';
 
   @override
-  String get aiHintBalanced => 'Balanced and fluent; good value for the price.';
+  String get aiHintBalanced => '균형 잡혀 있고 유창함. 가격 대비 좋음.';
 
   @override
-  String get aiHintVeryFast =>
-      'Very fast and cheap; enough for metadata and playlists.';
+  String get aiHintVeryFast => '매우 빠르고 저렴. 메타데이터와 플레이리스트에 충분.';
 
   @override
-  String get aiHintO1 =>
-      'Reasoning: slower and pricier; the app skips JSON mode with these.';
+  String get aiHintO1 => '추론형: 느리고 비쌈. 이 모델들은 앱이 JSON 모드를 생략합니다.';
 
   @override
-  String get aiHintGoogleFree => 'Fast, with Google\'s generous free tier.';
+  String get aiHintGoogleFree => '빠르고 Google 무료 할당량이 넉넉함.';
 
   @override
-  String get aiHintGeminiPro => 'More capable; uses up the free quota faster.';
+  String get aiHintGeminiPro => '더 강력하지만 무료 할당량을 빨리 사용함.';
 
   @override
-  String get aiHintClaudeFast => 'The fastest and cheapest Claude model.';
+  String get aiHintClaudeFast => 'Claude 중 가장 빠르고 저렴한 모델.';
 
   @override
-  String get aiHintClaudeBalanced => 'Balanced; excellent writing quality.';
+  String get aiHintClaudeBalanced => '균형형. 글쓰기 품질 우수.';
 
   @override
-  String get aiHintClaudeOpus =>
-      'The most powerful Claude model and also the priciest.';
+  String get aiHintClaudeOpus => 'Claude 중 가장 강력하고 가장 비싼 모델.';
 
   @override
   String playLocals(Object count) {
-    return 'Play $count local songs';
+    return '$count곡 로컬 재생';
   }
 
   @override
-  String get aiPlaylistDefault => 'AI playlist';
+  String get aiPlaylistDefault => 'AI 플레이리스트';
 
   @override
   String relativeMinutes(int count) {
-    return 'in $count min';
+    return '$count분 전';
   }
 
   @override
   String relativeHours(int count) {
-    return 'in $count h';
+    return '$count시간 후';
   }
 
   @override
   String relativeDays(int count) {
-    return 'in $count d';
+    return '$count일 후';
   }
 
   @override
   String aiCreatingPlaylist(int count) {
-    return 'Creating a playlist with $count songs…';
+    return '$count곡 플레이리스트 만드는 중…';
   }
 
   @override
   String scanUpToDate(int count) {
-    return 'Library is up to date ($count tracks on device)';
+    return '라이브러리가 최신입니다(기기에 $count곡)';
   }
 
   @override
   String scanCovers(int count) {
-    return 'Covers updated ($count songs)';
+    return '커버 업데이트됨($count곡)';
   }
 
   @override
   String keyRemovedFor(String provider) {
-    return '$provider key removed';
+    return '$provider 키를 삭제했습니다';
   }
 }
