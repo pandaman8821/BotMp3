@@ -864,6 +864,19 @@ ListTile(
                   ),
                   isThreeLine: true,
               );
+          ListTile(
+            leading: Icon(Icons.article_outlined),
+            title: Text(AppLocalizations.of(context).licensesTitle),
+            subtitle: Text(AppLocalizations.of(context).gplNotice),
+            onTap: () {
+              showLicensePage(
+                context: context,
+                applicationName: 'BotMp3',
+                applicationVersion: AppInfoService.versionNombreCache ?? '1.9.109',
+                applicationLegalese: 'GPL-3.0 License © 2026 BotMp3',
+              );
+            },
+          ),
             },
           ),
           Padding(

@@ -1172,6 +1172,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String formatsLabel(String formats) {
     return '格式：$formats';
   }
+
+  @override
+  String get licensesTitle => '开源许可证';
+
+  @override
+  String get gplNotice => 'BotMp3 是基于 GPL-3.0 的自由软件。源代码可在 GitHub 获取。';
+
+  @override
+  String get viewSourceCode => '查看源代码';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -2342,4 +2351,13 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String formatsLabel(String formats) {
     return '格式：$formats';
   }
+
+  @override
+  String get licensesTitle => '开源许可证';
+
+  @override
+  String get gplNotice => 'BotMp3 是基于 GPL-3.0 的自由软件。源代码可在 GitHub 获取。';
+
+  @override
+  String get viewSourceCode => '查看源代码';
 }

@@ -438,5 +438,8 @@
         "type": "String"
       }
     }
-  }
+  },
+  "licensesTitle": "オープンソースライセンス",
+  "gplNotice": "BotMp3はGPL-3.0に基づくフリーソフトウェアです。ソースコードはGitHubで公開されています。",
+  "viewSourceCode": "ソースコードを表示"
 }

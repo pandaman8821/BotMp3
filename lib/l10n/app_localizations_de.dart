@@ -1225,4 +1225,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String formatsLabel(String formats) {
     return 'Formate: $formats';
   }
+
+  @override
+  String get licensesTitle => 'Open-Source-Lizenzen';
+
+  @override
+  String get gplNotice =>
+      'BotMp3 ist freie Software unter GPL-3.0. Quellcode auf GitHub verfügbar.';
+
+  @override
+  String get viewSourceCode => 'Quellcode anzeigen';
 }

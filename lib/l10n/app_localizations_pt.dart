@@ -1224,6 +1224,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String formatsLabel(String formats) {
     return 'Formatos: $formats';
   }
+
+  @override
+  String get licensesTitle => 'Licenças de código aberto';
+
+  @override
+  String get gplNotice =>
+      'BotMp3 é software livre sob GPL-3.0. Código fonte disponível no GitHub.';
+
+  @override
+  String get viewSourceCode => 'Ver código-fonte';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -2446,4 +2456,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String formatsLabel(String formats) {
     return 'Formatos: $formats';
   }
+
+  @override
+  String get licensesTitle => 'Licenças de código aberto';
+
+  @override
+  String get gplNotice =>
+      'BotMp3 é software livre sob GPL-3.0. Código fonte disponível no GitHub.';
+
+  @override
+  String get viewSourceCode => 'Ver código-fonte';
 }
