@@ -1203,4 +1203,14 @@ class AppLocalizationsHi extends AppLocalizations {
   String formatsLabel(String formats) {
     return 'प्रारूप: $formats';
   }
+
+  @override
+  String get licensesTitle => 'ओपन सोर्स लाइसेंस';
+
+  @override
+  String get gplNotice =>
+      'BotMp3 GPL-3.0 के तहत मुफ़्त सॉफ़्टवेयर है। स्रोत कोड GitHub पर उपलब्ध है।';
+
+  @override
+  String get viewSourceCode => 'स्रोत कोड देखें';
 }

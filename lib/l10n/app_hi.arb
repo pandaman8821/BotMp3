@@ -438,5 +438,8 @@
         "type": "String"
       }
     }
-  }
+  },
+  "licensesTitle": "ओपन सोर्स लाइसेंस",
+  "gplNotice": "BotMp3 GPL-3.0 के तहत मुफ़्त सॉफ़्टवेयर है। स्रोत कोड GitHub पर उपलब्ध है।",
+  "viewSourceCode": "स्रोत कोड देखें"
 }

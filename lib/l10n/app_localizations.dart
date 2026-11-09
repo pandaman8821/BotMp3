@@ -2269,6 +2269,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Formats: {formats}'**
   String formatsLabel(String formats);
+
+  /// No description provided for @licensesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Source Licenses'**
+  String get licensesTitle;
+
+  /// No description provided for @gplNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'BotMp3 is Free Software under GPL-3.0. Source code available on GitHub.'**
+  String get gplNotice;
+
+  /// No description provided for @viewSourceCode.
+  ///
+  /// In en, this message translates to:
+  /// **'View Source Code'**
+  String get viewSourceCode;
 }
 
 class _AppLocalizationsDelegate

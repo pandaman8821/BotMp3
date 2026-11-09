@@ -438,5 +438,8 @@
         "type": "String"
       }
     }
-  }
+  },
+  "licensesTitle": "开源许可证",
+  "gplNotice": "BotMp3 是基于 GPL-3.0 的自由软件。源代码可在 GitHub 获取。",
+  "viewSourceCode": "查看源代码"
 }

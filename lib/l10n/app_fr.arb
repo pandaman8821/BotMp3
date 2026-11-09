@@ -438,5 +438,8 @@
         "type": "String"
       }
     }
-  }
+  },
+  "licensesTitle": "Licences open source",
+  "gplNotice": "BotMp3 est un logiciel libre sous GPL-3.0. Code source disponible sur GitHub.",
+  "viewSourceCode": "Voir le code source"
 }
