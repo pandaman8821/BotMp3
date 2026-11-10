@@ -788,5 +788,7 @@
   },
   "modelIdExample": "उदा.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…",
   "useModel": "उपयोग करें",
-  "modelsAutoHint": "मुफ़्त मॉडल पहले। हर 3 दिन में अपने आप अपडेट होते हैं।"
+  "modelsAutoHint": "मुफ़्त मॉडल पहले। हर 3 दिन में अपने आप अपडेट होते हैं।",
+  "aiHintGeminiNew": "सबसे नया Gemini, मुफ़्त कोटे में शामिल। सुझाया गया।",
+  "aiHintGeminiLite": "लाइट Gemini: बहुत तेज़ और मुफ़्त में लगभग असीमित।"
 }

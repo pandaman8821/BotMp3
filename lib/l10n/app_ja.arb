@@ -788,5 +788,7 @@
   },
   "modelIdExample": "例: gemini-2.5-flash、gpt-4o-mini、deepseek-flash…",
   "useModel": "使用",
-  "modelsAutoHint": "無料モデルが先頭。3日ごとに自動更新されます。"
+  "modelsAutoHint": "無料モデルが先頭。3日ごとに自動更新されます。",
+  "aiHintGeminiNew": "最新のGemini。無料枠に含まれます。おすすめ。",
+  "aiHintGeminiLite": "軽量Gemini：高速で、無料でもほぼ無制限。"
 }

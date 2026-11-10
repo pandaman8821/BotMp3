@@ -1490,6 +1490,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get modelsAutoHint => '免费模型优先，每 3 天自动更新。';
+
+  @override
+  String get aiHintGeminiNew => '最新的 Gemini，包含在免费额度中。推荐。';
+
+  @override
+  String get aiHintGeminiLite => '轻量版 Gemini：非常快，免费额度几乎不限。';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -2978,4 +2984,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get modelsAutoHint => '免费模型优先，每 3 天自动更新。';
+
+  @override
+  String get aiHintGeminiNew => '最新的 Gemini，包含在免费额度中。推荐。';
+
+  @override
+  String get aiHintGeminiLite => '轻量版 Gemini：非常快，免费额度几乎不限。';
 }

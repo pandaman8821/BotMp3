@@ -137,11 +137,15 @@ extension AiProviderInfo on AiProvider {
         // `deepseek-chat` y `deepseek-reasoner` ya no existen.
         return <String>['deepseek-flash', 'deepseek-v4-pro'];
       case AiProvider.gemini:
-        // Los del plan gratuito van primero: flash y flash-lite son gratis.
+        // Los mas nuevos y gratuitos van primero (plan gratuito de Google):
+        // flash y flash-lite se pueden usar sin pagar.
         return <String>[
+            'gemini-3.8-flash',
+            'gemini-3.6-flash',
+            'gemini-3.5-flash-lite',
+            'gemini-3.1-flash-lite',
             'gemini-2.5-flash',
             'gemini-2.0-flash',
-            'gemini-2.5-flash-lite',
             'gemini-2.5-pro',
           ];
       case AiProvider.claude:
@@ -172,6 +176,12 @@ extension AiProviderInfo on AiProvider {
       case 'o1':
       case 'o1-mini':
         return UiStrings.loc.aiHintO1;
+      case 'gemini-3.8-flash':
+      case 'gemini-3.6-flash':
+        return UiStrings.loc.aiHintGeminiNew;
+      case 'gemini-3.5-flash-lite':
+      case 'gemini-3.1-flash-lite':
+        return UiStrings.loc.aiHintGeminiLite;
       case 'gemini-2.0-flash':
       case 'gemini-2.5-flash':
         return 'Fast, with Google’s generous free tier.';

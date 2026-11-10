@@ -1496,4 +1496,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get modelsAutoHint => '무료 모델이 먼저 표시됩니다. 3일마다 자동 갱신됩니다.';
+
+  @override
+  String get aiHintGeminiNew => '최신 Gemini, 무료 한도 포함. 추천.';
+
+  @override
+  String get aiHintGeminiLite => '경량 Gemini: 매우 빠르고 무료로 거의 무제한.';
 }

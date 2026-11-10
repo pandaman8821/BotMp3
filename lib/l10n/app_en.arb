@@ -1007,5 +1007,7 @@
   },
   "modelIdExample": "E.g.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…",
   "useModel": "Use",
-  "modelsAutoHint": "Free models first. They refresh automatically every 3 days."
+  "modelsAutoHint": "Free models first. They refresh automatically every 3 days.",
+  "aiHintGeminiNew": "Newest Gemini, free tier included. Recommended.",
+  "aiHintGeminiLite": "Lightweight Gemini: very fast and almost unlimited for free."
 }

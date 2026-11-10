@@ -1493,4 +1493,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get modelsAutoHint => '無料モデルが先頭。3日ごとに自動更新されます。';
+
+  @override
+  String get aiHintGeminiNew => '最新のGemini。無料枠に含まれます。おすすめ。';
+
+  @override
+  String get aiHintGeminiLite => '軽量Gemini：高速で、無料でもほぼ無制限。';
 }
