@@ -1,3 +1,5 @@
+import '../../l10n/app_localizations.dart';
+import '../../core/ui_strings.dart';
 import 'dart:convert';
 
 /// Acciones que BotMp3 puede ejecutar a partir de una frase escrita o dictada.
@@ -71,61 +73,63 @@ class AiAction {
 
   /// Descripción corta para mostrar en la interfaz.
   String get label {
+    final AppLocalizations loc = UiStrings.loc;
     switch (type) {
       case AiActionType.play:
-        return 'Reproducir';
+        return loc.actPlay;
       case AiActionType.pause:
-        return 'Pausar';
+        return loc.actPause;
       case AiActionType.next:
-        return 'Siguiente canción';
+        return loc.actNext;
       case AiActionType.previous:
-        return 'Canción anterior';
+        return loc.actPrevious;
       case AiActionType.stop:
-        return 'Detener';
+        return loc.actStop;
       case AiActionType.volumeSet:
-        return 'Volumen ${value ?? ''}';
+        return loc.actVolume(value ?? '');
       case AiActionType.volumeUp:
-        return 'Subir volumen';
+        return loc.actVolumeUp;
       case AiActionType.volumeDown:
-        return 'Bajar volumen';
+        return loc.actVolumeDown;
       case AiActionType.speedSet:
-        return 'Velocidad ${value ?? ''}x';
+        return loc.actSpeed(value ?? '');
       case AiActionType.shuffleOn:
-        return 'Aleatorio activado';
+        return loc.actShuffleOn;
       case AiActionType.shuffleOff:
-        return 'Aleatorio desactivado';
+        return loc.actShuffleOff;
       case AiActionType.repeatOff:
-        return 'Repetición desactivada';
+        return loc.actRepeatOff;
       case AiActionType.repeatAll:
-        return 'Repetir toda la cola';
+        return loc.actRepeatAll;
       case AiActionType.repeatOne:
-        return 'Repetir esta canción';
+        return loc.actRepeatOne;
       case AiActionType.seek:
-        return 'Saltar a ${value ?? ''} s';
+        return loc.actSeek(value ?? '');
       case AiActionType.playQuery:
-        return 'Reproducir «${query ?? ''}»';
+        return loc.actPlayQuery(query ?? '');
       case AiActionType.playPlaylist:
-        return 'Reproducir lista «${playlistName ?? query ?? ''}»';
+        return loc.actPlayPlaylist(playlistName ?? query ?? '');
       case AiActionType.createPlaylist:
-        return 'Crear lista «${playlistName ?? ''}»';
+        return loc.actCreatePlaylist(playlistName ?? '');
       case AiActionType.addToPlaylist:
-        return 'Añadir a «${playlistName ?? ''}»';
+        return loc.actAddToPlaylist(playlistName ?? '');
       case AiActionType.searchLibrary:
-        return 'Buscar «${query ?? ''}»';
+        return loc.actSearch(query ?? '');
       case AiActionType.editMetadata:
-        return 'Editar ${field ?? 'datos'} de «${query ?? ''}»';
+        return loc.actEditMetadata(
+          field ?? loc.fieldData, query ?? '');
       case AiActionType.setCover:
-        return 'Cambiar carátula de «${query ?? ''}»';
+        return loc.actSetCover(query ?? '');
       case AiActionType.toggleFavorite:
-        return 'Favorito: «${query ?? ''}»';
+        return loc.actFavorite(query ?? '');
       case AiActionType.rescanLibrary:
-        return 'Actualizar biblioteca';
+        return loc.actRescan;
       case AiActionType.nowPlaying:
-        return '¿Qué suena?';
+        return loc.actNowPlaying;
       case AiActionType.libraryStats:
-        return 'Estadísticas de la biblioteca';
+        return loc.actStats;
       case AiActionType.help:
-        return 'Ayuda de comandos';
+        return loc.actHelp;
       case AiActionType.unknown:
         return '';
     }

@@ -59,23 +59,23 @@ class ActionExecutor {
       switch (action.type) {
         case AiActionType.play:
           await player.service.play();
-          return ActionOutcome(action, 'Reproduciendo ▶️');
+          return ActionOutcome(action, UiStrings.loc.msgPlayingNow);
         case AiActionType.pause:
           await player.service.pause();
           return ActionOutcome(action, 'En pausa ⏸️');
         case AiActionType.next:
           await player.next();
-          return ActionOutcome(action, 'Siguiente canción ⏭️');
+          return ActionOutcome(action, UiStrings.loc.msgNext);
         case AiActionType.previous:
           await player.previous();
-          return ActionOutcome(action, 'Canción anterior ⏮️');
+          return ActionOutcome(action, UiStrings.loc.msgPrevious);
         case AiActionType.stop:
           await player.stopAndClear();
-          return ActionOutcome(action, 'Reproducción detenida');
+          return ActionOutcome(action, UiStrings.loc.msgStopped);
         case AiActionType.seek:
           final int seconds = int.tryParse(action.value ?? '') ?? 0;
           await player.seek(Duration(seconds: seconds));
-          return ActionOutcome(action, 'Salté a ${Formatters.duration(Duration(seconds: seconds))}');
+          return ActionOutcome(action, UiStrings.loc.msgSeeked(Formatters.duration(Duration(seconds: seconds))));
         case AiActionType.volumeSet:
           final double volume = double.tryParse(action.value ?? '') ?? player.volume;
           await player.setVolume(volume.clamp(0.0, 1.0));
@@ -102,7 +102,7 @@ class ActionExecutor {
         case AiActionType.repeatOff:
           settings.service.setRepeatMode(RepeatMode.off);
           player.service.setRepeatMode(RepeatMode.off);
-          return ActionOutcome(action, 'Repetición desactivada');
+          return ActionOutcome(action, UiStrings.loc.msgRepeatOff);
         case AiActionType.repeatAll:
           settings.service.setRepeatMode(RepeatMode.all);
           player.service.setRepeatMode(RepeatMode.all);
@@ -110,18 +110,18 @@ class ActionExecutor {
         case AiActionType.repeatOne:
           settings.service.setRepeatMode(RepeatMode.one);
           player.service.setRepeatMode(RepeatMode.one);
-          return ActionOutcome(action, 'Repetir esta canción 🔂');
+          return ActionOutcome(action, UiStrings.loc.msgRepeatOne);
 
         case AiActionType.playQuery:
           if ((action.query ?? '').trim().isEmpty) {
             await player.service.play();
-            return ActionOutcome(action, 'Reproduciendo ▶️');
+            return ActionOutcome(action, UiStrings.loc.msgPlayingNow);
           }
           final List<Song> matches = _findSongs(action.query);
           if (matches.isEmpty) {
             return ActionOutcome(
               action,
-              'No encontré «${action.query}» en tu biblioteca. Prueba con otro título o actualiza la biblioteca.',
+              UiStrings.loc.msgNotFoundQuery(action.query ?? ''),
               ok: false,
             );
           }
@@ -129,8 +129,13 @@ class ActionExecutor {
           final Song first = matches.first;
           return ActionOutcome(
             action,
-            'Reproduciendo «${first.title}» — ${first.artist}'
-            '${matches.length > 1 ? ' (y ${matches.length - 1} más)' : ''} 🎵',
+            UiStrings.loc.msgPlayingTitle(
+              first.title,
+              first.artist,
+              matches.length > 1
+                  ? UiStrings.loc.msgAndMore('${matches.length - 1}')
+                  : '',
+            ),
             songId: first.id,
           );
 
@@ -138,14 +143,14 @@ class ActionExecutor {
           final String wanted = action.playlistName ?? action.query ?? '';
           final Playlist? playlist = _findPlaylist(wanted);
           if (playlist == null) {
-            return ActionOutcome(action, 'No existe ninguna lista llamada «$wanted».', ok: false);
+            return ActionOutcome(action, UiStrings.loc.msgPlaylistNotFound(wanted), ok: false);
           }
           final List<Song> songs = library.songsOf(playlist);
           if (songs.isEmpty) {
-            return ActionOutcome(action, 'La lista «${playlist.name}» está vacía.', ok: false);
+            return ActionOutcome(action, UiStrings.loc.msgPlaylistEmpty(playlist.name), ok: false);
           }
           await player.setQueue(songs);
-          return ActionOutcome(action, 'Reproduciendo la lista «${playlist.name}» (${songs.length} canciones) 🎶');
+          return ActionOutcome(action, UiStrings.loc.msgPlayingNow);
 
         case AiActionType.createPlaylist:
           final List<Song> songs = _findSongs(action.query, limit: action.count ?? 30);
@@ -174,7 +179,7 @@ class ActionExecutor {
             if (current != null) songs = <Song>[current];
           }
           if (songs.isEmpty) {
-            return ActionOutcome(action, 'No encontré canciones para añadir.', ok: false);
+            return ActionOutcome(action, UiStrings.loc.msgNoSongsToAdd, ok: false);
           }
           playlist ??= await library.createPlaylist(
             name: wanted.isEmpty ? 'Lista IA' : wanted,
@@ -187,7 +192,7 @@ class ActionExecutor {
           );
           return ActionOutcome(
             action,
-            '${songs.length} canción(es) añadidas a «${playlist.name}» ✅',
+            UiStrings.loc.msgAddedToPlaylist('${songs.length}', playlist.name),
           );
 
         case AiActionType.searchLibrary:
@@ -197,7 +202,7 @@ class ActionExecutor {
             action,
             found.isEmpty
                 ? 'Sin resultados para «${action.query}».'
-                : '${found.length} resultados para «${action.query}» — los tienes en la pestaña Canciones 🔍',
+                : UiStrings.loc.msgSearchResults('${found.length}', action.query ?? ''),
             ok: found.isNotEmpty,
           );
 
@@ -205,7 +210,7 @@ class ActionExecutor {
           final List<Song> matches = _findSongs(action.query, limit: 1);
           final Song? song = matches.isEmpty ? null : matches.first;
           if (song == null) {
-            return ActionOutcome(action, 'No encontré la canción «${action.query}».', ok: false);
+            return ActionOutcome(action, UiStrings.loc.msgSongNotFoundShort, ok: false);
           }
           final Song updated = _applyField(song, action.field, action.value);
           await library.saveSong(updated);
@@ -219,11 +224,11 @@ class ActionExecutor {
           final List<Song> coverMatches = _findSongs(action.query, limit: 1);
           final Song? coverSong = coverMatches.isEmpty ? null : coverMatches.first;
           if (coverSong == null) {
-            return ActionOutcome(action, 'No encontré la canción para cambiar la carátula.', ok: false);
+            return ActionOutcome(action, UiStrings.loc.msgSongNotFoundShort, ok: false);
           }
           return ActionOutcome(
             action,
-            'Elige la nueva carátula de «${coverSong.title}» 🖼️',
+            UiStrings.loc.msgChooseCover(coverSong.title),
             songId: coverSong.id,
           );
 
@@ -231,13 +236,15 @@ class ActionExecutor {
           final List<Song> favMatches = _findSongs(action.query, limit: 1);
           final Song? song = (favMatches.isEmpty ? null : favMatches.first) ?? player.current;
           if (song == null) {
-            return ActionOutcome(action, 'No encontré la canción.', ok: false);
+            return ActionOutcome(action, UiStrings.loc.msgSongNotFoundShort, ok: false);
           }
           await library.toggleFavorite(song.id);
           final bool isFav = library.songById(song.id)?.isFavorite ?? false;
           return ActionOutcome(
             action,
-            isFav ? '«${song.title}» marcada como favorita ❤️' : '«${song.title}» ya no es favorita',
+            isFav
+                ? UiStrings.loc.msgAddedFavorite(song.title)
+                : UiStrings.loc.msgRemovedFavorite(song.title),
           );
 
         case AiActionType.rescanLibrary:
@@ -245,18 +252,21 @@ class ActionExecutor {
           return ActionOutcome(
             action,
             added == 0
-                ? 'Biblioteca al día: no hay canciones nuevas (${library.songs.length} en total) 📚'
-                : 'Actualizada: $added canciones nuevas añadidas 📚',
+                ? UiStrings.loc
+                    .msgLibraryUpToDate('${library.songs.length}')
+                : UiStrings.loc.msgLibraryUpdated('$added'),
           );
 
         case AiActionType.nowPlaying:
           final Song? current = player.current;
           if (current == null) {
-            return ActionOutcome(action, 'No hay nada sonando ahora mismo.', ok: false);
+            return ActionOutcome(
+              action, UiStrings.loc.msgNothingPlaying, ok: false);
           }
           return ActionOutcome(
             action,
-            'Suena «${current.title}» de ${current.artist} (${current.genre}) 🎧',
+            UiStrings.loc.msgNowPlayingTitle(
+              current.title, current.artist, current.genre),
           );
 
         case AiActionType.libraryStats:
@@ -331,23 +341,23 @@ class ActionExecutor {
     switch ((field ?? '').toLowerCase()) {
       case 'titulo':
       case 'título':
-        return 'título';
+        return UiStrings.loc.fieldTitle;
       case 'artista':
-        return 'artista';
+        return UiStrings.loc.fieldArtist;
       case 'album':
       case 'álbum':
-        return 'álbum';
+        return UiStrings.loc.fieldAlbum;
       case 'anio':
       case 'año':
-        return 'año';
+        return UiStrings.loc.fieldYear;
       case 'genero':
       case 'género':
-        return 'género';
+        return UiStrings.loc.fieldGenre;
       case 'tags':
       case 'etiquetas':
-        return 'etiquetas';
+        return UiStrings.loc.fieldTags;
       default:
-        return field ?? 'dato';
+        return field ?? UiStrings.loc.fieldData;
     }
   }
 
@@ -362,15 +372,9 @@ class ActionExecutor {
       ..sort((MapEntry<String, int> a, MapEntry<String, int> b) => b.value.compareTo(a.value));
     final String topGenre = top.isEmpty ? '—' : '${top.first.key} (${top.first.value})';
     final int favorites = songs.where((Song song) => song.isFavorite).length;
-    return 'Tienes ${songs.length} canciones, $playlists listas y $favorites favoritas. '
-        'Género dominante: $topGenre 📊';
+    return UiStrings.loc.msgLibraryStats(
+      '${songs.length}', '$playlists', '$favorites', topGenre);
   }
 
-  String _help() => 'Puedo ejecutar lo que me escribas. Ejemplos:\n'
-      '• «pon cumbia» / «reproduce Bad Bunny»\n'
-      '• «crea una lista de 20 canciones para entrenar»\n'
-      '• «añade esta canción a la lista Fiesta»\n'
-      '• «cambia el género de esta canción a Rock»\n'
-      '• «sube el volumen al 80%», «velocidad 1.5x», «aleatorio»\n'
-      '• «actualiza mi biblioteca», «¿qué suena?», «cuántas canciones tengo»';
+  String _help() => UiStrings.loc.msgHelpText;
 }

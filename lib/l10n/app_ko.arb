@@ -477,5 +477,293 @@
         "type": "String"
       }
     }
+  },
+  "actPlay": "재생",
+  "actPause": "일시정지",
+  "actNext": "다음 곡",
+  "actPrevious": "이전 곡",
+  "actStop": "정지",
+  "actVolume": "볼륨 {value}",
+  "@actVolume": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actVolumeUp": "볼륨 높이기",
+  "actVolumeDown": "볼륨 낮추기",
+  "actSpeed": "속도 {value}x",
+  "@actSpeed": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actShuffleOn": "셔플 켜짐",
+  "actShuffleOff": "셔플 꺼짐",
+  "actRepeatOff": "반복 꺼짐",
+  "actRepeatAll": "전체 반복",
+  "actRepeatOne": "이 곡 반복",
+  "actSeek": "{value}로 이동",
+  "@actSeek": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayQuery": "'{query}' 재생",
+  "@actPlayQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayPlaylist": "'{list}' 플레이리스트 재생",
+  "@actPlayPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actCreatePlaylist": "'{list}' 플레이리스트 만들기",
+  "@actCreatePlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actAddToPlaylist": "'{list}'에 추가",
+  "@actAddToPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actSearch": "'{query}' 검색",
+  "@actSearch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actEditMetadata": "'{query}'의 {field} 편집",
+  "@actEditMetadata": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actSetCover": "'{query}' 커버 변경",
+  "@actSetCover": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actFavorite": "즐겨찾기: '{query}'",
+  "@actFavorite": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actRescan": "라이브러리 업데이트",
+  "actNowPlaying": "무엇을 재생 중?",
+  "actStats": "라이브러리 통계",
+  "actHelp": "명령 도움말",
+  "fieldTitle": "제목",
+  "fieldAlbum": "앨범",
+  "fieldYear": "연도",
+  "fieldGenre": "장르",
+  "fieldData": "데이터",
+  "msgNext": "다음 곡 ⏭️",
+  "msgPrevious": "이전 곡 ⏮️",
+  "msgStopped": "재생 중지됨",
+  "msgSeeked": "{time}로 이동",
+  "@msgSeeked": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRepeatOff": "반복 꺼짐",
+  "msgRepeatOne": "이 곡 반복 🔂",
+  "msgNotFoundQuery": "라이브러리에서 '{query}'를 찾지 못했습니다. 다른 제목을 시도하거나 라이브러리를 업데이트하세요.",
+  "@msgNotFoundQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistEmpty": "'{list}' 플레이리스트가 비어 있습니다.",
+  "@msgPlaylistEmpty": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNoSongsToAdd": "추가할 곡을 찾지 못했습니다.",
+  "msgAddedToPlaylist": "{count}곡을 '{list}'에 추가했습니다 ✅",
+  "@msgAddedToPlaylist": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSearchResults": "'{query}'에 대한 결과 {count}개 — '곡' 탭에서 확인하세요 🔍",
+  "@msgSearchResults": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFound": "'{query}' 곡을 찾지 못했습니다.",
+  "@msgSongNotFound": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFoundShort": "곡을 찾지 못했습니다.",
+  "msgCoverSongNotFound": "커버를 변경할 곡을 찾지 못했습니다.",
+  "msgChooseCover": "'{title}'의 새 커버 선택 🖼️",
+  "@msgChooseCover": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpToDate": "라이브러리가 최신입니다: 새 곡 없음(총 {total}곡) 📚",
+  "@msgLibraryUpToDate": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpdated": "업데이트됨: 새 곡 {count}개 추가 📚",
+  "@msgLibraryUpdated": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "msgGenreDominant": "주요 장르: {genre} 📊",
+  "@msgGenreDominant": {
+    "placeholders": {
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgHelpText": "예시:\n• '90년대 록 틀어줘'\n• '이 곡을 파티 플레이리스트에 추가해줘'\n• '이 곡 장르를 록으로 바꿔줘'\n• '라이브러리 업데이트해줘', '무엇을 재생 중이야?', '곡이 몇 개야?'",
+  "msgPlayingNow": "재생 중 ▶️",
+  "msgPlayingTitle": "'{title}' 재생 중 — {artist}{extra} 🎵",
+  "@msgPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "extra": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAndMore": " (외 {more}곡)",
+  "@msgAndMore": {
+    "placeholders": {
+      "more": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistNotFound": "'{list}' 플레이리스트가 없습니다.",
+  "@msgPlaylistNotFound": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNothingPlaying": "지금 재생 중인 것이 없습니다.",
+  "msgNowPlayingTitle": "'{title}' / {artist}({genre}) 재생 중 🎧",
+  "@msgNowPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldArtist": "아티스트",
+  "fieldTags": "태그",
+  "msgLibraryStats": "곡 {songs}개, 플레이리스트 {playlists}개, 즐겨찾기 {favorites}개입니다. 주요 장르: {genre} 📊",
+  "@msgLibraryStats": {
+    "placeholders": {
+      "songs": {
+        "type": "String"
+      },
+      "playlists": {
+        "type": "String"
+      },
+      "favorites": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAddedFavorite": "'{title}' 즐겨찾기에 추가됨 ❤️",
+  "@msgAddedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRemovedFavorite": "'{title}' 즐겨찾기에서 제거됨",
+  "@msgRemovedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   }
 }

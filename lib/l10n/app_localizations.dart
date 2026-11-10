@@ -2341,6 +2341,379 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Created by AI: {request}'**
   String aiCreatedByRequest(String request);
+
+  /// No description provided for @actPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get actPlay;
+
+  /// No description provided for @actPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get actPause;
+
+  /// No description provided for @actNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next song'**
+  String get actNext;
+
+  /// No description provided for @actPrevious.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous song'**
+  String get actPrevious;
+
+  /// No description provided for @actStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get actStop;
+
+  /// No description provided for @actVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume {value}'**
+  String actVolume(String value);
+
+  /// No description provided for @actVolumeUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Raise volume'**
+  String get actVolumeUp;
+
+  /// No description provided for @actVolumeDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Lower volume'**
+  String get actVolumeDown;
+
+  /// No description provided for @actSpeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Speed {value}x'**
+  String actSpeed(String value);
+
+  /// No description provided for @actShuffleOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle on'**
+  String get actShuffleOn;
+
+  /// No description provided for @actShuffleOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle off'**
+  String get actShuffleOff;
+
+  /// No description provided for @actRepeatOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat off'**
+  String get actRepeatOff;
+
+  /// No description provided for @actRepeatAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat whole queue'**
+  String get actRepeatAll;
+
+  /// No description provided for @actRepeatOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat this song'**
+  String get actRepeatOne;
+
+  /// No description provided for @actSeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Jump to {value}'**
+  String actSeek(String value);
+
+  /// No description provided for @actPlayQuery.
+  ///
+  /// In en, this message translates to:
+  /// **'Play \"{query}\"'**
+  String actPlayQuery(String query);
+
+  /// No description provided for @actPlayPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Play playlist \"{list}\"'**
+  String actPlayPlaylist(String list);
+
+  /// No description provided for @actCreatePlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Create playlist \"{list}\"'**
+  String actCreatePlaylist(String list);
+
+  /// No description provided for @actAddToPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to \"{list}\"'**
+  String actAddToPlaylist(String list);
+
+  /// No description provided for @actSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search \"{query}\"'**
+  String actSearch(String query);
+
+  /// No description provided for @actEditMetadata.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit {field} of \"{query}\"'**
+  String actEditMetadata(String field, String query);
+
+  /// No description provided for @actSetCover.
+  ///
+  /// In en, this message translates to:
+  /// **'Change cover of \"{query}\"'**
+  String actSetCover(String query);
+
+  /// No description provided for @actFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite: \"{query}\"'**
+  String actFavorite(String query);
+
+  /// No description provided for @actRescan.
+  ///
+  /// In en, this message translates to:
+  /// **'Update library'**
+  String get actRescan;
+
+  /// No description provided for @actNowPlaying.
+  ///
+  /// In en, this message translates to:
+  /// **'What is playing?'**
+  String get actNowPlaying;
+
+  /// No description provided for @actStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Library stats'**
+  String get actStats;
+
+  /// No description provided for @actHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Command help'**
+  String get actHelp;
+
+  /// No description provided for @fieldTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'title'**
+  String get fieldTitle;
+
+  /// No description provided for @fieldAlbum.
+  ///
+  /// In en, this message translates to:
+  /// **'album'**
+  String get fieldAlbum;
+
+  /// No description provided for @fieldYear.
+  ///
+  /// In en, this message translates to:
+  /// **'year'**
+  String get fieldYear;
+
+  /// No description provided for @fieldGenre.
+  ///
+  /// In en, this message translates to:
+  /// **'genre'**
+  String get fieldGenre;
+
+  /// No description provided for @fieldData.
+  ///
+  /// In en, this message translates to:
+  /// **'data'**
+  String get fieldData;
+
+  /// No description provided for @msgNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next song ⏭️'**
+  String get msgNext;
+
+  /// No description provided for @msgPrevious.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous song ⏮️'**
+  String get msgPrevious;
+
+  /// No description provided for @msgStopped.
+  ///
+  /// In en, this message translates to:
+  /// **'Playback stopped'**
+  String get msgStopped;
+
+  /// No description provided for @msgSeeked.
+  ///
+  /// In en, this message translates to:
+  /// **'Jumped to {time}'**
+  String msgSeeked(String time);
+
+  /// No description provided for @msgRepeatOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat off'**
+  String get msgRepeatOff;
+
+  /// No description provided for @msgRepeatOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeating this song 🔂'**
+  String get msgRepeatOne;
+
+  /// No description provided for @msgNotFoundQuery.
+  ///
+  /// In en, this message translates to:
+  /// **'I could not find \"{query}\" in your library. Try another title or update the library.'**
+  String msgNotFoundQuery(String query);
+
+  /// No description provided for @msgPlaylistEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'The playlist \"{list}\" is empty.'**
+  String msgPlaylistEmpty(String list);
+
+  /// No description provided for @msgNoSongsToAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'I found no songs to add.'**
+  String get msgNoSongsToAdd;
+
+  /// No description provided for @msgAddedToPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} song(s) added to \"{list}\" ✅'**
+  String msgAddedToPlaylist(String count, String list);
+
+  /// No description provided for @msgSearchResults.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} results for \"{query}\" — you have them in the Songs tab 🔍'**
+  String msgSearchResults(String count, String query);
+
+  /// No description provided for @msgSongNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'I could not find the song \"{query}\".'**
+  String msgSongNotFound(String query);
+
+  /// No description provided for @msgSongNotFoundShort.
+  ///
+  /// In en, this message translates to:
+  /// **'I could not find the song.'**
+  String get msgSongNotFoundShort;
+
+  /// No description provided for @msgCoverSongNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'I could not find the song to change its cover.'**
+  String get msgCoverSongNotFound;
+
+  /// No description provided for @msgChooseCover.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the new cover for \"{title}\" 🖼️'**
+  String msgChooseCover(String title);
+
+  /// No description provided for @msgLibraryUpToDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Library up to date: no new songs ({total} total) 📚'**
+  String msgLibraryUpToDate(String total);
+
+  /// No description provided for @msgLibraryUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated: {count} new songs added 📚'**
+  String msgLibraryUpdated(String count);
+
+  /// No description provided for @msgGenreDominant.
+  ///
+  /// In en, this message translates to:
+  /// **'Dominant genre: {genre} 📊'**
+  String msgGenreDominant(String genre);
+
+  /// No description provided for @msgHelpText.
+  ///
+  /// In en, this message translates to:
+  /// **'Examples:\n• \"play some 90s rock\"\n• \"add this song to the Party playlist\"\n• \"change this song\'s genre to Rock\"\n• \"update my library\", \"what is playing?\", \"how many songs do I have\"'**
+  String get msgHelpText;
+
+  /// No description provided for @msgPlayingNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Playing ▶️'**
+  String get msgPlayingNow;
+
+  /// No description provided for @msgPlayingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Playing \"{title}\" — {artist}{extra} 🎵'**
+  String msgPlayingTitle(String title, String artist, String extra);
+
+  /// No description provided for @msgAndMore.
+  ///
+  /// In en, this message translates to:
+  /// **' (and {more} more)'**
+  String msgAndMore(String more);
+
+  /// No description provided for @msgPlaylistNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'There is no playlist called \"{list}\".'**
+  String msgPlaylistNotFound(String list);
+
+  /// No description provided for @msgNothingPlaying.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is playing right now.'**
+  String get msgNothingPlaying;
+
+  /// No description provided for @msgNowPlayingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Playing \"{title}\" by {artist} ({genre}) 🎧'**
+  String msgNowPlayingTitle(String title, String artist, String genre);
+
+  /// No description provided for @fieldArtist.
+  ///
+  /// In en, this message translates to:
+  /// **'artist'**
+  String get fieldArtist;
+
+  /// No description provided for @fieldTags.
+  ///
+  /// In en, this message translates to:
+  /// **'tags'**
+  String get fieldTags;
+
+  /// No description provided for @msgLibraryStats.
+  ///
+  /// In en, this message translates to:
+  /// **'You have {songs} songs, {playlists} playlists and {favorites} favorites. Dominant genre: {genre} 📊'**
+  String msgLibraryStats(
+      String songs, String playlists, String favorites, String genre);
+
+  /// No description provided for @msgAddedFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Added \"{title}\" to favorites ❤️'**
+  String msgAddedFavorite(String title);
+
+  /// No description provided for @msgRemovedFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{title}\" is no longer a favorite'**
+  String msgRemovedFavorite(String title);
 }
 
 class _AppLocalizationsDelegate

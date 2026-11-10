@@ -477,5 +477,293 @@
         "type": "String"
       }
     }
+  },
+  "actPlay": "再生",
+  "actPause": "一時停止",
+  "actNext": "次の曲",
+  "actPrevious": "前の曲",
+  "actStop": "停止",
+  "actVolume": "音量 {value}",
+  "@actVolume": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actVolumeUp": "音量を上げる",
+  "actVolumeDown": "音量を下げる",
+  "actSpeed": "速度 {value}x",
+  "@actSpeed": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actShuffleOn": "シャッフルオン",
+  "actShuffleOff": "シャッフルオフ",
+  "actRepeatOff": "リピートオフ",
+  "actRepeatAll": "キュー全体をリピート",
+  "actRepeatOne": "この曲をリピート",
+  "actSeek": "{value}へ移動",
+  "@actSeek": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayQuery": "「{query}」を再生",
+  "@actPlayQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayPlaylist": "プレイリスト「{list}」を再生",
+  "@actPlayPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actCreatePlaylist": "プレイリスト「{list}」を作成",
+  "@actCreatePlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actAddToPlaylist": "「{list}」に追加",
+  "@actAddToPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actSearch": "「{query}」を検索",
+  "@actSearch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actEditMetadata": "「{query}」の{field}を編集",
+  "@actEditMetadata": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actSetCover": "「{query}」のカバーを変更",
+  "@actSetCover": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actFavorite": "お気に入り: 「{query}」",
+  "@actFavorite": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actRescan": "ライブラリを更新",
+  "actNowPlaying": "何を再生中？",
+  "actStats": "ライブラリ統計",
+  "actHelp": "コマンドヘルプ",
+  "fieldTitle": "タイトル",
+  "fieldAlbum": "アルバム",
+  "fieldYear": "年",
+  "fieldGenre": "ジャンル",
+  "fieldData": "データ",
+  "msgNext": "次の曲 ⏭️",
+  "msgPrevious": "前の曲 ⏮️",
+  "msgStopped": "再生を停止しました",
+  "msgSeeked": "{time}へ移動しました",
+  "@msgSeeked": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRepeatOff": "リピートオフ",
+  "msgRepeatOne": "この曲をリピート 🔂",
+  "msgNotFoundQuery": "ライブラリに「{query}」が見つかりません。別のタイトルを試すか、ライブラリを更新してください。",
+  "@msgNotFoundQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistEmpty": "プレイリスト「{list}」は空です。",
+  "@msgPlaylistEmpty": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNoSongsToAdd": "追加できる曲が見つかりません。",
+  "msgAddedToPlaylist": "{count}曲を「{list}」に追加しました ✅",
+  "@msgAddedToPlaylist": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSearchResults": "「{query}」の結果は{count}件 — 「曲」タブにあります 🔍",
+  "@msgSearchResults": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFound": "曲「{query}」が見つかりません。",
+  "@msgSongNotFound": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFoundShort": "曲が見つかりません。",
+  "msgCoverSongNotFound": "カバーを変更する曲が見つかりません。",
+  "msgChooseCover": "「{title}」の新しいカバーを選択 🖼️",
+  "@msgChooseCover": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpToDate": "ライブラリは最新です：新しい曲はありません（合計{total}曲）📚",
+  "@msgLibraryUpToDate": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpdated": "更新完了：{count}曲を追加しました 📚",
+  "@msgLibraryUpdated": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "msgGenreDominant": "主要ジャンル: {genre} 📊",
+  "@msgGenreDominant": {
+    "placeholders": {
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgHelpText": "例：\n•「90年代のロックをかけて」\n•「この曲をパーティーのプレイリストに追加して」\n•「この曲のジャンルをロックに変えて」\n•「ライブラリを更新して」「何を再生中？」「曲は何曲ある？」",
+  "msgPlayingNow": "再生中 ▶️",
+  "msgPlayingTitle": "「{title}」を再生中 — {artist}{extra} 🎵",
+  "@msgPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "extra": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAndMore": "（ほか{more}曲）",
+  "@msgAndMore": {
+    "placeholders": {
+      "more": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistNotFound": "「{list}」というプレイリストはありません。",
+  "@msgPlaylistNotFound": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNothingPlaying": "今は何も再生していません。",
+  "msgNowPlayingTitle": "「{title}」/ {artist}（{genre}）を再生中 🎧",
+  "@msgNowPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldArtist": "アーティスト",
+  "fieldTags": "タグ",
+  "msgLibraryStats": "曲は{songs}曲、プレイリストは{playlists}個、お気に入りは{favorites}曲です。主要ジャンル: {genre} 📊",
+  "@msgLibraryStats": {
+    "placeholders": {
+      "songs": {
+        "type": "String"
+      },
+      "playlists": {
+        "type": "String"
+      },
+      "favorites": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAddedFavorite": "「{title}」をお気に入りに追加 ❤️",
+  "@msgAddedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRemovedFavorite": "「{title}」はお気に入りから外れました",
+  "@msgRemovedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   }
 }

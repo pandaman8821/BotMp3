@@ -1260,4 +1260,249 @@ class AppLocalizationsEn extends AppLocalizations {
   String aiCreatedByRequest(String request) {
     return 'Created by AI: $request';
   }
+
+  @override
+  String get actPlay => 'Play';
+
+  @override
+  String get actPause => 'Pause';
+
+  @override
+  String get actNext => 'Next song';
+
+  @override
+  String get actPrevious => 'Previous song';
+
+  @override
+  String get actStop => 'Stop';
+
+  @override
+  String actVolume(String value) {
+    return 'Volume $value';
+  }
+
+  @override
+  String get actVolumeUp => 'Raise volume';
+
+  @override
+  String get actVolumeDown => 'Lower volume';
+
+  @override
+  String actSpeed(String value) {
+    return 'Speed ${value}x';
+  }
+
+  @override
+  String get actShuffleOn => 'Shuffle on';
+
+  @override
+  String get actShuffleOff => 'Shuffle off';
+
+  @override
+  String get actRepeatOff => 'Repeat off';
+
+  @override
+  String get actRepeatAll => 'Repeat whole queue';
+
+  @override
+  String get actRepeatOne => 'Repeat this song';
+
+  @override
+  String actSeek(String value) {
+    return 'Jump to $value';
+  }
+
+  @override
+  String actPlayQuery(String query) {
+    return 'Play \"$query\"';
+  }
+
+  @override
+  String actPlayPlaylist(String list) {
+    return 'Play playlist \"$list\"';
+  }
+
+  @override
+  String actCreatePlaylist(String list) {
+    return 'Create playlist \"$list\"';
+  }
+
+  @override
+  String actAddToPlaylist(String list) {
+    return 'Add to \"$list\"';
+  }
+
+  @override
+  String actSearch(String query) {
+    return 'Search \"$query\"';
+  }
+
+  @override
+  String actEditMetadata(String field, String query) {
+    return 'Edit $field of \"$query\"';
+  }
+
+  @override
+  String actSetCover(String query) {
+    return 'Change cover of \"$query\"';
+  }
+
+  @override
+  String actFavorite(String query) {
+    return 'Favorite: \"$query\"';
+  }
+
+  @override
+  String get actRescan => 'Update library';
+
+  @override
+  String get actNowPlaying => 'What is playing?';
+
+  @override
+  String get actStats => 'Library stats';
+
+  @override
+  String get actHelp => 'Command help';
+
+  @override
+  String get fieldTitle => 'title';
+
+  @override
+  String get fieldAlbum => 'album';
+
+  @override
+  String get fieldYear => 'year';
+
+  @override
+  String get fieldGenre => 'genre';
+
+  @override
+  String get fieldData => 'data';
+
+  @override
+  String get msgNext => 'Next song ⏭️';
+
+  @override
+  String get msgPrevious => 'Previous song ⏮️';
+
+  @override
+  String get msgStopped => 'Playback stopped';
+
+  @override
+  String msgSeeked(String time) {
+    return 'Jumped to $time';
+  }
+
+  @override
+  String get msgRepeatOff => 'Repeat off';
+
+  @override
+  String get msgRepeatOne => 'Repeating this song 🔂';
+
+  @override
+  String msgNotFoundQuery(String query) {
+    return 'I could not find \"$query\" in your library. Try another title or update the library.';
+  }
+
+  @override
+  String msgPlaylistEmpty(String list) {
+    return 'The playlist \"$list\" is empty.';
+  }
+
+  @override
+  String get msgNoSongsToAdd => 'I found no songs to add.';
+
+  @override
+  String msgAddedToPlaylist(String count, String list) {
+    return '$count song(s) added to \"$list\" ✅';
+  }
+
+  @override
+  String msgSearchResults(String count, String query) {
+    return '$count results for \"$query\" — you have them in the Songs tab 🔍';
+  }
+
+  @override
+  String msgSongNotFound(String query) {
+    return 'I could not find the song \"$query\".';
+  }
+
+  @override
+  String get msgSongNotFoundShort => 'I could not find the song.';
+
+  @override
+  String get msgCoverSongNotFound =>
+      'I could not find the song to change its cover.';
+
+  @override
+  String msgChooseCover(String title) {
+    return 'Choose the new cover for \"$title\" 🖼️';
+  }
+
+  @override
+  String msgLibraryUpToDate(String total) {
+    return 'Library up to date: no new songs ($total total) 📚';
+  }
+
+  @override
+  String msgLibraryUpdated(String count) {
+    return 'Updated: $count new songs added 📚';
+  }
+
+  @override
+  String msgGenreDominant(String genre) {
+    return 'Dominant genre: $genre 📊';
+  }
+
+  @override
+  String get msgHelpText =>
+      'Examples:\n• \"play some 90s rock\"\n• \"add this song to the Party playlist\"\n• \"change this song\'s genre to Rock\"\n• \"update my library\", \"what is playing?\", \"how many songs do I have\"';
+
+  @override
+  String get msgPlayingNow => 'Playing ▶️';
+
+  @override
+  String msgPlayingTitle(String title, String artist, String extra) {
+    return 'Playing \"$title\" — $artist$extra 🎵';
+  }
+
+  @override
+  String msgAndMore(String more) {
+    return ' (and $more more)';
+  }
+
+  @override
+  String msgPlaylistNotFound(String list) {
+    return 'There is no playlist called \"$list\".';
+  }
+
+  @override
+  String get msgNothingPlaying => 'Nothing is playing right now.';
+
+  @override
+  String msgNowPlayingTitle(String title, String artist, String genre) {
+    return 'Playing \"$title\" by $artist ($genre) 🎧';
+  }
+
+  @override
+  String get fieldArtist => 'artist';
+
+  @override
+  String get fieldTags => 'tags';
+
+  @override
+  String msgLibraryStats(
+      String songs, String playlists, String favorites, String genre) {
+    return 'You have $songs songs, $playlists playlists and $favorites favorites. Dominant genre: $genre 📊';
+  }
+
+  @override
+  String msgAddedFavorite(String title) {
+    return 'Added \"$title\" to favorites ❤️';
+  }
+
+  @override
+  String msgRemovedFavorite(String title) {
+    return '\"$title\" is no longer a favorite';
+  }
 }

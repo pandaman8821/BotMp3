@@ -696,5 +696,293 @@
         "type": "String"
       }
     }
+  },
+  "actPlay": "Reproducir",
+  "actPause": "Pausar",
+  "actNext": "Siguiente canción",
+  "actPrevious": "Canción anterior",
+  "actStop": "Detener",
+  "actVolume": "Volumen {value}",
+  "@actVolume": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actVolumeUp": "Subir volumen",
+  "actVolumeDown": "Bajar volumen",
+  "actSpeed": "Velocidad {value}x",
+  "@actSpeed": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actShuffleOn": "Aleatorio activado",
+  "actShuffleOff": "Aleatorio desactivado",
+  "actRepeatOff": "Repetición desactivada",
+  "actRepeatAll": "Repetir toda la cola",
+  "actRepeatOne": "Repetir esta canción",
+  "actSeek": "Saltar a {value}",
+  "@actSeek": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayQuery": "Reproducir «{query}»",
+  "@actPlayQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayPlaylist": "Reproducir lista «{list}»",
+  "@actPlayPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actCreatePlaylist": "Crear lista «{list}»",
+  "@actCreatePlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actAddToPlaylist": "Añadir a «{list}»",
+  "@actAddToPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actSearch": "Buscar «{query}»",
+  "@actSearch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actEditMetadata": "Editar {field} de «{query}»",
+  "@actEditMetadata": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actSetCover": "Cambiar carátula de «{query}»",
+  "@actSetCover": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actFavorite": "Favorito: «{query}»",
+  "@actFavorite": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actRescan": "Actualizar biblioteca",
+  "actNowPlaying": "¿Qué suena?",
+  "actStats": "Estadísticas de la biblioteca",
+  "actHelp": "Ayuda de comandos",
+  "fieldTitle": "título",
+  "fieldAlbum": "álbum",
+  "fieldYear": "año",
+  "fieldGenre": "género",
+  "fieldData": "datos",
+  "msgNext": "Siguiente canción ⏭️",
+  "msgPrevious": "Canción anterior ⏮️",
+  "msgStopped": "Reproducción detenida",
+  "msgSeeked": "Salté a {time}",
+  "@msgSeeked": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRepeatOff": "Repetición desactivada",
+  "msgRepeatOne": "Repetir esta canción 🔂",
+  "msgNotFoundQuery": "No encontré «{query}» en tu biblioteca. Prueba con otro título o actualiza la biblioteca.",
+  "@msgNotFoundQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistEmpty": "La lista «{list}» está vacía.",
+  "@msgPlaylistEmpty": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNoSongsToAdd": "No encontré canciones para añadir.",
+  "msgAddedToPlaylist": "{count} canción(es) añadidas a «{list}» ✅",
+  "@msgAddedToPlaylist": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSearchResults": "{count} resultados para «{query}» — los tienes en la pestaña Canciones 🔍",
+  "@msgSearchResults": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFound": "No encontré la canción «{query}».",
+  "@msgSongNotFound": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFoundShort": "No encontré la canción.",
+  "msgCoverSongNotFound": "No encontré la canción para cambiar la carátula.",
+  "msgChooseCover": "Elige la nueva carátula de «{title}» 🖼️",
+  "@msgChooseCover": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpToDate": "Biblioteca al día: no hay canciones nuevas ({total} en total) 📚",
+  "@msgLibraryUpToDate": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpdated": "Actualizada: {count} canciones nuevas añadidas 📚",
+  "@msgLibraryUpdated": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "msgGenreDominant": "Género dominante: {genre} 📊",
+  "@msgGenreDominant": {
+    "placeholders": {
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgHelpText": "Ejemplos:\n• «pon rock de los 90»\n• «añade esta canción a la lista Fiesta»\n• «cambia el género de esta canción a Rock»\n• «actualiza mi biblioteca», «¿qué suena?», «cuántas canciones tengo»",
+  "msgPlayingNow": "Reproduciendo ▶️",
+  "msgPlayingTitle": "Reproduciendo «{title}» — {artist}{extra} 🎵",
+  "@msgPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "extra": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAndMore": " (y {more} más)",
+  "@msgAndMore": {
+    "placeholders": {
+      "more": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistNotFound": "No existe ninguna lista llamada «{list}».",
+  "@msgPlaylistNotFound": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNothingPlaying": "No hay nada sonando ahora mismo.",
+  "msgNowPlayingTitle": "Suena «{title}» de {artist} ({genre}) 🎧",
+  "@msgNowPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldArtist": "artista",
+  "fieldTags": "etiquetas",
+  "msgLibraryStats": "Tienes {songs} canciones, {playlists} listas y {favorites} favoritas. Género dominante: {genre} 📊",
+  "@msgLibraryStats": {
+    "placeholders": {
+      "songs": {
+        "type": "String"
+      },
+      "playlists": {
+        "type": "String"
+      },
+      "favorites": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAddedFavorite": "«{title}» marcada como favorita ❤️",
+  "@msgAddedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRemovedFavorite": "«{title}» ya no es favorita",
+  "@msgRemovedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   }
 }

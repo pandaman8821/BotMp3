@@ -477,5 +477,293 @@
         "type": "String"
       }
     }
+  },
+  "actPlay": "播放",
+  "actPause": "暂停",
+  "actNext": "下一首",
+  "actPrevious": "上一首",
+  "actStop": "停止",
+  "actVolume": "音量 {value}",
+  "@actVolume": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actVolumeUp": "增大音量",
+  "actVolumeDown": "降低音量",
+  "actSpeed": "速度 {value}x",
+  "@actSpeed": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actShuffleOn": "随机播放已开启",
+  "actShuffleOff": "随机播放已关闭",
+  "actRepeatOff": "重复已关闭",
+  "actRepeatAll": "重复整个队列",
+  "actRepeatOne": "重复这首",
+  "actSeek": "跳到 {value}",
+  "@actSeek": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayQuery": "播放「{query}」",
+  "@actPlayQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayPlaylist": "播放歌单「{list}」",
+  "@actPlayPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actCreatePlaylist": "创建歌单「{list}」",
+  "@actCreatePlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actAddToPlaylist": "添加到「{list}」",
+  "@actAddToPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actSearch": "搜索「{query}」",
+  "@actSearch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actEditMetadata": "编辑「{query}」的{field}",
+  "@actEditMetadata": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actSetCover": "更换「{query}」的封面",
+  "@actSetCover": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actFavorite": "收藏： «{query}»",
+  "@actFavorite": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actRescan": "更新音乐库",
+  "actNowPlaying": "正在播放什么？",
+  "actStats": "音乐库统计",
+  "actHelp": "命令帮助",
+  "fieldTitle": "标题",
+  "fieldAlbum": "专辑",
+  "fieldYear": "年份",
+  "fieldGenre": "风格",
+  "fieldData": "数据",
+  "msgNext": "下一首 ⏭️",
+  "msgPrevious": "上一首 ⏮️",
+  "msgStopped": "播放已停止",
+  "msgSeeked": "已跳到 {time}",
+  "@msgSeeked": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRepeatOff": "重复已关闭",
+  "msgRepeatOne": "重复这首 🔂",
+  "msgNotFoundQuery": "在你的音乐库中找不到「{query}」。试试其他标题或更新音乐库。",
+  "@msgNotFoundQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistEmpty": "歌单「{list}」是空的。",
+  "@msgPlaylistEmpty": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNoSongsToAdd": "没有找到可添加的歌曲。",
+  "msgAddedToPlaylist": "已将 {count} 首歌曲添加到「{list}」✅",
+  "@msgAddedToPlaylist": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSearchResults": "「{query}」有 {count} 个结果 — 在“歌曲”标签中 🔍",
+  "@msgSearchResults": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFound": "找不到歌曲「{query}」。",
+  "@msgSongNotFound": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFoundShort": "找不到歌曲。",
+  "msgCoverSongNotFound": "找不到要更换封面的歌曲。",
+  "msgChooseCover": "选择「{title}」的新封面 🖼️",
+  "@msgChooseCover": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpToDate": "音乐库已最新：没有新歌曲（共 {total} 首）📚",
+  "@msgLibraryUpToDate": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpdated": "已更新：新增 {count} 首歌曲 📚",
+  "@msgLibraryUpdated": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "msgGenreDominant": "主要风格：{genre} 📊",
+  "@msgGenreDominant": {
+    "placeholders": {
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgHelpText": "示例：\n•「播放90年代摇滚」\n•「把这首歌加入派对歌单」\n•「把这首歌的风格改为摇滚」\n•「更新我的音乐库」「正在播放什么？」「我有多少首歌」",
+  "msgPlayingNow": "正在播放 ▶️",
+  "msgPlayingTitle": "正在播放「{title}」— {artist}{extra} 🎵",
+  "@msgPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "extra": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAndMore": "（还有 {more} 首）",
+  "@msgAndMore": {
+    "placeholders": {
+      "more": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistNotFound": "没有名为「{list}」的歌单。",
+  "@msgPlaylistNotFound": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNothingPlaying": "现在没有播放任何内容。",
+  "msgNowPlayingTitle": "正在播放「{title}」— {artist}（{genre}）🎧",
+  "@msgNowPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldArtist": "艺术家",
+  "fieldTags": "标签",
+  "msgLibraryStats": "你有 {songs} 首歌曲、{playlists} 个歌单和 {favorites} 首收藏。主要风格：{genre} 📊",
+  "@msgLibraryStats": {
+    "placeholders": {
+      "songs": {
+        "type": "String"
+      },
+      "playlists": {
+        "type": "String"
+      },
+      "favorites": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAddedFavorite": "已将「{title}」加入收藏 ❤️",
+  "@msgAddedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRemovedFavorite": "「{title}」已取消收藏",
+  "@msgRemovedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   }
 }
