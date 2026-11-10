@@ -1524,4 +1524,12 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get modelsAutoHint =>
       'मुफ़्त मॉडल पहले। हर 3 दिन में अपने आप अपडेट होते हैं।';
+
+  @override
+  String get aiHintGeminiNew =>
+      'सबसे नया Gemini, मुफ़्त कोटे में शामिल। सुझाया गया।';
+
+  @override
+  String get aiHintGeminiLite =>
+      'लाइट Gemini: बहुत तेज़ और मुफ़्त में लगभग असीमित।';
 }

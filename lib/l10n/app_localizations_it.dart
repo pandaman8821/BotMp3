@@ -1544,4 +1544,12 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get modelsAutoHint =>
       'Prima i modelli gratuiti. Si aggiornano da soli ogni 3 giorni.';
+
+  @override
+  String get aiHintGeminiNew =>
+      'Gemini più recente, incluso nel piano gratuito. Consigliato.';
+
+  @override
+  String get aiHintGeminiLite =>
+      'Gemini leggero: molto veloce e quasi illimitato gratis.';
 }

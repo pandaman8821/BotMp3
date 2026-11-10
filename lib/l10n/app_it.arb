@@ -788,5 +788,7 @@
   },
   "modelIdExample": "Es.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…",
   "useModel": "Usa",
-  "modelsAutoHint": "Prima i modelli gratuiti. Si aggiornano da soli ogni 3 giorni."
+  "modelsAutoHint": "Prima i modelli gratuiti. Si aggiornano da soli ogni 3 giorni.",
+  "aiHintGeminiNew": "Gemini più recente, incluso nel piano gratuito. Consigliato.",
+  "aiHintGeminiLite": "Gemini leggero: molto veloce e quasi illimitato gratis."
 }

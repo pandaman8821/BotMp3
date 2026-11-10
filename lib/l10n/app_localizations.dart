@@ -2768,6 +2768,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Free models first. They refresh automatically every 3 days.'**
   String get modelsAutoHint;
+
+  /// No description provided for @aiHintGeminiNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Newest Gemini, free tier included. Recommended.'**
+  String get aiHintGeminiNew;
+
+  /// No description provided for @aiHintGeminiLite.
+  ///
+  /// In en, this message translates to:
+  /// **'Lightweight Gemini: very fast and almost unlimited for free.'**
+  String get aiHintGeminiLite;
 }
 
 class _AppLocalizationsDelegate

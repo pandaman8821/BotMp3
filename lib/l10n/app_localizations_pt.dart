@@ -1546,6 +1546,14 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get modelsAutoHint =>
       'Os gratuitos primeiro. Atualizam sozinhos a cada 3 dias.';
+
+  @override
+  String get aiHintGeminiNew =>
+      'Gemini mais novo, incluído no plano gratuito. Recomendado.';
+
+  @override
+  String get aiHintGeminiLite =>
+      'Gemini leve: muito rápido e praticamente ilimitado grátis.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3090,4 +3098,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get modelsAutoHint =>
       'Os gratuitos primeiro. Atualizam sozinhos a cada 3 dias.';
+
+  @override
+  String get aiHintGeminiNew =>
+      'Gemini mais novo, incluído no plano gratuito. Recomendado.';
+
+  @override
+  String get aiHintGeminiLite =>
+      'Gemini leve: muito rápido e praticamente ilimitado grátis.';
 }
