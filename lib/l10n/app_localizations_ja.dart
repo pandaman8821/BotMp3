@@ -1217,4 +1217,248 @@ class AppLocalizationsJa extends AppLocalizations {
   String aiCreatedByRequest(String request) {
     return 'AIが作成: $request';
   }
+
+  @override
+  String get actPlay => '再生';
+
+  @override
+  String get actPause => '一時停止';
+
+  @override
+  String get actNext => '次の曲';
+
+  @override
+  String get actPrevious => '前の曲';
+
+  @override
+  String get actStop => '停止';
+
+  @override
+  String actVolume(String value) {
+    return '音量 $value';
+  }
+
+  @override
+  String get actVolumeUp => '音量を上げる';
+
+  @override
+  String get actVolumeDown => '音量を下げる';
+
+  @override
+  String actSpeed(String value) {
+    return '速度 ${value}x';
+  }
+
+  @override
+  String get actShuffleOn => 'シャッフルオン';
+
+  @override
+  String get actShuffleOff => 'シャッフルオフ';
+
+  @override
+  String get actRepeatOff => 'リピートオフ';
+
+  @override
+  String get actRepeatAll => 'キュー全体をリピート';
+
+  @override
+  String get actRepeatOne => 'この曲をリピート';
+
+  @override
+  String actSeek(String value) {
+    return '$valueへ移動';
+  }
+
+  @override
+  String actPlayQuery(String query) {
+    return '「$query」を再生';
+  }
+
+  @override
+  String actPlayPlaylist(String list) {
+    return 'プレイリスト「$list」を再生';
+  }
+
+  @override
+  String actCreatePlaylist(String list) {
+    return 'プレイリスト「$list」を作成';
+  }
+
+  @override
+  String actAddToPlaylist(String list) {
+    return '「$list」に追加';
+  }
+
+  @override
+  String actSearch(String query) {
+    return '「$query」を検索';
+  }
+
+  @override
+  String actEditMetadata(String field, String query) {
+    return '「$query」の$fieldを編集';
+  }
+
+  @override
+  String actSetCover(String query) {
+    return '「$query」のカバーを変更';
+  }
+
+  @override
+  String actFavorite(String query) {
+    return 'お気に入り: 「$query」';
+  }
+
+  @override
+  String get actRescan => 'ライブラリを更新';
+
+  @override
+  String get actNowPlaying => '何を再生中？';
+
+  @override
+  String get actStats => 'ライブラリ統計';
+
+  @override
+  String get actHelp => 'コマンドヘルプ';
+
+  @override
+  String get fieldTitle => 'タイトル';
+
+  @override
+  String get fieldAlbum => 'アルバム';
+
+  @override
+  String get fieldYear => '年';
+
+  @override
+  String get fieldGenre => 'ジャンル';
+
+  @override
+  String get fieldData => 'データ';
+
+  @override
+  String get msgNext => '次の曲 ⏭️';
+
+  @override
+  String get msgPrevious => '前の曲 ⏮️';
+
+  @override
+  String get msgStopped => '再生を停止しました';
+
+  @override
+  String msgSeeked(String time) {
+    return '$timeへ移動しました';
+  }
+
+  @override
+  String get msgRepeatOff => 'リピートオフ';
+
+  @override
+  String get msgRepeatOne => 'この曲をリピート 🔂';
+
+  @override
+  String msgNotFoundQuery(String query) {
+    return 'ライブラリに「$query」が見つかりません。別のタイトルを試すか、ライブラリを更新してください。';
+  }
+
+  @override
+  String msgPlaylistEmpty(String list) {
+    return 'プレイリスト「$list」は空です。';
+  }
+
+  @override
+  String get msgNoSongsToAdd => '追加できる曲が見つかりません。';
+
+  @override
+  String msgAddedToPlaylist(String count, String list) {
+    return '$count曲を「$list」に追加しました ✅';
+  }
+
+  @override
+  String msgSearchResults(String count, String query) {
+    return '「$query」の結果は$count件 — 「曲」タブにあります 🔍';
+  }
+
+  @override
+  String msgSongNotFound(String query) {
+    return '曲「$query」が見つかりません。';
+  }
+
+  @override
+  String get msgSongNotFoundShort => '曲が見つかりません。';
+
+  @override
+  String get msgCoverSongNotFound => 'カバーを変更する曲が見つかりません。';
+
+  @override
+  String msgChooseCover(String title) {
+    return '「$title」の新しいカバーを選択 🖼️';
+  }
+
+  @override
+  String msgLibraryUpToDate(String total) {
+    return 'ライブラリは最新です：新しい曲はありません（合計$total曲）📚';
+  }
+
+  @override
+  String msgLibraryUpdated(String count) {
+    return '更新完了：$count曲を追加しました 📚';
+  }
+
+  @override
+  String msgGenreDominant(String genre) {
+    return '主要ジャンル: $genre 📊';
+  }
+
+  @override
+  String get msgHelpText =>
+      '例：\n•「90年代のロックをかけて」\n•「この曲をパーティーのプレイリストに追加して」\n•「この曲のジャンルをロックに変えて」\n•「ライブラリを更新して」「何を再生中？」「曲は何曲ある？」';
+
+  @override
+  String get msgPlayingNow => '再生中 ▶️';
+
+  @override
+  String msgPlayingTitle(String title, String artist, String extra) {
+    return '「$title」を再生中 — $artist$extra 🎵';
+  }
+
+  @override
+  String msgAndMore(String more) {
+    return '（ほか$more曲）';
+  }
+
+  @override
+  String msgPlaylistNotFound(String list) {
+    return '「$list」というプレイリストはありません。';
+  }
+
+  @override
+  String get msgNothingPlaying => '今は何も再生していません。';
+
+  @override
+  String msgNowPlayingTitle(String title, String artist, String genre) {
+    return '「$title」/ $artist（$genre）を再生中 🎧';
+  }
+
+  @override
+  String get fieldArtist => 'アーティスト';
+
+  @override
+  String get fieldTags => 'タグ';
+
+  @override
+  String msgLibraryStats(
+      String songs, String playlists, String favorites, String genre) {
+    return '曲は$songs曲、プレイリストは$playlists個、お気に入りは$favorites曲です。主要ジャンル: $genre 📊';
+  }
+
+  @override
+  String msgAddedFavorite(String title) {
+    return '「$title」をお気に入りに追加 ❤️';
+  }
+
+  @override
+  String msgRemovedFavorite(String title) {
+    return '「$title」はお気に入りから外れました';
+  }
 }

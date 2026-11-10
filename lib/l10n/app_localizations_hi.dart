@@ -1246,4 +1246,248 @@ class AppLocalizationsHi extends AppLocalizations {
   String aiCreatedByRequest(String request) {
     return 'AI द्वारा बनाई गई: $request';
   }
+
+  @override
+  String get actPlay => 'चलाएँ';
+
+  @override
+  String get actPause => 'रोकें';
+
+  @override
+  String get actNext => 'अगला गाना';
+
+  @override
+  String get actPrevious => 'पिछला गाना';
+
+  @override
+  String get actStop => 'रोकें';
+
+  @override
+  String actVolume(String value) {
+    return 'वॉल्यूम $value';
+  }
+
+  @override
+  String get actVolumeUp => 'वॉल्यूम बढ़ाएँ';
+
+  @override
+  String get actVolumeDown => 'वॉल्यूम कम करें';
+
+  @override
+  String actSpeed(String value) {
+    return 'गति ${value}x';
+  }
+
+  @override
+  String get actShuffleOn => 'शफ़ल चालू';
+
+  @override
+  String get actShuffleOff => 'शफ़ल बंद';
+
+  @override
+  String get actRepeatOff => 'दोहराव बंद';
+
+  @override
+  String get actRepeatAll => 'पूरी कतार दोहराएँ';
+
+  @override
+  String get actRepeatOne => 'यह गाना दोहराएँ';
+
+  @override
+  String actSeek(String value) {
+    return '$value पर जाएँ';
+  }
+
+  @override
+  String actPlayQuery(String query) {
+    return '«$query» चलाएँ';
+  }
+
+  @override
+  String actPlayPlaylist(String list) {
+    return '«$list» प्लेलिस्ट चलाएँ';
+  }
+
+  @override
+  String actCreatePlaylist(String list) {
+    return '«$list» प्लेलिस्ट बनाएँ';
+  }
+
+  @override
+  String actAddToPlaylist(String list) {
+    return '«$list» में जोड़ें';
+  }
+
+  @override
+  String actSearch(String query) {
+    return '«$query» खोजें';
+  }
+
+  @override
+  String actEditMetadata(String field, String query) {
+    return '«$query» का $field संपादित करें';
+  }
+
+  @override
+  String actSetCover(String query) {
+    return '«$query» का कवर बदलें';
+  }
+
+  @override
+  String actFavorite(String query) {
+    return 'पसंदीदा: «$query»';
+  }
+
+  @override
+  String get actRescan => 'लाइब्रेरी अपडेट करें';
+
+  @override
+  String get actNowPlaying => 'क्या चल रहा है?';
+
+  @override
+  String get actStats => 'लाइब्रेरी आँकड़े';
+
+  @override
+  String get actHelp => 'कमांड सहायता';
+
+  @override
+  String get fieldTitle => 'शीर्षक';
+
+  @override
+  String get fieldAlbum => 'एल्बम';
+
+  @override
+  String get fieldYear => 'वर्ष';
+
+  @override
+  String get fieldGenre => 'शैली';
+
+  @override
+  String get fieldData => 'डेटा';
+
+  @override
+  String get msgNext => 'अगला गाना ⏭️';
+
+  @override
+  String get msgPrevious => 'पिछला गाना ⏮️';
+
+  @override
+  String get msgStopped => 'प्लेबैक रोका गया';
+
+  @override
+  String msgSeeked(String time) {
+    return '$time पर पहुँचे';
+  }
+
+  @override
+  String get msgRepeatOff => 'दोहराव बंद';
+
+  @override
+  String get msgRepeatOne => 'यह गाना दोहराएँ 🔂';
+
+  @override
+  String msgNotFoundQuery(String query) {
+    return 'आपकी लाइब्रेरी में «$query» नहीं मिला। दूसरा शीर्षक आज़माएँ या लाइब्रेरी अपडेट करें।';
+  }
+
+  @override
+  String msgPlaylistEmpty(String list) {
+    return '«$list» प्लेलिस्ट खाली है।';
+  }
+
+  @override
+  String get msgNoSongsToAdd => 'जोड़ने के लिए कोई गाना नहीं मिला।';
+
+  @override
+  String msgAddedToPlaylist(String count, String list) {
+    return '$count गाने «$list» में जोड़े गए ✅';
+  }
+
+  @override
+  String msgSearchResults(String count, String query) {
+    return '«$query» के लिए $count परिणाम — \'गाने\' टैब में 🔍';
+  }
+
+  @override
+  String msgSongNotFound(String query) {
+    return '«$query» गाना नहीं मिला।';
+  }
+
+  @override
+  String get msgSongNotFoundShort => 'गाना नहीं मिला।';
+
+  @override
+  String get msgCoverSongNotFound => 'कवर बदलने के लिए गाना नहीं मिला।';
+
+  @override
+  String msgChooseCover(String title) {
+    return '«$title» का नया कवर चुनें 🖼️';
+  }
+
+  @override
+  String msgLibraryUpToDate(String total) {
+    return 'लाइब्रेरी अद्यतित: नए गाने नहीं ($total कुल) 📚';
+  }
+
+  @override
+  String msgLibraryUpdated(String count) {
+    return 'अपडेट हुआ: $count नए गाने जोड़े गए 📚';
+  }
+
+  @override
+  String msgGenreDominant(String genre) {
+    return 'प्रमुख शैली: $genre 📊';
+  }
+
+  @override
+  String get msgHelpText =>
+      'उदाहरण:\n• «90 के दशक का रॉक चलाओ»\n• «इस गाने को पार्टी प्लेलिस्ट में जोड़ें»\n• «इस गाने की शैली रॉक करें»\n• «मेरी लाइब्रेरी अपडेट करें», «क्या चल रहा है?», «मेरे पास कितने गाने हैं»';
+
+  @override
+  String get msgPlayingNow => 'चल रहा है ▶️';
+
+  @override
+  String msgPlayingTitle(String title, String artist, String extra) {
+    return '«$title» चल रहा है — $artist$extra 🎵';
+  }
+
+  @override
+  String msgAndMore(String more) {
+    return ' (और $more)';
+  }
+
+  @override
+  String msgPlaylistNotFound(String list) {
+    return '«$list» नाम की कोई प्लेलिस्ट नहीं है।';
+  }
+
+  @override
+  String get msgNothingPlaying => 'अभी कुछ नहीं चल रहा।';
+
+  @override
+  String msgNowPlayingTitle(String title, String artist, String genre) {
+    return '«$title» — $artist ($genre) चल रहा है 🎧';
+  }
+
+  @override
+  String get fieldArtist => 'कलाकार';
+
+  @override
+  String get fieldTags => 'टैग';
+
+  @override
+  String msgLibraryStats(
+      String songs, String playlists, String favorites, String genre) {
+    return 'आपके पास $songs गाने, $playlists प्लेलिस्ट और $favorites पसंदीदा हैं। प्रमुख शैली: $genre 📊';
+  }
+
+  @override
+  String msgAddedFavorite(String title) {
+    return '«$title» पसंदीदा में जोड़ा गया ❤️';
+  }
+
+  @override
+  String msgRemovedFavorite(String title) {
+    return '«$title» अब पसंदीदा नहीं है';
+  }
 }

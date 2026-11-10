@@ -1220,4 +1220,248 @@ class AppLocalizationsKo extends AppLocalizations {
   String aiCreatedByRequest(String request) {
     return 'AI 생성: $request';
   }
+
+  @override
+  String get actPlay => '재생';
+
+  @override
+  String get actPause => '일시정지';
+
+  @override
+  String get actNext => '다음 곡';
+
+  @override
+  String get actPrevious => '이전 곡';
+
+  @override
+  String get actStop => '정지';
+
+  @override
+  String actVolume(String value) {
+    return '볼륨 $value';
+  }
+
+  @override
+  String get actVolumeUp => '볼륨 높이기';
+
+  @override
+  String get actVolumeDown => '볼륨 낮추기';
+
+  @override
+  String actSpeed(String value) {
+    return '속도 ${value}x';
+  }
+
+  @override
+  String get actShuffleOn => '셔플 켜짐';
+
+  @override
+  String get actShuffleOff => '셔플 꺼짐';
+
+  @override
+  String get actRepeatOff => '반복 꺼짐';
+
+  @override
+  String get actRepeatAll => '전체 반복';
+
+  @override
+  String get actRepeatOne => '이 곡 반복';
+
+  @override
+  String actSeek(String value) {
+    return '$value로 이동';
+  }
+
+  @override
+  String actPlayQuery(String query) {
+    return '\'$query\' 재생';
+  }
+
+  @override
+  String actPlayPlaylist(String list) {
+    return '\'$list\' 플레이리스트 재생';
+  }
+
+  @override
+  String actCreatePlaylist(String list) {
+    return '\'$list\' 플레이리스트 만들기';
+  }
+
+  @override
+  String actAddToPlaylist(String list) {
+    return '\'$list\'에 추가';
+  }
+
+  @override
+  String actSearch(String query) {
+    return '\'$query\' 검색';
+  }
+
+  @override
+  String actEditMetadata(String field, String query) {
+    return '\'$query\'의 $field 편집';
+  }
+
+  @override
+  String actSetCover(String query) {
+    return '\'$query\' 커버 변경';
+  }
+
+  @override
+  String actFavorite(String query) {
+    return '즐겨찾기: \'$query\'';
+  }
+
+  @override
+  String get actRescan => '라이브러리 업데이트';
+
+  @override
+  String get actNowPlaying => '무엇을 재생 중?';
+
+  @override
+  String get actStats => '라이브러리 통계';
+
+  @override
+  String get actHelp => '명령 도움말';
+
+  @override
+  String get fieldTitle => '제목';
+
+  @override
+  String get fieldAlbum => '앨범';
+
+  @override
+  String get fieldYear => '연도';
+
+  @override
+  String get fieldGenre => '장르';
+
+  @override
+  String get fieldData => '데이터';
+
+  @override
+  String get msgNext => '다음 곡 ⏭️';
+
+  @override
+  String get msgPrevious => '이전 곡 ⏮️';
+
+  @override
+  String get msgStopped => '재생 중지됨';
+
+  @override
+  String msgSeeked(String time) {
+    return '$time로 이동';
+  }
+
+  @override
+  String get msgRepeatOff => '반복 꺼짐';
+
+  @override
+  String get msgRepeatOne => '이 곡 반복 🔂';
+
+  @override
+  String msgNotFoundQuery(String query) {
+    return '라이브러리에서 \'$query\'를 찾지 못했습니다. 다른 제목을 시도하거나 라이브러리를 업데이트하세요.';
+  }
+
+  @override
+  String msgPlaylistEmpty(String list) {
+    return '\'$list\' 플레이리스트가 비어 있습니다.';
+  }
+
+  @override
+  String get msgNoSongsToAdd => '추가할 곡을 찾지 못했습니다.';
+
+  @override
+  String msgAddedToPlaylist(String count, String list) {
+    return '$count곡을 \'$list\'에 추가했습니다 ✅';
+  }
+
+  @override
+  String msgSearchResults(String count, String query) {
+    return '\'$query\'에 대한 결과 $count개 — \'곡\' 탭에서 확인하세요 🔍';
+  }
+
+  @override
+  String msgSongNotFound(String query) {
+    return '\'$query\' 곡을 찾지 못했습니다.';
+  }
+
+  @override
+  String get msgSongNotFoundShort => '곡을 찾지 못했습니다.';
+
+  @override
+  String get msgCoverSongNotFound => '커버를 변경할 곡을 찾지 못했습니다.';
+
+  @override
+  String msgChooseCover(String title) {
+    return '\'$title\'의 새 커버 선택 🖼️';
+  }
+
+  @override
+  String msgLibraryUpToDate(String total) {
+    return '라이브러리가 최신입니다: 새 곡 없음(총 $total곡) 📚';
+  }
+
+  @override
+  String msgLibraryUpdated(String count) {
+    return '업데이트됨: 새 곡 $count개 추가 📚';
+  }
+
+  @override
+  String msgGenreDominant(String genre) {
+    return '주요 장르: $genre 📊';
+  }
+
+  @override
+  String get msgHelpText =>
+      '예시:\n• \'90년대 록 틀어줘\'\n• \'이 곡을 파티 플레이리스트에 추가해줘\'\n• \'이 곡 장르를 록으로 바꿔줘\'\n• \'라이브러리 업데이트해줘\', \'무엇을 재생 중이야?\', \'곡이 몇 개야?\'';
+
+  @override
+  String get msgPlayingNow => '재생 중 ▶️';
+
+  @override
+  String msgPlayingTitle(String title, String artist, String extra) {
+    return '\'$title\' 재생 중 — $artist$extra 🎵';
+  }
+
+  @override
+  String msgAndMore(String more) {
+    return ' (외 $more곡)';
+  }
+
+  @override
+  String msgPlaylistNotFound(String list) {
+    return '\'$list\' 플레이리스트가 없습니다.';
+  }
+
+  @override
+  String get msgNothingPlaying => '지금 재생 중인 것이 없습니다.';
+
+  @override
+  String msgNowPlayingTitle(String title, String artist, String genre) {
+    return '\'$title\' / $artist($genre) 재생 중 🎧';
+  }
+
+  @override
+  String get fieldArtist => '아티스트';
+
+  @override
+  String get fieldTags => '태그';
+
+  @override
+  String msgLibraryStats(
+      String songs, String playlists, String favorites, String genre) {
+    return '곡 $songs개, 플레이리스트 $playlists개, 즐겨찾기 $favorites개입니다. 주요 장르: $genre 📊';
+  }
+
+  @override
+  String msgAddedFavorite(String title) {
+    return '\'$title\' 즐겨찾기에 추가됨 ❤️';
+  }
+
+  @override
+  String msgRemovedFavorite(String title) {
+    return '\'$title\' 즐겨찾기에서 제거됨';
+  }
 }

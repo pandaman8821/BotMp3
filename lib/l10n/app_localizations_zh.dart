@@ -1214,6 +1214,250 @@ class AppLocalizationsZh extends AppLocalizations {
   String aiCreatedByRequest(String request) {
     return '由 AI 创建：$request';
   }
+
+  @override
+  String get actPlay => '播放';
+
+  @override
+  String get actPause => '暂停';
+
+  @override
+  String get actNext => '下一首';
+
+  @override
+  String get actPrevious => '上一首';
+
+  @override
+  String get actStop => '停止';
+
+  @override
+  String actVolume(String value) {
+    return '音量 $value';
+  }
+
+  @override
+  String get actVolumeUp => '增大音量';
+
+  @override
+  String get actVolumeDown => '降低音量';
+
+  @override
+  String actSpeed(String value) {
+    return '速度 ${value}x';
+  }
+
+  @override
+  String get actShuffleOn => '随机播放已开启';
+
+  @override
+  String get actShuffleOff => '随机播放已关闭';
+
+  @override
+  String get actRepeatOff => '重复已关闭';
+
+  @override
+  String get actRepeatAll => '重复整个队列';
+
+  @override
+  String get actRepeatOne => '重复这首';
+
+  @override
+  String actSeek(String value) {
+    return '跳到 $value';
+  }
+
+  @override
+  String actPlayQuery(String query) {
+    return '播放「$query」';
+  }
+
+  @override
+  String actPlayPlaylist(String list) {
+    return '播放歌单「$list」';
+  }
+
+  @override
+  String actCreatePlaylist(String list) {
+    return '创建歌单「$list」';
+  }
+
+  @override
+  String actAddToPlaylist(String list) {
+    return '添加到「$list」';
+  }
+
+  @override
+  String actSearch(String query) {
+    return '搜索「$query」';
+  }
+
+  @override
+  String actEditMetadata(String field, String query) {
+    return '编辑「$query」的$field';
+  }
+
+  @override
+  String actSetCover(String query) {
+    return '更换「$query」的封面';
+  }
+
+  @override
+  String actFavorite(String query) {
+    return '收藏： «$query»';
+  }
+
+  @override
+  String get actRescan => '更新音乐库';
+
+  @override
+  String get actNowPlaying => '正在播放什么？';
+
+  @override
+  String get actStats => '音乐库统计';
+
+  @override
+  String get actHelp => '命令帮助';
+
+  @override
+  String get fieldTitle => '标题';
+
+  @override
+  String get fieldAlbum => '专辑';
+
+  @override
+  String get fieldYear => '年份';
+
+  @override
+  String get fieldGenre => '风格';
+
+  @override
+  String get fieldData => '数据';
+
+  @override
+  String get msgNext => '下一首 ⏭️';
+
+  @override
+  String get msgPrevious => '上一首 ⏮️';
+
+  @override
+  String get msgStopped => '播放已停止';
+
+  @override
+  String msgSeeked(String time) {
+    return '已跳到 $time';
+  }
+
+  @override
+  String get msgRepeatOff => '重复已关闭';
+
+  @override
+  String get msgRepeatOne => '重复这首 🔂';
+
+  @override
+  String msgNotFoundQuery(String query) {
+    return '在你的音乐库中找不到「$query」。试试其他标题或更新音乐库。';
+  }
+
+  @override
+  String msgPlaylistEmpty(String list) {
+    return '歌单「$list」是空的。';
+  }
+
+  @override
+  String get msgNoSongsToAdd => '没有找到可添加的歌曲。';
+
+  @override
+  String msgAddedToPlaylist(String count, String list) {
+    return '已将 $count 首歌曲添加到「$list」✅';
+  }
+
+  @override
+  String msgSearchResults(String count, String query) {
+    return '「$query」有 $count 个结果 — 在“歌曲”标签中 🔍';
+  }
+
+  @override
+  String msgSongNotFound(String query) {
+    return '找不到歌曲「$query」。';
+  }
+
+  @override
+  String get msgSongNotFoundShort => '找不到歌曲。';
+
+  @override
+  String get msgCoverSongNotFound => '找不到要更换封面的歌曲。';
+
+  @override
+  String msgChooseCover(String title) {
+    return '选择「$title」的新封面 🖼️';
+  }
+
+  @override
+  String msgLibraryUpToDate(String total) {
+    return '音乐库已最新：没有新歌曲（共 $total 首）📚';
+  }
+
+  @override
+  String msgLibraryUpdated(String count) {
+    return '已更新：新增 $count 首歌曲 📚';
+  }
+
+  @override
+  String msgGenreDominant(String genre) {
+    return '主要风格：$genre 📊';
+  }
+
+  @override
+  String get msgHelpText =>
+      '示例：\n•「播放90年代摇滚」\n•「把这首歌加入派对歌单」\n•「把这首歌的风格改为摇滚」\n•「更新我的音乐库」「正在播放什么？」「我有多少首歌」';
+
+  @override
+  String get msgPlayingNow => '正在播放 ▶️';
+
+  @override
+  String msgPlayingTitle(String title, String artist, String extra) {
+    return '正在播放「$title」— $artist$extra 🎵';
+  }
+
+  @override
+  String msgAndMore(String more) {
+    return '（还有 $more 首）';
+  }
+
+  @override
+  String msgPlaylistNotFound(String list) {
+    return '没有名为「$list」的歌单。';
+  }
+
+  @override
+  String get msgNothingPlaying => '现在没有播放任何内容。';
+
+  @override
+  String msgNowPlayingTitle(String title, String artist, String genre) {
+    return '正在播放「$title」— $artist（$genre）🎧';
+  }
+
+  @override
+  String get fieldArtist => '艺术家';
+
+  @override
+  String get fieldTags => '标签';
+
+  @override
+  String msgLibraryStats(
+      String songs, String playlists, String favorites, String genre) {
+    return '你有 $songs 首歌曲、$playlists 个歌单和 $favorites 首收藏。主要风格：$genre 📊';
+  }
+
+  @override
+  String msgAddedFavorite(String title) {
+    return '已将「$title」加入收藏 ❤️';
+  }
+
+  @override
+  String msgRemovedFavorite(String title) {
+    return '「$title」已取消收藏';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -2425,5 +2669,249 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   @override
   String aiCreatedByRequest(String request) {
     return '由 AI 创建：$request';
+  }
+
+  @override
+  String get actPlay => '播放';
+
+  @override
+  String get actPause => '暂停';
+
+  @override
+  String get actNext => '下一首';
+
+  @override
+  String get actPrevious => '上一首';
+
+  @override
+  String get actStop => '停止';
+
+  @override
+  String actVolume(String value) {
+    return '音量 $value';
+  }
+
+  @override
+  String get actVolumeUp => '增大音量';
+
+  @override
+  String get actVolumeDown => '降低音量';
+
+  @override
+  String actSpeed(String value) {
+    return '速度 ${value}x';
+  }
+
+  @override
+  String get actShuffleOn => '随机播放已开启';
+
+  @override
+  String get actShuffleOff => '随机播放已关闭';
+
+  @override
+  String get actRepeatOff => '重复已关闭';
+
+  @override
+  String get actRepeatAll => '重复整个队列';
+
+  @override
+  String get actRepeatOne => '重复这首';
+
+  @override
+  String actSeek(String value) {
+    return '跳到 $value';
+  }
+
+  @override
+  String actPlayQuery(String query) {
+    return '播放「$query」';
+  }
+
+  @override
+  String actPlayPlaylist(String list) {
+    return '播放歌单「$list」';
+  }
+
+  @override
+  String actCreatePlaylist(String list) {
+    return '创建歌单「$list」';
+  }
+
+  @override
+  String actAddToPlaylist(String list) {
+    return '添加到「$list」';
+  }
+
+  @override
+  String actSearch(String query) {
+    return '搜索「$query」';
+  }
+
+  @override
+  String actEditMetadata(String field, String query) {
+    return '编辑「$query」的$field';
+  }
+
+  @override
+  String actSetCover(String query) {
+    return '更换「$query」的封面';
+  }
+
+  @override
+  String actFavorite(String query) {
+    return '收藏： «$query»';
+  }
+
+  @override
+  String get actRescan => '更新音乐库';
+
+  @override
+  String get actNowPlaying => '正在播放什么？';
+
+  @override
+  String get actStats => '音乐库统计';
+
+  @override
+  String get actHelp => '命令帮助';
+
+  @override
+  String get fieldTitle => '标题';
+
+  @override
+  String get fieldAlbum => '专辑';
+
+  @override
+  String get fieldYear => '年份';
+
+  @override
+  String get fieldGenre => '风格';
+
+  @override
+  String get fieldData => '数据';
+
+  @override
+  String get msgNext => '下一首 ⏭️';
+
+  @override
+  String get msgPrevious => '上一首 ⏮️';
+
+  @override
+  String get msgStopped => '播放已停止';
+
+  @override
+  String msgSeeked(String time) {
+    return '已跳到 $time';
+  }
+
+  @override
+  String get msgRepeatOff => '重复已关闭';
+
+  @override
+  String get msgRepeatOne => '重复这首 🔂';
+
+  @override
+  String msgNotFoundQuery(String query) {
+    return '在你的音乐库中找不到「$query」。试试其他标题或更新音乐库。';
+  }
+
+  @override
+  String msgPlaylistEmpty(String list) {
+    return '歌单「$list」是空的。';
+  }
+
+  @override
+  String get msgNoSongsToAdd => '没有找到可添加的歌曲。';
+
+  @override
+  String msgAddedToPlaylist(String count, String list) {
+    return '已将 $count 首歌曲添加到「$list」✅';
+  }
+
+  @override
+  String msgSearchResults(String count, String query) {
+    return '「$query」有 $count 个结果 — 在“歌曲”标签中 🔍';
+  }
+
+  @override
+  String msgSongNotFound(String query) {
+    return '找不到歌曲「$query」。';
+  }
+
+  @override
+  String get msgSongNotFoundShort => '找不到歌曲。';
+
+  @override
+  String get msgCoverSongNotFound => '找不到要更换封面的歌曲。';
+
+  @override
+  String msgChooseCover(String title) {
+    return '选择「$title」的新封面 🖼️';
+  }
+
+  @override
+  String msgLibraryUpToDate(String total) {
+    return '音乐库已最新：没有新歌曲（共 $total 首）📚';
+  }
+
+  @override
+  String msgLibraryUpdated(String count) {
+    return '已更新：新增 $count 首歌曲 📚';
+  }
+
+  @override
+  String msgGenreDominant(String genre) {
+    return '主要风格：$genre 📊';
+  }
+
+  @override
+  String get msgHelpText =>
+      '示例：\n•「播放90年代摇滚」\n•「把这首歌加入派对歌单」\n•「把这首歌的风格改为摇滚」\n•「更新我的音乐库」「正在播放什么？」「我有多少首歌」';
+
+  @override
+  String get msgPlayingNow => '正在播放 ▶️';
+
+  @override
+  String msgPlayingTitle(String title, String artist, String extra) {
+    return '正在播放「$title」— $artist$extra 🎵';
+  }
+
+  @override
+  String msgAndMore(String more) {
+    return '（还有 $more 首）';
+  }
+
+  @override
+  String msgPlaylistNotFound(String list) {
+    return '没有名为「$list」的歌单。';
+  }
+
+  @override
+  String get msgNothingPlaying => '现在没有播放任何内容。';
+
+  @override
+  String msgNowPlayingTitle(String title, String artist, String genre) {
+    return '正在播放「$title」— $artist（$genre）🎧';
+  }
+
+  @override
+  String get fieldArtist => '艺术家';
+
+  @override
+  String get fieldTags => '标签';
+
+  @override
+  String msgLibraryStats(
+      String songs, String playlists, String favorites, String genre) {
+    return '你有 $songs 首歌曲、$playlists 个歌单和 $favorites 首收藏。主要风格：$genre 📊';
+  }
+
+  @override
+  String msgAddedFavorite(String title) {
+    return '已将「$title」加入收藏 ❤️';
+  }
+
+  @override
+  String msgRemovedFavorite(String title) {
+    return '「$title」已取消收藏';
   }
 }

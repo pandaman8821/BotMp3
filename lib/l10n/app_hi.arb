@@ -477,5 +477,293 @@
         "type": "String"
       }
     }
+  },
+  "actPlay": "चलाएँ",
+  "actPause": "रोकें",
+  "actNext": "अगला गाना",
+  "actPrevious": "पिछला गाना",
+  "actStop": "रोकें",
+  "actVolume": "वॉल्यूम {value}",
+  "@actVolume": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actVolumeUp": "वॉल्यूम बढ़ाएँ",
+  "actVolumeDown": "वॉल्यूम कम करें",
+  "actSpeed": "गति {value}x",
+  "@actSpeed": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actShuffleOn": "शफ़ल चालू",
+  "actShuffleOff": "शफ़ल बंद",
+  "actRepeatOff": "दोहराव बंद",
+  "actRepeatAll": "पूरी कतार दोहराएँ",
+  "actRepeatOne": "यह गाना दोहराएँ",
+  "actSeek": "{value} पर जाएँ",
+  "@actSeek": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayQuery": "«{query}» चलाएँ",
+  "@actPlayQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayPlaylist": "«{list}» प्लेलिस्ट चलाएँ",
+  "@actPlayPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actCreatePlaylist": "«{list}» प्लेलिस्ट बनाएँ",
+  "@actCreatePlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actAddToPlaylist": "«{list}» में जोड़ें",
+  "@actAddToPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actSearch": "«{query}» खोजें",
+  "@actSearch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actEditMetadata": "«{query}» का {field} संपादित करें",
+  "@actEditMetadata": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actSetCover": "«{query}» का कवर बदलें",
+  "@actSetCover": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actFavorite": "पसंदीदा: «{query}»",
+  "@actFavorite": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actRescan": "लाइब्रेरी अपडेट करें",
+  "actNowPlaying": "क्या चल रहा है?",
+  "actStats": "लाइब्रेरी आँकड़े",
+  "actHelp": "कमांड सहायता",
+  "fieldTitle": "शीर्षक",
+  "fieldAlbum": "एल्बम",
+  "fieldYear": "वर्ष",
+  "fieldGenre": "शैली",
+  "fieldData": "डेटा",
+  "msgNext": "अगला गाना ⏭️",
+  "msgPrevious": "पिछला गाना ⏮️",
+  "msgStopped": "प्लेबैक रोका गया",
+  "msgSeeked": "{time} पर पहुँचे",
+  "@msgSeeked": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRepeatOff": "दोहराव बंद",
+  "msgRepeatOne": "यह गाना दोहराएँ 🔂",
+  "msgNotFoundQuery": "आपकी लाइब्रेरी में «{query}» नहीं मिला। दूसरा शीर्षक आज़माएँ या लाइब्रेरी अपडेट करें।",
+  "@msgNotFoundQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistEmpty": "«{list}» प्लेलिस्ट खाली है।",
+  "@msgPlaylistEmpty": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNoSongsToAdd": "जोड़ने के लिए कोई गाना नहीं मिला।",
+  "msgAddedToPlaylist": "{count} गाने «{list}» में जोड़े गए ✅",
+  "@msgAddedToPlaylist": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSearchResults": "«{query}» के लिए {count} परिणाम — 'गाने' टैब में 🔍",
+  "@msgSearchResults": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFound": "«{query}» गाना नहीं मिला।",
+  "@msgSongNotFound": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFoundShort": "गाना नहीं मिला।",
+  "msgCoverSongNotFound": "कवर बदलने के लिए गाना नहीं मिला।",
+  "msgChooseCover": "«{title}» का नया कवर चुनें 🖼️",
+  "@msgChooseCover": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpToDate": "लाइब्रेरी अद्यतित: नए गाने नहीं ({total} कुल) 📚",
+  "@msgLibraryUpToDate": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpdated": "अपडेट हुआ: {count} नए गाने जोड़े गए 📚",
+  "@msgLibraryUpdated": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "msgGenreDominant": "प्रमुख शैली: {genre} 📊",
+  "@msgGenreDominant": {
+    "placeholders": {
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgHelpText": "उदाहरण:\n• «90 के दशक का रॉक चलाओ»\n• «इस गाने को पार्टी प्लेलिस्ट में जोड़ें»\n• «इस गाने की शैली रॉक करें»\n• «मेरी लाइब्रेरी अपडेट करें», «क्या चल रहा है?», «मेरे पास कितने गाने हैं»",
+  "msgPlayingNow": "चल रहा है ▶️",
+  "msgPlayingTitle": "«{title}» चल रहा है — {artist}{extra} 🎵",
+  "@msgPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "extra": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAndMore": " (और {more})",
+  "@msgAndMore": {
+    "placeholders": {
+      "more": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistNotFound": "«{list}» नाम की कोई प्लेलिस्ट नहीं है।",
+  "@msgPlaylistNotFound": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNothingPlaying": "अभी कुछ नहीं चल रहा।",
+  "msgNowPlayingTitle": "«{title}» — {artist} ({genre}) चल रहा है 🎧",
+  "@msgNowPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldArtist": "कलाकार",
+  "fieldTags": "टैग",
+  "msgLibraryStats": "आपके पास {songs} गाने, {playlists} प्लेलिस्ट और {favorites} पसंदीदा हैं। प्रमुख शैली: {genre} 📊",
+  "@msgLibraryStats": {
+    "placeholders": {
+      "songs": {
+        "type": "String"
+      },
+      "playlists": {
+        "type": "String"
+      },
+      "favorites": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAddedFavorite": "«{title}» पसंदीदा में जोड़ा गया ❤️",
+  "@msgAddedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRemovedFavorite": "«{title}» अब पसंदीदा नहीं है",
+  "@msgRemovedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   }
 }

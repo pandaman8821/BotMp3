@@ -1267,4 +1267,249 @@ class AppLocalizationsEs extends AppLocalizations {
   String aiCreatedByRequest(String request) {
     return 'Creada por IA: $request';
   }
+
+  @override
+  String get actPlay => 'Reproducir';
+
+  @override
+  String get actPause => 'Pausar';
+
+  @override
+  String get actNext => 'Siguiente canción';
+
+  @override
+  String get actPrevious => 'Canción anterior';
+
+  @override
+  String get actStop => 'Detener';
+
+  @override
+  String actVolume(String value) {
+    return 'Volumen $value';
+  }
+
+  @override
+  String get actVolumeUp => 'Subir volumen';
+
+  @override
+  String get actVolumeDown => 'Bajar volumen';
+
+  @override
+  String actSpeed(String value) {
+    return 'Velocidad ${value}x';
+  }
+
+  @override
+  String get actShuffleOn => 'Aleatorio activado';
+
+  @override
+  String get actShuffleOff => 'Aleatorio desactivado';
+
+  @override
+  String get actRepeatOff => 'Repetición desactivada';
+
+  @override
+  String get actRepeatAll => 'Repetir toda la cola';
+
+  @override
+  String get actRepeatOne => 'Repetir esta canción';
+
+  @override
+  String actSeek(String value) {
+    return 'Saltar a $value';
+  }
+
+  @override
+  String actPlayQuery(String query) {
+    return 'Reproducir «$query»';
+  }
+
+  @override
+  String actPlayPlaylist(String list) {
+    return 'Reproducir lista «$list»';
+  }
+
+  @override
+  String actCreatePlaylist(String list) {
+    return 'Crear lista «$list»';
+  }
+
+  @override
+  String actAddToPlaylist(String list) {
+    return 'Añadir a «$list»';
+  }
+
+  @override
+  String actSearch(String query) {
+    return 'Buscar «$query»';
+  }
+
+  @override
+  String actEditMetadata(String field, String query) {
+    return 'Editar $field de «$query»';
+  }
+
+  @override
+  String actSetCover(String query) {
+    return 'Cambiar carátula de «$query»';
+  }
+
+  @override
+  String actFavorite(String query) {
+    return 'Favorito: «$query»';
+  }
+
+  @override
+  String get actRescan => 'Actualizar biblioteca';
+
+  @override
+  String get actNowPlaying => '¿Qué suena?';
+
+  @override
+  String get actStats => 'Estadísticas de la biblioteca';
+
+  @override
+  String get actHelp => 'Ayuda de comandos';
+
+  @override
+  String get fieldTitle => 'título';
+
+  @override
+  String get fieldAlbum => 'álbum';
+
+  @override
+  String get fieldYear => 'año';
+
+  @override
+  String get fieldGenre => 'género';
+
+  @override
+  String get fieldData => 'datos';
+
+  @override
+  String get msgNext => 'Siguiente canción ⏭️';
+
+  @override
+  String get msgPrevious => 'Canción anterior ⏮️';
+
+  @override
+  String get msgStopped => 'Reproducción detenida';
+
+  @override
+  String msgSeeked(String time) {
+    return 'Salté a $time';
+  }
+
+  @override
+  String get msgRepeatOff => 'Repetición desactivada';
+
+  @override
+  String get msgRepeatOne => 'Repetir esta canción 🔂';
+
+  @override
+  String msgNotFoundQuery(String query) {
+    return 'No encontré «$query» en tu biblioteca. Prueba con otro título o actualiza la biblioteca.';
+  }
+
+  @override
+  String msgPlaylistEmpty(String list) {
+    return 'La lista «$list» está vacía.';
+  }
+
+  @override
+  String get msgNoSongsToAdd => 'No encontré canciones para añadir.';
+
+  @override
+  String msgAddedToPlaylist(String count, String list) {
+    return '$count canción(es) añadidas a «$list» ✅';
+  }
+
+  @override
+  String msgSearchResults(String count, String query) {
+    return '$count resultados para «$query» — los tienes en la pestaña Canciones 🔍';
+  }
+
+  @override
+  String msgSongNotFound(String query) {
+    return 'No encontré la canción «$query».';
+  }
+
+  @override
+  String get msgSongNotFoundShort => 'No encontré la canción.';
+
+  @override
+  String get msgCoverSongNotFound =>
+      'No encontré la canción para cambiar la carátula.';
+
+  @override
+  String msgChooseCover(String title) {
+    return 'Elige la nueva carátula de «$title» 🖼️';
+  }
+
+  @override
+  String msgLibraryUpToDate(String total) {
+    return 'Biblioteca al día: no hay canciones nuevas ($total en total) 📚';
+  }
+
+  @override
+  String msgLibraryUpdated(String count) {
+    return 'Actualizada: $count canciones nuevas añadidas 📚';
+  }
+
+  @override
+  String msgGenreDominant(String genre) {
+    return 'Género dominante: $genre 📊';
+  }
+
+  @override
+  String get msgHelpText =>
+      'Ejemplos:\n• «pon rock de los 90»\n• «añade esta canción a la lista Fiesta»\n• «cambia el género de esta canción a Rock»\n• «actualiza mi biblioteca», «¿qué suena?», «cuántas canciones tengo»';
+
+  @override
+  String get msgPlayingNow => 'Reproduciendo ▶️';
+
+  @override
+  String msgPlayingTitle(String title, String artist, String extra) {
+    return 'Reproduciendo «$title» — $artist$extra 🎵';
+  }
+
+  @override
+  String msgAndMore(String more) {
+    return ' (y $more más)';
+  }
+
+  @override
+  String msgPlaylistNotFound(String list) {
+    return 'No existe ninguna lista llamada «$list».';
+  }
+
+  @override
+  String get msgNothingPlaying => 'No hay nada sonando ahora mismo.';
+
+  @override
+  String msgNowPlayingTitle(String title, String artist, String genre) {
+    return 'Suena «$title» de $artist ($genre) 🎧';
+  }
+
+  @override
+  String get fieldArtist => 'artista';
+
+  @override
+  String get fieldTags => 'etiquetas';
+
+  @override
+  String msgLibraryStats(
+      String songs, String playlists, String favorites, String genre) {
+    return 'Tienes $songs canciones, $playlists listas y $favorites favoritas. Género dominante: $genre 📊';
+  }
+
+  @override
+  String msgAddedFavorite(String title) {
+    return '«$title» marcada como favorita ❤️';
+  }
+
+  @override
+  String msgRemovedFavorite(String title) {
+    return '«$title» ya no es favorita';
+  }
 }

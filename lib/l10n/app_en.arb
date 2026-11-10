@@ -696,5 +696,293 @@
         "type": "String"
       }
     }
+  },
+  "actPlay": "Play",
+  "actPause": "Pause",
+  "actNext": "Next song",
+  "actPrevious": "Previous song",
+  "actStop": "Stop",
+  "actVolume": "Volume {value}",
+  "@actVolume": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actVolumeUp": "Raise volume",
+  "actVolumeDown": "Lower volume",
+  "actSpeed": "Speed {value}x",
+  "@actSpeed": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actShuffleOn": "Shuffle on",
+  "actShuffleOff": "Shuffle off",
+  "actRepeatOff": "Repeat off",
+  "actRepeatAll": "Repeat whole queue",
+  "actRepeatOne": "Repeat this song",
+  "actSeek": "Jump to {value}",
+  "@actSeek": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayQuery": "Play \"{query}\"",
+  "@actPlayQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actPlayPlaylist": "Play playlist \"{list}\"",
+  "@actPlayPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actCreatePlaylist": "Create playlist \"{list}\"",
+  "@actCreatePlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actAddToPlaylist": "Add to \"{list}\"",
+  "@actAddToPlaylist": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "actSearch": "Search \"{query}\"",
+  "@actSearch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actEditMetadata": "Edit {field} of \"{query}\"",
+  "@actEditMetadata": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actSetCover": "Change cover of \"{query}\"",
+  "@actSetCover": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actFavorite": "Favorite: \"{query}\"",
+  "@actFavorite": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "actRescan": "Update library",
+  "actNowPlaying": "What is playing?",
+  "actStats": "Library stats",
+  "actHelp": "Command help",
+  "fieldTitle": "title",
+  "fieldAlbum": "album",
+  "fieldYear": "year",
+  "fieldGenre": "genre",
+  "fieldData": "data",
+  "msgNext": "Next song ⏭️",
+  "msgPrevious": "Previous song ⏮️",
+  "msgStopped": "Playback stopped",
+  "msgSeeked": "Jumped to {time}",
+  "@msgSeeked": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRepeatOff": "Repeat off",
+  "msgRepeatOne": "Repeating this song 🔂",
+  "msgNotFoundQuery": "I could not find \"{query}\" in your library. Try another title or update the library.",
+  "@msgNotFoundQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistEmpty": "The playlist \"{list}\" is empty.",
+  "@msgPlaylistEmpty": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNoSongsToAdd": "I found no songs to add.",
+  "msgAddedToPlaylist": "{count} song(s) added to \"{list}\" ✅",
+  "@msgAddedToPlaylist": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSearchResults": "{count} results for \"{query}\" — you have them in the Songs tab 🔍",
+  "@msgSearchResults": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFound": "I could not find the song \"{query}\".",
+  "@msgSongNotFound": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "msgSongNotFoundShort": "I could not find the song.",
+  "msgCoverSongNotFound": "I could not find the song to change its cover.",
+  "msgChooseCover": "Choose the new cover for \"{title}\" 🖼️",
+  "@msgChooseCover": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpToDate": "Library up to date: no new songs ({total} total) 📚",
+  "@msgLibraryUpToDate": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "msgLibraryUpdated": "Updated: {count} new songs added 📚",
+  "@msgLibraryUpdated": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "msgGenreDominant": "Dominant genre: {genre} 📊",
+  "@msgGenreDominant": {
+    "placeholders": {
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgHelpText": "Examples:\n• \"play some 90s rock\"\n• \"add this song to the Party playlist\"\n• \"change this song's genre to Rock\"\n• \"update my library\", \"what is playing?\", \"how many songs do I have\"",
+  "msgPlayingNow": "Playing ▶️",
+  "msgPlayingTitle": "Playing \"{title}\" — {artist}{extra} 🎵",
+  "@msgPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "extra": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAndMore": " (and {more} more)",
+  "@msgAndMore": {
+    "placeholders": {
+      "more": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPlaylistNotFound": "There is no playlist called \"{list}\".",
+  "@msgPlaylistNotFound": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "msgNothingPlaying": "Nothing is playing right now.",
+  "msgNowPlayingTitle": "Playing \"{title}\" by {artist} ({genre}) 🎧",
+  "@msgNowPlayingTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "artist": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldArtist": "artist",
+  "fieldTags": "tags",
+  "msgLibraryStats": "You have {songs} songs, {playlists} playlists and {favorites} favorites. Dominant genre: {genre} 📊",
+  "@msgLibraryStats": {
+    "placeholders": {
+      "songs": {
+        "type": "String"
+      },
+      "playlists": {
+        "type": "String"
+      },
+      "favorites": {
+        "type": "String"
+      },
+      "genre": {
+        "type": "String"
+      }
+    }
+  },
+  "msgAddedFavorite": "Added \"{title}\" to favorites ❤️",
+  "@msgAddedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgRemovedFavorite": "\"{title}\" is no longer a favorite",
+  "@msgRemovedFavorite": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
   }
 }
