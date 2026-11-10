@@ -765,5 +765,28 @@
         "type": "String"
       }
     }
-  }
+  },
+  "refreshModels": "모델 새로고침",
+  "modelsRefreshed": "모델 {count}개 업데이트됨",
+  "@modelsRefreshed": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "modelsRefreshFailed": "모델을 가져오지 못했습니다: API 키나 연결을 확인하세요.",
+  "freeBadge": "무료",
+  "getApiKey": "API 키 받기",
+  "linkCopied": "링크 복사됨: {url}",
+  "@linkCopied": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "modelIdExample": "예: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…",
+  "useModel": "사용",
+  "modelsAutoHint": "무료 모델이 먼저 표시됩니다. 3일마다 자동 갱신됩니다."
 }

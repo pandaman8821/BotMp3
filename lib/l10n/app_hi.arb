@@ -765,5 +765,28 @@
         "type": "String"
       }
     }
-  }
+  },
+  "refreshModels": "मॉडल रीफ़्रेश करें",
+  "modelsRefreshed": "{count} मॉडल अपडेट हुए",
+  "@modelsRefreshed": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "modelsRefreshFailed": "मॉडल नहीं मिल सके: API कुंजी या कनेक्शन जाँचें।",
+  "freeBadge": "मुफ़्त",
+  "getApiKey": "API कुंजी प्राप्त करें",
+  "linkCopied": "लिंक कॉपी हुआ: {url}",
+  "@linkCopied": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "modelIdExample": "उदा.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…",
+  "useModel": "उपयोग करें",
+  "modelsAutoHint": "मुफ़्त मॉडल पहले। हर 3 दिन में अपने आप अपडेट होते हैं।"
 }

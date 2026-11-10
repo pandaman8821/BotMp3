@@ -1512,6 +1512,40 @@ class AppLocalizationsPt extends AppLocalizations {
   String msgRemovedFavorite(String title) {
     return '«$title» não é mais favorita';
   }
+
+  @override
+  String get refreshModels => 'Atualizar modelos';
+
+  @override
+  String modelsRefreshed(String count) {
+    return '$count modelos atualizados';
+  }
+
+  @override
+  String get modelsRefreshFailed =>
+      'Não foi possível obter os modelos: verifique a chave de API ou a conexão.';
+
+  @override
+  String get freeBadge => 'Grátis';
+
+  @override
+  String get getApiKey => 'Obter chave de API';
+
+  @override
+  String linkCopied(String url) {
+    return 'Link copiado: $url';
+  }
+
+  @override
+  String get modelIdExample =>
+      'Ex.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…';
+
+  @override
+  String get useModel => 'Usar';
+
+  @override
+  String get modelsAutoHint =>
+      'Os gratuitos primeiro. Atualizam sozinhos a cada 3 dias.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3022,4 +3056,38 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String msgRemovedFavorite(String title) {
     return '«$title» não é mais favorita';
   }
+
+  @override
+  String get refreshModels => 'Atualizar modelos';
+
+  @override
+  String modelsRefreshed(String count) {
+    return '$count modelos atualizados';
+  }
+
+  @override
+  String get modelsRefreshFailed =>
+      'Não foi possível obter os modelos: verifique a chave de API ou a conexão.';
+
+  @override
+  String get freeBadge => 'Grátis';
+
+  @override
+  String get getApiKey => 'Obter chave de API';
+
+  @override
+  String linkCopied(String url) {
+    return 'Link copiado: $url';
+  }
+
+  @override
+  String get modelIdExample =>
+      'Ex.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…';
+
+  @override
+  String get useModel => 'Usar';
+
+  @override
+  String get modelsAutoHint =>
+      'Os gratuitos primeiro. Atualizam sozinhos a cada 3 dias.';
 }

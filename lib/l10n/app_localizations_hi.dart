@@ -1490,4 +1490,38 @@ class AppLocalizationsHi extends AppLocalizations {
   String msgRemovedFavorite(String title) {
     return '«$title» अब पसंदीदा नहीं है';
   }
+
+  @override
+  String get refreshModels => 'मॉडल रीफ़्रेश करें';
+
+  @override
+  String modelsRefreshed(String count) {
+    return '$count मॉडल अपडेट हुए';
+  }
+
+  @override
+  String get modelsRefreshFailed =>
+      'मॉडल नहीं मिल सके: API कुंजी या कनेक्शन जाँचें।';
+
+  @override
+  String get freeBadge => 'मुफ़्त';
+
+  @override
+  String get getApiKey => 'API कुंजी प्राप्त करें';
+
+  @override
+  String linkCopied(String url) {
+    return 'लिंक कॉपी हुआ: $url';
+  }
+
+  @override
+  String get modelIdExample =>
+      'उदा.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…';
+
+  @override
+  String get useModel => 'उपयोग करें';
+
+  @override
+  String get modelsAutoHint =>
+      'मुफ़्त मॉडल पहले। हर 3 दिन में अपने आप अपडेट होते हैं।';
 }

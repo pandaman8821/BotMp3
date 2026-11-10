@@ -1464,4 +1464,36 @@ class AppLocalizationsKo extends AppLocalizations {
   String msgRemovedFavorite(String title) {
     return '\'$title\' 즐겨찾기에서 제거됨';
   }
+
+  @override
+  String get refreshModels => '모델 새로고침';
+
+  @override
+  String modelsRefreshed(String count) {
+    return '모델 $count개 업데이트됨';
+  }
+
+  @override
+  String get modelsRefreshFailed => '모델을 가져오지 못했습니다: API 키나 연결을 확인하세요.';
+
+  @override
+  String get freeBadge => '무료';
+
+  @override
+  String get getApiKey => 'API 키 받기';
+
+  @override
+  String linkCopied(String url) {
+    return '링크 복사됨: $url';
+  }
+
+  @override
+  String get modelIdExample =>
+      '예: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…';
+
+  @override
+  String get useModel => '사용';
+
+  @override
+  String get modelsAutoHint => '무료 모델이 먼저 표시됩니다. 3일마다 자동 갱신됩니다.';
 }

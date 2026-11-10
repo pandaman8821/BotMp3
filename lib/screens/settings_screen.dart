@@ -1,3 +1,4 @@
+import '../services/ai/model_catalog_service.dart';
 import '../services/m3u_service.dart';
 import '../models/playlist.dart';
 import 'stats_screen.dart';
@@ -524,7 +525,7 @@ ListTile(
                   actions: <Widget>[
                     TextButton(
                       onPressed: () => Navigator.of(dialogo).pop(false),
-                      child: const Text('Cancelar'),
+                      child: Text(AppLocalizations.of(context).cancel),
                     ),
                     FilledButton(
                       onPressed: () => Navigator.of(dialogo).pop(true),
@@ -911,17 +912,17 @@ Future<void> escribirModeloPersonalizado(
         autofocus: true,
         decoration: InputDecoration(
           labelText: AppLocalizations.of(context).modelId,
-          helperText: 'Ej.: deepseek-flash, gpt-4o-mini, gemini-2.0-flash…',
+          helperText: AppLocalizations.of(context).modelIdExample,
         ),
       ),
       actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(),
-          child: const Text('Cancelar'),
+          child: Text(AppLocalizations.of(context).cancel),
         ),
         FilledButton(
           onPressed: () => Navigator.of(dialogContext).pop(controller.text.trim()),
-          child: const Text('Usar'),
+          child: Text(AppLocalizations.of(context).useModel),
         ),
       ],
     ),
@@ -969,6 +970,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
   late final TextEditingController _controller = TextEditingController();
   bool _obscure = true;
   bool _testing = false;
+  bool _buscandoModelos = false;
 
   @override
   void dispose() {
@@ -1005,13 +1007,64 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                 if (configured)
                   Icon(Icons.verified_user, size: 16, color: AppColors.green),
                 IconButton(
-                  tooltip: 'Obtener API key',
+                  tooltip: AppLocalizations.of(context).refreshModels,
+                  icon: _buscandoModelos
+                      ? const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Icon(Icons.sync, size: 18),
+                  onPressed: _buscandoModelos
+                      ? null
+                      : () async {
+                          final String? clave = ai.keyFor(provider);
+                          if (clave == null || clave.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  AppLocalizations.of(context).aiKeyMissingFirst,
+                                ),
+                              ),
+                            );
+                            return;
+                          }
+                          setState(() => _buscandoModelos = true);
+                          int total = 0;
+                          try {
+                            total = await ModelCatalogService.instance
+                                .actualizar(provider, clave);
+                          } catch (_) {
+                            total = 0;
+                          }
+                          if (!context.mounted) return;
+                          setState(() => _buscandoModelos = false);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                total > 0
+                                    ? AppLocalizations.of(context)
+                                        .modelsRefreshed('$total')
+                                    : AppLocalizations.of(context)
+                                        .modelsRefreshFailed,
+                              ),
+                            ),
+                          );
+                        },
+                ),
+                IconButton(
+                  tooltip: AppLocalizations.of(context).getApiKey,
                   icon: const Icon(Icons.open_in_new, size: 18),
                   onPressed: () async {
                     await Clipboard.setData(ClipboardData(text: provider.keysUrl));
                     if (!context.mounted) return;
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Enlace copiado: ${provider.keysUrl}')),
+                      SnackBar(
+                        content: Text(
+                          AppLocalizations.of(context)
+                              .linkCopied(provider.keysUrl),
+                        ),
+                      ),
                     );
                   },
                 ),
@@ -1042,7 +1095,18 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
               runSpacing: 4,
               children: <Widget>[
                 ...provider.models.map((String value) {
+                  final bool gratis = esModeloGratis(provider, value);
                   return ChoiceChip(
+                    avatar: gratis
+                        ? Tooltip(
+                            message: AppLocalizations.of(context).freeBadge,
+                            child: Icon(
+                              Icons.bolt,
+                              size: 15,
+                              color: AppColors.green,
+                            ),
+                          )
+                        : null,
                     label: Text(value, style: const TextStyle(fontSize: 12)),
                     selected: model == value,
                     onSelected: (_) => ai.selectModel(provider, value),
@@ -1055,6 +1119,13 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                       escribirModeloPersonalizado(context, ai, provider, model),
                 ),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text(
+                AppLocalizations.of(context).modelsAutoHint,
+                style: TextStyle(fontSize: 11, color: AppColors.darkTextDim),
+              ),
             ),
             if (provider.hintFor(model) != null)
               Padding(

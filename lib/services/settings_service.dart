@@ -203,7 +203,7 @@ class SettingsService {
     final String? raw = _prefs.getString('ai_provider');
     return AiProvider.values.firstWhere(
       (AiProvider p) => p.id == raw,
-      orElse: () => AiProvider.deepseek,
+      orElse: () => AiProvider.gemini,
     );
   }
 

@@ -99,7 +99,7 @@ class AudioFormats {
 }
 
 /// Proveedores de IA soportados por el agente musical.
-enum AiProvider { openai, deepseek, gemini, claude }
+enum AiProvider { gemini, openai, deepseek, claude }
 
 extension AiProviderInfo on AiProvider {
   String get id => name;
@@ -137,7 +137,13 @@ extension AiProviderInfo on AiProvider {
         // `deepseek-chat` y `deepseek-reasoner` ya no existen.
         return <String>['deepseek-flash', 'deepseek-v4-pro'];
       case AiProvider.gemini:
-        return <String>['gemini-2.5-pro', 'gemini-2.5-flash', 'gemini-2.0-flash'];
+        // Los del plan gratuito van primero: flash y flash-lite son gratis.
+        return <String>[
+            'gemini-2.5-flash',
+            'gemini-2.0-flash',
+            'gemini-2.5-flash-lite',
+            'gemini-2.5-pro',
+          ];
       case AiProvider.claude:
         return <String>[
             'claude-sonnet-4-20250514',
@@ -288,4 +294,19 @@ class StorageKeys {
   static const String playLogFile = 'botmp3_playlog_v1.json';
   static const String importedDir = 'imported';
   static const String coversDir = 'covers';
+}
+
+/// ¿Este modelo del proveedor entra en el plan gratuito?
+bool esModeloGratis(AiProvider provider, String modelo) {
+  final String m = modelo.toLowerCase();
+  switch (provider) {
+    case AiProvider.gemini:
+      return m.contains('flash');
+    case AiProvider.deepseek:
+      return m.contains('flash');
+    case AiProvider.openai:
+      return m.contains('mini');
+    case AiProvider.claude:
+      return m.contains('haiku');
+  }
 }

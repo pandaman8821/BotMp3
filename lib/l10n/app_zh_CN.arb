@@ -765,5 +765,28 @@
         "type": "String"
       }
     }
-  }
+  },
+  "refreshModels": "刷新模型",
+  "modelsRefreshed": "已更新 {count} 个模型",
+  "@modelsRefreshed": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "modelsRefreshFailed": "无法获取模型：请检查 API 密钥或网络连接。",
+  "freeBadge": "免费",
+  "getApiKey": "获取 API 密钥",
+  "linkCopied": "已复制链接：{url}",
+  "@linkCopied": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "modelIdExample": "例如：gemini-2.5-flash、gpt-4o-mini、deepseek-flash…",
+  "useModel": "使用",
+  "modelsAutoHint": "免费模型优先，每 3 天自动更新。"
 }

@@ -765,5 +765,28 @@
         "type": "String"
       }
     }
-  }
+  },
+  "refreshModels": "モデルを更新",
+  "modelsRefreshed": "{count}個のモデルを更新しました",
+  "@modelsRefreshed": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "modelsRefreshFailed": "モデルを取得できませんでした：APIキーまたは接続を確認してください。",
+  "freeBadge": "無料",
+  "getApiKey": "APIキーを取得",
+  "linkCopied": "リンクをコピーしました: {url}",
+  "@linkCopied": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "modelIdExample": "例: gemini-2.5-flash、gpt-4o-mini、deepseek-flash…",
+  "useModel": "使用",
+  "modelsAutoHint": "無料モデルが先頭。3日ごとに自動更新されます。"
 }

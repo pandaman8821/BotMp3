@@ -765,5 +765,28 @@
         "type": "String"
       }
     }
-  }
+  },
+  "refreshModels": "Aggiorna modelli",
+  "modelsRefreshed": "{count} modelli aggiornati",
+  "@modelsRefreshed": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "modelsRefreshFailed": "Impossibile ottenere i modelli: controlla la chiave API o la connessione.",
+  "freeBadge": "Gratis",
+  "getApiKey": "Ottieni chiave API",
+  "linkCopied": "Link copiato: {url}",
+  "@linkCopied": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "modelIdExample": "Es.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…",
+  "useModel": "Usa",
+  "modelsAutoHint": "Prima i modelli gratuiti. Si aggiornano da soli ogni 3 giorni."
 }
