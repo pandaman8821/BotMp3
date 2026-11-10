@@ -1,5 +1,6 @@
 import '../services/ai/model_catalog_service.dart';
 import '../services/m3u_service.dart';
+import '../widgets/modern_app_bar.dart';
 import '../models/playlist.dart';
 import 'stats_screen.dart';
 import '../l10n/app_localizations.dart';
@@ -45,12 +46,14 @@ class SettingsScreen extends StatelessWidget {
     final LibraryProvider library = context.watch<LibraryProvider>();
 
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context).tabSettings)),
+      appBar: AppBar(
+        title: TituloPantalla(text: AppLocalizations.of(context).tabSettings),
+      ),
       body: ListView(
         padding: EdgeInsets.only(bottom: 40),
         children: <Widget>[
           // ---------------------------------------------------- Apariencia
-          const _SectionTitle('Tendencias musicales'),
+          _SectionTitle(AppLocalizations.of(context).trendsTitle),
           ListTile(
             leading: Icon(Icons.public),
             title: Text(AppLocalizations.of(context).countryForTrends),

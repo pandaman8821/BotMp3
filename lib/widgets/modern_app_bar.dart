@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../core/motion.dart';
 import '../core/theme.dart';
 
 /// Titulo de la app con degradado de marca (verde, cian y violeta).
@@ -80,7 +81,10 @@ class _BotonAccionState extends State<BotonAccion> {
           onTapDown: (_) => _cambiar(true),
           onTapCancel: () => _cambiar(false),
           onTapUp: (_) => _cambiar(false),
-          onTap: widget.onPressed,
+          onTap: () {
+            Hapticos.toque();
+            widget.onPressed();
+          },
           child: AnimatedScale(
             scale: _pulsado ? 0.82 : 1,
             duration: const Duration(milliseconds: 110),
@@ -130,6 +134,48 @@ class _BotonMenuState extends State<BotonMenu> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: AppColors.darkSurface,
       itemBuilder: (BuildContext context) => widget.items,
+    );
+  }
+}
+
+/// Titulo de las demas pestanas: mismo caracter que el logo de BotMp3 pero
+/// con el nombre de la seccion y un subrayado degradado sutil.
+class TituloPantalla extends StatelessWidget {
+  const TituloPantalla({super.key, required this.text, this.tamano = 21});
+
+  final String text;
+  final double tamano;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Flexible(
+          child: Text(
+            text,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: tamano,
+              fontWeight: FontWeight.w800,
+              letterSpacing: -0.8,
+            ),
+          ),
+        ),
+        const SizedBox(width: 6),
+        Container(
+          width: 16,
+          height: 3,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(2),
+            gradient: LinearGradient(
+              colors: <Color>[AppColors.green, AppColors.aiCyan],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

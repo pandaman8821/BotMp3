@@ -208,7 +208,30 @@ class EmptyState extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(icon, size: 72, color: Theme.of(context).colorScheme.primary.withAlpha(((0.7) * 255).round())),
+            Container(
+              width: 116,
+              height: 116,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                    AppColors.green.withAlpha(46),
+                    AppColors.aiViolet.withAlpha(30),
+                  ],
+                ),
+                border: Border.all(color: AppColors.green.withAlpha(70)),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: AppColors.green.withAlpha(28),
+                    blurRadius: 28,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
+              child: Icon(icon, size: 54, color: AppColors.green),
+            ),
             const SizedBox(height: 16),
             Text(
               title,

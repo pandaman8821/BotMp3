@@ -1,4 +1,5 @@
 import '../l10n/app_localizations.dart';
+import '../widgets/modern_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -53,7 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).tabSearch),
+        title: TituloPantalla(text: AppLocalizations.of(context).tabSearch),
         actions: <Widget>[
           IconButton(
             tooltip: 'Filtros avanzados',

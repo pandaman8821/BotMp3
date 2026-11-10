@@ -1,4 +1,5 @@
 import 'dart:async';
+import '../core/motion.dart';
 import '../l10n/app_localizations.dart';
 import '../core/text_utils.dart';
 import 'package:flutter/material.dart' hide RepeatMode;
@@ -201,10 +202,10 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 28),
                   child: Hero(
                     tag: 'cover_${current.id}',
-                    child: CoverArt(
+                    child: _PortadaKenBurns(
+                      id: current.id,
                       path: current.coverPath,
                       size: MediaQuery.sizeOf(context).width - 56,
-                      borderRadius: 26,
                     ),
                   ),
                 ),
@@ -715,6 +716,62 @@ class _MiniAction extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Portada con un zoom muy lento (Ken Burns). Se apaga con "reducir movimiento".
+class _PortadaKenBurns extends StatefulWidget {
+  const _PortadaKenBurns({
+    required this.id,
+    required this.path,
+    required this.size,
+  });
+
+  final String id;
+  final String? path;
+  final double size;
+
+  @override
+  State<_PortadaKenBurns> createState() => _PortadaKenBurnsState();
+}
+
+class _PortadaKenBurnsState extends State<_PortadaKenBurns>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _control = AnimationController(
+    vsync: this,
+    duration: Motion.kenBurns,
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _control.repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _control.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget portada = CoverArt(
+      path: widget.path,
+      size: widget.size,
+      borderRadius: 26,
+    );
+    if (Motion.reducir) return portada;
+    return AnimatedBuilder(
+      animation: _control,
+      builder: (BuildContext context, Widget? child) {
+        return Transform.scale(
+          scale: 1.0 + (_control.value * 0.05),
+          child: child,
+        );
+      },
+      child: portada,
     );
   }
 }
