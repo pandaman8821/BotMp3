@@ -4,7 +4,10 @@ import 'package:just_audio_background/just_audio_background.dart';
 
 import 'app.dart';
 import 'services/notification_service.dart';
+import 'core/constants.dart';
 import 'core/theme/theme_manager.dart';
+import 'services/ai/model_catalog_service.dart';
+import 'services/secure_keys_service.dart';
 import 'services/settings_service.dart';
 
 /// Punto de entrada de BotMp3.
@@ -32,6 +35,19 @@ Future<void> main() async {
   await session.configure(const AudioSessionConfiguration.music());
 
   final SettingsService settings = await SettingsService.instance();
+
+  // Catalogo de modelos de IA: se usa el guardado y, si tiene mas de 3 dias,
+  // se actualiza en segundo plano con las claves que ya existan.
+  final ModelCatalogService catalogo = ModelCatalogService.instance;
+  await catalogo.cargar();
+  if (await catalogo.desactualizado) {
+    // Las claves viven en el almacenamiento seguro, no en SettingsService.
+    final Map<AiProvider, String> claves = await SecureKeysService.instance.readAll();
+    if (claves.isNotEmpty) {
+      // Sin await: el arranque no debe esperar a la red.
+      catalogo.actualizarSiHaceFalta(claves);
+    }
+  }
 
   // Tema guardado por el usuario (se aplica antes del primer frame).
   await ThemeManager.init();

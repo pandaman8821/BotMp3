@@ -1512,4 +1512,38 @@ class AppLocalizationsEs extends AppLocalizations {
   String msgRemovedFavorite(String title) {
     return '«$title» ya no es favorita';
   }
+
+  @override
+  String get refreshModels => 'Actualizar modelos';
+
+  @override
+  String modelsRefreshed(String count) {
+    return '$count modelos actualizados';
+  }
+
+  @override
+  String get modelsRefreshFailed =>
+      'No se pudieron obtener los modelos: revisa la API key o la conexión.';
+
+  @override
+  String get freeBadge => 'Gratis';
+
+  @override
+  String get getApiKey => 'Obtener API key';
+
+  @override
+  String linkCopied(String url) {
+    return 'Enlace copiado: $url';
+  }
+
+  @override
+  String get modelIdExample =>
+      'Ej.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…';
+
+  @override
+  String get useModel => 'Usar';
+
+  @override
+  String get modelsAutoHint =>
+      'Los gratuitos primero. Se actualizan solos cada 3 días.';
 }

@@ -2714,6 +2714,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'\"{title}\" is no longer a favorite'**
   String msgRemovedFavorite(String title);
+
+  /// No description provided for @refreshModels.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh models'**
+  String get refreshModels;
+
+  /// No description provided for @modelsRefreshed.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} models updated'**
+  String modelsRefreshed(String count);
+
+  /// No description provided for @modelsRefreshFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not fetch models: check the API key or the connection.'**
+  String get modelsRefreshFailed;
+
+  /// No description provided for @freeBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Free'**
+  String get freeBadge;
+
+  /// No description provided for @getApiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Get API key'**
+  String get getApiKey;
+
+  /// No description provided for @linkCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Link copied: {url}'**
+  String linkCopied(String url);
+
+  /// No description provided for @modelIdExample.
+  ///
+  /// In en, this message translates to:
+  /// **'E.g.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…'**
+  String get modelIdExample;
+
+  /// No description provided for @useModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Use'**
+  String get useModel;
+
+  /// No description provided for @modelsAutoHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Free models first. They refresh automatically every 3 days.'**
+  String get modelsAutoHint;
 }
 
 class _AppLocalizationsDelegate

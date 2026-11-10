@@ -984,5 +984,28 @@
         "type": "String"
       }
     }
-  }
+  },
+  "refreshModels": "Refresh models",
+  "modelsRefreshed": "{count} models updated",
+  "@modelsRefreshed": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "modelsRefreshFailed": "Could not fetch models: check the API key or the connection.",
+  "freeBadge": "Free",
+  "getApiKey": "Get API key",
+  "linkCopied": "Link copied: {url}",
+  "@linkCopied": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "modelIdExample": "E.g.: gemini-2.5-flash, gpt-4o-mini, deepseek-flash…",
+  "useModel": "Use",
+  "modelsAutoHint": "Free models first. They refresh automatically every 3 days."
 }

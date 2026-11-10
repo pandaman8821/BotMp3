@@ -1458,6 +1458,38 @@ class AppLocalizationsZh extends AppLocalizations {
   String msgRemovedFavorite(String title) {
     return '「$title」已取消收藏';
   }
+
+  @override
+  String get refreshModels => '刷新模型';
+
+  @override
+  String modelsRefreshed(String count) {
+    return '已更新 $count 个模型';
+  }
+
+  @override
+  String get modelsRefreshFailed => '无法获取模型：请检查 API 密钥或网络连接。';
+
+  @override
+  String get freeBadge => '免费';
+
+  @override
+  String get getApiKey => '获取 API 密钥';
+
+  @override
+  String linkCopied(String url) {
+    return '已复制链接：$url';
+  }
+
+  @override
+  String get modelIdExample =>
+      '例如：gemini-2.5-flash、gpt-4o-mini、deepseek-flash…';
+
+  @override
+  String get useModel => '使用';
+
+  @override
+  String get modelsAutoHint => '免费模型优先，每 3 天自动更新。';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -2914,4 +2946,36 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String msgRemovedFavorite(String title) {
     return '「$title」已取消收藏';
   }
+
+  @override
+  String get refreshModels => '刷新模型';
+
+  @override
+  String modelsRefreshed(String count) {
+    return '已更新 $count 个模型';
+  }
+
+  @override
+  String get modelsRefreshFailed => '无法获取模型：请检查 API 密钥或网络连接。';
+
+  @override
+  String get freeBadge => '免费';
+
+  @override
+  String get getApiKey => '获取 API 密钥';
+
+  @override
+  String linkCopied(String url) {
+    return '已复制链接：$url';
+  }
+
+  @override
+  String get modelIdExample =>
+      '例如：gemini-2.5-flash、gpt-4o-mini、deepseek-flash…';
+
+  @override
+  String get useModel => '使用';
+
+  @override
+  String get modelsAutoHint => '免费模型优先，每 3 天自动更新。';
 }

@@ -1461,4 +1461,36 @@ class AppLocalizationsJa extends AppLocalizations {
   String msgRemovedFavorite(String title) {
     return '「$title」はお気に入りから外れました';
   }
+
+  @override
+  String get refreshModels => 'モデルを更新';
+
+  @override
+  String modelsRefreshed(String count) {
+    return '$count個のモデルを更新しました';
+  }
+
+  @override
+  String get modelsRefreshFailed => 'モデルを取得できませんでした：APIキーまたは接続を確認してください。';
+
+  @override
+  String get freeBadge => '無料';
+
+  @override
+  String get getApiKey => 'APIキーを取得';
+
+  @override
+  String linkCopied(String url) {
+    return 'リンクをコピーしました: $url';
+  }
+
+  @override
+  String get modelIdExample =>
+      '例: gemini-2.5-flash、gpt-4o-mini、deepseek-flash…';
+
+  @override
+  String get useModel => '使用';
+
+  @override
+  String get modelsAutoHint => '無料モデルが先頭。3日ごとに自動更新されます。';
 }
