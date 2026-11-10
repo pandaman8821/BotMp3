@@ -441,5 +441,41 @@
   },
   "licensesTitle": "オープンソースライセンス",
   "gplNotice": "BotMp3はGPL-3.0に基づくフリーソフトウェアです。ソースコードはGitHubで公開されています。",
-  "viewSourceCode": "ソースコードを表示"
+  "viewSourceCode": "ソースコードを表示",
+  "sessionFiesta": "パーティー",
+  "sessionRelax": "リラックス",
+  "sessionGym": "ジム",
+  "sessionStudy": "勉強",
+  "sessionSleep": "睡眠",
+  "librarySummary": "{songs}曲 · {genres}ジャンル · {playlists}プレイリスト",
+  "@librarySummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "genres": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "structureLabel": "構成: {value}",
+  "@structureLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "aiCreatedBy": "AIが作成",
+  "aiCreatedByRequest": "AIが作成: {request}",
+  "@aiCreatedByRequest": {
+    "placeholders": {
+      "request": {
+        "type": "String"
+      }
+    }
+  }
 }

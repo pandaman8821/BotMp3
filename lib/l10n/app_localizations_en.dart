@@ -1227,4 +1227,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get viewSourceCode => 'View Source Code';
+
+  @override
+  String get sessionFiesta => 'Party';
+
+  @override
+  String get sessionRelax => 'Relax';
+
+  @override
+  String get sessionGym => 'Gym';
+
+  @override
+  String get sessionStudy => 'Study';
+
+  @override
+  String get sessionSleep => 'Sleep';
+
+  @override
+  String librarySummary(int songs, int genres, int playlists) {
+    return '$songs songs · $genres genres · $playlists playlists';
+  }
+
+  @override
+  String structureLabel(String value) {
+    return 'Structure: $value';
+  }
+
+  @override
+  String get aiCreatedBy => 'Created by AI';
+
+  @override
+  String aiCreatedByRequest(String request) {
+    return 'Created by AI: $request';
+  }
 }

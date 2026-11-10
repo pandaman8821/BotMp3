@@ -2287,6 +2287,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'View Source Code'**
   String get viewSourceCode;
+
+  /// No description provided for @sessionFiesta.
+  ///
+  /// In en, this message translates to:
+  /// **'Party'**
+  String get sessionFiesta;
+
+  /// No description provided for @sessionRelax.
+  ///
+  /// In en, this message translates to:
+  /// **'Relax'**
+  String get sessionRelax;
+
+  /// No description provided for @sessionGym.
+  ///
+  /// In en, this message translates to:
+  /// **'Gym'**
+  String get sessionGym;
+
+  /// No description provided for @sessionStudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Study'**
+  String get sessionStudy;
+
+  /// No description provided for @sessionSleep.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep'**
+  String get sessionSleep;
+
+  /// No description provided for @librarySummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{songs} songs · {genres} genres · {playlists} playlists'**
+  String librarySummary(int songs, int genres, int playlists);
+
+  /// No description provided for @structureLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Structure: {value}'**
+  String structureLabel(String value);
+
+  /// No description provided for @aiCreatedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Created by AI'**
+  String get aiCreatedBy;
+
+  /// No description provided for @aiCreatedByRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Created by AI: {request}'**
+  String aiCreatedByRequest(String request);
 }
 
 class _AppLocalizationsDelegate

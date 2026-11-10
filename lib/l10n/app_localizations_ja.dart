@@ -1184,4 +1184,37 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get viewSourceCode => 'ソースコードを表示';
+
+  @override
+  String get sessionFiesta => 'パーティー';
+
+  @override
+  String get sessionRelax => 'リラックス';
+
+  @override
+  String get sessionGym => 'ジム';
+
+  @override
+  String get sessionStudy => '勉強';
+
+  @override
+  String get sessionSleep => '睡眠';
+
+  @override
+  String librarySummary(int songs, int genres, int playlists) {
+    return '$songs曲 · $genresジャンル · $playlistsプレイリスト';
+  }
+
+  @override
+  String structureLabel(String value) {
+    return '構成: $value';
+  }
+
+  @override
+  String get aiCreatedBy => 'AIが作成';
+
+  @override
+  String aiCreatedByRequest(String request) {
+    return 'AIが作成: $request';
+  }
 }

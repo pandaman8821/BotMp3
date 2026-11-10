@@ -1181,6 +1181,39 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get viewSourceCode => '查看源代码';
+
+  @override
+  String get sessionFiesta => '派对';
+
+  @override
+  String get sessionRelax => '放松';
+
+  @override
+  String get sessionGym => '健身';
+
+  @override
+  String get sessionStudy => '学习';
+
+  @override
+  String get sessionSleep => '睡眠';
+
+  @override
+  String librarySummary(int songs, int genres, int playlists) {
+    return '$songs 首歌曲 · $genres 种风格 · $playlists 个歌单';
+  }
+
+  @override
+  String structureLabel(String value) {
+    return '结构：$value';
+  }
+
+  @override
+  String get aiCreatedBy => '由 AI 创建';
+
+  @override
+  String aiCreatedByRequest(String request) {
+    return '由 AI 创建：$request';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -2360,4 +2393,37 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get viewSourceCode => '查看源代码';
+
+  @override
+  String get sessionFiesta => '派对';
+
+  @override
+  String get sessionRelax => '放松';
+
+  @override
+  String get sessionGym => '健身';
+
+  @override
+  String get sessionStudy => '学习';
+
+  @override
+  String get sessionSleep => '睡眠';
+
+  @override
+  String librarySummary(int songs, int genres, int playlists) {
+    return '$songs 首歌曲 · $genres 种风格 · $playlists 个歌单';
+  }
+
+  @override
+  String structureLabel(String value) {
+    return '结构：$value';
+  }
+
+  @override
+  String get aiCreatedBy => '由 AI 创建';
+
+  @override
+  String aiCreatedByRequest(String request) {
+    return '由 AI 创建：$request';
+  }
 }

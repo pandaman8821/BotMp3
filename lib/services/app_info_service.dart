@@ -16,6 +16,9 @@ class AppInfoService {
   /// Código de compilación (versionCode) ya consultado, si lo hay.
   static int? get codigoCache => _codigo;
 
+  /// Nombre de version ya consultado (sin esperar).
+  static String? get nombreCache => _nombre;
+
   static Future<void> _consultar() async {
     if (_consultado) return;
     _consultado = true;

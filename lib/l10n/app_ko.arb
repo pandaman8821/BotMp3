@@ -441,5 +441,41 @@
   },
   "licensesTitle": "오픈 소스 라이선스",
   "gplNotice": "BotMp3는 GPL-3.0 라이선스의 자유 소프트웨어입니다. 소스 코드는 GitHub에서 이용 가능합니다.",
-  "viewSourceCode": "소스 코드 보기"
+  "viewSourceCode": "소스 코드 보기",
+  "sessionFiesta": "파티",
+  "sessionRelax": "휴식",
+  "sessionGym": "운동",
+  "sessionStudy": "공부",
+  "sessionSleep": "수면",
+  "librarySummary": "{songs}곡 · {genres}장르 · {playlists}플레이리스트",
+  "@librarySummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "genres": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "structureLabel": "구조: {value}",
+  "@structureLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "aiCreatedBy": "AI가 생성",
+  "aiCreatedByRequest": "AI 생성: {request}",
+  "@aiCreatedByRequest": {
+    "placeholders": {
+      "request": {
+        "type": "String"
+      }
+    }
+  }
 }
