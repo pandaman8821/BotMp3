@@ -441,5 +441,41 @@
   },
   "licensesTitle": "ओपन सोर्स लाइसेंस",
   "gplNotice": "BotMp3 GPL-3.0 के तहत मुफ़्त सॉफ़्टवेयर है। स्रोत कोड GitHub पर उपलब्ध है।",
-  "viewSourceCode": "स्रोत कोड देखें"
+  "viewSourceCode": "स्रोत कोड देखें",
+  "sessionFiesta": "पार्टी",
+  "sessionRelax": "आराम",
+  "sessionGym": "जिम",
+  "sessionStudy": "अध्ययन",
+  "sessionSleep": "नींद",
+  "librarySummary": "{songs} गाने · {genres} शैलियाँ · {playlists} प्लेलिस्ट",
+  "@librarySummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "genres": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "structureLabel": "संरचना: {value}",
+  "@structureLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "aiCreatedBy": "AI द्वारा बनाई गई",
+  "aiCreatedByRequest": "AI द्वारा बनाई गई: {request}",
+  "@aiCreatedByRequest": {
+    "placeholders": {
+      "request": {
+        "type": "String"
+      }
+    }
+  }
 }

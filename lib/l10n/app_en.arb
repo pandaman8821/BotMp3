@@ -660,5 +660,41 @@
   },
   "licensesTitle": "Open Source Licenses",
   "gplNotice": "BotMp3 is Free Software under GPL-3.0. Source code available on GitHub.",
-  "viewSourceCode": "View Source Code"
+  "viewSourceCode": "View Source Code",
+  "sessionFiesta": "Party",
+  "sessionRelax": "Relax",
+  "sessionGym": "Gym",
+  "sessionStudy": "Study",
+  "sessionSleep": "Sleep",
+  "librarySummary": "{songs} songs · {genres} genres · {playlists} playlists",
+  "@librarySummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "genres": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "structureLabel": "Structure: {value}",
+  "@structureLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "aiCreatedBy": "Created by AI",
+  "aiCreatedByRequest": "Created by AI: {request}",
+  "@aiCreatedByRequest": {
+    "placeholders": {
+      "request": {
+        "type": "String"
+      }
+    }
+  }
 }

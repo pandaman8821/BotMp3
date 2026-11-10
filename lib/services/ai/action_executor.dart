@@ -1,3 +1,4 @@
+import '../../core/ui_strings.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../core/constants.dart';
@@ -153,7 +154,7 @@ class ActionExecutor {
               : action.playlistName!.trim();
           final Playlist created = await library.createPlaylist(
             name: name,
-            description: action.query == null ? 'Creada por la IA' : 'IA · ${action.query}',
+            description: action.query == null ? UiStrings.loc.aiCreatedBy : 'IA · ${action.query}',
             songIds: songs.map((Song song) => song.id).toList(),
             isAiGenerated: true,
             aiPrompt: action.query,
@@ -177,7 +178,7 @@ class ActionExecutor {
           }
           playlist ??= await library.createPlaylist(
             name: wanted.isEmpty ? 'Lista IA' : wanted,
-            description: 'Creada por la IA',
+            description: UiStrings.loc.aiCreatedBy,
             isAiGenerated: true,
           );
           await library.addSongsToPlaylist(

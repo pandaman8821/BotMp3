@@ -1,3 +1,4 @@
+import '../../core/ui_strings.dart';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
@@ -24,7 +25,7 @@ class AiOrchestrator {
   final AiClient client;
   final List<Song> librarySongs;
 
-  static const String _system = '''
+  static String get _system => '''
 Eres "BotMp3 IA", un DJ y curador musical experto que conversa en español.
 Conoces la biblioteca local del usuario (se te entrega como contexto) y puedes
 recomendar tanto canciones que ya tiene como música externa que debería buscar.
@@ -230,7 +231,7 @@ Devuelve EXACTAMENTE este JSON (sin markdown):
       text: parsed.text,
       suggestions: parsed.suggestions,
       playlistName: parsed.playlistName ?? _fallbackPlaylistName(request),
-      playlistDescription: parsed.playlistDescription ?? 'Creada por IA: $request',
+      playlistDescription: parsed.playlistDescription ?? UiStrings.loc.aiCreatedByRequest(request),
     );
   }
 

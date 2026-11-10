@@ -441,5 +441,41 @@
   },
   "licensesTitle": "开源许可证",
   "gplNotice": "BotMp3 是基于 GPL-3.0 的自由软件。源代码可在 GitHub 获取。",
-  "viewSourceCode": "查看源代码"
+  "viewSourceCode": "查看源代码",
+  "sessionFiesta": "派对",
+  "sessionRelax": "放松",
+  "sessionGym": "健身",
+  "sessionStudy": "学习",
+  "sessionSleep": "睡眠",
+  "librarySummary": "{songs} 首歌曲 · {genres} 种风格 · {playlists} 个歌单",
+  "@librarySummary": {
+    "placeholders": {
+      "songs": {
+        "type": "int"
+      },
+      "genres": {
+        "type": "int"
+      },
+      "playlists": {
+        "type": "int"
+      }
+    }
+  },
+  "structureLabel": "结构：{value}",
+  "@structureLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "aiCreatedBy": "由 AI 创建",
+  "aiCreatedByRequest": "由 AI 创建：{request}",
+  "@aiCreatedByRequest": {
+    "placeholders": {
+      "request": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -1213,4 +1213,37 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get viewSourceCode => 'स्रोत कोड देखें';
+
+  @override
+  String get sessionFiesta => 'पार्टी';
+
+  @override
+  String get sessionRelax => 'आराम';
+
+  @override
+  String get sessionGym => 'जिम';
+
+  @override
+  String get sessionStudy => 'अध्ययन';
+
+  @override
+  String get sessionSleep => 'नींद';
+
+  @override
+  String librarySummary(int songs, int genres, int playlists) {
+    return '$songs गाने · $genres शैलियाँ · $playlists प्लेलिस्ट';
+  }
+
+  @override
+  String structureLabel(String value) {
+    return 'संरचना: $value';
+  }
+
+  @override
+  String get aiCreatedBy => 'AI द्वारा बनाई गई';
+
+  @override
+  String aiCreatedByRequest(String request) {
+    return 'AI द्वारा बनाई गई: $request';
+  }
 }

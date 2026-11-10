@@ -1234,6 +1234,39 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get viewSourceCode => 'Ver código-fonte';
+
+  @override
+  String get sessionFiesta => 'Festa';
+
+  @override
+  String get sessionRelax => 'Relaxar';
+
+  @override
+  String get sessionGym => 'Academia';
+
+  @override
+  String get sessionStudy => 'Estudo';
+
+  @override
+  String get sessionSleep => 'Dormir';
+
+  @override
+  String librarySummary(int songs, int genres, int playlists) {
+    return '$songs músicas · $genres gêneros · $playlists playlists';
+  }
+
+  @override
+  String structureLabel(String value) {
+    return 'Estrutura: $value';
+  }
+
+  @override
+  String get aiCreatedBy => 'Criada pela IA';
+
+  @override
+  String aiCreatedByRequest(String request) {
+    return 'Criada pela IA: $request';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -2466,4 +2499,37 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get viewSourceCode => 'Ver código-fonte';
+
+  @override
+  String get sessionFiesta => 'Festa';
+
+  @override
+  String get sessionRelax => 'Relaxar';
+
+  @override
+  String get sessionGym => 'Academia';
+
+  @override
+  String get sessionStudy => 'Estudo';
+
+  @override
+  String get sessionSleep => 'Dormir';
+
+  @override
+  String librarySummary(int songs, int genres, int playlists) {
+    return '$songs músicas · $genres gêneros · $playlists playlists';
+  }
+
+  @override
+  String structureLabel(String value) {
+    return 'Estrutura: $value';
+  }
+
+  @override
+  String get aiCreatedBy => 'Criada pela IA';
+
+  @override
+  String aiCreatedByRequest(String request) {
+    return 'Criada pela IA: $request';
+  }
 }

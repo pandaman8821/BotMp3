@@ -21,4 +21,23 @@ class UiStrings {
       return lookupAppLocalizations(const Locale('en'));
     }
   }
+
+  /// Nombre del idioma activo EN INGLES (lo usan las instrucciones de la IA).
+  static String get languageName {
+    const Map<String, String> nombres = <String, String>{
+      'en': 'English',
+      'es': 'Spanish',
+      'pt': 'Portuguese',
+      'zh': 'Chinese',
+      'ja': 'Japanese',
+      'ko': 'Korean',
+      'de': 'German',
+      'fr': 'French',
+      'it': 'Italian',
+      'hi': 'Hindi',
+    };
+    final String code = (Intl.defaultLocale ?? 'en').replaceAll('_', '-').toLowerCase();
+    final String base = code.split('-').first;
+    return nombres[base] ?? 'English';
+  }
 }

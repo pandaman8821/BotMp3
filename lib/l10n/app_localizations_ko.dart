@@ -1187,4 +1187,37 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get viewSourceCode => '소스 코드 보기';
+
+  @override
+  String get sessionFiesta => '파티';
+
+  @override
+  String get sessionRelax => '휴식';
+
+  @override
+  String get sessionGym => '운동';
+
+  @override
+  String get sessionStudy => '공부';
+
+  @override
+  String get sessionSleep => '수면';
+
+  @override
+  String librarySummary(int songs, int genres, int playlists) {
+    return '$songs곡 · $genres장르 · $playlists플레이리스트';
+  }
+
+  @override
+  String structureLabel(String value) {
+    return '구조: $value';
+  }
+
+  @override
+  String get aiCreatedBy => 'AI가 생성';
+
+  @override
+  String aiCreatedByRequest(String request) {
+    return 'AI 생성: $request';
+  }
 }

@@ -1235,4 +1235,37 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get viewSourceCode => 'Quellcode anzeigen';
+
+  @override
+  String get sessionFiesta => 'Party';
+
+  @override
+  String get sessionRelax => 'Entspannen';
+
+  @override
+  String get sessionGym => 'Fitness';
+
+  @override
+  String get sessionStudy => 'Lernen';
+
+  @override
+  String get sessionSleep => 'Schlafen';
+
+  @override
+  String librarySummary(int songs, int genres, int playlists) {
+    return '$songs Titel · $genres Genres · $playlists Playlists';
+  }
+
+  @override
+  String structureLabel(String value) {
+    return 'Aufbau: $value';
+  }
+
+  @override
+  String get aiCreatedBy => 'Von KI erstellt';
+
+  @override
+  String aiCreatedByRequest(String request) {
+    return 'Von KI erstellt: $request';
+  }
 }

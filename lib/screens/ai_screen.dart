@@ -536,19 +536,19 @@ class _AiScreenState extends State<AiScreen> {
         children: <Widget>[
           // Acceso directo a las canciones en tendencia.
           _action(
-            '${context.watch<SettingsProvider>().sesion.isEmpty ? 'ninguna' : context.watch<SettingsProvider>().sesion}',
+            AppLocalizations.of(context).sessionLabel(_nombreSesion(context, _normalizarSesion(context.watch<SettingsProvider>().sesion))),
             Icons.tune,
             () async {
               const List<String> sesiones = <String>[
                 '',
-                'Fiesta',
-                'Relax',
-                'Gym',
-                'Estudio',
-                'Dormir',
+                'fiesta',
+                'relax',
+                'gym',
+                'estudio',
+                'dormir',
               ];
               final SettingsProvider ajustes = context.read<SettingsProvider>();
-              final int actual = sesiones.indexOf(ajustes.sesion);
+              final int actual = sesiones.indexOf(_normalizarSesion(ajustes.sesion));
               final String siguiente = sesiones[(actual + 1) % sesiones.length];
               await ajustes.setSesion(siguiente);
               if (!context.mounted) return;
@@ -557,7 +557,7 @@ class _AiScreenState extends State<AiScreen> {
                   content: Text(
                     siguiente.isEmpty
                         ? AppLocalizations.of(context).sessionDisabled
-                        : '$siguiente (el DJ y las listas la respetarán)',
+                        : AppLocalizations.of(context).sessionNotice(_nombreSesion(context, siguiente)),
                   ),
                 ),
               );
@@ -616,6 +616,41 @@ class _AiScreenState extends State<AiScreen> {
         ],
       ),
     );
+  }
+
+  /// Token interno de la sesion (independiente del idioma).
+  String _normalizarSesion(String valor) {
+    final String v = valor.trim().toLowerCase();
+    const Map<String, String> equivalencias = <String, String>{
+      'fiesta': 'fiesta',
+      'party': 'fiesta',
+      'relax': 'relax',
+      'gym': 'gym',
+      'estudio': 'estudio',
+      'study': 'estudio',
+      'dormir': 'dormir',
+      'sleep': 'dormir',
+    };
+    return equivalencias[v] ?? (v.isEmpty ? '' : v);
+  }
+
+  /// Nombre traducido de una sesion.
+  String _nombreSesion(BuildContext context, String token) {
+    final AppLocalizations loc = AppLocalizations.of(context);
+    switch (token) {
+      case 'fiesta':
+        return loc.sessionFiesta;
+      case 'relax':
+        return loc.sessionRelax;
+      case 'gym':
+        return loc.sessionGym;
+      case 'estudio':
+        return loc.sessionStudy;
+      case 'dormir':
+        return loc.sessionSleep;
+      default:
+        return loc.sessionNone;
+    }
   }
 
   Widget _action(String label, IconData icon, VoidCallback onTap) {

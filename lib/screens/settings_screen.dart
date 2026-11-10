@@ -81,6 +81,7 @@ class SettingsScreen extends StatelessWidget {
               if (elegido != null) await settings.setTrendsCountry(elegido);
             },
           ),
+
           ListTile(
             leading: Icon(Icons.schedule),
             title: Text(AppLocalizations.of(context).dailyAlertTime),
@@ -864,20 +865,19 @@ ListTile(
                   ),
                   isThreeLine: true,
               );
-          ListTile(
-            leading: Icon(Icons.article_outlined),
-            title: Text(AppLocalizations.of(context).licensesTitle),
-            subtitle: Text(AppLocalizations.of(context).gplNotice),
-            onTap: () {
-              showLicensePage(
-                context: context,
-                applicationName: 'BotMp3',
-                applicationVersion: AppInfoService.versionNombreCache ?? '1.9.109',
-                applicationLegalese: 'GPL-3.0 License © 2026 BotMp3',
-              );
+
             },
           ),
-            },
+          ListTile(
+            leading: const Icon(Icons.article_outlined),
+            title: Text(AppLocalizations.of(context).licensesTitle),
+            subtitle: Text(AppLocalizations.of(context).gplNotice),
+            onTap: () => showLicensePage(
+              context: context,
+              applicationName: 'BotMp3',
+              applicationVersion: AppInfoService.nombreCache ?? '',
+              applicationLegalese: 'GPL-3.0 License (c) 2026 BotMp3',
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
