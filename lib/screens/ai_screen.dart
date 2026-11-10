@@ -1,4 +1,5 @@
 import '../l10n/app_localizations.dart';
+import '../widgets/modern_app_bar.dart';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class _AiScreenState extends State<AiScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).aiMusicTitle),
+        title: TituloPantalla(text: AppLocalizations.of(context).aiMusicTitle),
         actions: <Widget>[
           IconButton(
             tooltip: settings.ttsEnabled ? 'Desactivar voz' : 'Leer respuestas en voz alta',

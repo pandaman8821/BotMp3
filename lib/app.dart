@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'core/motion.dart';
 import 'core/theme.dart';
 import 'core/theme/theme_backdrop.dart';
 import 'core/theme/theme_manager.dart';
@@ -11,7 +12,7 @@ import 'providers/ai_provider.dart';
 import 'providers/library_provider.dart';
 import 'providers/player_provider.dart';
 import 'providers/settings_provider.dart';
-import 'screens/home_shell.dart';
+import 'widgets/splash_gate.dart';
 import 'services/settings_service.dart';
 
 /// Raiz de la aplicacion: inyecta los providers y aplica el tema.
@@ -85,9 +86,10 @@ class BotMp3App extends StatelessWidget {
             // Los formatos (fechas, numeros) siguen el idioma que se este usando.
             builder: (BuildContext context, Widget? child) {
               Intl.defaultLocale = Localizations.localeOf(context).toString();
+              Motion.reducir = temas.reducirMovimiento;
               return ThemeBackdrop(child: child ?? const SizedBox.shrink());
             },
-            home: const HomeShell(),
+            home: const SplashGate(),
           );
         },
       ),

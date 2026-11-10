@@ -14,6 +14,7 @@ import 'ranking_screen.dart';
 import '../core/theme.dart';
 import '../widgets/dialogs.dart';
 import '../widgets/modern_app_bar.dart';
+import '../widgets/skeleton.dart';
 import '../widgets/mini_player.dart';
 import '../widgets/song_tile.dart';
 import 'car_mode_screen.dart';
@@ -355,7 +356,9 @@ class _SongsScreenState extends State<SongsScreen> {
               ),
             ),
           Expanded(
-            child: songs.isEmpty
+            child: library.isLoading && songs.isEmpty
+                ? const ListaSkeleton()
+                : songs.isEmpty
                 ? EmptyState(
                     icon: Icons.library_music_outlined,
                     title: library.songs.isEmpty

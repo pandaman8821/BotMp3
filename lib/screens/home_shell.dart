@@ -1,5 +1,6 @@
 import '../services/audio_device_watcher.dart';
 import 'package:just_audio_background/just_audio_background.dart';
+import '../core/motion.dart';
 import '../l10n/app_localizations.dart';
 import '../services/settings_service.dart';
 import 'dart:io';
@@ -51,6 +52,7 @@ class _HomeShellState extends State<HomeShell>
 
   /// Cambia de pestaña animando la entrada del contenido (en todas).
   void _changeTab(int value) {
+    Hapticos.toque();
     if (value == _index) return;
     setState(() => _index = value);
     if (!MediaQuery.disableAnimationsOf(context)) {

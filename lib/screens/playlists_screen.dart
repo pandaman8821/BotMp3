@@ -11,6 +11,8 @@ import '../providers/library_provider.dart';
 import '../providers/player_provider.dart';
 import '../services/media_importer.dart';
 import '../widgets/cover_art.dart';
+import '../widgets/modern_app_bar.dart';
+import '../widgets/playlist_collage.dart';
 import '../widgets/dialogs.dart';
 import '../widgets/mini_player.dart';
 import '../widgets/song_tile.dart';
@@ -26,7 +28,7 @@ class PlaylistsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).tabPlaylists),
+        title: TituloPantalla(text: AppLocalizations.of(context).tabPlaylists),
         actions: <Widget>[
           IconButton(
             tooltip: AppLocalizations.of(context).importListJson,
@@ -70,7 +72,9 @@ class PlaylistsScreen extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                    leading: CoverArt(path: cover, size: 58),
+                    leading: cover != null && cover.isNotEmpty
+                        ? CoverArt(path: cover, size: 58)
+                        : PlaylistCollage(songs: songs, size: 58),
                     title: Row(
                       children: <Widget>[
                         Flexible(
