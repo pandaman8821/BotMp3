@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '../core/theme.dart';
 import '../l10n/app_localizations.dart';
-import '../services/share_service.dart';
 import '../models/song.dart';
 import '../providers/player_provider.dart';
 import '../services/lyrics_fetcher.dart';
@@ -128,29 +127,6 @@ class _LyricsScreenState extends State<LyricsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.song.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-        actions: <Widget>[
-          IconButton(
-            tooltip: AppLocalizations.of(context).shareLyrics,
-            icon: const Icon(Icons.ios_share),
-            onPressed: () async {
-              final String? letra = await _futuro;
-              if (!context.mounted || letra == null || letra.trim().isEmpty) return;
-              final bool ok = await ShareService.texto(
-                '${widget.song.title} -- ${widget.song.artist}\n\n$letra\n\n'
-                '${AppLocalizations.of(context).shareAttribution}',
-                asunto: widget.song.title,
-              );
-              if (!context.mounted) return;
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(ok
-                      ? AppLocalizations.of(context).shareLyrics
-                      : AppLocalizations.of(context).shareCopiedInstead),
-                ),
-              );
-            },
-          ),
-        ],
       ),
       body: FutureBuilder<String?>(
         future: _futuro,

@@ -790,19 +790,5 @@
   "useModel": "使用",
   "modelsAutoHint": "免费模型优先，每 3 天自动更新。",
   "aiHintGeminiNew": "最新的 Gemini，包含在免费额度中。推荐。",
-  "aiHintGeminiLite": "轻量版 Gemini：非常快，免费额度几乎不限。",
-  "shareSong": "分享歌曲",
-  "sharePlaylistText": "分享歌单（文本）",
-  "sharePlaylistImage": "分享歌单（图片）",
-  "shareLyrics": "分享歌词",
-  "shareAttribution": "来自 BotMp3 分享 · 请在你的流媒体应用中收听",
-  "shareCopiedInstead": "已复制到剪贴板",
-  "shareSongsCount": "{count} 首歌曲",
-  "@shareSongsCount": {
-    "placeholders": {
-      "count": {
-        "type": "String"
-      }
-    }
-  }
+  "aiHintGeminiLite": "轻量版 Gemini：非常快，免费额度几乎不限。"
 }
