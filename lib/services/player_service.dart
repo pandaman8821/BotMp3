@@ -70,6 +70,9 @@ class PlayerService {
 
   /// Última canción cuya reproducción ya se contó para el ranking
   /// (evita duplicados al preparar colas o al cambiar de pista).
+  /// Ultimas marcas de reproduccion (para el diagnostico del Ranking).
+  static final List<String> ultimasMarcas = <String>[];
+
   /// Evita contar dos veces la misma reproduccion, pero se reinicia cada vez
   /// que empieza una cancion (antes bloqueaba para siempre el recuento).
   bool _contadoEnEstaReproduccion = false;
@@ -138,15 +141,11 @@ class PlayerService {
     // Se cuenta a los 20 s de reproduccion real: un salto rapido no infla el
     // ranking. Si la cancion cambia antes, el temporizador se cancela.
     _temporizadorRecuento?.cancel();
-    final int indiceContado = indice;
     final String idContado = cancion.id;
-    _temporizadorRecuento = Timer(const Duration(seconds: 20), () {
-      if (!_player.playing) return;
-      if ((_player.currentIndex ?? _currentIndex) != indiceContado) return;
-      if (_contadoEnEstaReproduccion) return;
-      _contadoEnEstaReproduccion = true;
-      debugPrint('Recuento +1: $idContado');
-      onSongStarted?.call(cancion);
+    // A los 8 segundos de audio real ya se cuenta (antes 20 s: se perdian
+    // reproducciones si el usuario cambiaba de pista antes).
+    _temporizadorRecuento = Timer(const Duration(seconds: 8), () {
+      _contarAhora(idContado);
     });
     // Refresca el widget de inicio con lo que suena (sin esperar a los 20 s).
     unawaited(WidgetService.actualizar(cancion, suena: true));
@@ -158,6 +157,20 @@ class PlayerService {
     }
     // Refresca el widget de inicio con lo que suena.
     unawaited(WidgetService.actualizar(cancion, suena: true));
+  }
+
+  /// Suma una reproduccion si la cancion sigue siendo la actual.
+  void _contarAhora(String idEsperado) {
+    final Song? actual = current;
+    if (actual == null || actual.id != idEsperado) return;
+    if (!_player.playing) return;
+    if (_contadoEnEstaReproduccion) return;
+    _contadoEnEstaReproduccion = true;
+    ultimasMarcas.insert(0,
+        '${DateTime.now().toIso8601String().substring(11, 19)} · ${actual.title}');
+    if (ultimasMarcas.length > 12) ultimasMarcas.removeLast();
+    debugPrint('Recuento +1: ${actual.id} (${actual.title})');
+    onSongStarted?.call(actual);
   }
 
   void _registrarError(String mensaje) {
@@ -860,6 +873,10 @@ class PlayerService {
     if (_advancing) return;
     _advancing = true;
     try {
+      // Si la pista llega al final, cuenta aunque el temporizador no haya
+      // llegado a dispararse.
+      final Song? sonada = current;
+      if (sonada != null) _contarAhora(sonada.id);
       // Repetir UNA sola cancion: se vuelve a empezar la misma pista. Antes se
       // llamaba siempre a next(), asi que en modo "repetir una" se repetia la
       // cola entera en lugar de la cancion.

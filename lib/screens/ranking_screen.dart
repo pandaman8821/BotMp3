@@ -6,6 +6,7 @@ import '../core/theme.dart';
 import '../models/song.dart';
 import '../providers/library_provider.dart';
 import '../providers/player_provider.dart';
+import '../services/player_service.dart';
 import '../widgets/cover_art.dart';
 
 enum _Periodo { todo, mes, semana }
@@ -156,6 +157,43 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
                   style: TextStyle(fontSize: 11.5, color: AppColors.darkTextDim),
                 ),
               ],
+            ),
+          ),
+          // Diagnostico: sirve para comprobar que las reproducciones se cuentan.
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 6),
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: AppColors.darkSurface.withAlpha(180),
+                border: Border.all(color: AppColors.green.withAlpha(60)),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Registro: ${library.service.playLogSize} · '
+                    'Hoy: ${library.service.playsSince(DateTime.now().subtract(const Duration(days: 1))).values.fold<int>(0, (int a, int b) => a + b)}',
+                    style: const TextStyle(fontSize: 11.5, fontWeight: FontWeight.w600),
+                  ),
+                  if (PlayerService.ultimasMarcas.isEmpty)
+                    Text(
+                      'Aun no se ha contado ninguna reproduccion en esta sesion.',
+                      style: TextStyle(fontSize: 11, color: AppColors.darkTextDim),
+                    )
+                  else
+                    ...PlayerService.ultimasMarcas.take(3).map(
+                          (String marca) => Text(
+                            marca,
+                            style: TextStyle(fontSize: 11, color: AppColors.darkTextDim),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                ],
+              ),
             ),
           ),
           Expanded(
