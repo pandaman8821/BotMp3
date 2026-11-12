@@ -48,12 +48,24 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
     final LibraryProvider library = context.watch<LibraryProvider>();
     final DateTime? desde = _periodo.desde;
 
-    final List<Song> canciones = library.service.topCanciones(from: desde, limit: 100);
-    final List<MapEntry<String, int>> artistas = library.service.topArtistas(from: desde);
-    final List<MapEntry<String, int>> albumes = library.service.topAlbumes(from: desde);
-    final List<MapEntry<String, int>> generos = library.service.topGeneros(from: desde);
-    final int totalReproducciones =
-        library.service.playsSince(desde).values.fold<int>(0, (int a, int b) => a + b);
+    // Si algo fallara al calcular el ranking, se enseña el error en pantalla
+    // en lugar de una pantalla en blanco.
+    List<Song> canciones = const <Song>[];
+    List<MapEntry<String, int>> artistas = const <MapEntry<String, int>>[];
+    List<MapEntry<String, int>> albumes = const <MapEntry<String, int>>[];
+    List<MapEntry<String, int>> generos = const <MapEntry<String, int>>[];
+    int totalReproducciones = 0;
+    String? errorRanking;
+    try {
+      canciones = library.service.topCanciones(from: desde, limit: 100);
+      artistas = library.service.topArtistas(from: desde);
+      albumes = library.service.topAlbumes(from: desde);
+      generos = library.service.topGeneros(from: desde);
+      totalReproducciones =
+          library.service.playsSince(desde).values.fold<int>(0, (int a, int b) => a + b);
+    } catch (error) {
+      errorRanking = '$error';
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -113,6 +125,16 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
       ),
       body: Column(
         children: <Widget>[
+          if (errorRanking != null)
+            Container(
+              width: double.infinity,
+              color: Colors.redAccent.withAlpha(38),
+              padding: const EdgeInsets.all(12),
+              child: SelectableText(
+                'Ranking error: $errorRanking',
+                style: const TextStyle(fontSize: 12),
+              ),
+            ),
           Padding(
             padding: const EdgeInsets.fromLTRB(12, 10, 12, 4),
             child: Row(
