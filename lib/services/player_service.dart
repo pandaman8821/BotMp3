@@ -70,7 +70,9 @@ class PlayerService {
 
   /// Última canción cuya reproducción ya se contó para el ranking
   /// (evita duplicados al preparar colas o al cambiar de pista).
-  String? _ultimaReproduccionRegistrada;
+  /// Evita contar dos veces la misma reproduccion, pero se reinicia cada vez
+  /// que empieza una cancion (antes bloqueaba para siempre el recuento).
+  bool _contadoEnEstaReproduccion = false;
 
   /// Evita pintar el indice 0 que el reproductor emite al cargar la cola
   /// antes de aplicar el indice real (p. ej. la cancion aleatoria).
@@ -133,7 +135,6 @@ class PlayerService {
       ((_normalizar ? ReplayGain.factor(cancion.path) : 1.0) * (_lastVolume * (SettingsService.actual?.factorVolumen(cancion.id) ?? 1.0)))
           .clamp(0.0, 1.0),
     ));
-    if (_ultimaReproduccionRegistrada == cancion.id) return;
     // Se cuenta a los 20 s de reproduccion real: un salto rapido no infla el
     // ranking. Si la cancion cambia antes, el temporizador se cancela.
     _temporizadorRecuento?.cancel();
@@ -142,8 +143,9 @@ class PlayerService {
     _temporizadorRecuento = Timer(const Duration(seconds: 20), () {
       if (!_player.playing) return;
       if ((_player.currentIndex ?? _currentIndex) != indiceContado) return;
-      if (_ultimaReproduccionRegistrada == idContado) return;
-      _ultimaReproduccionRegistrada = idContado;
+      if (_contadoEnEstaReproduccion) return;
+      _contadoEnEstaReproduccion = true;
+      debugPrint('Recuento +1: $idContado');
       onSongStarted?.call(cancion);
     });
     // Refresca el widget de inicio con lo que suena (sin esperar a los 20 s).
@@ -780,6 +782,9 @@ class PlayerService {
 
   Future<void> _loadIndex(int queueIndex, {bool autoPlay = true, Duration? fundido}) async {
     if (queueIndex < 0 || queueIndex >= _queue.length) return;
+    // Nueva reproduccion: se permite volver a contar (aunque sea la misma pista).
+    _contadoEnEstaReproduccion = false;
+    _temporizadorRecuento?.cancel();
     final Duration duracionFundido = fundido ?? const Duration(milliseconds: 450);
     final bool aplicarFundido = _fundidoActivo && estaSonando && !_enTransicion &&
         duracionFundido.inMilliseconds > 0;
