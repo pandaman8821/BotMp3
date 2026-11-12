@@ -1554,30 +1554,6 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get aiHintGeminiLite =>
       'Gemini leve: muito rápido e praticamente ilimitado grátis.';
-
-  @override
-  String get shareSong => 'Compartilhar música';
-
-  @override
-  String get sharePlaylistText => 'Compartilhar playlist (texto)';
-
-  @override
-  String get sharePlaylistImage => 'Compartilhar playlist (imagem)';
-
-  @override
-  String get shareLyrics => 'Compartilhar letra';
-
-  @override
-  String get shareAttribution =>
-      'Compartilhado do BotMp3 · ouça no seu app de streaming';
-
-  @override
-  String get shareCopiedInstead => 'Copiado para a área de transferência';
-
-  @override
-  String shareSongsCount(String count) {
-    return '$count músicas';
-  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3130,28 +3106,4 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get aiHintGeminiLite =>
       'Gemini leve: muito rápido e praticamente ilimitado grátis.';
-
-  @override
-  String get shareSong => 'Compartilhar música';
-
-  @override
-  String get sharePlaylistText => 'Compartilhar playlist (texto)';
-
-  @override
-  String get sharePlaylistImage => 'Compartilhar playlist (imagem)';
-
-  @override
-  String get shareLyrics => 'Compartilhar letra';
-
-  @override
-  String get shareAttribution =>
-      'Compartilhado do BotMp3 · ouça no seu app de streaming';
-
-  @override
-  String get shareCopiedInstead => 'Copiado para a área de transferência';
-
-  @override
-  String shareSongsCount(String count) {
-    return '$count músicas';
-  }
 }

@@ -12,9 +12,7 @@ import '../providers/player_provider.dart';
 import '../services/media_importer.dart';
 import '../widgets/cover_art.dart';
 import '../widgets/modern_app_bar.dart';
-import '../services/share_service.dart';
 import '../widgets/playlist_collage.dart';
-import '../widgets/share_card.dart';
 import '../widgets/dialogs.dart';
 import '../widgets/mini_player.dart';
 import '../widgets/song_tile.dart';
@@ -118,8 +116,6 @@ class PlaylistsScreen extends StatelessWidget {
                         PopupMenuItem<String>(value: 'shuffle', child: Text(AppLocalizations.of(context).shuffle)),
                         PopupMenuItem<String>(value: 'edit', child: Text(AppLocalizations.of(context).editNameDesc)),
                         PopupMenuItem<String>(value: 'export', child: Text(AppLocalizations.of(context).exportJson)),
-                        PopupMenuItem<String>(value: 'shareText', child: Text(AppLocalizations.of(context).sharePlaylistText)),
-                        PopupMenuItem<String>(value: 'shareImage', child: Text(AppLocalizations.of(context).sharePlaylistImage)),
                         PopupMenuItem<String>(
                           value: 'delete',
                           child: Text(AppLocalizations.of(context).delete, style: const TextStyle(color: Colors.redAccent)),
@@ -250,11 +246,7 @@ class _PlaylistSongsScreen extends StatelessWidget {
               switch (action) {
                 case 'edit':
                   await AppDialogs.editPlaylist(context, playlist);
-                case 'shareText':
-            await compartirLista(context, playlist, false);
-          case 'shareImage':
-            await compartirLista(context, playlist, true);
-          case 'export':
+                case 'export':
                   final String json = library.exportPlaylist(playlist);
                   final String? path = await MediaImporter.exportText(
                     'botmp3_${playlist.name.replaceAll(RegExp(r'[^\w]+'), '_')}.json',
@@ -378,50 +370,4 @@ class _PlaylistSongsScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-/// Comparte una lista como texto (numerado) o como tarjeta de imagen.
-///
-/// Solo informacion: no se envia audio, para respetar los derechos de autor.
-Future<void> compartirLista(
-  BuildContext context,
-  Playlist playlist,
-  bool imagen,
-) async {
-  final AppLocalizations loc = AppLocalizations.of(context);
-  final LibraryProvider library = context.read<LibraryProvider>();
-  final List<Song> songs = library.songsOf(playlist);
-  final List<String> lineas = songs
-      .map((Song s) => '${s.title} — ${s.artist}')
-      .toList();
-  final String atribucion = loc.shareAttribution;
-
-  if (!imagen) {
-    final bool ok = await ShareService.texto(
-      ShareService.textoLista(
-        nombre: playlist.name,
-        canciones: lineas,
-        atribucion: atribucion,
-      ),
-      asunto: playlist.name,
-    );
-    if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(ok ? loc.sharePlaylistText : loc.shareCopiedInstead)),
-    );
-    return;
-  }
-
-  if (!context.mounted) return;
-  await showDialog<void>(
-    context: context,
-    builder: (BuildContext dialogContext) => ShareCardDialog(
-      titulo: playlist.name,
-      subtitulo: loc.shareSongsCount('${songs.length}'),
-      canciones: lineas.take(8).toList(),
-      atribucion: atribucion,
-      textoCompartir: loc.sharePlaylistImage,
-      portada: songs,
-    ),
-  );
 }

@@ -1552,28 +1552,4 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get aiHintGeminiLite =>
       'Gemini leggero: molto veloce e quasi illimitato gratis.';
-
-  @override
-  String get shareSong => 'Condividi brano';
-
-  @override
-  String get sharePlaylistText => 'Condividi playlist (testo)';
-
-  @override
-  String get sharePlaylistImage => 'Condividi playlist (immagine)';
-
-  @override
-  String get shareLyrics => 'Condividi testo';
-
-  @override
-  String get shareAttribution =>
-      'Condiviso da BotMp3 · ascoltalo nella tua app di streaming';
-
-  @override
-  String get shareCopiedInstead => 'Copiato negli appunti';
-
-  @override
-  String shareSongsCount(String count) {
-    return '$count brani';
-  }
 }
