@@ -224,6 +224,9 @@ class LibraryService {
 
   /// Reproducciones por canción desde una fecha (null = todo el historial).
   /// Si aún no hay historial, se usa el contador acumulado de cada canción.
+  /// Cuantas reproducciones hay guardadas (diagnostico).
+  int get playLogSize => _playLog.length;
+
   Map<String, int> playsSince(DateTime? from) {
     final Map<String, int> conteo = <String, int>{};
     if (_playLog.isEmpty) {
