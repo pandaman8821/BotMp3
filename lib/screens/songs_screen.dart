@@ -254,66 +254,79 @@ class _SongsScreenState extends State<SongsScreen> {
                 ),
               ]
             : <Widget>[
-                BotonAccion(
-                  icono: Icons.sort_rounded,
-                  tamano: 20,
-                  anchoAlto: 36,
-                  tooltip: AppLocalizations.of(context).sortBy,
-                  onPressed: () => _mostrarMenuOrden(context),
-                ),
-                BotonAccion(
-                  icono: library.hasActiveFilters ? Icons.filter_alt : Icons.filter_alt_outlined,
-                  tooltip: AppLocalizations.of(context).advancedFilters,
-                  activo: library.hasActiveFilters,
-                  onPressed: () => AppDialogs.showFilters(context),
-                ),
-                BotonAccion(
-                  icono: Icons.shuffle_rounded,
-                  tamano: 20,
-                  anchoAlto: 36,
-                  tooltip: AppLocalizations.of(context).shuffleAll,
-                  onPressed: () async {
-                    if (songs.isEmpty) return;
-                    final int azar = Random().nextInt(songs.length);
-                    if (!player.isShuffleEnabled) player.toggleShuffle();
-                    await player.setQueue(songs, startIndex: azar, autoPlay: true);
-                  },
-                ),
-                BotonAccion(
-                  icono: Icons.leaderboard_rounded,
-                  tooltip: AppLocalizations.of(context).mostPlayedRanking,
-                  tamano: 20,
-                  anchoAlto: 36,
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => const RankingScreen()),
+                SizedBox(
+                  width: 6 * 34.0,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        BotonAccion(
+                          icono: Icons.leaderboard_rounded,
+                          tooltip: AppLocalizations.of(context).mostPlayedRanking,
+                          tamano: 20,
+                          anchoAlto: 34,
+                          onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute<void>(builder: (_) => const RankingScreen()),
+                          ),
+                        ),
+                        BotonAccion(
+                          icono: Icons.sort_rounded,
+                          tooltip: AppLocalizations.of(context).sortBy,
+                          tamano: 20,
+                          anchoAlto: 34,
+                          onPressed: () => _mostrarMenuOrden(context),
+                        ),
+                        BotonAccion(
+                          icono: library.hasActiveFilters ? Icons.filter_alt : Icons.filter_alt_outlined,
+                          tooltip: AppLocalizations.of(context).advancedFilters,
+                          activo: library.hasActiveFilters,
+                          tamano: 20,
+                          anchoAlto: 34,
+                          onPressed: () => AppDialogs.showFilters(context),
+                        ),
+                        BotonAccion(
+                          icono: Icons.shuffle_rounded,
+                          tooltip: AppLocalizations.of(context).shuffleAll,
+                          tamano: 20,
+                          anchoAlto: 34,
+                          onPressed: () async {
+                            if (songs.isEmpty) return;
+                            final int azar = Random().nextInt(songs.length);
+                            if (!player.isShuffleEnabled) player.toggleShuffle();
+                            await player.setQueue(songs, startIndex: azar, autoPlay: true);
+                          },
+                        ),
+                        BotonAccion(
+                          icono: Icons.directions_car_rounded,
+                          tooltip: AppLocalizations.of(context).carMode,
+                          tamano: 20,
+                          anchoAlto: 34,
+                          onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute<void>(builder: (_) => const CarModeScreen()),
+                          ),
+                        ),
+                        BotonAccion(
+                          icono: Icons.lyrics_rounded,
+                          tooltip: AppLocalizations.of(context).songLyrics,
+                          tamano: 20,
+                          anchoAlto: 34,
+                          onPressed: () {
+                            final Song? actual = context.read<PlayerProvider>().current;
+                            if (actual == null) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(AppLocalizations.of(context).playSomethingFirst)),
+                              );
+                              return;
+                            }
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(builder: (_) => LyricsScreen(song: actual)),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                BotonAccion(
-                  icono: Icons.directions_car_rounded,
-                  tooltip: AppLocalizations.of(context).carMode,
-                  tamano: 20,
-                  anchoAlto: 36,
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute<void>(builder: (_) => const CarModeScreen()),
-                  ),
-                ),
-                BotonAccion(
-                  icono: Icons.lyrics_rounded,
-                  tooltip: AppLocalizations.of(context).songLyrics,
-                  tamano: 20,
-                  anchoAlto: 36,
-                  onPressed: () {
-                    final Song? actual = context.read<PlayerProvider>().current;
-                    if (actual == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context).playSomethingFirst)),
-                      );
-                      return;
-                    }
-                    Navigator.of(context).push(
-                      MaterialPageRoute<void>(builder: (_) => LyricsScreen(song: actual)),
-                    );
-                  },
                 ),
               ],
       ),
