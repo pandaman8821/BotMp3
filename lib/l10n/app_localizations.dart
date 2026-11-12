@@ -2780,6 +2780,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Lightweight Gemini: very fast and almost unlimited for free.'**
   String get aiHintGeminiLite;
+
+  /// No description provided for @shareSong.
+  ///
+  /// In en, this message translates to:
+  /// **'Share song'**
+  String get shareSong;
+
+  /// No description provided for @sharePlaylistText.
+  ///
+  /// In en, this message translates to:
+  /// **'Share playlist (text)'**
+  String get sharePlaylistText;
+
+  /// No description provided for @sharePlaylistImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Share playlist (image)'**
+  String get sharePlaylistImage;
+
+  /// No description provided for @shareLyrics.
+  ///
+  /// In en, this message translates to:
+  /// **'Share lyrics'**
+  String get shareLyrics;
+
+  /// No description provided for @shareAttribution.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared from BotMp3 · listen in your streaming app'**
+  String get shareAttribution;
+
+  /// No description provided for @shareCopiedInstead.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied to clipboard'**
+  String get shareCopiedInstead;
+
+  /// No description provided for @shareSongsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} songs'**
+  String shareSongsCount(String count);
 }
 
 class _AppLocalizationsDelegate

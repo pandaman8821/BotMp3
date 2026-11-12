@@ -18,6 +18,7 @@ import '../providers/settings_provider.dart';
 import '../services/settings_service.dart';
 import '../services/voice_service.dart';
 import '../services/bookmarks_service.dart';
+import '../services/share_service.dart';
 import '../services/cover_palette.dart';
 import '../widgets/cover_art.dart';
 import '../widgets/wave_bars.dart';
@@ -163,6 +164,31 @@ class _PlayerScreenState extends State<PlayerScreen> {
             tooltip: AppLocalizations.of(context).bookmarksTitle,
             icon: const Icon(Icons.bookmarks_outlined),
             onPressed: () => _mostrarMarcadores(current),
+          ),
+          IconButton(
+            tooltip: AppLocalizations.of(context).shareSong,
+            icon: const Icon(Icons.ios_share),
+            onPressed: () async {
+              final bool ok = await ShareService.texto(
+                ShareService.textoCancion(
+                  titulo: current.title,
+                  artista: current.artist,
+                  album: current.album,
+                  atribucion: AppLocalizations.of(context).shareAttribution,
+                ),
+                asunto: current.title,
+              );
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    ok
+                        ? AppLocalizations.of(context).shareSong
+                        : AppLocalizations.of(context).shareCopiedInstead,
+                  ),
+                ),
+              );
+            },
           ),
           IconButton(
             tooltip: AppLocalizations.of(context).menuEditCover,

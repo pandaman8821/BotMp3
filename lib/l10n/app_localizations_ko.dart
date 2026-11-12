@@ -1502,4 +1502,27 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get aiHintGeminiLite => '경량 Gemini: 매우 빠르고 무료로 거의 무제한.';
+
+  @override
+  String get shareSong => '곡 공유';
+
+  @override
+  String get sharePlaylistText => '플레이리스트 공유(텍스트)';
+
+  @override
+  String get sharePlaylistImage => '플레이리스트 공유(이미지)';
+
+  @override
+  String get shareLyrics => '가사 공유';
+
+  @override
+  String get shareAttribution => 'BotMp3에서 공유 · 스트리밍 앱에서 들어보세요';
+
+  @override
+  String get shareCopiedInstead => '클립보드에 복사됨';
+
+  @override
+  String shareSongsCount(String count) {
+    return '$count곡';
+  }
 }

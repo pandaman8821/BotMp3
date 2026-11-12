@@ -1532,4 +1532,28 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get aiHintGeminiLite =>
       'लाइट Gemini: बहुत तेज़ और मुफ़्त में लगभग असीमित।';
+
+  @override
+  String get shareSong => 'गाना साझा करें';
+
+  @override
+  String get sharePlaylistText => 'प्लेलिस्ट साझा करें (टेक्स्ट)';
+
+  @override
+  String get sharePlaylistImage => 'प्लेलिस्ट साझा करें (चित्र)';
+
+  @override
+  String get shareLyrics => 'बोल साझा करें';
+
+  @override
+  String get shareAttribution =>
+      'BotMp3 से साझा · अपने स्ट्रीमिंग ऐप में सुनें';
+
+  @override
+  String get shareCopiedInstead => 'क्लिपबोर्ड पर कॉपी किया गया';
+
+  @override
+  String shareSongsCount(String count) {
+    return '$count गाने';
+  }
 }

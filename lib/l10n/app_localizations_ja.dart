@@ -1499,4 +1499,27 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get aiHintGeminiLite => '軽量Gemini：高速で、無料でもほぼ無制限。';
+
+  @override
+  String get shareSong => '曲を共有';
+
+  @override
+  String get sharePlaylistText => 'プレイリストを共有（テキスト）';
+
+  @override
+  String get sharePlaylistImage => 'プレイリストを共有（画像）';
+
+  @override
+  String get shareLyrics => '歌詞を共有';
+
+  @override
+  String get shareAttribution => 'BotMp3 から共有 · 再生はお使いの音楽アプリで';
+
+  @override
+  String get shareCopiedInstead => 'クリップボードにコピーしました';
+
+  @override
+  String shareSongsCount(String count) {
+    return '$count曲';
+  }
 }

@@ -790,5 +790,19 @@
   "useModel": "उपयोग करें",
   "modelsAutoHint": "मुफ़्त मॉडल पहले। हर 3 दिन में अपने आप अपडेट होते हैं।",
   "aiHintGeminiNew": "सबसे नया Gemini, मुफ़्त कोटे में शामिल। सुझाया गया।",
-  "aiHintGeminiLite": "लाइट Gemini: बहुत तेज़ और मुफ़्त में लगभग असीमित।"
+  "aiHintGeminiLite": "लाइट Gemini: बहुत तेज़ और मुफ़्त में लगभग असीमित।",
+  "shareSong": "गाना साझा करें",
+  "sharePlaylistText": "प्लेलिस्ट साझा करें (टेक्स्ट)",
+  "sharePlaylistImage": "प्लेलिस्ट साझा करें (चित्र)",
+  "shareLyrics": "बोल साझा करें",
+  "shareAttribution": "BotMp3 से साझा · अपने स्ट्रीमिंग ऐप में सुनें",
+  "shareCopiedInstead": "क्लिपबोर्ड पर कॉपी किया गया",
+  "shareSongsCount": "{count} गाने",
+  "@shareSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }

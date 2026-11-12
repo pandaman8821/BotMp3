@@ -790,5 +790,19 @@
   "useModel": "Usa",
   "modelsAutoHint": "Prima i modelli gratuiti. Si aggiornano da soli ogni 3 giorni.",
   "aiHintGeminiNew": "Gemini più recente, incluso nel piano gratuito. Consigliato.",
-  "aiHintGeminiLite": "Gemini leggero: molto veloce e quasi illimitato gratis."
+  "aiHintGeminiLite": "Gemini leggero: molto veloce e quasi illimitato gratis.",
+  "shareSong": "Condividi brano",
+  "sharePlaylistText": "Condividi playlist (testo)",
+  "sharePlaylistImage": "Condividi playlist (immagine)",
+  "shareLyrics": "Condividi testo",
+  "shareAttribution": "Condiviso da BotMp3 · ascoltalo nella tua app di streaming",
+  "shareCopiedInstead": "Copiato negli appunti",
+  "shareSongsCount": "{count} brani",
+  "@shareSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }

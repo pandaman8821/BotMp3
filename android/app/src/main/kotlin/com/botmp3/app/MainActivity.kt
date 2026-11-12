@@ -1,4 +1,4 @@
-package com.botmp3.app
+﻿package com.botmp3.app
 
 import android.content.Intent
 
@@ -23,11 +23,11 @@ import java.io.FileOutputStream
  *
  * Extiende [AudioServiceActivity] (requisito de `audio_service` /
  * `just_audio_background`) y expone un puente con **MediaStore** para que la app
- * importe automáticamente toda la música del dispositivo, sin que el usuario
+ * importe automÃ¡ticamente toda la mÃºsica del dispositivo, sin que el usuario
  * tenga que elegir archivos a mano:
  *
- *  - `queryAudio`  -> lista de pistas (título, artista, álbum, año, duración, ruta/URI)
- *  - `albumArt`    -> extrae la carátula del álbum a un JPG en la caché y devuelve la ruta
+ *  - `queryAudio`  -> lista de pistas (tÃ­tulo, artista, Ã¡lbum, aÃ±o, duraciÃ³n, ruta/URI)
+ *  - `albumArt`    -> extrae la carÃ¡tula del Ã¡lbum a un JPG en la cachÃ© y devuelve la ruta
  */
 class MainActivity : AudioServiceActivity() {
 
@@ -35,6 +35,7 @@ class MainActivity : AudioServiceActivity() {
     private val notificationChannelName = "botmp3/notifications"
     private val appInfoChannelName = "botmp3/appinfo"
     private val devicesChannelName = "botmp3/devices"
+    private val shareChannelName = "botmp3/share"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -56,6 +57,51 @@ class MainActivity : AudioServiceActivity() {
                 result.notImplemented()
             }
         }
+        // --- Compartir con la hoja de Android (solo informacion, nunca audio) ---
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, shareChannelName)
+            .setMethodCallHandler { call, result ->
+                when (call.method) {
+                    "texto" -> runCatching {
+                        val texto = call.argument<String>("texto").orEmpty()
+                        if (texto.isBlank()) return@runCatching false
+                        val intencion = Intent(Intent.ACTION_SEND).apply {
+                            type = "text/plain"
+                            putExtra(Intent.EXTRA_TEXT, texto)
+                            call.argument<String>("asunto")?.let {
+                                putExtra(Intent.EXTRA_SUBJECT, it)
+                            }
+                        }
+                        startActivity(Intent.createChooser(intencion, null))
+                        true
+                    }.onSuccess { result.success(it) }
+                        .onFailure { result.error("share_failed", it.message, null) }
+
+                    "archivo" -> runCatching {
+                        val ruta = call.argument<String>("ruta").orEmpty()
+                        if (ruta.isBlank()) return@runCatching false
+                        val archivo = File(ruta)
+                        if (!archivo.exists()) return@runCatching false
+                        val uri = androidx.core.content.FileProvider.getUriForFile(
+                            this,
+                            packageName + ".archivos",
+                            archivo,
+                        )
+                        val intencion = Intent(Intent.ACTION_SEND).apply {
+                            type = call.argument<String>("mime") ?: "image/png"
+                            putExtra(Intent.EXTRA_STREAM, uri)
+                            call.argument<String>("texto")?.let {
+                                putExtra(Intent.EXTRA_TEXT, it)
+                            }
+                            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                        }
+                        startActivity(Intent.createChooser(intencion, null))
+                        true
+                    }.onSuccess { result.success(it) }
+                        .onFailure { result.error("share_failed", it.message, null) }
+
+                    else -> result.notImplemented()
+                }
+            }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, channelName)
             .setMethodCallHandler { call, result ->
                 when (call.method) {
@@ -141,7 +187,7 @@ class MainActivity : AudioServiceActivity() {
                 }
             }
 
-        // -------- Versión real del APK instalado --------
+        // -------- VersiÃ³n real del APK instalado --------
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, appInfoChannelName)
             .setMethodCallHandler { call, result ->
                 when (call.method) {
@@ -189,9 +235,9 @@ class MainActivity : AudioServiceActivity() {
             MediaStore.Audio.Media.MIME_TYPE,
             MediaStore.Audio.Media.DATA,
         )
-        // Solo música por defecto. Si el usuario activa «importar audios de
-        // apps», se incluyen también las pistas que Android no marca como
-        // música (notas de voz de WhatsApp, Telegram…), pero no los sonidos
+        // Solo mÃºsica por defecto. Si el usuario activa Â«importar audios de
+        // appsÂ», se incluyen tambiÃ©n las pistas que Android no marca como
+        // mÃºsica (notas de voz de WhatsApp, Telegramâ€¦), pero no los sonidos
         // cortos del sistema (menos de 15 s).
         val selection = if (incluirAudiosDeApps) {
             "(${MediaStore.Audio.Media.IS_MUSIC} != 0 OR ${MediaStore.Audio.Media.DURATION} >= 15000)"
@@ -225,8 +271,8 @@ class MainActivity : AudioServiceActivity() {
     }
 
     /**
-     * Resuelve el álbum de una pista concreta de MediaStore y devuelve su carátula.
-     * Se usa desde el editor cuando la canción proviene de la biblioteca del sistema.
+     * Resuelve el Ã¡lbum de una pista concreta de MediaStore y devuelve su carÃ¡tula.
+     * Se usa desde el editor cuando la canciÃ³n proviene de la biblioteca del sistema.
      */
     private fun albumArtForTrack(trackId: Long): String? {
         if (trackId <= 0) return null
@@ -243,8 +289,8 @@ class MainActivity : AudioServiceActivity() {
     }
 
     /**
-     * Extrae la carátula del álbum como JPG en la caché de la app y devuelve su ruta.
-     * Devuelve null si ese álbum no tiene imagen.
+     * Extrae la carÃ¡tula del Ã¡lbum como JPG en la cachÃ© de la app y devuelve su ruta.
+     * Devuelve null si ese Ã¡lbum no tiene imagen.
      */
     private fun albumArt(albumId: Long): String? {
         if (albumId <= 0) return null
@@ -261,7 +307,7 @@ class MainActivity : AudioServiceActivity() {
                 contentResolver.loadThumbnail(uri, Size(600, 600), null)
             }.getOrNull()
         } else {
-            // Android 7-9: se lee la ruta de la carátula que expone MediaStore.
+            // Android 7-9: se lee la ruta de la carÃ¡tula que expone MediaStore.
             val artPath = runCatching {
                 contentResolver.query(
                     ContentUris.withAppendedId(MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI, albumId),
@@ -291,3 +337,4 @@ class MainActivity : AudioServiceActivity() {
         super.onDestroy()
     }
 }
+

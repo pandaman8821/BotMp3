@@ -1547,4 +1547,28 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get aiHintGeminiLite =>
       'Lightweight Gemini: very fast and almost unlimited for free.';
+
+  @override
+  String get shareSong => 'Share song';
+
+  @override
+  String get sharePlaylistText => 'Share playlist (text)';
+
+  @override
+  String get sharePlaylistImage => 'Share playlist (image)';
+
+  @override
+  String get shareLyrics => 'Share lyrics';
+
+  @override
+  String get shareAttribution =>
+      'Shared from BotMp3 · listen in your streaming app';
+
+  @override
+  String get shareCopiedInstead => 'Copied to clipboard';
+
+  @override
+  String shareSongsCount(String count) {
+    return '$count songs';
+  }
 }
