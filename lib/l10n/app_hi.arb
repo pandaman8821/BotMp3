@@ -790,5 +790,17 @@
   "useModel": "उपयोग करें",
   "modelsAutoHint": "मुफ़्त मॉडल पहले। हर 3 दिन में अपने आप अपडेट होते हैं।",
   "aiHintGeminiNew": "सबसे नया Gemini, मुफ़्त कोटे में शामिल। सुझाया गया।",
-  "aiHintGeminiLite": "लाइट Gemini: बहुत तेज़ और मुफ़्त में लगभग असीमित।"
+  "aiHintGeminiLite": "लाइट Gemini: बहुत तेज़ और मुफ़्त में लगभग असीमित।",
+  "diagStatsLine": "रिकॉर्ड: {log} · आज: {today}",
+  "@diagStatsLine": {
+    "placeholders": {
+      "log": {
+        "type": "String"
+      },
+      "today": {
+        "type": "String"
+      }
+    }
+  },
+  "diagNoCounts": "इस सत्र में अभी कोई प्लेबैक नहीं गिना गया।"
 }

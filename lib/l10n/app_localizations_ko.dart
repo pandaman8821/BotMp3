@@ -1502,4 +1502,12 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get aiHintGeminiLite => '경량 Gemini: 매우 빠르고 무료로 거의 무제한.';
+
+  @override
+  String diagStatsLine(String log, String today) {
+    return '기록: $log · 오늘: $today';
+  }
+
+  @override
+  String get diagNoCounts => '이 세션에서 아직 재생이 기록되지 않았습니다.';
 }

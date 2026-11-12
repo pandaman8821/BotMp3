@@ -174,13 +174,15 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'Registro: ${library.service.playLogSize} · '
-                    'Hoy: ${library.service.playsSince(DateTime.now().subtract(const Duration(days: 1))).values.fold<int>(0, (int a, int b) => a + b)}',
+                    AppLocalizations.of(context).diagStatsLine(
+                      '${library.service.playLogSize}',
+                      '${library.service.playsSince(DateTime.now().subtract(const Duration(days: 1))).values.fold<int>(0, (int a, int b) => a + b)}',
+                    ),
                     style: const TextStyle(fontSize: 11.5, fontWeight: FontWeight.w600),
                   ),
                   if (PlayerService.ultimasMarcas.isEmpty)
                     Text(
-                      'Aun no se ha contado ninguna reproduccion en esta sesion.',
+                      AppLocalizations.of(context).diagNoCounts,
                       style: TextStyle(fontSize: 11, color: AppColors.darkTextDim),
                     )
                   else

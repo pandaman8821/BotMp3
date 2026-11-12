@@ -1499,4 +1499,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get aiHintGeminiLite => '軽量Gemini：高速で、無料でもほぼ無制限。';
+
+  @override
+  String diagStatsLine(String log, String today) {
+    return '記録: $log · 今日: $today';
+  }
+
+  @override
+  String get diagNoCounts => 'このセッションではまだ再生が記録されていません。';
 }

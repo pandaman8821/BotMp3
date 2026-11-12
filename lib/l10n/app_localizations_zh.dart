@@ -1496,6 +1496,14 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get aiHintGeminiLite => '轻量版 Gemini：非常快，免费额度几乎不限。';
+
+  @override
+  String diagStatsLine(String log, String today) {
+    return '记录：$log · 今天：$today';
+  }
+
+  @override
+  String get diagNoCounts => '本次会话尚未统计任何播放。';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -2990,4 +2998,12 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get aiHintGeminiLite => '轻量版 Gemini：非常快，免费额度几乎不限。';
+
+  @override
+  String diagStatsLine(String log, String today) {
+    return '记录：$log · 今天：$today';
+  }
+
+  @override
+  String get diagNoCounts => '本次会话尚未统计任何播放。';
 }

@@ -1532,4 +1532,12 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get aiHintGeminiLite =>
       'लाइट Gemini: बहुत तेज़ और मुफ़्त में लगभग असीमित।';
+
+  @override
+  String diagStatsLine(String log, String today) {
+    return 'रिकॉर्ड: $log · आज: $today';
+  }
+
+  @override
+  String get diagNoCounts => 'इस सत्र में अभी कोई प्लेबैक नहीं गिना गया।';
 }

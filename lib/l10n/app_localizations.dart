@@ -2780,6 +2780,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Lightweight Gemini: very fast and almost unlimited for free.'**
   String get aiHintGeminiLite;
+
+  /// No description provided for @diagStatsLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Log: {log} · Today: {today}'**
+  String diagStatsLine(String log, String today);
+
+  /// No description provided for @diagNoCounts.
+  ///
+  /// In en, this message translates to:
+  /// **'No playback counted yet in this session.'**
+  String get diagNoCounts;
 }
 
 class _AppLocalizationsDelegate

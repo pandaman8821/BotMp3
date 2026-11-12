@@ -1009,5 +1009,17 @@
   "useModel": "Use",
   "modelsAutoHint": "Free models first. They refresh automatically every 3 days.",
   "aiHintGeminiNew": "Newest Gemini, free tier included. Recommended.",
-  "aiHintGeminiLite": "Lightweight Gemini: very fast and almost unlimited for free."
+  "aiHintGeminiLite": "Lightweight Gemini: very fast and almost unlimited for free.",
+  "diagStatsLine": "Log: {log} · Today: {today}",
+  "@diagStatsLine": {
+    "placeholders": {
+      "log": {
+        "type": "String"
+      },
+      "today": {
+        "type": "String"
+      }
+    }
+  },
+  "diagNoCounts": "No playback counted yet in this session."
 }

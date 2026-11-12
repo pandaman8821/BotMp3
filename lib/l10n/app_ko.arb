@@ -790,5 +790,17 @@
   "useModel": "사용",
   "modelsAutoHint": "무료 모델이 먼저 표시됩니다. 3일마다 자동 갱신됩니다.",
   "aiHintGeminiNew": "최신 Gemini, 무료 한도 포함. 추천.",
-  "aiHintGeminiLite": "경량 Gemini: 매우 빠르고 무료로 거의 무제한."
+  "aiHintGeminiLite": "경량 Gemini: 매우 빠르고 무료로 거의 무제한.",
+  "diagStatsLine": "기록: {log} · 오늘: {today}",
+  "@diagStatsLine": {
+    "placeholders": {
+      "log": {
+        "type": "String"
+      },
+      "today": {
+        "type": "String"
+      }
+    }
+  },
+  "diagNoCounts": "이 세션에서 아직 재생이 기록되지 않았습니다."
 }
