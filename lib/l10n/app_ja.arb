@@ -790,5 +790,17 @@
   "useModel": "使用",
   "modelsAutoHint": "無料モデルが先頭。3日ごとに自動更新されます。",
   "aiHintGeminiNew": "最新のGemini。無料枠に含まれます。おすすめ。",
-  "aiHintGeminiLite": "軽量Gemini：高速で、無料でもほぼ無制限。"
+  "aiHintGeminiLite": "軽量Gemini：高速で、無料でもほぼ無制限。",
+  "diagStatsLine": "記録: {log} · 今日: {today}",
+  "@diagStatsLine": {
+    "placeholders": {
+      "log": {
+        "type": "String"
+      },
+      "today": {
+        "type": "String"
+      }
+    }
+  },
+  "diagNoCounts": "このセッションではまだ再生が記録されていません。"
 }

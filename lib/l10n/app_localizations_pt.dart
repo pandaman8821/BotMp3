@@ -1554,6 +1554,14 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get aiHintGeminiLite =>
       'Gemini leve: muito rápido e praticamente ilimitado grátis.';
+
+  @override
+  String diagStatsLine(String log, String today) {
+    return 'Registro: $log · Hoje: $today';
+  }
+
+  @override
+  String get diagNoCounts => 'Nenhuma reprodução contada nesta sessão ainda.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3106,4 +3114,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get aiHintGeminiLite =>
       'Gemini leve: muito rápido e praticamente ilimitado grátis.';
+
+  @override
+  String diagStatsLine(String log, String today) {
+    return 'Registro: $log · Hoje: $today';
+  }
+
+  @override
+  String get diagNoCounts => 'Nenhuma reprodução contada nesta sessão ainda.';
 }

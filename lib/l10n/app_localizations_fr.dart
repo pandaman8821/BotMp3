@@ -1558,4 +1558,12 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get aiHintGeminiLite =>
       'Gemini léger : très rapide et presque illimité gratuitement.';
+
+  @override
+  String diagStatsLine(String log, String today) {
+    return 'Journal : $log · Aujourd\'hui : $today';
+  }
+
+  @override
+  String get diagNoCounts => 'Aucune lecture comptée dans cette session.';
 }

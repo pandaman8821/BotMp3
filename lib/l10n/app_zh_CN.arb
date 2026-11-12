@@ -790,5 +790,17 @@
   "useModel": "使用",
   "modelsAutoHint": "免费模型优先，每 3 天自动更新。",
   "aiHintGeminiNew": "最新的 Gemini，包含在免费额度中。推荐。",
-  "aiHintGeminiLite": "轻量版 Gemini：非常快，免费额度几乎不限。"
+  "aiHintGeminiLite": "轻量版 Gemini：非常快，免费额度几乎不限。",
+  "diagStatsLine": "记录：{log} · 今天：{today}",
+  "@diagStatsLine": {
+    "placeholders": {
+      "log": {
+        "type": "String"
+      },
+      "today": {
+        "type": "String"
+      }
+    }
+  },
+  "diagNoCounts": "本次会话尚未统计任何播放。"
 }

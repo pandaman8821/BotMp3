@@ -790,5 +790,17 @@
   "useModel": "Usa",
   "modelsAutoHint": "Prima i modelli gratuiti. Si aggiornano da soli ogni 3 giorni.",
   "aiHintGeminiNew": "Gemini più recente, incluso nel piano gratuito. Consigliato.",
-  "aiHintGeminiLite": "Gemini leggero: molto veloce e quasi illimitato gratis."
+  "aiHintGeminiLite": "Gemini leggero: molto veloce e quasi illimitato gratis.",
+  "diagStatsLine": "Registro: {log} · Oggi: {today}",
+  "@diagStatsLine": {
+    "placeholders": {
+      "log": {
+        "type": "String"
+      },
+      "today": {
+        "type": "String"
+      }
+    }
+  },
+  "diagNoCounts": "Nessuna riproduzione contata in questa sessione."
 }
