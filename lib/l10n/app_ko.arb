@@ -790,5 +790,19 @@
   "useModel": "사용",
   "modelsAutoHint": "무료 모델이 먼저 표시됩니다. 3일마다 자동 갱신됩니다.",
   "aiHintGeminiNew": "최신 Gemini, 무료 한도 포함. 추천.",
-  "aiHintGeminiLite": "경량 Gemini: 매우 빠르고 무료로 거의 무제한."
+  "aiHintGeminiLite": "경량 Gemini: 매우 빠르고 무료로 거의 무제한.",
+  "shareSong": "곡 공유",
+  "sharePlaylistText": "플레이리스트 공유(텍스트)",
+  "sharePlaylistImage": "플레이리스트 공유(이미지)",
+  "shareLyrics": "가사 공유",
+  "shareAttribution": "BotMp3에서 공유 · 스트리밍 앱에서 들어보세요",
+  "shareCopiedInstead": "클립보드에 복사됨",
+  "shareSongsCount": "{count}곡",
+  "@shareSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }

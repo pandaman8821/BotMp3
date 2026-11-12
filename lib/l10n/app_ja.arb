@@ -790,5 +790,19 @@
   "useModel": "使用",
   "modelsAutoHint": "無料モデルが先頭。3日ごとに自動更新されます。",
   "aiHintGeminiNew": "最新のGemini。無料枠に含まれます。おすすめ。",
-  "aiHintGeminiLite": "軽量Gemini：高速で、無料でもほぼ無制限。"
+  "aiHintGeminiLite": "軽量Gemini：高速で、無料でもほぼ無制限。",
+  "shareSong": "曲を共有",
+  "sharePlaylistText": "プレイリストを共有（テキスト）",
+  "sharePlaylistImage": "プレイリストを共有（画像）",
+  "shareLyrics": "歌詞を共有",
+  "shareAttribution": "BotMp3 から共有 · 再生はお使いの音楽アプリで",
+  "shareCopiedInstead": "クリップボードにコピーしました",
+  "shareSongsCount": "{count}曲",
+  "@shareSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }

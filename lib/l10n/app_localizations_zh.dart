@@ -1496,6 +1496,29 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get aiHintGeminiLite => '轻量版 Gemini：非常快，免费额度几乎不限。';
+
+  @override
+  String get shareSong => '分享歌曲';
+
+  @override
+  String get sharePlaylistText => '分享歌单（文本）';
+
+  @override
+  String get sharePlaylistImage => '分享歌单（图片）';
+
+  @override
+  String get shareLyrics => '分享歌词';
+
+  @override
+  String get shareAttribution => '来自 BotMp3 分享 · 请在你的流媒体应用中收听';
+
+  @override
+  String get shareCopiedInstead => '已复制到剪贴板';
+
+  @override
+  String shareSongsCount(String count) {
+    return '$count 首歌曲';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -2990,4 +3013,27 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get aiHintGeminiLite => '轻量版 Gemini：非常快，免费额度几乎不限。';
+
+  @override
+  String get shareSong => '分享歌曲';
+
+  @override
+  String get sharePlaylistText => '分享歌单（文本）';
+
+  @override
+  String get sharePlaylistImage => '分享歌单（图片）';
+
+  @override
+  String get shareLyrics => '分享歌词';
+
+  @override
+  String get shareAttribution => '来自 BotMp3 分享 · 请在你的流媒体应用中收听';
+
+  @override
+  String get shareCopiedInstead => '已复制到剪贴板';
+
+  @override
+  String shareSongsCount(String count) {
+    return '$count 首歌曲';
+  }
 }

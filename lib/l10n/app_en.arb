@@ -1009,5 +1009,19 @@
   "useModel": "Use",
   "modelsAutoHint": "Free models first. They refresh automatically every 3 days.",
   "aiHintGeminiNew": "Newest Gemini, free tier included. Recommended.",
-  "aiHintGeminiLite": "Lightweight Gemini: very fast and almost unlimited for free."
+  "aiHintGeminiLite": "Lightweight Gemini: very fast and almost unlimited for free.",
+  "shareSong": "Share song",
+  "sharePlaylistText": "Share playlist (text)",
+  "sharePlaylistImage": "Share playlist (image)",
+  "shareLyrics": "Share lyrics",
+  "shareAttribution": "Shared from BotMp3 · listen in your streaming app",
+  "shareCopiedInstead": "Copied to clipboard",
+  "shareSongsCount": "{count} songs",
+  "@shareSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }
