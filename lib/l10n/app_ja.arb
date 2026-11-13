@@ -847,5 +847,46 @@
   },
   "exportCancelled": "エクスポートをキャンセルしました",
   "aiNoGenresReturned": "AIがジャンルを返しませんでした（キーは設定済み？）",
-  "noGenresToFill": "補完するジャンルはありませんでした"
+  "noGenresToFill": "補完するジャンルはありませんでした",
+  "diagYes": "はい",
+  "diagNo": "いいえ",
+  "diagNone": "なし",
+  "diagGranted": "許可済み",
+  "diagDenied": "未許可",
+  "diagNotifications": "通知",
+  "diagNotifHelp": "この権限がないと再生通知が出ず、ロック画面の操作も使えません。",
+  "diagBattery": "バッテリー制限なし",
+  "diagBatteryHelp": "HyperOS/MIUIでは「自動起動」を有効にし、バッテリー制限を解除してサービスが停止しないようにしてください。",
+  "diagMediaSession": "メディアセッション",
+  "diagSources": "セッションの読み込み済み数",
+  "diagSourcesHelp": "キューの曲数（{count}）と一致する必要があります。一致しないとロック画面で曲を変えられません。",
+  "@diagSourcesHelp": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "diagIndexNow": "現在のインデックス",
+  "diagPlayingF": "再生中",
+  "diagStateF": "状態",
+  "diagSongF": "曲",
+  "diagRecentErrors": "最近のエラー",
+  "diagPermissions": "権限",
+  "diagCopyReport": "レポートをコピー",
+  "diagReportCopied": "レポートをコピーしました",
+  "diagRefresh": "更新",
+  "diagReportTitle": "BotMp3 · 再生診断",
+  "settingsSearch": "設定を検索",
+  "settingsSearchNone": "一致する項目がありません",
+  "backupToFolder": "バックアップを保存…",
+  "backupToFolderDesc": "保存先を選択（ダウンロード、ドライブ、SD…）",
+  "backupSavedTo": "バックアップを保存しました: {path}",
+  "@backupSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
 }

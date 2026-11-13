@@ -1066,5 +1066,46 @@
   },
   "exportCancelled": "Exportación cancelada",
   "aiNoGenresReturned": "La IA no devolvió géneros (¿tienes clave configurada?)",
-  "noGenresToFill": "No había géneros que completar"
+  "noGenresToFill": "No había géneros que completar",
+  "diagYes": "sí",
+  "diagNo": "no",
+  "diagNone": "ninguno",
+  "diagGranted": "Concedidas",
+  "diagDenied": "Sin conceder",
+  "diagNotifications": "Notificaciones",
+  "diagNotifHelp": "Sin este permiso Android no muestra la notificación de reproducción y la pantalla de bloqueo se queda sin controles.",
+  "diagBattery": "Batería sin restricciones",
+  "diagBatteryHelp": "En HyperOS/MIUI conviene activar «Inicio automático» y quitar la restricción de batería para que el servicio no se detenga.",
+  "diagMediaSession": "Sesión multimedia",
+  "diagSources": "Fuentes cargadas en la sesión",
+  "diagSourcesHelp": "Debe coincidir con las canciones de la cola ({count}). Si no coincide, la pantalla de bloqueo no podrá cambiar de pista.",
+  "@diagSourcesHelp": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "diagIndexNow": "Índice actual",
+  "diagPlayingF": "Sonando",
+  "diagStateF": "Estado",
+  "diagSongF": "Canción",
+  "diagRecentErrors": "Errores recientes",
+  "diagPermissions": "Permisos",
+  "diagCopyReport": "Copiar informe",
+  "diagReportCopied": "Informe copiado",
+  "diagRefresh": "Actualizar",
+  "diagReportTitle": "BotMp3 · diagnóstico de reproducción",
+  "settingsSearch": "Buscar en ajustes",
+  "settingsSearchNone": "Ninguna sección coincide",
+  "backupToFolder": "Guardar una copia de seguridad…",
+  "backupToFolderDesc": "Elige dónde guardarla (Descargas, Drive, SD…)",
+  "backupSavedTo": "Copia guardada: {path}",
+  "@backupSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
 }

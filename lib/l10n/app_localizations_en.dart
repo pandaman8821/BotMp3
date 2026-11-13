@@ -1619,4 +1619,92 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noGenresToFill => 'There were no genres to fill';
+
+  @override
+  String get diagYes => 'yes';
+
+  @override
+  String get diagNo => 'no';
+
+  @override
+  String get diagNone => 'none';
+
+  @override
+  String get diagGranted => 'Granted';
+
+  @override
+  String get diagDenied => 'Not granted';
+
+  @override
+  String get diagNotifications => 'Notifications';
+
+  @override
+  String get diagNotifHelp =>
+      'Without this permission Android cannot show the playback notification and the lock screen loses its controls.';
+
+  @override
+  String get diagBattery => 'Unrestricted battery';
+
+  @override
+  String get diagBatteryHelp =>
+      'On HyperOS/MIUI enable Auto-start and remove the battery restriction so the service is not killed.';
+
+  @override
+  String get diagMediaSession => 'Media session';
+
+  @override
+  String get diagSources => 'Sources loaded in the session';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return 'It must match the songs in the queue ($count). If not, the lock screen cannot change track.';
+  }
+
+  @override
+  String get diagIndexNow => 'Current index';
+
+  @override
+  String get diagPlayingF => 'Playing';
+
+  @override
+  String get diagStateF => 'State';
+
+  @override
+  String get diagSongF => 'Song';
+
+  @override
+  String get diagRecentErrors => 'Recent errors';
+
+  @override
+  String get diagPermissions => 'Permissions';
+
+  @override
+  String get diagCopyReport => 'Copy report';
+
+  @override
+  String get diagReportCopied => 'Report copied';
+
+  @override
+  String get diagRefresh => 'Refresh';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · playback diagnostics';
+
+  @override
+  String get settingsSearch => 'Search settings';
+
+  @override
+  String get settingsSearchNone => 'No matching section';
+
+  @override
+  String get backupToFolder => 'Save a backup copy…';
+
+  @override
+  String get backupToFolderDesc =>
+      'Choose where to store it (Downloads, Drive, SD…)';
+
+  @override
+  String backupSavedTo(String path) {
+    return 'Backup saved: $path';
+  }
 }

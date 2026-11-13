@@ -1629,4 +1629,91 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noGenresToFill => 'Es gab keine Genres zu ergänzen';
+
+  @override
+  String get diagYes => 'ja';
+
+  @override
+  String get diagNo => 'nein';
+
+  @override
+  String get diagNone => 'keine';
+
+  @override
+  String get diagGranted => 'Erteilt';
+
+  @override
+  String get diagDenied => 'Nicht erteilt';
+
+  @override
+  String get diagNotifications => 'Benachrichtigungen';
+
+  @override
+  String get diagNotifHelp =>
+      'Ohne diese Berechtigung zeigt Android keine Wiedergabe-Benachrichtigung und der Sperrbildschirm verliert die Steuerung.';
+
+  @override
+  String get diagBattery => 'Unbeschränkter Akku';
+
+  @override
+  String get diagBatteryHelp =>
+      'Unter HyperOS/MIUI »Autostart« aktivieren und die Akku-Beschränkung entfernen, damit der Dienst nicht beendet wird.';
+
+  @override
+  String get diagMediaSession => 'Mediensitzung';
+
+  @override
+  String get diagSources => 'Geladene Quellen in der Sitzung';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return 'Muss mit den Titeln in der Warteschlange ($count) übereinstimmen, sonst kann der Sperrbildschirm nicht wechseln.';
+  }
+
+  @override
+  String get diagIndexNow => 'Aktueller Index';
+
+  @override
+  String get diagPlayingF => 'Läuft';
+
+  @override
+  String get diagStateF => 'Status';
+
+  @override
+  String get diagSongF => 'Titel';
+
+  @override
+  String get diagRecentErrors => 'Letzte Fehler';
+
+  @override
+  String get diagPermissions => 'Berechtigungen';
+
+  @override
+  String get diagCopyReport => 'Bericht kopieren';
+
+  @override
+  String get diagReportCopied => 'Bericht kopiert';
+
+  @override
+  String get diagRefresh => 'Aktualisieren';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · Wiedergabe-Diagnose';
+
+  @override
+  String get settingsSearch => 'Einstellungen suchen';
+
+  @override
+  String get settingsSearchNone => 'Kein passender Abschnitt';
+
+  @override
+  String get backupToFolder => 'Sicherung speichern…';
+
+  @override
+  String get backupToFolderDesc => 'Speicherort wählen (Downloads, Drive, SD…)';
+
+  @override
+  String backupSavedTo(String path) {
+    return 'Sicherung gespeichert: $path';
+  }
 }

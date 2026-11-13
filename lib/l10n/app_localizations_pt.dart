@@ -1629,6 +1629,94 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get noGenresToFill => 'Não havia gêneros para completar';
+
+  @override
+  String get diagYes => 'sim';
+
+  @override
+  String get diagNo => 'não';
+
+  @override
+  String get diagNone => 'nenhum';
+
+  @override
+  String get diagGranted => 'Concedida';
+
+  @override
+  String get diagDenied => 'Não concedida';
+
+  @override
+  String get diagNotifications => 'Notificações';
+
+  @override
+  String get diagNotifHelp =>
+      'Sem esta permissão o Android não mostra a notificação de reprodução e a tela de bloqueio fica sem controles.';
+
+  @override
+  String get diagBattery => 'Bateria sem restrições';
+
+  @override
+  String get diagBatteryHelp =>
+      'No HyperOS/MIUI ative «Início automático» e remova a restrição de bateria para o serviço não parar.';
+
+  @override
+  String get diagMediaSession => 'Sessão de mídia';
+
+  @override
+  String get diagSources => 'Fontes carregadas na sessão';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return 'Deve coincidir com as músicas da fila ($count). Se não, a tela de bloqueio não troca de faixa.';
+  }
+
+  @override
+  String get diagIndexNow => 'Índice atual';
+
+  @override
+  String get diagPlayingF => 'Tocando';
+
+  @override
+  String get diagStateF => 'Estado';
+
+  @override
+  String get diagSongF => 'Música';
+
+  @override
+  String get diagRecentErrors => 'Erros recentes';
+
+  @override
+  String get diagPermissions => 'Permissões';
+
+  @override
+  String get diagCopyReport => 'Copiar relatório';
+
+  @override
+  String get diagReportCopied => 'Relatório copiado';
+
+  @override
+  String get diagRefresh => 'Atualizar';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · diagnóstico de reprodução';
+
+  @override
+  String get settingsSearch => 'Buscar ajustes';
+
+  @override
+  String get settingsSearchNone => 'Nenhuma seção corresponde';
+
+  @override
+  String get backupToFolder => 'Salvar uma cópia de segurança…';
+
+  @override
+  String get backupToFolderDesc =>
+      'Escolha onde guardar (Downloads, Drive, SD…)';
+
+  @override
+  String backupSavedTo(String path) {
+    return 'Cópia salva: $path';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3256,4 +3344,92 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get noGenresToFill => 'Não havia gêneros para completar';
+
+  @override
+  String get diagYes => 'sim';
+
+  @override
+  String get diagNo => 'não';
+
+  @override
+  String get diagNone => 'nenhum';
+
+  @override
+  String get diagGranted => 'Concedida';
+
+  @override
+  String get diagDenied => 'Não concedida';
+
+  @override
+  String get diagNotifications => 'Notificações';
+
+  @override
+  String get diagNotifHelp =>
+      'Sem esta permissão o Android não mostra a notificação de reprodução e a tela de bloqueio fica sem controles.';
+
+  @override
+  String get diagBattery => 'Bateria sem restrições';
+
+  @override
+  String get diagBatteryHelp =>
+      'No HyperOS/MIUI ative «Início automático» e remova a restrição de bateria para o serviço não parar.';
+
+  @override
+  String get diagMediaSession => 'Sessão de mídia';
+
+  @override
+  String get diagSources => 'Fontes carregadas na sessão';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return 'Deve coincidir com as músicas da fila ($count). Se não, a tela de bloqueio não troca de faixa.';
+  }
+
+  @override
+  String get diagIndexNow => 'Índice atual';
+
+  @override
+  String get diagPlayingF => 'Tocando';
+
+  @override
+  String get diagStateF => 'Estado';
+
+  @override
+  String get diagSongF => 'Música';
+
+  @override
+  String get diagRecentErrors => 'Erros recentes';
+
+  @override
+  String get diagPermissions => 'Permissões';
+
+  @override
+  String get diagCopyReport => 'Copiar relatório';
+
+  @override
+  String get diagReportCopied => 'Relatório copiado';
+
+  @override
+  String get diagRefresh => 'Atualizar';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · diagnóstico de reprodução';
+
+  @override
+  String get settingsSearch => 'Buscar ajustes';
+
+  @override
+  String get settingsSearchNone => 'Nenhuma seção corresponde';
+
+  @override
+  String get backupToFolder => 'Salvar uma cópia de segurança…';
+
+  @override
+  String get backupToFolderDesc =>
+      'Escolha onde guardar (Downloads, Drive, SD…)';
+
+  @override
+  String backupSavedTo(String path) {
+    return 'Cópia salva: $path';
+  }
 }

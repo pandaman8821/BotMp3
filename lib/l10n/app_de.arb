@@ -847,5 +847,46 @@
   },
   "exportCancelled": "Export abgebrochen",
   "aiNoGenresReturned": "Die KI lieferte keine Genres (Schlüssel gesetzt?)",
-  "noGenresToFill": "Es gab keine Genres zu ergänzen"
+  "noGenresToFill": "Es gab keine Genres zu ergänzen",
+  "diagYes": "ja",
+  "diagNo": "nein",
+  "diagNone": "keine",
+  "diagGranted": "Erteilt",
+  "diagDenied": "Nicht erteilt",
+  "diagNotifications": "Benachrichtigungen",
+  "diagNotifHelp": "Ohne diese Berechtigung zeigt Android keine Wiedergabe-Benachrichtigung und der Sperrbildschirm verliert die Steuerung.",
+  "diagBattery": "Unbeschränkter Akku",
+  "diagBatteryHelp": "Unter HyperOS/MIUI »Autostart« aktivieren und die Akku-Beschränkung entfernen, damit der Dienst nicht beendet wird.",
+  "diagMediaSession": "Mediensitzung",
+  "diagSources": "Geladene Quellen in der Sitzung",
+  "diagSourcesHelp": "Muss mit den Titeln in der Warteschlange ({count}) übereinstimmen, sonst kann der Sperrbildschirm nicht wechseln.",
+  "@diagSourcesHelp": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "diagIndexNow": "Aktueller Index",
+  "diagPlayingF": "Läuft",
+  "diagStateF": "Status",
+  "diagSongF": "Titel",
+  "diagRecentErrors": "Letzte Fehler",
+  "diagPermissions": "Berechtigungen",
+  "diagCopyReport": "Bericht kopieren",
+  "diagReportCopied": "Bericht kopiert",
+  "diagRefresh": "Aktualisieren",
+  "diagReportTitle": "BotMp3 · Wiedergabe-Diagnose",
+  "settingsSearch": "Einstellungen suchen",
+  "settingsSearchNone": "Kein passender Abschnitt",
+  "backupToFolder": "Sicherung speichern…",
+  "backupToFolderDesc": "Speicherort wählen (Downloads, Drive, SD…)",
+  "backupSavedTo": "Sicherung gespeichert: {path}",
+  "@backupSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -1570,4 +1570,90 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noGenresToFill => '채울 장르가 없었습니다';
+
+  @override
+  String get diagYes => '예';
+
+  @override
+  String get diagNo => '아니요';
+
+  @override
+  String get diagNone => '없음';
+
+  @override
+  String get diagGranted => '허용됨';
+
+  @override
+  String get diagDenied => '허용 안 됨';
+
+  @override
+  String get diagNotifications => '알림';
+
+  @override
+  String get diagNotifHelp => '이 권한이 없으면 재생 알림이 표시되지 않고 잠금 화면 제어도 사라집니다.';
+
+  @override
+  String get diagBattery => '배터리 제한 없음';
+
+  @override
+  String get diagBatteryHelp =>
+      'HyperOS/MIUI에서는 \'자동 시작\'을 켜고 배터리 제한을 해제해 서비스가 중지되지 않게 하세요.';
+
+  @override
+  String get diagMediaSession => '미디어 세션';
+
+  @override
+  String get diagSources => '세션에 로드된 소스';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return '대기열 곡 수($count)와 같아야 합니다. 다르면 잠금 화면에서 곡을 바꿀 수 없습니다.';
+  }
+
+  @override
+  String get diagIndexNow => '현재 인덱스';
+
+  @override
+  String get diagPlayingF => '재생 중';
+
+  @override
+  String get diagStateF => '상태';
+
+  @override
+  String get diagSongF => '곡';
+
+  @override
+  String get diagRecentErrors => '최근 오류';
+
+  @override
+  String get diagPermissions => '권한';
+
+  @override
+  String get diagCopyReport => '보고서 복사';
+
+  @override
+  String get diagReportCopied => '보고서 복사됨';
+
+  @override
+  String get diagRefresh => '새로고침';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · 재생 진단';
+
+  @override
+  String get settingsSearch => '설정 검색';
+
+  @override
+  String get settingsSearchNone => '일치하는 항목이 없습니다';
+
+  @override
+  String get backupToFolder => '백업 사본 저장…';
+
+  @override
+  String get backupToFolderDesc => '저장 위치 선택(다운로드, 드라이브, SD…)';
+
+  @override
+  String backupSavedTo(String path) {
+    return '백업 저장됨: $path';
+  }
 }

@@ -2894,6 +2894,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'There were no genres to fill'**
   String get noGenresToFill;
+
+  /// No description provided for @diagYes.
+  ///
+  /// In en, this message translates to:
+  /// **'yes'**
+  String get diagYes;
+
+  /// No description provided for @diagNo.
+  ///
+  /// In en, this message translates to:
+  /// **'no'**
+  String get diagNo;
+
+  /// No description provided for @diagNone.
+  ///
+  /// In en, this message translates to:
+  /// **'none'**
+  String get diagNone;
+
+  /// No description provided for @diagGranted.
+  ///
+  /// In en, this message translates to:
+  /// **'Granted'**
+  String get diagGranted;
+
+  /// No description provided for @diagDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Not granted'**
+  String get diagDenied;
+
+  /// No description provided for @diagNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get diagNotifications;
+
+  /// No description provided for @diagNotifHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Without this permission Android cannot show the playback notification and the lock screen loses its controls.'**
+  String get diagNotifHelp;
+
+  /// No description provided for @diagBattery.
+  ///
+  /// In en, this message translates to:
+  /// **'Unrestricted battery'**
+  String get diagBattery;
+
+  /// No description provided for @diagBatteryHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'On HyperOS/MIUI enable Auto-start and remove the battery restriction so the service is not killed.'**
+  String get diagBatteryHelp;
+
+  /// No description provided for @diagMediaSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Media session'**
+  String get diagMediaSession;
+
+  /// No description provided for @diagSources.
+  ///
+  /// In en, this message translates to:
+  /// **'Sources loaded in the session'**
+  String get diagSources;
+
+  /// No description provided for @diagSourcesHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'It must match the songs in the queue ({count}). If not, the lock screen cannot change track.'**
+  String diagSourcesHelp(String count);
+
+  /// No description provided for @diagIndexNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Current index'**
+  String get diagIndexNow;
+
+  /// No description provided for @diagPlayingF.
+  ///
+  /// In en, this message translates to:
+  /// **'Playing'**
+  String get diagPlayingF;
+
+  /// No description provided for @diagStateF.
+  ///
+  /// In en, this message translates to:
+  /// **'State'**
+  String get diagStateF;
+
+  /// No description provided for @diagSongF.
+  ///
+  /// In en, this message translates to:
+  /// **'Song'**
+  String get diagSongF;
+
+  /// No description provided for @diagRecentErrors.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent errors'**
+  String get diagRecentErrors;
+
+  /// No description provided for @diagPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Permissions'**
+  String get diagPermissions;
+
+  /// No description provided for @diagCopyReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy report'**
+  String get diagCopyReport;
+
+  /// No description provided for @diagReportCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Report copied'**
+  String get diagReportCopied;
+
+  /// No description provided for @diagRefresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get diagRefresh;
+
+  /// No description provided for @diagReportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'BotMp3 · playback diagnostics'**
+  String get diagReportTitle;
+
+  /// No description provided for @settingsSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search settings'**
+  String get settingsSearch;
+
+  /// No description provided for @settingsSearchNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching section'**
+  String get settingsSearchNone;
+
+  /// No description provided for @backupToFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Save a backup copy…'**
+  String get backupToFolder;
+
+  /// No description provided for @backupToFolderDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose where to store it (Downloads, Drive, SD…)'**
+  String get backupToFolderDesc;
+
+  /// No description provided for @backupSavedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup saved: {path}'**
+  String backupSavedTo(String path);
 }
 
 class _AppLocalizationsDelegate

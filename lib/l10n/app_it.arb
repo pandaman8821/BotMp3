@@ -847,5 +847,46 @@
   },
   "exportCancelled": "Esportazione annullata",
   "aiNoGenresReturned": "L'IA non ha restituito generi (chiave impostata?)",
-  "noGenresToFill": "Non c'erano generi da completare"
+  "noGenresToFill": "Non c'erano generi da completare",
+  "diagYes": "sì",
+  "diagNo": "no",
+  "diagNone": "nessuno",
+  "diagGranted": "Concessa",
+  "diagDenied": "Non concessa",
+  "diagNotifications": "Notifiche",
+  "diagNotifHelp": "Senza questo permesso Android non mostra la notifica di riproduzione e la schermata di blocco perde i controlli.",
+  "diagBattery": "Batteria senza restrizioni",
+  "diagBatteryHelp": "Su HyperOS/MIUI attiva «Avvio automatico» e togli la restrizione batteria così il servizio non si ferma.",
+  "diagMediaSession": "Sessione multimediale",
+  "diagSources": "Sorgenti caricate nella sessione",
+  "diagSourcesHelp": "Deve coincidere con i brani in coda ({count}). Altrimenti la schermata di blocco non cambia brano.",
+  "@diagSourcesHelp": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "diagIndexNow": "Indice attuale",
+  "diagPlayingF": "In riproduzione",
+  "diagStateF": "Stato",
+  "diagSongF": "Brano",
+  "diagRecentErrors": "Errori recenti",
+  "diagPermissions": "Permessi",
+  "diagCopyReport": "Copia rapporto",
+  "diagReportCopied": "Rapporto copiato",
+  "diagRefresh": "Aggiorna",
+  "diagReportTitle": "BotMp3 · diagnosi riproduzione",
+  "settingsSearch": "Cerca impostazioni",
+  "settingsSearchNone": "Nessuna sezione corrispondente",
+  "backupToFolder": "Salva una copia di backup…",
+  "backupToFolderDesc": "Scegli dove salvarla (Download, Drive, SD…)",
+  "backupSavedTo": "Backup salvato: {path}",
+  "@backupSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
 }

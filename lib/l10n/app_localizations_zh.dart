@@ -1563,6 +1563,91 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noGenresToFill => '没有需要补全的风格';
+
+  @override
+  String get diagYes => '是';
+
+  @override
+  String get diagNo => '否';
+
+  @override
+  String get diagNone => '无';
+
+  @override
+  String get diagGranted => '已授予';
+
+  @override
+  String get diagDenied => '未授予';
+
+  @override
+  String get diagNotifications => '通知';
+
+  @override
+  String get diagNotifHelp => '没有此权限，Android 无法显示播放通知，锁屏也会失去控制。';
+
+  @override
+  String get diagBattery => '无限制电池';
+
+  @override
+  String get diagBatteryHelp => '在 HyperOS/MIUI 上请开启「自动启动」并取消电池限制，以免服务被停止。';
+
+  @override
+  String get diagMediaSession => '媒体会话';
+
+  @override
+  String get diagSources => '会话中已加载的音源';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return '应与队列中的歌曲数（$count）一致，否则锁屏无法切换曲目。';
+  }
+
+  @override
+  String get diagIndexNow => '当前索引';
+
+  @override
+  String get diagPlayingF => '正在播放';
+
+  @override
+  String get diagStateF => '状态';
+
+  @override
+  String get diagSongF => '歌曲';
+
+  @override
+  String get diagRecentErrors => '最近的错误';
+
+  @override
+  String get diagPermissions => '权限';
+
+  @override
+  String get diagCopyReport => '复制报告';
+
+  @override
+  String get diagReportCopied => '报告已复制';
+
+  @override
+  String get diagRefresh => '刷新';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · 播放诊断';
+
+  @override
+  String get settingsSearch => '搜索设置';
+
+  @override
+  String get settingsSearchNone => '没有匹配的部分';
+
+  @override
+  String get backupToFolder => '保存一份备份…';
+
+  @override
+  String get backupToFolderDesc => '选择保存位置（下载、云端硬盘、SD…）';
+
+  @override
+  String backupSavedTo(String path) {
+    return '备份已保存：$path';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -3124,4 +3209,89 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get noGenresToFill => '没有需要补全的风格';
+
+  @override
+  String get diagYes => '是';
+
+  @override
+  String get diagNo => '否';
+
+  @override
+  String get diagNone => '无';
+
+  @override
+  String get diagGranted => '已授予';
+
+  @override
+  String get diagDenied => '未授予';
+
+  @override
+  String get diagNotifications => '通知';
+
+  @override
+  String get diagNotifHelp => '没有此权限，Android 无法显示播放通知，锁屏也会失去控制。';
+
+  @override
+  String get diagBattery => '无限制电池';
+
+  @override
+  String get diagBatteryHelp => '在 HyperOS/MIUI 上请开启「自动启动」并取消电池限制，以免服务被停止。';
+
+  @override
+  String get diagMediaSession => '媒体会话';
+
+  @override
+  String get diagSources => '会话中已加载的音源';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return '应与队列中的歌曲数（$count）一致，否则锁屏无法切换曲目。';
+  }
+
+  @override
+  String get diagIndexNow => '当前索引';
+
+  @override
+  String get diagPlayingF => '正在播放';
+
+  @override
+  String get diagStateF => '状态';
+
+  @override
+  String get diagSongF => '歌曲';
+
+  @override
+  String get diagRecentErrors => '最近的错误';
+
+  @override
+  String get diagPermissions => '权限';
+
+  @override
+  String get diagCopyReport => '复制报告';
+
+  @override
+  String get diagReportCopied => '报告已复制';
+
+  @override
+  String get diagRefresh => '刷新';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · 播放诊断';
+
+  @override
+  String get settingsSearch => '搜索设置';
+
+  @override
+  String get settingsSearchNone => '没有匹配的部分';
+
+  @override
+  String get backupToFolder => '保存一份备份…';
+
+  @override
+  String get backupToFolderDesc => '选择保存位置（下载、云端硬盘、SD…）';
+
+  @override
+  String backupSavedTo(String path) {
+    return '备份已保存：$path';
+  }
 }

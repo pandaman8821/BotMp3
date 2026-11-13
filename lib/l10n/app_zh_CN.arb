@@ -847,5 +847,46 @@
   },
   "exportCancelled": "导出已取消",
   "aiNoGenresReturned": "AI 没有返回风格（是否配置了密钥？）",
-  "noGenresToFill": "没有需要补全的风格"
+  "noGenresToFill": "没有需要补全的风格",
+  "diagYes": "是",
+  "diagNo": "否",
+  "diagNone": "无",
+  "diagGranted": "已授予",
+  "diagDenied": "未授予",
+  "diagNotifications": "通知",
+  "diagNotifHelp": "没有此权限，Android 无法显示播放通知，锁屏也会失去控制。",
+  "diagBattery": "无限制电池",
+  "diagBatteryHelp": "在 HyperOS/MIUI 上请开启「自动启动」并取消电池限制，以免服务被停止。",
+  "diagMediaSession": "媒体会话",
+  "diagSources": "会话中已加载的音源",
+  "diagSourcesHelp": "应与队列中的歌曲数（{count}）一致，否则锁屏无法切换曲目。",
+  "@diagSourcesHelp": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "diagIndexNow": "当前索引",
+  "diagPlayingF": "正在播放",
+  "diagStateF": "状态",
+  "diagSongF": "歌曲",
+  "diagRecentErrors": "最近的错误",
+  "diagPermissions": "权限",
+  "diagCopyReport": "复制报告",
+  "diagReportCopied": "报告已复制",
+  "diagRefresh": "刷新",
+  "diagReportTitle": "BotMp3 · 播放诊断",
+  "settingsSearch": "搜索设置",
+  "settingsSearchNone": "没有匹配的部分",
+  "backupToFolder": "保存一份备份…",
+  "backupToFolderDesc": "选择保存位置（下载、云端硬盘、SD…）",
+  "backupSavedTo": "备份已保存：{path}",
+  "@backupSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
 }

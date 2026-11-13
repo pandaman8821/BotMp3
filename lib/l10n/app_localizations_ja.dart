@@ -1566,4 +1566,90 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noGenresToFill => '補完するジャンルはありませんでした';
+
+  @override
+  String get diagYes => 'はい';
+
+  @override
+  String get diagNo => 'いいえ';
+
+  @override
+  String get diagNone => 'なし';
+
+  @override
+  String get diagGranted => '許可済み';
+
+  @override
+  String get diagDenied => '未許可';
+
+  @override
+  String get diagNotifications => '通知';
+
+  @override
+  String get diagNotifHelp => 'この権限がないと再生通知が出ず、ロック画面の操作も使えません。';
+
+  @override
+  String get diagBattery => 'バッテリー制限なし';
+
+  @override
+  String get diagBatteryHelp =>
+      'HyperOS/MIUIでは「自動起動」を有効にし、バッテリー制限を解除してサービスが停止しないようにしてください。';
+
+  @override
+  String get diagMediaSession => 'メディアセッション';
+
+  @override
+  String get diagSources => 'セッションの読み込み済み数';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return 'キューの曲数（$count）と一致する必要があります。一致しないとロック画面で曲を変えられません。';
+  }
+
+  @override
+  String get diagIndexNow => '現在のインデックス';
+
+  @override
+  String get diagPlayingF => '再生中';
+
+  @override
+  String get diagStateF => '状態';
+
+  @override
+  String get diagSongF => '曲';
+
+  @override
+  String get diagRecentErrors => '最近のエラー';
+
+  @override
+  String get diagPermissions => '権限';
+
+  @override
+  String get diagCopyReport => 'レポートをコピー';
+
+  @override
+  String get diagReportCopied => 'レポートをコピーしました';
+
+  @override
+  String get diagRefresh => '更新';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · 再生診断';
+
+  @override
+  String get settingsSearch => '設定を検索';
+
+  @override
+  String get settingsSearchNone => '一致する項目がありません';
+
+  @override
+  String get backupToFolder => 'バックアップを保存…';
+
+  @override
+  String get backupToFolderDesc => '保存先を選択（ダウンロード、ドライブ、SD…）';
+
+  @override
+  String backupSavedTo(String path) {
+    return 'バックアップを保存しました: $path';
+  }
 }

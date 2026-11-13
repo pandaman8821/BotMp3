@@ -847,5 +847,46 @@
   },
   "exportCancelled": "Exportação cancelada",
   "aiNoGenresReturned": "A IA não retornou gêneros (você tem chave configurada?)",
-  "noGenresToFill": "Não havia gêneros para completar"
+  "noGenresToFill": "Não havia gêneros para completar",
+  "diagYes": "sim",
+  "diagNo": "não",
+  "diagNone": "nenhum",
+  "diagGranted": "Concedida",
+  "diagDenied": "Não concedida",
+  "diagNotifications": "Notificações",
+  "diagNotifHelp": "Sem esta permissão o Android não mostra a notificação de reprodução e a tela de bloqueio fica sem controles.",
+  "diagBattery": "Bateria sem restrições",
+  "diagBatteryHelp": "No HyperOS/MIUI ative «Início automático» e remova a restrição de bateria para o serviço não parar.",
+  "diagMediaSession": "Sessão de mídia",
+  "diagSources": "Fontes carregadas na sessão",
+  "diagSourcesHelp": "Deve coincidir com as músicas da fila ({count}). Se não, a tela de bloqueio não troca de faixa.",
+  "@diagSourcesHelp": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "diagIndexNow": "Índice atual",
+  "diagPlayingF": "Tocando",
+  "diagStateF": "Estado",
+  "diagSongF": "Música",
+  "diagRecentErrors": "Erros recentes",
+  "diagPermissions": "Permissões",
+  "diagCopyReport": "Copiar relatório",
+  "diagReportCopied": "Relatório copiado",
+  "diagRefresh": "Atualizar",
+  "diagReportTitle": "BotMp3 · diagnóstico de reprodução",
+  "settingsSearch": "Buscar ajustes",
+  "settingsSearchNone": "Nenhuma seção corresponde",
+  "backupToFolder": "Salvar uma cópia de segurança…",
+  "backupToFolderDesc": "Escolha onde guardar (Downloads, Drive, SD…)",
+  "backupSavedTo": "Cópia salva: {path}",
+  "@backupSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
 }
