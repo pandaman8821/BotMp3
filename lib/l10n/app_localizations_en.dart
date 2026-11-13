@@ -1555,4 +1555,68 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get diagNoCounts => 'No playback counted yet in this session.';
+
+  @override
+  String get rankEmptyPeriod =>
+      'No plays in this period yet.\nListen to music and the ranking builds itself.';
+
+  @override
+  String rankEmptyData(String what) {
+    return 'No $what data in this period yet.';
+  }
+
+  @override
+  String get trendsError => 'Could not fetch trends. Check your connection.';
+
+  @override
+  String trendsNotifSent(String country) {
+    return 'Notification sent with the top of $country';
+  }
+
+  @override
+  String get trendsNotifFailed =>
+      'Could not show the notification (check the permission)';
+
+  @override
+  String get trendsSearching => 'Looking for the most played songs…';
+
+  @override
+  String get trendsHint =>
+      'Tap refresh to see what is playing on the internet right now.';
+
+  @override
+  String get changelogLatest =>
+      'Stats fixed: every play counts, even repeating the same song. Safer signing and saving.';
+
+  @override
+  String trendsAlertAt(String hour) {
+    return 'I will notify you every day at $hour:00';
+  }
+
+  @override
+  String get voiceGreeting => 'Hi, I am BotMp3. Ready to play your music.';
+
+  @override
+  String get importMediaYes => 'App audios and voice notes will be included';
+
+  @override
+  String get importMediaNo => 'Only music will be shown';
+
+  @override
+  String get scanNowDesc => 'Look for new music on this device';
+
+  @override
+  String songsAddedCount(String count) {
+    return '$count songs added';
+  }
+
+  @override
+  String get exportCancelled => 'Export cancelled';
+
+  @override
+  String get aiNoGenresReturned =>
+      'The AI returned no genres (is a key configured?)';
+
+  @override
+  String get noGenresToFill => 'There were no genres to fill';
 }

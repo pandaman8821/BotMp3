@@ -58,9 +58,16 @@ class StorageService {
     }
   }
 
+  /// Escribe primero en un archivo temporal y luego lo renombra: si Android
+  /// mata la app a mitad de guardado, el archivo bueno sigue intacto.
   Future<void> writeJson(String name, Object data) async {
     final File file = await _file(name);
-    await file.writeAsString(jsonEncode(data), flush: true);
+    final File temporal = File('${file.path}.tmp');
+    await temporal.writeAsString(jsonEncode(data), flush: true);
+    if (await file.exists()) {
+      await file.delete();
+    }
+    await temporal.rename(file.path);
   }
 
   /// Guarda un archivo importado cuando el selector devuelve bytes en vez de ruta

@@ -1540,4 +1540,67 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get diagNoCounts => 'इस सत्र में अभी कोई प्लेबैक नहीं गिना गया।';
+
+  @override
+  String get rankEmptyPeriod =>
+      'इस अवधि में कोई प्लेबैक नहीं।\nसंगीत सुनें और रैंकिंग खुद बन जाएगी।';
+
+  @override
+  String rankEmptyData(String what) {
+    return 'इस अवधि में अभी $what डेटा नहीं है।';
+  }
+
+  @override
+  String get trendsError => 'ट्रेंड नहीं मिल सके। कनेक्शन जाँचें।';
+
+  @override
+  String trendsNotifSent(String country) {
+    return '$country के टॉप के साथ सूचना भेजी गई';
+  }
+
+  @override
+  String get trendsNotifFailed => 'सूचना नहीं दिखाई जा सकी (अनुमति जाँचें)';
+
+  @override
+  String get trendsSearching => 'सबसे ज़्यादा सुने गाने खोजे जा रहे हैं…';
+
+  @override
+  String get trendsHint =>
+      'अभी इंटरनेट पर क्या चल रहा है, देखने के लिए रीफ़्रेश दबाएँ।';
+
+  @override
+  String get changelogLatest =>
+      'आँकड़े ठीक: हर प्लेबैक गिना जाता है, वही गाना दोहराने पर भी। हस्ताक्षर और सहेजना सुरक्षित।';
+
+  @override
+  String trendsAlertAt(String hour) {
+    return 'मैं रोज़ $hour:00 बजे सूचित करूँगा';
+  }
+
+  @override
+  String get voiceGreeting =>
+      'नमस्ते, मैं BotMp3 हूँ। आपका संगीत चलाने के लिए तैयार।';
+
+  @override
+  String get importMediaYes => 'ऐप ऑडियो और वॉइस नोट्स शामिल होंगे';
+
+  @override
+  String get importMediaNo => 'केवल संगीत दिखाया जाएगा';
+
+  @override
+  String get scanNowDesc => 'इस डिवाइस पर नया संगीत खोजें';
+
+  @override
+  String songsAddedCount(String count) {
+    return '$count गाने जोड़े गए';
+  }
+
+  @override
+  String get exportCancelled => 'निर्यात रद्द किया गया';
+
+  @override
+  String get aiNoGenresReturned => 'AI ने कोई शैली नहीं दी (कुंजी सेट है?)';
+
+  @override
+  String get noGenresToFill => 'भरने के लिए कोई शैली नहीं थी';
 }

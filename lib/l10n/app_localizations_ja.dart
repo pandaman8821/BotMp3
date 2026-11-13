@@ -1507,4 +1507,63 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get diagNoCounts => 'このセッションではまだ再生が記録されていません。';
+
+  @override
+  String get rankEmptyPeriod => 'この期間の再生はまだありません。\n音楽を聴けばランキングが作られます。';
+
+  @override
+  String rankEmptyData(String what) {
+    return 'この期間の$whatデータはまだありません。';
+  }
+
+  @override
+  String get trendsError => 'トレンドを取得できません。接続を確認してください。';
+
+  @override
+  String trendsNotifSent(String country) {
+    return '$countryのトップを通知しました';
+  }
+
+  @override
+  String get trendsNotifFailed => '通知を表示できません（権限を確認）';
+
+  @override
+  String get trendsSearching => '最も再生されている曲を探しています…';
+
+  @override
+  String get trendsHint => '更新を押すと、今ネットで人気の曲がわかります。';
+
+  @override
+  String get changelogLatest => '再生回数を修正：同じ曲を繰り返しても毎回カウントされます。署名と保存も安全に。';
+
+  @override
+  String trendsAlertAt(String hour) {
+    return '毎日 $hour:00 に通知します';
+  }
+
+  @override
+  String get voiceGreeting => 'こんにちは、BotMp3です。音楽を再生する準備ができました。';
+
+  @override
+  String get importMediaYes => 'アプリの音声とボイスメモも含まれます';
+
+  @override
+  String get importMediaNo => '音楽のみ表示されます';
+
+  @override
+  String get scanNowDesc => '端末の新しい曲を探します';
+
+  @override
+  String songsAddedCount(String count) {
+    return '$count曲を追加しました';
+  }
+
+  @override
+  String get exportCancelled => 'エクスポートをキャンセルしました';
+
+  @override
+  String get aiNoGenresReturned => 'AIがジャンルを返しませんでした（キーは設定済み？）';
+
+  @override
+  String get noGenresToFill => '補完するジャンルはありませんでした';
 }

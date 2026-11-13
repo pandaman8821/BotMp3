@@ -1562,6 +1562,73 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get diagNoCounts => 'Nenhuma reprodução contada nesta sessão ainda.';
+
+  @override
+  String get rankEmptyPeriod =>
+      'Ainda não há reproduções neste período.\nOuça música e o ranking se constrói sozinho.';
+
+  @override
+  String rankEmptyData(String what) {
+    return 'Ainda não há dados de $what neste período.';
+  }
+
+  @override
+  String get trendsError =>
+      'Não foi possível obter as tendências. Verifique sua conexão.';
+
+  @override
+  String trendsNotifSent(String country) {
+    return 'Notificação enviada com o top de $country';
+  }
+
+  @override
+  String get trendsNotifFailed =>
+      'Não foi possível mostrar a notificação (verifique a permissão)';
+
+  @override
+  String get trendsSearching => 'Procurando as músicas mais ouvidas…';
+
+  @override
+  String get trendsHint =>
+      'Toque atualizar para ver o que está tocando na internet agora.';
+
+  @override
+  String get changelogLatest =>
+      'Estatísticas corrigidas: cada reprodução conta, mesmo repetindo a mesma música. Assinatura e gravação mais seguras.';
+
+  @override
+  String trendsAlertAt(String hour) {
+    return 'Vou avisar você todos os dias às $hour:00';
+  }
+
+  @override
+  String get voiceGreeting =>
+      'Olá, eu sou o BotMp3. Pronto para tocar sua música.';
+
+  @override
+  String get importMediaYes =>
+      'Os áudios de apps e notas de voz serão incluídos';
+
+  @override
+  String get importMediaNo => 'Somente músicas serão mostradas';
+
+  @override
+  String get scanNowDesc => 'Procura músicas novas no aparelho';
+
+  @override
+  String songsAddedCount(String count) {
+    return '$count músicas adicionadas';
+  }
+
+  @override
+  String get exportCancelled => 'Exportação cancelada';
+
+  @override
+  String get aiNoGenresReturned =>
+      'A IA não retornou gêneros (você tem chave configurada?)';
+
+  @override
+  String get noGenresToFill => 'Não havia gêneros para completar';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3122,4 +3189,71 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get diagNoCounts => 'Nenhuma reprodução contada nesta sessão ainda.';
+
+  @override
+  String get rankEmptyPeriod =>
+      'Ainda não há reproduções neste período.\nOuça música e o ranking se constrói sozinho.';
+
+  @override
+  String rankEmptyData(String what) {
+    return 'Ainda não há dados de $what neste período.';
+  }
+
+  @override
+  String get trendsError =>
+      'Não foi possível obter as tendências. Verifique sua conexão.';
+
+  @override
+  String trendsNotifSent(String country) {
+    return 'Notificação enviada com o top de $country';
+  }
+
+  @override
+  String get trendsNotifFailed =>
+      'Não foi possível mostrar a notificação (verifique a permissão)';
+
+  @override
+  String get trendsSearching => 'Procurando as músicas mais ouvidas…';
+
+  @override
+  String get trendsHint =>
+      'Toque atualizar para ver o que está tocando na internet agora.';
+
+  @override
+  String get changelogLatest =>
+      'Estatísticas corrigidas: cada reprodução conta, mesmo repetindo a mesma música. Assinatura e gravação mais seguras.';
+
+  @override
+  String trendsAlertAt(String hour) {
+    return 'Vou avisar você todos os dias às $hour:00';
+  }
+
+  @override
+  String get voiceGreeting =>
+      'Olá, eu sou o BotMp3. Pronto para tocar sua música.';
+
+  @override
+  String get importMediaYes =>
+      'Os áudios de apps e notas de voz serão incluídos';
+
+  @override
+  String get importMediaNo => 'Somente músicas serão mostradas';
+
+  @override
+  String get scanNowDesc => 'Procura músicas novas no aparelho';
+
+  @override
+  String songsAddedCount(String count) {
+    return '$count músicas adicionadas';
+  }
+
+  @override
+  String get exportCancelled => 'Exportação cancelada';
+
+  @override
+  String get aiNoGenresReturned =>
+      'A IA não retornou gêneros (você tem chave configurada?)';
+
+  @override
+  String get noGenresToFill => 'Não havia gêneros para completar';
 }

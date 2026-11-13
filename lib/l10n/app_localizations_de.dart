@@ -1564,4 +1564,69 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get diagNoCounts =>
       'In dieser Sitzung wurde noch keine Wiedergabe gezählt.';
+
+  @override
+  String get rankEmptyPeriod =>
+      'In diesem Zeitraum noch keine Wiedergaben.\nHör Musik und das Ranking entsteht von selbst.';
+
+  @override
+  String rankEmptyData(String what) {
+    return 'Noch keine $what-Daten in diesem Zeitraum.';
+  }
+
+  @override
+  String get trendsError =>
+      'Trends konnten nicht geladen werden. Prüfe die Verbindung.';
+
+  @override
+  String trendsNotifSent(String country) {
+    return 'Benachrichtigung mit den Top-Titeln für $country gesendet';
+  }
+
+  @override
+  String get trendsNotifFailed =>
+      'Benachrichtigung konnte nicht angezeigt werden (Berechtigung prüfen)';
+
+  @override
+  String get trendsSearching => 'Die meistgespielten Titel werden gesucht…';
+
+  @override
+  String get trendsHint => 'Aktualisieren zeigt, was gerade im Internet läuft.';
+
+  @override
+  String get changelogLatest =>
+      'Statistik behoben: jede Wiedergabe zählt, auch bei Wiederholung. Signieren und Speichern sicherer.';
+
+  @override
+  String trendsAlertAt(String hour) {
+    return 'Ich benachrichtige dich täglich um $hour:00';
+  }
+
+  @override
+  String get voiceGreeting =>
+      'Hallo, ich bin BotMp3. Bereit, deine Musik zu spielen.';
+
+  @override
+  String get importMediaYes => 'App-Audios und Sprachnotizen werden einbezogen';
+
+  @override
+  String get importMediaNo => 'Nur Musik wird angezeigt';
+
+  @override
+  String get scanNowDesc => 'Neue Musik auf diesem Gerät suchen';
+
+  @override
+  String songsAddedCount(String count) {
+    return '$count Titel hinzugefügt';
+  }
+
+  @override
+  String get exportCancelled => 'Export abgebrochen';
+
+  @override
+  String get aiNoGenresReturned =>
+      'Die KI lieferte keine Genres (Schlüssel gesetzt?)';
+
+  @override
+  String get noGenresToFill => 'Es gab keine Genres zu ergänzen';
 }

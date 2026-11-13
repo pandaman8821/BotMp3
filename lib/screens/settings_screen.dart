@@ -118,7 +118,7 @@ class SettingsScreen extends StatelessWidget {
                 SnackBar(
                   content: Text(
                     value
-                        ? 'Te avisaré cada día a las ${settings.trendsHour}:00'
+                        ? AppLocalizations.of(context).trendsAlertAt('${settings.trendsHour}')
                         : 'Avisos de tendencias desactivados',
                   ),
                 ),
@@ -415,7 +415,7 @@ ListTile(
             child: OutlinedButton.icon(
               onPressed: () async {
                 await VoiceService.instance.speak(
-                  'Hola, soy BotMp3. Estoy listo para poner tu música.',
+                  AppLocalizations.of(context).voiceGreeting,
                   locale: settings.voiceLocale,
                 );
               },
@@ -470,8 +470,8 @@ ListTile(
                 SnackBar(
                   content: Text(
                     value
-                        ? 'Se incluirán los audios de apps y notas de voz'
-                        : 'Solo se mostrará música',
+                        ? AppLocalizations.of(context).importMediaYes
+                        : AppLocalizations.of(context).importMediaNo,
                   ),
                 ),
               );
@@ -488,7 +488,7 @@ ListTile(
                   )
                 : Icon(Icons.refresh),
             title: Text(AppLocalizations.of(context).scanNow),
-            subtitle: Text(library.scanMessage ?? 'Busca música nueva en el dispositivo'),
+            subtitle: Text(library.scanMessage ?? AppLocalizations.of(context).scanNowDesc),
             onTap: () async {
               final int added = await library.autoScan(force: true);
               if (!context.mounted) return;
@@ -497,7 +497,7 @@ ListTile(
                   content: Text(
                     added == 0
                         ? 'No hay canciones nuevas'
-                        : '$added canciones añadidas',
+                        : AppLocalizations.of(context).songsAddedCount('$added'),
                   ),
                 ),
               );
@@ -585,7 +585,7 @@ ListTile(
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    ruta == null ? 'Exportación cancelada' : 'Copia exportada ✅',
+                    ruta == null ? AppLocalizations.of(context).exportCancelled : 'Copia exportada ✅',
                   ),
                 ),
               );
@@ -695,7 +695,7 @@ ListTile(
                 SnackBar(
                   content: Text(
                     hechas == 0
-                        ? 'La IA no devolvió géneros (¿tienes clave configurada?)'
+                        ? AppLocalizations.of(context).aiNoGenresReturned
                         : '$hechas canciones etiquetadas con IA ✨',
                   ),
                 ),
@@ -714,7 +714,7 @@ ListTile(
                 SnackBar(
                   content: Text(
                     cambiadas == 0
-                        ? 'No había géneros que completar'
+                        ? AppLocalizations.of(context).noGenresToFill
                         : '$cambiadas canciones etiquetadas 🏷️',
                   ),
                 ),
@@ -858,7 +858,10 @@ ListTile(
               final String version = snapshot.data ?? AppLocalizations.of(context).loading;
               final int? codigo = AppInfoService.codigoCache;
               final String? novedades =
-                  codigo == null ? null : AppChangelog.forCode(codigo);
+                  codigo == null
+                      ? null
+                      : (AppChangelog.forCode(codigo) ??
+                          AppLocalizations.of(context).changelogLatest);
               return ListTile(
                 leading: Icon(Icons.info_outline),
                 title: Text(version),
@@ -1184,7 +1187,7 @@ class _ApiKeyCardState extends State<_ApiKeyCard> {
                                 content: Text(
                                   ok
                                       ? '${provider.label}: ${ai.status}'
-                                      : ai.lastError ?? 'Error de conexión',
+                                      : ai.lastError ?? AppLocalizations.of(context).aiErrorConnection,
                                 ),
                               ),
                             );

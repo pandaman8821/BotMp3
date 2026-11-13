@@ -802,5 +802,50 @@
       }
     }
   },
-  "diagNoCounts": "Aucune lecture comptée dans cette session."
+  "diagNoCounts": "Aucune lecture comptée dans cette session.",
+  "rankEmptyPeriod": "Aucune lecture sur cette période.\nÉcoute de la musique et le classement se construit seul.",
+  "rankEmptyData": "Pas encore de données {what} sur cette période.",
+  "@rankEmptyData": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "trendsError": "Impossible d'obtenir les tendances. Vérifie ta connexion.",
+  "trendsNotifSent": "Notification envoyée avec le top de {country}",
+  "@trendsNotifSent": {
+    "placeholders": {
+      "country": {
+        "type": "String"
+      }
+    }
+  },
+  "trendsNotifFailed": "Impossible d'afficher la notification (vérifie la permission)",
+  "trendsSearching": "Recherche des chansons les plus écoutées…",
+  "trendsHint": "Appuie sur actualiser pour voir ce qui passe sur internet en ce moment.",
+  "changelogLatest": "Statistiques corrigées : chaque lecture compte, même en répétant le morceau. Signature et sauvegarde plus sûres.",
+  "trendsAlertAt": "Je te préviendrai chaque jour à {hour}:00",
+  "@trendsAlertAt": {
+    "placeholders": {
+      "hour": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceGreeting": "Salut, je suis BotMp3. Prêt à jouer ta musique.",
+  "importMediaYes": "Les audios d'applis et notes vocales seront inclus",
+  "importMediaNo": "Seule la musique sera affichée",
+  "scanNowDesc": "Chercher de la nouvelle musique sur l'appareil",
+  "songsAddedCount": "{count} morceaux ajoutés",
+  "@songsAddedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "exportCancelled": "Exportation annulée",
+  "aiNoGenresReturned": "L'IA n'a renvoyé aucun genre (clé configurée ?)",
+  "noGenresToFill": "Il n'y avait aucun genre à compléter"
 }
