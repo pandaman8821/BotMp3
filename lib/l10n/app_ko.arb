@@ -908,5 +908,16 @@
         "type": "String"
       }
     }
-  }
+  },
+  "selectAll": "모두 선택",
+  "clearSelection": "선택 해제",
+  "addSongsCount": "추가({count})",
+  "@addSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsGoTo": "이동"
 }

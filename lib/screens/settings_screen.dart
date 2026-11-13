@@ -79,37 +79,41 @@ class _SettingsScreenState extends State<SettingsScreen> {
   GlobalKey _ancla(String nombre) =>
       _anclas.putIfAbsent(nombre, () => GlobalKey());
 
-  /// Salta a la primera seccion cuyo nombre o palabras clave coincidan.
-  void _buscarSeccion(BuildContext context, String consulta) {
-    setState(() {});
-    final String q = _sinAcentos(consulta.trim());
-    if (q.isEmpty) return;
-    String? destino;
-    for (final MapEntry<String, List<String>> entrada in _indice.entries) {
-      if (_sinAcentos(entrada.key).contains(q) ||
-          entrada.value.any((String p) => _sinAcentos(p).contains(q))) {
-        destino = entrada.key;
-        break;
-      }
-    }
-    if (destino == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context).settingsSearchNone),
-          duration: const Duration(seconds: 2),
-        ),
-      );
-      return;
-    }
-    final BuildContext? alvo = _anclas[destino]?.currentContext;
-    if (alvo != null) {
-      Scrollable.ensureVisible(
-        alvo,
-        duration: const Duration(milliseconds: 350),
-        curve: Curves.easeOutCubic,
-      );
+  /// Nombre visible de cada seccion (para las sugerencias del buscador).
+  String _tituloSeccion(BuildContext context, String clave) {
+    final AppLocalizations loc = AppLocalizations.of(context);
+    switch (clave) {
+      case 'tendencias':
+        return loc.trendsTitle;
+      case 'apariencia':
+        return loc.secAppearance;
+      case 'ia':
+        return loc.secAi;
+      case 'reproduccion':
+        return loc.secPlayback;
+      case 'rendimiento':
+        return loc.secPerformance;
+      case 'voz':
+        return loc.secVoice;
+      case 'biblioteca':
+        return loc.secLibrary;
+      default:
+        return loc.aboutTitle;
     }
   }
+
+  /// Secciones que coinciden con lo escrito (nombre o palabra clave).
+  List<String> _coincidencias() {
+    final String q = _sinAcentos(_buscador.text.trim());
+    if (q.isEmpty) return const <String>[];
+    return _indice.entries
+        .where((MapEntry<String, List<String>> e) =>
+            _sinAcentos(e.key).contains(q) ||
+            e.value.any((String p) => _sinAcentos(p).contains(q)))
+        .map((MapEntry<String, List<String>> e) => e.key)
+        .toList();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +134,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             padding: const EdgeInsets.fromLTRB(12, 10, 12, 4),
             child: TextField(
               controller: _buscador,
-              onChanged: (String valor) => _buscarSeccion(context, valor),
+              onChanged: (_) => setState(() {}),
               decoration: InputDecoration(
                 isDense: true,
                 prefixIcon: const Icon(Icons.search, size: 20),
@@ -150,6 +154,36 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
           ),
+          // Sugerencias del buscador: toca para saltar a esa seccion.
+          if (_buscador.text.trim().isNotEmpty)
+            if (_coincidencias().isEmpty)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+                child: Text(
+                  AppLocalizations.of(context).settingsSearchNone,
+                  style: TextStyle(fontSize: 12, color: AppColors.darkTextDim),
+                ),
+              )
+            else
+              for (final String clave in _coincidencias())
+                ListTile(
+                  dense: true,
+                  leading: const Icon(Icons.arrow_forward, size: 18),
+                  title: Text(_tituloSeccion(context, clave)),
+                  subtitle: Text(AppLocalizations.of(context).settingsGoTo),
+                  onTap: () {
+                    final BuildContext? alvo = _anclas[clave]?.currentContext;
+                    if (alvo != null) {
+                      Scrollable.ensureVisible(
+                        alvo,
+                        duration: const Duration(milliseconds: 350),
+                        curve: Curves.easeOutCubic,
+                      );
+                    }
+                    _buscador.clear();
+                    setState(() {});
+                  },
+                ),
           // ---------------------------------------------------- Apariencia
           _SectionTitle(AppLocalizations.of(context).trendsTitle, key: _ancla('tendencias')),
           ListTile(

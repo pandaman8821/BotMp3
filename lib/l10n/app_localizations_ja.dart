@@ -1674,4 +1674,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String rankLastPlayed(String when) {
     return '最終再生 $when';
   }
+
+  @override
+  String get selectAll => 'すべて選択';
+
+  @override
+  String get clearSelection => '選択解除';
+
+  @override
+  String addSongsCount(String count) {
+    return '追加（$count）';
+  }
+
+  @override
+  String get settingsGoTo => '移動';
 }

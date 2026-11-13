@@ -908,5 +908,16 @@
         "type": "String"
       }
     }
-  }
+  },
+  "selectAll": "すべて選択",
+  "clearSelection": "選択解除",
+  "addSongsCount": "追加（{count}）",
+  "@addSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsGoTo": "移動"
 }

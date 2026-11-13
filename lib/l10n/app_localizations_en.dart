@@ -1729,4 +1729,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String rankLastPlayed(String when) {
     return 'last played $when';
   }
+
+  @override
+  String get selectAll => 'Select all';
+
+  @override
+  String get clearSelection => 'Clear';
+
+  @override
+  String addSongsCount(String count) {
+    return 'Add ($count)';
+  }
+
+  @override
+  String get settingsGoTo => 'Go to';
 }

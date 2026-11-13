@@ -908,5 +908,16 @@
         "type": "String"
       }
     }
-  }
+  },
+  "selectAll": "सभी चुनें",
+  "clearSelection": "चयन हटाएँ",
+  "addSongsCount": "जोड़ें ({count})",
+  "@addSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsGoTo": "यहाँ जाएँ"
 }

@@ -908,5 +908,16 @@
         "type": "String"
       }
     }
-  }
+  },
+  "selectAll": "Seleziona tutto",
+  "clearSelection": "Deseleziona",
+  "addSongsCount": "Aggiungi ({count})",
+  "@addSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsGoTo": "Vai a"
 }

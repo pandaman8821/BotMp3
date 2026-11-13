@@ -1737,4 +1737,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String rankLastPlayed(String when) {
     return 'ultima volta $when';
   }
+
+  @override
+  String get selectAll => 'Seleziona tutto';
+
+  @override
+  String get clearSelection => 'Deseleziona';
+
+  @override
+  String addSongsCount(String count) {
+    return 'Aggiungi ($count)';
+  }
+
+  @override
+  String get settingsGoTo => 'Vai a';
 }

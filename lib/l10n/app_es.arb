@@ -1127,5 +1127,16 @@
         "type": "String"
       }
     }
-  }
+  },
+  "selectAll": "Seleccionar todas",
+  "clearSelection": "Quitar selección",
+  "addSongsCount": "Añadir ({count})",
+  "@addSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsGoTo": "Ir a"
 }

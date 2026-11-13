@@ -1739,6 +1739,20 @@ class AppLocalizationsPt extends AppLocalizations {
   String rankLastPlayed(String when) {
     return 'última vez $when';
   }
+
+  @override
+  String get selectAll => 'Selecionar todas';
+
+  @override
+  String get clearSelection => 'Limpar';
+
+  @override
+  String addSongsCount(String count) {
+    return 'Adicionar ($count)';
+  }
+
+  @override
+  String get settingsGoTo => 'Ir para';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3476,4 +3490,18 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String rankLastPlayed(String when) {
     return 'última vez $when';
   }
+
+  @override
+  String get selectAll => 'Selecionar todas';
+
+  @override
+  String get clearSelection => 'Limpar';
+
+  @override
+  String addSongsCount(String count) {
+    return 'Adicionar ($count)';
+  }
+
+  @override
+  String get settingsGoTo => 'Ir para';
 }
