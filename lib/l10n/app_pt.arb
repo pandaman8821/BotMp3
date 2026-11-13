@@ -888,5 +888,25 @@
         "type": "String"
       }
     }
+  },
+  "rankPlays": "{count} reproduções",
+  "@rankPlays": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlaySomething": "Reproduzir aleatório",
+  "rankSearchHint": "Filtrar este ranking",
+  "rankOpenArtist": "Abrir artista",
+  "rankSeeAlbum": "Abrir álbum",
+  "rankLastPlayed": "última vez {when}",
+  "@rankLastPlayed": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
   }
 }

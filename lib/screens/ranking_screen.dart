@@ -6,7 +6,11 @@ import '../core/theme.dart';
 import '../models/song.dart';
 import '../providers/library_provider.dart';
 import '../providers/player_provider.dart';
+import '../core/formatters.dart';
+import '../services/settings_service.dart';
 import '../widgets/cover_art.dart';
+import 'album_screen.dart';
+import 'artist_screen.dart';
 
 enum _Periodo { todo, mes, semana }
 
@@ -36,10 +40,79 @@ class RankingScreen extends StatefulWidget {
 class _RankingScreenState extends State<RankingScreen> with SingleTickerProviderStateMixin {
   late final TabController _tabs = TabController(length: 4, vsync: this);
   _Periodo _periodo = _Periodo.todo;
+  final TextEditingController _busqueda = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    final int guardado = SettingsService.actual?.rankingPeriodo ?? 0;
+    _periodo = _Periodo.values[guardado.clamp(0, _Periodo.values.length - 1)];
+  }
+
+  /// Quita acentos para que el filtro no falle con tildes.
+  static String _limpio(String texto) {
+    const Map<String, String> mapa = <String, String>{
+      'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'ü': 'u', 'ñ': 'n',
+    };
+    String salida = texto.toLowerCase();
+    mapa.forEach((String k, String v) => salida = salida.replaceAll(k, v));
+    return salida;
+  }
+
+  /// Menu al mantener pulsada una cancion del ranking.
+  Future<void> _menuCancion(BuildContext context, Song song) async {
+    final LibraryProvider library = context.read<LibraryProvider>();
+    final bool esFavorita = library.songById(song.id)?.isFavorite ?? false;
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (BuildContext sheet) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ListTile(
+              leading: Icon(esFavorita ? Icons.favorite : Icons.favorite_border,
+                  color: esFavorita ? AppColors.danger : null),
+              title: Text(AppLocalizations.of(context).actFavorite(song.title)),
+              onTap: () async {
+                await library.toggleFavorite(song.id);
+                if (sheet.mounted) Navigator.of(sheet).pop();
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.person_outline),
+              title: Text(AppLocalizations.of(context).rankOpenArtist),
+              onTap: () {
+                Navigator.of(sheet).pop();
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => ArtistScreen(artist: song.artist),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.album_outlined),
+              title: Text(AppLocalizations.of(context).rankSeeAlbum),
+              onTap: () {
+                Navigator.of(sheet).pop();
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => AlbumScreen(album: song.album),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   void dispose() {
     _tabs.dispose();
+    _busqueda.dispose();
     super.dispose();
   }
 
@@ -68,6 +141,26 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
     } catch (error) {
       errorRanking = '$error';
     }
+
+    // Filtro de texto: afecta a las 4 pestanas a la vez.
+    final String consulta = _limpio(_busqueda.text.trim());
+    if (consulta.isNotEmpty) {
+      canciones = canciones
+          .where((Song s) => _limpio('${s.title} ${s.artist} ${s.album}').contains(consulta))
+          .toList();
+      artistas = artistas
+          .where((MapEntry<String, int> e) => _limpio(e.key).contains(consulta))
+          .toList();
+      albumes = albumes
+          .where((MapEntry<String, int> e) => _limpio(e.key).contains(consulta))
+          .toList();
+      generos = generos
+          .where((MapEntry<String, int> e) => _limpio(e.key).contains(consulta))
+          .toList();
+    }
+    final int maximo = conteos.isEmpty
+        ? 0
+        : conteos.values.reduce((int a, int b) => a > b ? a : b);
 
     return Scaffold(
       appBar: AppBar(
@@ -148,7 +241,10 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
                       return ChoiceChip(
                         label: Text(valor.etiqueta, style: const TextStyle(fontSize: 12)),
                         selected: _periodo == valor,
-                        onSelected: (_) => setState(() => _periodo = valor),
+                        onSelected: (_) {
+                          setState(() => _periodo = valor);
+                          SettingsService.actual?.setRankingPeriodo(valor.index);
+                        },
                       );
                     }).toList(),
                   ),
@@ -160,17 +256,43 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 4),
+            child: TextField(
+              controller: _busqueda,
+              onChanged: (_) => setState(() {}),
+              decoration: InputDecoration(
+                isDense: true,
+                prefixIcon: const Icon(Icons.search, size: 18),
+                hintText: AppLocalizations.of(context).rankSearchHint,
+                suffixIcon: _busqueda.text.isEmpty
+                    ? null
+                    : IconButton(
+                        icon: const Icon(Icons.close, size: 16),
+                        onPressed: () {
+                          _busqueda.clear();
+                          setState(() {});
+                        },
+                      ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ),
           Expanded(
             child: TabBarView(
               controller: _tabs,
               children: <Widget>[
-                _listaCanciones(canciones, conteos),
+                _listaCanciones(canciones, conteos, maximo),
                 _listaSimple(artistas, Icons.person_outline,
-                    AppLocalizations.of(context).sortArtist),
+                    AppLocalizations.of(context).sortArtist, maximo,
+                    tipo: 'artista'),
                 _listaSimple(albumes, Icons.album_outlined,
-                    AppLocalizations.of(context).albumLabel),
+                    AppLocalizations.of(context).albumLabel, maximo,
+                    tipo: 'album'),
                 _listaSimple(generos, Icons.category_outlined,
-                    AppLocalizations.of(context).genreLabel),
+                    AppLocalizations.of(context).genreLabel, maximo),
               ],
             ),
           ),
@@ -179,29 +301,72 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
     );
   }
 
-  Widget _vacio(String texto) => Center(
+  /// Pantalla vacia, con boton para poner algo de musica al azar.
+  Widget _vacio(String texto, {VoidCallback? alAzar}) => Center(
         child: Padding(
           padding: const EdgeInsets.all(28),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Icon(Icons.leaderboard_outlined, size: 46),
-              const SizedBox(height: 12),
+              Container(
+                width: 104,
+                height: 104,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[
+                      AppColors.green.withAlpha(40),
+                      AppColors.aiViolet.withAlpha(30),
+                    ],
+                  ),
+                  border: Border.all(color: AppColors.green.withAlpha(70)),
+                ),
+                child: const Icon(Icons.leaderboard_outlined, size: 46),
+              ),
+              const SizedBox(height: 14),
               Text(texto, textAlign: TextAlign.center),
+              if (alAzar != null) ...<Widget>[
+                const SizedBox(height: 16),
+                FilledButton.icon(
+                  onPressed: alAzar,
+                  icon: const Icon(Icons.shuffle_rounded),
+                  label: Text(AppLocalizations.of(context).rankPlaySomething),
+                ),
+              ],
             ],
           ),
         ),
       );
 
-  Widget _listaCanciones(List<Song> canciones, Map<String, int> conteos) {
+  /// Reproduce al azar toda la biblioteca (para salir del ranking vacio).
+  void _reproducirAlAzar() {
+    final List<Song> todas = context.read<LibraryProvider>().songs;
+    if (todas.isEmpty) return;
+    final List<Song> mezcla = List<Song>.from(todas)..shuffle();
+    context.read<PlayerProvider>().setQueue(mezcla);
+  }
+
+  Widget _listaCanciones(
+    List<Song> canciones,
+    Map<String, int> conteos,
+    int maximo,
+  ) {
     if (canciones.isEmpty) {
-      return _vacio(AppLocalizations.of(context).rankEmptyPeriod);
+      return _vacio(
+        AppLocalizations.of(context).rankEmptyPeriod,
+        alAzar: _reproducirAlAzar,
+      );
     }
+    final AppLocalizations loc = AppLocalizations.of(context);
     return ListView.builder(
       padding: const EdgeInsets.only(bottom: 120, top: 4),
       itemCount: canciones.length,
       itemBuilder: (BuildContext context, int index) {
         final Song song = canciones[index];
+        final int jugadas = conteos[song.id] ?? 0;
+        final DateTime? ultima = song.lastPlayedAt;
         return ListTile(
           leading: SizedBox(
             width: 56,
@@ -214,16 +379,35 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
             ),
           ),
           title: Text(song.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-          subtitle: Text(
-            '${song.artist} · ${conteos[song.id] ?? 0} reproducciones',
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontSize: 12),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                ultima == null
+                    ? '${song.artist} · ${loc.rankPlays('$jugadas')}'
+                    : '${song.artist} · ${loc.rankPlays('$jugadas')} · '
+                        '${loc.rankLastPlayed(Formatters.relativeDate(ultima))}',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontSize: 12),
+              ),
+              const SizedBox(height: 5),
+              // Barra proporcional: cuanto pesa frente al numero 1.
+              ClipRRect(
+                borderRadius: BorderRadius.circular(3),
+                child: LinearProgressIndicator(
+                  value: maximo <= 0 ? 0 : (jugadas / maximo).clamp(0.02, 1.0),
+                  minHeight: 4,
+                ),
+              ),
+            ],
           ),
+          isThreeLine: true,
           onTap: () => context.read<PlayerProvider>().setQueue(
                 canciones,
                 startIndex: index,
               ),
+          onLongPress: () => _menuCancion(context, song),
         );
       },
     );
@@ -240,10 +424,17 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
     );
   }
 
-  Widget _listaSimple(List<MapEntry<String, int>> datos, IconData icono, String singular) {
+  Widget _listaSimple(
+    List<MapEntry<String, int>> datos,
+    IconData icono,
+    String singular,
+    int maximo, {
+    String? tipo,
+  }) {
     if (datos.isEmpty) {
       return _vacio(AppLocalizations.of(context).rankEmptyData(singular));
     }
+    final AppLocalizations loc = AppLocalizations.of(context);
     return ListView.builder(
       padding: const EdgeInsets.only(bottom: 120, top: 4),
       itemCount: datos.length,
@@ -261,23 +452,45 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
             ),
           ),
           title: Text(item.key, maxLines: 1, overflow: TextOverflow.ellipsis),
-          subtitle: Text(
-            '${item.value} ${item.value == 1 ? 'reproducción' : 'reproducciones'}',
-            style: const TextStyle(fontSize: 12),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                loc.rankPlays('${item.value}'),
+                style: const TextStyle(fontSize: 12),
+              ),
+              const SizedBox(height: 5),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(3),
+                child: LinearProgressIndicator(
+                  value: maximo <= 0 ? 0 : (item.value / maximo).clamp(0.02, 1.0),
+                  minHeight: 4,
+                ),
+              ),
+            ],
           ),
+          isThreeLine: true,
           onTap: () {
-            // Reproduce lo más escuchado de ese artista, álbum o género.
-            final List<Song> coincidencias = context.read<LibraryProvider>().songs.where((
-              Song song,
-            ) {
-              switch (singular) {
-                case 'artista':
-                  return song.artist == item.key;
-                case 'álbum':
-                  return song.album == item.key;
-                default:
-                  return song.genre == item.key;
-              }
+            // Artista y album abren su pantalla; genero reproduce las suyas.
+            if (tipo == 'artista') {
+              Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => ArtistScreen(artist: item.key),
+                ),
+              );
+              return;
+            }
+            if (tipo == 'album') {
+              Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => AlbumScreen(album: item.key),
+                ),
+              );
+              return;
+            }
+            final List<Song> coincidencias =
+                context.read<LibraryProvider>().songs.where((Song song) {
+              return song.genre == item.key;
             }).toList();
             if (coincidencias.isNotEmpty) {
               context.read<PlayerProvider>().setQueue(coincidencias);

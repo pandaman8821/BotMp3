@@ -1691,4 +1691,26 @@ class AppLocalizationsHi extends AppLocalizations {
   String backupSavedTo(String path) {
     return 'बैकअप सहेजा गया: $path';
   }
+
+  @override
+  String rankPlays(String count) {
+    return '$count बार सुना';
+  }
+
+  @override
+  String get rankPlaySomething => 'यादृच्छिक चलाएँ';
+
+  @override
+  String get rankSearchHint => 'इस रैंकिंग को फ़िल्टर करें';
+
+  @override
+  String get rankOpenArtist => 'कलाकार खोलें';
+
+  @override
+  String get rankSeeAlbum => 'एल्बम खोलें';
+
+  @override
+  String rankLastPlayed(String when) {
+    return 'अंतिम बार $when';
+  }
 }

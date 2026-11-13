@@ -888,5 +888,25 @@
         "type": "String"
       }
     }
+  },
+  "rankPlays": "{count} Wiedergaben",
+  "@rankPlays": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlaySomething": "Zufällig abspielen",
+  "rankSearchHint": "Dieses Ranking filtern",
+  "rankOpenArtist": "Künstler öffnen",
+  "rankSeeAlbum": "Album öffnen",
+  "rankLastPlayed": "zuletzt {when}",
+  "@rankLastPlayed": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
   }
 }

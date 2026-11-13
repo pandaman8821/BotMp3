@@ -888,5 +888,25 @@
         "type": "String"
       }
     }
+  },
+  "rankPlays": "播放 {count} 次",
+  "@rankPlays": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlaySomething": "随机播放",
+  "rankSearchHint": "筛选此排行",
+  "rankOpenArtist": "打开艺术家",
+  "rankSeeAlbum": "打开专辑",
+  "rankLastPlayed": "上次播放 {when}",
+  "@rankLastPlayed": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
   }
 }

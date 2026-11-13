@@ -888,5 +888,25 @@
         "type": "String"
       }
     }
+  },
+  "rankPlays": "{count} lectures",
+  "@rankPlays": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlaySomething": "Lecture aléatoire",
+  "rankSearchHint": "Filtrer ce classement",
+  "rankOpenArtist": "Ouvrir l'artiste",
+  "rankSeeAlbum": "Ouvrir l'album",
+  "rankLastPlayed": "dernière lecture {when}",
+  "@rankLastPlayed": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
   }
 }
