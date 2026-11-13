@@ -1632,4 +1632,92 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get noGenresToFill => 'Il n\'y avait aucun genre à compléter';
+
+  @override
+  String get diagYes => 'oui';
+
+  @override
+  String get diagNo => 'non';
+
+  @override
+  String get diagNone => 'aucun';
+
+  @override
+  String get diagGranted => 'Accordée';
+
+  @override
+  String get diagDenied => 'Non accordée';
+
+  @override
+  String get diagNotifications => 'Notifications';
+
+  @override
+  String get diagNotifHelp =>
+      'Sans cette permission, Android n\'affiche pas la notification de lecture et l\'écran verrouillé perd ses contrôles.';
+
+  @override
+  String get diagBattery => 'Batterie sans restriction';
+
+  @override
+  String get diagBatteryHelp =>
+      'Sur HyperOS/MIUI, active « Démarrage auto » et retire la restriction de batterie pour que le service ne s\'arrête pas.';
+
+  @override
+  String get diagMediaSession => 'Session multimédia';
+
+  @override
+  String get diagSources => 'Sources chargées dans la session';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return 'Doit correspondre aux morceaux de la file ($count). Sinon l\'écran verrouillé ne peut pas changer de piste.';
+  }
+
+  @override
+  String get diagIndexNow => 'Index actuel';
+
+  @override
+  String get diagPlayingF => 'En lecture';
+
+  @override
+  String get diagStateF => 'État';
+
+  @override
+  String get diagSongF => 'Morceau';
+
+  @override
+  String get diagRecentErrors => 'Erreurs récentes';
+
+  @override
+  String get diagPermissions => 'Permissions';
+
+  @override
+  String get diagCopyReport => 'Copier le rapport';
+
+  @override
+  String get diagReportCopied => 'Rapport copié';
+
+  @override
+  String get diagRefresh => 'Actualiser';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · diagnostic de lecture';
+
+  @override
+  String get settingsSearch => 'Rechercher un réglage';
+
+  @override
+  String get settingsSearchNone => 'Aucune section correspondante';
+
+  @override
+  String get backupToFolder => 'Enregistrer une sauvegarde…';
+
+  @override
+  String get backupToFolderDesc =>
+      'Choisis où l\'enregistrer (Téléchargements, Drive, SD…)';
+
+  @override
+  String backupSavedTo(String path) {
+    return 'Sauvegarde enregistrée : $path';
+  }
 }

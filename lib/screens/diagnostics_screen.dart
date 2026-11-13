@@ -55,15 +55,15 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
       'Artículo: just_audio + just_audio_background',
       'Notificaciones permitidas: ${_notificaciones == null ? '?' : (_notificaciones! ? 'sí' : 'NO')}',
       'Batería sin restricciones: ${_bateriaLibre == null ? '?' : (_bateriaLibre! ? 'sí' : 'NO')}',
-      'Avisos de tendencias: ${settings.trendsNotify ? 'activados' : 'desactivados'}',
-      'Cristal (Liquid Glass): ${settings.glassActive ? 'activo' : 'apagado'}',
-      'Canciones en la cola de la app: ${player.service.queue.length}',
+      'AppLocalizations.of(context).trendsTitle: ${settings.trendsNotify ? AppLocalizations.of(context).diagYes : AppLocalizations.of(context).diagNo}',
+      'Glass: ${settings.glassActive ? AppLocalizations.of(context).diagYes : AppLocalizations.of(context).diagNo}',
+      'AppLocalizations.of(context).diagSources: ${player.service.queue.length}',
       'Fuentes cargadas en la sesión: $secuencia',
-      'Índice actual: ${player.service.currentIndex}',
+      'AppLocalizations.of(context).diagIndexNow: ${player.service.currentIndex}',
       'Suena: ${player.playing ? 'sí' : 'no'}',
-      'Estado: ${player.service.player.processingState.name}',
+      'AppLocalizations.of(context).diagStateF: ${player.service.player.processingState.name}',
       'Canción actual: ${player.current?.title ?? '—'}',
-      'Errores recientes: ${errores.isEmpty ? 'ninguno' : errores.length}',
+      'AppLocalizations.of(context).diagRecentErrors: ${errores.isEmpty ? AppLocalizations.of(context).diagNone : errores.length}',
       ...errores,
     ].join('\n');
 
@@ -72,18 +72,18 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
         title: Text(AppLocalizations.of(context).playbackDiagnostics),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Copiar informe',
+            tooltip: AppLocalizations.of(context).diagCopyReport,
             icon: const Icon(Icons.copy_all_outlined),
             onPressed: () async {
               await Clipboard.setData(ClipboardData(text: informe));
               if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Informe copiado')),
+                SnackBar(content: Text(AppLocalizations.of(context).diagReportCopied)),
               );
             },
           ),
           IconButton(
-            tooltip: 'Actualizar',
+            tooltip: AppLocalizations.of(context).diagRefresh,
             icon: const Icon(Icons.refresh),
             onPressed: _comprobar,
           ),
@@ -92,7 +92,7 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
       body: ListView(
         padding: const EdgeInsets.only(bottom: 40),
         children: <Widget>[
-          const _Section('Permisos'),
+          _Section(AppLocalizations.of(context).diagPermissions),
           _fila(
             'Notificaciones',
             _notificaciones == null ? '…' : (_notificaciones! ? 'Concedidas' : 'Sin conceder'),
@@ -119,7 +119,7 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
           _fila('Sonando', player.playing ? 'Sí' : 'No'),
           _fila('Estado', player.service.player.processingState.name),
           _fila('Canción', player.current?.title ?? '—'),
-          const _Section('Errores recientes'),
+          _Section(AppLocalizations.of(context).diagRecentErrors),
           if (errores.isEmpty)
             ListTile(
               leading: Icon(Icons.check_circle_outline, color: AppColors.green),

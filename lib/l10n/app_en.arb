@@ -1066,5 +1066,46 @@
   },
   "exportCancelled": "Export cancelled",
   "aiNoGenresReturned": "The AI returned no genres (is a key configured?)",
-  "noGenresToFill": "There were no genres to fill"
+  "noGenresToFill": "There were no genres to fill",
+  "diagYes": "yes",
+  "diagNo": "no",
+  "diagNone": "none",
+  "diagGranted": "Granted",
+  "diagDenied": "Not granted",
+  "diagNotifications": "Notifications",
+  "diagNotifHelp": "Without this permission Android cannot show the playback notification and the lock screen loses its controls.",
+  "diagBattery": "Unrestricted battery",
+  "diagBatteryHelp": "On HyperOS/MIUI enable Auto-start and remove the battery restriction so the service is not killed.",
+  "diagMediaSession": "Media session",
+  "diagSources": "Sources loaded in the session",
+  "diagSourcesHelp": "It must match the songs in the queue ({count}). If not, the lock screen cannot change track.",
+  "@diagSourcesHelp": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "diagIndexNow": "Current index",
+  "diagPlayingF": "Playing",
+  "diagStateF": "State",
+  "diagSongF": "Song",
+  "diagRecentErrors": "Recent errors",
+  "diagPermissions": "Permissions",
+  "diagCopyReport": "Copy report",
+  "diagReportCopied": "Report copied",
+  "diagRefresh": "Refresh",
+  "diagReportTitle": "BotMp3 · playback diagnostics",
+  "settingsSearch": "Search settings",
+  "settingsSearchNone": "No matching section",
+  "backupToFolder": "Save a backup copy…",
+  "backupToFolderDesc": "Choose where to store it (Downloads, Drive, SD…)",
+  "backupSavedTo": "Backup saved: {path}",
+  "@backupSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
 }

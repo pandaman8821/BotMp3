@@ -1603,4 +1603,92 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get noGenresToFill => 'भरने के लिए कोई शैली नहीं थी';
+
+  @override
+  String get diagYes => 'हाँ';
+
+  @override
+  String get diagNo => 'नहीं';
+
+  @override
+  String get diagNone => 'कोई नहीं';
+
+  @override
+  String get diagGranted => 'दी गई';
+
+  @override
+  String get diagDenied => 'नहीं दी गई';
+
+  @override
+  String get diagNotifications => 'सूचनाएँ';
+
+  @override
+  String get diagNotifHelp =>
+      'इस अनुमति के बिना Android प्लेबैक सूचना नहीं दिखा सकता और लॉक स्क्रीन के नियंत्रण चले जाते हैं।';
+
+  @override
+  String get diagBattery => 'अप्रतिबंधित बैटरी';
+
+  @override
+  String get diagBatteryHelp =>
+      'HyperOS/MIUI पर «ऑटो-स्टार्ट» चालू करें और बैटरी प्रतिबंध हटाएँ ताकि सेवा बंद न हो।';
+
+  @override
+  String get diagMediaSession => 'मीडिया सत्र';
+
+  @override
+  String get diagSources => 'सत्र में लोड स्रोत';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return 'कतार के गानों ($count) से मेल खाना चाहिए, वरना लॉक स्क्रीन ट्रैक नहीं बदल सकती।';
+  }
+
+  @override
+  String get diagIndexNow => 'वर्तमान सूचकांक';
+
+  @override
+  String get diagPlayingF => 'चल रहा है';
+
+  @override
+  String get diagStateF => 'स्थिति';
+
+  @override
+  String get diagSongF => 'गाना';
+
+  @override
+  String get diagRecentErrors => 'हाल की त्रुटियाँ';
+
+  @override
+  String get diagPermissions => 'अनुमतियाँ';
+
+  @override
+  String get diagCopyReport => 'रिपोर्ट कॉपी करें';
+
+  @override
+  String get diagReportCopied => 'रिपोर्ट कॉपी हुई';
+
+  @override
+  String get diagRefresh => 'रीफ़्रेश करें';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · प्लेबैक निदान';
+
+  @override
+  String get settingsSearch => 'सेटिंग खोजें';
+
+  @override
+  String get settingsSearchNone => 'कोई मेल खाता भाग नहीं';
+
+  @override
+  String get backupToFolder => 'बैकअप प्रति सहेजें…';
+
+  @override
+  String get backupToFolderDesc =>
+      'कहाँ सहेजना है चुनें (डाउनलोड, ड्राइव, SD…)';
+
+  @override
+  String backupSavedTo(String path) {
+    return 'बैकअप सहेजा गया: $path';
+  }
 }

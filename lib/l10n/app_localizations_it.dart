@@ -1627,4 +1627,92 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get noGenresToFill => 'Non c\'erano generi da completare';
+
+  @override
+  String get diagYes => 'sì';
+
+  @override
+  String get diagNo => 'no';
+
+  @override
+  String get diagNone => 'nessuno';
+
+  @override
+  String get diagGranted => 'Concessa';
+
+  @override
+  String get diagDenied => 'Non concessa';
+
+  @override
+  String get diagNotifications => 'Notifiche';
+
+  @override
+  String get diagNotifHelp =>
+      'Senza questo permesso Android non mostra la notifica di riproduzione e la schermata di blocco perde i controlli.';
+
+  @override
+  String get diagBattery => 'Batteria senza restrizioni';
+
+  @override
+  String get diagBatteryHelp =>
+      'Su HyperOS/MIUI attiva «Avvio automatico» e togli la restrizione batteria così il servizio non si ferma.';
+
+  @override
+  String get diagMediaSession => 'Sessione multimediale';
+
+  @override
+  String get diagSources => 'Sorgenti caricate nella sessione';
+
+  @override
+  String diagSourcesHelp(String count) {
+    return 'Deve coincidere con i brani in coda ($count). Altrimenti la schermata di blocco non cambia brano.';
+  }
+
+  @override
+  String get diagIndexNow => 'Indice attuale';
+
+  @override
+  String get diagPlayingF => 'In riproduzione';
+
+  @override
+  String get diagStateF => 'Stato';
+
+  @override
+  String get diagSongF => 'Brano';
+
+  @override
+  String get diagRecentErrors => 'Errori recenti';
+
+  @override
+  String get diagPermissions => 'Permessi';
+
+  @override
+  String get diagCopyReport => 'Copia rapporto';
+
+  @override
+  String get diagReportCopied => 'Rapporto copiato';
+
+  @override
+  String get diagRefresh => 'Aggiorna';
+
+  @override
+  String get diagReportTitle => 'BotMp3 · diagnosi riproduzione';
+
+  @override
+  String get settingsSearch => 'Cerca impostazioni';
+
+  @override
+  String get settingsSearchNone => 'Nessuna sezione corrispondente';
+
+  @override
+  String get backupToFolder => 'Salva una copia di backup…';
+
+  @override
+  String get backupToFolderDesc =>
+      'Scegli dove salvarla (Download, Drive, SD…)';
+
+  @override
+  String backupSavedTo(String path) {
+    return 'Backup salvato: $path';
+  }
 }

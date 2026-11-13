@@ -847,5 +847,46 @@
   },
   "exportCancelled": "Exportation annulée",
   "aiNoGenresReturned": "L'IA n'a renvoyé aucun genre (clé configurée ?)",
-  "noGenresToFill": "Il n'y avait aucun genre à compléter"
+  "noGenresToFill": "Il n'y avait aucun genre à compléter",
+  "diagYes": "oui",
+  "diagNo": "non",
+  "diagNone": "aucun",
+  "diagGranted": "Accordée",
+  "diagDenied": "Non accordée",
+  "diagNotifications": "Notifications",
+  "diagNotifHelp": "Sans cette permission, Android n'affiche pas la notification de lecture et l'écran verrouillé perd ses contrôles.",
+  "diagBattery": "Batterie sans restriction",
+  "diagBatteryHelp": "Sur HyperOS/MIUI, active « Démarrage auto » et retire la restriction de batterie pour que le service ne s'arrête pas.",
+  "diagMediaSession": "Session multimédia",
+  "diagSources": "Sources chargées dans la session",
+  "diagSourcesHelp": "Doit correspondre aux morceaux de la file ({count}). Sinon l'écran verrouillé ne peut pas changer de piste.",
+  "@diagSourcesHelp": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "diagIndexNow": "Index actuel",
+  "diagPlayingF": "En lecture",
+  "diagStateF": "État",
+  "diagSongF": "Morceau",
+  "diagRecentErrors": "Erreurs récentes",
+  "diagPermissions": "Permissions",
+  "diagCopyReport": "Copier le rapport",
+  "diagReportCopied": "Rapport copié",
+  "diagRefresh": "Actualiser",
+  "diagReportTitle": "BotMp3 · diagnostic de lecture",
+  "settingsSearch": "Rechercher un réglage",
+  "settingsSearchNone": "Aucune section correspondante",
+  "backupToFolder": "Enregistrer une sauvegarde…",
+  "backupToFolderDesc": "Choisis où l'enregistrer (Téléchargements, Drive, SD…)",
+  "backupSavedTo": "Sauvegarde enregistrée : {path}",
+  "@backupSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -847,5 +847,46 @@
   },
   "exportCancelled": "निर्यात रद्द किया गया",
   "aiNoGenresReturned": "AI ने कोई शैली नहीं दी (कुंजी सेट है?)",
-  "noGenresToFill": "भरने के लिए कोई शैली नहीं थी"
+  "noGenresToFill": "भरने के लिए कोई शैली नहीं थी",
+  "diagYes": "हाँ",
+  "diagNo": "नहीं",
+  "diagNone": "कोई नहीं",
+  "diagGranted": "दी गई",
+  "diagDenied": "नहीं दी गई",
+  "diagNotifications": "सूचनाएँ",
+  "diagNotifHelp": "इस अनुमति के बिना Android प्लेबैक सूचना नहीं दिखा सकता और लॉक स्क्रीन के नियंत्रण चले जाते हैं।",
+  "diagBattery": "अप्रतिबंधित बैटरी",
+  "diagBatteryHelp": "HyperOS/MIUI पर «ऑटो-स्टार्ट» चालू करें और बैटरी प्रतिबंध हटाएँ ताकि सेवा बंद न हो।",
+  "diagMediaSession": "मीडिया सत्र",
+  "diagSources": "सत्र में लोड स्रोत",
+  "diagSourcesHelp": "कतार के गानों ({count}) से मेल खाना चाहिए, वरना लॉक स्क्रीन ट्रैक नहीं बदल सकती।",
+  "@diagSourcesHelp": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "diagIndexNow": "वर्तमान सूचकांक",
+  "diagPlayingF": "चल रहा है",
+  "diagStateF": "स्थिति",
+  "diagSongF": "गाना",
+  "diagRecentErrors": "हाल की त्रुटियाँ",
+  "diagPermissions": "अनुमतियाँ",
+  "diagCopyReport": "रिपोर्ट कॉपी करें",
+  "diagReportCopied": "रिपोर्ट कॉपी हुई",
+  "diagRefresh": "रीफ़्रेश करें",
+  "diagReportTitle": "BotMp3 · प्लेबैक निदान",
+  "settingsSearch": "सेटिंग खोजें",
+  "settingsSearchNone": "कोई मेल खाता भाग नहीं",
+  "backupToFolder": "बैकअप प्रति सहेजें…",
+  "backupToFolderDesc": "कहाँ सहेजना है चुनें (डाउनलोड, ड्राइव, SD…)",
+  "backupSavedTo": "बैकअप सहेजा गया: {path}",
+  "@backupSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  }
 }

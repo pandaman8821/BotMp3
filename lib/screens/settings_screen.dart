@@ -36,8 +36,80 @@ import '../widgets/theme_picker.dart';
 
 /// Ajustes: apariencia, IA multimodelo (API keys cifradas), reproducción,
 /// rendimiento, voz y gestión de la biblioteca.
-class SettingsScreen extends StatelessWidget {
-  SettingsScreen({super.key});
+class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  final TextEditingController _buscador = TextEditingController();
+  final ScrollController _scroll = ScrollController();
+  final Map<String, GlobalKey> _anclas = <String, GlobalKey>{};
+
+  /// Palabras clave por seccion (sin acentos) para el buscador.
+  static const Map<String, List<String>> _indice = <String, List<String>>{
+    'tendencias': <String>['tendencia', 'trend', 'pais', 'notificacion', 'aviso'],
+    'apariencia': <String>['tema', 'theme', 'color', 'cristal', 'glass', 'animacion', 'caratula'],
+    'ia': <String>['ia', 'ai', 'modelo', 'clave', 'api', 'gemini', 'deepseek', 'openai', 'claude'],
+    'reproduccion': <String>['reproduc', 'playback', 'volumen', 'normaliza', 'replaygain', 'fundido', 'fade', 'auricular', 'bluetooth'],
+    'rendimiento': <String>['rendimiento', 'cache', 'espacio', 'sqlite', 'indice'],
+    'voz': <String>['voz', 'voice', 'tts', 'hablar', 'leer'],
+    'biblioteca': <String>['biblioteca', 'escanear', 'scan', 'importar', 'exportar', 'copia', 'backup', 'm3u', 'json', 'duplicado'],
+    'acerca': <String>['acerca', 'about', 'version', 'licencia', 'gpl', 'novedad'],
+  };
+
+  @override
+  void dispose() {
+    _buscador.dispose();
+    _scroll.dispose();
+    super.dispose();
+  }
+
+  String _sinAcentos(String texto) {
+    const Map<String, String> mapa = <String, String>{
+      'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'ü': 'u', 'ñ': 'n',
+    };
+    String salida = texto.toLowerCase();
+    mapa.forEach((String k, String v) => salida = salida.replaceAll(k, v));
+    return salida;
+  }
+
+  GlobalKey _ancla(String nombre) =>
+      _anclas.putIfAbsent(nombre, () => GlobalKey());
+
+  /// Salta a la primera seccion cuyo nombre o palabras clave coincidan.
+  void _buscarSeccion(BuildContext context, String consulta) {
+    setState(() {});
+    final String q = _sinAcentos(consulta.trim());
+    if (q.isEmpty) return;
+    String? destino;
+    for (final MapEntry<String, List<String>> entrada in _indice.entries) {
+      if (_sinAcentos(entrada.key).contains(q) ||
+          entrada.value.any((String p) => _sinAcentos(p).contains(q))) {
+        destino = entrada.key;
+        break;
+      }
+    }
+    if (destino == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context).settingsSearchNone),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+    final BuildContext? alvo = _anclas[destino]?.currentContext;
+    if (alvo != null) {
+      Scrollable.ensureVisible(
+        alvo,
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.easeOutCubic,
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +122,36 @@ class SettingsScreen extends StatelessWidget {
         title: TituloPantalla(text: AppLocalizations.of(context).tabSettings),
       ),
       body: ListView(
+        controller: _scroll,
         padding: EdgeInsets.only(bottom: 40),
         children: <Widget>[
+          // Buscador: escribe y salta a la seccion que corresponda.
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 10, 12, 4),
+            child: TextField(
+              controller: _buscador,
+              onChanged: (String valor) => _buscarSeccion(context, valor),
+              decoration: InputDecoration(
+                isDense: true,
+                prefixIcon: const Icon(Icons.search, size: 20),
+                hintText: AppLocalizations.of(context).settingsSearch,
+                suffixIcon: _buscador.text.isEmpty
+                    ? null
+                    : IconButton(
+                        icon: const Icon(Icons.close, size: 18),
+                        onPressed: () {
+                          _buscador.clear();
+                          setState(() {});
+                        },
+                      ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(14),
+                ),
+              ),
+            ),
+          ),
           // ---------------------------------------------------- Apariencia
-          _SectionTitle(AppLocalizations.of(context).trendsTitle),
+          _SectionTitle(AppLocalizations.of(context).trendsTitle, key: _ancla('tendencias')),
           ListTile(
             leading: Icon(Icons.public),
             title: Text(AppLocalizations.of(context).countryForTrends),
@@ -154,7 +252,7 @@ class SettingsScreen extends StatelessWidget {
               MaterialPageRoute<void>(builder: (_) => RankingScreen()),
             ),
           ),
-          _SectionTitle(AppLocalizations.of(context).secAppearance),
+          _SectionTitle(AppLocalizations.of(context).secAppearance, key: _ancla('apariencia')),
               const ThemePickerSection(),
           ListTile(
             leading: Icon(Icons.notifications_active_outlined),
@@ -186,7 +284,7 @@ class SettingsScreen extends StatelessWidget {
           ),
 
           // ---------------------------------------------------- IA
-          _SectionTitle(AppLocalizations.of(context).secAi),
+          _SectionTitle(AppLocalizations.of(context).secAi, key: _ancla('ia')),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Column(
@@ -206,7 +304,7 @@ class SettingsScreen extends StatelessWidget {
           ),
 
           // ---------------------------------------------------- Reproducción
-          _SectionTitle(AppLocalizations.of(context).secPlayback),
+          _SectionTitle(AppLocalizations.of(context).secPlayback, key: _ancla('reproduccion')),
               SwitchListTile(
                 value: settings.reanudarAlConectar,
                 onChanged: (bool v) async => settings.setReanudarAlConectar(v),
@@ -364,7 +462,7 @@ ListTile(
                   }
                 },
               ),
-              _SectionTitle(AppLocalizations.of(context).secPerformance),
+              _SectionTitle(AppLocalizations.of(context).secPerformance, key: _ancla('rendimiento')),
               ListTile(
                 leading: const Icon(Icons.storage),
                 title: Text(AppLocalizations.of(context).sqliteTitle),
@@ -384,7 +482,7 @@ ListTile(
           ),
 
           // ---------------------------------------------------- Voz
-          _SectionTitle(AppLocalizations.of(context).secVoice),
+          _SectionTitle(AppLocalizations.of(context).secVoice, key: _ancla('voz')),
           SwitchListTile(
             value: settings.voiceEnabled,
             onChanged: settings.setVoiceEnabled,
@@ -450,7 +548,29 @@ ListTile(
             ),
             onTap: null,
           ),
-          _SectionTitle(AppLocalizations.of(context).secLibrary),
+          _SectionTitle(AppLocalizations.of(context).secLibrary, key: _ancla('biblioteca')),
+          ListTile(
+            leading: const Icon(Icons.save_alt),
+            title: Text(AppLocalizations.of(context).backupToFolder),
+            subtitle: Text(AppLocalizations.of(context).backupToFolderDesc),
+            onTap: () async {
+              final String json = library.exportLibraryJson();
+              final DateTime hoy = DateTime.now();
+              final String nombre =
+                  'botmp3_backup_${hoy.year}${hoy.month.toString().padLeft(2, '0')}${hoy.day.toString().padLeft(2, '0')}.json';
+              final String? ruta = await MediaImporter.exportText(nombre, json);
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    ruta == null
+                        ? AppLocalizations.of(context).exportCancelled
+                        : AppLocalizations.of(context).backupSavedTo(ruta),
+                  ),
+                ),
+              );
+            },
+          ),
           SwitchListTile(
             value: settings.autoImport,
             onChanged: (bool value) => settings.setAutoImport(value),
@@ -851,7 +971,7 @@ ListTile(
           ),
 
           // ---------------------------------------------------- Acerca de
-          _SectionTitle(AppLocalizations.of(context).aboutTitle),
+          _SectionTitle(AppLocalizations.of(context).aboutTitle, key: _ancla('acerca')),
           FutureBuilder<String>(
             future: AppInfoService.etiquetaVersion(),
             builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
@@ -940,7 +1060,7 @@ Future<void> escribirModeloPersonalizado(
 }
 
 class _SectionTitle extends StatelessWidget {
-  const _SectionTitle(this.title);
+  const _SectionTitle(this.title, {super.key});
 
   final String title;
 
