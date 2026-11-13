@@ -802,5 +802,50 @@
       }
     }
   },
-  "diagNoCounts": "इस सत्र में अभी कोई प्लेबैक नहीं गिना गया।"
+  "diagNoCounts": "इस सत्र में अभी कोई प्लेबैक नहीं गिना गया।",
+  "rankEmptyPeriod": "इस अवधि में कोई प्लेबैक नहीं।\nसंगीत सुनें और रैंकिंग खुद बन जाएगी।",
+  "rankEmptyData": "इस अवधि में अभी {what} डेटा नहीं है।",
+  "@rankEmptyData": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "trendsError": "ट्रेंड नहीं मिल सके। कनेक्शन जाँचें।",
+  "trendsNotifSent": "{country} के टॉप के साथ सूचना भेजी गई",
+  "@trendsNotifSent": {
+    "placeholders": {
+      "country": {
+        "type": "String"
+      }
+    }
+  },
+  "trendsNotifFailed": "सूचना नहीं दिखाई जा सकी (अनुमति जाँचें)",
+  "trendsSearching": "सबसे ज़्यादा सुने गाने खोजे जा रहे हैं…",
+  "trendsHint": "अभी इंटरनेट पर क्या चल रहा है, देखने के लिए रीफ़्रेश दबाएँ।",
+  "changelogLatest": "आँकड़े ठीक: हर प्लेबैक गिना जाता है, वही गाना दोहराने पर भी। हस्ताक्षर और सहेजना सुरक्षित।",
+  "trendsAlertAt": "मैं रोज़ {hour}:00 बजे सूचित करूँगा",
+  "@trendsAlertAt": {
+    "placeholders": {
+      "hour": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceGreeting": "नमस्ते, मैं BotMp3 हूँ। आपका संगीत चलाने के लिए तैयार।",
+  "importMediaYes": "ऐप ऑडियो और वॉइस नोट्स शामिल होंगे",
+  "importMediaNo": "केवल संगीत दिखाया जाएगा",
+  "scanNowDesc": "इस डिवाइस पर नया संगीत खोजें",
+  "songsAddedCount": "{count} गाने जोड़े गए",
+  "@songsAddedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "exportCancelled": "निर्यात रद्द किया गया",
+  "aiNoGenresReturned": "AI ने कोई शैली नहीं दी (कुंजी सेट है?)",
+  "noGenresToFill": "भरने के लिए कोई शैली नहीं थी"
 }

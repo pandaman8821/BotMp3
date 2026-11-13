@@ -2792,6 +2792,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No playback counted yet in this session.'**
   String get diagNoCounts;
+
+  /// No description provided for @rankEmptyPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'No plays in this period yet.\nListen to music and the ranking builds itself.'**
+  String get rankEmptyPeriod;
+
+  /// No description provided for @rankEmptyData.
+  ///
+  /// In en, this message translates to:
+  /// **'No {what} data in this period yet.'**
+  String rankEmptyData(String what);
+
+  /// No description provided for @trendsError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not fetch trends. Check your connection.'**
+  String get trendsError;
+
+  /// No description provided for @trendsNotifSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification sent with the top of {country}'**
+  String trendsNotifSent(String country);
+
+  /// No description provided for @trendsNotifFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not show the notification (check the permission)'**
+  String get trendsNotifFailed;
+
+  /// No description provided for @trendsSearching.
+  ///
+  /// In en, this message translates to:
+  /// **'Looking for the most played songs…'**
+  String get trendsSearching;
+
+  /// No description provided for @trendsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap refresh to see what is playing on the internet right now.'**
+  String get trendsHint;
+
+  /// No description provided for @changelogLatest.
+  ///
+  /// In en, this message translates to:
+  /// **'Stats fixed: every play counts, even repeating the same song. Safer signing and saving.'**
+  String get changelogLatest;
+
+  /// No description provided for @trendsAlertAt.
+  ///
+  /// In en, this message translates to:
+  /// **'I will notify you every day at {hour}:00'**
+  String trendsAlertAt(String hour);
+
+  /// No description provided for @voiceGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi, I am BotMp3. Ready to play your music.'**
+  String get voiceGreeting;
+
+  /// No description provided for @importMediaYes.
+  ///
+  /// In en, this message translates to:
+  /// **'App audios and voice notes will be included'**
+  String get importMediaYes;
+
+  /// No description provided for @importMediaNo.
+  ///
+  /// In en, this message translates to:
+  /// **'Only music will be shown'**
+  String get importMediaNo;
+
+  /// No description provided for @scanNowDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Look for new music on this device'**
+  String get scanNowDesc;
+
+  /// No description provided for @songsAddedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} songs added'**
+  String songsAddedCount(String count);
+
+  /// No description provided for @exportCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Export cancelled'**
+  String get exportCancelled;
+
+  /// No description provided for @aiNoGenresReturned.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI returned no genres (is a key configured?)'**
+  String get aiNoGenresReturned;
+
+  /// No description provided for @noGenresToFill.
+  ///
+  /// In en, this message translates to:
+  /// **'There were no genres to fill'**
+  String get noGenresToFill;
 }
 
 class _AppLocalizationsDelegate

@@ -1510,4 +1510,64 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get diagNoCounts => '이 세션에서 아직 재생이 기록되지 않았습니다.';
+
+  @override
+  String get rankEmptyPeriod => '이 기간에 재생 기록이 없습니다.\n음악을 들으면 랭킹이 만들어집니다.';
+
+  @override
+  String rankEmptyData(String what) {
+    return '이 기간의 $what 데이터가 없습니다.';
+  }
+
+  @override
+  String get trendsError => '트렌드를 가져오지 못했습니다. 연결을 확인하세요.';
+
+  @override
+  String trendsNotifSent(String country) {
+    return '$country 상위 항목 알림을 보냈습니다';
+  }
+
+  @override
+  String get trendsNotifFailed => '알림을 표시하지 못했습니다(권한 확인)';
+
+  @override
+  String get trendsSearching => '가장 많이 재생된 곡을 찾는 중…';
+
+  @override
+  String get trendsHint => '새로고침을 눌러 지금 인터넷에서 인기 있는 곡을 보세요.';
+
+  @override
+  String get changelogLatest =>
+      '재생 수 수정: 같은 곡을 반복해도 매번 집계됩니다. 서명과 저장도 더 안전해졌습니다.';
+
+  @override
+  String trendsAlertAt(String hour) {
+    return '매일 $hour:00에 알려드립니다';
+  }
+
+  @override
+  String get voiceGreeting => '안녕하세요, BotMp3입니다. 음악을 재생할 준비가 되었습니다.';
+
+  @override
+  String get importMediaYes => '앱 오디오와 음성 메모도 포함됩니다';
+
+  @override
+  String get importMediaNo => '음악만 표시됩니다';
+
+  @override
+  String get scanNowDesc => '기기에서 새 음악을 찾습니다';
+
+  @override
+  String songsAddedCount(String count) {
+    return '$count곡 추가됨';
+  }
+
+  @override
+  String get exportCancelled => '내보내기 취소됨';
+
+  @override
+  String get aiNoGenresReturned => 'AI가 장르를 반환하지 않았습니다(키가 설정되어 있나요?)';
+
+  @override
+  String get noGenresToFill => '채울 장르가 없었습니다';
 }

@@ -1504,6 +1504,65 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get diagNoCounts => '本次会话尚未统计任何播放。';
+
+  @override
+  String get rankEmptyPeriod => '本时间段还没有播放记录。\n听点音乐，排行榜会自动生成。';
+
+  @override
+  String rankEmptyData(String what) {
+    return '本时间段还没有$what数据。';
+  }
+
+  @override
+  String get trendsError => '无法获取趋势，请检查网络连接。';
+
+  @override
+  String trendsNotifSent(String country) {
+    return '已发送 $country 的热门通知';
+  }
+
+  @override
+  String get trendsNotifFailed => '无法显示通知（请检查权限）';
+
+  @override
+  String get trendsSearching => '正在查找最热门的歌曲…';
+
+  @override
+  String get trendsHint => '点按刷新，看看现在网上在流行什么。';
+
+  @override
+  String get changelogLatest => '统计已修复：每次播放都会计数，即使重复同一首歌。签名与保存更安全。';
+
+  @override
+  String trendsAlertAt(String hour) {
+    return '每天 $hour:00 通知你';
+  }
+
+  @override
+  String get voiceGreeting => '你好，我是 BotMp3，准备好播放你的音乐。';
+
+  @override
+  String get importMediaYes => '将包含应用音频和语音备注';
+
+  @override
+  String get importMediaNo => '只显示音乐';
+
+  @override
+  String get scanNowDesc => '在此设备上查找新音乐';
+
+  @override
+  String songsAddedCount(String count) {
+    return '已添加 $count 首歌曲';
+  }
+
+  @override
+  String get exportCancelled => '导出已取消';
+
+  @override
+  String get aiNoGenresReturned => 'AI 没有返回风格（是否配置了密钥？）';
+
+  @override
+  String get noGenresToFill => '没有需要补全的风格';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -3006,4 +3065,63 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get diagNoCounts => '本次会话尚未统计任何播放。';
+
+  @override
+  String get rankEmptyPeriod => '本时间段还没有播放记录。\n听点音乐，排行榜会自动生成。';
+
+  @override
+  String rankEmptyData(String what) {
+    return '本时间段还没有$what数据。';
+  }
+
+  @override
+  String get trendsError => '无法获取趋势，请检查网络连接。';
+
+  @override
+  String trendsNotifSent(String country) {
+    return '已发送 $country 的热门通知';
+  }
+
+  @override
+  String get trendsNotifFailed => '无法显示通知（请检查权限）';
+
+  @override
+  String get trendsSearching => '正在查找最热门的歌曲…';
+
+  @override
+  String get trendsHint => '点按刷新，看看现在网上在流行什么。';
+
+  @override
+  String get changelogLatest => '统计已修复：每次播放都会计数，即使重复同一首歌。签名与保存更安全。';
+
+  @override
+  String trendsAlertAt(String hour) {
+    return '每天 $hour:00 通知你';
+  }
+
+  @override
+  String get voiceGreeting => '你好，我是 BotMp3，准备好播放你的音乐。';
+
+  @override
+  String get importMediaYes => '将包含应用音频和语音备注';
+
+  @override
+  String get importMediaNo => '只显示音乐';
+
+  @override
+  String get scanNowDesc => '在此设备上查找新音乐';
+
+  @override
+  String songsAddedCount(String count) {
+    return '已添加 $count 首歌曲';
+  }
+
+  @override
+  String get exportCancelled => '导出已取消';
+
+  @override
+  String get aiNoGenresReturned => 'AI 没有返回风格（是否配置了密钥？）';
+
+  @override
+  String get noGenresToFill => '没有需要补全的风格';
 }

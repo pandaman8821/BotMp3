@@ -802,5 +802,50 @@
       }
     }
   },
-  "diagNoCounts": "이 세션에서 아직 재생이 기록되지 않았습니다."
+  "diagNoCounts": "이 세션에서 아직 재생이 기록되지 않았습니다.",
+  "rankEmptyPeriod": "이 기간에 재생 기록이 없습니다.\n음악을 들으면 랭킹이 만들어집니다.",
+  "rankEmptyData": "이 기간의 {what} 데이터가 없습니다.",
+  "@rankEmptyData": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "trendsError": "트렌드를 가져오지 못했습니다. 연결을 확인하세요.",
+  "trendsNotifSent": "{country} 상위 항목 알림을 보냈습니다",
+  "@trendsNotifSent": {
+    "placeholders": {
+      "country": {
+        "type": "String"
+      }
+    }
+  },
+  "trendsNotifFailed": "알림을 표시하지 못했습니다(권한 확인)",
+  "trendsSearching": "가장 많이 재생된 곡을 찾는 중…",
+  "trendsHint": "새로고침을 눌러 지금 인터넷에서 인기 있는 곡을 보세요.",
+  "changelogLatest": "재생 수 수정: 같은 곡을 반복해도 매번 집계됩니다. 서명과 저장도 더 안전해졌습니다.",
+  "trendsAlertAt": "매일 {hour}:00에 알려드립니다",
+  "@trendsAlertAt": {
+    "placeholders": {
+      "hour": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceGreeting": "안녕하세요, BotMp3입니다. 음악을 재생할 준비가 되었습니다.",
+  "importMediaYes": "앱 오디오와 음성 메모도 포함됩니다",
+  "importMediaNo": "음악만 표시됩니다",
+  "scanNowDesc": "기기에서 새 음악을 찾습니다",
+  "songsAddedCount": "{count}곡 추가됨",
+  "@songsAddedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "exportCancelled": "내보내기 취소됨",
+  "aiNoGenresReturned": "AI가 장르를 반환하지 않았습니다(키가 설정되어 있나요?)",
+  "noGenresToFill": "채울 장르가 없었습니다"
 }

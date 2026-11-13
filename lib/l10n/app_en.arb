@@ -1021,5 +1021,50 @@
       }
     }
   },
-  "diagNoCounts": "No playback counted yet in this session."
+  "diagNoCounts": "No playback counted yet in this session.",
+  "rankEmptyPeriod": "No plays in this period yet.\nListen to music and the ranking builds itself.",
+  "rankEmptyData": "No {what} data in this period yet.",
+  "@rankEmptyData": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "trendsError": "Could not fetch trends. Check your connection.",
+  "trendsNotifSent": "Notification sent with the top of {country}",
+  "@trendsNotifSent": {
+    "placeholders": {
+      "country": {
+        "type": "String"
+      }
+    }
+  },
+  "trendsNotifFailed": "Could not show the notification (check the permission)",
+  "trendsSearching": "Looking for the most played songs…",
+  "trendsHint": "Tap refresh to see what is playing on the internet right now.",
+  "changelogLatest": "Stats fixed: every play counts, even repeating the same song. Safer signing and saving.",
+  "trendsAlertAt": "I will notify you every day at {hour}:00",
+  "@trendsAlertAt": {
+    "placeholders": {
+      "hour": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceGreeting": "Hi, I am BotMp3. Ready to play your music.",
+  "importMediaYes": "App audios and voice notes will be included",
+  "importMediaNo": "Only music will be shown",
+  "scanNowDesc": "Look for new music on this device",
+  "songsAddedCount": "{count} songs added",
+  "@songsAddedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "exportCancelled": "Export cancelled",
+  "aiNoGenresReturned": "The AI returned no genres (is a key configured?)",
+  "noGenresToFill": "There were no genres to fill"
 }

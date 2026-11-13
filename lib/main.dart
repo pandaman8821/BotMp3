@@ -34,7 +34,12 @@ Future<void> main() async {
   final AudioSession session = await AudioSession.instance;
   await session.configure(const AudioSessionConfiguration.music());
 
-  final SettingsService settings = await SettingsService.instance();
+  // En paralelo: el tema y los ajustes no dependen entre si, asi el arranque
+  // no espera dos veces seguidas.
+  final Future<SettingsService> ajustesFuturo = SettingsService.instance();
+  final Future<void> temaFuturo = ThemeManager.init();
+  final SettingsService settings = await ajustesFuturo;
+  await temaFuturo;
 
   // Catalogo de modelos de IA: se usa el guardado y, si tiene mas de 3 dias,
   // se actualiza en segundo plano con las claves que ya existan.
@@ -49,8 +54,7 @@ Future<void> main() async {
     }
   }
 
-  // Tema guardado por el usuario (se aplica antes del primer frame).
-  await ThemeManager.init();
+  // Tema guardado por el usuario (ya se inicializo en paralelo arriba).
 
   // Si el usuario pidió avisos de tendencias, se reprograman al abrir la app
   // (Android borra las alarmas si apaga el móvil; el sistema las conserva si no).

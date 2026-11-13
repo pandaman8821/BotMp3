@@ -45,7 +45,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
     setState(() {
       _cargando = false;
       if (lista.isEmpty) {
-        _error = 'No se pudieron obtener las tendencias. Revisa tu conexión.';
+        _error = AppLocalizations.of(context).trendsError;
       }
     });
   }
@@ -94,8 +94,8 @@ class _TrendsScreenState extends State<TrendsScreen> {
       SnackBar(
         content: Text(
           ok
-              ? 'Notificación enviada con el top de $pais'
-              : 'No se pudo mostrar la notificación (revisa el permiso)',
+              ? AppLocalizations.of(context).trendsNotifSent(pais)
+              : AppLocalizations.of(context).trendsNotifFailed,
         ),
       ),
     );
@@ -201,8 +201,8 @@ class _TrendsScreenState extends State<TrendsScreen> {
                           const SizedBox(height: 12),
                           Text(
                             _cargando
-                                ? 'Buscando las canciones más escuchadas…'
-                                : 'Pulsa actualizar para ver qué suena ahora mismo en internet.',
+                                ? AppLocalizations.of(context).trendsSearching
+                                : AppLocalizations.of(context).trendsHint,
                             textAlign: TextAlign.center,
                           ),
                         ],

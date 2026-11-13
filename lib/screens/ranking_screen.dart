@@ -115,11 +115,11 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
         bottom: TabBar(
           controller: _tabs,
           isScrollable: true,
-          tabs: const <Tab>[
-            Tab(text: 'Canciones'),
-            Tab(text: 'Artistas'),
-            Tab(text: 'Álbumes'),
-            Tab(text: 'Géneros'),
+          tabs: <Tab>[
+            Tab(text: AppLocalizations.of(context).tabSongs),
+            Tab(text: AppLocalizations.of(context).sortArtist),
+            Tab(text: AppLocalizations.of(context).albumLabel),
+            Tab(text: AppLocalizations.of(context).genreLabel),
           ],
         ),
       ),
@@ -163,9 +163,12 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
               controller: _tabs,
               children: <Widget>[
                 _listaCanciones(canciones),
-                _listaSimple(artistas, Icons.person_outline, 'artista'),
-                _listaSimple(albumes, Icons.album_outlined, 'álbum'),
-                _listaSimple(generos, Icons.category_outlined, 'género'),
+                _listaSimple(artistas, Icons.person_outline,
+                    AppLocalizations.of(context).sortArtist),
+                _listaSimple(albumes, Icons.album_outlined,
+                    AppLocalizations.of(context).albumLabel),
+                _listaSimple(generos, Icons.category_outlined,
+                    AppLocalizations.of(context).genreLabel),
               ],
             ),
           ),
@@ -190,10 +193,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
 
   Widget _listaCanciones(List<Song> canciones) {
     if (canciones.isEmpty) {
-      return _vacio(
-        'Todavía no hay reproducciones en este periodo.\n'
-        'Escucha música y el ranking se irá construyendo solo.',
-      );
+      return _vacio(AppLocalizations.of(context).rankEmptyPeriod);
     }
     return ListView.builder(
       padding: const EdgeInsets.only(bottom: 120, top: 4),
@@ -240,7 +240,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
 
   Widget _listaSimple(List<MapEntry<String, int>> datos, IconData icono, String singular) {
     if (datos.isEmpty) {
-      return _vacio('Todavía no hay datos de $singular en este periodo.');
+      return _vacio(AppLocalizations.of(context).rankEmptyData(singular));
     }
     return ListView.builder(
       padding: const EdgeInsets.only(bottom: 120, top: 4),

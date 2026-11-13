@@ -802,5 +802,50 @@
       }
     }
   },
-  "diagNoCounts": "このセッションではまだ再生が記録されていません。"
+  "diagNoCounts": "このセッションではまだ再生が記録されていません。",
+  "rankEmptyPeriod": "この期間の再生はまだありません。\n音楽を聴けばランキングが作られます。",
+  "rankEmptyData": "この期間の{what}データはまだありません。",
+  "@rankEmptyData": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "trendsError": "トレンドを取得できません。接続を確認してください。",
+  "trendsNotifSent": "{country}のトップを通知しました",
+  "@trendsNotifSent": {
+    "placeholders": {
+      "country": {
+        "type": "String"
+      }
+    }
+  },
+  "trendsNotifFailed": "通知を表示できません（権限を確認）",
+  "trendsSearching": "最も再生されている曲を探しています…",
+  "trendsHint": "更新を押すと、今ネットで人気の曲がわかります。",
+  "changelogLatest": "再生回数を修正：同じ曲を繰り返しても毎回カウントされます。署名と保存も安全に。",
+  "trendsAlertAt": "毎日 {hour}:00 に通知します",
+  "@trendsAlertAt": {
+    "placeholders": {
+      "hour": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceGreeting": "こんにちは、BotMp3です。音楽を再生する準備ができました。",
+  "importMediaYes": "アプリの音声とボイスメモも含まれます",
+  "importMediaNo": "音楽のみ表示されます",
+  "scanNowDesc": "端末の新しい曲を探します",
+  "songsAddedCount": "{count}曲を追加しました",
+  "@songsAddedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "exportCancelled": "エクスポートをキャンセルしました",
+  "aiNoGenresReturned": "AIがジャンルを返しませんでした（キーは設定済み？）",
+  "noGenresToFill": "補完するジャンルはありませんでした"
 }

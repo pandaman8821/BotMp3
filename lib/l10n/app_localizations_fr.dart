@@ -1566,4 +1566,70 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get diagNoCounts => 'Aucune lecture comptée dans cette session.';
+
+  @override
+  String get rankEmptyPeriod =>
+      'Aucune lecture sur cette période.\nÉcoute de la musique et le classement se construit seul.';
+
+  @override
+  String rankEmptyData(String what) {
+    return 'Pas encore de données $what sur cette période.';
+  }
+
+  @override
+  String get trendsError =>
+      'Impossible d\'obtenir les tendances. Vérifie ta connexion.';
+
+  @override
+  String trendsNotifSent(String country) {
+    return 'Notification envoyée avec le top de $country';
+  }
+
+  @override
+  String get trendsNotifFailed =>
+      'Impossible d\'afficher la notification (vérifie la permission)';
+
+  @override
+  String get trendsSearching => 'Recherche des chansons les plus écoutées…';
+
+  @override
+  String get trendsHint =>
+      'Appuie sur actualiser pour voir ce qui passe sur internet en ce moment.';
+
+  @override
+  String get changelogLatest =>
+      'Statistiques corrigées : chaque lecture compte, même en répétant le morceau. Signature et sauvegarde plus sûres.';
+
+  @override
+  String trendsAlertAt(String hour) {
+    return 'Je te préviendrai chaque jour à $hour:00';
+  }
+
+  @override
+  String get voiceGreeting => 'Salut, je suis BotMp3. Prêt à jouer ta musique.';
+
+  @override
+  String get importMediaYes =>
+      'Les audios d\'applis et notes vocales seront inclus';
+
+  @override
+  String get importMediaNo => 'Seule la musique sera affichée';
+
+  @override
+  String get scanNowDesc => 'Chercher de la nouvelle musique sur l\'appareil';
+
+  @override
+  String songsAddedCount(String count) {
+    return '$count morceaux ajoutés';
+  }
+
+  @override
+  String get exportCancelled => 'Exportation annulée';
+
+  @override
+  String get aiNoGenresReturned =>
+      'L\'IA n\'a renvoyé aucun genre (clé configurée ?)';
+
+  @override
+  String get noGenresToFill => 'Il n\'y avait aucun genre à compléter';
 }

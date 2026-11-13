@@ -54,11 +54,19 @@ android {
         // F-Droid (y cualquier build desde el repositorio publico) compila sin
         // el keystore: el APK sale sin firmar y F-Droid lo firma con su clave.
         release {
-            if (file("botmp3-release.jks").exists()) {
+            // Las contrasenas NO van en el repositorio: se leen de
+            // android/key.properties (ignorado por git). Si el archivo o el
+            // keystore no existen, el APK sale sin firmar (F-Droid lo firma).
+            def keyProps = new Properties()
+            def keyPropsFile = rootProject.file("key.properties")
+            if (keyPropsFile.exists()) {
+                keyPropsFile.withInputStream { keyProps.load(it) }
+            }
+            if (file("botmp3-release.jks").exists() && keyProps.getProperty("storePassword")) {
                 storeFile = file("botmp3-release.jks")
-                storePassword = "botmp3"
-                keyAlias = "botmp3"
-                keyPassword = "botmp3"
+                storePassword = keyProps.getProperty("storePassword")
+                keyAlias = keyProps.getProperty("keyAlias") ?: "botmp3"
+                keyPassword = keyProps.getProperty("keyPassword")
                 enableV1Signing true
                 enableV2Signing true
                 enableV3Signing true
