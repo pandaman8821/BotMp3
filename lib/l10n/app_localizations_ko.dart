@@ -1678,4 +1678,18 @@ class AppLocalizationsKo extends AppLocalizations {
   String rankLastPlayed(String when) {
     return '마지막 재생 $when';
   }
+
+  @override
+  String get selectAll => '모두 선택';
+
+  @override
+  String get clearSelection => '선택 해제';
+
+  @override
+  String addSongsCount(String count) {
+    return '추가($count)';
+  }
+
+  @override
+  String get settingsGoTo => '이동';
 }

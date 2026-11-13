@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../core/constants.dart';
+import '../core/motion.dart';
 import '../models/playlist.dart';
 import '../models/song.dart';
 import '../providers/library_provider.dart';
@@ -210,10 +211,19 @@ class AppDialogs {
                         '${selected.length} seleccionadas',
                         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                       ),
-                      Spacer(),
-                      FilledButton(
-                        onPressed: () => Navigator.of(sheetContext).pop(true),
-                        child: Text(AppLocalizations.of(context).add),
+                      const Spacer(),
+                      if (selected.isNotEmpty)
+                        TextButton(
+                          onPressed: () => setState(() => selected.clear()),
+                          child: Text(AppLocalizations.of(context).clearSelection),
+                        ),
+                      TextButton(
+                        onPressed: () => setState(
+                          () => selected
+                            ..clear()
+                            ..addAll(visibles.map((Song s) => s.id)),
+                        ),
+                        child: Text(AppLocalizations.of(context).selectAll),
                       ),
                     ],
                   ),
@@ -256,6 +266,28 @@ class AppDialogs {
                         ),
                       );
                     },
+                  ),
+                ),
+                // Barra inferior fija: el boton de anadir siempre visible.
+                SafeArea(
+                  top: false,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: FilledButton.icon(
+                        onPressed: selected.isEmpty
+                            ? null
+                            : () {
+                                Hapticos.accion();
+                                Navigator.of(sheetContext).pop(true);
+                              },
+                        icon: const Icon(Icons.playlist_add),
+                        label: Text(
+                          AppLocalizations.of(context).addSongsCount('${selected.length}'),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],

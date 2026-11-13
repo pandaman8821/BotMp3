@@ -1670,6 +1670,20 @@ class AppLocalizationsZh extends AppLocalizations {
   String rankLastPlayed(String when) {
     return '上次播放 $when';
   }
+
+  @override
+  String get selectAll => '全选';
+
+  @override
+  String get clearSelection => '清除选择';
+
+  @override
+  String addSongsCount(String count) {
+    return '添加（$count）';
+  }
+
+  @override
+  String get settingsGoTo => '前往';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -3338,4 +3352,18 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String rankLastPlayed(String when) {
     return '上次播放 $when';
   }
+
+  @override
+  String get selectAll => '全选';
+
+  @override
+  String get clearSelection => '清除选择';
+
+  @override
+  String addSongsCount(String count) {
+    return '添加（$count）';
+  }
+
+  @override
+  String get settingsGoTo => '前往';
 }

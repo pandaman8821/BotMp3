@@ -3092,6 +3092,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'last played {when}'**
   String rankLastPlayed(String when);
+
+  /// No description provided for @selectAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Select all'**
+  String get selectAll;
+
+  /// No description provided for @clearSelection.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clearSelection;
+
+  /// No description provided for @addSongsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Add ({count})'**
+  String addSongsCount(String count);
+
+  /// No description provided for @settingsGoTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to'**
+  String get settingsGoTo;
 }
 
 class _AppLocalizationsDelegate
