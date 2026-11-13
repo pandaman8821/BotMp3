@@ -1656,4 +1656,26 @@ class AppLocalizationsKo extends AppLocalizations {
   String backupSavedTo(String path) {
     return '백업 저장됨: $path';
   }
+
+  @override
+  String rankPlays(String count) {
+    return '$count회 재생';
+  }
+
+  @override
+  String get rankPlaySomething => '무작위 재생';
+
+  @override
+  String get rankSearchHint => '이 랭킹 필터';
+
+  @override
+  String get rankOpenArtist => '아티스트 열기';
+
+  @override
+  String get rankSeeAlbum => '앨범 열기';
+
+  @override
+  String rankLastPlayed(String when) {
+    return '마지막 재생 $when';
+  }
 }

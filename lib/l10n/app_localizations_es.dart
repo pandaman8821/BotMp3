@@ -1717,4 +1717,26 @@ class AppLocalizationsEs extends AppLocalizations {
   String backupSavedTo(String path) {
     return 'Copia guardada: $path';
   }
+
+  @override
+  String rankPlays(String count) {
+    return '$count reproducciones';
+  }
+
+  @override
+  String get rankPlaySomething => 'Reproducir al azar';
+
+  @override
+  String get rankSearchHint => 'Filtrar este ranking';
+
+  @override
+  String get rankOpenArtist => 'Abrir artista';
+
+  @override
+  String get rankSeeAlbum => 'Abrir álbum';
+
+  @override
+  String rankLastPlayed(String when) {
+    return 'última vez $when';
+  }
 }

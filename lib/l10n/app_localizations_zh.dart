@@ -1648,6 +1648,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String backupSavedTo(String path) {
     return '备份已保存：$path';
   }
+
+  @override
+  String rankPlays(String count) {
+    return '播放 $count 次';
+  }
+
+  @override
+  String get rankPlaySomething => '随机播放';
+
+  @override
+  String get rankSearchHint => '筛选此排行';
+
+  @override
+  String get rankOpenArtist => '打开艺术家';
+
+  @override
+  String get rankSeeAlbum => '打开专辑';
+
+  @override
+  String rankLastPlayed(String when) {
+    return '上次播放 $when';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -3293,5 +3315,27 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   @override
   String backupSavedTo(String path) {
     return '备份已保存：$path';
+  }
+
+  @override
+  String rankPlays(String count) {
+    return '播放 $count 次';
+  }
+
+  @override
+  String get rankPlaySomething => '随机播放';
+
+  @override
+  String get rankSearchHint => '筛选此排行';
+
+  @override
+  String get rankOpenArtist => '打开艺术家';
+
+  @override
+  String get rankSeeAlbum => '打开专辑';
+
+  @override
+  String rankLastPlayed(String when) {
+    return '上次播放 $when';
   }
 }

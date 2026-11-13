@@ -1717,6 +1717,28 @@ class AppLocalizationsPt extends AppLocalizations {
   String backupSavedTo(String path) {
     return 'Cópia salva: $path';
   }
+
+  @override
+  String rankPlays(String count) {
+    return '$count reproduções';
+  }
+
+  @override
+  String get rankPlaySomething => 'Reproduzir aleatório';
+
+  @override
+  String get rankSearchHint => 'Filtrar este ranking';
+
+  @override
+  String get rankOpenArtist => 'Abrir artista';
+
+  @override
+  String get rankSeeAlbum => 'Abrir álbum';
+
+  @override
+  String rankLastPlayed(String when) {
+    return 'última vez $when';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3431,5 +3453,27 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String backupSavedTo(String path) {
     return 'Cópia salva: $path';
+  }
+
+  @override
+  String rankPlays(String count) {
+    return '$count reproduções';
+  }
+
+  @override
+  String get rankPlaySomething => 'Reproduzir aleatório';
+
+  @override
+  String get rankSearchHint => 'Filtrar este ranking';
+
+  @override
+  String get rankOpenArtist => 'Abrir artista';
+
+  @override
+  String get rankSeeAlbum => 'Abrir álbum';
+
+  @override
+  String rankLastPlayed(String when) {
+    return 'última vez $when';
   }
 }

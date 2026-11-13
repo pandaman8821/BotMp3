@@ -3056,6 +3056,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Backup saved: {path}'**
   String backupSavedTo(String path);
+
+  /// No description provided for @rankPlays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} plays'**
+  String rankPlays(String count);
+
+  /// No description provided for @rankPlaySomething.
+  ///
+  /// In en, this message translates to:
+  /// **'Play random'**
+  String get rankPlaySomething;
+
+  /// No description provided for @rankSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter this ranking'**
+  String get rankSearchHint;
+
+  /// No description provided for @rankOpenArtist.
+  ///
+  /// In en, this message translates to:
+  /// **'Open artist'**
+  String get rankOpenArtist;
+
+  /// No description provided for @rankSeeAlbum.
+  ///
+  /// In en, this message translates to:
+  /// **'Open album'**
+  String get rankSeeAlbum;
+
+  /// No description provided for @rankLastPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'last played {when}'**
+  String rankLastPlayed(String when);
 }
 
 class _AppLocalizationsDelegate

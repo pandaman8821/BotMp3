@@ -1107,5 +1107,25 @@
         "type": "String"
       }
     }
+  },
+  "rankPlays": "{count} plays",
+  "@rankPlays": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlaySomething": "Play random",
+  "rankSearchHint": "Filter this ranking",
+  "rankOpenArtist": "Open artist",
+  "rankSeeAlbum": "Open album",
+  "rankLastPlayed": "last played {when}",
+  "@rankLastPlayed": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
   }
 }

@@ -1107,5 +1107,25 @@
         "type": "String"
       }
     }
+  },
+  "rankPlays": "{count} reproducciones",
+  "@rankPlays": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlaySomething": "Reproducir al azar",
+  "rankSearchHint": "Filtrar este ranking",
+  "rankOpenArtist": "Abrir artista",
+  "rankSeeAlbum": "Abrir álbum",
+  "rankLastPlayed": "última vez {when}",
+  "@rankLastPlayed": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
   }
 }

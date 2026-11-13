@@ -888,5 +888,25 @@
         "type": "String"
       }
     }
+  },
+  "rankPlays": "{count}回再生",
+  "@rankPlays": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlaySomething": "ランダム再生",
+  "rankSearchHint": "このランキングを絞り込む",
+  "rankOpenArtist": "アーティストを開く",
+  "rankSeeAlbum": "アルバムを開く",
+  "rankLastPlayed": "最終再生 {when}",
+  "@rankLastPlayed": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
   }
 }

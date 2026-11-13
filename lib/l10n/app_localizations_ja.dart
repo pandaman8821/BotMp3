@@ -1652,4 +1652,26 @@ class AppLocalizationsJa extends AppLocalizations {
   String backupSavedTo(String path) {
     return 'バックアップを保存しました: $path';
   }
+
+  @override
+  String rankPlays(String count) {
+    return '$count回再生';
+  }
+
+  @override
+  String get rankPlaySomething => 'ランダム再生';
+
+  @override
+  String get rankSearchHint => 'このランキングを絞り込む';
+
+  @override
+  String get rankOpenArtist => 'アーティストを開く';
+
+  @override
+  String get rankSeeAlbum => 'アルバムを開く';
+
+  @override
+  String rankLastPlayed(String when) {
+    return '最終再生 $when';
+  }
 }

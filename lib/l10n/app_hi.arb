@@ -888,5 +888,25 @@
         "type": "String"
       }
     }
+  },
+  "rankPlays": "{count} बार सुना",
+  "@rankPlays": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPlaySomething": "यादृच्छिक चलाएँ",
+  "rankSearchHint": "इस रैंकिंग को फ़िल्टर करें",
+  "rankOpenArtist": "कलाकार खोलें",
+  "rankSeeAlbum": "एल्बम खोलें",
+  "rankLastPlayed": "अंतिम बार {when}",
+  "@rankLastPlayed": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
   }
 }

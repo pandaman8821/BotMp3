@@ -126,6 +126,12 @@ class SettingsService {
     await _prefs.setString('orden_biblioteca', valor);
   }
 
+  /// Periodo elegido en el Ranking (0 = todo, 1 = mes, 2 = semana).
+  int get rankingPeriodo => _prefs.getInt('ranking_periodo') ?? 0;
+
+  Future<void> setRankingPeriodo(int valor) async =>
+      _prefs.setInt('ranking_periodo', valor);
+
   bool get autoImport => _prefs.getBool('auto_import') ?? true;
 
   Future<void> setAutoImport(bool value) async {
