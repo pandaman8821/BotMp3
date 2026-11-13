@@ -535,6 +535,9 @@ class LibraryProvider extends ChangeNotifier {
 
   Future<DateTime?> ultimaCopia() => _service.ultimaCopia();
 
+  /// Reproducciones de una cancion: registro + contador historico.
+  int playCountFor(String id) => _service.playsSince(null)[id] ?? 0;
+
   Future<void> registerPlay(String id) async {
     await _service.registerPlay(id);
     notifyListeners();

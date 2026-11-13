@@ -181,14 +181,18 @@ class LibraryService {
   /// Registra una reproducción (para estadísticas, ranking y recomendaciones).
   Future<void> registerPlay(String id) async {
     final Song? song = songById(id);
-    if (song == null) return;
-    final int index = _songs.indexWhere((Song s) => s.id == id);
-    if (index < 0) return;
+    final int index = song == null ? -1 : _songs.indexWhere((Song s) => s.id == id);
     final DateTime ahora = DateTime.now();
-    _songs[index] = song.copyWith(
-      playCount: song.playCount + 1,
-      lastPlayedAt: ahora,
-    );
+    if (song != null && index >= 0) {
+      _songs[index] = song.copyWith(
+        playCount: song.playCount + 1,
+        lastPlayedAt: ahora,
+      );
+    } else {
+      // Cancion que suena pero ya no esta en la biblioteca: se guarda el
+      // registro igual, para no perder la estadistica al reimportarla.
+      debugPrint('Reproduccion fuera de la biblioteca: $id');
+    }
     _playLog.add(<String, dynamic>{'id': id, 'at': ahora.toIso8601String()});
     // Se conservan las últimas 3000 reproducciones: suficiente para el ranking.
     if (_playLog.length > 3000) {
@@ -227,15 +231,28 @@ class LibraryService {
   /// Cuantas reproducciones hay guardadas (diagnostico).
   int get playLogSize => _playLog.length;
 
+  /// Une el registro de reproducciones con el contador guardado en la cancion.
+  ///
+  /// Se queda con el mayor de los dos: el contador incluye reproducciones
+  /// antiguas que ya no estan en el registro (que solo guarda 3000), asi
+  /// ninguna cancion se queda con 0 y desaparece del ranking.
+  static Map<String, int> combinarConteos(
+    Map<String, int> registro,
+    Map<String, int> contadores,
+  ) {
+    final Map<String, int> salida = <String, int>{};
+    contadores.forEach((String id, int valor) {
+      if (valor > 0) salida[id] = valor;
+    });
+    registro.forEach((String id, int valor) {
+      final int actual = salida[id] ?? 0;
+      if (valor > actual) salida[id] = valor;
+    });
+    return salida;
+  }
+
   Map<String, int> playsSince(DateTime? from) {
-    final Map<String, int> conteo = <String, int>{};
-    if (_playLog.isEmpty) {
-      if (from != null) return conteo;
-      for (final Song song in _songs) {
-        if (song.playCount > 0) conteo[song.id] = song.playCount;
-      }
-      return conteo;
-    }
+    final Map<String, int> registro = <String, int>{};
     for (final Map<String, dynamic> entrada in _playLog) {
       final String? id = entrada['id']?.toString();
       if (id == null) continue;
@@ -243,9 +260,19 @@ class LibraryService {
         final DateTime? at = DateTime.tryParse(entrada['at']?.toString() ?? '');
         if (at == null || at.isBefore(from)) continue;
       }
-      conteo[id] = (conteo[id] ?? 0) + 1;
+      registro[id] = (registro[id] ?? 0) + 1;
     }
-    return conteo;
+
+    // Contador historico por cancion (incluye lo que ya no esta en el registro).
+    final Map<String, int> contadores = <String, int>{};
+    for (final Song song in _songs) {
+      if (song.playCount <= 0) continue;
+      final DateTime? ultima = song.lastPlayedAt;
+      // En un periodo, solo cuentan las que se escucharon dentro del periodo.
+      if (from != null && (ultima == null || ultima.isBefore(from))) continue;
+      contadores[song.id] = song.playCount;
+    }
+    return combinarConteos(registro, contadores);
   }
 
   /// Borra el historial y reinicia los contadores de reproducciones.
@@ -323,14 +350,12 @@ class LibraryService {
     String Function(Song song) clave, {
     DateTime? from,
   }) {
-    final bool hayHistorial = _playLog.isNotEmpty;
     final Map<String, int> conteo = playsSince(from);
     final Map<String, int> total = <String, int>{};
     for (final Song song in _songs) {
       final String k = clave(song).trim();
-      if (k.isEmpty || k == 'Artista desconocido') continue;
-      final int reproducciones =
-          hayHistorial ? (conteo[song.id] ?? 0) : song.playCount;
+      if (k.isEmpty) continue;
+      final int reproducciones = conteo[song.id] ?? 0;
       if (reproducciones <= 0) continue;
       total[k] = (total[k] ?? 0) + reproducciones;
     }

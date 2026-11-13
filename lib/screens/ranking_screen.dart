@@ -55,14 +55,16 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
     List<MapEntry<String, int>> albumes = const <MapEntry<String, int>>[];
     List<MapEntry<String, int>> generos = const <MapEntry<String, int>>[];
     int totalReproducciones = 0;
+    Map<String, int> conteos = const <String, int>{};
     String? errorRanking;
     try {
       canciones = library.service.topCanciones(from: desde, limit: 100);
       artistas = library.service.topArtistas(from: desde);
       albumes = library.service.topAlbumes(from: desde);
       generos = library.service.topGeneros(from: desde);
+      conteos = library.service.playsSince(desde);
       totalReproducciones =
-          library.service.playsSince(desde).values.fold<int>(0, (int a, int b) => a + b);
+          conteos.values.fold<int>(0, (int a, int b) => a + b);
     } catch (error) {
       errorRanking = '$error';
     }
@@ -162,7 +164,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
             child: TabBarView(
               controller: _tabs,
               children: <Widget>[
-                _listaCanciones(canciones),
+                _listaCanciones(canciones, conteos),
                 _listaSimple(artistas, Icons.person_outline,
                     AppLocalizations.of(context).sortArtist),
                 _listaSimple(albumes, Icons.album_outlined,
@@ -191,7 +193,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
         ),
       );
 
-  Widget _listaCanciones(List<Song> canciones) {
+  Widget _listaCanciones(List<Song> canciones, Map<String, int> conteos) {
     if (canciones.isEmpty) {
       return _vacio(AppLocalizations.of(context).rankEmptyPeriod);
     }
@@ -213,7 +215,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
           ),
           title: Text(song.title, maxLines: 1, overflow: TextOverflow.ellipsis),
           subtitle: Text(
-            '${song.artist} · ${song.playCount} ${song.playCount == 1 ? 'reproducción' : 'reproducciones'}',
+            '${song.artist} · ${conteos[song.id] ?? 0} reproducciones',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(fontSize: 12),
