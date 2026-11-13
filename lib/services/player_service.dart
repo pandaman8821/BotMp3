@@ -31,6 +31,11 @@ class PlayerService {
       _syncWakelock(state.playing);
       // Se cuenta la reproducción cuando el audio suena de verdad.
       if (state.playing) {
+        // Si el audio empieza desde el principio, es una reproduccion nueva:
+        // asi volver a escuchar la misma cancion SI cuenta otra vez.
+        if (_player.position.inSeconds <= 2) {
+          _contadoEnEstaReproduccion = false;
+        }
         _registrarInicioDeReproduccion();
       } else if (_queue.isNotEmpty && _currentIndex >= 0) {
         // Refresca el widget para que el icono refleje la pausa.
@@ -70,9 +75,6 @@ class PlayerService {
 
   /// Última canción cuya reproducción ya se contó para el ranking
   /// (evita duplicados al preparar colas o al cambiar de pista).
-  /// Ultimas marcas de reproduccion (para el diagnostico del Ranking).
-  static final List<String> ultimasMarcas = <String>[];
-
   /// Evita contar dos veces la misma reproduccion, pero se reinicia cada vez
   /// que empieza una cancion (antes bloqueaba para siempre el recuento).
   bool _contadoEnEstaReproduccion = false;
@@ -166,9 +168,6 @@ class PlayerService {
     if (!_player.playing) return;
     if (_contadoEnEstaReproduccion) return;
     _contadoEnEstaReproduccion = true;
-    ultimasMarcas.insert(0,
-        '${DateTime.now().toIso8601String().substring(11, 19)} · ${actual.title}');
-    if (ultimasMarcas.length > 12) ultimasMarcas.removeLast();
     debugPrint('Recuento +1: ${actual.id} (${actual.title})');
     onSongStarted?.call(actual);
   }
