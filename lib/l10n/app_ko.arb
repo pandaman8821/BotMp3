@@ -1074,5 +1074,16 @@
   "filterVivid": "선명하게",
   "positionTop": "위",
   "positionCenter": "가운데",
-  "positionBottom": "아래"
+  "positionBottom": "아래",
+  "aiSelectionBelow": "선곡은 아래에 있어요.",
+  "aiNoClearSelection": "이번에는 선곡을 제대로 받지 못했어요. 잠시 후 다시 시도해 주세요.",
+  "aiProposeOne": "{title}{by}을(를) 추천해요.",
+  "aiProposeMany": "{count}곡을 골랐어요. {title}{by}부터 시작할게요.",
+  "aiByArtist": " ({artist})",
+  "djKeepLine": "같은 분위기로 이어갈게요: {title}.",
+  "djReasonSameGenre": "분위기가 끊기지 않게 같은 장르({genre}).",
+  "djReasonSameArtist": "같은 아티스트, 곡은 반복하지 않아요.",
+  "djReasonChange": "라이브러리 안에서 분위기 전환.",
+  "searchFoundMatches": "있어요. 라이브러리에서 {count}개를 찾았어요.",
+  "djModeTitle": "DJ 모드"
 }

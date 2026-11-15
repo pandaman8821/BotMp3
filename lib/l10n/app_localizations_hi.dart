@@ -2290,4 +2290,50 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get positionBottom => 'नीचे';
+
+  @override
+  String get aiSelectionBelow => 'चुने हुए गाने नीचे हैं।';
+
+  @override
+  String get aiNoClearSelection =>
+      'इस बार साफ़ चयन नहीं मिला। थोड़ी देर में फिर कोशिश करें।';
+
+  @override
+  String aiProposeOne(String title, String by) {
+    return 'मेरा सुझाव: $title$by।';
+  }
+
+  @override
+  String aiProposeMany(int count, String title, String by) {
+    return 'मैंने $count गाने चुने हैं; शुरुआत $title$by से।';
+  }
+
+  @override
+  String aiByArtist(String artist) {
+    return ' ($artist)';
+  }
+
+  @override
+  String djKeepLine(String title) {
+    return 'उसी अंदाज़ में आगे: $title।';
+  }
+
+  @override
+  String djReasonSameGenre(String genre) {
+    return 'वही शैली ($genre), ताकि माहौल बना रहे।';
+  }
+
+  @override
+  String get djReasonSameArtist => 'वही कलाकार, गाना दोहराए बिना।';
+
+  @override
+  String get djReasonChange => 'आपकी लाइब्रेरी से ही थोड़ा बदलाव।';
+
+  @override
+  String searchFoundMatches(int count) {
+    return 'हाँ, आपके पास हैं: लाइब्रेरी में $count मिलान मिले।';
+  }
+
+  @override
+  String get djModeTitle => 'DJ मोड';
 }

@@ -2248,4 +2248,49 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get positionBottom => '아래';
+
+  @override
+  String get aiSelectionBelow => '선곡은 아래에 있어요.';
+
+  @override
+  String get aiNoClearSelection => '이번에는 선곡을 제대로 받지 못했어요. 잠시 후 다시 시도해 주세요.';
+
+  @override
+  String aiProposeOne(String title, String by) {
+    return '$title$by을(를) 추천해요.';
+  }
+
+  @override
+  String aiProposeMany(int count, String title, String by) {
+    return '$count곡을 골랐어요. $title$by부터 시작할게요.';
+  }
+
+  @override
+  String aiByArtist(String artist) {
+    return ' ($artist)';
+  }
+
+  @override
+  String djKeepLine(String title) {
+    return '같은 분위기로 이어갈게요: $title.';
+  }
+
+  @override
+  String djReasonSameGenre(String genre) {
+    return '분위기가 끊기지 않게 같은 장르($genre).';
+  }
+
+  @override
+  String get djReasonSameArtist => '같은 아티스트, 곡은 반복하지 않아요.';
+
+  @override
+  String get djReasonChange => '라이브러리 안에서 분위기 전환.';
+
+  @override
+  String searchFoundMatches(int count) {
+    return '있어요. 라이브러리에서 $count개를 찾았어요.';
+  }
+
+  @override
+  String get djModeTitle => 'DJ 모드';
 }

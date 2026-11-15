@@ -1074,5 +1074,16 @@
   "filterVivid": "鲜艳",
   "positionTop": "顶部",
   "positionCenter": "居中",
-  "positionBottom": "底部"
+  "positionBottom": "底部",
+  "aiSelectionBelow": "选好的歌曲在下面。",
+  "aiNoClearSelection": "这次没有拿到明确的选曲，请稍后再试。",
+  "aiProposeOne": "推荐你听 {title}{by}。",
+  "aiProposeMany": "为你挑了 {count} 首，先从 {title}{by} 开始。",
+  "aiByArtist": "（{artist}）",
+  "djKeepLine": "保持同样的氛围：{title}。",
+  "djReasonSameGenre": "同一流派（{genre}），不打断氛围。",
+  "djReasonSameArtist": "同一位艺人，不重复歌曲。",
+  "djReasonChange": "不离开你的曲库，换换口味。",
+  "searchFoundMatches": "你有的：在曲库中找到 {count} 个匹配。",
+  "djModeTitle": "DJ 模式"
 }

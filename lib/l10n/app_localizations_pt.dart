@@ -2317,6 +2317,53 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get positionBottom => 'Embaixo';
+
+  @override
+  String get aiSelectionBelow => 'Deixei a seleção aqui embaixo.';
+
+  @override
+  String get aiNoClearSelection =>
+      'Desta vez não chegou uma seleção clara. Tente de novo daqui a pouco.';
+
+  @override
+  String aiProposeOne(String title, String by) {
+    return 'Sugiro $title$by.';
+  }
+
+  @override
+  String aiProposeMany(int count, String title, String by) {
+    return 'Montei $count faixas; começamos com $title$by.';
+  }
+
+  @override
+  String aiByArtist(String artist) {
+    return ' de $artist';
+  }
+
+  @override
+  String djKeepLine(String title) {
+    return 'Sigo na mesma linha: $title.';
+  }
+
+  @override
+  String djReasonSameGenre(String genre) {
+    return 'Mesmo gênero ($genre) para não quebrar o clima.';
+  }
+
+  @override
+  String get djReasonSameArtist => 'Mesmo artista, sem repetir a música.';
+
+  @override
+  String get djReasonChange =>
+      'Uma mudança de ares sem sair da sua biblioteca.';
+
+  @override
+  String searchFoundMatches(int count) {
+    return 'Você tem sim: encontrei $count resultados na sua biblioteca.';
+  }
+
+  @override
+  String get djModeTitle => 'Modo DJ';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -4632,4 +4679,51 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get positionBottom => 'Embaixo';
+
+  @override
+  String get aiSelectionBelow => 'Deixei a seleção aqui embaixo.';
+
+  @override
+  String get aiNoClearSelection =>
+      'Desta vez não chegou uma seleção clara. Tente de novo daqui a pouco.';
+
+  @override
+  String aiProposeOne(String title, String by) {
+    return 'Sugiro $title$by.';
+  }
+
+  @override
+  String aiProposeMany(int count, String title, String by) {
+    return 'Montei $count faixas; começamos com $title$by.';
+  }
+
+  @override
+  String aiByArtist(String artist) {
+    return ' de $artist';
+  }
+
+  @override
+  String djKeepLine(String title) {
+    return 'Sigo na mesma linha: $title.';
+  }
+
+  @override
+  String djReasonSameGenre(String genre) {
+    return 'Mesmo gênero ($genre) para não quebrar o clima.';
+  }
+
+  @override
+  String get djReasonSameArtist => 'Mesmo artista, sem repetir a música.';
+
+  @override
+  String get djReasonChange =>
+      'Uma mudança de ares sem sair da sua biblioteca.';
+
+  @override
+  String searchFoundMatches(int count) {
+    return 'Você tem sim: encontrei $count resultados na sua biblioteca.';
+  }
+
+  @override
+  String get djModeTitle => 'Modo DJ';
 }

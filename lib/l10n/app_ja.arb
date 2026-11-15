@@ -1074,5 +1074,16 @@
   "filterVivid": "ビビッド",
   "positionTop": "上",
   "positionCenter": "中央",
-  "positionBottom": "下"
+  "positionBottom": "下",
+  "aiSelectionBelow": "選んだ曲は下にあります。",
+  "aiNoClearSelection": "今回ははっきりした選曲が届きませんでした。少ししてからもう一度お試しください。",
+  "aiProposeOne": "おすすめは {title}{by} です。",
+  "aiProposeMany": "{count}曲を選びました。まずは {title}{by} から。",
+  "aiByArtist": "（{artist}）",
+  "djKeepLine": "同じ雰囲気で続けます：{title}。",
+  "djReasonSameGenre": "雰囲気を保つため同じジャンル（{genre}）。",
+  "djReasonSameArtist": "同じアーティストで、曲は重複させません。",
+  "djReasonChange": "ライブラリの中で気分転換。",
+  "searchFoundMatches": "ありますよ。ライブラリで{count}件見つかりました。",
+  "djModeTitle": "DJモード"
 }

@@ -228,7 +228,7 @@ class _AiScreenState extends State<AiScreen> {
     final bool isUser = message.isUser;
     final ColorScheme scheme = Theme.of(context).colorScheme;
     final AppLocalizations loc = AppLocalizations.of(context);
-    final String texto = isUser ? message.content : textoHumano(message.content);
+    final String texto = isUser ? message.content : textoParaChat(message.content);
     final Color color = isUser
         ? scheme.primary.withAlpha(46)
         : message.error
@@ -662,9 +662,13 @@ class _AiScreenState extends State<AiScreen> {
         sesion: ajustesDj.sesion,
       );
       if (mas == null) return <Song>[];
+      // Sin repetidas: ni lo que ya está en la cola (el DJ automático también
+      // añade canciones) ni dos veces la misma propuesta.
+      final Set<String> vistas = player.queue.map((Song s) => s.id).toSet();
       return mas.suggestions
           .map((AiSongSuggestion s) => s.localSongId)
           .whereType<String>()
+          .where(vistas.add)
           .map(library.songById)
           .whereType<Song>()
           .toList();
@@ -890,7 +894,7 @@ class _AiScreenState extends State<AiScreen> {
     // Se lee la respuesta a ESTA pregunta (antes se leía el último mensaje
     // del chat, que podía ser de otra petición).
     if (settings.ttsEnabled && respuesta != null && respuesta.isNotEmpty) {
-      await VoiceService.instance.speak(textoHumano(respuesta));
+      await VoiceService.instance.speak(textoParaChat(respuesta));
     }
     unawaited(_bajarAlFinal());
   }

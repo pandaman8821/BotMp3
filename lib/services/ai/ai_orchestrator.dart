@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 
 import '../../core/constants.dart';
 import '../../core/formatters.dart';
+import '../../core/text_utils.dart';
 import '../../models/ai_models.dart';
 import '../../models/song.dart';
 import '../../services/settings_service.dart';
@@ -43,6 +44,21 @@ Reglas:
   (tampoco para enumerar: usa frases seguidas o empieza la línea con «•»).
 - No vuelques datos en crudo ni fichas técnicas: cuenta lo importante como se
   lo dirías a un amigo, con una recomendación clara y el porqué.
+''';
+
+  /// Sistema para las tareas que devuelven JSON (DJ, recomendaciones, listas,
+  /// búsqueda, metadatos, ideas). Evita el choque entre "escribe como una
+  /// persona, máximo 6 líneas" y "devuelve solo JSON": el tono humano va
+  /// DENTRO del campo "mensaje", y nunca se añaden bloques `<CMD>`.
+  static String get _systemJson => '''
+$_system
+FORMATO DE ESTA TAREA (tiene prioridad sobre lo anterior):
+- Responde ÚNICAMENTE con un objeto JSON válido y completo, sin texto antes ni
+  después, sin markdown y sin bloques <CMD>.
+- El estilo natural y cercano va dentro de "mensaje": 1 a 3 frases cortas, como
+  un DJ hablándole a un amigo. No menciones JSON, listas ni campos.
+- Cada "razon" es una frase breve (máximo 12 palabras).
+- Cierra siempre todas las llaves y corchetes.
 ''';
 
   /// Protocolo de órdenes ejecutables que el modelo añade a su respuesta.
@@ -94,8 +110,11 @@ Rules:
       <AiMessage>[
         AiMessage(role: 'user', content: prompt, createdAt: DateTime.now()),
       ],
-      systemPrompt: '$_system\n$_actionProtocol',
+      // Sin protocolo <CMD>: aquí solo se quiere el JSON de metadatos.
+      systemPrompt: _systemJson,
       json: true,
+      temperature: 0.3,
+      maxTokens: 500,
     );
     String? block = extractJsonBlock(raw);
       // Tolerancia: algunos modelos envuelven el JSON en texto o bloques de codigo.
@@ -188,10 +207,10 @@ Incluye entre $count y ${count + 5} canciones. Marca con "enBiblioteca": true la
 
     final String raw = await client.complete(
       <AiMessage>[AiMessage(role: 'user', content: prompt)],
-      systemPrompt: _system,
+      systemPrompt: _systemJson,
       json: true,
       temperature: 0.85,
-      maxTokens: 2200,
+      maxTokens: _tokensPara(count + 5, porCancion: 70),
     );
     return _parseActionResult(raw);
   }
@@ -220,10 +239,10 @@ Devuelve EXACTAMENTE este JSON (sin markdown):
 ''';
     final String raw = await client.complete(
       <AiMessage>[AiMessage(role: 'user', content: prompt)],
-      systemPrompt: _system,
+      systemPrompt: _systemJson,
       json: true,
       temperature: 0.75,
-      maxTokens: 3000,
+      maxTokens: _tokensPara(count, porCancion: 75),
     );
     final AiActionResult parsed = _parseActionResult(raw);
     // Si el modelo no devolvió nombre, se genera uno a partir de la petición.
@@ -255,10 +274,10 @@ Ordena de más a menos relevante. Máximo 25 canciones, solo de la biblioteca lo
 ''';
     final String raw = await client.complete(
       <AiMessage>[AiMessage(role: 'user', content: prompt)],
-      systemPrompt: _system,
+      systemPrompt: _systemJson,
       json: true,
       temperature: 0.4,
-      maxTokens: 2000,
+      maxTokens: _tokensPara(25, porCancion: 55),
     );
     final AiActionResult resultado = _parseActionResult(raw);
     return _resultadoConGuardia(query, resultado);
@@ -282,7 +301,7 @@ Ordena de más a menos relevante. Máximo 25 canciones, solo de la biblioteca lo
         AiSongSuggestion(title: s.title, artist: s.artist, reason: UiStrings.loc.inYourLibrary),
     ];
     final String mensaje = niega
-        ? 'Si las tienes: encontre ${coincidencias.length} coincidencias en tu biblioteca.'
+        ? UiStrings.loc.searchFoundMatches(coincidencias.length)
         : resultado.text;
     return AiActionResult(
       text: mensaje,
@@ -298,25 +317,29 @@ Ordena de más a menos relevante. Máximo 25 canciones, solo de la biblioteca lo
     required List<Song> recentlyPlayed,
       String sesion = '',
   }) async {
+    final int cuantas = SettingsService.actual?.djCanciones ?? 15;
     final String prompt = '''
-Actúas como DJ en vivo. Ahora suena: ${sesion.isEmpty ? '' : '(sesión: ) '}${current.artist} - ${current.title} (${current.genre}).
+Actúas como DJ en vivo.${sesion.isEmpty ? '' : ' Sesión activa: $sesion.'}
+Ahora suena: ${current.artist} - ${current.title} (${current.genre}).
 Historial reciente: ${_recentContext(recentlyPlayed)}
 
-Elige las SIGUIENTES ${SettingsService.actual?.djCanciones ?? 15} canciones de ESTA biblioteca (usa títulos y artistas EXACTOS de la lista),
+Elige las SIGUIENTES $cuantas canciones de ESTA biblioteca (usa títulos y artistas EXACTOS de la lista),
 buscando continuidad de energía y mood. Biblioteca disponible:
 ${_catalogContext()}
 Devuelve EXACTAMENTE este JSON:
 {
-  "mensaje": "por qué esta canción ahora (1-2 frases, estilo DJ)",
-  "canciones": [{"titulo": "...", "artista": "...", "razon": "..."}]
+  "mensaje": "1-2 frases cortas, como un DJ hablándole al público: qué viene y por qué",
+  "canciones": [{"titulo": "...", "artista": "...", "razon": "frase breve"}]
 }
 ''';
     final String raw = await client.complete(
       <AiMessage>[AiMessage(role: 'user', content: prompt)],
-      systemPrompt: _system,
+      systemPrompt: _systemJson,
       json: true,
       temperature: 0.8,
-      maxTokens: 900,
+      // Antes 900 fijos: con 15 canciones el JSON llegaba cortado y se veía
+      // en crudo en el chat.
+      maxTokens: _tokensPara(cuantas, porCancion: 60),
     );
     AiActionResult result = _parseActionResult(raw);
     // Evita repetir la canción actual o las ya escuchadas.
@@ -331,12 +354,12 @@ Devuelve EXACTAMENTE este JSON:
 
     // Respaldo local: si la IA no devolvió nada utilizable (sin clave,
     // sin conexión o títulos inventados), el DJ elige desde la biblioteca.
-    if (result.suggestions.length < (SettingsService.actual?.djCanciones ?? 15)) {
+    if (result.suggestions.length < cuantas) {
       final List<Song> cola = _colaLocal(current, recentlyPlayed);
       if (cola.isNotEmpty) {
             result = AiActionResult(
           text: result.text.isEmpty
-              ? 'Sigo con algo en la misma línea: ${cola.first.title}.'
+              ? UiStrings.loc.djKeepLine(cola.first.title)
               : result.text,
           suggestions: <AiSongSuggestion>[
         // Primero lo que propuso la IA y después el relleno local.
@@ -354,8 +377,8 @@ Devuelve EXACTAMENTE este JSON:
               localSongId: s.id,
               localSongTitle: s.title,
             ),
-      ].take(SettingsService.actual?.djCanciones ?? 15).toList(),
-          playlistName: 'Modo DJ',
+      ].take(cuantas).toList(),
+          playlistName: UiStrings.loc.djModeTitle,
           playlistDescription: _razonLocal(current, cola.first),
         );
       }
@@ -391,12 +414,12 @@ Devuelve EXACTAMENTE este JSON:
   /// Explicación del DJ cuando elige sin IA.
   String _razonLocal(Song actual, Song siguiente) {
     if (actual.genre.isNotEmpty && siguiente.genre == actual.genre) {
-      return 'Mismo género (${siguiente.genre}) para no cortar el ambiente.';
+      return UiStrings.loc.djReasonSameGenre(siguiente.genre);
     }
     if (siguiente.artist == actual.artist) {
-      return 'Sigue el mismo artista, sin repetir la canción.';
+      return UiStrings.loc.djReasonSameArtist;
     }
-    return 'Cambio de aire sin salir de tu biblioteca.';
+    return UiStrings.loc.djReasonChange;
   }
 
   /// Crea una idea de canción (letra/estructura) y enlaces de búsqueda.
@@ -418,7 +441,7 @@ Devuelve EXACTAMENTE este JSON:
 ''';
     final String raw = await client.complete(
       <AiMessage>[AiMessage(role: 'user', content: prompt)],
-      systemPrompt: '$_system\nEres también compositor y letrista.',
+      systemPrompt: '$_systemJson\nEres también compositor y letrista.',
       json: true,
       temperature: 0.95,
       maxTokens: 1500,
@@ -447,7 +470,10 @@ Devuelve EXACTAMENTE este JSON:
       mood: 'neutro',
       bpm: 100,
       structure: const <String>['Intro', 'Verso', 'Coro', 'Outro'],
-      lyricSeed: raw,
+      // Si llegó un JSON roto, se rescata la letra en vez de enseñar el crudo.
+      lyricSeed: pareceJsonDeIa(raw)
+          ? (campoJsonTexto(raw, const <String>['semilla_letra']) ?? '')
+          : raw,
       prompt: description,
       language: 'español',
     );
@@ -468,7 +494,7 @@ Devuelve EXACTAMENTE este JSON:
 
   // ------------------------------------------------------------------ parseo
 
-  AiActionResult _parseActionResult(String raw) {
+  AiActionResult _parseActionResult(String raw, [int profundidad = 0]) {
     String? block = extractJsonBlock(raw);
       // Tolerancia: algunos modelos envuelven el JSON en texto o bloques de codigo.
       if (block == null) {
@@ -479,34 +505,126 @@ Devuelve EXACTAMENTE este JSON:
         }
       }
     if (block == null) {
+      // JSON cortado (sin cierre): se rescata lo que llegó entero.
+      if (pareceJsonDeIa(raw)) return _rescatarJson(raw);
       return AiActionResult(text: raw.trim());
     }
 
     try {
       final dynamic decoded = jsonDecode(block);
       if (decoded is! Map<String, dynamic>) {
-        return AiActionResult(text: raw.trim());
+        return _rescatarJson(raw);
       }
 
       final dynamic rawSongs = decoded['canciones'] ?? decoded['songs'] ?? <dynamic>[];
-      final List<AiSongSuggestion> suggestions = (rawSongs as List<dynamic>)
-          .whereType<Map<String, dynamic>>()
-          .map(AiSongSuggestion.fromJson)
-          .toList();
+      final List<AiSongSuggestion> suggestions = rawSongs is List
+          ? rawSongs
+              .whereType<Map<String, dynamic>>()
+              .map(AiSongSuggestion.fromJson)
+              .toList()
+          : <AiSongSuggestion>[];
 
+      final List<AiSongSuggestion> enlazadas = _linkWithLibrary(suggestions);
       final String message =
-          (decoded['mensaje'] ?? decoded['message'] ?? raw).toString().trim();
+          (decoded['mensaje'] ?? decoded['message'] ?? '').toString().trim();
+
+      // JSON anidado: el modelo metió la respuesta entera DENTRO de "mensaje"
+      // (era lo que se veía en crudo en el chat del Modo DJ). Se lee el JSON
+      // interior y se conserva lo que el exterior sí traía bien.
+      if (pareceJsonDeIa(message) && profundidad < 3) {
+        final AiActionResult interior = _parseActionResult(message, profundidad + 1);
+        return AiActionResult(
+          text: interior.text,
+          suggestions: enlazadas.isNotEmpty ? enlazadas : interior.suggestions,
+          playlistName: decoded['nombre']?.toString() ?? interior.playlistName,
+          playlistDescription: decoded['descripcion']?.toString() ?? interior.playlistDescription,
+        );
+      }
 
       return AiActionResult(
-        text: message,
-        suggestions: _linkWithLibrary(suggestions),
+        // Nunca se usa el JSON crudo como texto visible.
+        text: message.isEmpty ? _mensajePorDefecto(enlazadas) : message,
+        suggestions: enlazadas,
         playlistName: decoded['nombre']?.toString(),
         playlistDescription: decoded['descripcion']?.toString(),
       );
     } catch (error) {
       debugPrint('No se pudo interpretar la respuesta de la IA: $error');
-      return AiActionResult(text: raw.trim());
+      return _rescatarJson(raw);
     }
+  }
+
+  /// Rescata un JSON incompleto o roto: el "mensaje" (aunque esté a medias) y
+  /// cada canción cuyo objeto llegó entero. Así una respuesta cortada por el
+  /// límite de tokens sigue mostrándose bonita y con sus canciones.
+  AiActionResult _rescatarJson(String raw) {
+    final List<AiSongSuggestion> canciones = <AiSongSuggestion>[];
+    final RegExpMatch? lista =
+        RegExp(r'"(canciones|songs)"\s*:\s*\[').firstMatch(raw);
+    if (lista != null) {
+      int profundidad = 0;
+      int inicio = -1;
+      bool enTexto = false;
+      bool escapado = false;
+      for (int i = lista.end; i < raw.length; i++) {
+        final String c = raw[i];
+        if (escapado) {
+          escapado = false;
+          continue;
+        }
+        if (c == r'\') {
+          escapado = true;
+          continue;
+        }
+        if (c == '"') {
+          enTexto = !enTexto;
+          continue;
+        }
+        if (enTexto) continue;
+        if (c == '{') {
+          if (profundidad == 0) inicio = i;
+          profundidad++;
+        } else if (c == '}') {
+          profundidad--;
+          if (profundidad == 0 && inicio >= 0) {
+            try {
+              final dynamic obj = jsonDecode(raw.substring(inicio, i + 1));
+              if (obj is Map<String, dynamic>) {
+                canciones.add(AiSongSuggestion.fromJson(obj));
+              }
+            } catch (_) {}
+            inicio = -1;
+          }
+        } else if (c == ']' && profundidad == 0) {
+          break;
+        }
+      }
+    }
+    final List<AiSongSuggestion> enlazadas = _linkWithLibrary(canciones);
+    final String? mensaje =
+        campoJsonTexto(raw, const <String>['mensaje', 'message']);
+    return AiActionResult(
+      text: (mensaje == null || mensaje.trim().isEmpty)
+          ? _mensajePorDefecto(enlazadas)
+          // También aquí el "mensaje" podría ser otro JSON: solo su frase.
+          : (pareceJsonDeIa(mensaje) ? mensajeDelDJ(mensaje) : mensaje.trim()),
+      suggestions: enlazadas,
+      playlistName: campoJsonTexto(raw, const <String>['nombre']),
+      playlistDescription: campoJsonTexto(raw, const <String>['descripcion']),
+    );
+  }
+
+  /// Frase natural cuando el modelo no escribió "mensaje".
+  String _mensajePorDefecto(List<AiSongSuggestion> canciones) {
+    if (canciones.isEmpty) {
+      return UiStrings.loc.aiNoClearSelection;
+    }
+    final AiSongSuggestion primera = canciones.first;
+    final String quien =
+        primera.artist.trim().isEmpty ? '' : UiStrings.loc.aiByArtist(primera.artist.trim());
+    return canciones.length == 1
+        ? UiStrings.loc.aiProposeOne(primera.title, quien)
+        : UiStrings.loc.aiProposeMany(canciones.length, primera.title, quien);
   }
 
   /// Empareja las sugerencias con canciones reales de la biblioteca.
@@ -532,6 +650,10 @@ Devuelve EXACTAMENTE este JSON:
       return suggestion;
     }).toList();
   }
+
+  /// Presupuesto de tokens según cuántas canciones se piden (JSON completo).
+  int _tokensPara(int canciones, {required int porCancion}) =>
+      (300 + canciones * porCancion).clamp(600, 4000).toInt();
 
   String _fallbackPlaylistName(String request) {
     final String clean = request.trim();

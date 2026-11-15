@@ -1,5 +1,6 @@
 import 'dart:convert';
 import '../models/song.dart';
+import 'ui_strings.dart';
 
 /// Utilidades de texto compartidas por la lista, la búsqueda y el escaneo.
 
@@ -88,11 +89,15 @@ String textoHumano(String texto) {
   // Títulos markdown.
   salida = salida.replaceAll(RegExp(r'^\s{0,3}#{1,6}\s*', multiLine: true), '');
   // Negrita y cursiva: se queda el texto, se van los asteriscos.
-  salida = salida.replaceAll(RegExp(r'\*\*\*(.+?)\*\*\*'), r'$1');
-  salida = salida.replaceAll(RegExp(r'\*\*(.+?)\*\*'), r'$1');
-  salida = salida.replaceAll(RegExp(r'(?<!\*)\*(?!\s)([^*\n]+?)(?<!\s)\*(?!\*)'), r'$1');
-  salida = salida.replaceAll(RegExp(r'__(.+?)__'), r'$1');
-  salida = salida.replaceAll(RegExp(r'(?<![A-Za-z0-9_])_([^_\n]+)_(?![A-Za-z0-9_])'), r'$1');
+  // OJO: en Dart `replaceAll` NO entiende "$1" (lo escribía tal cual y en el
+  // chat salía "$1" en lugar de la palabra en negrita): hace falta
+  // `replaceAllMapped`.
+  String grupo1(Match m) => m.group(1) ?? '';
+  salida = salida.replaceAllMapped(RegExp(r'\*\*\*(.+?)\*\*\*'), grupo1);
+  salida = salida.replaceAllMapped(RegExp(r'\*\*(.+?)\*\*'), grupo1);
+  salida = salida.replaceAllMapped(RegExp(r'(?<!\*)\*(?!\s)([^*\n]+?)(?<!\s)\*(?!\*)'), grupo1);
+  salida = salida.replaceAllMapped(RegExp(r'__(.+?)__'), grupo1);
+  salida = salida.replaceAllMapped(RegExp(r'(?<![A-Za-z0-9_])_([^_\n]+)_(?![A-Za-z0-9_])'), grupo1);
   // Viñetas y citas.
   salida = salida.replaceAll(RegExp(r'^\s*[-*+]\s+', multiLine: true), '\u2022 ');
   salida = salida.replaceAll(RegExp(r'^\s*>\s?', multiLine: true), '');
@@ -103,10 +108,57 @@ String textoHumano(String texto) {
   return salida.trim();
 }
 
+/// Lee un campo de texto de un JSON aunque esté cortado o mal formado
+/// (respetando comillas escapadas). Si el valor quedó a medias, se devuelve lo
+/// que llegó terminado en «…». Devuelve null si el campo no aparece.
+String? campoJsonTexto(String raw, List<String> claves) {
+  for (final String clave in claves) {
+    final RegExpMatch? completo = RegExp(
+      '"${RegExp.escape(clave)}"\\s*:\\s*"((?:[^"\\\\]|\\\\.)*)"',
+    ).firstMatch(raw);
+    if (completo != null) return _desescapar(completo.group(1)!);
+    final RegExpMatch? cortado = RegExp(
+      '"${RegExp.escape(clave)}"\\s*:\\s*"((?:[^"\\\\]|\\\\.)*)\$',
+    ).firstMatch(raw);
+    if (cortado != null && cortado.group(1)!.trim().isNotEmpty) {
+      return '${_desescapar(cortado.group(1)!).trimRight()}…';
+    }
+  }
+  return null;
+}
+
+String _desescapar(String valor) {
+  try {
+    final dynamic decoded = jsonDecode('"$valor"');
+    if (decoded is String) return decoded;
+  } catch (_) {}
+  return valor.replaceAll(r'\"', '"').replaceAll(r'\n', '\n');
+}
+
+/// ¿El texto es (o empieza como) una respuesta JSON de la IA?
+bool pareceJsonDeIa(String texto) {
+  final String t = texto.trimLeft().replaceFirst(RegExp(r'^```[a-zA-Z]*\s*'), '');
+  return t.startsWith('{') &&
+      RegExp(r'"(mensaje|message|canciones|songs|titulo|nombre)"\s*:').hasMatch(t);
+}
+
+/// Texto que se pinta en una burbuja del chat: si la IA devolvió JSON (también
+/// en mensajes antiguos guardados así), se muestra solo su frase natural.
+String textoParaChat(String contenido) {
+  if (!pareceJsonDeIa(contenido)) return textoHumano(contenido);
+  return mensajeDelDJ(contenido);
+}
+
 /// Mensaje legible del DJ: si el modelo devolvio JSON (con "mensaje" o
 /// "message"), se saca ese campo; si no, se limpia el texto. Evita volcar el
 /// JSON crudo en la pantalla del reproductor.
-String mensajeDelDJ(String raw) {
+String mensajeDelDJ(String raw, [int profundidad = 0]) {
+  // A veces el modelo mete el JSON entero DENTRO del campo "mensaje"
+  // ({"mensaje": "{\"mensaje\": ...}"}): se desenvuelve hasta 3 niveles.
+  String limpio(String mensaje) => pareceJsonDeIa(mensaje) && profundidad < 3
+      ? mensajeDelDJ(mensaje, profundidad + 1)
+      : textoHumano(mensaje.trim());
+
   // 1) Si viene un JSON (aunque haya texto delante), se lee su campo de mensaje.
   final int inicio = raw.indexOf('{');
   if (inicio >= 0) {
@@ -118,7 +170,7 @@ String mensajeDelDJ(String raw) {
           final Object? mensaje =
               json['mensaje'] ?? json['message'] ?? json['texto'];
           if (mensaje is String && mensaje.trim().isNotEmpty) {
-            return textoHumano(mensaje.trim());
+            return limpio(mensaje);
           }
         }
       } catch (_) {
@@ -127,8 +179,12 @@ String mensajeDelDJ(String raw) {
     }
   }
   // 2) Rescate del campo aunque el JSON venga roto.
-  final RegExpMatch? m =
-      RegExp(r'"mensaje"\s*:\s*"([^"]+)"').firstMatch(raw);
-  if (m != null) return textoHumano(m.group(1)!);
+  final String? rescatado =
+      campoJsonTexto(raw, const <String>['mensaje', 'message', 'texto']);
+  if (rescatado != null && rescatado.trim().isNotEmpty) {
+    return limpio(rescatado);
+  }
+  // 3) Nunca se enseña JSON en crudo: frase neutra si no hay nada legible.
+  if (pareceJsonDeIa(raw)) return UiStrings.loc.aiSelectionBelow;
   return textoHumano(raw);
 }

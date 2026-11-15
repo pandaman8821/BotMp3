@@ -2317,4 +2317,51 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get positionBottom => 'Abajo';
+
+  @override
+  String get aiSelectionBelow => 'Te dejo la selección aquí abajo.';
+
+  @override
+  String get aiNoClearSelection =>
+      'No me llegó una selección clara esta vez. Prueba de nuevo en un momento.';
+
+  @override
+  String aiProposeOne(String title, String by) {
+    return 'Te propongo $title$by.';
+  }
+
+  @override
+  String aiProposeMany(int count, String title, String by) {
+    return 'Te armé $count temas; arrancamos con $title$by.';
+  }
+
+  @override
+  String aiByArtist(String artist) {
+    return ' de $artist';
+  }
+
+  @override
+  String djKeepLine(String title) {
+    return 'Sigo con algo en la misma línea: $title.';
+  }
+
+  @override
+  String djReasonSameGenre(String genre) {
+    return 'Mismo género ($genre) para no cortar el ambiente.';
+  }
+
+  @override
+  String get djReasonSameArtist =>
+      'Sigue el mismo artista, sin repetir la canción.';
+
+  @override
+  String get djReasonChange => 'Cambio de aire sin salir de tu biblioteca.';
+
+  @override
+  String searchFoundMatches(int count) {
+    return 'Sí las tienes: encontré $count coincidencias en tu biblioteca.';
+  }
+
+  @override
+  String get djModeTitle => 'Modo DJ';
 }

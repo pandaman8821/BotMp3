@@ -1293,5 +1293,16 @@
   "filterVivid": "Vivo",
   "positionTop": "Arriba",
   "positionCenter": "Centro",
-  "positionBottom": "Abajo"
+  "positionBottom": "Abajo",
+  "aiSelectionBelow": "Te dejo la selección aquí abajo.",
+  "aiNoClearSelection": "No me llegó una selección clara esta vez. Prueba de nuevo en un momento.",
+  "aiProposeOne": "Te propongo {title}{by}.",
+  "aiProposeMany": "Te armé {count} temas; arrancamos con {title}{by}.",
+  "aiByArtist": " de {artist}",
+  "djKeepLine": "Sigo con algo en la misma línea: {title}.",
+  "djReasonSameGenre": "Mismo género ({genre}) para no cortar el ambiente.",
+  "djReasonSameArtist": "Sigue el mismo artista, sin repetir la canción.",
+  "djReasonChange": "Cambio de aire sin salir de tu biblioteca.",
+  "searchFoundMatches": "Sí las tienes: encontré {count} coincidencias en tu biblioteca.",
+  "djModeTitle": "Modo DJ"
 }

@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import '../core/fila_tareas.dart';
+import '../core/text_utils.dart';
 
 import '../core/constants.dart';
 import '../models/ai_models.dart';
@@ -497,10 +498,25 @@ class AiAssistantProvider extends ChangeNotifier {
   }) async {
     return _runAction(
       loadingLabel: UiStrings.loc.aiDjChoosing,
-      action: (AiOrchestrator orchestrator) =>
-          orchestrator.djNext(current: current, recentlyPlayed: recent, sesion: sesion),
+      action: (AiOrchestrator orchestrator) async {
+        final AiActionResult r =
+            await orchestrator.djNext(current: current, recentlyPlayed: recent, sesion: sesion);
+        // La tarjeta del chat se titula "Modo DJ" (antes salía como
+        // "Recomendaciones", igual que la función Recomiéndame).
+        return r.playlistName != null
+            ? r
+            : AiActionResult(
+                text: r.text,
+                suggestions: r.suggestions,
+                playlistName: UiStrings.loc.djModeTitle,
+                playlistDescription: r.playlistDescription,
+              );
+      },
       registerInChat: peticion != null,
       peticion: peticion,
+      // En segundo plano (reproductor, cola infinita) no enciende la barra de
+      // "pensando" del chat ni pisa el último error de otras funciones.
+      silencioso: peticion == null,
     );
   }
 
@@ -575,6 +591,7 @@ class AiAssistantProvider extends ChangeNotifier {
     required Future<AiActionResult> Function(AiOrchestrator orchestrator) action,
     required bool registerInChat,
     String? peticion,
+    bool silencioso = false,
   }) async {
     final AiOrchestrator? orchestrator = buildOrchestrator();
     if (orchestrator == null) {
@@ -585,6 +602,14 @@ class AiAssistantProvider extends ChangeNotifier {
     // Fuera del chat (búsqueda, DJ del reproductor, cola infinita): se ejecuta
     // al momento y no toca la conversación.
     if (!registerInChat) {
+      if (silencioso) {
+        try {
+          return await action(orchestrator);
+        } catch (error) {
+          debugPrint('DJ en segundo plano: $error');
+          return null;
+        }
+      }
       _setBusy(true, loadingLabel);
       try {
         final AiActionResult result = await action(orchestrator);
@@ -609,7 +634,8 @@ class AiAssistantProvider extends ChangeNotifier {
           hueco,
           AiMessage(
             role: 'assistant',
-            content: result.text,
+            // Se guarda ya limpio: frase natural, nunca JSON.
+            content: textoParaChat(result.text),
             provider: proveedor,
             model: modelo,
             createdAt: DateTime.now(),
@@ -661,9 +687,20 @@ class AiAssistantProvider extends ChangeNotifier {
         .join('\n');
   }
 
+  /// Tareas de IA en curso. Las del chat van en fila, pero la cola DJ, la
+  /// búsqueda y los metadatos corren en paralelo: con un simple booleano, la
+  /// primera que terminaba apagaba el indicador de las demás.
+  int _tareasActivas = 0;
+
   void _setBusy(bool value, String status) {
-    _busy = value;
-    _status = status;
+    if (value) {
+      _tareasActivas++;
+      _status = status;
+    } else {
+      _tareasActivas = _tareasActivas > 0 ? _tareasActivas - 1 : 0;
+      if (_tareasActivas == 0) _status = status;
+    }
+    _busy = _tareasActivas > 0;
     notifyListeners();
   }
 

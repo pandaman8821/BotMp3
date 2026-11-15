@@ -2244,4 +2244,49 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get positionBottom => '下';
+
+  @override
+  String get aiSelectionBelow => '選んだ曲は下にあります。';
+
+  @override
+  String get aiNoClearSelection => '今回ははっきりした選曲が届きませんでした。少ししてからもう一度お試しください。';
+
+  @override
+  String aiProposeOne(String title, String by) {
+    return 'おすすめは $title$by です。';
+  }
+
+  @override
+  String aiProposeMany(int count, String title, String by) {
+    return '$count曲を選びました。まずは $title$by から。';
+  }
+
+  @override
+  String aiByArtist(String artist) {
+    return '（$artist）';
+  }
+
+  @override
+  String djKeepLine(String title) {
+    return '同じ雰囲気で続けます：$title。';
+  }
+
+  @override
+  String djReasonSameGenre(String genre) {
+    return '雰囲気を保つため同じジャンル（$genre）。';
+  }
+
+  @override
+  String get djReasonSameArtist => '同じアーティストで、曲は重複させません。';
+
+  @override
+  String get djReasonChange => 'ライブラリの中で気分転換。';
+
+  @override
+  String searchFoundMatches(int count) {
+    return 'ありますよ。ライブラリで$count件見つかりました。';
+  }
+
+  @override
+  String get djModeTitle => 'DJモード';
 }

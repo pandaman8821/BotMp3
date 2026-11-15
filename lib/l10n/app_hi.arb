@@ -1074,5 +1074,16 @@
   "filterVivid": "चटकीला",
   "positionTop": "ऊपर",
   "positionCenter": "बीच में",
-  "positionBottom": "नीचे"
+  "positionBottom": "नीचे",
+  "aiSelectionBelow": "चुने हुए गाने नीचे हैं।",
+  "aiNoClearSelection": "इस बार साफ़ चयन नहीं मिला। थोड़ी देर में फिर कोशिश करें।",
+  "aiProposeOne": "मेरा सुझाव: {title}{by}।",
+  "aiProposeMany": "मैंने {count} गाने चुने हैं; शुरुआत {title}{by} से।",
+  "aiByArtist": " ({artist})",
+  "djKeepLine": "उसी अंदाज़ में आगे: {title}।",
+  "djReasonSameGenre": "वही शैली ({genre}), ताकि माहौल बना रहे।",
+  "djReasonSameArtist": "वही कलाकार, गाना दोहराए बिना।",
+  "djReasonChange": "आपकी लाइब्रेरी से ही थोड़ा बदलाव।",
+  "searchFoundMatches": "हाँ, आपके पास हैं: लाइब्रेरी में {count} मिलान मिले।",
+  "djModeTitle": "DJ मोड"
 }

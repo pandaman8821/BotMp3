@@ -2240,6 +2240,51 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get positionBottom => '底部';
+
+  @override
+  String get aiSelectionBelow => '选好的歌曲在下面。';
+
+  @override
+  String get aiNoClearSelection => '这次没有拿到明确的选曲，请稍后再试。';
+
+  @override
+  String aiProposeOne(String title, String by) {
+    return '推荐你听 $title$by。';
+  }
+
+  @override
+  String aiProposeMany(int count, String title, String by) {
+    return '为你挑了 $count 首，先从 $title$by 开始。';
+  }
+
+  @override
+  String aiByArtist(String artist) {
+    return '（$artist）';
+  }
+
+  @override
+  String djKeepLine(String title) {
+    return '保持同样的氛围：$title。';
+  }
+
+  @override
+  String djReasonSameGenre(String genre) {
+    return '同一流派（$genre），不打断氛围。';
+  }
+
+  @override
+  String get djReasonSameArtist => '同一位艺人，不重复歌曲。';
+
+  @override
+  String get djReasonChange => '不离开你的曲库，换换口味。';
+
+  @override
+  String searchFoundMatches(int count) {
+    return '你有的：在曲库中找到 $count 个匹配。';
+  }
+
+  @override
+  String get djModeTitle => 'DJ 模式';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -4478,4 +4523,49 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get positionBottom => '底部';
+
+  @override
+  String get aiSelectionBelow => '选好的歌曲在下面。';
+
+  @override
+  String get aiNoClearSelection => '这次没有拿到明确的选曲，请稍后再试。';
+
+  @override
+  String aiProposeOne(String title, String by) {
+    return '推荐你听 $title$by。';
+  }
+
+  @override
+  String aiProposeMany(int count, String title, String by) {
+    return '为你挑了 $count 首，先从 $title$by 开始。';
+  }
+
+  @override
+  String aiByArtist(String artist) {
+    return '（$artist）';
+  }
+
+  @override
+  String djKeepLine(String title) {
+    return '保持同样的氛围：$title。';
+  }
+
+  @override
+  String djReasonSameGenre(String genre) {
+    return '同一流派（$genre），不打断氛围。';
+  }
+
+  @override
+  String get djReasonSameArtist => '同一位艺人，不重复歌曲。';
+
+  @override
+  String get djReasonChange => '不离开你的曲库，换换口味。';
+
+  @override
+  String searchFoundMatches(int count) {
+    return '你有的：在曲库中找到 $count 个匹配。';
+  }
+
+  @override
+  String get djModeTitle => 'DJ 模式';
 }

@@ -1341,5 +1341,22 @@
   "filterVivid": "Vivid",
   "positionTop": "Top",
   "positionCenter": "Center",
-  "positionBottom": "Bottom"
+  "positionBottom": "Bottom",
+  "aiSelectionBelow": "Here's the selection below.",
+  "aiNoClearSelection": "I didn't get a clear selection this time. Try again in a moment.",
+  "aiProposeOne": "I suggest {title}{by}.",
+  "@aiProposeOne": {"placeholders":{"title":{"type":"String"},"by":{"type":"String"}}},
+  "aiProposeMany": "I put together {count} tracks; we start with {title}{by}.",
+  "@aiProposeMany": {"placeholders":{"count":{"type":"int"},"title":{"type":"String"},"by":{"type":"String"}}},
+  "aiByArtist": " by {artist}",
+  "@aiByArtist": {"placeholders":{"artist":{"type":"String"}}},
+  "djKeepLine": "Keeping the same vibe: {title}.",
+  "@djKeepLine": {"placeholders":{"title":{"type":"String"}}},
+  "djReasonSameGenre": "Same genre ({genre}) to keep the mood going.",
+  "@djReasonSameGenre": {"placeholders":{"genre":{"type":"String"}}},
+  "djReasonSameArtist": "Same artist, without repeating the song.",
+  "djReasonChange": "A change of pace without leaving your library.",
+  "searchFoundMatches": "You do have them: I found {count} matches in your library.",
+  "@searchFoundMatches": {"placeholders":{"count":{"type":"int"}}},
+  "djModeTitle": "DJ mode"
 }

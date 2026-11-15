@@ -4046,6 +4046,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Bottom'**
   String get positionBottom;
+
+  /// No description provided for @aiSelectionBelow.
+  ///
+  /// In en, this message translates to:
+  /// **'Here\'s the selection below.'**
+  String get aiSelectionBelow;
+
+  /// No description provided for @aiNoClearSelection.
+  ///
+  /// In en, this message translates to:
+  /// **'I didn\'t get a clear selection this time. Try again in a moment.'**
+  String get aiNoClearSelection;
+
+  /// No description provided for @aiProposeOne.
+  ///
+  /// In en, this message translates to:
+  /// **'I suggest {title}{by}.'**
+  String aiProposeOne(String title, String by);
+
+  /// No description provided for @aiProposeMany.
+  ///
+  /// In en, this message translates to:
+  /// **'I put together {count} tracks; we start with {title}{by}.'**
+  String aiProposeMany(int count, String title, String by);
+
+  /// No description provided for @aiByArtist.
+  ///
+  /// In en, this message translates to:
+  /// **' by {artist}'**
+  String aiByArtist(String artist);
+
+  /// No description provided for @djKeepLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Keeping the same vibe: {title}.'**
+  String djKeepLine(String title);
+
+  /// No description provided for @djReasonSameGenre.
+  ///
+  /// In en, this message translates to:
+  /// **'Same genre ({genre}) to keep the mood going.'**
+  String djReasonSameGenre(String genre);
+
+  /// No description provided for @djReasonSameArtist.
+  ///
+  /// In en, this message translates to:
+  /// **'Same artist, without repeating the song.'**
+  String get djReasonSameArtist;
+
+  /// No description provided for @djReasonChange.
+  ///
+  /// In en, this message translates to:
+  /// **'A change of pace without leaving your library.'**
+  String get djReasonChange;
+
+  /// No description provided for @searchFoundMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'You do have them: I found {count} matches in your library.'**
+  String searchFoundMatches(int count);
+
+  /// No description provided for @djModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'DJ mode'**
+  String get djModeTitle;
 }
 
 class _AppLocalizationsDelegate

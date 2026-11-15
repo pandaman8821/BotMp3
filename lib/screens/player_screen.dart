@@ -706,20 +706,28 @@ class _PlayerScreenState extends State<PlayerScreen> {
       _djMessage = result == null ? null : mensajeDelDJ(result.text);
     });
 
-    final AiSongSuggestion? suggestion = result?.suggestions.isNotEmpty == true
-        ? result!.suggestions.first
-        : null;
     final LibraryProvider library = context.read<LibraryProvider>();
     final AppLocalizations loc = AppLocalizations.of(context);
     final ScaffoldMessengerState avisos = ScaffoldMessenger.of(context);
-    final Song? nextSong = suggestion?.localSongId == null
-        ? null
-        : library.songById(suggestion!.localSongId!);
+    // Primera propuesta que NO esté ya en la cola: la cola DJ infinita y el
+    // DJ automático trabajan a la vez y antes podían meter la misma canción
+    // dos veces (sonaba repetida).
+    final Set<String> enCola = player.queue.map((Song s) => s.id).toSet();
+    Song? nextSong;
+    for (final AiSongSuggestion s in result?.suggestions ?? const <AiSongSuggestion>[]) {
+      final Song? candidata = s.localSongId == null ? null : library.songById(s.localSongId!);
+      if (candidata != null && !enCola.contains(candidata.id)) {
+        nextSong = candidata;
+        break;
+      }
+    }
+    // Lo que se lee o se enseña es siempre la frase limpia del DJ, nunca JSON.
+    final String? fraseDj = _djMessage;
 
     if (nextSong != null) {
       await player.playNext(nextSong);
       if (settings.ttsEnabled) {
-        await VoiceService.instance.speak(result?.text ?? loc.nextUpSpoken(nextSong.title));
+        await VoiceService.instance.speak(fraseDj ?? loc.nextUpSpoken(nextSong.title));
       }
       // Los textos y el aviso se leen ANTES de las esperas (no se usa
       // `context` tras un await).
@@ -730,7 +738,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
       }
     } else if (manual && mounted) {
       avisos.showSnackBar(
-        SnackBar(content: Text(result?.text ?? loc.djNoSong)),
+        SnackBar(content: Text(fraseDj ?? loc.djNoSong)),
       );
     }
   }
