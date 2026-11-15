@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../core/motion.dart';
 import '../core/theme.dart';
 
 /// Sistema de cristal («Liquid Glass») de BotMp3.
@@ -225,29 +226,48 @@ class GlassSurface extends StatelessWidget {
     );
 
     if (quality.usesBlur) {
+      final double sigma = quality.blurSigma * (0.3 + GlassQuality.intensidadGlobal);
+      final ui.ImageFilter blur = ui.ImageFilter.blur(
+        sigmaX: sigma,
+        sigmaY: sigma,
+        tileMode: TileMode.clamp,
+      );
       content = ClipRRect(
         borderRadius: radius,
         child: BackdropFilter(
-          filter: ui.ImageFilter.blur(
-            sigmaX: quality.blurSigma * (0.3 + GlassQuality.intensidadGlobal),
-            sigmaY: quality.blurSigma * (0.3 + GlassQuality.intensidadGlobal),
-            tileMode: TileMode.clamp,
-          ),
+          // «Vibrancia»: el cristal de Apple no solo desenfoca, tambien satura
+          // un poco lo que hay detras para que los colores se lean vivos y no
+          // lavados. Es una matriz de color estandar (sin shaders propios).
+          filter: decoration > 0.4
+              ? ui.ImageFilter.compose(
+                  outer: ui.ColorFilter.matrix(_matrizSaturacion(1 + 0.28 * decoration)),
+                  inner: blur,
+                )
+              : blur,
           child: content,
         ),
+      );
+    }
+
+    // Borde de luz (Fresnel): brillante del lado de la luz, casi invisible en
+    // el centro y con un rebote suave en el lado opuesto, mas una linea
+    // especular fina justo por dentro del borde superior.
+    if (decoration > 0) {
+      content = CustomPaint(
+        foregroundPainter: _BordeCristalPainter(
+          radius: borderRadius,
+          angle: angle,
+          rim: glass.rim,
+          fuerza: decoration,
+        ),
+        child: content,
       );
     }
 
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: radius,
-        border: decoration > 0
-            ? Border.all(
-                color: glass.rim.withAlpha(
-                  (glass.rim.a * 255 * (0.45 + 0.4 * decoration)).round().clamp(0, 255),
-                ),
-              )
-            : Border.all(color: Colors.black.withAlpha(18)),
+        border: decoration > 0 ? null : Border.all(color: Colors.black.withAlpha(18)),
         boxShadow: <BoxShadow>[
           if (glowColor != null)
             BoxShadow(
@@ -266,6 +286,89 @@ class GlassSurface extends StatelessWidget {
       child: content,
     );
   }
+}
+
+/// Matriz 5x4 de saturación (1 = sin cambio). Pesos de luminancia Rec. 709.
+List<double> _matrizSaturacion(double s) {
+  const double r = 0.2126;
+  const double g = 0.7152;
+  const double b = 0.0722;
+  final double i = 1 - s;
+  return <double>[
+    r * i + s, g * i, b * i, 0, 0,
+    r * i, g * i + s, b * i, 0, 0,
+    r * i, g * i, b * i + s, 0, 0,
+    0, 0, 0, 1, 0,
+  ];
+}
+
+/// Pinta el borde del cristal con luz direccional (en lugar de un borde plano
+/// del mismo color en todo el contorno) y una línea especular interior.
+class _BordeCristalPainter extends CustomPainter {
+  const _BordeCristalPainter({
+    required this.radius,
+    required this.angle,
+    required this.rim,
+    required this.fuerza,
+  });
+
+  final double radius;
+  final double angle;
+  final Color rim;
+  final double fuerza;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (size.isEmpty) return;
+    final Rect rect = Offset.zero & size;
+    final double rad = math.min(radius, size.shortestSide / 2);
+    final RRect contorno = RRect.fromRectAndRadius(rect.deflate(0.5), Radius.circular(rad));
+    final int a = (rim.a * 255).round();
+    final double f = fuerza.clamp(0.0, 1.3);
+
+    // 1) Borde direccional: fuerte donde da la luz, rebote tenue enfrente.
+    final Paint borde = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.1
+      ..shader = LinearGradient(
+        begin: Alignment(math.cos(angle), math.sin(angle)),
+        end: Alignment(-math.cos(angle), -math.sin(angle)),
+        colors: <Color>[
+          rim.withAlpha((a * (0.85 * f)).round().clamp(0, 255)),
+          rim.withAlpha((a * 0.18).round().clamp(0, 255)),
+          rim.withAlpha((a * 0.12).round().clamp(0, 255)),
+          rim.withAlpha((a * (0.42 * f)).round().clamp(0, 255)),
+        ],
+        stops: const <double>[0.0, 0.38, 0.62, 1.0],
+      ).createShader(rect);
+    canvas.drawRRect(contorno, borde);
+
+    // 2) Línea especular: un hilo de luz por dentro del borde superior que se
+    // desvanece hacia los lados (la "lámina" de cristal vista de canto).
+    if (size.height >= 24 && f > 0.4) {
+      final RRect interior = RRect.fromRectAndRadius(
+        rect.deflate(1.6),
+        Radius.circular(math.max(0, rad - 1.2)),
+      );
+      final Paint hilo = Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 0.9
+        ..shader = LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: <Color>[
+            Colors.white.withAlpha((70 * f).round().clamp(0, 255)),
+            Colors.white.withAlpha(0),
+          ],
+          stops: const <double>[0.0, 0.22],
+        ).createShader(rect);
+      canvas.drawRRect(interior, hilo);
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _BordeCristalPainter old) =>
+      old.radius != radius || old.angle != angle || old.rim != rim || old.fuerza != fuerza;
 }
 
 /// Respuesta táctil: se encoge al pulsar y vuelve con un rebote suave.
@@ -384,38 +487,45 @@ class _GlassNavBarState extends State<GlassNavBar> {
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           final double itemWidth = constraints.maxWidth / count;
+          final double destino = widget.index.toDouble();
+          // Dos bordes con tiempos distintos: la "cabeza" llega antes que la
+          // "cola", así la gota se estira hacia la pestaña nueva y luego se
+          // recoge con rebote. Con "reducir movimiento" el salto es directo.
+          final Duration rapida =
+              Motion.ajustar(Duration(milliseconds: (_durationMs * 0.5).round()));
+          final Duration lenta = Motion.ajustar(Duration(milliseconds: _durationMs));
           return SizedBox(
             height: 58,
             child: Stack(
               children: <Widget>[
-                // Indicador líquido. `AnimatedPositioned` interpola en CADA
-                // cambio de pestaña: no depende de controladores ni callbacks,
-                // así que el deslizamiento ocurre siempre.
-                AnimatedPositioned(
-                  key: const ValueKey<String>('glass-nav-indicator'),
-                  duration: Duration(milliseconds: _durationMs),
-                  curve: Curves.easeOutBack,
-                  left: itemWidth * widget.index,
-                  top: 3,
-                  bottom: 3,
-                  width: itemWidth,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 3),
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(22),
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: <Color>[
-                            AppColors.aiViolet.withAlpha(120),
-                            AppColors.aiViolet.withAlpha(48),
-                          ],
-                        ),
-                        border: Border.all(color: Colors.white.withAlpha(64)),
-                      ),
-                    ),
-                  ),
+                TweenAnimationBuilder<double>(
+                  tween: Tween<double>(end: destino),
+                  duration: rapida,
+                  curve: Curves.easeOutCubic,
+                  builder: (BuildContext context, double cabeza, Widget? _) {
+                    return TweenAnimationBuilder<double>(
+                      tween: Tween<double>(end: destino),
+                      duration: lenta,
+                      curve: Curves.easeOutBack,
+                      builder: (BuildContext context, double cola, Widget? gota) {
+                        final double izquierda =
+                            (math.min(cabeza, cola) * itemWidth).clamp(0.0, constraints.maxWidth);
+                        final double derecha = ((math.max(cabeza, cola) + 1) * itemWidth)
+                            .clamp(izquierda, constraints.maxWidth);
+                        // Al estirarse, la gota adelgaza un poco (volumen constante).
+                        final double estirada = (cabeza - cola).abs().clamp(0.0, 1.0);
+                        final double vertical = 3 + 4 * estirada;
+                        return Positioned(
+                          left: izquierda,
+                          width: derecha - izquierda,
+                          top: vertical,
+                          bottom: vertical,
+                          child: gota!,
+                        );
+                      },
+                      child: const _GotaIndicador(),
+                    );
+                  },
                 ),
                 Row(
                   children: <Widget>[
@@ -437,6 +547,41 @@ class _GlassNavBarState extends State<GlassNavBar> {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+/// Gota de cristal tintado que marca la pestaña activa.
+class _GotaIndicador extends StatelessWidget {
+  const _GotaIndicador();
+
+  @override
+  Widget build(BuildContext context) {
+    // Se lee del tema (no de AppColors) para que se repinte al cambiar de estilo.
+    final Color acento = Theme.of(context).colorScheme.secondary;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 3),
+      child: CustomPaint(
+        foregroundPainter: const _BordeCristalPainter(
+          radius: 22,
+          angle: -1.2,
+          rim: Color(0xCCFFFFFF),
+          fuerza: 0.9,
+        ),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(22),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: <Color>[acento.withAlpha(128), acento.withAlpha(46)],
+            ),
+            boxShadow: <BoxShadow>[
+              BoxShadow(color: acento.withAlpha(70), blurRadius: 16, spreadRadius: -4),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -464,10 +609,15 @@ class _GlassNavItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(
-            selected ? destination.selectedIcon : destination.icon,
-            size: 23,
-            color: color,
+          AnimatedScale(
+            scale: selected ? 1.12 : 1.0,
+            duration: Motion.ajustar(const Duration(milliseconds: 280)),
+            curve: Curves.easeOutBack,
+            child: Icon(
+              selected ? destination.selectedIcon : destination.icon,
+              size: 23,
+              color: color,
+            ),
           ),
           const SizedBox(height: 2),
           Text(

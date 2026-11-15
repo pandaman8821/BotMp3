@@ -12,6 +12,7 @@ import 'providers/ai_provider.dart';
 import 'providers/library_provider.dart';
 import 'providers/player_provider.dart';
 import 'providers/settings_provider.dart';
+import 'widgets/glass.dart';
 import 'widgets/splash_gate.dart';
 import 'services/settings_service.dart';
 
@@ -86,8 +87,17 @@ class BotMp3App extends StatelessWidget {
             // Los formatos (fechas, numeros) siguen el idioma que se este usando.
             builder: (BuildContext context, Widget? child) {
               Intl.defaultLocale = Localizations.localeOf(context).toString();
-              Motion.reducir = temas.reducirMovimiento;
-              return ThemeBackdrop(child: child ?? const SizedBox.shrink());
+              // Se respeta tambien "Quitar animaciones" de la accesibilidad de
+              // Android, no solo el interruptor propio de la app.
+              Motion.reducir =
+                  temas.reducirMovimiento || MediaQuery.disableAnimationsOf(context);
+              // El deslizador de intensidad del cristal ahora llega al efecto
+              // (antes el valor global se quedaba fijo en 0,75).
+              GlassQuality.intensidadGlobal = settingsProvider.glassIntensity.clamp(0.0, 1.0);
+              return ThemeBackdrop(
+                ahorro: settingsProvider.batterySaver || Motion.reducir,
+                child: child ?? const SizedBox.shrink(),
+              );
             },
             home: const SplashGate(),
           );

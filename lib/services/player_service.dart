@@ -98,8 +98,25 @@ class PlayerService {
         ? 1.0
         : (ajustes.factorVolumen(cancion.id) + delta).clamp(0.5, 2.0);
     await ajustes.setFactorVolumen(cancion.id, nuevo);
-    await _player.setVolume((_lastVolume * nuevo).clamp(0.0, 1.0));
+    await _aplicarVolumen(_volumenObjetivo);
   }
+
+  /// Volumen al que debe sonar la canción actual: el del usuario × el propio
+  /// de la canción × la normalización (ReplayGain) si está activada.
+  ///
+  /// Antes los fundidos, la pausa y el cambio de pista restauraban solo el
+  /// volumen del usuario, así que el ajuste por canción y la normalización se
+  /// perdían a los pocos milisegundos de aplicarse.
+  double get _volumenObjetivo {
+    final Song? cancion = current;
+    if (cancion == null) return _lastVolume;
+    final double porCancion = SettingsService.actual?.factorVolumen(cancion.id) ?? 1.0;
+    final double ganancia = _normalizar ? ReplayGain.factor(cancion.path) : 1.0;
+    return (_lastVolume * porCancion * ganancia).clamp(0.0, 1.0);
+  }
+
+  /// Volumen elegido por el usuario (sin fundidos ni ajustes por canción).
+  double get volumenUsuario => _lastVolume;
 
   /// Canciones ya reproducidas en la pasada actual de aleatorio.
   final Set<String> _sonadasEnPasada = <String>{};
@@ -135,11 +152,11 @@ class PlayerService {
     if (indice < 0 || indice >= _queue.length) return;
     final Song cancion = _queue[indice];
     _sonadasEnPasada.add(cancion.id);
-    // Volumen propio de la cancion (normalizacion) al arrancar.
-    unawaited(_player.setVolume(
-      ((_normalizar ? ReplayGain.factor(cancion.path) : 1.0) * (_lastVolume * (SettingsService.actual?.factorVolumen(cancion.id) ?? 1.0)))
-          .clamp(0.0, 1.0),
-    ));
+    // Volumen propio de la cancion (normalizacion) al arrancar, salvo que un
+    // fundido este en marcha: ese fundido ya termina en el volumen objetivo.
+    if (!_enTransicion && !_fundiendoEntrada) {
+      unawaited(_aplicarVolumen(_volumenObjetivo));
+    }
     // Se cuenta a los 20 s de reproduccion real: un salto rapido no infla el
     // ranking. Si la cancion cambia antes, el temporizador se cancela.
     _temporizadorRecuento?.cancel();
@@ -267,7 +284,7 @@ class PlayerService {
         await pause();
       } catch (_) {
       } finally {
-        await _aplicarVolumen(_lastVolume);
+        await _aplicarVolumen(_volumenObjetivo);
       }
     });
   }
@@ -288,27 +305,40 @@ class PlayerService {
   /// Fundido de entrada con duracion configurable.
   Future<void> _fundirEntradaDur(Duration duracion) async {
     if (duracion.inMilliseconds <= 0) {
-      await _aplicarVolumen(_lastVolume);
+      await _aplicarVolumen(_volumenObjetivo);
       return;
     }
-    const int pasos = 12;
-    final int pausa = (duracion.inMilliseconds / pasos).round();
-    for (int i = 1; i <= pasos; i++) {
-      await _aplicarVolumen(_lastVolume * (i / pasos));
-      await Future<void>.delayed(Duration(milliseconds: pausa));
+    _fundiendoEntrada = true;
+    try {
+      const int pasos = 12;
+      final int pausa = (duracion.inMilliseconds / pasos).round();
+      for (int i = 1; i <= pasos; i++) {
+        await _aplicarVolumen(_volumenObjetivo * (i / pasos));
+        await Future<void>.delayed(Duration(milliseconds: pausa));
+      }
+    } finally {
+      _fundiendoEntrada = false;
+      await _aplicarVolumen(_volumenObjetivo);
     }
-    await _aplicarVolumen(_lastVolume);
   }
 
-  /// Sube el volumen suavemente desde 0 hasta el volumen del usuario.
+  /// Sube el volumen suavemente desde 0 hasta el volumen objetivo.
   Future<void> _fundirEntrada() async {
-    const int pasos = 6;
-    for (int i = 1; i <= pasos; i++) {
-      await _aplicarVolumen(_lastVolume * (i / pasos));
-      await Future<void>.delayed(const Duration(milliseconds: 45));
+    _fundiendoEntrada = true;
+    try {
+      const int pasos = 6;
+      for (int i = 1; i <= pasos; i++) {
+        await _aplicarVolumen(_volumenObjetivo * (i / pasos));
+        await Future<void>.delayed(const Duration(milliseconds: 45));
+      }
+    } finally {
+      _fundiendoEntrada = false;
+      await _aplicarVolumen(_volumenObjetivo);
     }
-    await _aplicarVolumen(_lastVolume);
   }
+
+  /// Hay un fundido de entrada en curso (no se debe pisar su volumen).
+  bool _fundiendoEntrada = false;
 
   /// Baja el volumen hasta 0 a lo largo de [duracion].
   Future<void> _fundirSalida(Duration duracion) async {
@@ -318,8 +348,9 @@ class PlayerService {
     }
     const int pasos = 24;
     final int pausa = (duracion.inMilliseconds / pasos).round();
+    final double desde = _volumenObjetivo;
     for (int i = pasos; i >= 1; i--) {
-      await _aplicarVolumen(_lastVolume * (i / pasos));
+      await _aplicarVolumen(desde * (i / pasos));
       await Future<void>.delayed(Duration(milliseconds: pausa));
     }
   }
@@ -534,7 +565,8 @@ class PlayerService {
       ));
     }
     } else {
-      await _player.play();
+      // No se espera: el Future de play() solo termina al pausar.
+      unawaited(_player.play());
     }
   }
 
@@ -550,8 +582,15 @@ class PlayerService {
     // fue eliminado del paquete vendorizado, asi que recargar solo provocaba que
     // la cancion se reiniciara al pulsar play repetidamente.    }
     if (_queue.isEmpty) return;
-    await _player.play();
-    unawaited(_fundirEntrada());
+    // OJO: el Future de `AudioPlayer.play()` no termina al empezar a sonar,
+    // sino cuando la reproduccion se PAUSA o se detiene. Esperarlo dejaba
+    // bloqueado a quien llamaba (p. ej. la orden "reproduce" de la IA se
+    // quedaba cargando hasta pausar) y el fundido de entrada nunca se oia.
+    // Si ya suena no se toca nada (evita un bache de volumen).
+    if (estaSonando) return;
+    await _aplicarVolumen(0);
+    unawaited(_player.play());
+    await _fundirEntrada();
   }
 
   Future<void> pause() async {
@@ -559,7 +598,7 @@ class PlayerService {
     _ultimaAccion = DateTime.now();
     await _fundirSalida(const Duration(milliseconds: 220));
     await _player.pause();
-    await _aplicarVolumen(_lastVolume);
+    await _aplicarVolumen(_volumenObjetivo);
     _temporizadorWidget2?.cancel();
     final Song? enPausa = current;
     if (enPausa != null) {
@@ -577,7 +616,7 @@ class PlayerService {
 
     if (auto && _repeat == RepeatMode.one) {
       await _player.seek(Duration.zero);
-      await _player.play();
+      unawaited(_player.play());
       return;
     }
 
@@ -642,7 +681,11 @@ class PlayerService {
     await _player.seek(clamped);
   }
 
-  Future<void> setVolume(double value) => _player.setVolume(value.clamp(0.0, 1.0));
+  /// Cambia el volumen del usuario y lo aplica con los ajustes de la canción.
+  Future<void> setVolume(double value) {
+    _lastVolume = value.clamp(0.0, 1.0);
+    return _aplicarVolumen(_volumenObjetivo);
+  }
 
   /// Velocidad expresada en porcentaje (50..200 → 0.5x..2.0x).
   Future<void> setSpeedPercent(int percent) async {
@@ -724,7 +767,7 @@ class PlayerService {
 
   Future<void> _applyPlayerSettings() async {
     _aplicarLoopMode();
-    await _player.setVolume(_lastVolume);
+    await _aplicarVolumen(_volumenObjetivo);
     await _player.setSpeed(_speed / 100);
   }
 
@@ -835,7 +878,8 @@ class PlayerService {
     }
     } finally {
       if (aplicarFundido) {
-        await _aplicarVolumen(_lastVolume);
+        // Se sube desde 0 (antes saltaba al volumen pleno y LUEGO hacia el
+        // fundido, lo que daba un golpe de sonido al cambiar de pista).
         unawaited(_fundirEntradaDur(duracionFundido));
         _enTransicion = false;
       }
@@ -883,7 +927,9 @@ class PlayerService {
           _currentIndex >= 0 &&
           _currentIndex < _queue.length) {
         await _player.seek(Duration.zero, index: _currentIndex);
-        await _player.play();
+        // Sin esperar: si se esperaba, `_advancing` quedaba en true mientras
+        // sonaba y, al quitar "repetir una", la cola ya no avanzaba sola.
+        unawaited(_player.play());
         return;
       }
       await next(auto: true);

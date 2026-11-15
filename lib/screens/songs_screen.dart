@@ -127,7 +127,7 @@ class _SongsScreenState extends State<SongsScreen> {
         ],
       ),
     );
-    if (aplicar != true) return;
+    if (aplicar != true || !context.mounted) return;
     final LibraryProvider library = context.read<LibraryProvider>();
     for (final Song cancion in canciones) {
       Song actualizada = cancion;

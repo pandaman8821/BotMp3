@@ -160,8 +160,8 @@ class PlaylistsScreen extends StatelessWidget {
         final String json = library.exportPlaylist(playlist);
         final String fileName = 'botmp3_${playlist.name.replaceAll(RegExp(r'[^\w]+'), '_')}.json';
         final String? path = await MediaImporter.exportText(fileName, json);
+        await Clipboard.setData(ClipboardData(text: json));
         if (context.mounted) {
-          await Clipboard.setData(ClipboardData(text: json));
           _snack(
             context,
             path == null
@@ -252,8 +252,8 @@ class _PlaylistSongsScreen extends StatelessWidget {
                     'botmp3_${playlist.name.replaceAll(RegExp(r'[^\w]+'), '_')}.json',
                     json,
                   );
+                  await Clipboard.setData(ClipboardData(text: json));
                   if (context.mounted) {
-                    await Clipboard.setData(ClipboardData(text: json));
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
@@ -269,8 +269,9 @@ class _PlaylistSongsScreen extends StatelessWidget {
                     message: AppLocalizations.of(context).deleteListBodyShort(playlist.name),
                   );
                   if (confirmed && context.mounted) {
+                    final NavigatorState navegador = Navigator.of(context);
                     await library.deletePlaylist(playlist.id);
-                    Navigator.of(context).pop();
+                    navegador.pop();
                   }
                 case 'cover':
                   final String? image = await MediaImporter.pickImage();

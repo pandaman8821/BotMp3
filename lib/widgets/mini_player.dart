@@ -11,6 +11,7 @@ import '../providers/player_provider.dart';
 import '../providers/settings_provider.dart';
 import '../screens/player_screen.dart';
 import 'cover_art.dart';
+import 'glass.dart';
 import 'wave_bars.dart';
 
 /// Barra compacta de reproducción que vive sobre la barra de navegación.
@@ -128,17 +129,52 @@ class MiniPlayer extends StatelessWidget {
                     : (position.inMilliseconds / total.inMilliseconds).clamp(0.0, 1.0);
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(14, 0, 14, 6),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(2),
-                    child: LinearProgressIndicator(
-                      value: progress,
-                      minHeight: 3,
-                      backgroundColor: AppColors.darkOutline.withAlpha(90),
-                      color: AppColors.green,
-                    ),
-                  ),
+                  child: _BarraLiquida(progreso: progress),
                 );
               },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Barra de progreso de "líquido luminoso": degradado del color principal al
+/// de acento, con un brillo suave en la punta que avanza.
+class _BarraLiquida extends StatelessWidget {
+  const _BarraLiquida({required this.progreso});
+
+  final double progreso;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    return Semantics(
+      value: '${(progreso * 100).round()}%',
+      child: SizedBox(
+        height: 3,
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: scheme.outline.withAlpha(80),
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            FractionallySizedBox(
+              alignment: Alignment.centerLeft,
+              widthFactor: progreso,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(2),
+                  gradient: LinearGradient(colors: <Color>[scheme.primary, scheme.tertiary]),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(color: scheme.tertiary.withAlpha(110), blurRadius: 6),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
@@ -217,29 +253,15 @@ class EmptyState extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
+            // Burbuja de cristal con el icono (respeta los ajustes de cristal).
+            GlassSurface(
               width: 116,
               height: 116,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                    AppColors.green.withAlpha(46),
-                    AppColors.aiViolet.withAlpha(30),
-                  ],
-                ),
-                border: Border.all(color: AppColors.green.withAlpha(70)),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: AppColors.green.withAlpha(28),
-                    blurRadius: 28,
-                    spreadRadius: 2,
-                  ),
-                ],
-              ),
-              child: Icon(icon, size: 54, color: AppColors.green),
+              borderRadius: 58,
+              padding: EdgeInsets.zero,
+              quality: context.watch<SettingsProvider>().glassQuality,
+              glowColor: AppColors.green,
+              child: Center(child: Icon(icon, size: 54, color: AppColors.green)),
             ),
             const SizedBox(height: 16),
             Text(

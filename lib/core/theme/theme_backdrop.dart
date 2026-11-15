@@ -11,9 +11,12 @@ import 'tokens.dart';
 /// afectar la reproduccion de audio. Respeta "reducir movimiento": si esta
 /// activo, todo queda estatico.
 class ThemeBackdrop extends StatefulWidget {
-  const ThemeBackdrop({super.key, required this.child});
+  const ThemeBackdrop({super.key, required this.child, this.ahorro = false});
 
   final Widget child;
+
+  /// Ahorro de batería: el fondo queda estático aunque el tema sea animado.
+  final bool ahorro;
 
   @override
   State<ThemeBackdrop> createState() => _ThemeBackdropState();
@@ -32,9 +35,11 @@ class _ThemeBackdropState extends State<ThemeBackdrop> with SingleTickerProvider
   void _sincronizar() {
     final ThemeManager gestor = ThemeManager.instance;
     final bool animar = gestor.motionMs > 0 &&
+        !widget.ahorro &&
         (gestor.tokens.backdrop == BotBackdrop.zenWaves ||
             gestor.tokens.backdrop == BotBackdrop.neonGlow ||
-            gestor.tokens.backdrop == BotBackdrop.gothicArches);
+            gestor.tokens.backdrop == BotBackdrop.gothicArches ||
+            gestor.tokens.backdrop == BotBackdrop.glassBlur);
     if (animar && !_ctrl.isAnimating) {
       _ctrl.repeat();
     } else if (!animar && _ctrl.isAnimating) {
@@ -46,6 +51,15 @@ class _ThemeBackdropState extends State<ThemeBackdrop> with SingleTickerProvider
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    _sincronizar();
+  }
+
+  /// Al cambiar de tema o de ahorro de batería, `MaterialApp` reconstruye este
+  /// widget: aquí se arranca o se detiene la animación (antes solo se revisaba
+  /// al crearlo, y un tema animado elegido después podía quedarse quieto).
+  @override
+  void didUpdateWidget(covariant ThemeBackdrop oldWidget) {
+    super.didUpdateWidget(oldWidget);
     _sincronizar();
   }
 
@@ -65,8 +79,14 @@ class _ThemeBackdropState extends State<ThemeBackdrop> with SingleTickerProvider
           child: AnimatedBuilder(
             animation: _ctrl,
             builder: (BuildContext context, Widget? _) {
+              // El cristal liquido se mueve muy despacio: basta repintarlo ~20
+              // veces por segundo (360 pasos en 18 s). Cada repintado obliga a
+              // recalcular el desenfoque de las superficies de cristal.
+              final double fase = t.backdrop == BotBackdrop.glassBlur
+                  ? (_ctrl.value * 360).floorToDouble() / 360
+                  : _ctrl.value;
               return CustomPaint(
-                painter: _BackdropPainter(tokens: t, t: _ctrl.value),
+                painter: _BackdropPainter(tokens: t, t: fase),
                 size: Size.infinite,
               );
             },
@@ -100,8 +120,30 @@ class _BackdropPainter extends CustomPainter {
         _papel(canvas, area);
       case BotBackdrop.glassBlur:
         _degradado(canvas, area, <Color>[tokens.background, tokens.surface]);
-        _brillo(canvas, area, tokens.primary, const Alignment(-0.7, -0.6), 0.35);
-        _brillo(canvas, area, tokens.secondary, const Alignment(0.8, 0.7), 0.28);
+        // Tres manchas de color que flotan en trayectorias cerradas (todas
+        // vuelven al punto de partida al final del ciclo: sin saltos).
+        final double w = 2 * math.pi * t;
+        _brillo(
+          canvas,
+          area,
+          tokens.primary,
+          Alignment(-0.7 + 0.22 * math.sin(w), -0.6 + 0.18 * math.cos(w)),
+          0.36,
+        );
+        _brillo(
+          canvas,
+          area,
+          tokens.secondary,
+          Alignment(0.8 + 0.18 * math.cos(w + 1.3), 0.7 + 0.22 * math.sin(w + 1.3)),
+          0.30,
+        );
+        _brillo(
+          canvas,
+          area,
+          tokens.accent,
+          Alignment(0.15 + 0.4 * math.sin(2 * w + 0.6), -0.05 + 0.25 * math.cos(w + 2.1)),
+          0.22,
+        );
       case BotBackdrop.zenWaves:
         _degradado(canvas, area, <Color>[tokens.background, tokens.surfaceHigh]);
         _ondas(canvas, area);

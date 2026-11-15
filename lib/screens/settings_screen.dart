@@ -963,8 +963,8 @@ ListTile(
               final String json = library.exportLibraryJson();
               final String? path =
                   await MediaImporter.exportText('botmp3_biblioteca.json', json);
+              await Clipboard.setData(ClipboardData(text: json));
               if (context.mounted) {
-                await Clipboard.setData(ClipboardData(text: json));
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(

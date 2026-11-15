@@ -1,6 +1,7 @@
 import '../services/audio_device_watcher.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 import '../core/motion.dart';
+import '../services/cover_palette.dart';
 import '../l10n/app_localizations.dart';
 import '../services/settings_service.dart';
 import 'dart:io';
@@ -136,8 +137,10 @@ class _HomeShellState extends State<HomeShell>
   /// Reanuda la musica al conectar auriculares/Bluetooth y la pausa al quitarlos.
   Future<void> _alCambiarDispositivoAudio(String evento) async {
     if (!mounted) return;
-    final SettingsService ajustes = await SettingsService.instance();
+    // Se lee el proveedor ANTES del await: tras la espera el widget podria
+    // haberse cerrado y usar `context` entonces hace fallar la app.
     final PlayerProvider reproductor = context.read<PlayerProvider>();
+    final SettingsService ajustes = await SettingsService.instance();
     if (evento == 'conectado') {
       if (ajustes.reanudarAlConectar && !reproductor.playing && reproductor.current != null) {
         await reproductor.play();
@@ -194,7 +197,7 @@ class _HomeShellState extends State<HomeShell>
           ? FloatingActionButton.extended(
               onPressed: () => AppDialogs.importSongs(context),
               icon: const Icon(Icons.library_add),
-              label: const Text('Importar'),
+              label: Text(AppLocalizations.of(context).importSongs),
             )
           : null,
       bottomNavigationBar: GlassGroup(
@@ -208,15 +211,10 @@ class _HomeShellState extends State<HomeShell>
             Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                GlassSurface(
+                _MiniReproductorCristal(
+                  song: context.watch<PlayerProvider>().current,
                   quality: context.watch<SettingsProvider>().glassQuality,
-                  borderRadius: 22,
-                  margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),
-                  padding: EdgeInsets.zero,
-                  glowColor: context.watch<SettingsProvider>().glassActive
-                      ? AppColors.aiViolet
-                      : null,
-                  child: const MiniPlayer(),
+                  glow: context.watch<SettingsProvider>().glassActive,
                 ),
                 GlassNavBar(
                   index: _index,
@@ -255,6 +253,54 @@ class _HomeShellState extends State<HomeShell>
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Mini reproductor de cristal cuyo resplandor toma el color de la carátula
+/// que suena y cambia suavemente al pasar de canción.
+class _MiniReproductorCristal extends StatelessWidget {
+  const _MiniReproductorCristal({
+    required this.song,
+    required this.quality,
+    required this.glow,
+  });
+
+  final Song? song;
+  final GlassQuality quality;
+  final bool glow;
+
+  @override
+  Widget build(BuildContext context) {
+    // Sin canción no se dibuja el marco de cristal vacío (dejaba una línea de
+    // sombra sobre la barra de navegación).
+    if (song == null) return const SizedBox.shrink();
+    final String? portada = song?.coverPath;
+    return FutureBuilder<Color?>(
+      // `cargar` devuelve al instante si ya está en caché.
+      future: CoverPalette.cargar(portada),
+      initialData: CoverPalette.cached(portada),
+      builder: (BuildContext context, AsyncSnapshot<Color?> snap) {
+        // La paleta viene oscurecida para fondos; para un halo se aclara.
+        final Color? deCaratula = snap.data;
+        final Color objetivo = deCaratula == null
+            ? AppColors.aiViolet
+            : (Color.lerp(deCaratula, Colors.white, 0.3) ?? deCaratula);
+        return TweenAnimationBuilder<Color?>(
+          tween: ColorTween(end: objetivo),
+          duration: Motion.ajustar(const Duration(milliseconds: 700)),
+          curve: Curves.easeOutCubic,
+          builder: (BuildContext context, Color? color, Widget? hijo) => GlassSurface(
+            quality: quality,
+            borderRadius: 22,
+            margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+            padding: EdgeInsets.zero,
+            glowColor: glow ? color : null,
+            child: hijo!,
+          ),
+          child: const MiniPlayer(),
+        );
+      },
     );
   }
 }

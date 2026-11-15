@@ -61,14 +61,16 @@ class PlayerProvider extends ChangeNotifier {
 
   Duration get position => service.player.position;
   Duration? get duration => service.player.duration;
-  double get volume => service.player.volume;
+  /// Volumen elegido por el usuario. Antes se leia el del motor, que en mitad
+  /// de un fundido o con el ajuste por cancion no coincide con el del usuario
+  /// (la IA subia o bajaba el volumen a partir de un valor equivocado).
+  double get volume => service.volumenUsuario;
 
   void _bind() {
     // Restaura los modos guardados por el usuario.
     service.setShuffle(_settings.shuffle);
     service.setRepeatMode(_settings.repeatMode);
     service.setKeepScreenOn(_settings.keepScreenOn);
-    service.rememberVolume(_settings.volume);
     unawaited(service.setVolume(_settings.volume));
     unawaited(service.setSpeedPercent(speedPercent));
   }
@@ -145,7 +147,6 @@ class PlayerProvider extends ChangeNotifier {
   Future<void> setVolume(double value) async {
     await service.setVolume(value);
     await _settings.setVolume(value);
-    service.rememberVolume(value);
     notifyListeners();
   }
 
