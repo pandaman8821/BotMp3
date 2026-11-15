@@ -62,11 +62,11 @@ class _HomeShellState extends State<HomeShell>
   }
 
   static final List<Widget> _screens = <Widget>[
-    SongsScreen(),
-    PlaylistsScreen(),
-    SearchScreen(),
-    AiScreen(),
-    SettingsScreen(),
+    const SongsScreen(),
+    const PlaylistsScreen(),
+    const SearchScreen(),
+    const AiScreen(),
+    const SettingsScreen(),
   ];
 
   bool _autoImportStarted = false;

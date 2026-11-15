@@ -261,7 +261,9 @@ class SettingsService {
   double get volume => _prefs.getDouble('player_volume') ?? 1.0;
   Future<void> setVolume(double value) => _prefs.setDouble('player_volume', value);
 
-  bool get keepScreenOn => _prefs.getBool('player_keep_screen_on') ?? true;
+  /// Desactivado de fabrica: con la pantalla siempre encendida mientras suena
+  /// la musica se gasta mucha bateria. Quien lo activo a mano lo conserva.
+  bool get keepScreenOn => _prefs.getBool('player_keep_screen_on') ?? false;
   Future<void> setKeepScreenOn(bool value) =>
       _prefs.setBool('player_keep_screen_on', value);
 

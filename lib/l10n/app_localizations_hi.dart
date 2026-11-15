@@ -1805,4 +1805,489 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get playerInfo => 'विवरण';
+
+  @override
+  String get nameLabel => 'नाम';
+
+  @override
+  String get filterAll => 'सभी';
+
+  @override
+  String get filterAny => 'कोई भी';
+
+  @override
+  String get tagsLabel => 'टैग';
+
+  @override
+  String get onlyFavorites => 'केवल पसंदीदा';
+
+  @override
+  String get applyFilters => 'फ़िल्टर लागू करें';
+
+  @override
+  String get importNoneNew => 'कोई नया गाना नहीं जोड़ा गया';
+
+  @override
+  String importedCount(int count) {
+    return '$count गाने इम्पोर्ट हुए';
+  }
+
+  @override
+  String get optionsLabel => 'विकल्प';
+
+  @override
+  String get exitLabel => 'बाहर निकलें';
+
+  @override
+  String get nothingPlaying => 'कुछ नहीं चल रहा';
+
+  @override
+  String get playSomething => 'कुछ चलाएँ';
+
+  @override
+  String formatSizeLine(String format, String size) {
+    return 'फ़ॉर्मैट: $format · $size';
+  }
+
+  @override
+  String get djNoSong => 'DJ को सही गाना नहीं मिला';
+
+  @override
+  String nextUpSpoken(String title) {
+    return 'अगला: $title';
+  }
+
+  @override
+  String get favoritesChip => 'पसंदीदा';
+
+  @override
+  String get interpreting => 'समझ रहे हैं…';
+
+  @override
+  String get smartSearch => 'स्मार्ट खोज';
+
+  @override
+  String get noSongsTitle => 'अभी कोई गाना नहीं';
+
+  @override
+  String get noResultsTitle => 'कोई परिणाम नहीं';
+
+  @override
+  String get searchImportHint => 'खोजने के लिए संगीत इम्पोर्ट करें।';
+
+  @override
+  String get searchNoResultsHint =>
+      'दूसरे शब्द आज़माएँ, फ़िल्टर हटाएँ या स्मार्ट खोज इस्तेमाल करें।';
+
+  @override
+  String get searchFailed => 'खोज पूरी नहीं हो सकी';
+
+  @override
+  String selectedCount(int count) {
+    return '$count चुने गए';
+  }
+
+  @override
+  String get libraryEmptyTitle => 'आपकी लाइब्रेरी खाली है';
+
+  @override
+  String get libraryEmptyBody =>
+      'नीचे वाले बटन से अपने गाने (MP3, M4A, OGG, FLAC, WAV…) इम्पोर्ट करें।\nBotMp3 पूरी तरह ऑफ़लाइन भी चलता है।';
+
+  @override
+  String get filtersNoResultsHint => 'दूसरे फ़िल्टर या खोज शब्द आज़माएँ।';
+
+  @override
+  String get allFilters => 'सभी फ़िल्टर';
+
+  @override
+  String songsAndDuration(int count, String duration) {
+    return '$count गाने · $duration';
+  }
+
+  @override
+  String get playlistIsEmpty => 'प्लेलिस्ट खाली है';
+
+  @override
+  String get playlistExportedCopied =>
+      'प्लेलिस्ट एक्सपोर्ट हुई और JSON क्लिपबोर्ड पर कॉपी हुआ';
+
+  @override
+  String get invalidPlaylistFile => 'यह फ़ाइल मान्य BotMp3 प्लेलिस्ट नहीं है';
+
+  @override
+  String playlistImported(String name, int count) {
+    return 'प्लेलिस्ट “$name” इम्पोर्ट हुई ($count गाने)';
+  }
+
+  @override
+  String get rankingTitle => 'रैंकिंग';
+
+  @override
+  String get resetBtn => 'रीसेट करें';
+
+  @override
+  String get rankingWasReset => 'रैंकिंग रीसेट हो गई';
+
+  @override
+  String rankingError(String error) {
+    return 'रैंकिंग त्रुटि: $error';
+  }
+
+  @override
+  String get periodAll => 'हर समय';
+
+  @override
+  String get periodMonth => 'पिछला महीना';
+
+  @override
+  String get periodWeek => 'पिछला हफ़्ता';
+
+  @override
+  String playsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count बार चलाया',
+      one: '1 बार चलाया',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String trendsIn(String country) {
+    return '🔥 $country में ट्रेंडिंग';
+  }
+
+  @override
+  String get trendsShareHeader => 'संगीत ट्रेंड 🔥';
+
+  @override
+  String get trendsChannelName => 'संगीत ट्रेंड';
+
+  @override
+  String alreadyInLibrary(String artist) {
+    return '$artist · पहले से आपकी लाइब्रेरी में';
+  }
+
+  @override
+  String get undoChanges => 'बदलाव पूर्ववत करें';
+
+  @override
+  String get pickImagePngJpg => 'इमेज चुनें (PNG/JPG)';
+
+  @override
+  String get quickActions => 'त्वरित क्रियाएँ';
+
+  @override
+  String get rotate90 => '90° घुमाएँ';
+
+  @override
+  String get enhanceImage => 'बेहतर करें';
+
+  @override
+  String get originalImage => 'मूल';
+
+  @override
+  String get rotationFraming => 'घुमाना और फ़्रेमिंग';
+
+  @override
+  String get zoomLabel => 'ज़ूम';
+
+  @override
+  String get framingHorizontal => 'क्षैतिज फ़्रेमिंग';
+
+  @override
+  String get framingVertical => 'ऊर्ध्वाधर फ़्रेमिंग';
+
+  @override
+  String get imageAdjustments => 'इमेज सेटिंग';
+
+  @override
+  String get brightnessLabel => 'चमक';
+
+  @override
+  String get contrastLabel => 'कंट्रास्ट';
+
+  @override
+  String get saturationLabel => 'सैचुरेशन';
+
+  @override
+  String get temperatureLabel => 'तापमान (ठंडा ↔ गर्म)';
+
+  @override
+  String get fadeVeil => 'परदा / फ़ेड';
+
+  @override
+  String get textOrLogo => 'टेक्स्ट या लोगो';
+
+  @override
+  String get textSizeLabel => 'टेक्स्ट का आकार';
+
+  @override
+  String get changeBaseImage => 'आधार इमेज बदलें';
+
+  @override
+  String coverExportedTo(String path) {
+    return 'कवर $path में एक्सपोर्ट हुआ';
+  }
+
+  @override
+  String get testVoice => 'आवाज़ जाँचें';
+
+  @override
+  String get restoreBtn => 'पुनर्स्थापित करें';
+
+  @override
+  String get deleteLibraryTitle => 'लाइब्रेरी मिटाएँ';
+
+  @override
+  String get deleteAllBtn => 'सब मिटाएँ';
+
+  @override
+  String get titleRequired => 'शीर्षक ज़रूरी है';
+
+  @override
+  String get artistRequired => 'कलाकार ज़रूरी है';
+
+  @override
+  String get invalidYear => 'अमान्य वर्ष';
+
+  @override
+  String get tagsWrittenToFile => 'टैग फ़ाइल में लिख दिए गए';
+
+  @override
+  String get tagsAppOnly =>
+      'यह फ़ॉर्मैट टैग लिखने नहीं देता; वे सिर्फ़ ऐप में सहेजे गए';
+
+  @override
+  String get msgPaused => 'रुका हुआ ⏸️';
+
+  @override
+  String msgVolumeAt(int percent) {
+    return 'वॉल्यूम $percent%';
+  }
+
+  @override
+  String msgSpeedAt(String speed) {
+    return 'गति ${speed}x ⏩';
+  }
+
+  @override
+  String get msgShuffleOn => 'शफ़ल चालू 🔀';
+
+  @override
+  String get msgShuffleOff => 'शफ़ल बंद';
+
+  @override
+  String get msgRepeatAll => 'पूरी कतार दोहराएँ 🔁';
+
+  @override
+  String aiPlaylistDated(String date) {
+    return 'AI प्लेलिस्ट $date';
+  }
+
+  @override
+  String msgPlaylistCreatedWith(String name, int count) {
+    return 'प्लेलिस्ट “$name” $count गानों के साथ बनी 📝';
+  }
+
+  @override
+  String msgNoResultsFor(String query) {
+    return '“$query” के लिए कोई परिणाम नहीं।';
+  }
+
+  @override
+  String msgSongUpdated(String title, String field, String value) {
+    return '“$title” अपडेट हुआ: $field = $value ✏️';
+  }
+
+  @override
+  String msgActionFailed(String action, String error) {
+    return '“$action” नहीं चला पाया: $error';
+  }
+
+  @override
+  String aiErrNoConnection(String provider, String error) {
+    return '$provider से कनेक्शन नहीं ($error)';
+  }
+
+  @override
+  String aiErrUnexpected(String provider) {
+    return '$provider से अनपेक्षित जवाब';
+  }
+
+  @override
+  String aiErrInvalid(String provider) {
+    return '$provider ने अमान्य जवाब दिया';
+  }
+
+  @override
+  String aiErrNoReply(String provider) {
+    return '$provider ने कोई जवाब नहीं दिया';
+  }
+
+  @override
+  String aiErrEmpty(String provider) {
+    return '$provider ने खाली जवाब दिया';
+  }
+
+  @override
+  String aiErrRejected(String provider, String detail) {
+    return '$provider ने अनुरोध अस्वीकार किया: $detail';
+  }
+
+  @override
+  String aiErrAuth(String provider) {
+    return '$provider की API key अमान्य है या अनुमति नहीं है।';
+  }
+
+  @override
+  String aiErrBalance(String provider) {
+    return '$provider में बैलेंस कम है। अपना खाता रिचार्ज करें।';
+  }
+
+  @override
+  String aiErrModel(String model, String provider) {
+    return 'मॉडल “$model” $provider पर उपलब्ध नहीं है।';
+  }
+
+  @override
+  String aiErrRate(String provider) {
+    return '$provider को बहुत ज़्यादा अनुरोध। कुछ सेकंड रुकें।';
+  }
+
+  @override
+  String aiErrStatus(int status, String provider, String detail) {
+    return '$provider त्रुटि $status: $detail';
+  }
+
+  @override
+  String aiMissingKey(String provider) {
+    return '$provider की API key नहीं है।';
+  }
+
+  @override
+  String aiTesting(String provider) {
+    return '$provider जाँचा जा रहा है…';
+  }
+
+  @override
+  String aiThinking(String provider) {
+    return '$provider सोच रहा है…';
+  }
+
+  @override
+  String aiUnexpectedError(String error) {
+    return 'अनपेक्षित त्रुटि: $error';
+  }
+
+  @override
+  String aiExecuting(String text) {
+    return 'चल रहा है: $text';
+  }
+
+  @override
+  String get aiLookingRecs => 'सुझाव खोजे जा रहे हैं…';
+
+  @override
+  String get aiComposingIdea => 'एक आइडिया बना रहे हैं…';
+
+  @override
+  String aiIdeaCreated(String title, String genre, int bpm) {
+    return '🎼 आइडिया तैयार: **$title** ($genre, $bpm BPM)';
+  }
+
+  @override
+  String get aiGeneratorPrompt => 'जनरेटर के लिए प्रॉम्प्ट';
+
+  @override
+  String get aiGeneratedPlaylist => 'AI द्वारा बनाई गई';
+
+  @override
+  String get chatExportHeader => 'BotMp3 AI बातचीत';
+
+  @override
+  String get chatMe => 'मैं';
+
+  @override
+  String get chatAi => 'AI';
+
+  @override
+  String get inYourLibrary => 'आपकी लाइब्रेरी में है';
+
+  @override
+  String freedSpace(String size) {
+    return '$size खाली किए';
+  }
+
+  @override
+  String copiesReplaced(int count) {
+    return ' · $count कॉपी मूल से बदली गईं';
+  }
+
+  @override
+  String newSongsOf(int added, int found) {
+    return '$found में से $added नए गाने';
+  }
+
+  @override
+  String get scanFailed => 'लाइब्रेरी स्कैन नहीं हो सकी';
+
+  @override
+  String importingProgress(int done, int total) {
+    return 'इम्पोर्ट हो रहा है $done/$total…';
+  }
+
+  @override
+  String libraryStatsLine(int songs, int genres, int lists) {
+    return '$songs गाने · $genres शैलियाँ · $lists प्लेलिस्ट';
+  }
+
+  @override
+  String saveFileTitle(String file) {
+    return '$file सहेजें';
+  }
+
+  @override
+  String get widgetNowPlaying => 'अभी चल रहा है';
+
+  @override
+  String get widgetPaused => 'रुका हुआ';
+
+  @override
+  String get aspectRatioTitle => 'अनुपात';
+
+  @override
+  String get coverFiltersTitle => 'फ़िल्टर';
+
+  @override
+  String get filterBlackWhite => 'ब्लैक एंड व्हाइट';
+
+  @override
+  String get filterVintage => 'विंटेज';
+
+  @override
+  String get filterWarm => 'गर्म';
+
+  @override
+  String get filterCool => 'ठंडा';
+
+  @override
+  String get filterDramatic => 'नाटकीय';
+
+  @override
+  String get filterFaded => 'फीका';
+
+  @override
+  String get filterVivid => 'चटकीला';
+
+  @override
+  String get positionTop => 'ऊपर';
+
+  @override
+  String get positionCenter => 'बीच में';
+
+  @override
+  String get positionBottom => 'नीचे';
 }

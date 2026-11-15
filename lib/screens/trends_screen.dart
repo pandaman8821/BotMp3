@@ -86,7 +86,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
     final SettingsProvider settings = context.read<SettingsProvider>();
     final String pais = TrendsService.paises[settings.trendsCountry] ?? settings.trendsCountry;
     final bool ok = await NotificationService.instance.show(
-      title: '🔥 Tendencias en $pais',
+      title: AppLocalizations.of(context).trendsIn(pais),
       body: _trends.resumen(cuantas: 3),
     );
     if (!mounted) return;
@@ -104,7 +104,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
   Future<void> _copiar() async {
     final List<TrendSong> lista = _trends.ultimas;
     if (lista.isEmpty) return;
-    final StringBuffer buffer = StringBuffer('Tendencias musicales 🔥\n');
+    final StringBuffer buffer = StringBuffer('${AppLocalizations.of(context).trendsShareHeader}\n');
     for (int i = 0; i < lista.length; i++) {
       buffer.writeln('${i + 1}. ${lista[i].title} — ${lista[i].artist}');
     }
@@ -250,7 +250,7 @@ class _TrendsScreenState extends State<TrendsScreen> {
                         title: Text(trend.title, maxLines: 1, overflow: TextOverflow.ellipsis),
                         subtitle: Text(
                           local != null
-                              ? '${trend.artist} · ya la tienes en tu biblioteca'
+                              ? AppLocalizations.of(context).alreadyInLibrary(trend.artist)
                               : trend.artist,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,

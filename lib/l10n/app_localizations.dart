@@ -3260,6 +3260,792 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Details'**
   String get playerInfo;
+
+  /// No description provided for @nameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get nameLabel;
+
+  /// No description provided for @filterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get filterAll;
+
+  /// No description provided for @filterAny.
+  ///
+  /// In en, this message translates to:
+  /// **'Any'**
+  String get filterAny;
+
+  /// No description provided for @tagsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags'**
+  String get tagsLabel;
+
+  /// No description provided for @onlyFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites only'**
+  String get onlyFavorites;
+
+  /// No description provided for @applyFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply filters'**
+  String get applyFilters;
+
+  /// No description provided for @importNoneNew.
+  ///
+  /// In en, this message translates to:
+  /// **'No new songs were added'**
+  String get importNoneNew;
+
+  /// No description provided for @importedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} songs imported'**
+  String importedCount(int count);
+
+  /// No description provided for @optionsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Options'**
+  String get optionsLabel;
+
+  /// No description provided for @exitLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exitLabel;
+
+  /// No description provided for @nothingPlaying.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing playing'**
+  String get nothingPlaying;
+
+  /// No description provided for @playSomething.
+  ///
+  /// In en, this message translates to:
+  /// **'Play something'**
+  String get playSomething;
+
+  /// No description provided for @formatSizeLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Format: {format} · {size}'**
+  String formatSizeLine(String format, String size);
+
+  /// No description provided for @djNoSong.
+  ///
+  /// In en, this message translates to:
+  /// **'The DJ couldn\'t find a suitable song'**
+  String get djNoSong;
+
+  /// No description provided for @nextUpSpoken.
+  ///
+  /// In en, this message translates to:
+  /// **'Next: {title}'**
+  String nextUpSpoken(String title);
+
+  /// No description provided for @favoritesChip.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get favoritesChip;
+
+  /// No description provided for @interpreting.
+  ///
+  /// In en, this message translates to:
+  /// **'Interpreting…'**
+  String get interpreting;
+
+  /// No description provided for @smartSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart search'**
+  String get smartSearch;
+
+  /// No description provided for @noSongsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No songs yet'**
+  String get noSongsTitle;
+
+  /// No description provided for @noResultsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No results'**
+  String get noResultsTitle;
+
+  /// No description provided for @searchImportHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Import music to be able to search it.'**
+  String get searchImportHint;
+
+  /// No description provided for @searchNoResultsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Try other words, remove filters or use smart search.'**
+  String get searchNoResultsHint;
+
+  /// No description provided for @searchFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The search couldn\'t be completed'**
+  String get searchFailed;
+
+  /// No description provided for @selectedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} selected'**
+  String selectedCount(int count);
+
+  /// No description provided for @libraryEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your library is empty'**
+  String get libraryEmptyTitle;
+
+  /// No description provided for @libraryEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Import your songs (MP3, M4A, OGG, FLAC, WAV…) with the button below.\nBotMp3 also works 100% offline.'**
+  String get libraryEmptyBody;
+
+  /// No description provided for @filtersNoResultsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Try other filters or search terms.'**
+  String get filtersNoResultsHint;
+
+  /// No description provided for @allFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'All filters'**
+  String get allFilters;
+
+  /// No description provided for @songsAndDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} songs · {duration}'**
+  String songsAndDuration(int count, String duration);
+
+  /// No description provided for @playlistIsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'The playlist is empty'**
+  String get playlistIsEmpty;
+
+  /// No description provided for @playlistExportedCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlist exported and JSON copied to the clipboard'**
+  String get playlistExportedCopied;
+
+  /// No description provided for @invalidPlaylistFile.
+  ///
+  /// In en, this message translates to:
+  /// **'The file is not a valid BotMp3 playlist'**
+  String get invalidPlaylistFile;
+
+  /// No description provided for @playlistImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlist “{name}” imported ({count} songs)'**
+  String playlistImported(String name, int count);
+
+  /// No description provided for @rankingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ranking'**
+  String get rankingTitle;
+
+  /// No description provided for @resetBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get resetBtn;
+
+  /// No description provided for @rankingWasReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Ranking reset'**
+  String get rankingWasReset;
+
+  /// No description provided for @rankingError.
+  ///
+  /// In en, this message translates to:
+  /// **'Ranking error: {error}'**
+  String rankingError(String error);
+
+  /// No description provided for @periodAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All time'**
+  String get periodAll;
+
+  /// No description provided for @periodMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Last month'**
+  String get periodMonth;
+
+  /// No description provided for @periodWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Last week'**
+  String get periodWeek;
+
+  /// No description provided for @playsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 play} other{{count} plays}}'**
+  String playsCount(int count);
+
+  /// No description provided for @trendsIn.
+  ///
+  /// In en, this message translates to:
+  /// **'🔥 Trending in {country}'**
+  String trendsIn(String country);
+
+  /// No description provided for @trendsShareHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Music trends 🔥'**
+  String get trendsShareHeader;
+
+  /// No description provided for @trendsChannelName.
+  ///
+  /// In en, this message translates to:
+  /// **'Music trends'**
+  String get trendsChannelName;
+
+  /// No description provided for @alreadyInLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'{artist} · already in your library'**
+  String alreadyInLibrary(String artist);
+
+  /// No description provided for @undoChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo changes'**
+  String get undoChanges;
+
+  /// No description provided for @pickImagePngJpg.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose image (PNG/JPG)'**
+  String get pickImagePngJpg;
+
+  /// No description provided for @quickActions.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick actions'**
+  String get quickActions;
+
+  /// No description provided for @rotate90.
+  ///
+  /// In en, this message translates to:
+  /// **'Rotate 90°'**
+  String get rotate90;
+
+  /// No description provided for @enhanceImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Enhance'**
+  String get enhanceImage;
+
+  /// No description provided for @originalImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Original'**
+  String get originalImage;
+
+  /// No description provided for @rotationFraming.
+  ///
+  /// In en, this message translates to:
+  /// **'Rotation and framing'**
+  String get rotationFraming;
+
+  /// No description provided for @zoomLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Zoom'**
+  String get zoomLabel;
+
+  /// No description provided for @framingHorizontal.
+  ///
+  /// In en, this message translates to:
+  /// **'Horizontal framing'**
+  String get framingHorizontal;
+
+  /// No description provided for @framingVertical.
+  ///
+  /// In en, this message translates to:
+  /// **'Vertical framing'**
+  String get framingVertical;
+
+  /// No description provided for @imageAdjustments.
+  ///
+  /// In en, this message translates to:
+  /// **'Image adjustments'**
+  String get imageAdjustments;
+
+  /// No description provided for @brightnessLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Brightness'**
+  String get brightnessLabel;
+
+  /// No description provided for @contrastLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Contrast'**
+  String get contrastLabel;
+
+  /// No description provided for @saturationLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturation'**
+  String get saturationLabel;
+
+  /// No description provided for @temperatureLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature (cool ↔ warm)'**
+  String get temperatureLabel;
+
+  /// No description provided for @fadeVeil.
+  ///
+  /// In en, this message translates to:
+  /// **'Veil / fade'**
+  String get fadeVeil;
+
+  /// No description provided for @textOrLogo.
+  ///
+  /// In en, this message translates to:
+  /// **'Text or logo'**
+  String get textOrLogo;
+
+  /// No description provided for @textSizeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Text size'**
+  String get textSizeLabel;
+
+  /// No description provided for @changeBaseImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Change base image'**
+  String get changeBaseImage;
+
+  /// No description provided for @coverExportedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Cover exported to {path}'**
+  String coverExportedTo(String path);
+
+  /// No description provided for @testVoice.
+  ///
+  /// In en, this message translates to:
+  /// **'Test voice'**
+  String get testVoice;
+
+  /// No description provided for @restoreBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get restoreBtn;
+
+  /// No description provided for @deleteLibraryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete library'**
+  String get deleteLibraryTitle;
+
+  /// No description provided for @deleteAllBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete all'**
+  String get deleteAllBtn;
+
+  /// No description provided for @titleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Title is required'**
+  String get titleRequired;
+
+  /// No description provided for @artistRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Artist is required'**
+  String get artistRequired;
+
+  /// No description provided for @invalidYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid year'**
+  String get invalidYear;
+
+  /// No description provided for @tagsWrittenToFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags written to the file'**
+  String get tagsWrittenToFile;
+
+  /// No description provided for @tagsAppOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'This format doesn\'t allow writing tags; they were saved in the app only'**
+  String get tagsAppOnly;
+
+  /// No description provided for @msgPaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Paused ⏸️'**
+  String get msgPaused;
+
+  /// No description provided for @msgVolumeAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume at {percent}%'**
+  String msgVolumeAt(int percent);
+
+  /// No description provided for @msgSpeedAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Speed {speed}x ⏩'**
+  String msgSpeedAt(String speed);
+
+  /// No description provided for @msgShuffleOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle on 🔀'**
+  String get msgShuffleOn;
+
+  /// No description provided for @msgShuffleOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle off'**
+  String get msgShuffleOff;
+
+  /// No description provided for @msgRepeatAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat the whole queue 🔁'**
+  String get msgRepeatAll;
+
+  /// No description provided for @aiPlaylistDated.
+  ///
+  /// In en, this message translates to:
+  /// **'AI playlist {date}'**
+  String aiPlaylistDated(String date);
+
+  /// No description provided for @msgPlaylistCreatedWith.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlist “{name}” created with {count} songs 📝'**
+  String msgPlaylistCreatedWith(String name, int count);
+
+  /// No description provided for @msgNoResultsFor.
+  ///
+  /// In en, this message translates to:
+  /// **'No results for “{query}”.'**
+  String msgNoResultsFor(String query);
+
+  /// No description provided for @msgSongUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated “{title}”: {field} = {value} ✏️'**
+  String msgSongUpdated(String title, String field, String value);
+
+  /// No description provided for @msgActionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'I couldn\'t run “{action}”: {error}'**
+  String msgActionFailed(String action, String error);
+
+  /// No description provided for @aiErrNoConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t connect to {provider} ({error})'**
+  String aiErrNoConnection(String provider, String error);
+
+  /// No description provided for @aiErrUnexpected.
+  ///
+  /// In en, this message translates to:
+  /// **'Unexpected response from {provider}'**
+  String aiErrUnexpected(String provider);
+
+  /// No description provided for @aiErrInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'{provider} returned an invalid response'**
+  String aiErrInvalid(String provider);
+
+  /// No description provided for @aiErrNoReply.
+  ///
+  /// In en, this message translates to:
+  /// **'{provider} didn\'t return any answer'**
+  String aiErrNoReply(String provider);
+
+  /// No description provided for @aiErrEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'{provider} returned an empty answer'**
+  String aiErrEmpty(String provider);
+
+  /// No description provided for @aiErrRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Request rejected by {provider}: {detail}'**
+  String aiErrRejected(String provider, String detail);
+
+  /// No description provided for @aiErrAuth.
+  ///
+  /// In en, this message translates to:
+  /// **'{provider} API key is invalid or lacks permissions.'**
+  String aiErrAuth(String provider);
+
+  /// No description provided for @aiErrBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Not enough credit on {provider}. Top up your account.'**
+  String aiErrBalance(String provider);
+
+  /// No description provided for @aiErrModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Model “{model}” isn\'t available on {provider}.'**
+  String aiErrModel(String model, String provider);
+
+  /// No description provided for @aiErrRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many requests to {provider}. Wait a few seconds.'**
+  String aiErrRate(String provider);
+
+  /// No description provided for @aiErrStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'{provider} error {status}: {detail}'**
+  String aiErrStatus(int status, String provider, String detail);
+
+  /// No description provided for @aiMissingKey.
+  ///
+  /// In en, this message translates to:
+  /// **'The {provider} API key is missing.'**
+  String aiMissingKey(String provider);
+
+  /// No description provided for @aiTesting.
+  ///
+  /// In en, this message translates to:
+  /// **'Testing {provider}…'**
+  String aiTesting(String provider);
+
+  /// No description provided for @aiThinking.
+  ///
+  /// In en, this message translates to:
+  /// **'{provider} is thinking…'**
+  String aiThinking(String provider);
+
+  /// No description provided for @aiUnexpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unexpected error: {error}'**
+  String aiUnexpectedError(String error);
+
+  /// No description provided for @aiExecuting.
+  ///
+  /// In en, this message translates to:
+  /// **'Executing: {text}'**
+  String aiExecuting(String text);
+
+  /// No description provided for @aiLookingRecs.
+  ///
+  /// In en, this message translates to:
+  /// **'Looking for recommendations…'**
+  String get aiLookingRecs;
+
+  /// No description provided for @aiComposingIdea.
+  ///
+  /// In en, this message translates to:
+  /// **'Composing an idea…'**
+  String get aiComposingIdea;
+
+  /// No description provided for @aiIdeaCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'🎼 Idea created: **{title}** ({genre}, {bpm} BPM)'**
+  String aiIdeaCreated(String title, String genre, int bpm);
+
+  /// No description provided for @aiGeneratorPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Prompt for a generator'**
+  String get aiGeneratorPrompt;
+
+  /// No description provided for @aiGeneratedPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated by AI'**
+  String get aiGeneratedPlaylist;
+
+  /// No description provided for @chatExportHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'BotMp3 AI conversation'**
+  String get chatExportHeader;
+
+  /// No description provided for @chatMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Me'**
+  String get chatMe;
+
+  /// No description provided for @chatAi.
+  ///
+  /// In en, this message translates to:
+  /// **'AI'**
+  String get chatAi;
+
+  /// No description provided for @inYourLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'It\'s in your library'**
+  String get inYourLibrary;
+
+  /// No description provided for @freedSpace.
+  ///
+  /// In en, this message translates to:
+  /// **'{size} freed'**
+  String freedSpace(String size);
+
+  /// No description provided for @copiesReplaced.
+  ///
+  /// In en, this message translates to:
+  /// **' · {count} copies replaced with the original'**
+  String copiesReplaced(int count);
+
+  /// No description provided for @newSongsOf.
+  ///
+  /// In en, this message translates to:
+  /// **'{added} new songs out of {found}'**
+  String newSongsOf(int added, int found);
+
+  /// No description provided for @scanFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The library couldn\'t be scanned'**
+  String get scanFailed;
+
+  /// No description provided for @importingProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Importing {done}/{total}…'**
+  String importingProgress(int done, int total);
+
+  /// No description provided for @libraryStatsLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{songs} songs · {genres} genres · {lists} playlists'**
+  String libraryStatsLine(int songs, int genres, int lists);
+
+  /// No description provided for @saveFileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Save {file}'**
+  String saveFileTitle(String file);
+
+  /// No description provided for @widgetNowPlaying.
+  ///
+  /// In en, this message translates to:
+  /// **'Now playing'**
+  String get widgetNowPlaying;
+
+  /// No description provided for @widgetPaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Paused'**
+  String get widgetPaused;
+
+  /// No description provided for @aspectRatioTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Aspect ratio'**
+  String get aspectRatioTitle;
+
+  /// No description provided for @coverFiltersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Filters'**
+  String get coverFiltersTitle;
+
+  /// No description provided for @filterBlackWhite.
+  ///
+  /// In en, this message translates to:
+  /// **'Black & white'**
+  String get filterBlackWhite;
+
+  /// No description provided for @filterVintage.
+  ///
+  /// In en, this message translates to:
+  /// **'Vintage'**
+  String get filterVintage;
+
+  /// No description provided for @filterWarm.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm'**
+  String get filterWarm;
+
+  /// No description provided for @filterCool.
+  ///
+  /// In en, this message translates to:
+  /// **'Cool'**
+  String get filterCool;
+
+  /// No description provided for @filterDramatic.
+  ///
+  /// In en, this message translates to:
+  /// **'Dramatic'**
+  String get filterDramatic;
+
+  /// No description provided for @filterFaded.
+  ///
+  /// In en, this message translates to:
+  /// **'Faded'**
+  String get filterFaded;
+
+  /// No description provided for @filterVivid.
+  ///
+  /// In en, this message translates to:
+  /// **'Vivid'**
+  String get filterVivid;
+
+  /// No description provided for @positionTop.
+  ///
+  /// In en, this message translates to:
+  /// **'Top'**
+  String get positionTop;
+
+  /// No description provided for @positionCenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Center'**
+  String get positionCenter;
+
+  /// No description provided for @positionBottom.
+  ///
+  /// In en, this message translates to:
+  /// **'Bottom'**
+  String get positionBottom;
 }
 
 class _AppLocalizationsDelegate

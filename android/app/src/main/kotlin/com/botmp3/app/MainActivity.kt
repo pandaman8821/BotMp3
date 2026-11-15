@@ -2,7 +2,7 @@ package com.botmp3.app
 
 import android.content.Intent
 
-import com.example.botmp3.ui.fragments.EqualizerActivity
+import com.botmp3.app.equalizer.EqualizerActivity
 
 import android.app.AlarmManager
 import android.os.Build

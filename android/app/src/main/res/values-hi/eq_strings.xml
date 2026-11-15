@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Textos del ecualizador nativo (EqualizerFragment). -->
+<resources>
+    <string name="eq_title">इक्वलाइज़र</string>
+    <string name="eq_subtitle">5 बैंड · −12 से +12 dB · लाइव इफ़ेक्ट</string>
+    <string name="eq_bass_boost">बेस बूस्ट</string>
+    <string name="eq_bass_boost_on">बेस बूस्ट: चालू</string>
+    <string name="eq_reset">रीसेट करें</string>
+    <string name="eq_current_gain">मौजूदा गेन %1$s</string>
+    <!-- Mismo orden que PRESETS_VALORES en EqualizerFragment.java -->
+    <string-array name="eq_presets">
+        <item>रॉक</item>
+        <item>पॉप</item>
+        <item>जैज़</item>
+        <item>क्लासिकल</item>
+        <item>रैप</item>
+        <item>रेगेटन</item>
+        <item>कुम्बिया</item>
+        <item>इलेक्ट्रॉनिक</item>
+        <item>हैवी रॉक</item>
+        <item>वोकल</item>
+        <item>बेस</item>
+        <item>ट्रेबल</item>
+    </string-array>
+</resources>

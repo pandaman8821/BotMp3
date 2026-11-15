@@ -1,4 +1,6 @@
-package com.example.botmp3.ui.fragments;
+package com.botmp3.app.equalizer;
+
+import com.botmp3.app.R;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -50,7 +52,9 @@ public class EqualizerFragment extends Fragment {
 
     private static final String[] FRECUENCIAS = {"63 Hz", "250 Hz", "1 kHz", "4 kHz", "16 kHz"};
 
-    private static final String[] PRESETS_NOMBRES = {"Rock", "Pop", "Jazz", "Clásico", "Rap", "Reggaetón", "Cumbia", "Electrónica", "Rock pesado", "Vocal", "Bajos", "Agudos"};
+    /** Nombres de los presets (traducidos en res/values-xx/eq_strings.xml), en el
+     *  mismo orden que PRESETS_VALORES. */
+    private String[] presetsNombres = new String[0];
     private static final float[][] PRESETS_VALORES = {
             {+5f, +3f, 0f, +2f, +4f},    // Rock
             {-2f, +1f, +4f, +3f, -1f},   // Pop
@@ -113,6 +117,7 @@ public class EqualizerFragment extends Fragment {
             sesionAudio = getArguments().getInt(ARG_SESION, 0);
         }
         prefs = contexto.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+        presetsNombres = contexto.getResources().getStringArray(R.array.eq_presets);
 
         ScrollView scroll = new ScrollView(contexto);
         scroll.setFillViewport(true);
@@ -136,14 +141,14 @@ public class EqualizerFragment extends Fragment {
         root.addView(cabecera);
 
         TextView titulo = new TextView(contexto);
-        titulo.setText("Ecualizador");
+        titulo.setText(R.string.eq_title);
         titulo.setTextColor(TEXTO);
         titulo.setTextSize(26f);
         titulo.setTypeface(titulo.getTypeface(), android.graphics.Typeface.BOLD);
         cabecera.addView(titulo);
 
         TextView subtitulo = new TextView(contexto);
-        subtitulo.setText("5 bandas · −12 a +12 dB · efecto en vivo");
+        subtitulo.setText(R.string.eq_subtitle);
         subtitulo.setTextColor(Color.parseColor("#B9CBE3"));
         subtitulo.setTextSize(12.5f);
         LinearLayout.LayoutParams subLp = new LinearLayout.LayoutParams(
@@ -239,7 +244,7 @@ public class EqualizerFragment extends Fragment {
         // ---- Chips de presets (filas de 4)
         final int porFila = 4;
         LinearLayout filaPresets = null;
-        for (int i = 0; i < PRESETS_NOMBRES.length; i++) {
+        for (int i = 0; i < Math.min(presetsNombres.length, PRESETS_VALORES.length); i++) {
             if (i % porFila == 0) {
                 filaPresets = new LinearLayout(contexto);
                 filaPresets.setOrientation(LinearLayout.HORIZONTAL);
@@ -251,7 +256,7 @@ public class EqualizerFragment extends Fragment {
             }
             final int indice = i;
             TextView chip = new TextView(contexto);
-            chip.setText(PRESETS_NOMBRES[i]);
+            chip.setText(presetsNombres[i]);
             chip.setTextColor(TEXTO);
             chip.setTextSize(12f);
             chip.setGravity(Gravity.CENTER);
@@ -268,7 +273,7 @@ public class EqualizerFragment extends Fragment {
                 public void onClick(View v) {
                     System.arraycopy(PRESETS_VALORES[indice], 0, gananciasDb, 0, BANDAS);
                     aplastarActivo = false;
-                    if (botonAplastar != null) botonAplastar.setText("Aplastar graves");
+                    if (botonAplastar != null) botonAplastar.setText(R.string.eq_bass_boost);
                     sincronizarSliders();
                     aplicarYGuardar();
                 }
@@ -287,20 +292,20 @@ public class EqualizerFragment extends Fragment {
         accionesLp.topMargin = dp(14);
         root.addView(acciones, accionesLp);
 
-        Button reset = crearBoton(contexto, "Restablecer", TEXTO, Color.parseColor("#1A2536"), BORDE);
+        Button reset = crearBoton(contexto, getString(R.string.eq_reset), TEXTO, Color.parseColor("#1A2536"), BORDE);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 for (int i = 0; i < BANDAS; i++) gananciasDb[i] = 0f;
                 aplastarActivo = false;
-                if (botonAplastar != null) botonAplastar.setText("Aplastar graves");
+                if (botonAplastar != null) botonAplastar.setText(R.string.eq_bass_boost);
                 sincronizarSliders();
                 aplicarYGuardar();
             }
         });
         acciones.addView(reset, peso());
 
-        botonAplastar = crearBoton(contexto, "Aplastar graves", Color.parseColor("#062018"), VERDE, VERDE);
+        botonAplastar = crearBoton(contexto, getString(R.string.eq_bass_boost), Color.parseColor("#062018"), VERDE, VERDE);
         botonAplastar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -310,7 +315,7 @@ public class EqualizerFragment extends Fragment {
                 } else {
                     for (int i = 0; i < BANDAS; i++) gananciasDb[i] = 0f;
                 }
-                botonAplastar.setText(aplastarActivo ? "Aplastar: ON" : "Aplastar graves");
+                botonAplastar.setText(aplastarActivo ? R.string.eq_bass_boost_on : R.string.eq_bass_boost);
                 sincronizarSliders();
                 aplicarYGuardar();
             }
@@ -347,7 +352,8 @@ public class EqualizerFragment extends Fragment {
         float suma = 0f;
         for (float g : gananciasDb) suma += g;
         float media = suma / BANDAS;
-        return String.format(Locale.getDefault(), "Ganancia actual %s%.1f dB", signo(media), Float.valueOf(media));
+        String valor = String.format(Locale.getDefault(), "%s%.1f dB", signo(media), Float.valueOf(media));
+        return isAdded() ? getString(R.string.eq_current_gain, valor) : valor;
     }
 
     private String signo(float valor) {
@@ -381,7 +387,7 @@ public class EqualizerFragment extends Fragment {
         }
         aplastarActivo = prefs.getBoolean(CLAVE_APLASTAR, false);
         if (botonAplastar != null) {
-            botonAplastar.setText(aplastarActivo ? "Aplastar: ON" : "Aplastar graves");
+            botonAplastar.setText(aplastarActivo ? R.string.eq_bass_boost_on : R.string.eq_bass_boost);
         }
         sincronizarSliders();
         aplicarYGuardar();

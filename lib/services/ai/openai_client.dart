@@ -72,13 +72,13 @@ class OpenAiCompatibleClient extends AiClient {
 
     final List<dynamic>? choices = response['choices'] as List<dynamic>?;
     if (choices == null || choices.isEmpty) {
-      throw AiRequestException('${provider.label} no devolvió ninguna respuesta');
+      throw AiRequestException(UiStrings.loc.aiErrNoReply(provider.label));
     }
     final Map<String, dynamic> first = choices.first as Map<String, dynamic>;
     final Map<String, dynamic>? message = first['message'] as Map<String, dynamic>?;
     final String content = (message?['content'] ?? '').toString().trim();
     if (content.isEmpty) {
-      throw AiRequestException('${provider.label} devolvió una respuesta vacía');
+      throw AiRequestException(UiStrings.loc.aiErrEmpty(provider.label));
     }
     return content;
   }

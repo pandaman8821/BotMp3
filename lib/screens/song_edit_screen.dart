@@ -108,13 +108,13 @@ class _SongEditScreenState extends State<SongEditScreen> {
                             builder: (_) => CoverEditorScreen(songId: song.id),
                           ),
                         ),
-                        icon: Icon(Icons.image_outlined),
+                        icon: const Icon(Icons.image_outlined),
                         label: Text(AppLocalizations.of(context).menuEditCover),
                       ),
                       const SizedBox(height: 8),
                       OutlinedButton.icon(
                         onPressed: () => _usarCaratulaDelAlbum(song),
-                        icon: Icon(Icons.album_outlined),
+                        icon: const Icon(Icons.album_outlined),
                         label: Text(AppLocalizations.of(context).albumCover),
                       ),
                       const SizedBox(height: 8),
@@ -133,7 +133,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
               decoration: InputDecoration(labelText: AppLocalizations.of(context).titleStar),
               textCapitalization: TextCapitalization.sentences,
               validator: (String? value) =>
-                  (value == null || value.trim().isEmpty) ? 'El título es obligatorio' : null,
+                  (value == null || value.trim().isEmpty) ? AppLocalizations.of(context).titleRequired : null,
             ),
             const SizedBox(height: 12),
             TextFormField(
@@ -141,7 +141,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
               decoration: InputDecoration(labelText: AppLocalizations.of(context).artistStar),
               textCapitalization: TextCapitalization.words,
               validator: (String? value) =>
-                  (value == null || value.trim().isEmpty) ? 'El artista es obligatorio' : null,
+                  (value == null || value.trim().isEmpty) ? AppLocalizations.of(context).artistRequired : null,
             ),
             const SizedBox(height: 12),
             TextFormField(
@@ -161,7 +161,7 @@ class _SongEditScreenState extends State<SongEditScreen> {
                       if (value == null || value.trim().isEmpty) return null;
                       final int? year = int.tryParse(value.trim());
                       if (year == null || year < 1900 || year > 2100) {
-                        return 'Año inválido';
+                        return AppLocalizations.of(context).invalidYear;
                       }
                       return null;
                     },
@@ -259,13 +259,13 @@ class _SongEditScreenState extends State<SongEditScreen> {
             const SizedBox(height: 10),
             OutlinedButton.icon(
               onPressed: () => _writeTagsToFile(song),
-              icon: Icon(Icons.tag),
+              icon: const Icon(Icons.tag),
               label: Text(AppLocalizations.of(context).writeTags),
             ),
             const SizedBox(height: 6),
             Text(
               AppLocalizations.of(context).songEditNote,
-              style: TextStyle(fontSize: 12, color: Color(0xFF9AA0B4)),
+              style: const TextStyle(fontSize: 12, color: Color(0xFF9AA0B4)),
             ),
           ],
         ),
@@ -393,8 +393,8 @@ class _SongEditScreenState extends State<SongEditScreen> {
       SnackBar(
         content: Text(
           ok
-              ? 'Etiquetas escritas en el archivo'
-              : 'Este formato no permite escribir etiquetas; se guardaron solo en la app',
+              ? AppLocalizations.of(context).tagsWrittenToFile
+              : AppLocalizations.of(context).tagsAppOnly,
         ),
       ),
     );

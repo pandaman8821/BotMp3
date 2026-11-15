@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Textos del ecualizador nativo (EqualizerFragment). -->
+<resources>
+    <string name="eq_title">이퀄라이저</string>
+    <string name="eq_subtitle">5밴드 · −12~+12 dB · 실시간 효과</string>
+    <string name="eq_bass_boost">저음 강화</string>
+    <string name="eq_bass_boost_on">저음 강화: 켜짐</string>
+    <string name="eq_reset">초기화</string>
+    <string name="eq_current_gain">현재 게인 %1$s</string>
+    <!-- Mismo orden que PRESETS_VALORES en EqualizerFragment.java -->
+    <string-array name="eq_presets">
+        <item>록</item>
+        <item>팝</item>
+        <item>재즈</item>
+        <item>클래식</item>
+        <item>랩</item>
+        <item>레게톤</item>
+        <item>쿰비아</item>
+        <item>일렉트로닉</item>
+        <item>하드 록</item>
+        <item>보컬</item>
+        <item>저음</item>
+        <item>고음</item>
+    </string-array>
+</resources>

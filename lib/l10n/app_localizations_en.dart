@@ -1819,4 +1819,489 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get playerInfo => 'Details';
+
+  @override
+  String get nameLabel => 'Name';
+
+  @override
+  String get filterAll => 'All';
+
+  @override
+  String get filterAny => 'Any';
+
+  @override
+  String get tagsLabel => 'Tags';
+
+  @override
+  String get onlyFavorites => 'Favorites only';
+
+  @override
+  String get applyFilters => 'Apply filters';
+
+  @override
+  String get importNoneNew => 'No new songs were added';
+
+  @override
+  String importedCount(int count) {
+    return '$count songs imported';
+  }
+
+  @override
+  String get optionsLabel => 'Options';
+
+  @override
+  String get exitLabel => 'Exit';
+
+  @override
+  String get nothingPlaying => 'Nothing playing';
+
+  @override
+  String get playSomething => 'Play something';
+
+  @override
+  String formatSizeLine(String format, String size) {
+    return 'Format: $format · $size';
+  }
+
+  @override
+  String get djNoSong => 'The DJ couldn\'t find a suitable song';
+
+  @override
+  String nextUpSpoken(String title) {
+    return 'Next: $title';
+  }
+
+  @override
+  String get favoritesChip => 'Favorites';
+
+  @override
+  String get interpreting => 'Interpreting…';
+
+  @override
+  String get smartSearch => 'Smart search';
+
+  @override
+  String get noSongsTitle => 'No songs yet';
+
+  @override
+  String get noResultsTitle => 'No results';
+
+  @override
+  String get searchImportHint => 'Import music to be able to search it.';
+
+  @override
+  String get searchNoResultsHint =>
+      'Try other words, remove filters or use smart search.';
+
+  @override
+  String get searchFailed => 'The search couldn\'t be completed';
+
+  @override
+  String selectedCount(int count) {
+    return '$count selected';
+  }
+
+  @override
+  String get libraryEmptyTitle => 'Your library is empty';
+
+  @override
+  String get libraryEmptyBody =>
+      'Import your songs (MP3, M4A, OGG, FLAC, WAV…) with the button below.\nBotMp3 also works 100% offline.';
+
+  @override
+  String get filtersNoResultsHint => 'Try other filters or search terms.';
+
+  @override
+  String get allFilters => 'All filters';
+
+  @override
+  String songsAndDuration(int count, String duration) {
+    return '$count songs · $duration';
+  }
+
+  @override
+  String get playlistIsEmpty => 'The playlist is empty';
+
+  @override
+  String get playlistExportedCopied =>
+      'Playlist exported and JSON copied to the clipboard';
+
+  @override
+  String get invalidPlaylistFile => 'The file is not a valid BotMp3 playlist';
+
+  @override
+  String playlistImported(String name, int count) {
+    return 'Playlist “$name” imported ($count songs)';
+  }
+
+  @override
+  String get rankingTitle => 'Ranking';
+
+  @override
+  String get resetBtn => 'Reset';
+
+  @override
+  String get rankingWasReset => 'Ranking reset';
+
+  @override
+  String rankingError(String error) {
+    return 'Ranking error: $error';
+  }
+
+  @override
+  String get periodAll => 'All time';
+
+  @override
+  String get periodMonth => 'Last month';
+
+  @override
+  String get periodWeek => 'Last week';
+
+  @override
+  String playsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count plays',
+      one: '1 play',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String trendsIn(String country) {
+    return '🔥 Trending in $country';
+  }
+
+  @override
+  String get trendsShareHeader => 'Music trends 🔥';
+
+  @override
+  String get trendsChannelName => 'Music trends';
+
+  @override
+  String alreadyInLibrary(String artist) {
+    return '$artist · already in your library';
+  }
+
+  @override
+  String get undoChanges => 'Undo changes';
+
+  @override
+  String get pickImagePngJpg => 'Choose image (PNG/JPG)';
+
+  @override
+  String get quickActions => 'Quick actions';
+
+  @override
+  String get rotate90 => 'Rotate 90°';
+
+  @override
+  String get enhanceImage => 'Enhance';
+
+  @override
+  String get originalImage => 'Original';
+
+  @override
+  String get rotationFraming => 'Rotation and framing';
+
+  @override
+  String get zoomLabel => 'Zoom';
+
+  @override
+  String get framingHorizontal => 'Horizontal framing';
+
+  @override
+  String get framingVertical => 'Vertical framing';
+
+  @override
+  String get imageAdjustments => 'Image adjustments';
+
+  @override
+  String get brightnessLabel => 'Brightness';
+
+  @override
+  String get contrastLabel => 'Contrast';
+
+  @override
+  String get saturationLabel => 'Saturation';
+
+  @override
+  String get temperatureLabel => 'Temperature (cool ↔ warm)';
+
+  @override
+  String get fadeVeil => 'Veil / fade';
+
+  @override
+  String get textOrLogo => 'Text or logo';
+
+  @override
+  String get textSizeLabel => 'Text size';
+
+  @override
+  String get changeBaseImage => 'Change base image';
+
+  @override
+  String coverExportedTo(String path) {
+    return 'Cover exported to $path';
+  }
+
+  @override
+  String get testVoice => 'Test voice';
+
+  @override
+  String get restoreBtn => 'Restore';
+
+  @override
+  String get deleteLibraryTitle => 'Delete library';
+
+  @override
+  String get deleteAllBtn => 'Delete all';
+
+  @override
+  String get titleRequired => 'Title is required';
+
+  @override
+  String get artistRequired => 'Artist is required';
+
+  @override
+  String get invalidYear => 'Invalid year';
+
+  @override
+  String get tagsWrittenToFile => 'Tags written to the file';
+
+  @override
+  String get tagsAppOnly =>
+      'This format doesn\'t allow writing tags; they were saved in the app only';
+
+  @override
+  String get msgPaused => 'Paused ⏸️';
+
+  @override
+  String msgVolumeAt(int percent) {
+    return 'Volume at $percent%';
+  }
+
+  @override
+  String msgSpeedAt(String speed) {
+    return 'Speed ${speed}x ⏩';
+  }
+
+  @override
+  String get msgShuffleOn => 'Shuffle on 🔀';
+
+  @override
+  String get msgShuffleOff => 'Shuffle off';
+
+  @override
+  String get msgRepeatAll => 'Repeat the whole queue 🔁';
+
+  @override
+  String aiPlaylistDated(String date) {
+    return 'AI playlist $date';
+  }
+
+  @override
+  String msgPlaylistCreatedWith(String name, int count) {
+    return 'Playlist “$name” created with $count songs 📝';
+  }
+
+  @override
+  String msgNoResultsFor(String query) {
+    return 'No results for “$query”.';
+  }
+
+  @override
+  String msgSongUpdated(String title, String field, String value) {
+    return 'Updated “$title”: $field = $value ✏️';
+  }
+
+  @override
+  String msgActionFailed(String action, String error) {
+    return 'I couldn\'t run “$action”: $error';
+  }
+
+  @override
+  String aiErrNoConnection(String provider, String error) {
+    return 'Couldn\'t connect to $provider ($error)';
+  }
+
+  @override
+  String aiErrUnexpected(String provider) {
+    return 'Unexpected response from $provider';
+  }
+
+  @override
+  String aiErrInvalid(String provider) {
+    return '$provider returned an invalid response';
+  }
+
+  @override
+  String aiErrNoReply(String provider) {
+    return '$provider didn\'t return any answer';
+  }
+
+  @override
+  String aiErrEmpty(String provider) {
+    return '$provider returned an empty answer';
+  }
+
+  @override
+  String aiErrRejected(String provider, String detail) {
+    return 'Request rejected by $provider: $detail';
+  }
+
+  @override
+  String aiErrAuth(String provider) {
+    return '$provider API key is invalid or lacks permissions.';
+  }
+
+  @override
+  String aiErrBalance(String provider) {
+    return 'Not enough credit on $provider. Top up your account.';
+  }
+
+  @override
+  String aiErrModel(String model, String provider) {
+    return 'Model “$model” isn\'t available on $provider.';
+  }
+
+  @override
+  String aiErrRate(String provider) {
+    return 'Too many requests to $provider. Wait a few seconds.';
+  }
+
+  @override
+  String aiErrStatus(int status, String provider, String detail) {
+    return '$provider error $status: $detail';
+  }
+
+  @override
+  String aiMissingKey(String provider) {
+    return 'The $provider API key is missing.';
+  }
+
+  @override
+  String aiTesting(String provider) {
+    return 'Testing $provider…';
+  }
+
+  @override
+  String aiThinking(String provider) {
+    return '$provider is thinking…';
+  }
+
+  @override
+  String aiUnexpectedError(String error) {
+    return 'Unexpected error: $error';
+  }
+
+  @override
+  String aiExecuting(String text) {
+    return 'Executing: $text';
+  }
+
+  @override
+  String get aiLookingRecs => 'Looking for recommendations…';
+
+  @override
+  String get aiComposingIdea => 'Composing an idea…';
+
+  @override
+  String aiIdeaCreated(String title, String genre, int bpm) {
+    return '🎼 Idea created: **$title** ($genre, $bpm BPM)';
+  }
+
+  @override
+  String get aiGeneratorPrompt => 'Prompt for a generator';
+
+  @override
+  String get aiGeneratedPlaylist => 'Generated by AI';
+
+  @override
+  String get chatExportHeader => 'BotMp3 AI conversation';
+
+  @override
+  String get chatMe => 'Me';
+
+  @override
+  String get chatAi => 'AI';
+
+  @override
+  String get inYourLibrary => 'It\'s in your library';
+
+  @override
+  String freedSpace(String size) {
+    return '$size freed';
+  }
+
+  @override
+  String copiesReplaced(int count) {
+    return ' · $count copies replaced with the original';
+  }
+
+  @override
+  String newSongsOf(int added, int found) {
+    return '$added new songs out of $found';
+  }
+
+  @override
+  String get scanFailed => 'The library couldn\'t be scanned';
+
+  @override
+  String importingProgress(int done, int total) {
+    return 'Importing $done/$total…';
+  }
+
+  @override
+  String libraryStatsLine(int songs, int genres, int lists) {
+    return '$songs songs · $genres genres · $lists playlists';
+  }
+
+  @override
+  String saveFileTitle(String file) {
+    return 'Save $file';
+  }
+
+  @override
+  String get widgetNowPlaying => 'Now playing';
+
+  @override
+  String get widgetPaused => 'Paused';
+
+  @override
+  String get aspectRatioTitle => 'Aspect ratio';
+
+  @override
+  String get coverFiltersTitle => 'Filters';
+
+  @override
+  String get filterBlackWhite => 'Black & white';
+
+  @override
+  String get filterVintage => 'Vintage';
+
+  @override
+  String get filterWarm => 'Warm';
+
+  @override
+  String get filterCool => 'Cool';
+
+  @override
+  String get filterDramatic => 'Dramatic';
+
+  @override
+  String get filterFaded => 'Faded';
+
+  @override
+  String get filterVivid => 'Vivid';
+
+  @override
+  String get positionTop => 'Top';
+
+  @override
+  String get positionCenter => 'Center';
+
+  @override
+  String get positionBottom => 'Bottom';
 }

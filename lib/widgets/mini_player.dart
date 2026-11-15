@@ -29,10 +29,10 @@ class MiniPlayer extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: GestureDetector(
-        // Gestos rapidos sin abrir la pantalla (utiles conduciendo o con el
-        // movil guardado): doble toque pausa o reanuda, pulsacion larga pasa a
-        // la siguiente cancion.
-        onDoubleTap: player.togglePlayPause,
+        // Gestos rapidos sin abrir la pantalla: pulsacion larga pasa a la
+        // siguiente cancion. Ya no hay doble toque: obligaba a Flutter a
+        // esperar ~300 ms antes de abrir el reproductor con un toque simple
+        // (para pausar ya esta el boton de play).
         // Deslizar: a la izquierda pasa a la siguiente cancion, a la derecha
         // vuelve a la anterior.
         onHorizontalDragEnd: (DragEndDetails detalles) {

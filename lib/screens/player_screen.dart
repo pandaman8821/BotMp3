@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui' show FontFeature;
 import '../core/motion.dart';
 import '../l10n/app_localizations.dart';
 import '../core/text_utils.dart';
@@ -123,6 +122,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
     return '$m:${s.toString().padLeft(2, '0')}';
   }
 
+  @override
   Widget build(BuildContext context) {
     final PlayerProvider player = context.watch<PlayerProvider>();
     final LibraryProvider library = context.watch<LibraryProvider>();
@@ -596,20 +596,24 @@ class _PlayerScreenState extends State<PlayerScreen> {
       showDragHandle: true,
       builder: (BuildContext sheetContext) => SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(song.title, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
-              SizedBox(height: 8),
+              Text(song.title, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+              const SizedBox(height: 8),
               Text('${AppLocalizations.of(context).artistLabel}: ${song.artist}'),
-                Text(AppLocalizations.of(context).albumLabel + ': ' + (song.album.isEmpty ? '—' : song.album)),
-                Text(AppLocalizations.of(context).yearLabel + ': ' + (song.year == 0 ? '—' : '${song.year}')),
-                Text(AppLocalizations.of(context).genreLabel + ': ' + song.genre),
-                Text(AppLocalizations.of(context).durationLabel + ': ' + Formatters.durationFromMs(song.durationMs)),
-              Text('Formato: ${song.extension.toUpperCase()} · ${Formatters.bytes(song.fileSizeBytes)}'),
-              if (song.tags.isNotEmpty) Text('Tags: ${song.tags.map((String t) => '#$t').join(' ')}'),
+                Text('${AppLocalizations.of(context).albumLabel}: ${song.album.isEmpty ? '—' : song.album}'),
+                Text('${AppLocalizations.of(context).yearLabel}: ${song.year == 0 ? '—' : '${song.year}'}'),
+                Text('${AppLocalizations.of(context).genreLabel}: ${song.genre}'),
+                Text('${AppLocalizations.of(context).durationLabel}: ${Formatters.durationFromMs(song.durationMs)}'),
+              Text(AppLocalizations.of(context).formatSizeLine(
+                song.extension.toUpperCase(),
+                Formatters.bytes(song.fileSizeBytes),
+              )),
+              if (song.tags.isNotEmpty)
+                Text('${AppLocalizations.of(context).tagsLabel}: ${song.tags.map((String t) => '#$t').join(' ')}'),
               const SizedBox(height: 8),
               Text(
                 song.path,
@@ -688,7 +692,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
     if (!ai.hasActiveKey) {
       if (manual) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${AppLocalizations.of(context).apiKeyHint} ${ai.activeProvider.label} · ${AppLocalizations.of(context).tabSettings} ▸ IA')),
+          SnackBar(content: Text('${AppLocalizations.of(context).apiKeyHint} ${ai.activeProvider.label} · ${AppLocalizations.of(context).tabSettings} ▸ ${AppLocalizations.of(context).tabAi}')),
         );
       }
       return;
@@ -696,7 +700,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
 
     setState(() => _djBusy = true);
     final AiActionResult? result = await ai.djNext(current, player.recentlyPlayed);
-    if (!mounted) return;
+    if (!mounted || !context.mounted) return;
     setState(() {
       _djBusy = false;
       _djMessage = result == null ? null : mensajeDelDJ(result.text);
@@ -706,6 +710,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
         ? result!.suggestions.first
         : null;
     final LibraryProvider library = context.read<LibraryProvider>();
+    final AppLocalizations loc = AppLocalizations.of(context);
+    final ScaffoldMessengerState avisos = ScaffoldMessenger.of(context);
     final Song? nextSong = suggestion?.localSongId == null
         ? null
         : library.songById(suggestion!.localSongId!);
@@ -713,16 +719,18 @@ class _PlayerScreenState extends State<PlayerScreen> {
     if (nextSong != null) {
       await player.playNext(nextSong);
       if (settings.ttsEnabled) {
-        await VoiceService.instance.speak(result?.text ?? 'Siguiente: ${nextSong.title}');
+        await VoiceService.instance.speak(result?.text ?? loc.nextUpSpoken(nextSong.title));
       }
+      // Los textos y el aviso se leen ANTES de las esperas (no se usa
+      // `context` tras un await).
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${AppLocalizations.of(context).aiDj}: ${AppLocalizations.of(context).djNextUp} \"${nextSong.title}\"')),
+        avisos.showSnackBar(
+          SnackBar(content: Text('${loc.aiDj}: ${loc.djNextUp} “${nextSong.title}”')),
         );
       }
     } else if (manual && mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(result?.text ?? 'El DJ no encontró una canción adecuada')),
+      avisos.showSnackBar(
+        SnackBar(content: Text(result?.text ?? loc.djNoSong)),
       );
     }
   }
@@ -752,6 +760,7 @@ class _MiniAction extends StatelessWidget {
   final VoidCallback? onTap;
   final bool highlight;
 
+  @override
   Widget build(BuildContext context) {
     final Color color = highlight ? AppColors.aiViolet : Theme.of(context).colorScheme.onSurface;
     return Semantics(

@@ -51,7 +51,7 @@ class ClaudeClient extends AiClient {
         .trim();
 
     if (text.isEmpty) {
-      throw AiRequestException('Claude devolvió una respuesta vacía');
+      throw AiRequestException(UiStrings.loc.aiErrEmpty('Claude'));
     }
     return text;
   }

@@ -49,21 +49,25 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
     // ofrecer siguiente/anterior cuando coinciden con la cola.
     final int secuencia = player.service.player.sequence.length;
     final List<String> errores = player.service.ultimosErrores;
+    final AppLocalizations loc = AppLocalizations.of(context);
+    String siNo(bool? valor) => valor == null ? '?' : (valor ? loc.diagYes : loc.diagNo);
 
+    // Antes varias líneas llevaban el CÓDIGO dentro del texto (se copiaba
+    // literalmente "AppLocalizations.of(context).trendsTitle:").
     final String informe = <String>[
-      'BotMp3 · diagnóstico de reproducción',
-      'Artículo: just_audio + just_audio_background',
-      'Notificaciones permitidas: ${_notificaciones == null ? '?' : (_notificaciones! ? 'sí' : 'NO')}',
-      'Batería sin restricciones: ${_bateriaLibre == null ? '?' : (_bateriaLibre! ? 'sí' : 'NO')}',
-      'AppLocalizations.of(context).trendsTitle: ${settings.trendsNotify ? AppLocalizations.of(context).diagYes : AppLocalizations.of(context).diagNo}',
-      'Glass: ${settings.glassActive ? AppLocalizations.of(context).diagYes : AppLocalizations.of(context).diagNo}',
-      'AppLocalizations.of(context).diagSources: ${player.service.queue.length}',
-      'Fuentes cargadas en la sesión: $secuencia',
-      'AppLocalizations.of(context).diagIndexNow: ${player.service.currentIndex}',
-      'Suena: ${player.playing ? 'sí' : 'no'}',
-      'AppLocalizations.of(context).diagStateF: ${player.service.player.processingState.name}',
-      'Canción actual: ${player.current?.title ?? '—'}',
-      'AppLocalizations.of(context).diagRecentErrors: ${errores.isEmpty ? AppLocalizations.of(context).diagNone : errores.length}',
+      loc.diagReportTitle,
+      'just_audio + just_audio_background',
+      '${loc.diagNotifications}: ${siNo(_notificaciones)}',
+      '${loc.diagBattery}: ${siNo(_bateriaLibre)}',
+      '${loc.trendsTitle}: ${siNo(settings.trendsNotify)}',
+      'Glass: ${siNo(settings.glassActive)}',
+      '${loc.tabSongs}: ${player.service.queue.length}',
+      '${loc.diagSources}: $secuencia',
+      '${loc.diagIndexNow}: ${player.service.currentIndex}',
+      '${loc.diagPlayingF}: ${siNo(player.playing)}',
+      '${loc.diagStateF}: ${player.service.player.processingState.name}',
+      '${loc.diagSongF}: ${player.current?.title ?? '—'}',
+      '${loc.diagRecentErrors}: ${errores.isEmpty ? loc.diagNone : errores.length}',
       ...errores,
     ].join('\n');
 
@@ -94,31 +98,28 @@ class _DiagnosticsScreenState extends State<DiagnosticsScreen> {
         children: <Widget>[
           _Section(AppLocalizations.of(context).diagPermissions),
           _fila(
-            'Notificaciones',
-            _notificaciones == null ? '…' : (_notificaciones! ? 'Concedidas' : 'Sin conceder'),
+            loc.diagNotifications,
+            _notificaciones == null ? '…' : (_notificaciones! ? loc.diagGranted : loc.diagDenied),
             ok: _notificaciones,
-            ayuda: 'Sin este permiso Android no muestra la notificación de '
-                'reproducción y la pantalla de bloqueo se queda sin controles.',
+            ayuda: loc.diagNotifHelp,
           ),
           _fila(
-            'Batería sin restricciones',
-            _bateriaLibre == null ? '…' : (_bateriaLibre! ? 'Sí' : 'No'),
+            loc.diagBattery,
+            _bateriaLibre == null ? '…' : (_bateriaLibre! ? loc.diagYes : loc.diagNo),
             ok: _bateriaLibre,
-            ayuda: 'En HyperOS/MIUI conviene activar «Inicio automático» y quitar '
-                'la restricción de batería para que el servicio no se detenga.',
+            ayuda: loc.diagBatteryHelp,
           ),
-          const _Section('Sesión multimedia'),
+          _Section(loc.diagMediaSession),
           _fila(
-            'Fuentes cargadas en la sesión',
+            loc.diagSources,
             '$secuencia',
             ok: secuencia == player.service.queue.length,
-            ayuda: 'Debe coincidir con las canciones de la cola (${player.service.queue.length}). '
-                'Si no coincide, la pantalla de bloqueo no podrá cambiar de pista.',
+            ayuda: loc.diagSourcesHelp('${player.service.queue.length}'),
           ),
-          _fila('Índice actual', '${player.service.currentIndex}'),
-          _fila('Sonando', player.playing ? 'Sí' : 'No'),
-          _fila('Estado', player.service.player.processingState.name),
-          _fila('Canción', player.current?.title ?? '—'),
+          _fila(loc.diagIndexNow, '${player.service.currentIndex}'),
+          _fila(loc.diagPlayingF, player.playing ? loc.diagYes : loc.diagNo),
+          _fila(loc.diagStateF, player.service.player.processingState.name),
+          _fila(loc.diagSongF, player.current?.title ?? '—'),
           _Section(AppLocalizations.of(context).diagRecentErrors),
           if (errores.isEmpty)
             ListTile(

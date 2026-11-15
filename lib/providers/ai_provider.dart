@@ -145,7 +145,7 @@ class AiAssistantProvider extends ChangeNotifier {
     }
     final String key = (_keys[activeProvider] ?? '').trim();
     if (key.isEmpty) {
-      _lastError = 'Falta la API key de ${activeProvider.label}.';
+      _lastError = UiStrings.loc.aiMissingKey(activeProvider.label);
       return null;
     }
     return AiOrchestrator(
@@ -166,7 +166,7 @@ class AiAssistantProvider extends ChangeNotifier {
       notifyListeners();
       return false;
     }
-    _setBusy(true, 'Probando ${activeProvider.label}…');
+    _setBusy(true, UiStrings.loc.aiTesting(activeProvider.label));
     try {
       final String reply = await orchestrator.testConnection();
       // Conexion valida: se descarga el catalogo REAL de modelos para que el
@@ -214,7 +214,7 @@ class AiAssistantProvider extends ChangeNotifier {
     _messages.add(
       AiMessage(role: 'user', content: clean, createdAt: DateTime.now()),
     );
-    _setBusy(true, '${activeProvider.label} está pensando…');
+    _setBusy(true, UiStrings.loc.aiThinking(activeProvider.label));
     await _persistHistory();
 
     try {
@@ -240,7 +240,7 @@ class AiAssistantProvider extends ChangeNotifier {
       await _executeFromReply(reply, clean);
     } catch (error) {
       final String message =
-          error is AiRequestException ? error.message : 'Error inesperado: $error';
+          error is AiRequestException ? error.message : UiStrings.loc.aiUnexpectedError('$error');
       _lastError = message;
       _messages.add(
         AiMessage(
@@ -297,7 +297,7 @@ class AiAssistantProvider extends ChangeNotifier {
     if (actions.isEmpty) {
       _lastOutcomes = <ActionOutcome>[
         ActionOutcome(
-          AiAction(AiActionType.help),
+          const AiAction(AiActionType.help),
           UiStrings.loc.aiUnknownCommand,
           ok: false,
         ),
@@ -365,7 +365,7 @@ class AiAssistantProvider extends ChangeNotifier {
     int count = 10,
   }) async {
     return _runAction(
-      loadingLabel: 'Buscando recomendaciones…',
+      loadingLabel: UiStrings.loc.aiLookingRecs,
       action: (AiOrchestrator orchestrator) =>
           orchestrator.recommend(request: request, currentPlaylist: currentPlaylist, count: count),
       registerInChat: true,
@@ -408,14 +408,14 @@ class AiAssistantProvider extends ChangeNotifier {
       notifyListeners();
       return null;
     }
-    _setBusy(true, 'Componiendo una idea…');
+    _setBusy(true, UiStrings.loc.aiComposingIdea);
     try {
       final AiSongIdea idea = await orchestrator.songIdea(description);
       _messages.add(
         AiMessage(
           role: 'assistant',
-          content: '🎼 Idea creada: **${idea.title}** (${idea.genre}, ${idea.bpm} BPM)\n\n'
-              '${idea.lyricSeed}\n\nPrompt para generador:\n`${idea.generatorPrompt}`',
+          content: '${UiStrings.loc.aiIdeaCreated(idea.title, idea.genre, idea.bpm)}\n\n'
+              '${idea.lyricSeed}\n\n${UiStrings.loc.aiGeneratorPrompt}:\n`${idea.generatorPrompt}`',
           provider: activeProvider,
           model: activeModel,
           createdAt: DateTime.now(),
@@ -443,7 +443,7 @@ class AiAssistantProvider extends ChangeNotifier {
         .toList();
     return _library.createPlaylist(
       name: result.playlistName ?? fallbackName,
-      description: result.playlistDescription ?? 'Generada por IA',
+      description: result.playlistDescription ?? UiStrings.loc.aiGeneratedPlaylist,
       songIds: songIds,
       isAiGenerated: true,
       aiPrompt: prompt,
@@ -498,9 +498,9 @@ class AiAssistantProvider extends ChangeNotifier {
 
   /// Exporta la conversación como texto legible.
   String exportConversation() {
-    final StringBuffer buffer = StringBuffer('Conversación BotMp3 IA\n\n');
+    final StringBuffer buffer = StringBuffer('${UiStrings.loc.chatExportHeader}\n\n');
     for (final AiMessage message in _messages) {
-      buffer.writeln('${message.isUser ? 'Yo' : 'IA'}: ${message.content}\n');
+      buffer.writeln('${message.isUser ? UiStrings.loc.chatMe : UiStrings.loc.chatAi}: ${message.content}\n');
     }
     return buffer.toString();
   }

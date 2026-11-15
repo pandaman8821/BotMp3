@@ -57,7 +57,7 @@ class _SearchScreenState extends State<SearchScreen> {
         title: TituloPantalla(text: AppLocalizations.of(context).tabSearch),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Filtros avanzados',
+            tooltip: AppLocalizations.of(context).advancedFilters,
             icon: Badge(
               isLabelVisible: library.hasActiveFilters,
               child: const Icon(Icons.filter_alt_outlined),
@@ -112,7 +112,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 Padding(
                   padding: const EdgeInsets.only(right: 8),
                   child: FilterChip(
-                    label: const Text('Favoritas'),
+                    label: Text(AppLocalizations.of(context).favoritesChip),
                     selected: library.favoritesOnly,
                     onSelected: (_) => library.toggleFavoritesOnly(),
                   ),
@@ -128,7 +128,9 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: FilledButton.tonalIcon(
                     onPressed: _aiBusy ? null : _runAiSearch,
                     icon: const Icon(Icons.smart_toy_outlined),
-                    label: Text(_aiBusy ? 'Interpretando…' : 'Búsqueda inteligente'),
+                    label: Text(_aiBusy
+                        ? AppLocalizations.of(context).interpreting
+                        : AppLocalizations.of(context).smartSearch),
                   ),
                 ),
                 if (_aiResult != null) ...<Widget>[
@@ -166,7 +168,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             TextButton.icon(
                               onPressed: () => player.setQueue(aiSongs),
                               icon: const Icon(Icons.play_arrow, size: 18),
-                              label: const Text('Reproducir'),
+                              label: Text(AppLocalizations.of(context).play),
                             ),
                         ],
                       ),
@@ -183,10 +185,12 @@ class _SearchScreenState extends State<SearchScreen> {
               if (list.isEmpty) {
                 return EmptyState(
                   icon: Icons.search_off,
-                  title: library.songs.isEmpty ? 'No hay canciones' : 'Sin resultados',
+                  title: library.songs.isEmpty
+                      ? AppLocalizations.of(context).noSongsTitle
+                      : AppLocalizations.of(context).noResultsTitle,
                   message: library.songs.isEmpty
-                      ? 'Importa música para poder buscarla.'
-                      : 'Prueba otros términos, quita filtros o usa la búsqueda inteligente.',
+                      ? AppLocalizations.of(context).searchImportHint
+                      : AppLocalizations.of(context).searchNoResultsHint,
                 );
               }
               return ListView.builder(
@@ -216,7 +220,7 @@ class _SearchScreenState extends State<SearchScreen> {
     if (!ai.hasActiveKey) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).apiKeyHint + ' ' + ai.activeProvider.label + ' · ' + AppLocalizations.of(context).tabSettings + ' ▸ IA'),
+          content: Text('${AppLocalizations.of(context).apiKeyHint} ${ai.activeProvider.label} · ${AppLocalizations.of(context).tabSettings} ▸ ${AppLocalizations.of(context).tabAi}'),
         ),
       );
       return;
@@ -231,7 +235,7 @@ class _SearchScreenState extends State<SearchScreen> {
     });
     if (result == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(ai.lastError ?? 'No se pudo completar la búsqueda')),
+        SnackBar(content: Text(ai.lastError ?? AppLocalizations.of(context).searchFailed)),
       );
     }
   }

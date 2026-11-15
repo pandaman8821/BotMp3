@@ -78,7 +78,7 @@ class _AiScreenState extends State<AiScreen> {
           ),
           IconButton(
             tooltip: AppLocalizations.of(context).clearConversation,
-            icon: Icon(Icons.delete_sweep_outlined),
+            icon: const Icon(Icons.delete_sweep_outlined),
             onPressed: () async {
               final bool ok = await showDialog<bool>(
                     context: context,
@@ -126,7 +126,7 @@ class _AiScreenState extends State<AiScreen> {
                 if (ai.hasActiveKey)
                   TextButton.icon(
                     onPressed: () => _testConnection(context, ai),
-                    icon: Icon(Icons.wifi_tethering, size: 16),
+                    icon: const Icon(Icons.wifi_tethering, size: 16),
                     label: Text(AppLocalizations.of(context).test),
                   ),
               ],
@@ -421,7 +421,7 @@ class _AiScreenState extends State<AiScreen> {
                       label: Text(AppLocalizations.of(context).aiPlayLocal(localSongs.length)),
                     ),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                 ],
                 Expanded(
                   child: OutlinedButton.icon(
@@ -457,7 +457,7 @@ class _AiScreenState extends State<AiScreen> {
                         SnackBar(content: Text(AppLocalizations.of(context).listCreated(playlist.name))),
                       );
                     },
-                    icon: Icon(Icons.playlist_add),
+                    icon: const Icon(Icons.playlist_add),
                     label: Text(AppLocalizations.of(context).createList),
                   ),
                 ),
@@ -534,7 +534,7 @@ class _AiScreenState extends State<AiScreen> {
               ),
             ),
             const SizedBox(height: 10),
-            Text(AppLocalizations.of(context).promptForGenerator, style: TextStyle(fontWeight: FontWeight.w600)),
+            Text(AppLocalizations.of(context).promptForGenerator, style: const TextStyle(fontWeight: FontWeight.w600)),
             SelectableText(idea.generatorPrompt, style: const TextStyle(fontSize: 12.5)),
             const SizedBox(height: 10),
             Row(
@@ -548,7 +548,7 @@ class _AiScreenState extends State<AiScreen> {
                         SnackBar(content: Text(AppLocalizations.of(context).promptCopied)),
                       );
                     },
-                    icon: Icon(Icons.copy),
+                    icon: const Icon(Icons.copy),
                     label: Text(AppLocalizations.of(context).copyPrompt),
                   ),
                 ),
@@ -556,7 +556,7 @@ class _AiScreenState extends State<AiScreen> {
                 Expanded(
                   child: OutlinedButton.icon(
                     onPressed: () => _openUrl(idea.youtubeSearchUrl),
-                    icon: Icon(Icons.open_in_new),
+                    icon: const Icon(Icons.open_in_new),
                     label: Text(AppLocalizations.of(context).tabSearch),
                   ),
                 ),
@@ -579,7 +579,7 @@ class _AiScreenState extends State<AiScreen> {
         children: <Widget>[
           Text(
             AppLocalizations.of(context).actionsRun,
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 6),
           Wrap(

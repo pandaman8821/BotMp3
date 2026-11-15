@@ -1759,6 +1759,487 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get playerInfo => '详情';
+
+  @override
+  String get nameLabel => '名称';
+
+  @override
+  String get filterAll => '全部';
+
+  @override
+  String get filterAny => '任意';
+
+  @override
+  String get tagsLabel => '标签';
+
+  @override
+  String get onlyFavorites => '仅收藏';
+
+  @override
+  String get applyFilters => '应用筛选';
+
+  @override
+  String get importNoneNew => '没有添加新歌曲';
+
+  @override
+  String importedCount(int count) {
+    return '已导入 $count 首歌曲';
+  }
+
+  @override
+  String get optionsLabel => '选项';
+
+  @override
+  String get exitLabel => '退出';
+
+  @override
+  String get nothingPlaying => '没有正在播放的内容';
+
+  @override
+  String get playSomething => '播放点什么吧';
+
+  @override
+  String formatSizeLine(String format, String size) {
+    return '格式：$format · $size';
+  }
+
+  @override
+  String get djNoSong => 'DJ 没有找到合适的歌曲';
+
+  @override
+  String nextUpSpoken(String title) {
+    return '下一首：$title';
+  }
+
+  @override
+  String get favoritesChip => '收藏';
+
+  @override
+  String get interpreting => '正在理解…';
+
+  @override
+  String get smartSearch => '智能搜索';
+
+  @override
+  String get noSongsTitle => '还没有歌曲';
+
+  @override
+  String get noResultsTitle => '无结果';
+
+  @override
+  String get searchImportHint => '导入音乐后即可搜索。';
+
+  @override
+  String get searchNoResultsHint => '试试其他关键词、移除筛选或使用智能搜索。';
+
+  @override
+  String get searchFailed => '无法完成搜索';
+
+  @override
+  String selectedCount(int count) {
+    return '已选 $count 首';
+  }
+
+  @override
+  String get libraryEmptyTitle => '你的曲库是空的';
+
+  @override
+  String get libraryEmptyBody =>
+      '用下方按钮导入歌曲（MP3、M4A、OGG、FLAC、WAV…）。\nBotMp3 完全离线也能使用。';
+
+  @override
+  String get filtersNoResultsHint => '试试其他筛选条件或关键词。';
+
+  @override
+  String get allFilters => '全部筛选';
+
+  @override
+  String songsAndDuration(int count, String duration) {
+    return '$count 首 · $duration';
+  }
+
+  @override
+  String get playlistIsEmpty => '播放列表为空';
+
+  @override
+  String get playlistExportedCopied => '已导出播放列表并将 JSON 复制到剪贴板';
+
+  @override
+  String get invalidPlaylistFile => '该文件不是有效的 BotMp3 播放列表';
+
+  @override
+  String playlistImported(String name, int count) {
+    return '已导入播放列表“$name”（$count 首）';
+  }
+
+  @override
+  String get rankingTitle => '排行榜';
+
+  @override
+  String get resetBtn => '重置';
+
+  @override
+  String get rankingWasReset => '排行榜已重置';
+
+  @override
+  String rankingError(String error) {
+    return '排行榜错误：$error';
+  }
+
+  @override
+  String get periodAll => '全部';
+
+  @override
+  String get periodMonth => '最近一个月';
+
+  @override
+  String get periodWeek => '最近一周';
+
+  @override
+  String playsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '播放 $count 次',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String trendsIn(String country) {
+    return '🔥 $country热门';
+  }
+
+  @override
+  String get trendsShareHeader => '音乐趋势 🔥';
+
+  @override
+  String get trendsChannelName => '音乐趋势';
+
+  @override
+  String alreadyInLibrary(String artist) {
+    return '$artist · 已在你的曲库中';
+  }
+
+  @override
+  String get undoChanges => '撤销更改';
+
+  @override
+  String get pickImagePngJpg => '选择图片（PNG/JPG）';
+
+  @override
+  String get quickActions => '快捷操作';
+
+  @override
+  String get rotate90 => '旋转 90°';
+
+  @override
+  String get enhanceImage => '增强';
+
+  @override
+  String get originalImage => '原图';
+
+  @override
+  String get rotationFraming => '旋转与构图';
+
+  @override
+  String get zoomLabel => '缩放';
+
+  @override
+  String get framingHorizontal => '水平位置';
+
+  @override
+  String get framingVertical => '垂直位置';
+
+  @override
+  String get imageAdjustments => '图片调整';
+
+  @override
+  String get brightnessLabel => '亮度';
+
+  @override
+  String get contrastLabel => '对比度';
+
+  @override
+  String get saturationLabel => '饱和度';
+
+  @override
+  String get temperatureLabel => '色温（冷 ↔ 暖）';
+
+  @override
+  String get fadeVeil => '薄雾 / 褪色';
+
+  @override
+  String get textOrLogo => '文字或标志';
+
+  @override
+  String get textSizeLabel => '文字大小';
+
+  @override
+  String get changeBaseImage => '更换底图';
+
+  @override
+  String coverExportedTo(String path) {
+    return '封面已导出到 $path';
+  }
+
+  @override
+  String get testVoice => '试听语音';
+
+  @override
+  String get restoreBtn => '恢复';
+
+  @override
+  String get deleteLibraryTitle => '删除曲库';
+
+  @override
+  String get deleteAllBtn => '全部删除';
+
+  @override
+  String get titleRequired => '标题为必填项';
+
+  @override
+  String get artistRequired => '艺人为必填项';
+
+  @override
+  String get invalidYear => '年份无效';
+
+  @override
+  String get tagsWrittenToFile => '标签已写入文件';
+
+  @override
+  String get tagsAppOnly => '该格式不支持写入标签，仅保存在应用中';
+
+  @override
+  String get msgPaused => '已暂停 ⏸️';
+
+  @override
+  String msgVolumeAt(int percent) {
+    return '音量 $percent%';
+  }
+
+  @override
+  String msgSpeedAt(String speed) {
+    return '速度 ${speed}x ⏩';
+  }
+
+  @override
+  String get msgShuffleOn => '随机播放已开启 🔀';
+
+  @override
+  String get msgShuffleOff => '随机播放已关闭';
+
+  @override
+  String get msgRepeatAll => '循环播放整个队列 🔁';
+
+  @override
+  String aiPlaylistDated(String date) {
+    return 'AI 播放列表 $date';
+  }
+
+  @override
+  String msgPlaylistCreatedWith(String name, int count) {
+    return '已创建播放列表“$name”，共 $count 首 📝';
+  }
+
+  @override
+  String msgNoResultsFor(String query) {
+    return '没有“$query”的结果。';
+  }
+
+  @override
+  String msgSongUpdated(String title, String field, String value) {
+    return '已更新“$title”：$field = $value ✏️';
+  }
+
+  @override
+  String msgActionFailed(String action, String error) {
+    return '无法执行“$action”：$error';
+  }
+
+  @override
+  String aiErrNoConnection(String provider, String error) {
+    return '无法连接到 $provider（$error）';
+  }
+
+  @override
+  String aiErrUnexpected(String provider) {
+    return '$provider 返回了意外的响应';
+  }
+
+  @override
+  String aiErrInvalid(String provider) {
+    return '$provider 返回了无效的响应';
+  }
+
+  @override
+  String aiErrNoReply(String provider) {
+    return '$provider 没有返回任何回答';
+  }
+
+  @override
+  String aiErrEmpty(String provider) {
+    return '$provider 返回了空回答';
+  }
+
+  @override
+  String aiErrRejected(String provider, String detail) {
+    return '$provider 拒绝了请求：$detail';
+  }
+
+  @override
+  String aiErrAuth(String provider) {
+    return '$provider 的 API 密钥无效或没有权限。';
+  }
+
+  @override
+  String aiErrBalance(String provider) {
+    return '$provider 余额不足，请为账户充值。';
+  }
+
+  @override
+  String aiErrModel(String model, String provider) {
+    return '$provider 上没有模型“$model”。';
+  }
+
+  @override
+  String aiErrRate(String provider) {
+    return '对 $provider 的请求过多，请稍等几秒。';
+  }
+
+  @override
+  String aiErrStatus(int status, String provider, String detail) {
+    return '$provider 错误 $status：$detail';
+  }
+
+  @override
+  String aiMissingKey(String provider) {
+    return '缺少 $provider 的 API 密钥。';
+  }
+
+  @override
+  String aiTesting(String provider) {
+    return '正在测试 $provider…';
+  }
+
+  @override
+  String aiThinking(String provider) {
+    return '$provider 正在思考…';
+  }
+
+  @override
+  String aiUnexpectedError(String error) {
+    return '意外错误：$error';
+  }
+
+  @override
+  String aiExecuting(String text) {
+    return '正在执行：$text';
+  }
+
+  @override
+  String get aiLookingRecs => '正在寻找推荐…';
+
+  @override
+  String get aiComposingIdea => '正在构思创意…';
+
+  @override
+  String aiIdeaCreated(String title, String genre, int bpm) {
+    return '🎼 已创建创意：**$title**（$genre，$bpm BPM）';
+  }
+
+  @override
+  String get aiGeneratorPrompt => '生成器提示词';
+
+  @override
+  String get aiGeneratedPlaylist => '由 AI 生成';
+
+  @override
+  String get chatExportHeader => 'BotMp3 AI 对话';
+
+  @override
+  String get chatMe => '我';
+
+  @override
+  String get chatAi => 'AI';
+
+  @override
+  String get inYourLibrary => '在你的曲库中';
+
+  @override
+  String freedSpace(String size) {
+    return '已释放 $size';
+  }
+
+  @override
+  String copiesReplaced(int count) {
+    return ' · $count 个副本已替换为原文件';
+  }
+
+  @override
+  String newSongsOf(int added, int found) {
+    return '$found 首中有 $added 首新歌';
+  }
+
+  @override
+  String get scanFailed => '无法扫描曲库';
+
+  @override
+  String importingProgress(int done, int total) {
+    return '正在导入 $done/$total…';
+  }
+
+  @override
+  String libraryStatsLine(int songs, int genres, int lists) {
+    return '$songs 首歌曲 · $genres 种流派 · $lists 个播放列表';
+  }
+
+  @override
+  String saveFileTitle(String file) {
+    return '保存 $file';
+  }
+
+  @override
+  String get widgetNowPlaying => '正在播放';
+
+  @override
+  String get widgetPaused => '已暂停';
+
+  @override
+  String get aspectRatioTitle => '比例';
+
+  @override
+  String get coverFiltersTitle => '滤镜';
+
+  @override
+  String get filterBlackWhite => '黑白';
+
+  @override
+  String get filterVintage => '复古';
+
+  @override
+  String get filterWarm => '暖色';
+
+  @override
+  String get filterCool => '冷色';
+
+  @override
+  String get filterDramatic => '戏剧';
+
+  @override
+  String get filterFaded => '褪色';
+
+  @override
+  String get filterVivid => '鲜艳';
+
+  @override
+  String get positionTop => '顶部';
+
+  @override
+  String get positionCenter => '居中';
+
+  @override
+  String get positionBottom => '底部';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -3516,4 +3997,485 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get playerInfo => '详情';
+
+  @override
+  String get nameLabel => '名称';
+
+  @override
+  String get filterAll => '全部';
+
+  @override
+  String get filterAny => '任意';
+
+  @override
+  String get tagsLabel => '标签';
+
+  @override
+  String get onlyFavorites => '仅收藏';
+
+  @override
+  String get applyFilters => '应用筛选';
+
+  @override
+  String get importNoneNew => '没有添加新歌曲';
+
+  @override
+  String importedCount(int count) {
+    return '已导入 $count 首歌曲';
+  }
+
+  @override
+  String get optionsLabel => '选项';
+
+  @override
+  String get exitLabel => '退出';
+
+  @override
+  String get nothingPlaying => '没有正在播放的内容';
+
+  @override
+  String get playSomething => '播放点什么吧';
+
+  @override
+  String formatSizeLine(String format, String size) {
+    return '格式：$format · $size';
+  }
+
+  @override
+  String get djNoSong => 'DJ 没有找到合适的歌曲';
+
+  @override
+  String nextUpSpoken(String title) {
+    return '下一首：$title';
+  }
+
+  @override
+  String get favoritesChip => '收藏';
+
+  @override
+  String get interpreting => '正在理解…';
+
+  @override
+  String get smartSearch => '智能搜索';
+
+  @override
+  String get noSongsTitle => '还没有歌曲';
+
+  @override
+  String get noResultsTitle => '无结果';
+
+  @override
+  String get searchImportHint => '导入音乐后即可搜索。';
+
+  @override
+  String get searchNoResultsHint => '试试其他关键词、移除筛选或使用智能搜索。';
+
+  @override
+  String get searchFailed => '无法完成搜索';
+
+  @override
+  String selectedCount(int count) {
+    return '已选 $count 首';
+  }
+
+  @override
+  String get libraryEmptyTitle => '你的曲库是空的';
+
+  @override
+  String get libraryEmptyBody =>
+      '用下方按钮导入歌曲（MP3、M4A、OGG、FLAC、WAV…）。\nBotMp3 完全离线也能使用。';
+
+  @override
+  String get filtersNoResultsHint => '试试其他筛选条件或关键词。';
+
+  @override
+  String get allFilters => '全部筛选';
+
+  @override
+  String songsAndDuration(int count, String duration) {
+    return '$count 首 · $duration';
+  }
+
+  @override
+  String get playlistIsEmpty => '播放列表为空';
+
+  @override
+  String get playlistExportedCopied => '已导出播放列表并将 JSON 复制到剪贴板';
+
+  @override
+  String get invalidPlaylistFile => '该文件不是有效的 BotMp3 播放列表';
+
+  @override
+  String playlistImported(String name, int count) {
+    return '已导入播放列表“$name”（$count 首）';
+  }
+
+  @override
+  String get rankingTitle => '排行榜';
+
+  @override
+  String get resetBtn => '重置';
+
+  @override
+  String get rankingWasReset => '排行榜已重置';
+
+  @override
+  String rankingError(String error) {
+    return '排行榜错误：$error';
+  }
+
+  @override
+  String get periodAll => '全部';
+
+  @override
+  String get periodMonth => '最近一个月';
+
+  @override
+  String get periodWeek => '最近一周';
+
+  @override
+  String playsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '播放 $count 次',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String trendsIn(String country) {
+    return '🔥 $country热门';
+  }
+
+  @override
+  String get trendsShareHeader => '音乐趋势 🔥';
+
+  @override
+  String get trendsChannelName => '音乐趋势';
+
+  @override
+  String alreadyInLibrary(String artist) {
+    return '$artist · 已在你的曲库中';
+  }
+
+  @override
+  String get undoChanges => '撤销更改';
+
+  @override
+  String get pickImagePngJpg => '选择图片（PNG/JPG）';
+
+  @override
+  String get quickActions => '快捷操作';
+
+  @override
+  String get rotate90 => '旋转 90°';
+
+  @override
+  String get enhanceImage => '增强';
+
+  @override
+  String get originalImage => '原图';
+
+  @override
+  String get rotationFraming => '旋转与构图';
+
+  @override
+  String get zoomLabel => '缩放';
+
+  @override
+  String get framingHorizontal => '水平位置';
+
+  @override
+  String get framingVertical => '垂直位置';
+
+  @override
+  String get imageAdjustments => '图片调整';
+
+  @override
+  String get brightnessLabel => '亮度';
+
+  @override
+  String get contrastLabel => '对比度';
+
+  @override
+  String get saturationLabel => '饱和度';
+
+  @override
+  String get temperatureLabel => '色温（冷 ↔ 暖）';
+
+  @override
+  String get fadeVeil => '薄雾 / 褪色';
+
+  @override
+  String get textOrLogo => '文字或标志';
+
+  @override
+  String get textSizeLabel => '文字大小';
+
+  @override
+  String get changeBaseImage => '更换底图';
+
+  @override
+  String coverExportedTo(String path) {
+    return '封面已导出到 $path';
+  }
+
+  @override
+  String get testVoice => '试听语音';
+
+  @override
+  String get restoreBtn => '恢复';
+
+  @override
+  String get deleteLibraryTitle => '删除曲库';
+
+  @override
+  String get deleteAllBtn => '全部删除';
+
+  @override
+  String get titleRequired => '标题为必填项';
+
+  @override
+  String get artistRequired => '艺人为必填项';
+
+  @override
+  String get invalidYear => '年份无效';
+
+  @override
+  String get tagsWrittenToFile => '标签已写入文件';
+
+  @override
+  String get tagsAppOnly => '该格式不支持写入标签，仅保存在应用中';
+
+  @override
+  String get msgPaused => '已暂停 ⏸️';
+
+  @override
+  String msgVolumeAt(int percent) {
+    return '音量 $percent%';
+  }
+
+  @override
+  String msgSpeedAt(String speed) {
+    return '速度 ${speed}x ⏩';
+  }
+
+  @override
+  String get msgShuffleOn => '随机播放已开启 🔀';
+
+  @override
+  String get msgShuffleOff => '随机播放已关闭';
+
+  @override
+  String get msgRepeatAll => '循环播放整个队列 🔁';
+
+  @override
+  String aiPlaylistDated(String date) {
+    return 'AI 播放列表 $date';
+  }
+
+  @override
+  String msgPlaylistCreatedWith(String name, int count) {
+    return '已创建播放列表“$name”，共 $count 首 📝';
+  }
+
+  @override
+  String msgNoResultsFor(String query) {
+    return '没有“$query”的结果。';
+  }
+
+  @override
+  String msgSongUpdated(String title, String field, String value) {
+    return '已更新“$title”：$field = $value ✏️';
+  }
+
+  @override
+  String msgActionFailed(String action, String error) {
+    return '无法执行“$action”：$error';
+  }
+
+  @override
+  String aiErrNoConnection(String provider, String error) {
+    return '无法连接到 $provider（$error）';
+  }
+
+  @override
+  String aiErrUnexpected(String provider) {
+    return '$provider 返回了意外的响应';
+  }
+
+  @override
+  String aiErrInvalid(String provider) {
+    return '$provider 返回了无效的响应';
+  }
+
+  @override
+  String aiErrNoReply(String provider) {
+    return '$provider 没有返回任何回答';
+  }
+
+  @override
+  String aiErrEmpty(String provider) {
+    return '$provider 返回了空回答';
+  }
+
+  @override
+  String aiErrRejected(String provider, String detail) {
+    return '$provider 拒绝了请求：$detail';
+  }
+
+  @override
+  String aiErrAuth(String provider) {
+    return '$provider 的 API 密钥无效或没有权限。';
+  }
+
+  @override
+  String aiErrBalance(String provider) {
+    return '$provider 余额不足，请为账户充值。';
+  }
+
+  @override
+  String aiErrModel(String model, String provider) {
+    return '$provider 上没有模型“$model”。';
+  }
+
+  @override
+  String aiErrRate(String provider) {
+    return '对 $provider 的请求过多，请稍等几秒。';
+  }
+
+  @override
+  String aiErrStatus(int status, String provider, String detail) {
+    return '$provider 错误 $status：$detail';
+  }
+
+  @override
+  String aiMissingKey(String provider) {
+    return '缺少 $provider 的 API 密钥。';
+  }
+
+  @override
+  String aiTesting(String provider) {
+    return '正在测试 $provider…';
+  }
+
+  @override
+  String aiThinking(String provider) {
+    return '$provider 正在思考…';
+  }
+
+  @override
+  String aiUnexpectedError(String error) {
+    return '意外错误：$error';
+  }
+
+  @override
+  String aiExecuting(String text) {
+    return '正在执行：$text';
+  }
+
+  @override
+  String get aiLookingRecs => '正在寻找推荐…';
+
+  @override
+  String get aiComposingIdea => '正在构思创意…';
+
+  @override
+  String aiIdeaCreated(String title, String genre, int bpm) {
+    return '🎼 已创建创意：**$title**（$genre，$bpm BPM）';
+  }
+
+  @override
+  String get aiGeneratorPrompt => '生成器提示词';
+
+  @override
+  String get aiGeneratedPlaylist => '由 AI 生成';
+
+  @override
+  String get chatExportHeader => 'BotMp3 AI 对话';
+
+  @override
+  String get chatMe => '我';
+
+  @override
+  String get chatAi => 'AI';
+
+  @override
+  String get inYourLibrary => '在你的曲库中';
+
+  @override
+  String freedSpace(String size) {
+    return '已释放 $size';
+  }
+
+  @override
+  String copiesReplaced(int count) {
+    return ' · $count 个副本已替换为原文件';
+  }
+
+  @override
+  String newSongsOf(int added, int found) {
+    return '$found 首中有 $added 首新歌';
+  }
+
+  @override
+  String get scanFailed => '无法扫描曲库';
+
+  @override
+  String importingProgress(int done, int total) {
+    return '正在导入 $done/$total…';
+  }
+
+  @override
+  String libraryStatsLine(int songs, int genres, int lists) {
+    return '$songs 首歌曲 · $genres 种流派 · $lists 个播放列表';
+  }
+
+  @override
+  String saveFileTitle(String file) {
+    return '保存 $file';
+  }
+
+  @override
+  String get widgetNowPlaying => '正在播放';
+
+  @override
+  String get widgetPaused => '已暂停';
+
+  @override
+  String get aspectRatioTitle => '比例';
+
+  @override
+  String get coverFiltersTitle => '滤镜';
+
+  @override
+  String get filterBlackWhite => '黑白';
+
+  @override
+  String get filterVintage => '复古';
+
+  @override
+  String get filterWarm => '暖色';
+
+  @override
+  String get filterCool => '冷色';
+
+  @override
+  String get filterDramatic => '戏剧';
+
+  @override
+  String get filterFaded => '褪色';
+
+  @override
+  String get filterVivid => '鲜艳';
+
+  @override
+  String get positionTop => '顶部';
+
+  @override
+  String get positionCenter => '居中';
+
+  @override
+  String get positionBottom => '底部';
 }

@@ -16,16 +16,17 @@ class CarModeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final PlayerProvider player = context.watch<PlayerProvider>();
+    final AppLocalizations loc = AppLocalizations.of(context);
 
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
-        title: const Text('Modo coche'),
+        title: Text(loc.carMode),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Salir',
+            tooltip: loc.exitLabel,
             icon: const Icon(Icons.close),
             onPressed: () => Navigator.of(context).pop(),
           ),
@@ -48,7 +49,7 @@ class CarModeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        player.current?.title ?? 'Nada sonando',
+                        player.current?.title ?? loc.nothingPlaying,
                         textAlign: TextAlign.center,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -61,7 +62,7 @@ class CarModeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        player.current?.artist ?? 'Pon algo a sonar',
+                        player.current?.artist ?? loc.playSomething,
                         textAlign: TextAlign.center,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -78,20 +79,20 @@ class CarModeScreen extends StatelessWidget {
                 children: <Widget>[
                   _BotonGrande(
                     icon: Icons.skip_previous,
-                    label: 'Anterior',
+                    label: loc.actPrevious,
                     onTap: player.previous,
                   ),
                   const SizedBox(width: 14),
                   _BotonGrande(
                     icon: player.playing ? Icons.pause : Icons.play_arrow,
-                    label: player.playing ? 'Pausa' : 'Reproducir',
+                    label: player.playing ? loc.actPause : loc.play,
                     destacado: true,
                     onTap: player.togglePlayPause,
                   ),
                   const SizedBox(width: 14),
                   _BotonGrande(
                     icon: Icons.skip_next,
-                    label: 'Siguiente',
+                    label: loc.actNext,
                     onTap: player.next,
                   ),
                 ],

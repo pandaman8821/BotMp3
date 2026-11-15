@@ -84,7 +84,7 @@ class SongTile extends StatelessWidget {
               ),
               if (showMenu)
                 IconButton(
-                  tooltip: 'Opciones',
+                  tooltip: AppLocalizations.of(context).optionsLabel,
                   icon: const Icon(Icons.more_vert),
                   onPressed: () => _showMenu(context, current),
                 )

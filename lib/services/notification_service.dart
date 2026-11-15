@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
+import '../core/ui_strings.dart';
+
 /// Notificaciones del sistema de BotMp3 (tendencias, avisos de la biblioteca).
 ///
 /// Se apoya en un canal nativo propio (Kotlin) en lugar de añadir un plugin:
@@ -13,7 +15,8 @@ class NotificationService {
 
   static const MethodChannel _channel = MethodChannel('botmp3/notifications');
   static const String channelId = 'com.botmp3.app.channel.trends';
-  static const String channelName = 'Tendencias musicales';
+  /// Nombre del canal tal como lo ve el usuario en los ajustes de Android.
+  static String get channelName => UiStrings.loc.trendsChannelName;
 
   /// Muestra una notificación inmediata.
   Future<bool> show({

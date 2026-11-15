@@ -127,7 +127,7 @@ class _SongsScreenState extends State<SongsScreen> {
         ],
       ),
     );
-    if (aplicar != true || !context.mounted) return;
+    if (aplicar != true || !mounted) return;
     final LibraryProvider library = context.read<LibraryProvider>();
     for (final Song cancion in canciones) {
       Song actualizada = cancion;
@@ -201,7 +201,8 @@ class _SongsScreenState extends State<SongsScreen> {
         actionsIconTheme: const IconThemeData(size: 20),
         titleSpacing: 6,
         title: _selectionMode
-            ? Text('${_selected.length} seleccionadas', style: const TextStyle(fontSize: 18))
+            ? Text(AppLocalizations.of(context).selectedCount(_selected.length),
+                style: const TextStyle(fontSize: 18))
             : const FittedBox(
                 fit: BoxFit.scaleDown,
                 alignment: Alignment.centerLeft,
@@ -375,13 +376,12 @@ class _SongsScreenState extends State<SongsScreen> {
                 ? EmptyState(
                     icon: Icons.library_music_outlined,
                     title: library.songs.isEmpty
-                        ? 'Tu biblioteca está vacía'
-                        : 'Sin resultados',
+                        ? AppLocalizations.of(context).libraryEmptyTitle
+                        : AppLocalizations.of(context).noResultsTitle,
                     message: library.songs.isEmpty
-                        ? 'Importa tus canciones (MP3, M4A, OGG, FLAC, WAV…) desde el botón inferior.\n'
-                            'BotMp3 también funciona 100 % sin conexión.'
-                        : 'Prueba con otros filtros o términos de búsqueda.',
-                    actionLabel: library.songs.isEmpty ? 'Importar canciones' : null,
+                        ? AppLocalizations.of(context).libraryEmptyBody
+                        : AppLocalizations.of(context).filtersNoResultsHint,
+                    actionLabel: library.songs.isEmpty ? AppLocalizations.of(context).importSongs : null,
                     onAction: library.songs.isEmpty ? () => AppDialogs.importSongs(context) : null,
                   )
                 : RefreshIndicator(
@@ -430,13 +430,14 @@ class _SongsScreenState extends State<SongsScreen> {
   }
 
   String _filterSummary(LibraryProvider library) {
+    final AppLocalizations loc = AppLocalizations.of(context);
     final List<String> parts = <String>[];
-    if (library.genreFilter != null) parts.add('Género: ${library.genreFilter}');
-    if (library.artistFilter != null) parts.add('Artista: ${library.artistFilter}');
-    if (library.yearFrom != null) parts.add('Año: ${library.yearFrom}');
-    if (library.tagFilters.isNotEmpty) parts.add('Tags: ${library.tagFilters.join(', ')}');
-    if (library.favoritesOnly) parts.add('Solo favoritas');
-    return parts.isEmpty ? 'Todos los filtros' : parts.join(' · ');
+    if (library.genreFilter != null) parts.add('${loc.dialogGenre}: ${library.genreFilter}');
+    if (library.artistFilter != null) parts.add('${loc.artistLabel}: ${library.artistFilter}');
+    if (library.yearFrom != null) parts.add('${loc.yearLabel}: ${library.yearFrom}');
+    if (library.tagFilters.isNotEmpty) parts.add('${loc.tagsLabel}: ${library.tagFilters.join(', ')}');
+    if (library.favoritesOnly) parts.add(loc.onlyFavorites);
+    return parts.isEmpty ? loc.allFilters : parts.join(' · ');
   }
 }
 

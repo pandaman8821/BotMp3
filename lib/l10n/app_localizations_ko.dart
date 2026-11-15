@@ -1767,4 +1767,485 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get playerInfo => '상세 정보';
+
+  @override
+  String get nameLabel => '이름';
+
+  @override
+  String get filterAll => '전체';
+
+  @override
+  String get filterAny => '상관없음';
+
+  @override
+  String get tagsLabel => '태그';
+
+  @override
+  String get onlyFavorites => '즐겨찾기만';
+
+  @override
+  String get applyFilters => '필터 적용';
+
+  @override
+  String get importNoneNew => '새 곡이 추가되지 않았습니다';
+
+  @override
+  String importedCount(int count) {
+    return '$count곡을 가져왔습니다';
+  }
+
+  @override
+  String get optionsLabel => '옵션';
+
+  @override
+  String get exitLabel => '나가기';
+
+  @override
+  String get nothingPlaying => '재생 중인 곡 없음';
+
+  @override
+  String get playSomething => '음악을 재생해 보세요';
+
+  @override
+  String formatSizeLine(String format, String size) {
+    return '형식: $format · $size';
+  }
+
+  @override
+  String get djNoSong => 'DJ가 알맞은 곡을 찾지 못했습니다';
+
+  @override
+  String nextUpSpoken(String title) {
+    return '다음 곡: $title';
+  }
+
+  @override
+  String get favoritesChip => '즐겨찾기';
+
+  @override
+  String get interpreting => '해석 중…';
+
+  @override
+  String get smartSearch => '스마트 검색';
+
+  @override
+  String get noSongsTitle => '곡이 없습니다';
+
+  @override
+  String get noResultsTitle => '결과 없음';
+
+  @override
+  String get searchImportHint => '검색하려면 음악을 가져오세요.';
+
+  @override
+  String get searchNoResultsHint => '다른 검색어를 쓰거나 필터를 빼거나 스마트 검색을 사용해 보세요.';
+
+  @override
+  String get searchFailed => '검색을 완료하지 못했습니다';
+
+  @override
+  String selectedCount(int count) {
+    return '$count개 선택됨';
+  }
+
+  @override
+  String get libraryEmptyTitle => '라이브러리가 비어 있습니다';
+
+  @override
+  String get libraryEmptyBody =>
+      '아래 버튼으로 곡(MP3, M4A, OGG, FLAC, WAV…)을 가져오세요.\nBotMp3는 완전히 오프라인으로도 작동합니다.';
+
+  @override
+  String get filtersNoResultsHint => '다른 필터나 검색어를 사용해 보세요.';
+
+  @override
+  String get allFilters => '모든 필터';
+
+  @override
+  String songsAndDuration(int count, String duration) {
+    return '$count곡 · $duration';
+  }
+
+  @override
+  String get playlistIsEmpty => '플레이리스트가 비어 있습니다';
+
+  @override
+  String get playlistExportedCopied => '플레이리스트를 내보내고 JSON을 클립보드에 복사했습니다';
+
+  @override
+  String get invalidPlaylistFile => '올바른 BotMp3 플레이리스트 파일이 아닙니다';
+
+  @override
+  String playlistImported(String name, int count) {
+    return '플레이리스트 “$name”을(를) 가져왔습니다 ($count곡)';
+  }
+
+  @override
+  String get rankingTitle => '랭킹';
+
+  @override
+  String get resetBtn => '초기화';
+
+  @override
+  String get rankingWasReset => '랭킹을 초기화했습니다';
+
+  @override
+  String rankingError(String error) {
+    return '랭킹 오류: $error';
+  }
+
+  @override
+  String get periodAll => '전체 기간';
+
+  @override
+  String get periodMonth => '지난 한 달';
+
+  @override
+  String get periodWeek => '지난 일주일';
+
+  @override
+  String playsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count회 재생',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String trendsIn(String country) {
+    return '🔥 $country 인기 차트';
+  }
+
+  @override
+  String get trendsShareHeader => '음악 트렌드 🔥';
+
+  @override
+  String get trendsChannelName => '음악 트렌드';
+
+  @override
+  String alreadyInLibrary(String artist) {
+    return '$artist · 이미 라이브러리에 있음';
+  }
+
+  @override
+  String get undoChanges => '변경 취소';
+
+  @override
+  String get pickImagePngJpg => '이미지 선택 (PNG/JPG)';
+
+  @override
+  String get quickActions => '빠른 작업';
+
+  @override
+  String get rotate90 => '90° 회전';
+
+  @override
+  String get enhanceImage => '보정';
+
+  @override
+  String get originalImage => '원본';
+
+  @override
+  String get rotationFraming => '회전 및 구도';
+
+  @override
+  String get zoomLabel => '확대';
+
+  @override
+  String get framingHorizontal => '가로 위치';
+
+  @override
+  String get framingVertical => '세로 위치';
+
+  @override
+  String get imageAdjustments => '이미지 조정';
+
+  @override
+  String get brightnessLabel => '밝기';
+
+  @override
+  String get contrastLabel => '대비';
+
+  @override
+  String get saturationLabel => '채도';
+
+  @override
+  String get temperatureLabel => '색온도 (차갑게 ↔ 따뜻하게)';
+
+  @override
+  String get fadeVeil => '베일 / 페이드';
+
+  @override
+  String get textOrLogo => '텍스트 또는 로고';
+
+  @override
+  String get textSizeLabel => '글자 크기';
+
+  @override
+  String get changeBaseImage => '기본 이미지 변경';
+
+  @override
+  String coverExportedTo(String path) {
+    return '커버를 $path에 내보냈습니다';
+  }
+
+  @override
+  String get testVoice => '음성 테스트';
+
+  @override
+  String get restoreBtn => '복원';
+
+  @override
+  String get deleteLibraryTitle => '라이브러리 삭제';
+
+  @override
+  String get deleteAllBtn => '모두 삭제';
+
+  @override
+  String get titleRequired => '제목은 필수입니다';
+
+  @override
+  String get artistRequired => '아티스트는 필수입니다';
+
+  @override
+  String get invalidYear => '잘못된 연도';
+
+  @override
+  String get tagsWrittenToFile => '태그를 파일에 기록했습니다';
+
+  @override
+  String get tagsAppOnly => '이 형식은 태그를 쓸 수 없어 앱에만 저장했습니다';
+
+  @override
+  String get msgPaused => '일시정지됨 ⏸️';
+
+  @override
+  String msgVolumeAt(int percent) {
+    return '볼륨 $percent%';
+  }
+
+  @override
+  String msgSpeedAt(String speed) {
+    return '속도 ${speed}x ⏩';
+  }
+
+  @override
+  String get msgShuffleOn => '셔플 켜짐 🔀';
+
+  @override
+  String get msgShuffleOff => '셔플 꺼짐';
+
+  @override
+  String get msgRepeatAll => '전체 대기열 반복 🔁';
+
+  @override
+  String aiPlaylistDated(String date) {
+    return 'AI 플레이리스트 $date';
+  }
+
+  @override
+  String msgPlaylistCreatedWith(String name, int count) {
+    return '$count곡으로 플레이리스트 “$name”을(를) 만들었습니다 📝';
+  }
+
+  @override
+  String msgNoResultsFor(String query) {
+    return '“$query”에 대한 결과가 없습니다.';
+  }
+
+  @override
+  String msgSongUpdated(String title, String field, String value) {
+    return '“$title” 업데이트: $field = $value ✏️';
+  }
+
+  @override
+  String msgActionFailed(String action, String error) {
+    return '“$action”을(를) 실행하지 못했습니다: $error';
+  }
+
+  @override
+  String aiErrNoConnection(String provider, String error) {
+    return '$provider에 연결할 수 없습니다 ($error)';
+  }
+
+  @override
+  String aiErrUnexpected(String provider) {
+    return '$provider에서 예상치 못한 응답이 왔습니다';
+  }
+
+  @override
+  String aiErrInvalid(String provider) {
+    return '$provider에서 잘못된 응답을 보냈습니다';
+  }
+
+  @override
+  String aiErrNoReply(String provider) {
+    return '$provider에서 응답이 없습니다';
+  }
+
+  @override
+  String aiErrEmpty(String provider) {
+    return '$provider에서 빈 응답을 보냈습니다';
+  }
+
+  @override
+  String aiErrRejected(String provider, String detail) {
+    return '$provider에서 요청을 거부했습니다: $detail';
+  }
+
+  @override
+  String aiErrAuth(String provider) {
+    return '$provider API 키가 잘못되었거나 권한이 없습니다.';
+  }
+
+  @override
+  String aiErrBalance(String provider) {
+    return '$provider 잔액이 부족합니다. 계정을 충전하세요.';
+  }
+
+  @override
+  String aiErrModel(String model, String provider) {
+    return '모델 “$model”은(는) $provider에서 사용할 수 없습니다.';
+  }
+
+  @override
+  String aiErrRate(String provider) {
+    return '$provider에 요청이 너무 많습니다. 몇 초 기다리세요.';
+  }
+
+  @override
+  String aiErrStatus(int status, String provider, String detail) {
+    return '$provider 오류 $status: $detail';
+  }
+
+  @override
+  String aiMissingKey(String provider) {
+    return '$provider API 키가 없습니다.';
+  }
+
+  @override
+  String aiTesting(String provider) {
+    return '$provider 테스트 중…';
+  }
+
+  @override
+  String aiThinking(String provider) {
+    return '$provider이(가) 생각 중…';
+  }
+
+  @override
+  String aiUnexpectedError(String error) {
+    return '예상치 못한 오류: $error';
+  }
+
+  @override
+  String aiExecuting(String text) {
+    return '실행 중: $text';
+  }
+
+  @override
+  String get aiLookingRecs => '추천을 찾는 중…';
+
+  @override
+  String get aiComposingIdea => '아이디어를 작곡하는 중…';
+
+  @override
+  String aiIdeaCreated(String title, String genre, int bpm) {
+    return '🎼 아이디어 생성: **$title** ($genre, $bpm BPM)';
+  }
+
+  @override
+  String get aiGeneratorPrompt => '생성기용 프롬프트';
+
+  @override
+  String get aiGeneratedPlaylist => 'AI가 생성함';
+
+  @override
+  String get chatExportHeader => 'BotMp3 AI 대화';
+
+  @override
+  String get chatMe => '나';
+
+  @override
+  String get chatAi => 'AI';
+
+  @override
+  String get inYourLibrary => '라이브러리에 있음';
+
+  @override
+  String freedSpace(String size) {
+    return '$size 확보됨';
+  }
+
+  @override
+  String copiesReplaced(int count) {
+    return ' · 사본 $count개를 원본으로 교체함';
+  }
+
+  @override
+  String newSongsOf(int added, int found) {
+    return '$found곡 중 새 곡 $added개';
+  }
+
+  @override
+  String get scanFailed => '라이브러리를 검색하지 못했습니다';
+
+  @override
+  String importingProgress(int done, int total) {
+    return '가져오는 중 $done/$total…';
+  }
+
+  @override
+  String libraryStatsLine(int songs, int genres, int lists) {
+    return '$songs곡 · 장르 $genres개 · 플레이리스트 $lists개';
+  }
+
+  @override
+  String saveFileTitle(String file) {
+    return '$file 저장';
+  }
+
+  @override
+  String get widgetNowPlaying => '지금 재생 중';
+
+  @override
+  String get widgetPaused => '일시정지됨';
+
+  @override
+  String get aspectRatioTitle => '비율';
+
+  @override
+  String get coverFiltersTitle => '필터';
+
+  @override
+  String get filterBlackWhite => '흑백';
+
+  @override
+  String get filterVintage => '빈티지';
+
+  @override
+  String get filterWarm => '따뜻하게';
+
+  @override
+  String get filterCool => '차갑게';
+
+  @override
+  String get filterDramatic => '드라마틱';
+
+  @override
+  String get filterFaded => '바랜 색';
+
+  @override
+  String get filterVivid => '선명하게';
+
+  @override
+  String get positionTop => '위';
+
+  @override
+  String get positionCenter => '가운데';
+
+  @override
+  String get positionBottom => '아래';
 }

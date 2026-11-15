@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Textos del ecualizador nativo (EqualizerFragment). -->
+<resources>
+    <string name="eq_title">Equalizzatore</string>
+    <string name="eq_subtitle">5 bande · da −12 a +12 dB · effetto dal vivo</string>
+    <string name="eq_bass_boost">Potenzia bassi</string>
+    <string name="eq_bass_boost_on">Bassi: ON</string>
+    <string name="eq_reset">Ripristina</string>
+    <string name="eq_current_gain">Guadagno attuale %1$s</string>
+    <!-- Mismo orden que PRESETS_VALORES en EqualizerFragment.java -->
+    <string-array name="eq_presets">
+        <item>Rock</item>
+        <item>Pop</item>
+        <item>Jazz</item>
+        <item>Classica</item>
+        <item>Rap</item>
+        <item>Reggaeton</item>
+        <item>Cumbia</item>
+        <item>Elettronica</item>
+        <item>Hard rock</item>
+        <item>Voce</item>
+        <item>Bassi</item>
+        <item>Alti</item>
+    </string-array>
+</resources>

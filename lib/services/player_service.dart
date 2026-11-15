@@ -8,6 +8,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
+import '../core/ui_strings.dart';
 import '../models/song.dart';
 import 'replay_gain.dart';
 import 'settings_service.dart';
@@ -60,7 +61,7 @@ class PlayerService {
   bool _shuffle = false;
   RepeatMode _repeat = RepeatMode.off;
   bool _advancing = false;
-  bool _keepScreenOn = true;
+  bool _keepScreenOn = false;
   int _speed = 100; // 1.00x
 
   /// La biblioteca registra aquí la reproducción para las estadísticas.
@@ -238,8 +239,10 @@ class PlayerService {
         total: _player.duration ?? Duration.zero,
       ));
     }
-    // Refresco cada 2 s: el tiempo avanza sin el destello que producia cada segundo.
-    _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 2), (_) {
+    // Refresco cada 5 s (antes 2 s): el widget de inicio no necesita mas y
+    // cada aviso despierta al sistema, lo que gasta bateria durante horas de
+    // musica. Pausa, reanudar y cambio de pista se publican al momento.
+    _temporizadorWidget2 = Timer.periodic(const Duration(seconds: 5), (_) {
       final Song? cancion = current;
       if (cancion == null) return;
       unawaited(WidgetService.actualizar(cancion, suena: estaSonando,
@@ -366,14 +369,45 @@ class PlayerService {
       _player.processingState != ProcessingState.idle &&
       _player.processingState != ProcessingState.completed;
   /// Reordena la cola sin recargar el audio: mueve [from] a [to].
-  void moveInQueue(int from, int to) {
+  ///
+  /// Antes solo movía la lista de la app y no la del motor de audio: el
+  /// resaltado y "siguiente" desde la pantalla de bloqueo se desajustaban.
+  Future<void> moveInQueue(int from, int to) async {
     if (from < 0 || to < 0 || from >= _queue.length || to > _queue.length) return;
+    final bool alineado = _motorAlineado;
     final bool hayActual = _currentIndex >= 0 && _currentIndex < _queue.length;
     final Song? actual = hayActual ? _queue[_currentIndex] : null;
     final Song movida = _queue.removeAt(from);
-    final int destino = to > from ? to - 1 : to;
-    _queue.insert(destino.clamp(0, _queue.length), movida);
+    final int destino = (to > from ? to - 1 : to).clamp(0, _queue.length);
+    _queue.insert(destino, movida);
     if (actual != null) _currentIndex = _queue.indexOf(actual);
+    _rebuildPlayOrder(anchorIndex: _currentIndex);
+    queueRevision.value++;
+    if (alineado) {
+      await _player.moveAudioSource(from, destino);
+    } else {
+      await _recargarConservando();
+    }
+  }
+
+  /// La cola del motor de audio coincide pista a pista con la de la app.
+  bool get _motorAlineado =>
+      _queue.isNotEmpty && _player.audioSources.length == _queue.length;
+
+  /// Vuelve a cargar toda la cola en el motor sin cambiar lo que suena:
+  /// misma canción, misma posición y, si sonaba, sigue sonando.
+  Future<void> _recargarConservando() async {
+    if (_queue.isEmpty) return;
+    final int indice = _currentIndex.clamp(0, _queue.length - 1);
+    final Duration posicion = _player.position;
+    final bool sonaba = estaSonando;
+    await _loadQueueIntoPlayer(indice, autoPlay: false);
+    if (posicion > Duration.zero) {
+      try {
+        await _player.seek(posicion);
+      } catch (_) {}
+    }
+    if (sonaba) unawaited(_player.play());
   }
 
   List<Song> get queue => List<Song>.unmodifiable(_queue);
@@ -465,6 +499,7 @@ class PlayerService {
   Future<void> enqueue(List<Song> songs, {bool playIfEmpty = true}) async {
     if (songs.isEmpty) return;
     final bool wasEmpty = _queue.isEmpty;
+    final bool alineado = _motorAlineado;
     _queue.addAll(songs);
     queueRevision.value++;
     if (wasEmpty && playIfEmpty) {
@@ -475,14 +510,10 @@ class PlayerService {
     _rebuildPlayOrder(anchorIndex: _currentIndex);
     if (wasEmpty) return;
     // Se añaden al final de la cola del sistema sin cortar la reproducción.
-    final AudioSource? source = _player.audioSource;
-    if (source is ConcatenatingAudioSource) {
-      for (final Song song in songs) {
-        await source.add(_sourceFor(song));
-      }
+    if (alineado) {
+      await _player.addAudioSources(songs.map(_sourceFor).toList());
     } else {
-      await _loadQueueIntoPlayer(_currentIndex < 0 ? 0 : _currentIndex,
-          autoPlay: false);
+      await _recargarConservando();
     }
   }
 
@@ -492,28 +523,30 @@ class PlayerService {
       await setQueue(<Song>[song]);
       return;
     }
+    final bool alineado = _motorAlineado;
     final int insertAt = (_currentIndex + 1).clamp(0, _queue.length);
     _queue.insert(insertAt, song);
     queueRevision.value++;
     _rebuildPlayOrder(anchorIndex: _currentIndex);
     // Se inserta justo después de la actual en la cola del sistema.
-    final AudioSource? source = _player.audioSource;
-    if (source is ConcatenatingAudioSource) {
-      await source.insert(insertAt.clamp(0, source.children.length), _sourceFor(song));
+    if (alineado) {
+      await _player.insertAudioSource(insertAt, _sourceFor(song));
     } else {
-      await _loadQueueIntoPlayer(insertAt.clamp(0, _queue.length - 1), autoPlay: false);
+      // Antes se recargaba la cola EMPEZANDO por la canción insertada y sin
+      // sonar: la música se paraba y saltaba de pista. Ahora sigue la actual.
+      await _recargarConservando();
     }
   }
 
   Future<void> removeFromQueue(String songId) async {
     final int index = _queue.indexWhere((Song song) => song.id == songId);
     if (index < 0) return;
+    final bool alineado = _motorAlineado;
     _queue.removeAt(index);
     queueRevision.value++;
 
-    final AudioSource? source = _player.audioSource;
-    if (source is ConcatenatingAudioSource && index < source.children.length) {
-      await source.removeAt(index);
+    if (alineado) {
+      await _player.removeAudioSourceAt(index);
     }
 
     if (_queue.isEmpty) {
@@ -745,7 +778,7 @@ class PlayerService {
     final MediaItem mediaItem = MediaItem(
       id: song.id,
       title: song.title,
-      artist: song.artist.isEmpty ? 'Artista desconocido' : song.artist,
+      artist: song.artist.isEmpty ? UiStrings.loc.unknownArtist : song.artist,
       album: song.album.isEmpty ? null : song.album,
       genre: song.genre,
       duration: song.durationMs > 0 ? Duration(milliseconds: song.durationMs) : null,
@@ -785,8 +818,8 @@ class PlayerService {
       _indiceEsperado = start;
       // Se limpia solo por si el reproductor no emite nada (no dejarlo armado).
       Timer(const Duration(seconds: 2), () => _indiceEsperado = null);
-      await _player.setAudioSource(
-        ConcatenatingAudioSource(children: _buildSources()),
+      await _player.setAudioSources(
+        _buildSources(),
         initialIndex: start,
         initialPosition: Duration.zero,
       );
@@ -856,8 +889,7 @@ class PlayerService {
 
     try {
       // Si el reproductor ya tiene la cola cargada, basta con saltar de pista.
-      if (_player.audioSource is ConcatenatingAudioSource &&
-          _player.sequence.length == _queue.length) {
+      if (_motorAlineado && _player.sequence.length == _queue.length) {
         await _player.seek(Duration.zero, index: queueIndex);
         if (autoPlay && !_player.playing) {
           unawaited(_player.play());

@@ -83,7 +83,7 @@ class AppDialogs {
           children: <Widget>[
             TextField(
               controller: nameController,
-              decoration: const InputDecoration(labelText: 'Nombre'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context).nameLabel),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -121,18 +121,19 @@ class AppDialogs {
   }
 
   /// Selector de lista para añadir canciones.
-  static Future<Playlist?> pickPlaylist(BuildContext context, {String title = 'Añadir a lista'}) async {
+  static Future<Playlist?> pickPlaylist(BuildContext context, {String? title}) async {
+    final String titulo = title ?? AppLocalizations.of(context).addToPlaylist;
     final LibraryProvider library = context.read<LibraryProvider>();
     final List<Playlist> playlists = library.playlists;
 
     return showDialog<Playlist>(
       context: context,
       builder: (BuildContext dialogContext) => SimpleDialog(
-        title: Text(title),
+        title: Text(titulo),
         children: <Widget>[
           if (playlists.isEmpty)
             Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Text(AppLocalizations.of(context).noPlaylistsYet),
             ),
           ...playlists.map(
@@ -163,8 +164,8 @@ class AppDialogs {
             child: Row(
                 children: <Widget>[
                   const Icon(Icons.add, size: 22),
-                  SizedBox(width: 12),
-                  Text(AppLocalizations.of(context).createNewPlaylist, style: TextStyle(fontSize: 16)),
+                  const SizedBox(width: 12),
+                  Text(AppLocalizations.of(context).createNewPlaylist, style: const TextStyle(fontSize: 16)),
               ],
             ),
           ),
@@ -232,10 +233,10 @@ class AppDialogs {
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
                   child: TextField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
+                      prefixIcon: const Icon(Icons.search),
                       hintText: AppLocalizations.of(context).dialogSearchHint,
                       isDense: true,
-                      border: OutlineInputBorder(),
+                      border: const OutlineInputBorder(),
                     ),
                     onChanged: (String value) => setState(() => query = value),
                   ),
@@ -327,19 +328,19 @@ class AppDialogs {
               controller: controller,
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
               children: <Widget>[
-                const Text(
-                  'Filtros avanzados',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Text(
+                  AppLocalizations.of(context).advancedFilters,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 16),
-                Text(AppLocalizations.of(context).dialogGenre, style: TextStyle(fontWeight: FontWeight.w600)),
+                Text(AppLocalizations.of(context).dialogGenre, style: const TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 Wrap(
                   spacing: 8,
                   runSpacing: 4,
                   children: <Widget>[
                     ChoiceChip(
-                      label: const Text('Todos'),
+                      label: Text(AppLocalizations.of(context).filterAll),
                       selected: genre == null,
                       onSelected: (_) => setState(() => genre = null),
                     ),
@@ -354,14 +355,14 @@ class AppDialogs {
                   ],
                 ),
                 const SizedBox(height: 16),
-                const Text('Artista', style: TextStyle(fontWeight: FontWeight.w600)),
+                Text(AppLocalizations.of(context).artistLabel, style: const TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 Wrap(
                   spacing: 8,
                   runSpacing: 4,
                   children: <Widget>[
                     ChoiceChip(
-                      label: const Text('Todos'),
+                      label: Text(AppLocalizations.of(context).filterAll),
                       selected: artist == null,
                       onSelected: (_) => setState(() => artist = null),
                     ),
@@ -376,14 +377,14 @@ class AppDialogs {
                   ],
                 ),
                 const SizedBox(height: 16),
-                const Text('Año', style: TextStyle(fontWeight: FontWeight.w600)),
+                Text(AppLocalizations.of(context).yearLabel, style: const TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 Wrap(
                   spacing: 8,
                   runSpacing: 4,
                   children: <Widget>[
                     ChoiceChip(
-                      label: const Text('Cualquiera'),
+                      label: Text(AppLocalizations.of(context).filterAny),
                       selected: yearFrom == null && yearTo == null,
                       onSelected: (_) => setState(() {
                         yearFrom = null;
@@ -411,7 +412,7 @@ class AppDialogs {
                   ],
                 ),
                 const SizedBox(height: 16),
-                const Text('Etiquetas', style: TextStyle(fontWeight: FontWeight.w600)),
+                Text(AppLocalizations.of(context).tagsLabel, style: const TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 Wrap(
                   spacing: 8,
@@ -433,7 +434,7 @@ class AppDialogs {
                 SwitchListTile(
                   value: favoritesOnly,
                   onChanged: (bool value) => setState(() => favoritesOnly = value),
-                  title: const Text('Solo favoritas'),
+                  title: Text(AppLocalizations.of(context).onlyFavorites),
                   contentPadding: EdgeInsets.zero,
                 ),
                 const SizedBox(height: 12),
@@ -445,7 +446,7 @@ class AppDialogs {
                           library.clearFilters();
                           Navigator.of(sheetContext).pop();
                         },
-                        child: const Text('Limpiar'),
+                        child: Text(AppLocalizations.of(context).cleanBtn),
                       ),
                     ),
                     const SizedBox(width: 12),
@@ -467,7 +468,7 @@ class AppDialogs {
                           }
                           Navigator.of(sheetContext).pop();
                         },
-                        child: const Text('Aplicar filtros'),
+                        child: Text(AppLocalizations.of(context).applyFilters),
                       ),
                     ),
                   ],
@@ -534,7 +535,11 @@ class AppDialogs {
     final int added = await library.importPaths(paths);
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(added == 0 ? 'No se añadieron canciones nuevas' : '$added canciones importadas')),
+        SnackBar(
+          content: Text(added == 0
+              ? AppLocalizations.of(context).importNoneNew
+              : AppLocalizations.of(context).importedCount(added)),
+        ),
       );
     }
   }

@@ -103,7 +103,10 @@ class PlaylistsScreen extends StatelessWidget {
                             style: const TextStyle(fontSize: 12.5),
                           ),
                         Text(
-                          '${songs.length} canciones · ${Formatters.duration(total)}',
+                          AppLocalizations.of(context).songsAndDuration(
+                            songs.length,
+                            Formatters.duration(total),
+                          ),
                           style: const TextStyle(fontSize: 12),
                         ),
                       ],
@@ -142,13 +145,13 @@ class PlaylistsScreen extends StatelessWidget {
     switch (action) {
       case 'play':
         if (songs.isEmpty) {
-          _snack(context, 'La lista está vacía');
+          _snack(context, AppLocalizations.of(context).playlistIsEmpty);
           return;
         }
         await player.setQueue(songs);
       case 'shuffle':
         if (songs.isEmpty) {
-          _snack(context, 'La lista está vacía');
+          _snack(context, AppLocalizations.of(context).playlistIsEmpty);
           return;
         }
         await player.setQueue(songs, autoPlay: false);
@@ -166,7 +169,7 @@ class PlaylistsScreen extends StatelessWidget {
             context,
             path == null
                 ? AppLocalizations.of(context).jsonCopied
-                : 'Lista exportada y JSON copiado al portapapeles',
+                : AppLocalizations.of(context).playlistExportedCopied,
           );
         }
       case 'delete':
@@ -188,8 +191,8 @@ class PlaylistsScreen extends StatelessWidget {
     _snack(
       context,
       playlist == null
-          ? 'El archivo no es una lista válida de BotMp3'
-          : 'Lista "${playlist.name}" importada (${playlist.length} canciones)',
+          ? AppLocalizations.of(context).invalidPlaylistFile
+          : AppLocalizations.of(context).playlistImported(playlist.name, playlist.length),
     );
   }
 
@@ -330,9 +333,10 @@ class _PlaylistSongsScreen extends StatelessWidget {
                 : ReorderableListView.builder(
                     padding: const EdgeInsets.only(bottom: 24),
                     itemCount: songs.length,
-                    onReorder: (int oldIndex, int newIndex) {
-                      final int target = newIndex > oldIndex ? newIndex - 1 : newIndex;
-                      library.moveSongInPlaylist(playlist.id, oldIndex, target);
+                    // `onReorderItem` ya entrega el índice final corregido
+                    // (antes se restaba 1 a mano con `onReorder`, obsoleto).
+                    onReorderItem: (int oldIndex, int newIndex) {
+                      library.moveSongInPlaylist(playlist.id, oldIndex, newIndex);
                     },
                     itemBuilder: (BuildContext context, int index) {
                       final Song song = songs[index];

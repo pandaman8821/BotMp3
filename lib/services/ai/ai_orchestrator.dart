@@ -279,7 +279,7 @@ Ordena de más a menos relevante. Máximo 25 canciones, solo de la biblioteca lo
     if (!niega && !sinSugerencias) return resultado;
     final List<AiSongSuggestion> sugerencias = <AiSongSuggestion>[
       for (final Song s in coincidencias.take(15))
-        AiSongSuggestion(title: s.title, artist: s.artist, reason: 'Esta en tu biblioteca'),
+        AiSongSuggestion(title: s.title, artist: s.artist, reason: UiStrings.loc.inYourLibrary),
     ];
     final String mensaje = niega
         ? 'Si las tienes: encontre ${coincidencias.length} coincidencias en tu biblioteca.'

@@ -52,7 +52,7 @@ class GeminiClient extends AiClient {
 
     final List<dynamic>? candidates = response['candidates'] as List<dynamic>?;
     if (candidates == null || candidates.isEmpty) {
-      throw AiRequestException('Gemini no devolvió ninguna respuesta');
+      throw AiRequestException(UiStrings.loc.aiErrNoReply('Gemini'));
     }
     final Map<String, dynamic> candidate = candidates.first as Map<String, dynamic>;
     final Map<String, dynamic>? content = candidate['content'] as Map<String, dynamic>?;
@@ -65,7 +65,7 @@ class GeminiClient extends AiClient {
         .trim();
 
     if (text.isEmpty) {
-      throw AiRequestException('Gemini devolvió una respuesta vacía');
+      throw AiRequestException(UiStrings.loc.aiErrEmpty('Gemini'));
     }
     return text;
   }

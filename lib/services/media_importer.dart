@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../core/constants.dart';
+import '../core/ui_strings.dart';
 import 'storage_service.dart';
 
 /// Selección e importación de archivos de audio (con permiso y ruta elegida).
@@ -164,7 +164,7 @@ class MediaImporter {
       return await FilePicker.platform.saveFile(
         fileName: fileName,
         bytes: bytes,
-        dialogTitle: 'Guardar $fileName',
+        dialogTitle: UiStrings.loc.saveFileTitle(fileName),
       );
     } catch (error) {
       debugPrint('Error al exportar $fileName: $error');

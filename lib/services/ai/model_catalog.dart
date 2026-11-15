@@ -41,7 +41,7 @@ class ModelCatalog {
     required bool soloChat,
   }) async {
     final http.Response r = await http
-        .get(Uri.parse(url), headers: <String, String>{'Authorization': 'Bearer ' + clave})
+        .get(Uri.parse(url), headers: <String, String>{'Authorization': 'Bearer $clave'})
         .timeout(const Duration(seconds: 15));
     if (r.statusCode != 200) return null;
     final dynamic json = jsonDecode(r.body);

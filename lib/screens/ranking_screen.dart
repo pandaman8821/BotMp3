@@ -15,10 +15,10 @@ import 'artist_screen.dart';
 enum _Periodo { todo, mes, semana }
 
 extension on _Periodo {
-  String get etiqueta => switch (this) {
-        _Periodo.todo => 'Todo',
-        _Periodo.mes => 'Último mes',
-        _Periodo.semana => 'Última semana',
+  String etiqueta(AppLocalizations loc) => switch (this) {
+        _Periodo.todo => loc.periodAll,
+        _Periodo.mes => loc.periodMonth,
+        _Periodo.semana => loc.periodWeek,
       };
 
   DateTime? get desde => switch (this) {
@@ -164,7 +164,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ranking'),
+        title: Text(AppLocalizations.of(context).rankingTitle),
         actions: <Widget>[
           IconButton(
             tooltip: AppLocalizations.of(context).resetStatsTitle,
@@ -180,11 +180,11 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
                   actions: <Widget>[
                     TextButton(
                       onPressed: () => Navigator.of(dialogContext).pop(false),
-                      child: const Text('Cancelar'),
+                      child: Text(AppLocalizations.of(context).cancel),
                     ),
                     FilledButton(
                       onPressed: () => Navigator.of(dialogContext).pop(true),
-                      child: const Text('Reiniciar'),
+                      child: Text(AppLocalizations.of(context).resetBtn),
                     ),
                   ],
                 ),
@@ -193,7 +193,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
               await context.read<LibraryProvider>().resetPlayStats();
               if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Ranking reiniciado')),
+                SnackBar(content: Text(AppLocalizations.of(context).rankingWasReset)),
               );
             },
           ),
@@ -226,7 +226,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
               color: Colors.redAccent.withAlpha(38),
               padding: const EdgeInsets.all(12),
               child: SelectableText(
-                'Ranking error: $errorRanking',
+                AppLocalizations.of(context).rankingError(errorRanking),
                 style: const TextStyle(fontSize: 12),
               ),
             ),
@@ -239,7 +239,8 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
                     spacing: 8,
                     children: _Periodo.values.map((_Periodo valor) {
                       return ChoiceChip(
-                        label: Text(valor.etiqueta, style: const TextStyle(fontSize: 12)),
+                        label: Text(valor.etiqueta(AppLocalizations.of(context)),
+                            style: const TextStyle(fontSize: 12)),
                         selected: _periodo == valor,
                         onSelected: (_) {
                           setState(() => _periodo = valor);
@@ -250,7 +251,7 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
                   ),
                 ),
                 Text(
-                  '$totalReproducciones ${totalReproducciones == 1 ? 'reproducción' : 'reproducciones'}',
+                  AppLocalizations.of(context).playsCount(totalReproducciones),
                   style: TextStyle(fontSize: 11.5, color: AppColors.darkTextDim),
                 ),
               ],

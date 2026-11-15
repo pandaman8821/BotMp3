@@ -1830,4 +1830,492 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get playerInfo => 'Details';
+
+  @override
+  String get nameLabel => 'Name';
+
+  @override
+  String get filterAll => 'Alle';
+
+  @override
+  String get filterAny => 'Beliebig';
+
+  @override
+  String get tagsLabel => 'Tags';
+
+  @override
+  String get onlyFavorites => 'Nur Favoriten';
+
+  @override
+  String get applyFilters => 'Filter anwenden';
+
+  @override
+  String get importNoneNew => 'Keine neuen Songs hinzugefügt';
+
+  @override
+  String importedCount(int count) {
+    return '$count Songs importiert';
+  }
+
+  @override
+  String get optionsLabel => 'Optionen';
+
+  @override
+  String get exitLabel => 'Beenden';
+
+  @override
+  String get nothingPlaying => 'Es läuft nichts';
+
+  @override
+  String get playSomething => 'Spiel etwas ab';
+
+  @override
+  String formatSizeLine(String format, String size) {
+    return 'Format: $format · $size';
+  }
+
+  @override
+  String get djNoSong => 'Der DJ hat keinen passenden Song gefunden';
+
+  @override
+  String nextUpSpoken(String title) {
+    return 'Als Nächstes: $title';
+  }
+
+  @override
+  String get favoritesChip => 'Favoriten';
+
+  @override
+  String get interpreting => 'Wird ausgewertet…';
+
+  @override
+  String get smartSearch => 'Intelligente Suche';
+
+  @override
+  String get noSongsTitle => 'Noch keine Songs';
+
+  @override
+  String get noResultsTitle => 'Keine Ergebnisse';
+
+  @override
+  String get searchImportHint =>
+      'Importiere Musik, um sie durchsuchen zu können.';
+
+  @override
+  String get searchNoResultsHint =>
+      'Versuche andere Begriffe, entferne Filter oder nutze die intelligente Suche.';
+
+  @override
+  String get searchFailed => 'Die Suche konnte nicht abgeschlossen werden';
+
+  @override
+  String selectedCount(int count) {
+    return '$count ausgewählt';
+  }
+
+  @override
+  String get libraryEmptyTitle => 'Deine Mediathek ist leer';
+
+  @override
+  String get libraryEmptyBody =>
+      'Importiere deine Songs (MP3, M4A, OGG, FLAC, WAV…) über die Schaltfläche unten.\nBotMp3 funktioniert auch komplett offline.';
+
+  @override
+  String get filtersNoResultsHint =>
+      'Versuche andere Filter oder Suchbegriffe.';
+
+  @override
+  String get allFilters => 'Alle Filter';
+
+  @override
+  String songsAndDuration(int count, String duration) {
+    return '$count Songs · $duration';
+  }
+
+  @override
+  String get playlistIsEmpty => 'Die Playlist ist leer';
+
+  @override
+  String get playlistExportedCopied =>
+      'Playlist exportiert und JSON in die Zwischenablage kopiert';
+
+  @override
+  String get invalidPlaylistFile =>
+      'Die Datei ist keine gültige BotMp3-Playlist';
+
+  @override
+  String playlistImported(String name, int count) {
+    return 'Playlist „$name“ importiert ($count Songs)';
+  }
+
+  @override
+  String get rankingTitle => 'Rangliste';
+
+  @override
+  String get resetBtn => 'Zurücksetzen';
+
+  @override
+  String get rankingWasReset => 'Rangliste zurückgesetzt';
+
+  @override
+  String rankingError(String error) {
+    return 'Fehler in der Rangliste: $error';
+  }
+
+  @override
+  String get periodAll => 'Gesamt';
+
+  @override
+  String get periodMonth => 'Letzter Monat';
+
+  @override
+  String get periodWeek => 'Letzte Woche';
+
+  @override
+  String playsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wiedergaben',
+      one: '1 Wiedergabe',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String trendsIn(String country) {
+    return '🔥 Trends in $country';
+  }
+
+  @override
+  String get trendsShareHeader => 'Musiktrends 🔥';
+
+  @override
+  String get trendsChannelName => 'Musiktrends';
+
+  @override
+  String alreadyInLibrary(String artist) {
+    return '$artist · schon in deiner Mediathek';
+  }
+
+  @override
+  String get undoChanges => 'Änderungen rückgängig machen';
+
+  @override
+  String get pickImagePngJpg => 'Bild wählen (PNG/JPG)';
+
+  @override
+  String get quickActions => 'Schnellaktionen';
+
+  @override
+  String get rotate90 => '90° drehen';
+
+  @override
+  String get enhanceImage => 'Verbessern';
+
+  @override
+  String get originalImage => 'Original';
+
+  @override
+  String get rotationFraming => 'Drehung und Ausschnitt';
+
+  @override
+  String get zoomLabel => 'Zoom';
+
+  @override
+  String get framingHorizontal => 'Horizontaler Ausschnitt';
+
+  @override
+  String get framingVertical => 'Vertikaler Ausschnitt';
+
+  @override
+  String get imageAdjustments => 'Bildeinstellungen';
+
+  @override
+  String get brightnessLabel => 'Helligkeit';
+
+  @override
+  String get contrastLabel => 'Kontrast';
+
+  @override
+  String get saturationLabel => 'Sättigung';
+
+  @override
+  String get temperatureLabel => 'Farbtemperatur (kalt ↔ warm)';
+
+  @override
+  String get fadeVeil => 'Schleier / Verblassen';
+
+  @override
+  String get textOrLogo => 'Text oder Logo';
+
+  @override
+  String get textSizeLabel => 'Textgröße';
+
+  @override
+  String get changeBaseImage => 'Grundbild ändern';
+
+  @override
+  String coverExportedTo(String path) {
+    return 'Cover exportiert nach $path';
+  }
+
+  @override
+  String get testVoice => 'Stimme testen';
+
+  @override
+  String get restoreBtn => 'Wiederherstellen';
+
+  @override
+  String get deleteLibraryTitle => 'Mediathek löschen';
+
+  @override
+  String get deleteAllBtn => 'Alles löschen';
+
+  @override
+  String get titleRequired => 'Titel ist erforderlich';
+
+  @override
+  String get artistRequired => 'Künstler ist erforderlich';
+
+  @override
+  String get invalidYear => 'Ungültiges Jahr';
+
+  @override
+  String get tagsWrittenToFile => 'Tags in die Datei geschrieben';
+
+  @override
+  String get tagsAppOnly =>
+      'Dieses Format erlaubt keine Tags; sie wurden nur in der App gespeichert';
+
+  @override
+  String get msgPaused => 'Pausiert ⏸️';
+
+  @override
+  String msgVolumeAt(int percent) {
+    return 'Lautstärke $percent %';
+  }
+
+  @override
+  String msgSpeedAt(String speed) {
+    return 'Tempo ${speed}x ⏩';
+  }
+
+  @override
+  String get msgShuffleOn => 'Zufallswiedergabe an 🔀';
+
+  @override
+  String get msgShuffleOff => 'Zufallswiedergabe aus';
+
+  @override
+  String get msgRepeatAll => 'Ganze Warteschlange wiederholen 🔁';
+
+  @override
+  String aiPlaylistDated(String date) {
+    return 'KI-Playlist $date';
+  }
+
+  @override
+  String msgPlaylistCreatedWith(String name, int count) {
+    return 'Playlist „$name“ mit $count Songs erstellt 📝';
+  }
+
+  @override
+  String msgNoResultsFor(String query) {
+    return 'Keine Ergebnisse für „$query“.';
+  }
+
+  @override
+  String msgSongUpdated(String title, String field, String value) {
+    return '„$title“ aktualisiert: $field = $value ✏️';
+  }
+
+  @override
+  String msgActionFailed(String action, String error) {
+    return '„$action“ konnte nicht ausgeführt werden: $error';
+  }
+
+  @override
+  String aiErrNoConnection(String provider, String error) {
+    return 'Keine Verbindung zu $provider ($error)';
+  }
+
+  @override
+  String aiErrUnexpected(String provider) {
+    return 'Unerwartete Antwort von $provider';
+  }
+
+  @override
+  String aiErrInvalid(String provider) {
+    return '$provider hat eine ungültige Antwort geliefert';
+  }
+
+  @override
+  String aiErrNoReply(String provider) {
+    return '$provider hat keine Antwort geliefert';
+  }
+
+  @override
+  String aiErrEmpty(String provider) {
+    return '$provider hat eine leere Antwort geliefert';
+  }
+
+  @override
+  String aiErrRejected(String provider, String detail) {
+    return 'Anfrage von $provider abgelehnt: $detail';
+  }
+
+  @override
+  String aiErrAuth(String provider) {
+    return 'API-Schlüssel für $provider ungültig oder ohne Berechtigung.';
+  }
+
+  @override
+  String aiErrBalance(String provider) {
+    return 'Nicht genug Guthaben bei $provider. Lade dein Konto auf.';
+  }
+
+  @override
+  String aiErrModel(String model, String provider) {
+    return 'Modell „$model“ ist bei $provider nicht verfügbar.';
+  }
+
+  @override
+  String aiErrRate(String provider) {
+    return 'Zu viele Anfragen an $provider. Warte ein paar Sekunden.';
+  }
+
+  @override
+  String aiErrStatus(int status, String provider, String detail) {
+    return 'Fehler $status von $provider: $detail';
+  }
+
+  @override
+  String aiMissingKey(String provider) {
+    return 'Der API-Schlüssel für $provider fehlt.';
+  }
+
+  @override
+  String aiTesting(String provider) {
+    return '$provider wird getestet…';
+  }
+
+  @override
+  String aiThinking(String provider) {
+    return '$provider denkt nach…';
+  }
+
+  @override
+  String aiUnexpectedError(String error) {
+    return 'Unerwarteter Fehler: $error';
+  }
+
+  @override
+  String aiExecuting(String text) {
+    return 'Wird ausgeführt: $text';
+  }
+
+  @override
+  String get aiLookingRecs => 'Empfehlungen werden gesucht…';
+
+  @override
+  String get aiComposingIdea => 'Eine Idee wird komponiert…';
+
+  @override
+  String aiIdeaCreated(String title, String genre, int bpm) {
+    return '🎼 Idee erstellt: **$title** ($genre, $bpm BPM)';
+  }
+
+  @override
+  String get aiGeneratorPrompt => 'Prompt für einen Generator';
+
+  @override
+  String get aiGeneratedPlaylist => 'Von KI erstellt';
+
+  @override
+  String get chatExportHeader => 'BotMp3-KI-Unterhaltung';
+
+  @override
+  String get chatMe => 'Ich';
+
+  @override
+  String get chatAi => 'KI';
+
+  @override
+  String get inYourLibrary => 'Ist in deiner Mediathek';
+
+  @override
+  String freedSpace(String size) {
+    return '$size freigegeben';
+  }
+
+  @override
+  String copiesReplaced(int count) {
+    return ' · $count Kopien durch das Original ersetzt';
+  }
+
+  @override
+  String newSongsOf(int added, int found) {
+    return '$added neue Songs von $found';
+  }
+
+  @override
+  String get scanFailed => 'Die Mediathek konnte nicht durchsucht werden';
+
+  @override
+  String importingProgress(int done, int total) {
+    return 'Import $done/$total…';
+  }
+
+  @override
+  String libraryStatsLine(int songs, int genres, int lists) {
+    return '$songs Songs · $genres Genres · $lists Playlists';
+  }
+
+  @override
+  String saveFileTitle(String file) {
+    return '$file speichern';
+  }
+
+  @override
+  String get widgetNowPlaying => 'Läuft gerade';
+
+  @override
+  String get widgetPaused => 'Pausiert';
+
+  @override
+  String get aspectRatioTitle => 'Seitenverhältnis';
+
+  @override
+  String get coverFiltersTitle => 'Filter';
+
+  @override
+  String get filterBlackWhite => 'Schwarzweiß';
+
+  @override
+  String get filterVintage => 'Vintage';
+
+  @override
+  String get filterWarm => 'Warm';
+
+  @override
+  String get filterCool => 'Kühl';
+
+  @override
+  String get filterDramatic => 'Dramatisch';
+
+  @override
+  String get filterFaded => 'Verblasst';
+
+  @override
+  String get filterVivid => 'Lebhaft';
+
+  @override
+  String get positionTop => 'Oben';
+
+  @override
+  String get positionCenter => 'Mitte';
+
+  @override
+  String get positionBottom => 'Unten';
 }

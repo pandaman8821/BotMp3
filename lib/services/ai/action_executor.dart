@@ -62,7 +62,7 @@ class ActionExecutor {
           return ActionOutcome(action, UiStrings.loc.msgPlayingNow);
         case AiActionType.pause:
           await player.service.pause();
-          return ActionOutcome(action, 'En pausa ⏸️');
+          return ActionOutcome(action, UiStrings.loc.msgPaused);
         case AiActionType.next:
           await player.next();
           return ActionOutcome(action, UiStrings.loc.msgNext);
@@ -79,26 +79,26 @@ class ActionExecutor {
         case AiActionType.volumeSet:
           final double volume = double.tryParse(action.value ?? '') ?? player.volume;
           await player.setVolume(volume.clamp(0.0, 1.0));
-          return ActionOutcome(action, 'Volumen al ${(volume * 100).round()}% 🔊');
+          return ActionOutcome(action, '${UiStrings.loc.msgVolumeAt((volume.clamp(0.0, 1.0) * 100).round())} 🔊');
         case AiActionType.volumeUp:
           final double up = (player.volume + 0.15).clamp(0.0, 1.0);
           await player.setVolume(up);
-          return ActionOutcome(action, 'Volumen al ${(up * 100).round()}% 🔊');
+          return ActionOutcome(action, '${UiStrings.loc.msgVolumeAt((up * 100).round())} 🔊');
         case AiActionType.volumeDown:
           final double down = (player.volume - 0.15).clamp(0.0, 1.0);
           await player.setVolume(down);
-          return ActionOutcome(action, 'Volumen al ${(down * 100).round()}% 🔉');
+          return ActionOutcome(action, '${UiStrings.loc.msgVolumeAt((down * 100).round())} 🔉');
         case AiActionType.speedSet:
           final double speed = double.tryParse(action.value ?? '') ?? 1;
           final int percent = (speed * 100).round().clamp(50, 200);
           await player.setSpeedPercent(percent);
-          return ActionOutcome(action, 'Velocidad ${(percent / 100).toStringAsFixed(2)}x ⏩');
+          return ActionOutcome(action, UiStrings.loc.msgSpeedAt((percent / 100).toStringAsFixed(2)));
         case AiActionType.shuffleOn:
           if (!player.isShuffleEnabled) player.toggleShuffle();
-          return ActionOutcome(action, 'Aleatorio activado 🔀');
+          return ActionOutcome(action, UiStrings.loc.msgShuffleOn);
         case AiActionType.shuffleOff:
           if (player.isShuffleEnabled) player.toggleShuffle();
-          return ActionOutcome(action, 'Aleatorio desactivado');
+          return ActionOutcome(action, UiStrings.loc.msgShuffleOff);
         case AiActionType.repeatOff:
           settings.service.setRepeatMode(RepeatMode.off);
           player.service.setRepeatMode(RepeatMode.off);
@@ -106,7 +106,7 @@ class ActionExecutor {
         case AiActionType.repeatAll:
           settings.service.setRepeatMode(RepeatMode.all);
           player.service.setRepeatMode(RepeatMode.all);
-          return ActionOutcome(action, 'Repetir toda la cola 🔁');
+          return ActionOutcome(action, UiStrings.loc.msgRepeatAll);
         case AiActionType.repeatOne:
           settings.service.setRepeatMode(RepeatMode.one);
           player.service.setRepeatMode(RepeatMode.one);
@@ -155,7 +155,7 @@ class ActionExecutor {
         case AiActionType.createPlaylist:
           final List<Song> songs = _findSongs(action.query, limit: action.count ?? 30);
           final String name = (action.playlistName ?? '').trim().isEmpty
-              ? 'Lista IA ${DateTime.now().day}/${DateTime.now().month}'
+              ? UiStrings.loc.aiPlaylistDated('${DateTime.now().day}/${DateTime.now().month}')
               : action.playlistName!.trim();
           final Playlist created = await library.createPlaylist(
             name: name,
@@ -166,7 +166,7 @@ class ActionExecutor {
           );
           return ActionOutcome(
             action,
-            'Lista «${created.name}» creada con ${songs.length} canciones 📝',
+            UiStrings.loc.msgPlaylistCreatedWith(created.name, songs.length),
             songId: created.id,
           );
 
@@ -182,7 +182,7 @@ class ActionExecutor {
             return ActionOutcome(action, UiStrings.loc.msgNoSongsToAdd, ok: false);
           }
           playlist ??= await library.createPlaylist(
-            name: wanted.isEmpty ? 'Lista IA' : wanted,
+            name: wanted.isEmpty ? UiStrings.loc.aiPlaylistDefault : wanted,
             description: UiStrings.loc.aiCreatedBy,
             isAiGenerated: true,
           );
@@ -201,7 +201,7 @@ class ActionExecutor {
           return ActionOutcome(
             action,
             found.isEmpty
-                ? 'Sin resultados para «${action.query}».'
+                ? UiStrings.loc.msgNoResultsFor(action.query ?? '')
                 : UiStrings.loc.msgSearchResults('${found.length}', action.query ?? ''),
             ok: found.isNotEmpty,
           );
@@ -216,7 +216,7 @@ class ActionExecutor {
           await library.saveSong(updated);
           return ActionOutcome(
             action,
-            'Actualizado «${updated.title}»: ${_fieldLabel(action.field)} = ${action.value ?? ''} ✏️',
+            UiStrings.loc.msgSongUpdated(updated.title, _fieldLabel(action.field), action.value ?? ''),
             songId: song.id,
           );
 
@@ -280,7 +280,7 @@ class ActionExecutor {
       }
     } catch (error) {
       debugPrint('No se pudo ejecutar ${action.type}: $error');
-      return ActionOutcome(action, 'No pude ejecutar «${action.label}»: $error', ok: false);
+      return ActionOutcome(action, UiStrings.loc.msgActionFailed(action.label, '$error'), ok: false);
     }
   }
 

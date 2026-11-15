@@ -128,12 +128,13 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
     final LibraryProvider library = context.watch<LibraryProvider>();
     final Song? song = library.songById(widget.songId);
 
+    final AppLocalizations loc = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).coverEditorTitle),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Deshacer cambios',
+            tooltip: AppLocalizations.of(context).undoChanges,
             icon: const Icon(Icons.restart_alt),
             onPressed: () => _update(const CoverEditState()),
           ),
@@ -163,24 +164,24 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                           FilledButton.icon(
                             onPressed: _pickImage,
                             icon: const Icon(Icons.add_photo_alternate_outlined),
-                            label: const Text('Elegir imagen (PNG/JPG)'),
+                            label: Text(loc.pickImagePngJpg),
                           ),
-                        if (_source != null) ...<Widget>[                          _sectionTitle('Proporción'),
-                          _sectionTitle('Acciones rápidas'),
+                        if (_source != null) ...<Widget>[
+                          _sectionTitle(loc.quickActions),
                           Wrap(
                             spacing: 8,
                             runSpacing: 8,
                             children: <Widget>[
                               ActionChip(
                                 avatar: const Icon(Icons.rotate_right, size: 16),
-                                label: const Text('Rotar 90°'),
+                                label: Text(loc.rotate90),
                                 onPressed: () => _update(_state.copyWith(
                                       quarterTurns: (_state.quarterTurns + 1) % 4,
                                     )),
                               ),
                               ActionChip(
                                 avatar: const Icon(Icons.auto_fix_high, size: 16),
-                                label: const Text('Mejorar'),
+                                label: Text(loc.enhanceImage),
                                 onPressed: () => _update(_state.copyWith(
                                       brightness: 0.06,
                                       contrast: 0.14,
@@ -188,23 +189,27 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                               ),
                               ActionChip(
                                 avatar: const Icon(Icons.restart_alt, size: 16),
-                                label: const Text('Original'),
+                                label: Text(loc.originalImage),
                                 onPressed: () => _update(const CoverEditState()),
                               ),
                             ],
                           ),
-
+                          // El título va encima de sus botones (antes salía
+                          // pegado a "Acciones rápidas").
+                          _sectionTitle(loc.aspectRatioTitle),
                           Wrap(
                             spacing: 8,
                             children: CoverAspect.values.map((CoverAspect aspect) {
                               return ChoiceChip(
-                                label: Text(aspect.label),
+                                label: Text(aspect == CoverAspect.original
+                                    ? loc.originalImage
+                                    : aspect.label),
                                 selected: _state.aspect == aspect,
                                 onSelected: (_) => _update(_state.copyWith(aspect: aspect)),
                               );
                             }).toList(),
                           ),
-                          _sectionTitle('Rotación y encuadre'),
+                          _sectionTitle(loc.rotationFraming),
                           Row(
                             children: <Widget>[
                               OutlinedButton.icon(
@@ -225,63 +230,63 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                             ],
                           ),
                           _slider(
-                            label: 'Zoom',
+                            label: loc.zoomLabel,
                             value: _state.zoom,
                             min: 1,
                             max: 3,
                             onChanged: (double v) => _update(_state.copyWith(zoom: v)),
                           ),
                           _slider(
-                            label: 'Encuadre horizontal',
+                            label: loc.framingHorizontal,
                             value: _state.offsetX,
                             min: -1,
                             max: 1,
                             onChanged: (double v) => _update(_state.copyWith(offsetX: v)),
                           ),
                           _slider(
-                            label: 'Encuadre vertical',
+                            label: loc.framingVertical,
                             value: _state.offsetY,
                             min: -1,
                             max: 1,
                             onChanged: (double v) => _update(_state.copyWith(offsetY: v)),
                           ),
-                          _sectionTitle('Ajustes de imagen'),
+                          _sectionTitle(loc.imageAdjustments),
                           _slider(
-                            label: 'Brillo',
+                            label: loc.brightnessLabel,
                             value: _state.brightness,
                             min: -0.5,
                             max: 0.5,
                             onChanged: (double v) => _update(_state.copyWith(brightness: v)),
                           ),
                           _slider(
-                            label: 'Contraste',
+                            label: loc.contrastLabel,
                             value: _state.contrast,
                             min: -0.5,
                             max: 0.5,
                             onChanged: (double v) => _update(_state.copyWith(contrast: v)),
                           ),
                           _slider(
-                            label: 'Saturación',
+                            label: loc.saturationLabel,
                             value: _state.saturation,
                             min: -1,
                             max: 1,
                             onChanged: (double v) => _update(_state.copyWith(saturation: v)),
                           ),
                           _slider(
-                            label: 'Temperatura (frío ↔ cálido)',
+                            label: loc.temperatureLabel,
                             value: _state.temperature,
                             min: -1,
                             max: 1,
                             onChanged: (double v) => _update(_state.copyWith(temperature: v)),
                           ),
                           _slider(
-                            label: 'Velo / desvanecido',
+                            label: loc.fadeVeil,
                             value: _state.fade,
                             min: 0,
                             max: 0.6,
                             onChanged: (double v) => _update(_state.copyWith(fade: v)),
                           ),
-                          _sectionTitle('Filtros'),
+                          _sectionTitle(loc.coverFiltersTitle),
                           Wrap(
                             spacing: 8,
                             runSpacing: 4,
@@ -293,7 +298,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                               );
                             }).toList(),
                           ),
-                          _sectionTitle('Texto o logo'),
+                          _sectionTitle(loc.textOrLogo),
                           TextField(
                             controller: _textController,
                             decoration: InputDecoration(
@@ -308,7 +313,11 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                             children: <Widget>[
                               for (final CoverTextPosition position in CoverTextPosition.values)
                                 ChoiceChip(
-                                  label: Text(position.name),
+                                  label: Text(switch (position) {
+                                    CoverTextPosition.arriba => loc.positionTop,
+                                    CoverTextPosition.centro => loc.positionCenter,
+                                    CoverTextPosition.abajo => loc.positionBottom,
+                                  }),
                                   selected: _state.textPosition == position,
                                   onSelected: (_) =>
                                       _update(_state.copyWith(textPosition: position)),
@@ -344,7 +353,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                             }).toList(),
                           ),
                           _slider(
-                            label: 'Tamaño del texto',
+                            label: loc.textSizeLabel,
                             value: _state.textSize,
                             min: 0.6,
                             max: 1.8,
@@ -353,20 +362,20 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                           const SizedBox(height: 16),
                           FilledButton.icon(
                             onPressed: _rendering ? null : _applyToSong,
-                            icon: Icon(Icons.check),
+                            icon: const Icon(Icons.check),
                             label: Text(AppLocalizations.of(context).applyCoverToSong),
                           ),
                           const SizedBox(height: 8),
                           OutlinedButton.icon(
                             onPressed: _preview == null ? null : _exportToGallery,
-                            icon: Icon(Icons.ios_share),
+                            icon: const Icon(Icons.ios_share),
                             label: Text(AppLocalizations.of(context).exportToGallery),
                           ),
                           const SizedBox(height: 8),
                           OutlinedButton.icon(
                             onPressed: _pickImage,
                             icon: const Icon(Icons.image_search),
-                            label: const Text('Cambiar imagen base'),
+                            label: Text(loc.changeBaseImage),
                           ),
                         ],
                         if (song != null)
@@ -393,11 +402,11 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
       alignment: Alignment.center,
       child: preview == null
           ? Padding(
-              padding: EdgeInsets.all(24),
+              padding: const EdgeInsets.all(24),
               child: Text(
                 AppLocalizations.of(context).noImagePick,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white70),
+                style: const TextStyle(color: Colors.white70),
               ),
             )
           : GestureDetector(
@@ -504,7 +513,9 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          saved == null ? 'Exportación cancelada' : 'Carátula exportada a $saved',
+          saved == null
+              ? AppLocalizations.of(context).exportCancelled
+              : AppLocalizations.of(context).coverExportedTo(saved),
         ),
       ),
     );

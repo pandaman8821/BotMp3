@@ -180,7 +180,7 @@ class _TarjetaTema extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                 decoration: BoxDecoration(
                   color: tokens.surfaceHigh,
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
+                  borderRadius: const BorderRadius.vertical(bottom: Radius.circular(15)),
                 ),
                 child: Row(
                   children: <Widget>[

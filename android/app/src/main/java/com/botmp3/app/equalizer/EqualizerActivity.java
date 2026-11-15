@@ -1,4 +1,4 @@
-package com.example.botmp3.ui.fragments;
+package com.botmp3.app.equalizer;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:home_widget/home_widget.dart';
 
+import '../core/ui_strings.dart';
 import '../models/song.dart';
 
 /// Publica en el widget de inicio lo que esta sonando.
@@ -50,7 +51,7 @@ class WidgetService {
       );
       await HomeWidget.saveWidgetData<String>(
         'estado',
-        suena ? 'Sonando ahora' : 'En pausa',
+        suena ? UiStrings.loc.widgetNowPlaying : UiStrings.loc.widgetPaused,
       );
       await HomeWidget.updateWidget(androidName: _nombreAndroid);
     } catch (_) {

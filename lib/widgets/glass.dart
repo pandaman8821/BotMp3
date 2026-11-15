@@ -516,6 +516,8 @@ class _GlassNavBarState extends State<GlassNavBar> {
                         final double estirada = (cabeza - cola).abs().clamp(0.0, 1.0);
                         final double vertical = 3 + 4 * estirada;
                         return Positioned(
+                          // Lo usan las pruebas para seguir el indicador.
+                          key: const ValueKey<String>('glass-nav-indicator'),
                           left: izquierda,
                           width: derecha - izquierda,
                           top: vertical,

@@ -184,8 +184,8 @@ class LibraryProvider extends ChangeNotifier {
       liberado += await _purgeOrphanCovers();
 
       _scanMessage = liberado > 0
-          ? 'Liberados ${Formatters.bytes(liberado)}'
-              '${recuperadas > 0 ? ' · $recuperadas copias reemplazadas por el original' : ''}'
+          ? UiStrings.loc.freedSpace(Formatters.bytes(liberado)) +
+              (recuperadas > 0 ? UiStrings.loc.copiesReplaced(recuperadas) : '')
           : UiStrings.loc.scanNothingToFree;
       return liberado;
     } catch (error) {
@@ -293,7 +293,7 @@ class LibraryProvider extends ChangeNotifier {
       final List<Song> added = await _service.importScannedTracks(nuevas);
       _scanMessage = added.isEmpty
           ? UiStrings.loc.scanUpToDate(found.length)
-          : '${added.length} canciones nuevas de ${found.length}';
+          : UiStrings.loc.newSongsOf(added.length, found.length);
       if (added.isNotEmpty) {
         final Map<String, ScannedTrack> byId = <String, ScannedTrack>{
           for (final ScannedTrack track in tracks) track.songId: track,
@@ -303,7 +303,7 @@ class LibraryProvider extends ChangeNotifier {
       return added.length;
     } catch (error) {
       debugPrint('Error al escanear la biblioteca: $error');
-      _scanMessage = 'No se pudo escanear la biblioteca';
+      _scanMessage = UiStrings.loc.scanFailed;
       return 0;
     } finally {
       _scanning = false;
@@ -344,7 +344,7 @@ class LibraryProvider extends ChangeNotifier {
     }
     final List<String>? ids = await LibraryDatabase.buscarIds(consulta);
     if (generacion != _generacionBusqueda) return;
-    _candidatosSqlite = ids == null ? null : ids.toSet();
+    _candidatosSqlite = ids?.toSet();
     notifyListeners();
   }
 
@@ -470,7 +470,7 @@ class LibraryProvider extends ChangeNotifier {
       paths,
       onProgress: (int done, int total, String current) {
         _importProgress = total == 0 ? 0 : done / total;
-        _importMessage = 'Importando $done/$total…';
+        _importMessage = UiStrings.loc.importingProgress(done, total);
         notifyListeners();
       },
     );
@@ -629,7 +629,7 @@ class LibraryProvider extends ChangeNotifier {
   String get summaryLabel {
     final int total = _service.songs.length;
     final int genres = _service.songs.map((Song s) => s.genre).toSet().length;
-    return '$total canciones · $genres géneros · ${_service.playlists.length} listas';
+    return UiStrings.loc.libraryStatsLine(total, genres, _service.playlists.length);
   }
 
   /// Países/idiomas no aplican: se deja el catálogo listo para la IA.

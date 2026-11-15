@@ -1763,4 +1763,485 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get playerInfo => '詳細';
+
+  @override
+  String get nameLabel => '名前';
+
+  @override
+  String get filterAll => 'すべて';
+
+  @override
+  String get filterAny => '指定なし';
+
+  @override
+  String get tagsLabel => 'タグ';
+
+  @override
+  String get onlyFavorites => 'お気に入りのみ';
+
+  @override
+  String get applyFilters => 'フィルターを適用';
+
+  @override
+  String get importNoneNew => '新しい曲は追加されませんでした';
+
+  @override
+  String importedCount(int count) {
+    return '$count曲をインポートしました';
+  }
+
+  @override
+  String get optionsLabel => 'オプション';
+
+  @override
+  String get exitLabel => '終了';
+
+  @override
+  String get nothingPlaying => '再生中の曲はありません';
+
+  @override
+  String get playSomething => '何か再生しましょう';
+
+  @override
+  String formatSizeLine(String format, String size) {
+    return '形式: $format · $size';
+  }
+
+  @override
+  String get djNoSong => 'DJ に合う曲が見つかりませんでした';
+
+  @override
+  String nextUpSpoken(String title) {
+    return '次は $title';
+  }
+
+  @override
+  String get favoritesChip => 'お気に入り';
+
+  @override
+  String get interpreting => '解析中…';
+
+  @override
+  String get smartSearch => 'スマート検索';
+
+  @override
+  String get noSongsTitle => '曲がありません';
+
+  @override
+  String get noResultsTitle => '結果なし';
+
+  @override
+  String get searchImportHint => '検索するには音楽をインポートしてください。';
+
+  @override
+  String get searchNoResultsHint => '別の言葉を試すか、フィルターを外すか、スマート検索を使ってください。';
+
+  @override
+  String get searchFailed => '検索を完了できませんでした';
+
+  @override
+  String selectedCount(int count) {
+    return '$count件選択';
+  }
+
+  @override
+  String get libraryEmptyTitle => 'ライブラリは空です';
+
+  @override
+  String get libraryEmptyBody =>
+      '下のボタンから曲（MP3、M4A、OGG、FLAC、WAV…）をインポートしてください。\nBotMp3 は完全オフラインでも使えます。';
+
+  @override
+  String get filtersNoResultsHint => '別のフィルターや検索語を試してください。';
+
+  @override
+  String get allFilters => 'すべてのフィルター';
+
+  @override
+  String songsAndDuration(int count, String duration) {
+    return '$count曲 · $duration';
+  }
+
+  @override
+  String get playlistIsEmpty => 'プレイリストは空です';
+
+  @override
+  String get playlistExportedCopied => 'プレイリストを書き出し、JSON をクリップボードにコピーしました';
+
+  @override
+  String get invalidPlaylistFile => 'このファイルは有効な BotMp3 プレイリストではありません';
+
+  @override
+  String playlistImported(String name, int count) {
+    return 'プレイリスト「$name」をインポートしました（$count曲）';
+  }
+
+  @override
+  String get rankingTitle => 'ランキング';
+
+  @override
+  String get resetBtn => 'リセット';
+
+  @override
+  String get rankingWasReset => 'ランキングをリセットしました';
+
+  @override
+  String rankingError(String error) {
+    return 'ランキングのエラー: $error';
+  }
+
+  @override
+  String get periodAll => '全期間';
+
+  @override
+  String get periodMonth => '過去1か月';
+
+  @override
+  String get periodWeek => '過去1週間';
+
+  @override
+  String playsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count回再生',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String trendsIn(String country) {
+    return '🔥 $countryのトレンド';
+  }
+
+  @override
+  String get trendsShareHeader => '音楽トレンド 🔥';
+
+  @override
+  String get trendsChannelName => '音楽トレンド';
+
+  @override
+  String alreadyInLibrary(String artist) {
+    return '$artist · ライブラリにあります';
+  }
+
+  @override
+  String get undoChanges => '変更を元に戻す';
+
+  @override
+  String get pickImagePngJpg => '画像を選択（PNG/JPG）';
+
+  @override
+  String get quickActions => 'クイック操作';
+
+  @override
+  String get rotate90 => '90°回転';
+
+  @override
+  String get enhanceImage => '補正';
+
+  @override
+  String get originalImage => '元の画像';
+
+  @override
+  String get rotationFraming => '回転と構図';
+
+  @override
+  String get zoomLabel => 'ズーム';
+
+  @override
+  String get framingHorizontal => '横の位置';
+
+  @override
+  String get framingVertical => '縦の位置';
+
+  @override
+  String get imageAdjustments => '画像の調整';
+
+  @override
+  String get brightnessLabel => '明るさ';
+
+  @override
+  String get contrastLabel => 'コントラスト';
+
+  @override
+  String get saturationLabel => '彩度';
+
+  @override
+  String get temperatureLabel => '色温度（寒色 ↔ 暖色）';
+
+  @override
+  String get fadeVeil => 'ベール / フェード';
+
+  @override
+  String get textOrLogo => 'テキストまたはロゴ';
+
+  @override
+  String get textSizeLabel => '文字サイズ';
+
+  @override
+  String get changeBaseImage => 'ベース画像を変更';
+
+  @override
+  String coverExportedTo(String path) {
+    return 'カバーを $path に書き出しました';
+  }
+
+  @override
+  String get testVoice => '音声をテスト';
+
+  @override
+  String get restoreBtn => '復元';
+
+  @override
+  String get deleteLibraryTitle => 'ライブラリを削除';
+
+  @override
+  String get deleteAllBtn => 'すべて削除';
+
+  @override
+  String get titleRequired => 'タイトルは必須です';
+
+  @override
+  String get artistRequired => 'アーティストは必須です';
+
+  @override
+  String get invalidYear => '無効な年です';
+
+  @override
+  String get tagsWrittenToFile => 'タグをファイルに書き込みました';
+
+  @override
+  String get tagsAppOnly => 'この形式はタグを書き込めないため、アプリ内にのみ保存しました';
+
+  @override
+  String get msgPaused => '一時停止中 ⏸️';
+
+  @override
+  String msgVolumeAt(int percent) {
+    return '音量 $percent%';
+  }
+
+  @override
+  String msgSpeedAt(String speed) {
+    return '速度 ${speed}x ⏩';
+  }
+
+  @override
+  String get msgShuffleOn => 'シャッフル オン 🔀';
+
+  @override
+  String get msgShuffleOff => 'シャッフル オフ';
+
+  @override
+  String get msgRepeatAll => 'キュー全体をリピート 🔁';
+
+  @override
+  String aiPlaylistDated(String date) {
+    return 'AI プレイリスト $date';
+  }
+
+  @override
+  String msgPlaylistCreatedWith(String name, int count) {
+    return 'プレイリスト「$name」を$count曲で作成しました 📝';
+  }
+
+  @override
+  String msgNoResultsFor(String query) {
+    return '「$query」の結果はありません。';
+  }
+
+  @override
+  String msgSongUpdated(String title, String field, String value) {
+    return '「$title」を更新: $field = $value ✏️';
+  }
+
+  @override
+  String msgActionFailed(String action, String error) {
+    return '「$action」を実行できませんでした: $error';
+  }
+
+  @override
+  String aiErrNoConnection(String provider, String error) {
+    return '$provider に接続できません（$error）';
+  }
+
+  @override
+  String aiErrUnexpected(String provider) {
+    return '$provider から予期しない応答がありました';
+  }
+
+  @override
+  String aiErrInvalid(String provider) {
+    return '$provider から無効な応答が返されました';
+  }
+
+  @override
+  String aiErrNoReply(String provider) {
+    return '$provider から回答がありませんでした';
+  }
+
+  @override
+  String aiErrEmpty(String provider) {
+    return '$provider から空の回答が返されました';
+  }
+
+  @override
+  String aiErrRejected(String provider, String detail) {
+    return '$provider にリクエストを拒否されました: $detail';
+  }
+
+  @override
+  String aiErrAuth(String provider) {
+    return '$provider の API キーが無効か、権限がありません。';
+  }
+
+  @override
+  String aiErrBalance(String provider) {
+    return '$provider の残高が不足しています。アカウントにチャージしてください。';
+  }
+
+  @override
+  String aiErrModel(String model, String provider) {
+    return 'モデル「$model」は $provider で利用できません。';
+  }
+
+  @override
+  String aiErrRate(String provider) {
+    return '$provider へのリクエストが多すぎます。数秒待ってください。';
+  }
+
+  @override
+  String aiErrStatus(int status, String provider, String detail) {
+    return '$provider エラー $status: $detail';
+  }
+
+  @override
+  String aiMissingKey(String provider) {
+    return '$provider の API キーがありません。';
+  }
+
+  @override
+  String aiTesting(String provider) {
+    return '$provider をテスト中…';
+  }
+
+  @override
+  String aiThinking(String provider) {
+    return '$provider が考えています…';
+  }
+
+  @override
+  String aiUnexpectedError(String error) {
+    return '予期しないエラー: $error';
+  }
+
+  @override
+  String aiExecuting(String text) {
+    return '実行中: $text';
+  }
+
+  @override
+  String get aiLookingRecs => 'おすすめを探しています…';
+
+  @override
+  String get aiComposingIdea => 'アイデアを作曲中…';
+
+  @override
+  String aiIdeaCreated(String title, String genre, int bpm) {
+    return '🎼 アイデアを作成: **$title**（$genre、$bpm BPM）';
+  }
+
+  @override
+  String get aiGeneratorPrompt => '生成ツール用プロンプト';
+
+  @override
+  String get aiGeneratedPlaylist => 'AI が作成';
+
+  @override
+  String get chatExportHeader => 'BotMp3 AI との会話';
+
+  @override
+  String get chatMe => '自分';
+
+  @override
+  String get chatAi => 'AI';
+
+  @override
+  String get inYourLibrary => 'ライブラリにあります';
+
+  @override
+  String freedSpace(String size) {
+    return '$size を解放しました';
+  }
+
+  @override
+  String copiesReplaced(int count) {
+    return ' · $count件のコピーを元のファイルに置き換えました';
+  }
+
+  @override
+  String newSongsOf(int added, int found) {
+    return '$found曲中 $added曲が新規';
+  }
+
+  @override
+  String get scanFailed => 'ライブラリをスキャンできませんでした';
+
+  @override
+  String importingProgress(int done, int total) {
+    return 'インポート中 $done/$total…';
+  }
+
+  @override
+  String libraryStatsLine(int songs, int genres, int lists) {
+    return '$songs曲 · $genresジャンル · $listsプレイリスト';
+  }
+
+  @override
+  String saveFileTitle(String file) {
+    return '$file を保存';
+  }
+
+  @override
+  String get widgetNowPlaying => '再生中';
+
+  @override
+  String get widgetPaused => '一時停止中';
+
+  @override
+  String get aspectRatioTitle => '縦横比';
+
+  @override
+  String get coverFiltersTitle => 'フィルター';
+
+  @override
+  String get filterBlackWhite => 'モノクロ';
+
+  @override
+  String get filterVintage => 'ヴィンテージ';
+
+  @override
+  String get filterWarm => '暖色';
+
+  @override
+  String get filterCool => '寒色';
+
+  @override
+  String get filterDramatic => 'ドラマチック';
+
+  @override
+  String get filterFaded => '退色';
+
+  @override
+  String get filterVivid => 'ビビッド';
+
+  @override
+  String get positionTop => '上';
+
+  @override
+  String get positionCenter => '中央';
+
+  @override
+  String get positionBottom => '下';
 }

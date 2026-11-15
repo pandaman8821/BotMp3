@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../../core/constants.dart';
+import '../../core/ui_strings.dart';
+import '../../l10n/app_localizations.dart';
 import '../../models/ai_models.dart';
 
 // Implementaciones por proveedor (misma librería para compartir utilidades).
@@ -69,7 +71,7 @@ abstract class AiClient {
           )
           .timeout(timeout);
     } catch (error) {
-      throw AiRequestException('Sin conexión con ${provider.label} ($error)');
+      throw AiRequestException(UiStrings.loc.aiErrNoConnection(provider.label, '$error'));
     }
 
     final String raw = response.body;
@@ -77,9 +79,9 @@ abstract class AiClient {
       try {
         final dynamic decoded = jsonDecode(raw);
         if (decoded is Map<String, dynamic>) return decoded;
-        throw AiRequestException('Respuesta inesperada de ${provider.label}');
+        throw AiRequestException(UiStrings.loc.aiErrUnexpected(provider.label));
       } on FormatException {
-        throw AiRequestException('${provider.label} devolvió una respuesta no válida');
+        throw AiRequestException(UiStrings.loc.aiErrInvalid(provider.label));
       }
     }
 
@@ -91,20 +93,21 @@ abstract class AiClient {
 
   String _translateError(int status, String raw) {
     final String detail = _extractApiMessage(raw);
+    final AppLocalizations loc = UiStrings.loc;
     switch (status) {
       case 400:
-        return 'Solicitud rechazada por ${provider.label}: $detail';
+        return loc.aiErrRejected(provider.label, detail);
       case 401:
       case 403:
-        return 'API key de ${provider.label} inválida o sin permisos.';
+        return loc.aiErrAuth(provider.label);
       case 402:
-        return 'Saldo insuficiente en ${provider.label}. Recarga tu cuenta.';
+        return loc.aiErrBalance(provider.label);
       case 404:
-        return 'Modelo "$model" no disponible en ${provider.label}.';
+        return loc.aiErrModel(model, provider.label);
       case 429:
-        return 'Demasiadas peticiones a ${provider.label}. Espera unos segundos.';
+        return loc.aiErrRate(provider.label);
       default:
-        return 'Error ${status} de ${provider.label}: $detail';
+        return loc.aiErrStatus(status, provider.label, detail);
     }
   }
 

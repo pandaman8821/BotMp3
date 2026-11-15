@@ -1,32 +1,35 @@
-import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:image/image.dart' as img;
 
+import '../core/ui_strings.dart';
+import '../l10n/app_localizations.dart';
 import 'storage_service.dart';
 
 /// Filtros rápidos aplicables a la carátula.
 enum CoverFilter { none, blancoYNegro, vintage, calido, frio, dramatico, desvanecido, vivo }
 
 extension CoverFilterInfo on CoverFilter {
+  /// Nombre traducido al idioma activo de la app.
   String get label {
+    final AppLocalizations loc = UiStrings.loc;
     switch (this) {
       case CoverFilter.none:
-        return 'Original';
+        return loc.originalImage;
       case CoverFilter.blancoYNegro:
-        return 'Blanco y negro';
+        return loc.filterBlackWhite;
       case CoverFilter.vintage:
-        return 'Vintage';
+        return loc.filterVintage;
       case CoverFilter.calido:
-        return 'Cálido';
+        return loc.filterWarm;
       case CoverFilter.frio:
-        return 'Frío';
+        return loc.filterCool;
       case CoverFilter.dramatico:
-        return 'Dramático';
+        return loc.filterDramatic;
       case CoverFilter.desvanecido:
-        return 'Desvanecido';
+        return loc.filterFaded;
       case CoverFilter.vivo:
-        return 'Vivo';
+        return loc.filterVivid;
     }
   }
 }
