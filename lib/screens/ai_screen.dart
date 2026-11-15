@@ -1,5 +1,6 @@
 import '../l10n/app_localizations.dart';
 import '../widgets/modern_app_bar.dart';
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -37,8 +38,17 @@ class _AiScreenState extends State<AiScreen> {
   final ScrollController _scrollController = ScrollController();
 
   bool _listening = false;
-  AiActionResult? _lastResult;
-  AiSongIdea? _lastIdea;
+
+  /// Lleva la conversación al final (tras reservar un turno nuevo).
+  Future<void> _bajarAlFinal() async {
+    await Future<void>.delayed(const Duration(milliseconds: 60));
+    if (!mounted || !_scrollController.hasClients) return;
+    await _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      duration: Motion.ajustar(const Duration(milliseconds: 250)),
+      curve: Curves.easeOut,
+    );
+  }
 
   @override
   void initState() {
@@ -134,15 +144,21 @@ class _AiScreenState extends State<AiScreen> {
           ),
           if (ai.busy) const LinearProgressIndicator(minHeight: 2),
           Expanded(
-            child: ai.messages.isEmpty && _lastResult == null
+            child: ai.messages.isEmpty
                 ? _emptyState(context)
                 : ListView(
                     controller: _scrollController,
                     padding: const EdgeInsets.fromLTRB(12, 4, 12, 16),
                     children: <Widget>[
-                      ...ai.messages.map((AiMessage message) => _bubble(context, message, ai)),
-                      if (_lastResult != null) _resultCard(context, _lastResult!, ai, library),
-                      if (_lastIdea != null) _ideaCard(context, _lastIdea!),
+                      // Orden de ejecución: cada mensaje y, justo debajo, la
+                      // tarjeta que produjo (antes las tarjetas iban fijas al
+                      // final y se mezclaban con mensajes posteriores).
+                      for (final AiMessage message in ai.messages) ...<Widget>[
+                        _bubble(context, message, ai),
+                        if (ai.resultadoDe(message.id) != null)
+                          _resultCard(context, ai.resultadoDe(message.id)!, ai, library, message.id!),
+                        if (ai.ideaDe(message.id) != null) _ideaCard(context, ai.ideaDe(message.id)!),
+                      ],
                     ],
                   ),
           ),
@@ -259,13 +275,33 @@ class _AiScreenState extends State<AiScreen> {
                   ],
                 ),
               ),
-            SelectableText(
-              // El texto de la IA se muestra limpio: sin markdown ni bloques
-              // internos de órdenes, y con tono de conversación.
-              texto,
-              style: const TextStyle(fontSize: 14.5, height: 1.35),
-            ),
-            if (!isUser && !message.error)
+            if (message.pending)
+              // Hueco reservado: la respuesta llegará exactamente aquí.
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  SizedBox(
+                    width: 14,
+                    height: 14,
+                    child: CircularProgressIndicator(strokeWidth: 2, color: AppColors.aiCyan),
+                  ),
+                  const SizedBox(width: 10),
+                  Flexible(
+                    child: Text(
+                      loc.aiThinking(message.provider?.label ?? loc.chatAi),
+                      style: TextStyle(fontSize: 13.5, color: AppColors.darkTextDim),
+                    ),
+                  ),
+                ],
+              )
+            else
+              SelectableText(
+                // El texto de la IA se muestra limpio: sin markdown ni bloques
+                // internos de órdenes, y con tono de conversación.
+                texto,
+                style: const TextStyle(fontSize: 14.5, height: 1.35),
+              ),
+            if (!isUser && !message.error && !message.pending)
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
@@ -313,6 +349,7 @@ class _AiScreenState extends State<AiScreen> {
     AiActionResult result,
     AiAssistantProvider ai,
     LibraryProvider library,
+    String mensajeId,
   ) {
     final PlayerProvider player = context.read<PlayerProvider>();
     final List<Song> localSongs = result.suggestions
@@ -467,7 +504,7 @@ class _AiScreenState extends State<AiScreen> {
             Align(
               alignment: Alignment.centerLeft,
               child: TextButton.icon(
-                onPressed: () => setState(() => _lastResult = null),
+                onPressed: () => ai.ocultarResultado(mensajeId),
                 icon: const Icon(Icons.close, size: 16),
                 label: Text(AppLocalizations.of(context).aiHide),
               ),
@@ -695,13 +732,19 @@ class _AiScreenState extends State<AiScreen> {
           }),
           _action(AppLocalizations.of(context).recommendMe, Icons.auto_awesome, () async {
             if (!await _asegurarConsentimiento(ai)) return;
-            final AiActionResult? result = await ai.recommend(
-              _controller.text.trim().isEmpty
-                  ? 'Algo que encaje con lo que suelo escuchar'
-                  : _controller.text.trim(),
+            if (!context.mounted) return;
+            final AppLocalizations loc = AppLocalizations.of(context);
+            final String escrito = _controller.text.trim();
+            _controller.clear();
+            final Future<AiActionResult?> pedido = ai.recommend(
+              escrito.isEmpty ? 'Algo que encaje con lo que suelo escuchar' : escrito,
               currentPlaylist: player.queue.take(10).toList(),
+              // Lo que se ve en el chat como petición del usuario.
+              peticion: escrito.isEmpty ? '✨ ${loc.recommendMe}' : '✨ ${loc.recommendMe}: $escrito',
             );
-            if (mounted) setState(() => _lastResult = result);
+            unawaited(_bajarAlFinal());
+            await pedido;
+            unawaited(_bajarAlFinal());
           }),
 
           _action(AppLocalizations.of(context).aiDj, Icons.graphic_eq, () async {
@@ -709,17 +752,32 @@ class _AiScreenState extends State<AiScreen> {
             if (current == null) return;
             if (!await _asegurarConsentimiento(ai)) return;
             if (!context.mounted) return;
-            final AiActionResult? result = await ai.djNext(current, player.recentlyPlayed, sesion: context.read<SettingsProvider>().sesion);
-            if (!mounted) return;
-            setState(() => _lastResult = result);
+            final Future<AiActionResult?> pedido = ai.djNext(
+              current,
+              player.recentlyPlayed,
+              sesion: context.read<SettingsProvider>().sesion,
+              // Desde el chat el DJ deja su turno en la conversación.
+              peticion: '🎧 ${AppLocalizations.of(context).aiDj}: ${current.title}',
+            );
+            unawaited(_bajarAlFinal());
+            await pedido;
+            unawaited(_bajarAlFinal());
           }),
           _action(AppLocalizations.of(context).createSong, Icons.music_note, () async {
-            final String description = _controller.text.trim().isEmpty
-                ? 'Una cumbia alegre sobre Bolivia con sintetizadores'
-                : _controller.text.trim();
+            final String escrito = _controller.text.trim();
+            final String description =
+                escrito.isEmpty ? 'Una cumbia alegre sobre Bolivia con sintetizadores' : escrito;
             if (!await _asegurarConsentimiento(ai)) return;
-            final AiSongIdea? idea = await ai.songIdea(description);
-            if (mounted) setState(() => _lastIdea = idea);
+            if (!context.mounted) return;
+            final AppLocalizations loc = AppLocalizations.of(context);
+            _controller.clear();
+            final Future<AiSongIdea?> pedido = ai.songIdea(
+              description,
+              peticion: escrito.isEmpty ? '🎼 ${loc.createSong}' : '🎼 ${loc.createSong}: $escrito',
+            );
+            unawaited(_bajarAlFinal());
+            await pedido;
+            unawaited(_bajarAlFinal());
           }),
         ],
       ),
@@ -805,7 +863,9 @@ class _AiScreenState extends State<AiScreen> {
             IconButton.filled(
               tooltip: AppLocalizations.of(context).aiSend,
               icon: const Icon(Icons.send),
-              onPressed: ai.busy ? null : () => _send(ai, settings),
+              // Se puede escribir mientras la IA piensa: la pregunta nueva
+              // espera su turno y su respuesta saldrá en orden.
+              onPressed: () => _send(ai, settings),
             ),
           ],
         ),
@@ -818,24 +878,21 @@ class _AiScreenState extends State<AiScreen> {
     if (text.isEmpty) return;
     if (ai.hasActiveKey && !await _asegurarConsentimiento(ai)) return;
     _controller.clear();
-    await ai.send(
+    // `send` reserva el turno al instante y devuelve la respuesta cuando llega
+    // (las peticiones se atienden en el orden en que se escribieron).
+    final Future<String?> pedido = ai.send(
       text,
       extraContext: settings.autoDj ? 'Modo DJ IA activado.' : null,
       speakReply: settings.ttsEnabled,
     );
-    if (settings.ttsEnabled && ai.messages.isNotEmpty) {
-      await VoiceService.instance.speak(ai.messages.last.content);
+    unawaited(_bajarAlFinal());
+    final String? respuesta = await pedido;
+    // Se lee la respuesta a ESTA pregunta (antes se leía el último mensaje
+    // del chat, que podía ser de otra petición).
+    if (settings.ttsEnabled && respuesta != null && respuesta.isNotEmpty) {
+      await VoiceService.instance.speak(textoHumano(respuesta));
     }
-    if (mounted) {
-      await Future<void>.delayed(const Duration(milliseconds: 120));
-      if (_scrollController.hasClients) {
-        await _scrollController.animateTo(
-          _scrollController.position.maxScrollExtent,
-          duration: const Duration(milliseconds: 250),
-          curve: Curves.easeOut,
-        );
-      }
-    }
+    unawaited(_bajarAlFinal());
   }
 
   Future<void> _toggleListening(AiAssistantProvider ai, SettingsProvider settings) async {

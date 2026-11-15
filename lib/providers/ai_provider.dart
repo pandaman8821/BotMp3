@@ -4,6 +4,8 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
+import '../core/fila_tareas.dart';
+
 import '../core/constants.dart';
 import '../models/ai_models.dart';
 import '../models/playlist.dart';
@@ -41,6 +43,66 @@ class AiAssistantProvider extends ChangeNotifier {
   List<ActionOutcome> _lastOutcomes = <ActionOutcome>[];
   bool _executing = false;
 
+  // ------------------------------------------------------- orden del chat
+  //
+  // Cada petición del chat RESERVA su turno al pulsarla (mensaje del usuario
+  // + hueco "pensando…") y se ejecuta en una fila, de una en una. Así, aunque
+  // se pidan varias cosas seguidas, cada respuesta aparece justo debajo de lo
+  // que la provocó y en el orden en que se pidió (antes cada respuesta se
+  // añadía al final cuando llegaba y el chat se mezclaba).
+
+  final FilaDeTareas _fila = FilaDeTareas();
+  int _secuencia = 0;
+  final Map<String, AiActionResult> _resultados = <String, AiActionResult>{};
+  final Map<String, AiSongIdea> _ideas = <String, AiSongIdea>{};
+
+  /// Tarjeta de recomendaciones asociada a un mensaje (si la hay).
+  AiActionResult? resultadoDe(String? id) => id == null ? null : _resultados[id];
+
+  /// Idea de canción asociada a un mensaje (si la hay).
+  AiSongIdea? ideaDe(String? id) => id == null ? null : _ideas[id];
+
+  void ocultarResultado(String id) {
+    if (_resultados.remove(id) != null) notifyListeners();
+  }
+
+  String _nuevoId() => 'm${DateTime.now().microsecondsSinceEpoch}_${_secuencia++}';
+
+  /// Ejecuta [tarea] cuando hayan terminado todas las anteriores del chat.
+  Future<T> _enFila<T>(Future<T> Function() tarea) => _fila.agregar<T>(tarea);
+
+  /// Añade lo que pidió el usuario y un hueco para la respuesta. Devuelve el
+  /// id del hueco.
+  String _reservarTurno(String peticion, AiProvider proveedor, String modelo) {
+    _messages.add(
+      AiMessage(id: _nuevoId(), role: 'user', content: peticion, createdAt: DateTime.now()),
+    );
+    final String hueco = _nuevoId();
+    _messages.add(
+      AiMessage(
+        id: hueco,
+        role: 'assistant',
+        content: '',
+        provider: proveedor,
+        model: modelo,
+        createdAt: DateTime.now(),
+        pending: true,
+      ),
+    );
+    notifyListeners();
+    return hueco;
+  }
+
+  /// Pone la respuesta en su hueco. Devuelve false si ya no existe (el usuario
+  /// borró la conversación mientras se esperaba).
+  bool _completarTurno(String hueco, AiMessage respuesta) {
+    final int i = _messages.indexWhere((AiMessage m) => m.id == hueco);
+    if (i < 0) return false;
+    _messages[i] = respuesta.copyWith(id: hueco, pending: false);
+    notifyListeners();
+    return true;
+  }
+
   List<AiMessage> get messages => List<AiMessage>.unmodifiable(_messages);
   bool get busy => _busy;
   String? get lastError => _lastError;
@@ -76,14 +138,21 @@ class AiAssistantProvider extends ChangeNotifier {
     _messages
       ..clear()
       ..addAll(
-        raw.whereType<Map<String, dynamic>>().map(AiMessage.fromJson),
+        raw
+            .whereType<Map<String, dynamic>>()
+            .map(AiMessage.fromJson)
+            // Historiales antiguos no tenían id: se les asigna uno.
+            .map((AiMessage m) => m.id == null ? m.copyWith(id: _nuevoId()) : m),
       );
   }
 
   Future<void> _persistHistory() async {
     await _storage.writeJson(
       StorageKeys.aiChat,
-      _messages.map((AiMessage message) => message.toJson()).toList(),
+      _messages
+          .where((AiMessage message) => !message.pending)
+          .map((AiMessage message) => message.toJson())
+          .toList(),
     );
   }
 
@@ -189,18 +258,20 @@ class AiAssistantProvider extends ChangeNotifier {
 
   // ------------------------------------------------------------------ chat
 
-  Future<void> send(
+  /// Envía un mensaje al chat. Devuelve el texto de la respuesta (o null).
+  Future<String?> send(
     String text, {
     String? extraContext,
     bool speakReply = false,
   }) async {
     final String clean = text.trim();
-    if (clean.isEmpty) return;
+    if (clean.isEmpty) return null;
 
     final AiOrchestrator? orchestrator = buildOrchestrator();
     if (orchestrator == null) {
       _messages.add(
         AiMessage(
+          id: _nuevoId(),
           role: 'assistant',
           content: _lastError ?? UiStrings.loc.aiNeedKey,
           createdAt: DateTime.now(),
@@ -208,54 +279,63 @@ class AiAssistantProvider extends ChangeNotifier {
         ),
       );
       notifyListeners();
-      return;
+      return null;
     }
 
-    _messages.add(
-      AiMessage(role: 'user', content: clean, createdAt: DateTime.now()),
-    );
-    _setBusy(true, UiStrings.loc.aiThinking(activeProvider.label));
+    final AiProvider proveedor = activeProvider;
+    final String modelo = activeModel;
+    // El turno se reserva YA, en el orden en que el usuario escribe.
+    final String hueco = _reservarTurno(clean, proveedor, modelo);
     await _persistHistory();
 
-    try {
-      final List<AiMessage> history = _messages
-          .where((AiMessage message) => !message.error)
-          .toList()
-          .reversed
-          .take(16)
-          .toList()
-          .reversed
-          .toList();
-      final String reply = await orchestrator.chat(history, extraContext: extraContext);
-      _messages.add(
-        AiMessage(
-          role: 'assistant',
-          content: reply,
-          provider: activeProvider,
-          model: activeModel,
-          createdAt: DateTime.now(),
-        ),
-      );
-      _lastError = null;
-      await _executeFromReply(reply, clean);
-    } catch (error) {
-      final String message =
-          error is AiRequestException ? error.message : UiStrings.loc.aiUnexpectedError('$error');
-      _lastError = message;
-      _messages.add(
-        AiMessage(
-          role: 'assistant',
-          content: message,
-          provider: activeProvider,
-          model: activeModel,
-          createdAt: DateTime.now(),
-          error: true,
-        ),
-      );
-    } finally {
-      await _persistHistory();
-      _setBusy(false, 'Listo');
-    }
+    return _enFila<String?>(() async {
+      _setBusy(true, UiStrings.loc.aiThinking(proveedor.label));
+      try {
+        // Contexto: solo lo que había ANTES de esta pregunta (no las
+        // preguntas que se escribieron después y aún esperan turno).
+        final int posicion = _messages.indexWhere((AiMessage m) => m.id == hueco);
+        final List<AiMessage> previos = (posicion < 0 ? _messages : _messages.sublist(0, posicion))
+            .where((AiMessage message) => !message.error && !message.pending)
+            .toList();
+        final List<AiMessage> history =
+            previos.length <= 16 ? previos : previos.sublist(previos.length - 16);
+        final String reply = await orchestrator.chat(history, extraContext: extraContext);
+        final bool colocada = _completarTurno(
+          hueco,
+          AiMessage(
+            role: 'assistant',
+            content: reply,
+            provider: proveedor,
+            model: modelo,
+            createdAt: DateTime.now(),
+          ),
+        );
+        if (!colocada) return null;
+        _lastError = null;
+        await _executeFromReply(reply, clean, despuesDe: hueco);
+        return reply;
+      } catch (error) {
+        final String message = error is AiRequestException
+            ? error.message
+            : UiStrings.loc.aiUnexpectedError('$error');
+        _lastError = message;
+        _completarTurno(
+          hueco,
+          AiMessage(
+            role: 'assistant',
+            content: message,
+            provider: proveedor,
+            model: modelo,
+            createdAt: DateTime.now(),
+            error: true,
+          ),
+        );
+        return null;
+      } finally {
+        await _persistHistory();
+        _setBusy(false, 'Listo');
+      }
+    });
   }
 
   // ------------------------------------------------------------------ acciones IA
@@ -264,13 +344,13 @@ class AiAssistantProvider extends ChangeNotifier {
 
   /// Ejecuta las órdenes que la IA incluyó en su respuesta y, si no hay
   /// ninguna, interpreta el mensaje del usuario con las reglas locales.
-  Future<void> _executeFromReply(String reply, String userText) async {
+  Future<void> _executeFromReply(String reply, String userText, {String? despuesDe}) async {
     final (String _, List<AiAction> fromAi) = AiActionParser.fromAiReply(reply);
     final List<AiAction> actions = fromAi.isNotEmpty
         ? fromAi
         : AiActionParser.fromNaturalLanguage(userText);
     if (actions.isEmpty) return;
-    await _runActions(actions);
+    await _runActions(actions, despuesDe: despuesDe);
   }
 
   /// Ejecuta una orden escrita en la barra de comandos ("hazlo ya").
@@ -308,7 +388,9 @@ class AiAssistantProvider extends ChangeNotifier {
     return _runActions(actions);
   }
 
-  Future<List<ActionOutcome>> _runActions(List<AiAction> actions) async {
+  /// Ejecuta las órdenes. El resumen "⚡" se coloca justo después del mensaje
+  /// [despuesDe] (la respuesta que las pidió), no al final del chat.
+  Future<List<ActionOutcome>> _runActions(List<AiAction> actions, {String? despuesDe}) async {
     final PlayerProvider? player = AiBridge.player;
     final SettingsProvider? settings = AiBridge.settings;
     if (player == null || settings == null) return <ActionOutcome>[];
@@ -326,14 +408,21 @@ class AiAssistantProvider extends ChangeNotifier {
           .where((ActionOutcome outcome) => outcome.message.isNotEmpty)
           .toList();
       if (_lastOutcomes.isNotEmpty) {
-        _messages.add(
-          AiMessage(
-            role: 'assistant',
-            content: '⚡ ${_lastOutcomes.map((ActionOutcome o) => o.message).join("\n")}',
-            provider: activeProvider,
-            createdAt: DateTime.now(),
-          ),
+        final AiMessage resumen = AiMessage(
+          id: _nuevoId(),
+          role: 'assistant',
+          content: '⚡ ${_lastOutcomes.map((ActionOutcome o) => o.message).join("\n")}',
+          provider: activeProvider,
+          createdAt: DateTime.now(),
         );
+        final int origen = despuesDe == null
+            ? -1
+            : _messages.indexWhere((AiMessage m) => m.id == despuesDe);
+        if (origen >= 0) {
+          _messages.insert(origen + 1, resumen);
+        } else {
+          _messages.add(resumen);
+        }
         await _persistHistory();
       }
       return _lastOutcomes;
@@ -359,26 +448,31 @@ class AiAssistantProvider extends ChangeNotifier {
   }
 
   /// Recomendaciones personalizadas según género, artista, mood o lista actual.
+  ///
+  /// [peticion] es lo que se muestra en el chat como mensaje del usuario.
   Future<AiActionResult?> recommend(
     String request, {
     List<Song> currentPlaylist = const <Song>[],
     int count = 10,
+    String? peticion,
   }) async {
     return _runAction(
       loadingLabel: UiStrings.loc.aiLookingRecs,
       action: (AiOrchestrator orchestrator) =>
           orchestrator.recommend(request: request, currentPlaylist: currentPlaylist, count: count),
       registerInChat: true,
+      peticion: peticion ?? request,
     );
   }
 
   /// Genera una lista de reproducción completa a partir de una petición.
-  Future<AiActionResult?> generatePlaylist(String request, {int count = 30}) async {
+  Future<AiActionResult?> generatePlaylist(String request, {int count = 30, String? peticion}) async {
     return _runAction(
       loadingLabel: UiStrings.loc.aiCreatingPlaylist(count),
       action: (AiOrchestrator orchestrator) =>
           orchestrator.generatePlaylist(request: request, count: count),
       registerInChat: true,
+      peticion: peticion ?? request,
     );
   }
 
@@ -392,44 +486,70 @@ class AiAssistantProvider extends ChangeNotifier {
   }
 
   /// Modo DJ IA: elige la siguiente canción y la explica.
-  Future<AiActionResult?> djNext(Song current, List<Song> recent, {String sesion = ''}) async {
+  ///
+  /// Desde el reproductor o la cola infinita no escribe en el chat; desde el
+  /// chat ([peticion] no nulo) reserva su turno como cualquier otra petición.
+  Future<AiActionResult?> djNext(
+    Song current,
+    List<Song> recent, {
+    String sesion = '',
+    String? peticion,
+  }) async {
     return _runAction(
       loadingLabel: UiStrings.loc.aiDjChoosing,
       action: (AiOrchestrator orchestrator) =>
           orchestrator.djNext(current: current, recentlyPlayed: recent, sesion: sesion),
-      registerInChat: false,
+      registerInChat: peticion != null,
+      peticion: peticion,
     );
   }
 
   /// Idea de canción nueva (letra + prompt para generadores).
-  Future<AiSongIdea?> songIdea(String description) async {
+  Future<AiSongIdea?> songIdea(String description, {String? peticion}) async {
     final AiOrchestrator? orchestrator = buildOrchestrator();
     if (orchestrator == null) {
       notifyListeners();
       return null;
     }
-    _setBusy(true, UiStrings.loc.aiComposingIdea);
-    try {
-      final AiSongIdea idea = await orchestrator.songIdea(description);
-      _messages.add(
-        AiMessage(
-          role: 'assistant',
-          content: '${UiStrings.loc.aiIdeaCreated(idea.title, idea.genre, idea.bpm)}\n\n'
-              '${idea.lyricSeed}\n\n${UiStrings.loc.aiGeneratorPrompt}:\n`${idea.generatorPrompt}`',
-          provider: activeProvider,
-          model: activeModel,
-          createdAt: DateTime.now(),
-        ),
-      );
-      await _persistHistory();
-      return idea;
-    } catch (error) {
-      _lastError = error is AiRequestException ? error.message : error.toString();
-      return null;
-    } finally {
-      _setBusy(false, 'Listo');
-    }
+    final AiProvider proveedor = activeProvider;
+    final String modelo = activeModel;
+    final String hueco = _reservarTurno(peticion ?? description, proveedor, modelo);
+    return _enFila<AiSongIdea?>(() async {
+      _setBusy(true, UiStrings.loc.aiComposingIdea);
+      try {
+        final AiSongIdea idea = await orchestrator.songIdea(description);
+        final bool colocada = _completarTurno(
+          hueco,
+          AiMessage(
+            role: 'assistant',
+            content: '${UiStrings.loc.aiIdeaCreated(idea.title, idea.genre, idea.bpm)}\n\n'
+                '${idea.lyricSeed}\n\n${UiStrings.loc.aiGeneratorPrompt}:\n`${idea.generatorPrompt}`',
+            provider: proveedor,
+            model: modelo,
+            createdAt: DateTime.now(),
+          ),
+        );
+        if (colocada) _ideas[hueco] = idea;
+        return idea;
+      } catch (error) {
+        _lastError = error is AiRequestException ? error.message : error.toString();
+        _completarTurno(hueco, _mensajeDeError(_lastError!, proveedor, modelo));
+        return null;
+      } finally {
+        await _persistHistory();
+        _setBusy(false, 'Listo');
+      }
+    });
   }
+
+  AiMessage _mensajeDeError(String texto, AiProvider proveedor, String modelo) => AiMessage(
+        role: 'assistant',
+        content: texto,
+        provider: proveedor,
+        model: modelo,
+        createdAt: DateTime.now(),
+        error: true,
+      );
 
   /// Crea una lista local a partir del resultado de la IA y devuelve la lista.
   Future<Playlist> createPlaylistFromAi(
@@ -454,6 +574,7 @@ class AiAssistantProvider extends ChangeNotifier {
     required String loadingLabel,
     required Future<AiActionResult> Function(AiOrchestrator orchestrator) action,
     required bool registerInChat,
+    String? peticion,
   }) async {
     final AiOrchestrator? orchestrator = buildOrchestrator();
     if (orchestrator == null) {
@@ -461,16 +582,36 @@ class AiAssistantProvider extends ChangeNotifier {
       return null;
     }
 
-    _setBusy(true, loadingLabel);
-    try {
-      final AiActionResult result = await action(orchestrator);
-      if (registerInChat) {
-        _messages.add(
+    // Fuera del chat (búsqueda, DJ del reproductor, cola infinita): se ejecuta
+    // al momento y no toca la conversación.
+    if (!registerInChat) {
+      _setBusy(true, loadingLabel);
+      try {
+        final AiActionResult result = await action(orchestrator);
+        _lastError = null;
+        return result;
+      } catch (error) {
+        _lastError = error is AiRequestException ? error.message : error.toString();
+        return null;
+      } finally {
+        _setBusy(false, 'Listo');
+      }
+    }
+
+    final AiProvider proveedor = activeProvider;
+    final String modelo = activeModel;
+    final String hueco = _reservarTurno(peticion ?? loadingLabel, proveedor, modelo);
+    return _enFila<AiActionResult?>(() async {
+      _setBusy(true, loadingLabel);
+      try {
+        final AiActionResult result = await action(orchestrator);
+        final bool colocada = _completarTurno(
+          hueco,
           AiMessage(
             role: 'assistant',
             content: result.text,
-            provider: activeProvider,
-            model: activeModel,
+            provider: proveedor,
+            model: modelo,
             createdAt: DateTime.now(),
             suggestedSongIds: result.suggestions
                 .map((AiSongSuggestion s) => s.localSongId ?? '')
@@ -478,20 +619,25 @@ class AiAssistantProvider extends ChangeNotifier {
                 .toList(),
           ),
         );
+        // La tarjeta va pegada a SU mensaje, no al final del chat.
+        if (colocada) _resultados[hueco] = result;
+        _lastError = null;
+        return result;
+      } catch (error) {
+        _lastError = error is AiRequestException ? error.message : error.toString();
+        _completarTurno(hueco, _mensajeDeError(_lastError!, proveedor, modelo));
+        return null;
+      } finally {
         await _persistHistory();
+        _setBusy(false, 'Listo');
       }
-      _lastError = null;
-      return result;
-    } catch (error) {
-      _lastError = error is AiRequestException ? error.message : error.toString();
-      return null;
-    } finally {
-      _setBusy(false, 'Listo');
-    }
+    });
   }
 
   void clearHistory() {
     _messages.clear();
+    _resultados.clear();
+    _ideas.clear();
     _persistHistory();
     notifyListeners();
   }
@@ -499,7 +645,7 @@ class AiAssistantProvider extends ChangeNotifier {
   /// Exporta la conversación como texto legible.
   String exportConversation() {
     final StringBuffer buffer = StringBuffer('${UiStrings.loc.chatExportHeader}\n\n');
-    for (final AiMessage message in _messages) {
+    for (final AiMessage message in _messages.where((AiMessage m) => !m.pending)) {
       buffer.writeln('${message.isUser ? UiStrings.loc.chatMe : UiStrings.loc.chatAi}: ${message.content}\n');
     }
     return buffer.toString();
@@ -507,9 +653,9 @@ class AiAssistantProvider extends ChangeNotifier {
 
   /// Texto compacto de la conversación reciente (contexto para la IA).
   String recentContext({int turns = 6}) {
-    final List<AiMessage> recent = _messages.length <= turns
-        ? _messages
-        : _messages.sublist(_messages.length - turns);
+    final List<AiMessage> listos = _messages.where((AiMessage m) => !m.pending).toList();
+    final List<AiMessage> recent =
+        listos.length <= turns ? listos : listos.sublist(listos.length - turns);
     return recent
         .map((AiMessage message) => '${message.isUser ? 'Usuario' : 'IA'}: ${message.content}')
         .join('\n');
@@ -523,5 +669,8 @@ class AiAssistantProvider extends ChangeNotifier {
 
   /// Guarda el historial en un JSON exportable.
   String exportHistoryJson() =>
-      jsonEncode(_messages.map((AiMessage message) => message.toJson()).toList());
+      jsonEncode(_messages
+          .where((AiMessage message) => !message.pending)
+          .map((AiMessage message) => message.toJson())
+          .toList());
 }

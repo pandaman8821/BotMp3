@@ -11,6 +11,8 @@ class AiMessage {
     this.createdAt,
     this.suggestedSongIds = const <String>[],
     this.error = false,
+    this.id,
+    this.pending = false,
   });
 
   /// 'system' | 'user' | 'assistant'
@@ -25,25 +27,39 @@ class AiMessage {
 
   final bool error;
 
+  /// Identificador estable dentro de la conversación: permite colocar la
+  /// respuesta en el hueco que se reservó al pedirla.
+  final String? id;
+
+  /// Respuesta reservada que aún no ha llegado ("pensando…"). Nunca se guarda.
+  final bool pending;
+
   bool get isUser => role == 'user';
 
   AiMessage copyWith({
     String? content,
     List<String>? suggestedSongIds,
     bool? error,
+    String? id,
+    bool? pending,
+    AiProvider? provider,
+    String? model,
   }) {
     return AiMessage(
       role: role,
       content: content ?? this.content,
-      provider: provider,
-      model: model,
+      provider: provider ?? this.provider,
+      model: model ?? this.model,
       createdAt: createdAt,
       suggestedSongIds: suggestedSongIds ?? this.suggestedSongIds,
       error: error ?? this.error,
+      id: id ?? this.id,
+      pending: pending ?? this.pending,
     );
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
+        if (id != null) 'id': id,
         'role': role,
         'content': content,
         'provider': provider?.id,
@@ -70,6 +86,7 @@ class AiMessage {
           .map((dynamic id) => id.toString())
           .toList(),
       error: json['error'] == true,
+      id: json['id']?.toString(),
     );
   }
 }
