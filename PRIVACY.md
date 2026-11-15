@@ -1,51 +1,87 @@
-# Privacidad de BotMp3
+# Política de privacidad de BotMp3
 
-**Resumen: BotMp3 no recopila nada.** No hay cuentas, ni anuncios, ni analítica, ni
-rastreadores. Todo lo que hace la app ocurre en tu dispositivo, salvo las conexiones que
-tú mismo actives.
+*Última actualización: 15 de noviembre de 2026 · Versión de la app: 1.9.126 o posterior*
 
-## Qué se guarda y dónde
+**Resumen:** BotMp3 es un reproductor de música local. No tiene cuentas, ni anuncios, ni
+analítica, ni rastreadores. Tu música y tus datos se quedan en tu dispositivo. Solo sale
+información hacia internet cuando **tú** usas una función que lo necesita, y nunca se envía
+el audio de tus canciones.
 
-| Dato | Dónde vive | Sale del dispositivo |
+## 1. Qué se guarda y dónde
+
+| Dato | Dónde se guarda | ¿Sale del dispositivo? |
 |---|---|---|
 | Biblioteca (canciones, metadatos, etiquetas) | Almacenamiento privado de la app | No |
 | Listas de reproducción y favoritos | Almacenamiento privado de la app | No |
-| Historial de reproducciones (ranking) | Almacenamiento privado de la app | No |
+| Historial de reproducciones (ranking y estadísticas) | Almacenamiento privado de la app | No |
 | Carátulas (originales y editadas) | Almacenamiento privado de la app | No |
-| Ajustes (tema, cristal, tendencias…) | Almacenamiento privado de la app | No |
-| **Claves de API de IA** | Cifradas con el **Android Keystore** | No |
+| Conversación con la IA | Almacenamiento privado de la app | Solo al proveedor de IA (ver punto 2) |
+| Ajustes (tema, cristal, tendencias, ecualizador…) | Almacenamiento privado de la app | No |
+| **Claves de API de IA** | Cifradas con el **Android Keystore** | Solo al proveedor al que pertenecen |
 
-La app **no** pide nombre, correo, teléfono, ubicación ni identificadores de publicidad.
+La app **no** pide nombre, correo, teléfono, ubicación, contactos ni identificadores de
+publicidad. Las copias de seguridad en la nube de Android están desactivadas para estos datos.
 
-## Conexiones a internet (opcionales y solo cuando tú las usas)
+## 2. Conexiones a internet (opcionales)
 
-1. **Proveedor de IA** (OpenAI, DeepSeek, Google Gemini o Anthropic Claude): cuando
-   pides una recomendación, una lista, una búsqueda inteligente o un comando, se envía
-   el texto que escribes y los metadatos de las canciones necesarios para responder
-   (título, artista, género, año). **Nunca se envía el audio ni archivos de tu música.**
-   Está desactivado hasta que tú añades una clave.
-2. **Lista de tendencias**: al abrir la pantalla de tendencias se descarga la lista de
-   canciones más escuchadas de un **servicio público** (listas de éxitos de Apple). Es
-   una descarga sin datos tuyos: no se envía nada.
+| Función | A quién se conecta | Qué se envía |
+|---|---|---|
+| **Asistente de IA** (chat, recomendaciones, Modo DJ, autocompletar datos) | El proveedor que elijas: OpenAI, DeepSeek, Google Gemini o Anthropic Claude | El texto que escribes y el título, artista, álbum, género y año de las canciones necesarias para responder. Se usa **tu propia clave de API** |
+| **Lista de modelos de IA** | El mismo proveedor de IA | Solo tu clave, para listar los modelos disponibles |
+| **Tendencias** | Listas públicas de éxitos de Apple (`rss.applemarketingtools.com`) | El país elegido. Ningún dato personal |
+| **Letras sincronizadas** | LRCLIB (`lrclib.net`) | Título, artista y duración de la canción |
+| **Buscar carátulas** | Apple iTunes Search (`itunes.apple.com`) y Deezer (`api.deezer.com`) | Título, artista y álbum de la canción |
 
-Ninguna de las dos se usa si no la activas, y la app funciona al 100 % sin conexión.
+**Asistente de IA:** antes del primer uso, la app muestra un aviso y **no envía nada hasta
+que lo aceptas**. Puedes retirar el consentimiento cuando quieras desde el icono de
+privacidad de la pantalla de IA. Lo que envías queda sujeto a la política de privacidad del
+proveedor que elijas:
 
-## Permisos y para qué se usan
+- OpenAI: <https://openai.com/policies/privacy-policy>
+- DeepSeek: <https://www.deepseek.com/> (enlace «Privacy Policy» al pie de la página)
+- Google Gemini: <https://policies.google.com/privacy>
+- Anthropic Claude: <https://www.anthropic.com/legal/privacy>
+
+Las respuestas de la IA se generan automáticamente y pueden contener errores. Cada respuesta
+tiene un botón **Reportar** para avisarnos de contenido ofensivo o dañino.
+
+Si no usas estas funciones, la app funciona al 100 % sin conexión.
+
+## 3. Permisos y para qué se usan
 
 | Permiso | Para qué |
 |---|---|
-| Leer audio (`READ_MEDIA_AUDIO` / `READ_EXTERNAL_STORAGE`) | Buscar tu música en el dispositivo |
-| Notificaciones (`POST_NOTIFICATIONS`) | Notificación de reproducción y avisos de tendencias |
-| Servicio en primer plano (`FOREGROUND_SERVICE*`) | Seguir reproduciendo con la pantalla apagada |
-| Internet (`INTERNET`, `ACCESS_NETWORK_STATE`) | Solo las dos conexiones opcionales de arriba |
-| Grabación de voz (`RECORD_AUDIO`) | Solo si usas funciones de voz |
-| Arranque (`RECEIVE_BOOT_COMPLETED`) | Reprogramar el aviso diario de tendencias |
+| Leer audio (`READ_MEDIA_AUDIO` / `READ_EXTERNAL_STORAGE` hasta Android 12) | Encontrar tu música en el dispositivo |
+| Notificaciones (`POST_NOTIFICATIONS`) | Controles de reproducción y aviso diario de tendencias |
+| Servicio en primer plano (`FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_MEDIA_PLAYBACK`) y `WAKE_LOCK` | Seguir reproduciendo con la pantalla apagada |
+| Internet (`INTERNET`, `ACCESS_NETWORK_STATE`) | Solo para las funciones opcionales del punto 2 |
+| Arranque (`RECEIVE_BOOT_COMPLETED`) | Volver a programar el aviso diario de tendencias |
 
-## Tus derechos
+BotMp3 **no** usa el micrófono, la cámara ni la ubicación.
 
-Como no se recopila nada, no hay nada que exportar ni que borrar en un servidor:
-**desinstalar la app elimina todos tus datos** (biblioteca, listas, historial y claves).
+### Audios de otras apps
 
-## Contacto
+La opción **Importar audios de apps y notas de voz** (WhatsApp, Telegram, grabadoras…)
+está **desactivada por defecto**. Si la activas, esos audios se añaden a tu biblioteca
+local y siguen sin salir del dispositivo.
 
-Para cualquier duda sobre privacidad: pandamanrd@gmail.com
+## 4. Menores de edad
+
+BotMp3 no está dirigida a menores de 13 años y no recopila datos de nadie a sabiendas.
+
+## 5. Tus derechos y cómo borrar tus datos
+
+Como no tenemos servidores ni cuentas, no guardamos ningún dato tuyo. Puedes:
+
+- Borrar la conversación con la IA desde la pantalla de IA.
+- Borrar tus claves de API desde **Ajustes ▸ IA**.
+- Borrar todo **desinstalando la app** o desde *Ajustes de Android ▸ Apps ▸ BotMp3 ▸
+  Almacenamiento ▸ Borrar datos*.
+
+## 6. Cambios en esta política
+
+Si la política cambia, se actualizará esta página y la fecha de arriba.
+
+## 7. Contacto
+
+Para cualquier duda sobre privacidad: **pandamanrd@gmail.com**

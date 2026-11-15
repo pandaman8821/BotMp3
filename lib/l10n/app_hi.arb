@@ -919,5 +919,29 @@
       }
     }
   },
-  "settingsGoTo": "यहाँ जाएँ"
+  "settingsGoTo": "यहाँ जाएँ",
+  "aiConsentTitle": "AI का उपयोग करने से पहले",
+  "aiConsentBody": "जवाब देने के लिए BotMp3 आपकी अपनी API कुंजी से, आपके लिखे संदेश और गानों का शीर्षक, कलाकार, एल्बम, शैली और वर्ष आपके चुने हुए AI प्रदाता (OpenAI, DeepSeek, Google Gemini या Anthropic Claude) को भेजता है।\n\nआपकी ऑडियो फ़ाइलें कभी डिवाइस से बाहर नहीं जातीं। AI के जवाब गलत हो सकते हैं।\n\nआप AI मेनू से कभी भी यह सहमति वापस ले सकते हैं।",
+  "aiConsentAccept": "मैं सहमत हूँ",
+  "aiConsentRevoke": "सहमति वापस लें",
+  "aiConsentRequired": "इस सुविधा के लिए AI गोपनीयता सूचना स्वीकार करें।",
+  "aiPrivacyMenu": "AI गोपनीयता",
+  "aiReport": "जवाब की रिपोर्ट करें",
+  "aiReportCopied": "जवाब कॉपी हो गया। रिपोर्ट करने के लिए हमें ईमेल करें।",
+  "aiReportThanks": "रिपोर्ट के लिए धन्यवाद। इससे हमें सुधार में मदद मिलती है।",
+  "aiGeneratedLabel": "AI द्वारा बनाया गया · गलत हो सकता है",
+  "aiRecommendations": "सुझाव",
+  "aiBadgeLibrary": "लाइब्रेरी",
+  "aiBadgeExternal": "ऑनलाइन",
+  "aiPlayLocal": "लाइब्रेरी से {count} चलाएँ",
+  "aiHide": "छिपाएँ",
+  "aiStructure": "संरचना",
+  "aiSend": "भेजें",
+  "aiVoiceOn": "जवाब ज़ोर से पढ़ें",
+  "aiVoiceOff": "आवाज़ बंद करें",
+  "aiConnectionError": "कनेक्शन त्रुटि",
+  "aiCopy": "कॉपी करें",
+  "aiCopied": "कॉपी हो गया",
+  "playerVolume": "वॉल्यूम",
+  "playerInfo": "विवरण"
 }

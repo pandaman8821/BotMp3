@@ -1756,4 +1756,82 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get settingsGoTo => 'Aller à';
+
+  @override
+  String get aiConsentTitle => 'Avant d\'utiliser l\'IA';
+
+  @override
+  String get aiConsentBody =>
+      'Pour te répondre, BotMp3 envoie ce que tu écris ainsi que le titre, l\'artiste, l\'album, le genre et l\'année de tes chansons au fournisseur d\'IA choisi (OpenAI, DeepSeek, Google Gemini ou Anthropic Claude), avec ta propre clé API.\n\nTes fichiers audio ne quittent jamais ton appareil. Les réponses de l\'IA peuvent être erronées.\n\nTu peux retirer ce consentement à tout moment depuis le menu de l\'IA.';
+
+  @override
+  String get aiConsentAccept => 'J\'accepte';
+
+  @override
+  String get aiConsentRevoke => 'Retirer le consentement';
+
+  @override
+  String get aiConsentRequired =>
+      'Accepte l\'avis de confidentialité de l\'IA pour utiliser cette fonction.';
+
+  @override
+  String get aiPrivacyMenu => 'Confidentialité de l\'IA';
+
+  @override
+  String get aiReport => 'Signaler la réponse';
+
+  @override
+  String get aiReportCopied =>
+      'Réponse copiée. Envoie-la-nous par e-mail pour la signaler.';
+
+  @override
+  String get aiReportThanks =>
+      'Merci pour le signalement. Il nous aide à progresser.';
+
+  @override
+  String get aiGeneratedLabel => 'Généré par l\'IA · peut contenir des erreurs';
+
+  @override
+  String get aiRecommendations => 'Recommandations';
+
+  @override
+  String get aiBadgeLibrary => 'Bibliothèque';
+
+  @override
+  String get aiBadgeExternal => 'En ligne';
+
+  @override
+  String aiPlayLocal(int count) {
+    return 'Lire $count de la bibliothèque';
+  }
+
+  @override
+  String get aiHide => 'Masquer';
+
+  @override
+  String get aiStructure => 'Structure';
+
+  @override
+  String get aiSend => 'Envoyer';
+
+  @override
+  String get aiVoiceOn => 'Lire les réponses à voix haute';
+
+  @override
+  String get aiVoiceOff => 'Désactiver la voix';
+
+  @override
+  String get aiConnectionError => 'Erreur de connexion';
+
+  @override
+  String get aiCopy => 'Copier';
+
+  @override
+  String get aiCopied => 'Copié';
+
+  @override
+  String get playerVolume => 'Volume';
+
+  @override
+  String get playerInfo => 'Détails';
 }

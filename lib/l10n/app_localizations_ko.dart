@@ -1692,4 +1692,79 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get settingsGoTo => '이동';
+
+  @override
+  String get aiConsentTitle => 'AI를 사용하기 전에';
+
+  @override
+  String get aiConsentBody =>
+      '답변을 위해 BotMp3는 사용자의 API 키로 입력한 내용과 곡의 제목, 아티스트, 앨범, 장르, 연도를 선택한 AI 제공업체(OpenAI, DeepSeek, Google Gemini, Anthropic Claude)에 보냅니다.\n\n오디오 파일은 절대 기기 밖으로 나가지 않습니다. AI 답변은 틀릴 수 있습니다.\n\n이 동의는 AI 메뉴에서 언제든지 철회할 수 있습니다.';
+
+  @override
+  String get aiConsentAccept => '동의';
+
+  @override
+  String get aiConsentRevoke => '동의 철회';
+
+  @override
+  String get aiConsentRequired => '이 기능을 사용하려면 AI 개인정보 안내에 동의하세요.';
+
+  @override
+  String get aiPrivacyMenu => 'AI 개인정보';
+
+  @override
+  String get aiReport => '답변 신고';
+
+  @override
+  String get aiReportCopied => '답변이 복사되었습니다. 신고하려면 이메일로 보내 주세요.';
+
+  @override
+  String get aiReportThanks => '신고해 주셔서 감사합니다. 개선에 도움이 됩니다.';
+
+  @override
+  String get aiGeneratedLabel => 'AI 생성 · 부정확할 수 있음';
+
+  @override
+  String get aiRecommendations => '추천';
+
+  @override
+  String get aiBadgeLibrary => '라이브러리';
+
+  @override
+  String get aiBadgeExternal => '온라인';
+
+  @override
+  String aiPlayLocal(int count) {
+    return '라이브러리에서 $count곡 재생';
+  }
+
+  @override
+  String get aiHide => '숨기기';
+
+  @override
+  String get aiStructure => '구성';
+
+  @override
+  String get aiSend => '보내기';
+
+  @override
+  String get aiVoiceOn => '답변 소리 내어 읽기';
+
+  @override
+  String get aiVoiceOff => '음성 끄기';
+
+  @override
+  String get aiConnectionError => '연결 오류';
+
+  @override
+  String get aiCopy => '복사';
+
+  @override
+  String get aiCopied => '복사됨';
+
+  @override
+  String get playerVolume => '볼륨';
+
+  @override
+  String get playerInfo => '상세 정보';
 }

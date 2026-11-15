@@ -8,6 +8,8 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../core/constants.dart';
+import '../core/motion.dart';
+import '../core/soporte.dart';
 import '../core/text_utils.dart';
 import '../core/theme.dart';
 import '../models/ai_models.dart';
@@ -39,6 +41,18 @@ class _AiScreenState extends State<AiScreen> {
   AiSongIdea? _lastIdea;
 
   @override
+  void initState() {
+    super.initState();
+    // Primera vez con una clave guardada: se pide el consentimiento antes de
+    // que salga ningun dato hacia el proveedor de IA.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final AiAssistantProvider ai = context.read<AiAssistantProvider>();
+      if (ai.hasAnyKey && !ai.consentGiven) _asegurarConsentimiento(ai);
+    });
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     _scrollController.dispose();
@@ -56,7 +70,9 @@ class _AiScreenState extends State<AiScreen> {
         title: TituloPantalla(text: AppLocalizations.of(context).aiMusicTitle),
         actions: <Widget>[
           IconButton(
-            tooltip: settings.ttsEnabled ? 'Desactivar voz' : 'Leer respuestas en voz alta',
+            tooltip: settings.ttsEnabled
+                ? AppLocalizations.of(context).aiVoiceOff
+                : AppLocalizations.of(context).aiVoiceOn,
             icon: Icon(settings.ttsEnabled ? Icons.volume_up : Icons.volume_off),
             onPressed: () => settings.setTtsEnabled(!settings.ttsEnabled),
           ),
@@ -84,6 +100,11 @@ class _AiScreenState extends State<AiScreen> {
                   false;
               if (ok) ai.clearHistory();
             },
+          ),
+          IconButton(
+            tooltip: AppLocalizations.of(context).aiPrivacyMenu,
+            icon: const Icon(Icons.privacy_tip_outlined),
+            onPressed: () => _mostrarPrivacidad(ai),
           ),
         ],
       ),
@@ -189,44 +210,98 @@ class _AiScreenState extends State<AiScreen> {
 
   Widget _bubble(BuildContext context, AiMessage message, AiAssistantProvider ai) {
     final bool isUser = message.isUser;
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final AppLocalizations loc = AppLocalizations.of(context);
+    final String texto = isUser ? message.content : textoHumano(message.content);
     final Color color = isUser
-        ? Theme.of(context).colorScheme.primary.withAlpha(((0.18) * 255).round())
+        ? scheme.primary.withAlpha(46)
         : message.error
-            ? Colors.red.withAlpha(((0.15) * 255).round())
-            : AppColors.aiViolet.withAlpha(((0.14) * 255).round());
+            ? scheme.error.withAlpha(38)
+            : AppColors.aiViolet.withAlpha(36);
+    // Esquina "de la cola" mas cerrada: se lee quien habla sin mirar el texto.
+    const Radius grande = Radius.circular(20);
+    const Radius cola = Radius.circular(6);
+    final BorderRadius forma = BorderRadius.only(
+      topLeft: grande,
+      topRight: grande,
+      bottomLeft: isUser ? grande : cola,
+      bottomRight: isUser ? cola : grande,
+    );
 
     return Align(
       alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 4),
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-        constraints: BoxConstraints(maxWidth: MediaQuery.sizeOf(context).width * 0.82),
+        margin: const EdgeInsets.symmetric(vertical: 5),
+        padding: const EdgeInsets.fromLTRB(14, 10, 14, 6),
+        constraints: BoxConstraints(maxWidth: MediaQuery.sizeOf(context).width * 0.84),
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: forma,
+          border: Border.all(
+            color: (isUser ? scheme.primary : AppColors.aiViolet).withAlpha(40),
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             if (!isUser)
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Icon(Icons.smart_toy, size: 15, color: AppColors.aiCyan),
-                  const SizedBox(width: 6),
-                  Text(
-                    message.provider?.label ?? 'IA',
-                    style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(bottom: 4),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Icon(Icons.smart_toy, size: 15, color: AppColors.aiCyan),
+                    const SizedBox(width: 6),
+                    Text(
+                      message.provider?.label ?? 'IA',
+                      style: const TextStyle(fontSize: 11.5, fontWeight: FontWeight.w700),
+                    ),
+                  ],
+                ),
               ),
-            if (!isUser) const SizedBox(height: 4),
             SelectableText(
               // El texto de la IA se muestra limpio: sin markdown ni bloques
               // internos de órdenes, y con tono de conversación.
-              isUser ? message.content : textoHumano(message.content),
-              style: const TextStyle(fontSize: 14),
+              texto,
+              style: const TextStyle(fontSize: 14.5, height: 1.35),
             ),
+            if (!isUser && !message.error)
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Flexible(
+                    child: Text(
+                      loc.aiGeneratedLabel,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 10.5, color: AppColors.darkTextDim),
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  IconButton(
+                    tooltip: loc.aiCopy,
+                    visualDensity: VisualDensity.compact,
+                    iconSize: 18,
+                    icon: const Icon(Icons.copy_rounded),
+                    onPressed: () async {
+                      await Clipboard.setData(ClipboardData(text: texto));
+                      if (!context.mounted) return;
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(loc.aiCopied)),
+                      );
+                    },
+                  ),
+                  IconButton(
+                    tooltip: loc.aiReport,
+                    visualDensity: VisualDensity.compact,
+                    iconSize: 18,
+                    icon: const Icon(Icons.outlined_flag_rounded),
+                    onPressed: () => _reportar(message, texto),
+                  ),
+                ],
+              )
+            else
+              const SizedBox(height: 4),
           ],
         ),
       ),
@@ -260,7 +335,7 @@ class _AiScreenState extends State<AiScreen> {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    result.playlistName ?? 'Recomendaciones',
+                    result.playlistName ?? AppLocalizations.of(context).aiRecommendations,
                     style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
                   ),
                 ),
@@ -313,7 +388,9 @@ class _AiScreenState extends State<AiScreen> {
                           ),
                         ),
                         child: Text(
-                          suggestion.isLocal ? 'Biblioteca' : 'Externa',
+                          suggestion.isLocal
+                              ? AppLocalizations.of(context).aiBadgeLibrary
+                              : AppLocalizations.of(context).aiBadgeExternal,
                           style: TextStyle(
                             fontSize: 10.5,
                             fontWeight: FontWeight.w700,
@@ -341,7 +418,7 @@ class _AiScreenState extends State<AiScreen> {
                     child: FilledButton.icon(
                       onPressed: () => player.setQueue(localSongs),
                       icon: const Icon(Icons.play_arrow),
-                      label: Text('Reproducir ${localSongs.length} locales'),
+                      label: Text(AppLocalizations.of(context).aiPlayLocal(localSongs.length)),
                     ),
                   ),
                   SizedBox(width: 8),
@@ -392,7 +469,7 @@ class _AiScreenState extends State<AiScreen> {
               child: TextButton.icon(
                 onPressed: () => setState(() => _lastResult = null),
                 icon: const Icon(Icons.close, size: 16),
-                label: const Text('Ocultar'),
+                label: Text(AppLocalizations.of(context).aiHide),
               ),
             ),
           ],
@@ -426,13 +503,36 @@ class _AiScreenState extends State<AiScreen> {
             if (idea.structure.isNotEmpty)
               Padding(
                 padding: const EdgeInsets.only(top: 6),
-                child: Text('Estructura: ${idea.structure.join(' → ')}'),
+                child: Text('${AppLocalizations.of(context).aiStructure}: ${idea.structure.join(' → ')}'),
               ),
             if (idea.lyricSeed.isNotEmpty)
               Padding(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(idea.lyricSeed, style: const TextStyle(fontStyle: FontStyle.italic)),
               ),
+            Padding(
+              padding: const EdgeInsets.only(top: 6),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      AppLocalizations.of(context).aiGeneratedLabel,
+                      style: TextStyle(fontSize: 10.5, color: AppColors.darkTextDim),
+                    ),
+                  ),
+                  IconButton(
+                    tooltip: AppLocalizations.of(context).aiReport,
+                    visualDensity: VisualDensity.compact,
+                    iconSize: 18,
+                    icon: const Icon(Icons.outlined_flag_rounded),
+                    onPressed: () => _reportar(
+                      null,
+                      '${idea.title}\n${idea.lyricSeed}\n${idea.generatorPrompt}',
+                    ),
+                  ),
+                ],
+              ),
+            ),
             const SizedBox(height: 10),
             Text(AppLocalizations.of(context).promptForGenerator, style: TextStyle(fontWeight: FontWeight.w600)),
             SelectableText(idea.generatorPrompt, style: const TextStyle(fontSize: 12.5)),
@@ -513,13 +613,16 @@ class _AiScreenState extends State<AiScreen> {
     LibraryProvider library,
   ) {
     final PlayerProvider player = context.read<PlayerProvider>();
+    final SettingsProvider ajustesDj = context.read<SettingsProvider>();
     // Cola DJ infinita: cuando se agotan las canciones encoladas se piden mas
     // (el DJ y la sesion activa deciden cuales). Asi la sesion no se corta.
     player.service.onColaAgotada = (Song actual) async {
+      // Sin consentimiento la cola no pide nada a la IA.
+      if (!ai.consentGiven) return <Song>[];
       final AiActionResult? mas = await ai.djNext(
         actual,
         player.recentlyPlayed,
-        sesion: context.read<SettingsProvider>().sesion,
+        sesion: ajustesDj.sesion,
       );
       if (mas == null) return <Song>[];
       return mas.suggestions
@@ -591,6 +694,7 @@ class _AiScreenState extends State<AiScreen> {
             );
           }),
           _action(AppLocalizations.of(context).recommendMe, Icons.auto_awesome, () async {
+            if (!await _asegurarConsentimiento(ai)) return;
             final AiActionResult? result = await ai.recommend(
               _controller.text.trim().isEmpty
                   ? 'Algo que encaje con lo que suelo escuchar'
@@ -603,6 +707,8 @@ class _AiScreenState extends State<AiScreen> {
           _action(AppLocalizations.of(context).aiDj, Icons.graphic_eq, () async {
             final Song? current = player.current ?? (library.songs.isNotEmpty ? library.songs.first : null);
             if (current == null) return;
+            if (!await _asegurarConsentimiento(ai)) return;
+            if (!context.mounted) return;
             final AiActionResult? result = await ai.djNext(current, player.recentlyPlayed, sesion: context.read<SettingsProvider>().sesion);
             if (!mounted) return;
             setState(() => _lastResult = result);
@@ -611,6 +717,7 @@ class _AiScreenState extends State<AiScreen> {
             final String description = _controller.text.trim().isEmpty
                 ? 'Una cumbia alegre sobre Bolivia con sintetizadores'
                 : _controller.text.trim();
+            if (!await _asegurarConsentimiento(ai)) return;
             final AiSongIdea? idea = await ai.songIdea(description);
             if (mounted) setState(() => _lastIdea = idea);
           }),
@@ -672,12 +779,16 @@ class _AiScreenState extends State<AiScreen> {
         padding: const EdgeInsets.fromLTRB(10, 4, 10, 8),
         child: Row(
           children: <Widget>[
-            IconButton(
-              tooltip: _listening ? 'Detener dictado' : 'Hablar (español)',
-              icon: Icon(_listening ? Icons.mic : Icons.mic_none),
-              color: _listening ? AppColors.green : null,
-              onPressed: () => _toggleListening(ai, settings),
-            ),
+            // El dictado no viene en esta compilacion: sin boton que no hace nada.
+            if (VoiceService.instance.isSpeechAvailable)
+              IconButton(
+                tooltip: _listening ? 'Detener dictado' : 'Hablar (español)',
+                icon: Icon(_listening ? Icons.mic : Icons.mic_none),
+                color: _listening ? AppColors.green : null,
+                onPressed: () => _toggleListening(ai, settings),
+              )
+            else
+              const SizedBox(width: 4),
             Expanded(
               child: TextField(
                 controller: _controller,
@@ -692,7 +803,7 @@ class _AiScreenState extends State<AiScreen> {
             ),
             const SizedBox(width: 6),
             IconButton.filled(
-              tooltip: 'Enviar',
+              tooltip: AppLocalizations.of(context).aiSend,
               icon: const Icon(Icons.send),
               onPressed: ai.busy ? null : () => _send(ai, settings),
             ),
@@ -705,6 +816,7 @@ class _AiScreenState extends State<AiScreen> {
   Future<void> _send(AiAssistantProvider ai, SettingsProvider settings) async {
     final String text = _controller.text.trim();
     if (text.isEmpty) return;
+    if (ai.hasActiveKey && !await _asegurarConsentimiento(ai)) return;
     _controller.clear();
     await ai.send(
       text,
@@ -757,7 +869,93 @@ class _AiScreenState extends State<AiScreen> {
     final bool ok = await ai.testConnection();
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(ok ? ai.status : ai.lastError ?? 'Error de conexión')),
+      SnackBar(content: Text(ok ? ai.status : ai.lastError ?? AppLocalizations.of(context).aiConnectionError)),
+    );
+  }
+
+  /// Muestra el aviso de privacidad de la IA y guarda la respuesta.
+  /// Devuelve true si el usuario ya habia aceptado o acepta ahora.
+  Future<bool> _asegurarConsentimiento(AiAssistantProvider ai) async {
+    if (ai.consentGiven) return true;
+    final AppLocalizations loc = AppLocalizations.of(context);
+    final bool acepta = await showDialog<bool>(
+          context: context,
+          builder: (BuildContext dialogContext) => AlertDialog(
+            icon: Icon(Icons.privacy_tip_outlined, color: AppColors.aiCyan),
+            title: Text(loc.aiConsentTitle),
+            content: SingleChildScrollView(child: Text(loc.aiConsentBody)),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(dialogContext).pop(false),
+                child: Text(loc.cancel),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.of(dialogContext).pop(true),
+                child: Text(loc.aiConsentAccept),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+    if (acepta) await ai.setConsent(true);
+    return acepta;
+  }
+
+  /// Menu "Privacidad de la IA": volver a leer el aviso o retirar el permiso.
+  Future<void> _mostrarPrivacidad(AiAssistantProvider ai) async {
+    if (!ai.consentGiven) {
+      await _asegurarConsentimiento(ai);
+      return;
+    }
+    final AppLocalizations loc = AppLocalizations.of(context);
+    final bool retirar = await showDialog<bool>(
+          context: context,
+          builder: (BuildContext dialogContext) => AlertDialog(
+            icon: Icon(Icons.privacy_tip_outlined, color: AppColors.aiCyan),
+            title: Text(loc.aiPrivacyMenu),
+            content: SingleChildScrollView(child: Text(loc.aiConsentBody)),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(dialogContext).pop(true),
+                child: Text(loc.aiConsentRevoke),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.of(dialogContext).pop(false),
+                child: Text(loc.gotIt),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+    if (retirar) await ai.setConsent(false);
+  }
+
+  /// Reportar una respuesta de la IA (requisito de Google Play para apps con
+  /// IA generativa): abre el correo con la respuesta; si no hay app de correo,
+  /// la copia al portapapeles.
+  Future<void> _reportar(AiMessage? message, String texto) async {
+    Hapticos.toque();
+    final AppLocalizations loc = AppLocalizations.of(context);
+    final String proveedor = message?.provider?.label ?? '';
+    final String cuerpo = 'Proveedor: $proveedor\n'
+        'Fecha: ${message?.createdAt?.toIso8601String() ?? DateTime.now().toIso8601String()}\n\n'
+        '--- Respuesta reportada ---\n$texto';
+    final Uri correo = Uri(
+      scheme: 'mailto',
+      path: Soporte.email,
+      query: 'subject=${Uri.encodeComponent('BotMp3 - Reporte de respuesta de IA')}'
+          '&body=${Uri.encodeComponent(cuerpo)}',
+    );
+    bool abierto = false;
+    try {
+      abierto = await launchUrl(correo, mode: LaunchMode.externalApplication);
+    } catch (_) {
+      abierto = false;
+    }
+    if (!abierto) await Clipboard.setData(ClipboardData(text: cuerpo));
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(abierto ? loc.aiReportThanks : loc.aiReportCopied)),
     );
   }
 

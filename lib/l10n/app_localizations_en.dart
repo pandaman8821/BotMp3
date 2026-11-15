@@ -1743,4 +1743,80 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsGoTo => 'Go to';
+
+  @override
+  String get aiConsentTitle => 'Before using AI';
+
+  @override
+  String get aiConsentBody =>
+      'To answer you, BotMp3 sends what you type and the title, artist, album, genre and year of your songs to the AI provider you choose (OpenAI, DeepSeek, Google Gemini or Anthropic Claude), using your own API key.\n\nYour audio files never leave your device. AI answers can be wrong.\n\nYou can withdraw this consent at any time from the AI menu.';
+
+  @override
+  String get aiConsentAccept => 'I agree';
+
+  @override
+  String get aiConsentRevoke => 'Withdraw consent';
+
+  @override
+  String get aiConsentRequired =>
+      'Accept the AI privacy notice to use this feature.';
+
+  @override
+  String get aiPrivacyMenu => 'AI privacy';
+
+  @override
+  String get aiReport => 'Report response';
+
+  @override
+  String get aiReportCopied => 'Response copied. Email it to us to report it.';
+
+  @override
+  String get aiReportThanks => 'Thanks for the report. It helps us improve.';
+
+  @override
+  String get aiGeneratedLabel => 'AI-generated · may be inaccurate';
+
+  @override
+  String get aiRecommendations => 'Recommendations';
+
+  @override
+  String get aiBadgeLibrary => 'Library';
+
+  @override
+  String get aiBadgeExternal => 'Online';
+
+  @override
+  String aiPlayLocal(int count) {
+    return 'Play $count from library';
+  }
+
+  @override
+  String get aiHide => 'Hide';
+
+  @override
+  String get aiStructure => 'Structure';
+
+  @override
+  String get aiSend => 'Send';
+
+  @override
+  String get aiVoiceOn => 'Read replies aloud';
+
+  @override
+  String get aiVoiceOff => 'Turn off voice';
+
+  @override
+  String get aiConnectionError => 'Connection error';
+
+  @override
+  String get aiCopy => 'Copy';
+
+  @override
+  String get aiCopied => 'Copied';
+
+  @override
+  String get playerVolume => 'Volume';
+
+  @override
+  String get playerInfo => 'Details';
 }

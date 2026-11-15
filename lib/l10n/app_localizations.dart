@@ -3116,6 +3116,150 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Go to'**
   String get settingsGoTo;
+
+  /// No description provided for @aiConsentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Before using AI'**
+  String get aiConsentTitle;
+
+  /// No description provided for @aiConsentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'To answer you, BotMp3 sends what you type and the title, artist, album, genre and year of your songs to the AI provider you choose (OpenAI, DeepSeek, Google Gemini or Anthropic Claude), using your own API key.\n\nYour audio files never leave your device. AI answers can be wrong.\n\nYou can withdraw this consent at any time from the AI menu.'**
+  String get aiConsentBody;
+
+  /// No description provided for @aiConsentAccept.
+  ///
+  /// In en, this message translates to:
+  /// **'I agree'**
+  String get aiConsentAccept;
+
+  /// No description provided for @aiConsentRevoke.
+  ///
+  /// In en, this message translates to:
+  /// **'Withdraw consent'**
+  String get aiConsentRevoke;
+
+  /// No description provided for @aiConsentRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept the AI privacy notice to use this feature.'**
+  String get aiConsentRequired;
+
+  /// No description provided for @aiPrivacyMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'AI privacy'**
+  String get aiPrivacyMenu;
+
+  /// No description provided for @aiReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Report response'**
+  String get aiReport;
+
+  /// No description provided for @aiReportCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Response copied. Email it to us to report it.'**
+  String get aiReportCopied;
+
+  /// No description provided for @aiReportThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Thanks for the report. It helps us improve.'**
+  String get aiReportThanks;
+
+  /// No description provided for @aiGeneratedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'AI-generated · may be inaccurate'**
+  String get aiGeneratedLabel;
+
+  /// No description provided for @aiRecommendations.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommendations'**
+  String get aiRecommendations;
+
+  /// No description provided for @aiBadgeLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Library'**
+  String get aiBadgeLibrary;
+
+  /// No description provided for @aiBadgeExternal.
+  ///
+  /// In en, this message translates to:
+  /// **'Online'**
+  String get aiBadgeExternal;
+
+  /// No description provided for @aiPlayLocal.
+  ///
+  /// In en, this message translates to:
+  /// **'Play {count} from library'**
+  String aiPlayLocal(int count);
+
+  /// No description provided for @aiHide.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide'**
+  String get aiHide;
+
+  /// No description provided for @aiStructure.
+  ///
+  /// In en, this message translates to:
+  /// **'Structure'**
+  String get aiStructure;
+
+  /// No description provided for @aiSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get aiSend;
+
+  /// No description provided for @aiVoiceOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Read replies aloud'**
+  String get aiVoiceOn;
+
+  /// No description provided for @aiVoiceOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off voice'**
+  String get aiVoiceOff;
+
+  /// No description provided for @aiConnectionError.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection error'**
+  String get aiConnectionError;
+
+  /// No description provided for @aiCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get aiCopy;
+
+  /// No description provided for @aiCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get aiCopied;
+
+  /// No description provided for @playerVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume'**
+  String get playerVolume;
+
+  /// No description provided for @playerInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get playerInfo;
 }
 
 class _AppLocalizationsDelegate

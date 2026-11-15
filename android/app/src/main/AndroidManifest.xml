@@ -18,21 +18,20 @@
     <!-- IA multimodelo -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- Voz: dictado y respuestas habladas -->
-
-    <uses-feature android:name="android.hardware.microphone" android:required="false" />
-
-    <!-- Visibilidad de apps para TTS/STT y enlaces (Android 11+) -->
+    <!-- Visibilidad de apps para TTS, enlaces y correo (Android 11+).
+         Sin dictado en esta version: no se declara microfono ni RecognitionService. -->
     <queries>
-        <intent>
-            <action android:name="android.speech.RecognitionService" />
-        </intent>
         <intent>
             <action android:name="android.intent.action.TTS_SERVICE" />
         </intent>
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="https" />
+        </intent>
+        <!-- Reportar respuestas de la IA por correo -->
+        <intent>
+            <action android:name="android.intent.action.SENDTO" />
+            <data android:scheme="mailto" />
         </intent>
     </queries>
 

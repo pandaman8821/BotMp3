@@ -919,5 +919,29 @@
       }
     }
   },
-  "settingsGoTo": "Aller à"
+  "settingsGoTo": "Aller à",
+  "aiConsentTitle": "Avant d'utiliser l'IA",
+  "aiConsentBody": "Pour te répondre, BotMp3 envoie ce que tu écris ainsi que le titre, l'artiste, l'album, le genre et l'année de tes chansons au fournisseur d'IA choisi (OpenAI, DeepSeek, Google Gemini ou Anthropic Claude), avec ta propre clé API.\n\nTes fichiers audio ne quittent jamais ton appareil. Les réponses de l'IA peuvent être erronées.\n\nTu peux retirer ce consentement à tout moment depuis le menu de l'IA.",
+  "aiConsentAccept": "J'accepte",
+  "aiConsentRevoke": "Retirer le consentement",
+  "aiConsentRequired": "Accepte l'avis de confidentialité de l'IA pour utiliser cette fonction.",
+  "aiPrivacyMenu": "Confidentialité de l'IA",
+  "aiReport": "Signaler la réponse",
+  "aiReportCopied": "Réponse copiée. Envoie-la-nous par e-mail pour la signaler.",
+  "aiReportThanks": "Merci pour le signalement. Il nous aide à progresser.",
+  "aiGeneratedLabel": "Généré par l'IA · peut contenir des erreurs",
+  "aiRecommendations": "Recommandations",
+  "aiBadgeLibrary": "Bibliothèque",
+  "aiBadgeExternal": "En ligne",
+  "aiPlayLocal": "Lire {count} de la bibliothèque",
+  "aiHide": "Masquer",
+  "aiStructure": "Structure",
+  "aiSend": "Envoyer",
+  "aiVoiceOn": "Lire les réponses à voix haute",
+  "aiVoiceOff": "Désactiver la voix",
+  "aiConnectionError": "Erreur de connexion",
+  "aiCopy": "Copier",
+  "aiCopied": "Copié",
+  "playerVolume": "Volume",
+  "playerInfo": "Détails"
 }

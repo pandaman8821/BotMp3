@@ -1727,4 +1727,82 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get settingsGoTo => 'यहाँ जाएँ';
+
+  @override
+  String get aiConsentTitle => 'AI का उपयोग करने से पहले';
+
+  @override
+  String get aiConsentBody =>
+      'जवाब देने के लिए BotMp3 आपकी अपनी API कुंजी से, आपके लिखे संदेश और गानों का शीर्षक, कलाकार, एल्बम, शैली और वर्ष आपके चुने हुए AI प्रदाता (OpenAI, DeepSeek, Google Gemini या Anthropic Claude) को भेजता है।\n\nआपकी ऑडियो फ़ाइलें कभी डिवाइस से बाहर नहीं जातीं। AI के जवाब गलत हो सकते हैं।\n\nआप AI मेनू से कभी भी यह सहमति वापस ले सकते हैं।';
+
+  @override
+  String get aiConsentAccept => 'मैं सहमत हूँ';
+
+  @override
+  String get aiConsentRevoke => 'सहमति वापस लें';
+
+  @override
+  String get aiConsentRequired =>
+      'इस सुविधा के लिए AI गोपनीयता सूचना स्वीकार करें।';
+
+  @override
+  String get aiPrivacyMenu => 'AI गोपनीयता';
+
+  @override
+  String get aiReport => 'जवाब की रिपोर्ट करें';
+
+  @override
+  String get aiReportCopied =>
+      'जवाब कॉपी हो गया। रिपोर्ट करने के लिए हमें ईमेल करें।';
+
+  @override
+  String get aiReportThanks =>
+      'रिपोर्ट के लिए धन्यवाद। इससे हमें सुधार में मदद मिलती है।';
+
+  @override
+  String get aiGeneratedLabel => 'AI द्वारा बनाया गया · गलत हो सकता है';
+
+  @override
+  String get aiRecommendations => 'सुझाव';
+
+  @override
+  String get aiBadgeLibrary => 'लाइब्रेरी';
+
+  @override
+  String get aiBadgeExternal => 'ऑनलाइन';
+
+  @override
+  String aiPlayLocal(int count) {
+    return 'लाइब्रेरी से $count चलाएँ';
+  }
+
+  @override
+  String get aiHide => 'छिपाएँ';
+
+  @override
+  String get aiStructure => 'संरचना';
+
+  @override
+  String get aiSend => 'भेजें';
+
+  @override
+  String get aiVoiceOn => 'जवाब ज़ोर से पढ़ें';
+
+  @override
+  String get aiVoiceOff => 'आवाज़ बंद करें';
+
+  @override
+  String get aiConnectionError => 'कनेक्शन त्रुटि';
+
+  @override
+  String get aiCopy => 'कॉपी करें';
+
+  @override
+  String get aiCopied => 'कॉपी हो गया';
+
+  @override
+  String get playerVolume => 'वॉल्यूम';
+
+  @override
+  String get playerInfo => 'विवरण';
 }

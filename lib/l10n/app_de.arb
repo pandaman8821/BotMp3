@@ -919,5 +919,29 @@
       }
     }
   },
-  "settingsGoTo": "Gehe zu"
+  "settingsGoTo": "Gehe zu",
+  "aiConsentTitle": "Bevor du die KI nutzt",
+  "aiConsentBody": "Um dir zu antworten, sendet BotMp3 deine Eingaben sowie Titel, Interpret, Album, Genre und Jahr deiner Songs mit deinem eigenen API-Schlüssel an den gewählten KI-Anbieter (OpenAI, DeepSeek, Google Gemini oder Anthropic Claude).\n\nDeine Audiodateien verlassen nie dein Gerät. KI-Antworten können falsch sein.\n\nDu kannst diese Einwilligung jederzeit im KI-Menü widerrufen.",
+  "aiConsentAccept": "Einverstanden",
+  "aiConsentRevoke": "Einwilligung widerrufen",
+  "aiConsentRequired": "Akzeptiere den KI-Datenschutzhinweis, um diese Funktion zu nutzen.",
+  "aiPrivacyMenu": "KI-Datenschutz",
+  "aiReport": "Antwort melden",
+  "aiReportCopied": "Antwort kopiert. Schick sie uns per E-Mail, um sie zu melden.",
+  "aiReportThanks": "Danke für die Meldung. Sie hilft uns, besser zu werden.",
+  "aiGeneratedLabel": "KI-generiert · kann Fehler enthalten",
+  "aiRecommendations": "Empfehlungen",
+  "aiBadgeLibrary": "Mediathek",
+  "aiBadgeExternal": "Online",
+  "aiPlayLocal": "{count} aus der Mediathek abspielen",
+  "aiHide": "Ausblenden",
+  "aiStructure": "Aufbau",
+  "aiSend": "Senden",
+  "aiVoiceOn": "Antworten vorlesen",
+  "aiVoiceOff": "Stimme ausschalten",
+  "aiConnectionError": "Verbindungsfehler",
+  "aiCopy": "Kopieren",
+  "aiCopied": "Kopiert",
+  "playerVolume": "Lautstärke",
+  "playerInfo": "Details"
 }

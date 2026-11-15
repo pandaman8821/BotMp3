@@ -1138,5 +1138,29 @@
       }
     }
   },
-  "settingsGoTo": "Ir a"
+  "settingsGoTo": "Ir a",
+  "aiConsentTitle": "Antes de usar la IA",
+  "aiConsentBody": "Para responderte, BotMp3 envía lo que escribes y el título, artista, álbum, género y año de tus canciones al proveedor de IA que elijas (OpenAI, DeepSeek, Google Gemini o Anthropic Claude), usando tu propia clave.\n\nTus archivos de audio nunca salen del dispositivo. Las respuestas de la IA pueden contener errores.\n\nPuedes retirar este consentimiento cuando quieras desde el menú de la IA.",
+  "aiConsentAccept": "Acepto",
+  "aiConsentRevoke": "Retirar consentimiento",
+  "aiConsentRequired": "Acepta el aviso de privacidad de la IA para usar esta función.",
+  "aiPrivacyMenu": "Privacidad de la IA",
+  "aiReport": "Reportar respuesta",
+  "aiReportCopied": "Respuesta copiada. Envíanosla por correo para reportarla.",
+  "aiReportThanks": "Gracias por reportarlo. Nos ayuda a mejorar.",
+  "aiGeneratedLabel": "Generado por IA · puede contener errores",
+  "aiRecommendations": "Recomendaciones",
+  "aiBadgeLibrary": "Biblioteca",
+  "aiBadgeExternal": "En internet",
+  "aiPlayLocal": "Reproducir {count} de tu biblioteca",
+  "aiHide": "Ocultar",
+  "aiStructure": "Estructura",
+  "aiSend": "Enviar",
+  "aiVoiceOn": "Leer respuestas en voz alta",
+  "aiVoiceOff": "Desactivar voz",
+  "aiConnectionError": "Error de conexión",
+  "aiCopy": "Copiar",
+  "aiCopied": "Copiado",
+  "playerVolume": "Volumen",
+  "playerInfo": "Detalles"
 }

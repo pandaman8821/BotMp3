@@ -1753,6 +1753,84 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get settingsGoTo => 'Ir para';
+
+  @override
+  String get aiConsentTitle => 'Antes de usar a IA';
+
+  @override
+  String get aiConsentBody =>
+      'Para responder, o BotMp3 envia o que você escreve e o título, artista, álbum, gênero e ano das suas músicas ao provedor de IA escolhido (OpenAI, DeepSeek, Google Gemini ou Anthropic Claude), usando a sua própria chave de API.\n\nOs seus arquivos de áudio nunca saem do dispositivo. As respostas da IA podem conter erros.\n\nVocê pode retirar este consentimento a qualquer momento no menu da IA.';
+
+  @override
+  String get aiConsentAccept => 'Aceito';
+
+  @override
+  String get aiConsentRevoke => 'Retirar consentimento';
+
+  @override
+  String get aiConsentRequired =>
+      'Aceite o aviso de privacidade da IA para usar esta função.';
+
+  @override
+  String get aiPrivacyMenu => 'Privacidade da IA';
+
+  @override
+  String get aiReport => 'Denunciar resposta';
+
+  @override
+  String get aiReportCopied =>
+      'Resposta copiada. Envie-a por e-mail para denunciá-la.';
+
+  @override
+  String get aiReportThanks =>
+      'Obrigado pela denúncia. Ela nos ajuda a melhorar.';
+
+  @override
+  String get aiGeneratedLabel => 'Gerado por IA · pode conter erros';
+
+  @override
+  String get aiRecommendations => 'Recomendações';
+
+  @override
+  String get aiBadgeLibrary => 'Biblioteca';
+
+  @override
+  String get aiBadgeExternal => 'Na internet';
+
+  @override
+  String aiPlayLocal(int count) {
+    return 'Tocar $count da biblioteca';
+  }
+
+  @override
+  String get aiHide => 'Ocultar';
+
+  @override
+  String get aiStructure => 'Estrutura';
+
+  @override
+  String get aiSend => 'Enviar';
+
+  @override
+  String get aiVoiceOn => 'Ler respostas em voz alta';
+
+  @override
+  String get aiVoiceOff => 'Desativar voz';
+
+  @override
+  String get aiConnectionError => 'Erro de conexão';
+
+  @override
+  String get aiCopy => 'Copiar';
+
+  @override
+  String get aiCopied => 'Copiado';
+
+  @override
+  String get playerVolume => 'Volume';
+
+  @override
+  String get playerInfo => 'Detalhes';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3504,4 +3582,82 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get settingsGoTo => 'Ir para';
+
+  @override
+  String get aiConsentTitle => 'Antes de usar a IA';
+
+  @override
+  String get aiConsentBody =>
+      'Para responder, o BotMp3 envia o que você escreve e o título, artista, álbum, gênero e ano das suas músicas ao provedor de IA escolhido (OpenAI, DeepSeek, Google Gemini ou Anthropic Claude), usando a sua própria chave de API.\n\nOs seus arquivos de áudio nunca saem do dispositivo. As respostas da IA podem conter erros.\n\nVocê pode retirar este consentimento a qualquer momento no menu da IA.';
+
+  @override
+  String get aiConsentAccept => 'Aceito';
+
+  @override
+  String get aiConsentRevoke => 'Retirar consentimento';
+
+  @override
+  String get aiConsentRequired =>
+      'Aceite o aviso de privacidade da IA para usar esta função.';
+
+  @override
+  String get aiPrivacyMenu => 'Privacidade da IA';
+
+  @override
+  String get aiReport => 'Denunciar resposta';
+
+  @override
+  String get aiReportCopied =>
+      'Resposta copiada. Envie-a por e-mail para denunciá-la.';
+
+  @override
+  String get aiReportThanks =>
+      'Obrigado pela denúncia. Ela nos ajuda a melhorar.';
+
+  @override
+  String get aiGeneratedLabel => 'Gerado por IA · pode conter erros';
+
+  @override
+  String get aiRecommendations => 'Recomendações';
+
+  @override
+  String get aiBadgeLibrary => 'Biblioteca';
+
+  @override
+  String get aiBadgeExternal => 'Na internet';
+
+  @override
+  String aiPlayLocal(int count) {
+    return 'Tocar $count da biblioteca';
+  }
+
+  @override
+  String get aiHide => 'Ocultar';
+
+  @override
+  String get aiStructure => 'Estrutura';
+
+  @override
+  String get aiSend => 'Enviar';
+
+  @override
+  String get aiVoiceOn => 'Ler respostas em voz alta';
+
+  @override
+  String get aiVoiceOff => 'Desativar voz';
+
+  @override
+  String get aiConnectionError => 'Erro de conexão';
+
+  @override
+  String get aiCopy => 'Copiar';
+
+  @override
+  String get aiCopied => 'Copiado';
+
+  @override
+  String get playerVolume => 'Volume';
+
+  @override
+  String get playerInfo => 'Detalhes';
 }

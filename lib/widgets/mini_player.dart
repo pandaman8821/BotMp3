@@ -3,7 +3,9 @@ import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 
 import '../core/formatters.dart';
+import '../core/motion.dart';
 import '../core/theme.dart';
+import '../l10n/app_localizations.dart';
 import '../models/song.dart';
 import '../providers/player_provider.dart';
 import '../providers/settings_provider.dart';
@@ -41,33 +43,23 @@ class MiniPlayer extends StatelessWidget {
           }
         },
         onLongPress: player.next,
-        onTap: () => Navigator.of(context).push(
-          MaterialPageRoute<void>(builder: (_) => const PlayerScreen()),
-        ),
+        onTap: () {
+          Hapticos.toque();
+          Navigator.of(context).push(rutaReproductor());
+        },
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            StreamBuilder<Duration>(
-              stream: player.positionStream,
-              builder: (BuildContext context, AsyncSnapshot<Duration> snapshot) {
-                final Duration position = snapshot.data ?? Duration.zero;
-                final Duration total = player.duration ?? Duration(milliseconds: song.durationMs);
-                final double progress = total.inMilliseconds == 0
-                    ? 0
-                    : (position.inMilliseconds / total.inMilliseconds).clamp(0.0, 1.0);
-                return LinearProgressIndicator(
-                  value: progress,
-                  minHeight: 2,
-                  backgroundColor: Colors.transparent,
-                  color: AppColors.green,
-                );
-              },
-            ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              padding: const EdgeInsets.fromLTRB(10, 8, 6, 6),
               child: Row(
                 children: <Widget>[
-                  CoverArt(path: song.coverPath, size: 46, borderRadius: 10),
+                  // Misma etiqueta Hero que la portada grande: al abrir el
+                  // reproductor la caratula "vuela" desde aqui.
+                  Hero(
+                    tag: 'cover_${song.id}',
+                    child: CoverArt(path: song.coverPath, size: 48, borderRadius: 12),
+                  ),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
@@ -78,20 +70,25 @@ class MiniPlayer extends StatelessWidget {
                           song.title,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14.5),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 14.5,
+                            letterSpacing: -0.1,
+                          ),
                         ),
+                        const SizedBox(height: 2),
                         Text(
                           song.artist,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 12, color: AppColors.darkTextDim),
+                          style: TextStyle(fontSize: 12.5, color: AppColors.darkTextDim),
                         ),
                       ],
                     ),
                   ),
                   if (settings.showWaveAnimation && player.playing) ...<Widget>[
-                    const WaveBars(height: 20),
-                    const SizedBox(width: 10),
+                    const WaveBars(height: 18),
+                    const SizedBox(width: 8),
                   ],
                   StreamBuilder<PlayerState>(
                     stream: player.playerStateStream,
@@ -100,36 +97,48 @@ class MiniPlayer extends StatelessWidget {
                       final bool loading =
                           snapshot.data?.processingState == ProcessingState.loading ||
                               snapshot.data?.processingState == ProcessingState.buffering;
-                      if (loading) {
-                        return const SizedBox(
-                          width: 48,
-                          height: 48,
-                          child: Center(
-                            child: SizedBox(
-                              width: 20,
-                              height: 20,
-                              child: CircularProgressIndicator(strokeWidth: 2),
-                            ),
-                          ),
-                        );
-                      }
-                      return IconButton(
-                        iconSize: 34,
-                        tooltip: playing ? 'Pausar' : 'Reproducir',
-                        icon: Icon(playing ? Icons.pause_circle_filled : Icons.play_circle_fill),
-                        color: AppColors.green,
+                      return BotonPlay(
+                        playing: playing,
+                        loading: loading,
+                        size: 44,
                         onPressed: player.togglePlayPause,
                       );
                     },
                   ),
                   IconButton(
-                    iconSize: 30,
-                    tooltip: 'Siguiente',
-                    icon: const Icon(Icons.skip_next),
-                    onPressed: player.next,
+                    iconSize: 28,
+                    tooltip: AppLocalizations.of(context).actNext,
+                    icon: const Icon(Icons.skip_next_rounded),
+                    onPressed: () {
+                      Hapticos.toque();
+                      player.next();
+                    },
                   ),
                 ],
               ),
+            ),
+            // Progreso fino y redondeado en la base de la tarjeta.
+            StreamBuilder<Duration>(
+              stream: player.positionStream,
+              builder: (BuildContext context, AsyncSnapshot<Duration> snapshot) {
+                final Duration position = snapshot.data ?? Duration.zero;
+                final Duration total = player.duration ?? Duration(milliseconds: song.durationMs);
+                final double progress = total.inMilliseconds == 0
+                    ? 0
+                    : (position.inMilliseconds / total.inMilliseconds).clamp(0.0, 1.0);
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(14, 0, 14, 6),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(2),
+                    child: LinearProgressIndicator(
+                      value: progress,
+                      minHeight: 3,
+                      backgroundColor: AppColors.darkOutline.withAlpha(90),
+                      color: AppColors.green,
+                    ),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -263,3 +272,98 @@ class EmptyState extends StatelessWidget {
 
 /// Etiqueta de tiempo corto reutilizable.
 String shortDuration(Duration? duration) => Formatters.duration(duration);
+
+/// Abre el reproductor deslizandolo desde abajo (como las apps de musica).
+/// Con "reducir movimiento" la transicion es instantanea.
+Route<void> rutaReproductor() {
+  return PageRouteBuilder<void>(
+    transitionDuration: Motion.ajustar(Motion.lento),
+    reverseTransitionDuration: Motion.ajustar(Motion.normal),
+    pageBuilder: (_, __, ___) => const PlayerScreen(),
+    transitionsBuilder: (
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child,
+    ) {
+      final Animation<double> curva = CurvedAnimation(
+        parent: animation,
+        curve: Motion.entrada,
+        reverseCurve: Motion.salida,
+      );
+      return SlideTransition(
+        position: Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero).animate(curva),
+        child: child,
+      );
+    },
+  );
+}
+
+/// Boton circular de reproducir/pausar con el color de acento del tema.
+/// Lo usan el mini reproductor y el reproductor grande, asi se ven iguales.
+class BotonPlay extends StatelessWidget {
+  const BotonPlay({
+    super.key,
+    required this.playing,
+    required this.onPressed,
+    this.loading = false,
+    this.size = 72,
+  });
+
+  final bool playing;
+  final bool loading;
+  final double size;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme scheme = Theme.of(context).colorScheme;
+    final AppLocalizations loc = AppLocalizations.of(context);
+    return Tooltip(
+      message: playing ? loc.actPause : loc.play,
+      child: Semantics(
+        button: true,
+        label: playing ? loc.actPause : loc.play,
+        child: SizedBox(
+          width: size,
+          height: size,
+          child: Material(
+            color: AppColors.green,
+            shape: const CircleBorder(),
+            elevation: size > 56 ? 6 : 0,
+            shadowColor: AppColors.green.withAlpha(120),
+            child: InkWell(
+              customBorder: const CircleBorder(),
+              onTap: () {
+                Hapticos.accion();
+                onPressed();
+              },
+              child: Center(
+                child: loading
+                    ? SizedBox(
+                        width: size * 0.4,
+                        height: size * 0.4,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2.5,
+                          color: scheme.onPrimary,
+                        ),
+                      )
+                    : AnimatedSwitcher(
+                        duration: Motion.ajustar(Motion.rapido),
+                        transitionBuilder: (Widget child, Animation<double> a) =>
+                            ScaleTransition(scale: a, child: child),
+                        child: Icon(
+                          playing ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                          key: ValueKey<bool>(playing),
+                          size: size * 0.56,
+                          color: scheme.onPrimary,
+                        ),
+                      ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

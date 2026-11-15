@@ -919,5 +919,29 @@
       }
     }
   },
-  "settingsGoTo": "前往"
+  "settingsGoTo": "前往",
+  "aiConsentTitle": "使用 AI 之前",
+  "aiConsentBody": "为了回答你，BotMp3 会使用你自己的 API 密钥，把你输入的内容以及歌曲的标题、艺人、专辑、流派和年份发送给你选择的 AI 服务商（OpenAI、DeepSeek、Google Gemini 或 Anthropic Claude）。\n\n你的音频文件绝不会离开设备。AI 的回答可能有误。\n\n你可以随时在 AI 菜单中撤回此同意。",
+  "aiConsentAccept": "同意",
+  "aiConsentRevoke": "撤回同意",
+  "aiConsentRequired": "请先接受 AI 隐私说明才能使用此功能。",
+  "aiPrivacyMenu": "AI 隐私",
+  "aiReport": "举报回答",
+  "aiReportCopied": "回答已复制。请通过电子邮件发给我们进行举报。",
+  "aiReportThanks": "感谢举报，这能帮助我们改进。",
+  "aiGeneratedLabel": "AI 生成 · 可能不准确",
+  "aiRecommendations": "推荐",
+  "aiBadgeLibrary": "曲库",
+  "aiBadgeExternal": "网络",
+  "aiPlayLocal": "播放曲库中的 {count} 首",
+  "aiHide": "隐藏",
+  "aiStructure": "结构",
+  "aiSend": "发送",
+  "aiVoiceOn": "朗读回答",
+  "aiVoiceOff": "关闭语音",
+  "aiConnectionError": "连接错误",
+  "aiCopy": "复制",
+  "aiCopied": "已复制",
+  "playerVolume": "音量",
+  "playerInfo": "详情"
 }

@@ -1,13 +1,15 @@
 # Reglas ProGuard/R8 de BotMp3
-# Plugins con llamadas nativas (FFI) que deben conservarse.
--keep class com.erikas.audiotags.** { *; }
+# (solo se aplican si activas minifyEnabled en build.gradle)
+
+# Servicio de audio en segundo plano (just_audio_background / audio_service)
 -keep class com.ryanheise.** { *; }
--keep class com.google.android.exoplayer2.** { *; }
 
-# Voz
--keep class android.speech.** { *; }
-
-# Modelo de datos serializado a JSON
+# Codigo nativo propio: widgets, receptores y canales con Flutter
 -keep class com.botmp3.app.** { *; }
+-keep class com.example.botmp3.** { *; }
 
+# Avisos habituales de Flutter y flutter_secure_storage con R8
+-dontwarn com.google.android.play.core.**
+-dontwarn com.google.errorprone.annotations.**
+-dontwarn javax.annotation.**
 -dontwarn org.jetbrains.annotations.**

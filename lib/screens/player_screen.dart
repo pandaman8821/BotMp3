@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui' show FontFeature;
 import '../core/motion.dart';
 import '../l10n/app_localizations.dart';
 import '../core/text_utils.dart';
@@ -20,6 +21,7 @@ import '../services/voice_service.dart';
 import '../services/bookmarks_service.dart';
 import '../services/cover_palette.dart';
 import '../widgets/cover_art.dart';
+import '../widgets/mini_player.dart' show BotonPlay;
 import '../widgets/wave_bars.dart';
 import 'album_screen.dart';
 import 'cover_editor_screen.dart';
@@ -180,17 +182,30 @@ class _PlayerScreenState extends State<PlayerScreen> {
           ),
         ],
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: <Color>[
-              Color.lerp(_colorPortada ?? const Color(0xFF1D1D28), AppColors.darkBg, 0.55)!,
-              AppColors.darkBg,
-            ],
-          ),
-        ),
+      // El fondo toma el color de la caratula y CAMBIA SUAVE entre canciones
+      // (antes saltaba de golpe).
+      body: TweenAnimationBuilder<Color?>(
+        tween: ColorTween(end: _colorPortada ?? const Color(0xFF1D1D28)),
+        duration: Motion.ajustar(Motion.lento * 2),
+        curve: Motion.curva,
+        builder: (BuildContext context, Color? tono, Widget? child) {
+          final Color base = tono ?? const Color(0xFF1D1D28);
+          return DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: const <double>[0, 0.55, 1],
+                colors: <Color>[
+                  Color.lerp(base, AppColors.darkBg, 0.35)!,
+                  Color.lerp(base, AppColors.darkBg, 0.78)!,
+                  AppColors.darkBg,
+                ],
+              ),
+            ),
+            child: child,
+          );
+        },
         child: SafeArea(
           child: Column(
             children: <Widget>[
@@ -206,6 +221,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                       id: current.id,
                       path: current.coverPath,
                       size: MediaQuery.sizeOf(context).width - 56,
+                      brillo: _colorPortada,
                     ),
                   ),
                 ),
@@ -227,8 +243,10 @@ class _PlayerScreenState extends State<PlayerScreen> {
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.w700,
+                                    fontSize: 23,
+                                    fontWeight: FontWeight.w800,
+                                    letterSpacing: -0.4,
+                                    height: 1.15,
                                   ),
                                 ),
                                 const SizedBox(height: 4),
@@ -246,33 +264,48 @@ class _PlayerScreenState extends State<PlayerScreen> {
                           ),
                           IconButton(
                             iconSize: 30,
-                            tooltip: isFavorite ? 'Quitar de favoritas' : 'Marcar favorita',
-                            icon: Icon(
-                              isFavorite ? Icons.favorite : Icons.favorite_border,
-                              color: isFavorite ? Colors.redAccent : null,
+                            tooltip: isFavorite
+                                ? AppLocalizations.of(context).menuRemoveFavorite
+                                : AppLocalizations.of(context).menuMarkFavorite,
+                            icon: AnimatedSwitcher(
+                              duration: Motion.ajustar(Motion.normal),
+                              transitionBuilder: (Widget child, Animation<double> a) =>
+                                  ScaleTransition(scale: a, child: child),
+                              child: Icon(
+                                isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+                                key: ValueKey<bool>(isFavorite),
+                                color: isFavorite ? Colors.redAccent : null,
+                              ),
                             ),
-                            onPressed: () => library.toggleFavorite(current.id),
+                            onPressed: () {
+                              Hapticos.accion();
+                              library.toggleFavorite(current.id);
+                            },
                           ),
                         ],
                       ),
                       const SizedBox(height: 6),
-                      Wrap(
-                        spacing: 6,
-                        children: <Widget>[
-                          if (current.album.isNotEmpty)
-                            InkWell(
-                              borderRadius: BorderRadius.circular(20),
-                              onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute<void>(
-                                  builder: (_) => AlbumScreen(album: current.album),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Wrap(
+                          spacing: 6,
+                          runSpacing: 6,
+                          children: <Widget>[
+                            if (current.album.isNotEmpty)
+                              _Pildora(
+                                texto: current.album,
+                                icono: Icons.album_rounded,
+                                onTap: () => Navigator.of(context).push(
+                                  MaterialPageRoute<void>(
+                                    builder: (_) => AlbumScreen(album: current.album),
+                                  ),
                                 ),
                               ),
-                              child: Chip(label: Text(current.album)),
-                            ),
-                          if (current.year > 0) Chip(label: Text('${current.year}')),
-                          Chip(label: Text(current.genre)),
-                          ...current.tags.take(3).map((String tag) => Chip(label: Text('#$tag'))),
-                        ],
+                            if (current.year > 0) _Pildora(texto: '${current.year}'),
+                            if (current.genre.trim().isNotEmpty) _Pildora(texto: current.genre),
+                            ...current.tags.take(3).map((String tag) => _Pildora(texto: '#$tag')),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 10),
                       StreamBuilder<Duration>(
@@ -286,9 +319,23 @@ class _PlayerScreenState extends State<PlayerScreen> {
                               ? _dragValue
                               : position.inMilliseconds.toDouble().clamp(0, max);
 
+                          final TextStyle estiloTiempo = TextStyle(
+                            fontSize: 12,
+                            color: AppColors.darkTextDim,
+                            fontFeatures: const <FontFeature>[FontFeature.tabularFigures()],
+                          );
                           return Column(
                             children: <Widget>[
-                              Slider(
+                              SliderTheme(
+                                data: SliderTheme.of(context).copyWith(
+                                  trackHeight: 4,
+                                  thumbShape: RoundSliderThumbShape(
+                                    enabledThumbRadius: _dragging ? 9 : 6,
+                                  ),
+                                  overlayShape: const RoundSliderOverlayShape(overlayRadius: 18),
+                                  inactiveTrackColor: Theme.of(context).colorScheme.onSurface.withAlpha(40),
+                                ),
+                                child: Slider(
                                 min: 0,
                                 max: max,
                                 value: value,
@@ -301,19 +348,20 @@ class _PlayerScreenState extends State<PlayerScreen> {
                                   player.seek(Duration(milliseconds: v.round()));
                                   setState(() => _dragging = false);
                                 },
+                                ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 8),
+                                padding: const EdgeInsets.symmetric(horizontal: 20),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Text(
                                       Formatters.duration(Duration(milliseconds: value.round())),
-                                      style: const TextStyle(fontSize: 12),
+                                      style: estiloTiempo,
                                     ),
                                     Text(
                                       Formatters.duration(total),
-                                      style: const TextStyle(fontSize: 12),
+                                      style: estiloTiempo,
                                     ),
                                   ],
                                 ),
@@ -328,17 +376,24 @@ class _PlayerScreenState extends State<PlayerScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           IconButton(
-                            iconSize: 28,
-                            tooltip: 'Aleatorio',
+                            iconSize: 26,
+                            tooltip: AppLocalizations.of(context).shuffle,
+                            isSelected: player.isShuffleEnabled,
                             color: player.isShuffleEnabled ? AppColors.green : null,
-                            icon: const Icon(Icons.shuffle),
-                            onPressed: () => player.toggleShuffle(),
+                            icon: const Icon(Icons.shuffle_rounded),
+                            onPressed: () {
+                              Hapticos.toque();
+                              player.toggleShuffle();
+                            },
                           ),
                           IconButton(
-                            iconSize: 42,
-                            tooltip: 'Anterior',
-                            icon: const Icon(Icons.skip_previous),
-                            onPressed: player.previous,
+                            iconSize: 44,
+                            tooltip: AppLocalizations.of(context).actPrevious,
+                            icon: const Icon(Icons.skip_previous_rounded),
+                            onPressed: () {
+                              Hapticos.toque();
+                              player.previous();
+                            },
                           ),
                           StreamBuilder<PlayerState>(
                             stream: player.playerStateStream,
@@ -347,37 +402,34 @@ class _PlayerScreenState extends State<PlayerScreen> {
                               final bool loading = snapshot.data?.processingState ==
                                       ProcessingState.loading ||
                                   snapshot.data?.processingState == ProcessingState.buffering;
-                              return IconButton(
-                                iconSize: 68,
-                                tooltip: playing ? 'Pausar' : 'Reproducir',
-                                color: AppColors.green,
-                                icon: loading
-                                    ? const SizedBox(
-                                        width: 54,
-                                        height: 54,
-                                        child: CircularProgressIndicator(strokeWidth: 3),
-                                      )
-                                    : Icon(playing
-                                        ? Icons.pause_circle_filled
-                                        : Icons.play_circle_fill),
+                              return BotonPlay(
+                                playing: playing,
+                                loading: loading,
+                                size: 76,
                                 onPressed: player.togglePlayPause,
                               );
                             },
                           ),
                           IconButton(
-                            iconSize: 42,
-                            tooltip: 'Siguiente',
-                            icon: const Icon(Icons.skip_next),
-                            onPressed: player.next,
+                            iconSize: 44,
+                            tooltip: AppLocalizations.of(context).actNext,
+                            icon: const Icon(Icons.skip_next_rounded),
+                            onPressed: () {
+                              Hapticos.toque();
+                              player.next();
+                            },
                           ),
                           IconButton(
-                            iconSize: 28,
+                            iconSize: 26,
                             tooltip: _repeatLabel(player.repeatMode),
                             color: player.repeatMode == RepeatMode.off ? null : AppColors.green,
                             icon: Icon(
-                              player.repeatMode == RepeatMode.one ? Icons.repeat_one : Icons.repeat,
+                              player.repeatMode == RepeatMode.one
+                                  ? Icons.repeat_one_rounded
+                                  : Icons.repeat_rounded,
                             ),
                             onPressed: () {
+                              Hapticos.toque();
                               final RepeatMode mode = player.cycleRepeatMode();
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(_repeatLabel(mode))),
@@ -398,7 +450,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                           ),
                           _MiniAction(
                             icon: Icons.volume_up,
-                            label: 'Volumen',
+                            label: AppLocalizations.of(context).playerVolume,
                             onTap: () => _showVolumeSheet(context, player),
                           ),
                           _MiniAction(
@@ -409,7 +461,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                           ),
                           _MiniAction(
                             icon: Icons.info_outline,
-                            label: 'Metadatos',
+                            label: AppLocalizations.of(context).playerInfo,
                             onTap: () => _showMetadata(context, current),
                           ),
                         ],
@@ -418,7 +470,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: Card(
-                            color: const Color(0xFF1D1D28),
+                            color: AppColors.darkSurfaceHigh.withAlpha(210),
                             child: Padding(
                               padding: const EdgeInsets.all(12),
                               child: Row(
@@ -460,11 +512,11 @@ class _PlayerScreenState extends State<PlayerScreen> {
   String _repeatLabel(RepeatMode mode) {
     switch (mode) {
       case RepeatMode.off:
-        return 'Sin repetición';
+        return AppLocalizations.of(context).actRepeatOff;
       case RepeatMode.all:
-        return 'Repetir toda la cola';
+        return AppLocalizations.of(context).actRepeatAll;
       case RepeatMode.one:
-        return 'Repetir esta canción';
+        return AppLocalizations.of(context).actRepeatOne;
     }
   }
 
@@ -702,18 +754,39 @@ class _MiniAction extends StatelessWidget {
 
   Widget build(BuildContext context) {
     final Color color = highlight ? AppColors.aiViolet : Theme.of(context).colorScheme.onSurface;
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(14),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Icon(icon, size: 24, color: color),
-            const SizedBox(height: 4),
-            Text(label, style: TextStyle(fontSize: 11.5, color: color)),
-          ],
+    return Semantics(
+      button: true,
+      label: label,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: ConstrainedBox(
+          // Objetivo tactil minimo de 48 dp (accesibilidad de Android).
+          constraints: const BoxConstraints(minWidth: 64, minHeight: 56),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: color.withAlpha(highlight ? 40 : 22),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(icon, size: 22, color: color),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 11.5, color: color, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -726,11 +799,15 @@ class _PortadaKenBurns extends StatefulWidget {
     required this.id,
     required this.path,
     required this.size,
+    this.brillo,
   });
 
   final String id;
   final String? path;
   final double size;
+
+  /// Color de la caratula para la sombra luminosa (null = sombra neutra).
+  final Color? brillo;
 
   @override
   State<_PortadaKenBurns> createState() => _PortadaKenBurnsState();
@@ -757,10 +834,23 @@ class _PortadaKenBurnsState extends State<_PortadaKenBurns>
 
   @override
   Widget build(BuildContext context) {
-    final Widget portada = CoverArt(
-      path: widget.path,
-      size: widget.size,
-      borderRadius: 26,
+    final Widget portada = DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(26),
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: (widget.brillo ?? Colors.black).withAlpha(widget.brillo == null ? 110 : 90),
+            blurRadius: 40,
+            spreadRadius: -4,
+            offset: const Offset(0, 18),
+          ),
+        ],
+      ),
+      child: CoverArt(
+        path: widget.path,
+        size: widget.size,
+        borderRadius: 26,
+      ),
     );
     if (Motion.reducir) return portada;
     return AnimatedBuilder(
@@ -773,5 +863,47 @@ class _PortadaKenBurnsState extends State<_PortadaKenBurns>
       },
       child: portada,
     );
+  }
+}
+
+/// Etiqueta discreta (album, ano, genero, tags) bajo el titulo.
+class _Pildora extends StatelessWidget {
+  const _Pildora({required this.texto, this.icono, this.onTap});
+
+  final String texto;
+  final IconData? icono;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final Color tinta = Theme.of(context).colorScheme.onSurface;
+    final Widget cuerpo = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      decoration: BoxDecoration(
+        color: tinta.withAlpha(20),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: tinta.withAlpha(28)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          if (icono != null) ...<Widget>[
+            Icon(icono, size: 14, color: AppColors.darkTextDim),
+            const SizedBox(width: 4),
+          ],
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 200),
+            child: Text(
+              texto,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontSize: 12, color: AppColors.darkText, fontWeight: FontWeight.w500),
+            ),
+          ),
+        ],
+      ),
+    );
+    if (onTap == null) return cuerpo;
+    return InkWell(onTap: onTap, borderRadius: BorderRadius.circular(20), child: cuerpo);
   }
 }

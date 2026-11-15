@@ -1138,5 +1138,36 @@
       }
     }
   },
-  "settingsGoTo": "Go to"
+  "settingsGoTo": "Go to",
+  "aiConsentTitle": "Before using AI",
+  "aiConsentBody": "To answer you, BotMp3 sends what you type and the title, artist, album, genre and year of your songs to the AI provider you choose (OpenAI, DeepSeek, Google Gemini or Anthropic Claude), using your own API key.\n\nYour audio files never leave your device. AI answers can be wrong.\n\nYou can withdraw this consent at any time from the AI menu.",
+  "aiConsentAccept": "I agree",
+  "aiConsentRevoke": "Withdraw consent",
+  "aiConsentRequired": "Accept the AI privacy notice to use this feature.",
+  "aiPrivacyMenu": "AI privacy",
+  "aiReport": "Report response",
+  "aiReportCopied": "Response copied. Email it to us to report it.",
+  "aiReportThanks": "Thanks for the report. It helps us improve.",
+  "aiGeneratedLabel": "AI-generated · may be inaccurate",
+  "aiRecommendations": "Recommendations",
+  "aiBadgeLibrary": "Library",
+  "aiBadgeExternal": "Online",
+  "aiPlayLocal": "Play {count} from library",
+  "@aiPlayLocal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "aiHide": "Hide",
+  "aiStructure": "Structure",
+  "aiSend": "Send",
+  "aiVoiceOn": "Read replies aloud",
+  "aiVoiceOff": "Turn off voice",
+  "aiConnectionError": "Connection error",
+  "aiCopy": "Copy",
+  "aiCopied": "Copied",
+  "playerVolume": "Volume",
+  "playerInfo": "Details"
 }

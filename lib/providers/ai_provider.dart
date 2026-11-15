@@ -127,7 +127,22 @@ class AiAssistantProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// true cuando el usuario ya aceptó el aviso de privacidad de la IA.
+  bool get consentGiven => _settings?.aiConsent ?? false;
+
+  Future<void> setConsent(bool value) async {
+    final SettingsService? settings = _settings;
+    if (settings == null) return;
+    await settings.setAiConsent(value);
+    notifyListeners();
+  }
+
   AiOrchestrator? buildOrchestrator() {
+    // Sin consentimiento no sale ningún dato hacia el proveedor de IA.
+    if (!consentGiven) {
+      _lastError = UiStrings.loc.aiConsentRequired;
+      return null;
+    }
     final String key = (_keys[activeProvider] ?? '').trim();
     if (key.isEmpty) {
       _lastError = 'Falta la API key de ${activeProvider.label}.';
@@ -147,7 +162,7 @@ class AiAssistantProvider extends ChangeNotifier {
   Future<bool> testConnection() async {
     final AiOrchestrator? orchestrator = buildOrchestrator();
     if (orchestrator == null) {
-      _lastError = UiStrings.loc.aiKeyMissingFirst;
+      if (consentGiven) _lastError = UiStrings.loc.aiKeyMissingFirst;
       notifyListeners();
       return false;
     }

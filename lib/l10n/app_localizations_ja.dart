@@ -1688,4 +1688,79 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get settingsGoTo => '移動';
+
+  @override
+  String get aiConsentTitle => 'AI を使う前に';
+
+  @override
+  String get aiConsentBody =>
+      '回答のために、BotMp3 はあなた自身の API キーを使って、入力した内容と曲のタイトル・アーティスト・アルバム・ジャンル・年を、選択した AI プロバイダー（OpenAI、DeepSeek、Google Gemini、Anthropic Claude）に送信します。\n\n音声ファイルが端末の外に出ることはありません。AI の回答は誤っている場合があります。\n\nこの同意は AI メニューからいつでも取り消せます。';
+
+  @override
+  String get aiConsentAccept => '同意する';
+
+  @override
+  String get aiConsentRevoke => '同意を取り消す';
+
+  @override
+  String get aiConsentRequired => 'この機能を使うには AI のプライバシー通知に同意してください。';
+
+  @override
+  String get aiPrivacyMenu => 'AI のプライバシー';
+
+  @override
+  String get aiReport => '回答を報告';
+
+  @override
+  String get aiReportCopied => '回答をコピーしました。報告するにはメールで送ってください。';
+
+  @override
+  String get aiReportThanks => 'ご報告ありがとうございます。改善に役立てます。';
+
+  @override
+  String get aiGeneratedLabel => 'AI 生成 · 不正確な場合があります';
+
+  @override
+  String get aiRecommendations => 'おすすめ';
+
+  @override
+  String get aiBadgeLibrary => 'ライブラリ';
+
+  @override
+  String get aiBadgeExternal => 'オンライン';
+
+  @override
+  String aiPlayLocal(int count) {
+    return 'ライブラリの $count 曲を再生';
+  }
+
+  @override
+  String get aiHide => '非表示';
+
+  @override
+  String get aiStructure => '構成';
+
+  @override
+  String get aiSend => '送信';
+
+  @override
+  String get aiVoiceOn => '回答を読み上げる';
+
+  @override
+  String get aiVoiceOff => '音声をオフ';
+
+  @override
+  String get aiConnectionError => '接続エラー';
+
+  @override
+  String get aiCopy => 'コピー';
+
+  @override
+  String get aiCopied => 'コピーしました';
+
+  @override
+  String get playerVolume => '音量';
+
+  @override
+  String get playerInfo => '詳細';
 }

@@ -919,5 +919,29 @@
       }
     }
   },
-  "settingsGoTo": "移動"
+  "settingsGoTo": "移動",
+  "aiConsentTitle": "AI を使う前に",
+  "aiConsentBody": "回答のために、BotMp3 はあなた自身の API キーを使って、入力した内容と曲のタイトル・アーティスト・アルバム・ジャンル・年を、選択した AI プロバイダー（OpenAI、DeepSeek、Google Gemini、Anthropic Claude）に送信します。\n\n音声ファイルが端末の外に出ることはありません。AI の回答は誤っている場合があります。\n\nこの同意は AI メニューからいつでも取り消せます。",
+  "aiConsentAccept": "同意する",
+  "aiConsentRevoke": "同意を取り消す",
+  "aiConsentRequired": "この機能を使うには AI のプライバシー通知に同意してください。",
+  "aiPrivacyMenu": "AI のプライバシー",
+  "aiReport": "回答を報告",
+  "aiReportCopied": "回答をコピーしました。報告するにはメールで送ってください。",
+  "aiReportThanks": "ご報告ありがとうございます。改善に役立てます。",
+  "aiGeneratedLabel": "AI 生成 · 不正確な場合があります",
+  "aiRecommendations": "おすすめ",
+  "aiBadgeLibrary": "ライブラリ",
+  "aiBadgeExternal": "オンライン",
+  "aiPlayLocal": "ライブラリの {count} 曲を再生",
+  "aiHide": "非表示",
+  "aiStructure": "構成",
+  "aiSend": "送信",
+  "aiVoiceOn": "回答を読み上げる",
+  "aiVoiceOff": "音声をオフ",
+  "aiConnectionError": "接続エラー",
+  "aiCopy": "コピー",
+  "aiCopied": "コピーしました",
+  "playerVolume": "音量",
+  "playerInfo": "詳細"
 }

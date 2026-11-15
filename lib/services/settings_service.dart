@@ -146,6 +146,14 @@ class SettingsService {
     await _prefs.setBool('import_media_audio', value);
   }
 
+  /// Consentimiento explícito para enviar datos al proveedor de IA
+  /// (política de Datos del usuario de Google Play: divulgación destacada).
+  bool get aiConsent => _prefs.getBool('ai_consent_v1') ?? false;
+
+  Future<void> setAiConsent(bool value) async {
+    await _prefs.setBool('ai_consent_v1', value);
+  }
+
   /// Ajuste de volumen por canción (id -> factor 0.5..2.0): iguala las pistas
   /// que suenan mucho más flojas o más fuertes que el resto.
   double factorVolumen(String songId) {

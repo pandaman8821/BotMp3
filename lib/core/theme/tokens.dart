@@ -117,7 +117,28 @@ class BotTokens {
       surfaceContainerHighest: surfaceHigh,
     );
     final Color outlineSoft = outline.withAlpha(125);
-    final TextStyle baseText = TextStyle(fontFamily: fontFamily, color: text);
+    final Brightness brillo = dark ? Brightness.dark : Brightness.light;
+
+    // Escala tipografica COMPLETA de Material 3 con la fuente y los colores del
+    // tema: antes solo se definia el cuerpo y los titulos de dialogos, listas y
+    // hojas inferiores caian en los valores por defecto (otra fuente/color).
+    final TextTheme baseTypo = Typography.material2021(platform: TargetPlatform.android)
+        .englishLike
+        .merge(dark ? Typography.material2021().white : Typography.material2021().black)
+        .apply(fontFamily: fontFamily, bodyColor: text, displayColor: text);
+    final TextStyle tituloBase = TextStyle(
+      fontFamily: titleFontFamily ?? fontFamily,
+      fontWeight: titleWeight,
+      letterSpacing: titleSpacing,
+    );
+    final TextTheme typo = baseTypo.copyWith(
+      headlineSmall: baseTypo.headlineSmall?.merge(tituloBase),
+      titleLarge: baseTypo.titleLarge?.merge(tituloBase),
+      titleMedium: baseTypo.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+      bodySmall: baseTypo.bodySmall?.copyWith(color: textDim),
+      labelSmall: baseTypo.labelSmall?.copyWith(color: textDim),
+    );
+    final BorderRadius redondeo = BorderRadius.circular(radius);
 
     return ThemeData(
       useMaterial3: true,
@@ -125,7 +146,9 @@ class BotTokens {
       scaffoldBackgroundColor: Colors.transparent,
       splashFactory: glow ? InkRipple.splashFactory : InkSparkle.splashFactory,
       visualDensity: const VisualDensity(horizontal: -1, vertical: -1),
-      textTheme: TextTheme(bodyMedium: baseText, bodyLarge: baseText),
+      brightness: brillo,
+      textTheme: typo,
+      iconTheme: IconThemeData(color: text, size: 24),
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
@@ -196,8 +219,14 @@ class BotTokens {
         backgroundColor: surface.withAlpha(230),
         indicatorColor: primary.withAlpha(46),
         height: 68,
-        labelTextStyle: WidgetStatePropertyAll<TextStyle>(
-          TextStyle(fontFamily: fontFamily, fontSize: 12, color: textDim, fontWeight: FontWeight.w600),
+        // La pestana activa tambien resalta su texto (antes solo el icono).
+        labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
+          (Set<WidgetState> states) => TextStyle(
+            fontFamily: fontFamily,
+            fontSize: 12,
+            color: states.contains(WidgetState.selected) ? text : textDim,
+            fontWeight: states.contains(WidgetState.selected) ? FontWeight.w700 : FontWeight.w500,
+          ),
         ),
         iconTheme: WidgetStateProperty.resolveWith<IconThemeData>(
           (Set<WidgetState> states) => IconThemeData(
@@ -212,11 +241,73 @@ class BotTokens {
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius * 0.8)),
       ),
-      dividerTheme: DividerThemeData(color: outlineSoft, thickness: 1),
-      progressIndicatorTheme: ProgressIndicatorThemeData(color: primary),
-      pageTransitionsTheme: const PageTransitionsTheme(
+      dividerTheme: DividerThemeData(color: outlineSoft, thickness: 1, space: 1),
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: primary,
+        linearTrackColor: outline.withAlpha(90),
+        circularTrackColor: Colors.transparent,
+      ),
+      // Superficies flotantes: mismas esquinas y colores en toda la app.
+      cardTheme: CardThemeData(
+        color: surface,
+        surfaceTintColor: Colors.transparent,
+        elevation: cardElevation,
+        shape: RoundedRectangleBorder(
+          borderRadius: redondeo,
+          side: BorderSide(color: outline.withAlpha(70)),
+        ),
+      ),
+      dialogTheme: DialogThemeData(
+        backgroundColor: surfaceHigh,
+        surfaceTintColor: Colors.transparent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius + 6)),
+        titleTextStyle: typo.titleLarge,
+        contentTextStyle: typo.bodyMedium?.copyWith(color: textDim, height: 1.4),
+      ),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: surfaceHigh,
+        surfaceTintColor: Colors.transparent,
+        modalBackgroundColor: surfaceHigh,
+        dragHandleColor: textDim.withAlpha(120),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(radius + 10)),
+        ),
+      ),
+      popupMenuTheme: PopupMenuThemeData(
+        color: surfaceHigh,
+        surfaceTintColor: Colors.transparent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius * 0.8)),
+        textStyle: typo.bodyMedium,
+      ),
+      tooltipTheme: TooltipThemeData(
+        decoration: BoxDecoration(
+          color: surfaceHigh,
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: outlineSoft),
+        ),
+        textStyle: TextStyle(fontFamily: fontFamily, color: text, fontSize: 12),
+        waitDuration: const Duration(milliseconds: 400),
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: WidgetStateProperty.resolveWith<Color?>(
+          (Set<WidgetState> states) => states.contains(WidgetState.selected) ? onPrimary : null,
+        ),
+        trackColor: WidgetStateProperty.resolveWith<Color?>(
+          (Set<WidgetState> states) => states.contains(WidgetState.selected) ? primary : null,
+        ),
+      ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: primary,
+        foregroundColor: onPrimary,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+      ),
+      // Android 14+: animacion de "atras predictivo" (el manifiesto ya la activa
+      // con enableOnBackInvokedCallback). Sin movimiento: transicion simple.
+      pageTransitionsTheme: PageTransitionsTheme(
         builders: <TargetPlatform, PageTransitionsBuilder>{
-          TargetPlatform.android: ZoomPageTransitionsBuilder(),
+          TargetPlatform.android: reduceMotion
+              ? const FadeUpwardsPageTransitionsBuilder()
+              : const PredictiveBackPageTransitionsBuilder(),
         },
       ),
     );

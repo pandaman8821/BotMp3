@@ -1684,6 +1684,81 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get settingsGoTo => '前往';
+
+  @override
+  String get aiConsentTitle => '使用 AI 之前';
+
+  @override
+  String get aiConsentBody =>
+      '为了回答你，BotMp3 会使用你自己的 API 密钥，把你输入的内容以及歌曲的标题、艺人、专辑、流派和年份发送给你选择的 AI 服务商（OpenAI、DeepSeek、Google Gemini 或 Anthropic Claude）。\n\n你的音频文件绝不会离开设备。AI 的回答可能有误。\n\n你可以随时在 AI 菜单中撤回此同意。';
+
+  @override
+  String get aiConsentAccept => '同意';
+
+  @override
+  String get aiConsentRevoke => '撤回同意';
+
+  @override
+  String get aiConsentRequired => '请先接受 AI 隐私说明才能使用此功能。';
+
+  @override
+  String get aiPrivacyMenu => 'AI 隐私';
+
+  @override
+  String get aiReport => '举报回答';
+
+  @override
+  String get aiReportCopied => '回答已复制。请通过电子邮件发给我们进行举报。';
+
+  @override
+  String get aiReportThanks => '感谢举报，这能帮助我们改进。';
+
+  @override
+  String get aiGeneratedLabel => 'AI 生成 · 可能不准确';
+
+  @override
+  String get aiRecommendations => '推荐';
+
+  @override
+  String get aiBadgeLibrary => '曲库';
+
+  @override
+  String get aiBadgeExternal => '网络';
+
+  @override
+  String aiPlayLocal(int count) {
+    return '播放曲库中的 $count 首';
+  }
+
+  @override
+  String get aiHide => '隐藏';
+
+  @override
+  String get aiStructure => '结构';
+
+  @override
+  String get aiSend => '发送';
+
+  @override
+  String get aiVoiceOn => '朗读回答';
+
+  @override
+  String get aiVoiceOff => '关闭语音';
+
+  @override
+  String get aiConnectionError => '连接错误';
+
+  @override
+  String get aiCopy => '复制';
+
+  @override
+  String get aiCopied => '已复制';
+
+  @override
+  String get playerVolume => '音量';
+
+  @override
+  String get playerInfo => '详情';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -3366,4 +3441,79 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get settingsGoTo => '前往';
+
+  @override
+  String get aiConsentTitle => '使用 AI 之前';
+
+  @override
+  String get aiConsentBody =>
+      '为了回答你，BotMp3 会使用你自己的 API 密钥，把你输入的内容以及歌曲的标题、艺人、专辑、流派和年份发送给你选择的 AI 服务商（OpenAI、DeepSeek、Google Gemini 或 Anthropic Claude）。\n\n你的音频文件绝不会离开设备。AI 的回答可能有误。\n\n你可以随时在 AI 菜单中撤回此同意。';
+
+  @override
+  String get aiConsentAccept => '同意';
+
+  @override
+  String get aiConsentRevoke => '撤回同意';
+
+  @override
+  String get aiConsentRequired => '请先接受 AI 隐私说明才能使用此功能。';
+
+  @override
+  String get aiPrivacyMenu => 'AI 隐私';
+
+  @override
+  String get aiReport => '举报回答';
+
+  @override
+  String get aiReportCopied => '回答已复制。请通过电子邮件发给我们进行举报。';
+
+  @override
+  String get aiReportThanks => '感谢举报，这能帮助我们改进。';
+
+  @override
+  String get aiGeneratedLabel => 'AI 生成 · 可能不准确';
+
+  @override
+  String get aiRecommendations => '推荐';
+
+  @override
+  String get aiBadgeLibrary => '曲库';
+
+  @override
+  String get aiBadgeExternal => '网络';
+
+  @override
+  String aiPlayLocal(int count) {
+    return '播放曲库中的 $count 首';
+  }
+
+  @override
+  String get aiHide => '隐藏';
+
+  @override
+  String get aiStructure => '结构';
+
+  @override
+  String get aiSend => '发送';
+
+  @override
+  String get aiVoiceOn => '朗读回答';
+
+  @override
+  String get aiVoiceOff => '关闭语音';
+
+  @override
+  String get aiConnectionError => '连接错误';
+
+  @override
+  String get aiCopy => '复制';
+
+  @override
+  String get aiCopied => '已复制';
+
+  @override
+  String get playerVolume => '音量';
+
+  @override
+  String get playerInfo => '详情';
 }

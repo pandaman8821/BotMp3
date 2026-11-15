@@ -1752,4 +1752,82 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get settingsGoTo => 'Gehe zu';
+
+  @override
+  String get aiConsentTitle => 'Bevor du die KI nutzt';
+
+  @override
+  String get aiConsentBody =>
+      'Um dir zu antworten, sendet BotMp3 deine Eingaben sowie Titel, Interpret, Album, Genre und Jahr deiner Songs mit deinem eigenen API-Schlüssel an den gewählten KI-Anbieter (OpenAI, DeepSeek, Google Gemini oder Anthropic Claude).\n\nDeine Audiodateien verlassen nie dein Gerät. KI-Antworten können falsch sein.\n\nDu kannst diese Einwilligung jederzeit im KI-Menü widerrufen.';
+
+  @override
+  String get aiConsentAccept => 'Einverstanden';
+
+  @override
+  String get aiConsentRevoke => 'Einwilligung widerrufen';
+
+  @override
+  String get aiConsentRequired =>
+      'Akzeptiere den KI-Datenschutzhinweis, um diese Funktion zu nutzen.';
+
+  @override
+  String get aiPrivacyMenu => 'KI-Datenschutz';
+
+  @override
+  String get aiReport => 'Antwort melden';
+
+  @override
+  String get aiReportCopied =>
+      'Antwort kopiert. Schick sie uns per E-Mail, um sie zu melden.';
+
+  @override
+  String get aiReportThanks =>
+      'Danke für die Meldung. Sie hilft uns, besser zu werden.';
+
+  @override
+  String get aiGeneratedLabel => 'KI-generiert · kann Fehler enthalten';
+
+  @override
+  String get aiRecommendations => 'Empfehlungen';
+
+  @override
+  String get aiBadgeLibrary => 'Mediathek';
+
+  @override
+  String get aiBadgeExternal => 'Online';
+
+  @override
+  String aiPlayLocal(int count) {
+    return '$count aus der Mediathek abspielen';
+  }
+
+  @override
+  String get aiHide => 'Ausblenden';
+
+  @override
+  String get aiStructure => 'Aufbau';
+
+  @override
+  String get aiSend => 'Senden';
+
+  @override
+  String get aiVoiceOn => 'Antworten vorlesen';
+
+  @override
+  String get aiVoiceOff => 'Stimme ausschalten';
+
+  @override
+  String get aiConnectionError => 'Verbindungsfehler';
+
+  @override
+  String get aiCopy => 'Kopieren';
+
+  @override
+  String get aiCopied => 'Kopiert';
+
+  @override
+  String get playerVolume => 'Lautstärke';
+
+  @override
+  String get playerInfo => 'Details';
 }
