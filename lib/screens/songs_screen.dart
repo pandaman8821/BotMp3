@@ -256,41 +256,51 @@ class _SongsScreenState extends State<SongsScreen> {
               ]
             : <Widget>[
                 SizedBox(
-                  width: 6 * 34.0,
+                  width: 6 * 37.0 + 4,
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
+                      spacing: 3,
                       children: <Widget>[
                         BotonAccion(
-                          icono: Icons.leaderboard_rounded,
+                          // Trofeo: el ranking de lo más escuchado.
+                          icono: Icons.emoji_events_rounded,
                           tooltip: AppLocalizations.of(context).mostPlayedRanking,
-                          tamano: 20,
+                          tamano: 19,
                           anchoAlto: 34,
+                          animacion: AnimacionIcono.saltar,
+                          orden: 0,
                           onPressed: () => Navigator.of(context).push(
                             MaterialPageRoute<void>(builder: (_) => const RankingScreen()),
                           ),
                         ),
                         BotonAccion(
-                          icono: Icons.sort_rounded,
+                          icono: Icons.swap_vert_rounded,
                           tooltip: AppLocalizations.of(context).sortBy,
                           tamano: 20,
                           anchoAlto: 34,
+                          animacion: AnimacionIcono.giro,
+                          orden: 1,
                           onPressed: () => _mostrarMenuOrden(context),
                         ),
                         BotonAccion(
-                          icono: library.hasActiveFilters ? Icons.filter_alt : Icons.filter_alt_outlined,
+                          icono: Icons.tune_rounded,
                           tooltip: AppLocalizations.of(context).advancedFilters,
                           activo: library.hasActiveFilters,
-                          tamano: 20,
+                          tamano: 19,
                           anchoAlto: 34,
+                          animacion: AnimacionIcono.pulso,
+                          orden: 2,
                           onPressed: () => AppDialogs.showFilters(context),
                         ),
                         BotonAccion(
                           icono: Icons.shuffle_rounded,
                           tooltip: AppLocalizations.of(context).shuffleAll,
-                          tamano: 20,
+                          tamano: 19,
                           anchoAlto: 34,
+                          animacion: AnimacionIcono.giro,
+                          orden: 3,
                           onPressed: () async {
                             if (songs.isEmpty) return;
                             final int azar = Random().nextInt(songs.length);
@@ -299,10 +309,12 @@ class _SongsScreenState extends State<SongsScreen> {
                           },
                         ),
                         BotonAccion(
-                          icono: Icons.directions_car_rounded,
+                          icono: Icons.directions_car_filled_rounded,
                           tooltip: AppLocalizations.of(context).carMode,
-                          tamano: 20,
+                          tamano: 19,
                           anchoAlto: 34,
+                          animacion: AnimacionIcono.deslizar,
+                          orden: 4,
                           onPressed: () => Navigator.of(context).push(
                             MaterialPageRoute<void>(builder: (_) => const CarModeScreen()),
                           ),
@@ -310,8 +322,10 @@ class _SongsScreenState extends State<SongsScreen> {
                         BotonAccion(
                           icono: Icons.lyrics_rounded,
                           tooltip: AppLocalizations.of(context).songLyrics,
-                          tamano: 20,
+                          tamano: 19,
                           anchoAlto: 34,
+                          animacion: AnimacionIcono.rebote,
+                          orden: 5,
                           onPressed: () {
                             final Song? actual = context.read<PlayerProvider>().current;
                             if (actual == null) {
