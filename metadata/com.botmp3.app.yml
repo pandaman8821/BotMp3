@@ -8,9 +8,10 @@ Categories:
   - Multimedia
   - Music
 
-License: GPL-3.0-only
+License: GPL-3.0-or-later
 AuthorName: pandaman8821
 AuthorEmail: pandamanrd@gmail.com
+AuthorWebSite: https://github.com/pandaman8821
 WebSite: https://github.com/pandaman8821/BotMp3
 SourceCode: https://github.com/pandaman8821/BotMp3
 IssueTracker: https://github.com/pandaman8821/BotMp3/issues
@@ -18,37 +19,34 @@ Changelog: https://github.com/pandaman8821/BotMp3/releases
 
 AutoName: BotMp3
 
-Summary: Reproductor de musica offline con DJ de IA
-Description: |-
-  Reproductor de musica 100% offline con tema oscuro Liquid Glass.
-
-  Incluye listas propias, cola de reproduccion, aleatorio sin repeticiones,
-  ranking de canciones y generos, letras (.lrc), volumen por cancion, modo
-  coche, gestos, widget de pantalla de inicio, copias de seguridad automaticas
-  y un DJ con IA opcional (con la clave del propio usuario).
-
-  No pide cuenta, no incluye anuncios ni rastreadores: la musica nunca sale del
-  telefono. Solo usa internet si el usuario lo pide (IA o abrir una lista de
-  tendencias en el navegador).
-
 RepoType: git
 Repo: https://github.com/pandaman8821/BotMp3.git
 
 Builds:
-  - versionName: 1.8.0
-    versionCode: 46
-    commit: v1.8.0
+  - versionName: 1.9.132
+    versionCode: 188
+    commit: v1.9.132
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-21-jdk-headless
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.47.7
     prebuild:
       - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter precache --android
       - $$flutter$$/bin/flutter pub get
     build:
-      - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64
+      - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64 --no-pub
     ndk: r27c
+
+MaintainerNotes: |-
+  Aplicacion Flutter. Compilada y verificada con Flutter 3.47.7, Dart 3.13.5,
+  AGP 8.11.1, Kotlin 2.2.20, Gradle 8.14.3, NDK r27c, compileSdk 36, minSdk 24.
+  Todas las dependencias son libres (MIT/BSD/Apache). Sin anuncios, analitica
+  ni servicios de Google. Las funciones de IA son opcionales (NonFreeNet).
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.8.0
-CurrentVersionCode: 46
+CurrentVersion: 1.9.132
+CurrentVersionCode: 188

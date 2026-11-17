@@ -1,0 +1,5 @@
+Nuevo robot animado junto al logo y botones de cristal animados en la barra de Canciones.
+Liquid Glass mejorado: borde de luz, fondo animado y halo con el color de la carátula.
+El chat del Modo DJ atiende las peticiones en orden y ya no muestra JSON.
+El volumen por canción y ReplayGain ya no se pierden; la cola es más estable.
+Textos traducidos a 10 idiomas y aviso de privacidad para la IA.

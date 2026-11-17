@@ -1,0 +1,5 @@
+New animated robot next to the logo and animated glass buttons in the Songs bar.
+Improved Liquid Glass: light edge, animated background and a halo in the cover color.
+The DJ Mode chat handles requests in order and no longer shows JSON.
+Per-song volume and ReplayGain are no longer lost; the queue is more stable.
+Texts translated into 10 languages and a privacy notice for the AI.
