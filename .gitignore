@@ -32,3 +32,7 @@ _wrapper_tmp/
 **/build/
 
 dist/
+
+# Binarios compilados (publicar en GitHub Releases)
+*.apk
+*.aab
