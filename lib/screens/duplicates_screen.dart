@@ -53,7 +53,7 @@ class DuplicatesScreen extends StatelessWidget {
                           children: <Widget>[
                             Expanded(
                               child: Text(
-                                '${grupo.first.title} — ${grupo.first.artist}',
+                                '${grupo.first.title} — ${grupo.first.artistLabel}',
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(fontWeight: FontWeight.w700),

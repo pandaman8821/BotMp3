@@ -73,7 +73,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 return ListTile(
                   leading: CoverArt(path: song.coverPath, size: 44),
                   title: Text(song.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-                  subtitle: Text(song.artist, maxLines: 1, overflow: TextOverflow.ellipsis),
+                  subtitle: Text(song.artistLabel, maxLines: 1, overflow: TextOverflow.ellipsis),
                   onTap: () => player.playSong(song, context: canciones),
                 );
               },

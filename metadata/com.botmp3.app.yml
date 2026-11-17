@@ -23,9 +23,9 @@ RepoType: git
 Repo: https://github.com/pandaman8821/BotMp3.git
 
 Builds:
-  - versionName: 1.9.132
-    versionCode: 188
-    commit: v1.9.132
+  - versionName: 1.9.133
+    versionCode: 189
+    commit: v1.9.133
     sudo:
       - apt-get update
       - apt-get install -y openjdk-21-jdk-headless
@@ -48,5 +48,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.132
-CurrentVersionCode: 188
+CurrentVersion: 1.9.133
+CurrentVersionCode: 189

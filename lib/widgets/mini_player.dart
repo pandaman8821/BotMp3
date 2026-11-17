@@ -79,7 +79,7 @@ class MiniPlayer extends StatelessWidget {
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          song.artist,
+                          song.artistLabel,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(fontSize: 12.5, color: AppColors.darkTextDim),

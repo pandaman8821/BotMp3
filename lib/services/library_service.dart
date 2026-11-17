@@ -367,7 +367,8 @@ class LibraryService {
   }
 
   List<MapEntry<String, int>> topArtistas({DateTime? from}) =>
-      _topPor((Song song) => song.artist, from: from);
+      // "Artista desconocido" no es un artista: no entra en el ranking.
+      _topPor((Song song) => song.artistaDesconocido ? '' : song.artist, from: from);
 
   List<MapEntry<String, int>> topAlbumes({DateTime? from}) =>
       _topPor((Song song) => song.album, from: from);

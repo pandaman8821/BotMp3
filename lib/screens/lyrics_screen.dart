@@ -67,7 +67,8 @@ class _LyricsScreenState extends State<LyricsScreen> {
   Future<String?> _leerLetra() async {
     final String? local = await _leerLetraLocal();
     if (local != null) return local;
-    return LyricsFetcher.fetch(widget.song.title, widget.song.artist, album: widget.song.album);
+    return LyricsFetcher.fetch(widget.song.title,
+        widget.song.artistaDesconocido ? '' : widget.song.artist, album: widget.song.album);
   }
 
   static String _soloTexto(String letra) {

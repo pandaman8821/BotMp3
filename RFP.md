@@ -25,7 +25,7 @@ también hay versión en inglés en `fastlane/metadata/android/en-US/full_descri
 ### Datos de la aplicación
 - **Identificador**: `com.botmp3.app`
 - **Repositorio**: https://github.com/pandaman8821/BotMp3
-- **Versión a empaquetar**: `1.9.132` (versionCode `188`), etiqueta `v1.9.132`
+- **Versión a empaquetar**: `1.9.133` (versionCode `189`), etiqueta `v1.9.133`
 - **Licencia**: GPL-3.0-or-later (archivo `LICENSE` incluido)
 - **Categorías**: Multimedia / Music
 - **Autor**: pandaman8821 pandamanrd@gmail.com
@@ -62,4 +62,4 @@ clave**. La aplicación es totalmente funcional sin activar ninguna conexión.
 1. Un voluntario revisa la petición y escribe/ajusta la receta.
 2. Suele tardar **de unas semanas a un par de meses**.
 3. Cuando la app esté publicada, F-Droid gestiona las actualizaciones y los avisos:
-   solo hay que subir el `versionCode` y crear la etiqueta (`git tag v1.9.133`).
+   solo hay que subir el `versionCode` y crear la etiqueta (`git tag v1.9.134`).

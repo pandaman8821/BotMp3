@@ -1,0 +1,5 @@
+El DJ y el chat de IA responden en el idioma en que les escribes, en los 10 idiomas de la app.
+Si no hay texto tuyo (DJ automático), la IA usa el idioma de la app.
+«Artista desconocido» se muestra traducido en todas las pantallas, la notificación y el widget.
+Las canciones sin artista ya no aparecen en el ranking de artistas.
+Mejor búsqueda de letras y carátulas para canciones sin artista.

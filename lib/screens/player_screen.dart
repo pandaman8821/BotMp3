@@ -251,7 +251,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  current.artist,
+                                  current.artistLabel,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
@@ -603,7 +603,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
             children: <Widget>[
               Text(song.title, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
               const SizedBox(height: 8),
-              Text('${AppLocalizations.of(context).artistLabel}: ${song.artist}'),
+              Text('${AppLocalizations.of(context).artistLabel}: ${song.artistLabel}'),
                 Text('${AppLocalizations.of(context).albumLabel}: ${song.album.isEmpty ? '—' : song.album}'),
                 Text('${AppLocalizations.of(context).yearLabel}: ${song.year == 0 ? '—' : '${song.year}'}'),
                 Text('${AppLocalizations.of(context).genreLabel}: ${song.genre}'),
@@ -662,7 +662,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                     fontWeight: isCurrent ? FontWeight.w700 : FontWeight.w500,
                   ),
                 ),
-                subtitle: Text(song.artist, maxLines: 1, overflow: TextOverflow.ellipsis),
+                subtitle: Text(song.artistLabel, maxLines: 1, overflow: TextOverflow.ellipsis),
                 trailing: IconButton(
                   icon: const Icon(Icons.close),
                   tooltip: AppLocalizations.of(context).menuRemoveFromLibrary,

@@ -8,7 +8,6 @@ import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
-import '../core/ui_strings.dart';
 import '../models/song.dart';
 import 'replay_gain.dart';
 import 'settings_service.dart';
@@ -778,7 +777,7 @@ class PlayerService {
     final MediaItem mediaItem = MediaItem(
       id: song.id,
       title: song.title,
-      artist: song.artist.isEmpty ? UiStrings.loc.unknownArtist : song.artist,
+      artist: song.artistLabel,
       album: song.album.isEmpty ? null : song.album,
       genre: song.genre,
       duration: song.durationMs > 0 ? Duration(milliseconds: song.durationMs) : null,

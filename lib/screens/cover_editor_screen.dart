@@ -72,7 +72,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
         String fuente = '';
         final Uint8List? online = await CoverFinder.search(
           song.title,
-          song.artist,
+          song.artistaDesconocido ? '' : song.artist,
           onSource: (String s) => fuente = s,
         );
         if (online != null) {
@@ -382,7 +382,7 @@ class _CoverEditorScreenState extends State<CoverEditorScreen> {
                           Padding(
                             padding: const EdgeInsets.only(top: 12),
                             child: Text(
-                              AppLocalizations.of(context).coverSongLine(song.title, song.artist),
+                              AppLocalizations.of(context).coverSongLine(song.title, song.artistLabel),
                               style: const TextStyle(fontSize: 12),
                             ),
                           ),

@@ -1,0 +1,5 @@
+The DJ and the AI chat reply in the language you write in, across all 10 app languages.
+When there is no text from you (automatic DJ), the AI uses the app language.
+"Unknown artist" is now translated on every screen, the notification and the widget.
+Songs without an artist no longer show up in the artist ranking.
+Better lyrics and cover search for songs without an artist.

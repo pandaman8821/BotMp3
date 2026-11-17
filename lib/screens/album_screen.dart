@@ -122,7 +122,7 @@ class AlbumScreen extends StatelessWidget {
             ListTile(
               leading: CoverArt(path: cancion.coverPath, size: 44),
               title: Text(cancion.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-              subtitle: Text(cancion.artist, maxLines: 1, overflow: TextOverflow.ellipsis),
+              subtitle: Text(cancion.artistLabel, maxLines: 1, overflow: TextOverflow.ellipsis),
               trailing: Text(_duracion(cancion.durationMs), style: TextStyle(color: AppColors.darkTextDim, fontSize: 12)),
               onTap: () => player.playSong(cancion, context: canciones),
             ),

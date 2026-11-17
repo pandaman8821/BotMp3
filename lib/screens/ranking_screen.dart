@@ -385,8 +385,8 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
             children: <Widget>[
               Text(
                 ultima == null
-                    ? '${song.artist} · ${loc.rankPlays('$jugadas')}'
-                    : '${song.artist} · ${loc.rankPlays('$jugadas')} · '
+                    ? '${song.artistLabel} · ${loc.rankPlays('$jugadas')}'
+                    : '${song.artistLabel} · ${loc.rankPlays('$jugadas')} · '
                         '${loc.rankLastPlayed(Formatters.relativeDate(ultima))}',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -452,7 +452,8 @@ class _RankingScreenState extends State<RankingScreen> with SingleTickerProvider
               ],
             ),
           ),
-          title: Text(item.key, maxLines: 1, overflow: TextOverflow.ellipsis),
+          title: Text(tipo == 'artista' ? Song.etiquetaArtista(item.key) : item.key,
+              maxLines: 1, overflow: TextOverflow.ellipsis),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

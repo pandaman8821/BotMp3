@@ -45,7 +45,8 @@ class _SongEditScreenState extends State<SongEditScreen> {
     super.initState();
     final Song? song = context.read<LibraryProvider>().songById(widget.songId);
     _title = TextEditingController(text: song?.title ?? '');
-    _artist = TextEditingController(text: song?.artist ?? '');
+    _artist = TextEditingController(
+        text: song == null || song.artistaDesconocido ? '' : song.artist);
     _album = TextEditingController(text: song?.album ?? '');
     _year = TextEditingController(text: (song?.year ?? 0) == 0 ? '' : '${song!.year}');
     _tagInput = TextEditingController();

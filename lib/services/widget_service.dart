@@ -42,7 +42,7 @@ class WidgetService {
       await HomeWidget.saveWidgetData<bool>('sonando', suena);
       await HomeWidget.saveWidgetData<int>('progreso', progreso);
       await HomeWidget.saveWidgetData<String>('titulo', cancion.title);
-      await HomeWidget.saveWidgetData<String>('artista', cancion.artist);
+      await HomeWidget.saveWidgetData<String>('artista', cancion.artistLabel);
       await HomeWidget.saveWidgetData<String>('album', cancion.album);
       await HomeWidget.saveWidgetData<String>('portada', cancion.coverPath ?? '');
       await HomeWidget.saveWidgetData<String>(

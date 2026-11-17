@@ -62,7 +62,7 @@ class CarModeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        player.current?.artist ?? loc.playSomething,
+                        player.current?.artistLabel ?? loc.playSomething,
                         textAlign: TextAlign.center,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,

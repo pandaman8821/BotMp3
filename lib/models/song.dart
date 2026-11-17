@@ -59,6 +59,39 @@ class Song {
 
   Duration get duration => Duration(milliseconds: durationMs);
 
+  /// Textos que significan "sin artista". Versiones anteriores guardaban en la
+  /// biblioteca el texto ya traducido (casi siempre en español), así que se
+  /// reconocen todos para mostrarlos en el idioma actual de la app.
+  static const Set<String> _artistasDesconocidos = <String>{
+    '',
+    '<unknown>',
+    'unknown',
+    'artista desconocido',
+    'unknown artist',
+    'unbekannter künstler',
+    'artiste inconnu',
+    'artista sconosciuto',
+    'artista desconhecido',
+    '不明なアーティスト',
+    '알 수 없는 아티스트',
+    'अज्ञात कलाकार',
+    '未知艺术家',
+  };
+
+  /// `true` si [nombre] es un artista vacío o un marcador de "desconocido".
+  static bool esArtistaDesconocido(String nombre) =>
+      _artistasDesconocidos.contains(nombre.trim().toLowerCase());
+
+  /// Nombre de artista listo para mostrar: los marcadores de "desconocido"
+  /// salen traducidos al idioma actual de la app.
+  static String etiquetaArtista(String nombre) =>
+      esArtistaDesconocido(nombre) ? UiStrings.loc.unknownArtist : nombre;
+
+  bool get artistaDesconocido => esArtistaDesconocido(artist);
+
+  /// Artista para la interfaz (traducido si es desconocido).
+  String get artistLabel => etiquetaArtista(artist);
+
   String get extension => AudioFormats.extensionOf(path);
 
   /// Blob normalizado usado por el índice de búsqueda.
@@ -77,7 +110,7 @@ class Song {
   /// Línea secundaria de la tarjeta: artista · álbum · año.
   String get subtitle {
     final List<String> parts = <String>[
-      artist.isEmpty ? UiStrings.loc.unknownArtist : artist,
+      artistLabel,
       if (album.isNotEmpty) album,
       if (year > 0) '$year',
     ];

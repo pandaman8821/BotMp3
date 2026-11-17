@@ -21,9 +21,14 @@ class ArtistScreen extends StatelessWidget {
     final LibraryProvider library = context.watch<LibraryProvider>();
     final PlayerProvider player = context.watch<PlayerProvider>();
     final String limpio = artist.trim().toLowerCase();
+    final bool desconocido = Song.esArtistaDesconocido(artist);
+    final String nombre = Song.etiquetaArtista(artist);
 
+    // Todos los marcadores de "desconocido" (de cualquier idioma) son el mismo artista.
     final List<Song> canciones = library.visibleSongs
-        .where((Song s) => s.artist.trim().toLowerCase() == limpio)
+        .where((Song s) => desconocido
+            ? s.artistaDesconocido
+            : s.artist.trim().toLowerCase() == limpio)
         .toList();
     final Map<String, List<Song>> porAlbum = <String, List<Song>>{};
     for (final Song s in canciones) {
@@ -33,7 +38,7 @@ class ArtistScreen extends StatelessWidget {
     final List<String> albums = porAlbum.keys.toList()..sort();
 
     return Scaffold(
-      appBar: AppBar(title: Text(artist), backgroundColor: Colors.transparent),
+      appBar: AppBar(title: Text(nombre), backgroundColor: Colors.transparent),
       body: ListView(
         padding: const EdgeInsets.only(bottom: 24),
         children: <Widget>[
@@ -45,7 +50,7 @@ class ArtistScreen extends StatelessWidget {
                   radius: 36,
                   backgroundColor: AppColors.darkSurfaceHigh,
                   child: Text(
-                    artist.trim().isEmpty ? '?' : artist.trim()[0].toUpperCase(),
+                    desconocido ? '?' : artist.trim()[0].toUpperCase(),
                     style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
                   ),
                 ),
@@ -54,7 +59,7 @@ class ArtistScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(artist, maxLines: 2, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
+                      Text(nombre, maxLines: 2, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
                       Text(loc.albumSongsCount(canciones.length), style: TextStyle(color: AppColors.darkTextDim, fontSize: 12)),
                       Text(loc.artistAlbums(albums.length), style: TextStyle(color: AppColors.darkTextDim, fontSize: 12)),
                     ],
