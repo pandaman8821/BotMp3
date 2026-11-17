@@ -16,6 +16,8 @@ Sin anuncios, sin cuentas y sin rastreo: tu música nunca sale del teléfono.
   <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="200" alt="Canciones">
   <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="200" alt="DJ de IA">
   <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="200" alt="Ecualizador">
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="200" alt="Modo coche">
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="200" alt="Ranking">
 </p>
 
 ---
