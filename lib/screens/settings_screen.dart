@@ -26,6 +26,7 @@ import '../services/notification_service.dart';
 import '../services/trends_service.dart';
 import 'ranking_screen.dart';
 import 'diagnostics_screen.dart';
+import 'equalizer_screen.dart';
 import 'trends_screen.dart';
 import '../services/voice_service.dart';
 import '../widgets/dialogs.dart';

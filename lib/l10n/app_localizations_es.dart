@@ -2364,4 +2364,68 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get djModeTitle => 'Modo DJ';
+
+  @override
+  String get eqDescGlass => 'Graves, medios y agudos con presets por género';
+
+  @override
+  String get eqEnabled => 'Ecualizador activado';
+
+  @override
+  String get eqPresetsTitle => 'Estilos';
+
+  @override
+  String get eqCustom => 'Personalizado';
+
+  @override
+  String get eqWaitingSong =>
+      'Pon una canción para activar el ecualizador: el teléfono entrega sus bandas al empezar a sonar.';
+
+  @override
+  String get eqNotAvailable =>
+      'El ecualizador solo está disponible en Android.';
+
+  @override
+  String eqBandsInfo(int count, String min, String max) {
+    return '$count bandas · de $min a $max dB';
+  }
+
+  @override
+  String get eqpFlat => 'Plano';
+
+  @override
+  String get eqpRock => 'Rock';
+
+  @override
+  String get eqpPop => 'Pop';
+
+  @override
+  String get eqpJazz => 'Jazz';
+
+  @override
+  String get eqpClassical => 'Clásico';
+
+  @override
+  String get eqpRap => 'Rap';
+
+  @override
+  String get eqpReggaeton => 'Reggaetón';
+
+  @override
+  String get eqpCumbia => 'Cumbia';
+
+  @override
+  String get eqpElectronic => 'Electrónica';
+
+  @override
+  String get eqpHeavy => 'Rock pesado';
+
+  @override
+  String get eqpVocal => 'Voces';
+
+  @override
+  String get eqpBass => 'Más graves';
+
+  @override
+  String get eqpTreble => 'Más agudos';
 }

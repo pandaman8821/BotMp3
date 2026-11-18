@@ -2,7 +2,6 @@ package com.botmp3.app
 
 import android.content.Intent
 
-import com.botmp3.app.equalizer.EqualizerActivity
 
 import android.app.AlarmManager
 import android.os.Build
@@ -41,21 +40,6 @@ class MainActivity : AudioServiceActivity() {
         // Avisa a Flutter cuando se conecta/desconecta auriculares o Bluetooth.
         val devicesChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, devicesChannelName)
         AudioDeviceWatcher.iniciar(this, devicesChannel)
-        MethodChannel(
-            flutterEngine.dartExecutor.binaryMessenger,
-            "botmp3/equalizer",
-        ).setMethodCallHandler { call, result ->
-            if (call.method == "abrir") {
-                val sesion = call.argument<Int>("session") ?: 0
-                startActivity(
-                    Intent(this, EqualizerActivity::class.java)
-                        .putExtra("session", sesion),
-                )
-                result.success(true)
-            } else {
-                result.notImplemented()
-            }
-        }
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, channelName)
             .setMethodCallHandler { call, result ->
                 when (call.method) {

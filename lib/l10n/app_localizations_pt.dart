@@ -2364,6 +2364,69 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get djModeTitle => 'Modo DJ';
+
+  @override
+  String get eqDescGlass => 'Graves, médios e agudos com presets por gênero';
+
+  @override
+  String get eqEnabled => 'Equalizador ativado';
+
+  @override
+  String get eqPresetsTitle => 'Estilos';
+
+  @override
+  String get eqCustom => 'Personalizado';
+
+  @override
+  String get eqWaitingSong =>
+      'Toque uma música para ativar o equalizador: o telefone informa as bandas quando o áudio começa.';
+
+  @override
+  String get eqNotAvailable => 'O equalizador só está disponível no Android.';
+
+  @override
+  String eqBandsInfo(int count, String min, String max) {
+    return '$count bandas · de $min a $max dB';
+  }
+
+  @override
+  String get eqpFlat => 'Plano';
+
+  @override
+  String get eqpRock => 'Rock';
+
+  @override
+  String get eqpPop => 'Pop';
+
+  @override
+  String get eqpJazz => 'Jazz';
+
+  @override
+  String get eqpClassical => 'Clássico';
+
+  @override
+  String get eqpRap => 'Rap';
+
+  @override
+  String get eqpReggaeton => 'Reggaeton';
+
+  @override
+  String get eqpCumbia => 'Cumbia';
+
+  @override
+  String get eqpElectronic => 'Eletrônica';
+
+  @override
+  String get eqpHeavy => 'Rock pesado';
+
+  @override
+  String get eqpVocal => 'Vocal';
+
+  @override
+  String get eqpBass => 'Mais graves';
+
+  @override
+  String get eqpTreble => 'Mais agudos';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -4726,4 +4789,67 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get djModeTitle => 'Modo DJ';
+
+  @override
+  String get eqDescGlass => 'Graves, médios e agudos com presets por gênero';
+
+  @override
+  String get eqEnabled => 'Equalizador ativado';
+
+  @override
+  String get eqPresetsTitle => 'Estilos';
+
+  @override
+  String get eqCustom => 'Personalizado';
+
+  @override
+  String get eqWaitingSong =>
+      'Toque uma música para ativar o equalizador: o telefone informa as bandas quando o áudio começa.';
+
+  @override
+  String get eqNotAvailable => 'O equalizador só está disponível no Android.';
+
+  @override
+  String eqBandsInfo(int count, String min, String max) {
+    return '$count bandas · de $min a $max dB';
+  }
+
+  @override
+  String get eqpFlat => 'Plano';
+
+  @override
+  String get eqpRock => 'Rock';
+
+  @override
+  String get eqpPop => 'Pop';
+
+  @override
+  String get eqpJazz => 'Jazz';
+
+  @override
+  String get eqpClassical => 'Clássico';
+
+  @override
+  String get eqpRap => 'Rap';
+
+  @override
+  String get eqpReggaeton => 'Reggaeton';
+
+  @override
+  String get eqpCumbia => 'Cumbia';
+
+  @override
+  String get eqpElectronic => 'Eletrônica';
+
+  @override
+  String get eqpHeavy => 'Rock pesado';
+
+  @override
+  String get eqpVocal => 'Vocal';
+
+  @override
+  String get eqpBass => 'Mais graves';
+
+  @override
+  String get eqpTreble => 'Mais agudos';
 }

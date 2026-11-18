@@ -2350,4 +2350,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get djModeTitle => 'DJ mode';
+
+  @override
+  String get eqDescGlass => 'Bass, mids and treble with genre presets';
+
+  @override
+  String get eqEnabled => 'Equalizer on';
+
+  @override
+  String get eqPresetsTitle => 'Presets';
+
+  @override
+  String get eqCustom => 'Custom';
+
+  @override
+  String get eqWaitingSong =>
+      'Play a song to activate the equalizer: the phone reports its bands once audio starts.';
+
+  @override
+  String get eqNotAvailable => 'The equalizer is only available on Android.';
+
+  @override
+  String eqBandsInfo(int count, String min, String max) {
+    return '$count bands · $min to $max dB';
+  }
+
+  @override
+  String get eqpFlat => 'Flat';
+
+  @override
+  String get eqpRock => 'Rock';
+
+  @override
+  String get eqpPop => 'Pop';
+
+  @override
+  String get eqpJazz => 'Jazz';
+
+  @override
+  String get eqpClassical => 'Classical';
+
+  @override
+  String get eqpRap => 'Rap';
+
+  @override
+  String get eqpReggaeton => 'Reggaeton';
+
+  @override
+  String get eqpCumbia => 'Cumbia';
+
+  @override
+  String get eqpElectronic => 'Electronic';
+
+  @override
+  String get eqpHeavy => 'Heavy rock';
+
+  @override
+  String get eqpVocal => 'Vocal';
+
+  @override
+  String get eqpBass => 'Bass boost';
+
+  @override
+  String get eqpTreble => 'Treble boost';
 }

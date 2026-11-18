@@ -2369,4 +2369,68 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get djModeTitle => 'Mode DJ';
+
+  @override
+  String get eqDescGlass =>
+      'Basses, médiums et aigus avec préréglages par genre';
+
+  @override
+  String get eqEnabled => 'Égaliseur activé';
+
+  @override
+  String get eqPresetsTitle => 'Préréglages';
+
+  @override
+  String get eqCustom => 'Personnalisé';
+
+  @override
+  String get eqWaitingSong =>
+      'Lance un morceau pour activer l’égaliseur : le téléphone fournit ses bandes dès que le son démarre.';
+
+  @override
+  String get eqNotAvailable => 'L’égaliseur n’est disponible que sur Android.';
+
+  @override
+  String eqBandsInfo(int count, String min, String max) {
+    return '$count bandes · de $min à $max dB';
+  }
+
+  @override
+  String get eqpFlat => 'Neutre';
+
+  @override
+  String get eqpRock => 'Rock';
+
+  @override
+  String get eqpPop => 'Pop';
+
+  @override
+  String get eqpJazz => 'Jazz';
+
+  @override
+  String get eqpClassical => 'Classique';
+
+  @override
+  String get eqpRap => 'Rap';
+
+  @override
+  String get eqpReggaeton => 'Reggaeton';
+
+  @override
+  String get eqpCumbia => 'Cumbia';
+
+  @override
+  String get eqpElectronic => 'Électro';
+
+  @override
+  String get eqpHeavy => 'Hard rock';
+
+  @override
+  String get eqpVocal => 'Voix';
+
+  @override
+  String get eqpBass => 'Plus de basses';
+
+  @override
+  String get eqpTreble => 'Plus d’aigus';
 }

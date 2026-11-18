@@ -2285,6 +2285,68 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get djModeTitle => 'DJ 模式';
+
+  @override
+  String get eqDescGlass => '按流派预设调节低音、中音和高音';
+
+  @override
+  String get eqEnabled => '均衡器已开启';
+
+  @override
+  String get eqPresetsTitle => '预设';
+
+  @override
+  String get eqCustom => '自定义';
+
+  @override
+  String get eqWaitingSong => '播放一首歌即可启用均衡器：音频开始后手机会提供频段信息。';
+
+  @override
+  String get eqNotAvailable => '均衡器仅适用于 Android。';
+
+  @override
+  String eqBandsInfo(int count, String min, String max) {
+    return '$count 个频段 · $min 至 $max dB';
+  }
+
+  @override
+  String get eqpFlat => '平直';
+
+  @override
+  String get eqpRock => '摇滚';
+
+  @override
+  String get eqpPop => '流行';
+
+  @override
+  String get eqpJazz => '爵士';
+
+  @override
+  String get eqpClassical => '古典';
+
+  @override
+  String get eqpRap => '说唱';
+
+  @override
+  String get eqpReggaeton => '雷鬼顿';
+
+  @override
+  String get eqpCumbia => '昆比亚';
+
+  @override
+  String get eqpElectronic => '电子';
+
+  @override
+  String get eqpHeavy => '重摇滚';
+
+  @override
+  String get eqpVocal => '人声';
+
+  @override
+  String get eqpBass => '低音增强';
+
+  @override
+  String get eqpTreble => '高音增强';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -4568,4 +4630,66 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get djModeTitle => 'DJ 模式';
+
+  @override
+  String get eqDescGlass => '按流派预设调节低音、中音和高音';
+
+  @override
+  String get eqEnabled => '均衡器已开启';
+
+  @override
+  String get eqPresetsTitle => '预设';
+
+  @override
+  String get eqCustom => '自定义';
+
+  @override
+  String get eqWaitingSong => '播放一首歌即可启用均衡器：音频开始后手机会提供频段信息。';
+
+  @override
+  String get eqNotAvailable => '均衡器仅适用于 Android。';
+
+  @override
+  String eqBandsInfo(int count, String min, String max) {
+    return '$count 个频段 · $min 至 $max dB';
+  }
+
+  @override
+  String get eqpFlat => '平直';
+
+  @override
+  String get eqpRock => '摇滚';
+
+  @override
+  String get eqpPop => '流行';
+
+  @override
+  String get eqpJazz => '爵士';
+
+  @override
+  String get eqpClassical => '古典';
+
+  @override
+  String get eqpRap => '说唱';
+
+  @override
+  String get eqpReggaeton => '雷鬼顿';
+
+  @override
+  String get eqpCumbia => '昆比亚';
+
+  @override
+  String get eqpElectronic => '电子';
+
+  @override
+  String get eqpHeavy => '重摇滚';
+
+  @override
+  String get eqpVocal => '人声';
+
+  @override
+  String get eqpBass => '低音增强';
+
+  @override
+  String get eqpTreble => '高音增强';
 }

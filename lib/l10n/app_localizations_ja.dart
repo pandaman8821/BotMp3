@@ -2289,4 +2289,66 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get djModeTitle => 'DJモード';
+
+  @override
+  String get eqDescGlass => 'ジャンル別プリセットで低音・中音・高音を調整';
+
+  @override
+  String get eqEnabled => 'イコライザー オン';
+
+  @override
+  String get eqPresetsTitle => 'プリセット';
+
+  @override
+  String get eqCustom => 'カスタム';
+
+  @override
+  String get eqWaitingSong => '曲を再生するとイコライザーが使えます。再生が始まると端末がバンド情報を渡します。';
+
+  @override
+  String get eqNotAvailable => 'イコライザーは Android でのみ利用できます。';
+
+  @override
+  String eqBandsInfo(int count, String min, String max) {
+    return '$countバンド · $min〜$max dB';
+  }
+
+  @override
+  String get eqpFlat => 'フラット';
+
+  @override
+  String get eqpRock => 'ロック';
+
+  @override
+  String get eqpPop => 'ポップ';
+
+  @override
+  String get eqpJazz => 'ジャズ';
+
+  @override
+  String get eqpClassical => 'クラシック';
+
+  @override
+  String get eqpRap => 'ラップ';
+
+  @override
+  String get eqpReggaeton => 'レゲトン';
+
+  @override
+  String get eqpCumbia => 'クンビア';
+
+  @override
+  String get eqpElectronic => 'エレクトロニック';
+
+  @override
+  String get eqpHeavy => 'ハードロック';
+
+  @override
+  String get eqpVocal => 'ボーカル';
+
+  @override
+  String get eqpBass => '低音強調';
+
+  @override
+  String get eqpTreble => '高音強調';
 }

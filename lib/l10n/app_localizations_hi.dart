@@ -2336,4 +2336,67 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get djModeTitle => 'DJ मोड';
+
+  @override
+  String get eqDescGlass => 'शैली प्रीसेट के साथ बेस, मिड और ट्रेबल';
+
+  @override
+  String get eqEnabled => 'इक्वलाइज़र चालू';
+
+  @override
+  String get eqPresetsTitle => 'प्रीसेट';
+
+  @override
+  String get eqCustom => 'कस्टम';
+
+  @override
+  String get eqWaitingSong =>
+      'इक्वलाइज़र चालू करने के लिए कोई गाना चलाएँ: ऑडियो शुरू होते ही फ़ोन अपने बैंड बताता है।';
+
+  @override
+  String get eqNotAvailable => 'इक्वलाइज़र सिर्फ़ Android पर उपलब्ध है।';
+
+  @override
+  String eqBandsInfo(int count, String min, String max) {
+    return '$count बैंड · $min से $max dB';
+  }
+
+  @override
+  String get eqpFlat => 'फ्लैट';
+
+  @override
+  String get eqpRock => 'रॉक';
+
+  @override
+  String get eqpPop => 'पॉप';
+
+  @override
+  String get eqpJazz => 'जैज़';
+
+  @override
+  String get eqpClassical => 'क्लासिकल';
+
+  @override
+  String get eqpRap => 'रैप';
+
+  @override
+  String get eqpReggaeton => 'रेगेटन';
+
+  @override
+  String get eqpCumbia => 'कुम्बिया';
+
+  @override
+  String get eqpElectronic => 'इलेक्ट्रॉनिक';
+
+  @override
+  String get eqpHeavy => 'हैवी रॉक';
+
+  @override
+  String get eqpVocal => 'वोकल';
+
+  @override
+  String get eqpBass => 'बेस बूस्ट';
+
+  @override
+  String get eqpTreble => 'ट्रेबल बूस्ट';
 }

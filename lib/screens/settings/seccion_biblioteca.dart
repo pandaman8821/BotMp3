@@ -188,19 +188,13 @@ mixin _SeccionBiblioteca on State<SettingsScreen> {
       ListTile(
         leading: const Icon(Icons.graphic_eq),
         title: Text(AppLocalizations.of(context).equalizer),
-        subtitle: Text(AppLocalizations.of(context).eqDesc),
+        subtitle: Text(AppLocalizations.of(context).eqDescGlass),
         trailing: const Icon(Icons.chevron_right),
-        onTap: () {
-          // Se pasa la sesion real del motor para que el ecualizador nativo
-          // actue sobre ella (la sesion global 0 esta restringida).
-          final PlayerProvider player = context.read<PlayerProvider>();
-          final int sesion =
-              player.service.player.androidAudioSessionId ?? 0;
-          const MethodChannel('botmp3/equalizer').invokeMethod<bool>(
-            'abrir',
-            <String, dynamic>{'session': sesion},
-          );
-        },
+        // Ecualizador de cristal en Flutter, enganchado al motor de audio real
+        // (antes: pantalla nativa sobre la sesión 0, que no sonaba en Android 10+).
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute<void>(builder: (_) => const EqualizerScreen()),
+        ),
       ),
       _AjusteApilado(
         icono: Icons.volume_up_outlined,

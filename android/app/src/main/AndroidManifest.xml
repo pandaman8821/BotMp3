@@ -123,11 +123,6 @@
         <receiver
             android:name=".WidgetActionReceiver"
             android:exported="false" />
-        <activity
-            android:name=".equalizer.EqualizerActivity"
-            android:exported="false"
-            android:label="@string/eq_title"
-            android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
         <receiver
             android:name=".BotMp3WidgetSmall"
             android:exported="false"

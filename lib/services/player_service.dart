@@ -9,6 +9,7 @@ import 'package:just_audio_background/just_audio_background.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../models/song.dart';
+import 'equalizer_service.dart';
 import 'replay_gain.dart';
 import 'settings_service.dart';
 import 'widget_service.dart';
@@ -21,6 +22,8 @@ import 'widget_service.dart';
 /// del "Modo DJ IA" (elegir la siguiente canción desde cualquier punto).
 class PlayerService {
   PlayerService() {
+    // Recupera el ecualizador guardado; se aplica cuando el motor esté listo.
+    unawaited(Ecualizador.instance.iniciar());
     _player.processingStateStream.listen((ProcessingState state) {
       if (state == ProcessingState.completed) {
         _handleCompletion();
@@ -48,7 +51,13 @@ class PlayerService {
     _player.currentIndexStream.listen(_onPlayerIndexChanged);
   }
 
-  final AudioPlayer _player = AudioPlayer();
+  /// El ecualizador va DENTRO del reproductor (AudioPipeline): así actúa sobre
+  /// la sesión de audio real de ExoPlayer.
+  final AudioPlayer _player = AudioPlayer(
+    audioPipeline: Ecualizador.instance.efecto == null
+        ? null
+        : AudioPipeline(androidAudioEffects: <AndroidAudioEffect>[Ecualizador.instance.efecto!]),
+  );
   final Random _random = Random();
   final List<Song> _queue = <Song>[];
   final ValueNotifier<Song?> currentSong = ValueNotifier<Song?>(null);

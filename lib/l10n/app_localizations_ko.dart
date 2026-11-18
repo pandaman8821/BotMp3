@@ -2293,4 +2293,67 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get djModeTitle => 'DJ 모드';
+
+  @override
+  String get eqDescGlass => '장르별 프리셋으로 저음·중음·고음 조절';
+
+  @override
+  String get eqEnabled => '이퀄라이저 켜짐';
+
+  @override
+  String get eqPresetsTitle => '프리셋';
+
+  @override
+  String get eqCustom => '사용자 지정';
+
+  @override
+  String get eqWaitingSong =>
+      '곡을 재생하면 이퀄라이저가 켜져요. 소리가 나기 시작하면 기기가 밴드 정보를 알려 줍니다.';
+
+  @override
+  String get eqNotAvailable => '이퀄라이저는 Android에서만 사용할 수 있어요.';
+
+  @override
+  String eqBandsInfo(int count, String min, String max) {
+    return '$count밴드 · $min~$max dB';
+  }
+
+  @override
+  String get eqpFlat => '플랫';
+
+  @override
+  String get eqpRock => '록';
+
+  @override
+  String get eqpPop => '팝';
+
+  @override
+  String get eqpJazz => '재즈';
+
+  @override
+  String get eqpClassical => '클래식';
+
+  @override
+  String get eqpRap => '랩';
+
+  @override
+  String get eqpReggaeton => '레게톤';
+
+  @override
+  String get eqpCumbia => '쿰비아';
+
+  @override
+  String get eqpElectronic => '일렉트로닉';
+
+  @override
+  String get eqpHeavy => '하드 록';
+
+  @override
+  String get eqpVocal => '보컬';
+
+  @override
+  String get eqpBass => '저음 강화';
+
+  @override
+  String get eqpTreble => '고음 강화';
 }

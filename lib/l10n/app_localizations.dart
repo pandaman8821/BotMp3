@@ -4112,6 +4112,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'DJ mode'**
   String get djModeTitle;
+
+  /// No description provided for @eqDescGlass.
+  ///
+  /// In en, this message translates to:
+  /// **'Bass, mids and treble with genre presets'**
+  String get eqDescGlass;
+
+  /// No description provided for @eqEnabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Equalizer on'**
+  String get eqEnabled;
+
+  /// No description provided for @eqPresetsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Presets'**
+  String get eqPresetsTitle;
+
+  /// No description provided for @eqCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get eqCustom;
+
+  /// No description provided for @eqWaitingSong.
+  ///
+  /// In en, this message translates to:
+  /// **'Play a song to activate the equalizer: the phone reports its bands once audio starts.'**
+  String get eqWaitingSong;
+
+  /// No description provided for @eqNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'The equalizer is only available on Android.'**
+  String get eqNotAvailable;
+
+  /// No description provided for @eqBandsInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} bands · {min} to {max} dB'**
+  String eqBandsInfo(int count, String min, String max);
+
+  /// No description provided for @eqpFlat.
+  ///
+  /// In en, this message translates to:
+  /// **'Flat'**
+  String get eqpFlat;
+
+  /// No description provided for @eqpRock.
+  ///
+  /// In en, this message translates to:
+  /// **'Rock'**
+  String get eqpRock;
+
+  /// No description provided for @eqpPop.
+  ///
+  /// In en, this message translates to:
+  /// **'Pop'**
+  String get eqpPop;
+
+  /// No description provided for @eqpJazz.
+  ///
+  /// In en, this message translates to:
+  /// **'Jazz'**
+  String get eqpJazz;
+
+  /// No description provided for @eqpClassical.
+  ///
+  /// In en, this message translates to:
+  /// **'Classical'**
+  String get eqpClassical;
+
+  /// No description provided for @eqpRap.
+  ///
+  /// In en, this message translates to:
+  /// **'Rap'**
+  String get eqpRap;
+
+  /// No description provided for @eqpReggaeton.
+  ///
+  /// In en, this message translates to:
+  /// **'Reggaeton'**
+  String get eqpReggaeton;
+
+  /// No description provided for @eqpCumbia.
+  ///
+  /// In en, this message translates to:
+  /// **'Cumbia'**
+  String get eqpCumbia;
+
+  /// No description provided for @eqpElectronic.
+  ///
+  /// In en, this message translates to:
+  /// **'Electronic'**
+  String get eqpElectronic;
+
+  /// No description provided for @eqpHeavy.
+  ///
+  /// In en, this message translates to:
+  /// **'Heavy rock'**
+  String get eqpHeavy;
+
+  /// No description provided for @eqpVocal.
+  ///
+  /// In en, this message translates to:
+  /// **'Vocal'**
+  String get eqpVocal;
+
+  /// No description provided for @eqpBass.
+  ///
+  /// In en, this message translates to:
+  /// **'Bass boost'**
+  String get eqpBass;
+
+  /// No description provided for @eqpTreble.
+  ///
+  /// In en, this message translates to:
+  /// **'Treble boost'**
+  String get eqpTreble;
 }
 
 class _AppLocalizationsDelegate
