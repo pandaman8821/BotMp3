@@ -158,6 +158,14 @@ class PlayerProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Activa o quita el aleatorio y lo guarda. Con `reordenar: false` solo
+  /// cambia el modo: para cuando se va a cargar una cola nueva justo después.
+  void setShuffle(bool value, {bool reordenar = true}) {
+    service.setShuffle(value, reordenar: reordenar);
+    unawaited(_settings.setShuffle(value));
+    notifyListeners();
+  }
+
   bool toggleShuffle() {
     final bool value = service.toggleShuffle();
     unawaited(_settings.setShuffle(value));

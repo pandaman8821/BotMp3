@@ -304,7 +304,9 @@ class _SongsScreenState extends State<SongsScreen> {
                           onPressed: () async {
                             if (songs.isEmpty) return;
                             final int azar = Random().nextInt(songs.length);
-                            if (!player.isShuffleEnabled) player.toggleShuffle();
+                            // Se activa el modo sin reordenar la cola vieja: la
+                            // nueva ya se carga barajada (empezando por `azar`).
+                            player.setShuffle(true, reordenar: false);
                             await player.setQueue(songs, startIndex: azar, autoPlay: true);
                           },
                         ),

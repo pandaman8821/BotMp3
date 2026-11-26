@@ -479,12 +479,23 @@ class PlayerService {
     // El indice se fija ANTES de avisar a la interfaz: si no, durante un
     // fotograma la lista se pintaba con el indice anterior (0) y la primera
     // cancion parpadeaba en verde al pulsar aleatorio.
-    final int start = startIndex.clamp(0, limpias.length - 1);
+    int start = startIndex.clamp(0, limpias.length - 1);
+    // Con aleatorio se baraja LA COLA MISMA (la elegida queda primera): así el
+    // motor de audio, la notificación y la pantalla de bloqueo siguen el orden
+    // aleatorio. Antes el motor recibía la cola en orden de biblioteca y, al
+    // acabar cada canción, seguía con la de al lado: el aleatorio se mezclaba
+    // con el orden normal y las canciones se repetían.
+    _colaNatural = List<Song>.of(limpias);
+    List<Song> cola = limpias;
+    if (_shuffle && limpias.length > 1) {
+      cola = _barajar(limpias, primera: start);
+      start = 0;
+    }
     _currentIndex = start;
-    currentSong.value = limpias[start];
+    currentSong.value = cola[start];
     _queue
       ..clear()
-      ..addAll(limpias);
+      ..addAll(cola);
     queueRevision.value++;
     _rebuildPlayOrder(anchorIndex: start);
     // Se carga TODA la cola en el reproductor (no solo una canción): es lo que
@@ -509,6 +520,7 @@ class PlayerService {
     final bool wasEmpty = _queue.isEmpty;
     final bool alineado = _motorAlineado;
     _queue.addAll(songs);
+    _colaNatural.addAll(songs);
     queueRevision.value++;
     if (wasEmpty && playIfEmpty) {
       _rebuildPlayOrder(anchorIndex: 0);
@@ -533,7 +545,11 @@ class PlayerService {
     }
     final bool alineado = _motorAlineado;
     final int insertAt = (_currentIndex + 1).clamp(0, _queue.length);
+    final Song? actual = current;
     _queue.insert(insertAt, song);
+    // En el orden natural también va justo después de la que suena.
+    final int enNatural = actual == null ? -1 : _colaNatural.indexWhere((Song s) => s.id == actual.id);
+    _colaNatural.insert(enNatural < 0 ? _colaNatural.length : enNatural + 1, song);
     queueRevision.value++;
     _rebuildPlayOrder(anchorIndex: _currentIndex);
     // Se inserta justo después de la actual en la cola del sistema.
@@ -551,6 +567,8 @@ class PlayerService {
     if (index < 0) return;
     final bool alineado = _motorAlineado;
     _queue.removeAt(index);
+    final int enNatural = _colaNatural.indexWhere((Song s) => s.id == songId);
+    if (enNatural >= 0) _colaNatural.removeAt(enNatural);
     queueRevision.value++;
 
     if (alineado) {
@@ -668,6 +686,25 @@ class PlayerService {
       return;
     }
 
+    if (_shuffle && _queue.length > 1) {
+      // Pasada nueva: se vuelve a barajar toda la cola, sin empezar por la que
+      // acaba de sonar (no se oye la misma dos veces seguidas).
+      final Song? ultima = current;
+      final List<Song> nueva = _barajar(_queue);
+      if (ultima != null && nueva.first.id == ultima.id) {
+        nueva
+          ..removeAt(0)
+          ..add(ultima);
+      }
+      _queue
+        ..clear()
+        ..addAll(nueva);
+      queueRevision.value++;
+      _rebuildPlayOrder(anchorIndex: 0);
+      await _loadQueueIntoPlayer(0);
+      return;
+    }
+
     if (_repeat == RepeatMode.all || _shuffle) {
       _rebuildPlayOrder(anchorIndex: -1);
       _playOrderIndex = 0;
@@ -741,11 +778,87 @@ class PlayerService {
 
   // ------------------------------------------------------------------ modos
 
-  void setShuffle(bool enabled) {
+  /// Activa o quita el aleatorio.
+  ///
+  /// Con [reordenar] (por defecto) la cola que suena se baraja o vuelve a su
+  /// orden natural al momento, sin cortar la canción actual. Sin reordenar
+  /// solo cambia el modo (lo usan quienes van a cargar una cola nueva justo
+  /// después, para no recargar dos veces).
+  void setShuffle(bool enabled, {bool reordenar = true}) {
     if (_shuffle == enabled) return;
     _shuffle = enabled;
+    if (!reordenar || _queue.length < 2 || _currentIndex < 0 || _currentIndex >= _queue.length) {
+      _rebuildPlayOrder(anchorIndex: _currentIndex);
+      return;
+    }
+    final Song actual = _queue[_currentIndex];
+    final List<Song> nueva;
+    if (enabled) {
+      _colaNatural = List<Song>.of(_queue);
+      nueva = _barajar(_queue, primera: _currentIndex);
+    } else {
+      nueva = _ordenNatural();
+    }
+    _queue
+      ..clear()
+      ..addAll(nueva);
+    final int posicion = _queue.indexWhere((Song s) => identical(s, actual));
+    _currentIndex = posicion >= 0 ? posicion : _queue.indexWhere((Song s) => s.id == actual.id);
+    if (_currentIndex < 0) _currentIndex = 0;
+    queueRevision.value++;
     _rebuildPlayOrder(anchorIndex: _currentIndex);
+    // El motor recibe la cola en el orden nuevo (misma canción y posición).
+    unawaited(_recargarConservando());
   }
+
+  /// Orden de la cola antes de barajar: las canciones que siguen en la cola,
+  /// en su orden natural, y al final las que se añadieron sin estar en él.
+  List<Song> _ordenNatural() {
+    final List<Song> pendientes = List<Song>.of(_queue);
+    final List<Song> resultado = <Song>[];
+    for (final Song s in _colaNatural) {
+      final int i = pendientes.indexWhere((Song p) => p.id == s.id);
+      if (i >= 0) resultado.add(pendientes.removeAt(i));
+    }
+    return resultado..addAll(pendientes);
+  }
+
+  /// Baraja [canciones]. Si se indica [primera] (posición en la lista), esa
+  /// canción queda delante. Después van las que aún no han sonado en esta
+  /// pasada y al final las ya sonadas; cuando ya sonaron todas, empieza una
+  /// pasada nueva.
+  List<Song> _barajar(List<Song> canciones, {int? primera}) =>
+      barajarCola(canciones, _sonadasEnPasada, _random, primera: primera);
+
+  /// Versión pura de [_barajar] (sin motor de audio): se puede probar sola.
+  /// Si ya sonaron todas, vacía [sonadas] para empezar una pasada nueva.
+  @visibleForTesting
+  static List<Song> barajarCola(
+    List<Song> canciones,
+    Set<String> sonadas,
+    Random azar, {
+    int? primera,
+  }) {
+    final bool hayPrimera = primera != null && primera >= 0 && primera < canciones.length;
+    final List<Song> resto = <Song>[
+      for (int i = 0; i < canciones.length; i++)
+        if (!hayPrimera || i != primera) canciones[i],
+    ];
+    final List<Song> nuevas =
+        resto.where((Song s) => !sonadas.contains(s.id)).toList()..shuffle(azar);
+    final List<Song> yaSonadas =
+        resto.where((Song s) => sonadas.contains(s.id)).toList()..shuffle(azar);
+    if (nuevas.isEmpty) sonadas.clear();
+    return <Song>[
+      if (hayPrimera) canciones[primera],
+      ...nuevas,
+      ...yaSonadas,
+    ];
+  }
+
+  /// Orden natural de la cola (antes de barajar), para volver a él al quitar
+  /// el aleatorio.
+  List<Song> _colaNatural = <Song>[];
 
   void setRepeatMode(RepeatMode mode) {
     _repeat = mode;
@@ -936,6 +1049,7 @@ class PlayerService {
   /// Detiene y vacía la cola (por ejemplo al borrar la canción actual).
   Future<void> stopAndClear() async {
     _queue.clear();
+    _colaNatural.clear();
     _currentIndex = -1;
     _playOrder = <int>[];
     _playOrderIndex = 0;
@@ -978,29 +1092,12 @@ class PlayerService {
     }
   }
 
+  /// El orden de reproducción es siempre el de la cola: el aleatorio ya está
+  /// aplicado a la cola misma (ver [_barajar]), así la app y el motor de audio
+  /// nunca van en órdenes distintos.
   void _rebuildPlayOrder({int? anchorIndex}) {
     final int anchor = anchorIndex ?? _currentIndex;
     final List<int> indices = List<int>.generate(_queue.length, (int i) => i);
-    if (_shuffle) {
-      // Aleatorio sin repeticiones: suenan primero las que no han sonado en la
-      // pasada actual; cuando se agotan, empieza una pasada nueva.
-      final List<int> nuevas = indices
-          .where((int i) => !_sonadasEnPasada.contains(_queue[i].id))
-          .toList();
-      final List<int> repetidas = indices
-          .where((int i) => _sonadasEnPasada.contains(_queue[i].id))
-          .toList();
-      if (nuevas.isEmpty) _sonadasEnPasada.clear();
-      nuevas.shuffle(_random);
-      repetidas.shuffle(_random);
-      indices
-        ..clear()
-        ..addAll(nuevas.isEmpty ? repetidas : <int>[...nuevas, ...repetidas]);
-      if (anchor >= 0 && anchor < _queue.length) {
-        indices.remove(anchor);
-        indices.insert(0, anchor);
-      }
-    }
     _playOrder = indices;
     if (anchor >= 0) {
       final int position = indices.indexOf(anchor);

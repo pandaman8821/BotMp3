@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import '../l10n/app_localizations.dart';
 
 import 'package:flutter/material.dart';
@@ -154,9 +156,14 @@ class PlaylistsScreen extends StatelessWidget {
           _snack(context, AppLocalizations.of(context).playlistIsEmpty);
           return;
         }
-        await player.setQueue(songs, autoPlay: false);
-        if (!player.isShuffleEnabled) player.toggleShuffle();
-        await player.next();
+        // Modo aleatorio y cola nueva ya barajada, empezando por una al azar
+        // (antes se cargaba en orden, se reordenaba y se saltaba: dos recargas).
+        player.setShuffle(true, reordenar: false);
+        await player.setQueue(
+          songs,
+          startIndex: math.Random().nextInt(songs.length),
+          autoPlay: true,
+        );
       case 'edit':
         await AppDialogs.editPlaylist(context, playlist);
       case 'export':
