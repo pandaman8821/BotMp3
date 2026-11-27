@@ -1,3 +1,7 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: The optional AI features send requests to DeepSeek, Google Gemini, OpenAI or
+      Anthropic using the user's own API key. They are off until a key is added.
 Categories:
   - Multimedia
   - Music
