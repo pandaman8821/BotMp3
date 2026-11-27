@@ -1,13 +1,6 @@
-# Receta de compilacion para fdroiddata (repositorio oficial de F-Droid).
-# Copiar como metadata/com.botmp3.app.yml dentro de un clon de
-# https://gitlab.com/fdroid/fdroiddata y validar con:
-#     fdroid lint com.botmp3.app
-#     fdroid build --server com.botmp3.app
-
 Categories:
   - Multimedia
   - Music
-
 License: GPL-3.0-or-later
 AuthorName: pandaman8821
 AuthorEmail: pandamanrd@gmail.com
@@ -23,30 +16,39 @@ RepoType: git
 Repo: https://github.com/pandaman8821/BotMp3.git
 
 Builds:
-  - versionName: 1.9.133
-    versionCode: 189
-    commit: v1.9.133
+  - versionName: 1.9.135
+    versionCode: 191
+    commit: 70783b0f5526baf7fa831d19fc8a8898c9ab961e
     sudo:
       - apt-get update
       - apt-get install -y openjdk-21-jdk-headless
+      - update-alternatives --auto java
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.47.7
+    rm:
+      - test
     prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter precache --android
-      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub get --enforce-lockfile
+    scandelete:
+      - .pub-cache
     build:
-      - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64 --no-pub
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
     ndk: r27c
 
 MaintainerNotes: |-
-  Aplicacion Flutter. Compilada y verificada con Flutter 3.47.7, Dart 3.13.5,
-  AGP 8.11.1, Kotlin 2.2.20, Gradle 8.14.3, NDK r27c, compileSdk 36, minSdk 24.
-  Todas las dependencias son libres (MIT/BSD/Apache). Sin anuncios, analitica
-  ni servicios de Google. Las funciones de IA son opcionales (NonFreeNet).
+  Flutter app. Built and verified with Flutter 3.47.7, Dart 3.13.5, AGP 8.11.1,
+  Kotlin 2.2.20, Gradle 8.14.3, NDK r27c, compileSdk 36, minSdk 24.
+  All dependencies are FOSS (MIT/BSD/Apache). No ads, analytics or Google
+  services. AI features are optional and need the user's own API key (NonFreeNet).
+  Release signing is conditional: without the author's keystore the APK is
+  built unsigned, so F-Droid signs it with its own key.
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags
-CurrentVersion: 1.9.133
-CurrentVersionCode: 189
+UpdateCheckMode: Tags v\d+\.\d+\.\d+
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.9.135
+CurrentVersionCode: 191
